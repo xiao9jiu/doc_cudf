@@ -1,0 +1,117 @@
+\doxysection{bit.\+hpp}
+\hypertarget{bit_8hpp_source}{}\label{bit_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/utilities/bit.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/utilities/bit.hpp}}
+\mbox{\hyperlink{bit_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2019-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <cuda/std/climits>}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{types_8hpp}{cudf/types.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00028}00028\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00029}00029\ \textcolor{keyword}{namespace\ }detail\ \{}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00030}00030\ \textcolor{comment}{//\ @cond}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00031}00031\ \textcolor{comment}{//\ Work\ around\ a\ bug\ in\ NVRTC\ that\ fails\ to\ compile\ assert()\ in\ constexpr}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00032}00032\ \textcolor{comment}{//\ functions\ (fixed\ after\ CUDA\ 11.0)}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00033}00033\ \textcolor{preprocessor}{\#if\ defined\ \_\_GNUC\_\_}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00034}00034\ \textcolor{preprocessor}{\#define\ LIKELY(EXPR)\ \_\_builtin\_expect(!!(EXPR),\ 1)}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00035}00035\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00036}00036\ \textcolor{preprocessor}{\#define\ LIKELY(EXPR)\ (!!(EXPR))}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00037}00037\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00039}00039\ \textcolor{preprocessor}{\#ifdef\ NDEBUG}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00040}00040\ \textcolor{preprocessor}{\#define\ constexpr\_assert(CHECK)\ static\_cast<void>(0)}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00041}00041\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00042}00042\ \textcolor{preprocessor}{\#define\ constexpr\_assert(CHECK)\ (LIKELY(CHECK)\ ?\ void(0)\ :\ []\ \{\ assert(!\#CHECK);\ \}())}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00043}00043\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00044}00044\ \textcolor{comment}{//\ @endcond}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00052}00052\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00053}\mbox{\hyperlink{namespacecudf_1_1detail_a84962657d1071313a0e63f3c05a4c26a}{00053}}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\_HOST\_DEVICE}}\ \textcolor{keyword}{inline}\ std::size\_t\ \mbox{\hyperlink{namespacecudf_1_1detail_a84962657d1071313a0e63f3c05a4c26a}{size\_in\_bits}}()}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00054}00054\ \{}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00055}00055\ \ \ \textcolor{keyword}{static\_assert}(CHAR\_BIT\ ==\ 8,\ \textcolor{stringliteral}{"{}Size\ of\ a\ byte\ must\ be\ 8\ bits."{}});}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00056}00056\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{sizeof}(T)\ *\ CHAR\_BIT;}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00057}00057\ \}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00058}00058\ \}\ \ \textcolor{comment}{//\ namespace\ detail}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00072}\mbox{\hyperlink{group__utility__bitmask_ga4f93fa04ed3df94180c09b0719d4d668}{00072}}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\_HOST\_DEVICE}}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \mbox{\hyperlink{group__utility__bitmask_ga4f93fa04ed3df94180c09b0719d4d668}{word\_index}}(\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ bit\_index)}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00073}00073\ \{}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00074}00074\ \ \ \textcolor{keywordflow}{return}\ bit\_index\ /\ detail::size\_in\_bits<bitmask\_type>();}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00075}00075\ \}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00083}\mbox{\hyperlink{group__utility__bitmask_ga44f4cef44ddd5ef149420e8f8707f23a}{00083}}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\_HOST\_DEVICE}}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \mbox{\hyperlink{group__utility__bitmask_ga44f4cef44ddd5ef149420e8f8707f23a}{intra\_word\_index}}(\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ bit\_index)}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00084}00084\ \{}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00085}00085\ \ \ \textcolor{keywordflow}{return}\ bit\_index\ \%\ detail::size\_in\_bits<bitmask\_type>();}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00086}00086\ \}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00097}\mbox{\hyperlink{group__utility__bitmask_ga00673f7c2476e7c429304bac820c2560}{00097}}\ \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\_HOST\_DEVICE}}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__utility__bitmask_ga00673f7c2476e7c429304bac820c2560}{set\_bit\_unsafe}}(\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\_type}}*\ bitmask,\ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ bit\_index)}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00098}00098\ \{}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00099}00099\ \ \ assert(\textcolor{keyword}{nullptr}\ !=\ bitmask);}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00100}00100\ \ \ bitmask[\mbox{\hyperlink{group__utility__bitmask_ga4f93fa04ed3df94180c09b0719d4d668}{word\_index}}(bit\_index)]\ |=\ (\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\_type}}\{1\}\ <<\ \mbox{\hyperlink{group__utility__bitmask_ga44f4cef44ddd5ef149420e8f8707f23a}{intra\_word\_index}}(bit\_index));}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00101}00101\ \}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00112}\mbox{\hyperlink{group__utility__bitmask_gaeb540f6ba5e87ae4ced0672f3ecf1c59}{00112}}\ \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\_HOST\_DEVICE}}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__utility__bitmask_gaeb540f6ba5e87ae4ced0672f3ecf1c59}{clear\_bit\_unsafe}}(\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\_type}}*\ bitmask,\ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ bit\_index)}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00113}00113\ \{}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00114}00114\ \ \ assert(\textcolor{keyword}{nullptr}\ !=\ bitmask);}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00115}00115\ \ \ bitmask[\mbox{\hyperlink{group__utility__bitmask_ga4f93fa04ed3df94180c09b0719d4d668}{word\_index}}(bit\_index)]\ \&=\ \string~(\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\_type}}\{1\}\ <<\ \mbox{\hyperlink{group__utility__bitmask_ga44f4cef44ddd5ef149420e8f8707f23a}{intra\_word\_index}}(bit\_index));}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00116}00116\ \}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00126}\mbox{\hyperlink{group__utility__bitmask_gad2d905951bd90303422a5f9631c55124}{00126}}\ \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\_HOST\_DEVICE}}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__bitmask_gad2d905951bd90303422a5f9631c55124}{bit\_is\_set}}(\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\_type}}\ \textcolor{keyword}{const}*\ bitmask,\ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ bit\_index)}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00127}00127\ \{}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00128}00128\ \ \ assert(\textcolor{keyword}{nullptr}\ !=\ bitmask);}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00129}00129\ \ \ \textcolor{keywordflow}{return}\ bitmask[\mbox{\hyperlink{group__utility__bitmask_ga4f93fa04ed3df94180c09b0719d4d668}{word\_index}}(bit\_index)]\ \&\ (\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\_type}}\{1\}\ <<\ \mbox{\hyperlink{group__utility__bitmask_ga44f4cef44ddd5ef149420e8f8707f23a}{intra\_word\_index}}(bit\_index));}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00130}00130\ \}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00142}\mbox{\hyperlink{group__utility__bitmask_gaafd7de16384765ce87da7e00fc8a1c70}{00142}}\ \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\_HOST\_DEVICE}}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__bitmask_gaafd7de16384765ce87da7e00fc8a1c70}{bit\_value\_or}}(\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\_type}}\ \textcolor{keyword}{const}*\ bitmask,}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ bit\_index,}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ default\_value)}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00145}00145\ \{}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00146}00146\ \ \ \textcolor{keywordflow}{return}\ bitmask\ !=\ \textcolor{keyword}{nullptr}\ ?\ \mbox{\hyperlink{group__utility__bitmask_gad2d905951bd90303422a5f9631c55124}{bit\_is\_set}}(bitmask,\ bit\_index)\ :\ default\_value;}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00147}00147\ \}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00157}\mbox{\hyperlink{group__utility__bitmask_ga5cb42c2aa948d300b4b2b524c01b93a8}{00157}}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\_HOST\_DEVICE}}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\_type}}\ \mbox{\hyperlink{group__utility__bitmask_ga5cb42c2aa948d300b4b2b524c01b93a8}{set\_least\_significant\_bits}}(\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ n)}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00158}00158\ \{}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00159}00159\ \ \ constexpr\_assert(0\ <=\ n\ \&\&\ n\ <\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\textcolor{keyword}{>}(detail::size\_in\_bits<bitmask\_type>()));}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00160}00160\ \ \ \textcolor{keywordflow}{return}\ ((\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\_type}}\{1\}\ <<\ n)\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00161}00161\ \}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00171}\mbox{\hyperlink{group__utility__bitmask_gae1761cf9cca86fe86d379bfdaa422e7b}{00171}}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\_HOST\_DEVICE}}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\_type}}\ \mbox{\hyperlink{group__utility__bitmask_gae1761cf9cca86fe86d379bfdaa422e7b}{set\_most\_significant\_bits}}(\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ n)}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00172}00172\ \{}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00173}00173\ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ word\_size\{detail::size\_in\_bits<bitmask\_type>()\};}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00174}00174\ \ \ constexpr\_assert(0\ <=\ n\ \&\&\ n\ <\ word\_size);}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00175}00175\ \ \ \textcolor{keywordflow}{return}\ \string~((\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\_type}}\{1\}\ <<\ (word\_size\ -\/\ n))\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00176}00176\ \}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00178}00178\ \textcolor{preprocessor}{\#ifdef\ \_\_CUDACC\_\_}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00193}00193\ \_\_device\_\_\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ set\_bit(\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\_type}}*\ bitmask,\ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ bit\_index)}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00194}00194\ \{}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00195}00195\ \ \ assert(\textcolor{keyword}{nullptr}\ !=\ bitmask);}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00196}00196\ \ \ atomicOr(\&bitmask[\mbox{\hyperlink{group__utility__bitmask_ga4f93fa04ed3df94180c09b0719d4d668}{word\_index}}(bit\_index)],\ (\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\_type}}\{1\}\ <<\ \mbox{\hyperlink{group__utility__bitmask_ga44f4cef44ddd5ef149420e8f8707f23a}{intra\_word\_index}}(bit\_index)));}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00197}00197\ \}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00211}00211\ \_\_device\_\_\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ clear\_bit(\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\_type}}*\ bitmask,\ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ bit\_index)}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00212}00212\ \{}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00213}00213\ \ \ assert(\textcolor{keyword}{nullptr}\ !=\ bitmask);}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00214}00214\ \ \ atomicAnd(\&bitmask[\mbox{\hyperlink{group__utility__bitmask_ga4f93fa04ed3df94180c09b0719d4d668}{word\_index}}(bit\_index)],\ \string~(\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\_type}}\{1\}\ <<\ \mbox{\hyperlink{group__utility__bitmask_ga44f4cef44ddd5ef149420e8f8707f23a}{intra\_word\_index}}(bit\_index)));}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00215}00215\ \}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00216}00216\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ end\ of\ group}}
+\DoxyCodeLine{\Hypertarget{bit_8hpp_source_l00218}00218\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

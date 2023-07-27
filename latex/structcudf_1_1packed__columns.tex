@@ -1,0 +1,119 @@
+\doxysection{cudf\+::packed\+\_\+columns结构体 参考}
+\hypertarget{structcudf_1_1packed__columns}{}\label{structcudf_1_1packed__columns}\index{cudf::packed\_columns@{cudf::packed\_columns}}
+
+
+Column data in a serialized format  
+
+
+
+
+{\ttfamily \#include $<$copying.\+hpp$>$}
+
+
+
+cudf\+::packed\+\_\+columns 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{structcudf_1_1packed__columns__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1packed__columns_1_1metadata}{metadata}}
+\begin{DoxyCompactList}\small\item\em Host-\/side metadata buffer used for reconstructing columns via unpack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcudf_1_1packed__columns_a783d50b11dac927033bf087d81bd15d4}{packed\+\_\+columns}} ()
+\item 
+\mbox{\hyperlink{structcudf_1_1packed__columns_a4df645775bfb05533f3d8ce4e6eb3eeb}{packed\+\_\+columns}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structcudf_1_1packed__columns_1_1metadata}{metadata}} $>$ \&\&md, std\+::unique\+\_\+ptr$<$ rmm\+::device\+\_\+buffer $>$ \&\&gd)
+\begin{DoxyCompactList}\small\item\em Construct a new packed columns object \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structcudf_1_1packed__columns_1_1metadata}{metadata}} $>$ \mbox{\hyperlink{structcudf_1_1packed__columns_abdf18e1ac7c587fc8d53261a3440383f}{metadata\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Host-\/side metadata buffer \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ rmm\+::device\+\_\+buffer $>$ \mbox{\hyperlink{structcudf_1_1packed__columns_af5729b879add517a3ce8ddf232875e1e}{gpu\+\_\+data}}
+\begin{DoxyCompactList}\small\item\em Device-\/side data buffer \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Column data in a serialized format 
+
+Contains data from an array of columns in two contiguous buffers\+: one on host, which contains table metadata and one on device which contains the table data. 
+
+在文件 \mbox{\hyperlink{copying_8hpp_source}{copying.\+hpp}} 第 \mbox{\hyperlink{copying_8hpp_source_l00552}{552}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{structcudf_1_1packed__columns_a783d50b11dac927033bf087d81bd15d4}\label{structcudf_1_1packed__columns_a783d50b11dac927033bf087d81bd15d4} 
+\index{cudf::packed\_columns@{cudf::packed\_columns}!packed\_columns@{packed\_columns}}
+\index{packed\_columns@{packed\_columns}!cudf::packed\_columns@{cudf::packed\_columns}}
+\doxysubsubsection{\texorpdfstring{packed\_columns()}{packed\_columns()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily cudf\+::packed\+\_\+columns\+::packed\+\_\+columns (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+在文件 \mbox{\hyperlink{copying_8hpp_source}{copying.\+hpp}} 第 \mbox{\hyperlink{copying_8hpp_source_l00586}{586}} 行定义.
+
+\Hypertarget{structcudf_1_1packed__columns_a4df645775bfb05533f3d8ce4e6eb3eeb}\label{structcudf_1_1packed__columns_a4df645775bfb05533f3d8ce4e6eb3eeb} 
+\index{cudf::packed\_columns@{cudf::packed\_columns}!packed\_columns@{packed\_columns}}
+\index{packed\_columns@{packed\_columns}!cudf::packed\_columns@{cudf::packed\_columns}}
+\doxysubsubsection{\texorpdfstring{packed\_columns()}{packed\_columns()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily cudf\+::packed\+\_\+columns\+::packed\+\_\+columns (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structcudf_1_1packed__columns_1_1metadata}{metadata}} $>$ \&\&}]{md,  }\item[{std\+::unique\+\_\+ptr$<$ rmm\+::device\+\_\+buffer $>$ \&\&}]{gd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new packed columns object 
+
+
+\begin{DoxyParams}{参数}
+{\em md} & Host-\/side metadata buffer \\
+\hline
+{\em gd} & Device-\/side data buffer \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{copying_8hpp_source}{copying.\+hpp}} 第 \mbox{\hyperlink{copying_8hpp_source_l00597}{597}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{structcudf_1_1packed__columns_af5729b879add517a3ce8ddf232875e1e}\label{structcudf_1_1packed__columns_af5729b879add517a3ce8ddf232875e1e} 
+\index{cudf::packed\_columns@{cudf::packed\_columns}!gpu\_data@{gpu\_data}}
+\index{gpu\_data@{gpu\_data}!cudf::packed\_columns@{cudf::packed\_columns}}
+\doxysubsubsection{\texorpdfstring{gpu\_data}{gpu\_data}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$rmm\+::device\+\_\+buffer$>$ cudf\+::packed\+\_\+columns\+::gpu\+\_\+data}
+
+
+
+Device-\/side data buffer 
+
+
+
+在文件 \mbox{\hyperlink{copying_8hpp_source}{copying.\+hpp}} 第 \mbox{\hyperlink{copying_8hpp_source_l00603}{603}} 行定义.
+
+\Hypertarget{structcudf_1_1packed__columns_abdf18e1ac7c587fc8d53261a3440383f}\label{structcudf_1_1packed__columns_abdf18e1ac7c587fc8d53261a3440383f} 
+\index{cudf::packed\_columns@{cudf::packed\_columns}!metadata\_@{metadata\_}}
+\index{metadata\_@{metadata\_}!cudf::packed\_columns@{cudf::packed\_columns}}
+\doxysubsubsection{\texorpdfstring{metadata\_}{metadata\_}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{structcudf_1_1packed__columns_1_1metadata}{metadata}}$>$ cudf\+::packed\+\_\+columns\+::metadata\+\_\+}
+
+
+
+Host-\/side metadata buffer 
+
+
+
+在文件 \mbox{\hyperlink{copying_8hpp_source}{copying.\+hpp}} 第 \mbox{\hyperlink{copying_8hpp_source_l00602}{602}} 行定义.
+
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/\mbox{\hyperlink{copying_8hpp}{copying.\+hpp}}\end{DoxyCompactItemize}

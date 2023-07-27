@@ -1,0 +1,410 @@
+\doxysection{cudf\+::dictionary\+::detail 命名空间参考}
+\hypertarget{namespacecudf_1_1dictionary_1_1detail}{}\label{namespacecudf_1_1dictionary_1_1detail}\index{cudf::dictionary::detail@{cudf::dictionary::detail}}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1dictionary_1_1detail_aada0fd8c8b0aba740b7f696710705672}{concatenate}} (\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const $>$ columns, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Returns a single column by vertically concatenating the given vector of dictionary columns. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1dictionary_1_1detail_aec06feb409e44d185432f9825f8a61aa}{encode}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} indices\+\_\+type, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Construct a dictionary column by dictionary encoding an existing column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1dictionary_1_1detail_aa1ed244d855f1c3e5650874758ef5ff9}{decode}} (\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&dictionary\+\_\+column, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Create a column by gathering the keys from the provided dictionary\+\_\+column into a new column using the indices from that column. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \mbox{\hyperlink{namespacecudf_1_1dictionary_1_1detail_a3bd650c2119ca0a1ef7c4292cb47ccfc}{get\+\_\+indices\+\_\+type\+\_\+for\+\_\+size}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} keys\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Return minimal integer type for the given number of elements. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1dictionary_1_1detail_ae92e2cb3fb2c38be1622585a29c9c95d}{merge}} (\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&lcol, \mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&rcol, cudf\+::detail\+::index\+\_\+vector const \&row\+\_\+order, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Merges two dictionary columns. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1dictionary_1_1detail_a139be10e86547418e112ed040ec72c4f}{replace\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&replacement, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Create a new dictionary column by replacing nulls with values from a second dictionary. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1dictionary_1_1detail_ab5d3dc1ec77655cdf97013ba43298d2d}{replace\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&replacement, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Create a new dictionary column by replacing nulls with a specified scalar. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ \mbox{\hyperlink{namespacecudf_1_1dictionary_1_1detail_aca22bff1fa96e98f081afd7eead3e768}{get\+\_\+index}} (\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&dictionary, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&key, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ \mbox{\hyperlink{namespacecudf_1_1dictionary_1_1detail_a308606053be56c2325eb6a751e220c45}{get\+\_\+insert\+\_\+index}} (\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&dictionary, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&key, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Get the index for a key if it were added to the given dictionary. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1dictionary_1_1detail_a93ca55999ad01eb2e01a8bab0e14eadf}{add\+\_\+keys}} (\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&dictionary\+\_\+column, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&new\+\_\+keys, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1dictionary_1_1detail_af53d958d8c9450c50e6da0318ce69234}{remove\+\_\+keys}} (\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&dictionary\+\_\+column, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&keys\+\_\+to\+\_\+remove, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1dictionary_1_1detail_af943038c7aae5a0a266e939ec863d51e}{remove\+\_\+unused\+\_\+keys}} (\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&dictionary\+\_\+column, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1dictionary_1_1detail_a92b0ae9c0c28a50e3b08f5dfc993db54}{set\+\_\+keys}} (\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&dictionary\+\_\+column, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&keys, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ $>$ \mbox{\hyperlink{namespacecudf_1_1dictionary_1_1detail_a80e4a56bbd173af065e00291406963e0}{match\+\_\+dictionaries}} (\mbox{\hyperlink{structcudf_1_1host__span}{cudf\+::host\+\_\+span}}$<$ \mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const $>$ input, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::pair$<$ std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ $>$, std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} $>$ $>$ \mbox{\hyperlink{namespacecudf_1_1dictionary_1_1detail_a7a7fffba6141b6a8d9e0e41ef5fb5af0}{match\+\_\+dictionaries}} (std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} $>$ tables, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Create new dictionaries that have keys merged from dictionary columns found in the provided tables. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{namespacecudf_1_1dictionary_1_1detail_a93ca55999ad01eb2e01a8bab0e14eadf}\label{namespacecudf_1_1dictionary_1_1detail_a93ca55999ad01eb2e01a8bab0e14eadf} 
+\index{cudf::dictionary::detail@{cudf::dictionary::detail}!add\_keys@{add\_keys}}
+\index{add\_keys@{add\_keys}!cudf::dictionary::detail@{cudf::dictionary::detail}}
+\doxysubsubsection{\texorpdfstring{add\_keys()}{add\_keys()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::dictionary\+::detail\+::add\+\_\+keys (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&}]{dictionary\+\_\+column,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{new\+\_\+keys,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1dictionary_1_1detail_aada0fd8c8b0aba740b7f696710705672}\label{namespacecudf_1_1dictionary_1_1detail_aada0fd8c8b0aba740b7f696710705672} 
+\index{cudf::dictionary::detail@{cudf::dictionary::detail}!concatenate@{concatenate}}
+\index{concatenate@{concatenate}!cudf::dictionary::detail@{cudf::dictionary::detail}}
+\doxysubsubsection{\texorpdfstring{concatenate()}{concatenate()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::dictionary\+::detail\+::concatenate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const $>$}]{columns,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Returns a single column by vertically concatenating the given vector of dictionary columns. 
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily columns.\+size()==0} \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if dictionary column keys are not all the same type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em columns} & Vector of dictionary columns to concatenate. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New column with concatenated results. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1dictionary_1_1detail_aa1ed244d855f1c3e5650874758ef5ff9}\label{namespacecudf_1_1dictionary_1_1detail_aa1ed244d855f1c3e5650874758ef5ff9} 
+\index{cudf::dictionary::detail@{cudf::dictionary::detail}!decode@{decode}}
+\index{decode@{decode}!cudf::dictionary::detail@{cudf::dictionary::detail}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::dictionary\+::detail\+::decode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&}]{dictionary\+\_\+column,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Create a column by gathering the keys from the provided dictionary\+\_\+column into a new column using the indices from that column. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{d1\ =\ \{[\textcolor{stringliteral}{"{}a"{}},\textcolor{stringliteral}{"{}c"{}},\textcolor{stringliteral}{"{}d"{}}],[2,0,1,0]\}}
+\DoxyCodeLine{s\ =\ \mbox{\hyperlink{namespacecudf_1_1dictionary_1_1detail_aa1ed244d855f1c3e5650874758ef5ff9}{decode}}(d1)}
+\DoxyCodeLine{s\ is\ now\ [\textcolor{stringliteral}{"{}d"{}},\textcolor{stringliteral}{"{}a"{}},\textcolor{stringliteral}{"{}c"{}},\textcolor{stringliteral}{"{}a"{}}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em dictionary\+\_\+column} & Existing dictionary column. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New column with type matching the dictionary\+\_\+column\textquotesingle{}s keys. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1dictionary_1_1detail_aec06feb409e44d185432f9825f8a61aa}\label{namespacecudf_1_1dictionary_1_1detail_aec06feb409e44d185432f9825f8a61aa} 
+\index{cudf::dictionary::detail@{cudf::dictionary::detail}!encode@{encode}}
+\index{encode@{encode}!cudf::dictionary::detail@{cudf::dictionary::detail}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::dictionary\+::detail\+::encode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{column,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{indices\+\_\+type,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Construct a dictionary column by dictionary encoding an existing column. 
+
+The output column is a DICTIONARY type with a keys column of non-\/null, unique values that are in a strict, total order. Meaning, {\ttfamily keys\mbox{[}i\mbox{]}} is ordered before {\ttfamily keys\mbox{[}i+1\mbox{]}} for all {\ttfamily i in \mbox{[}0,n-\/1)} where {\ttfamily n} is the number of keys.
+
+The output column has a child indices column that is of integer type and with the same size as the input column.
+
+The null\+\_\+mask and null count are copied from the input column to the output column.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if indices\+\_\+type is not INT32\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{c\ =\ [429,111,213,111,213,429,213]}
+\DoxyCodeLine{d\ =\ \mbox{\hyperlink{group__column__factories_ga96e5dd80377177bcd78b9db9f28c86af}{make\_dictionary\_column}}(c)}
+\DoxyCodeLine{d\ now\ has\ keys\ [111,213,429]\ and\ indices\ [2,0,1,0,1,2,1]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em column} & The column to dictionary encode. \\
+\hline
+{\em indices\+\_\+type} & The integer type to use for the indices. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Returns a dictionary column. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1dictionary_1_1detail_aca22bff1fa96e98f081afd7eead3e768}\label{namespacecudf_1_1dictionary_1_1detail_aca22bff1fa96e98f081afd7eead3e768} 
+\index{cudf::dictionary::detail@{cudf::dictionary::detail}!get\_index@{get\_index}}
+\index{get\_index@{get\_index}!cudf::dictionary::detail@{cudf::dictionary::detail}}
+\doxysubsubsection{\texorpdfstring{get\_index()}{get\_index()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ cudf\+::dictionary\+::detail\+::get\+\_\+index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&}]{dictionary,  }\item[{\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&}]{key,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1dictionary_1_1detail_a3bd650c2119ca0a1ef7c4292cb47ccfc}\label{namespacecudf_1_1dictionary_1_1detail_a3bd650c2119ca0a1ef7c4292cb47ccfc} 
+\index{cudf::dictionary::detail@{cudf::dictionary::detail}!get\_indices\_type\_for\_size@{get\_indices\_type\_for\_size}}
+\index{get\_indices\_type\_for\_size@{get\_indices\_type\_for\_size}!cudf::dictionary::detail@{cudf::dictionary::detail}}
+\doxysubsubsection{\texorpdfstring{get\_indices\_type\_for\_size()}{get\_indices\_type\_for\_size()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} cudf\+::dictionary\+::detail\+::get\+\_\+indices\+\_\+type\+\_\+for\+\_\+size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{keys\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Return minimal integer type for the given number of elements. 
+
+
+\begin{DoxyParams}{参数}
+{\em keys\+\_\+size} & Number of elements in the keys \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Minimal type that can hold {\ttfamily keys\+\_\+size} values 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1dictionary_1_1detail_a308606053be56c2325eb6a751e220c45}\label{namespacecudf_1_1dictionary_1_1detail_a308606053be56c2325eb6a751e220c45} 
+\index{cudf::dictionary::detail@{cudf::dictionary::detail}!get\_insert\_index@{get\_insert\_index}}
+\index{get\_insert\_index@{get\_insert\_index}!cudf::dictionary::detail@{cudf::dictionary::detail}}
+\doxysubsubsection{\texorpdfstring{get\_insert\_index()}{get\_insert\_index()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ cudf\+::dictionary\+::detail\+::get\+\_\+insert\+\_\+index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&}]{dictionary,  }\item[{\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&}]{key,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Get the index for a key if it were added to the given dictionary. 
+
+The actual index is returned if the {\ttfamily key} is already part of the dictionary\textquotesingle{}s key set.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{d1\ =\ \{["{}a"{},"{}c"{},"{}d"{}],[2,0,1,0]\}}
+\DoxyCodeLine{idx\ =\ get\_insert\_index(d1,"{}b"{})}
+\DoxyCodeLine{idx\ is\ 1}
+
+\end{DoxyCode}
+\{.pseudo\}
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily key.\+type() != dictionary.\+keys().type()}\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em dictionary} & The dictionary to search for the key. \\
+\hline
+{\em key} & The value to search for in the dictionary keyset. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Numeric scalar index value of the key within the dictionary 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1dictionary_1_1detail_a80e4a56bbd173af065e00291406963e0}\label{namespacecudf_1_1dictionary_1_1detail_a80e4a56bbd173af065e00291406963e0} 
+\index{cudf::dictionary::detail@{cudf::dictionary::detail}!match\_dictionaries@{match\_dictionaries}}
+\index{match\_dictionaries@{match\_dictionaries}!cudf::dictionary::detail@{cudf::dictionary::detail}}
+\doxysubsubsection{\texorpdfstring{match\_dictionaries()}{match\_dictionaries()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ $>$ cudf\+::dictionary\+::detail\+::match\+\_\+dictionaries (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1host__span}{cudf\+::host\+\_\+span}}$<$ \mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const $>$}]{input,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+
+
+cudf\+::dictionary\+::match\+\_\+dictionaries(std\+::vector$<$cudf\+::dictionary\+\_\+column\+\_\+view$>$,mm\+::mr\+::device\+\_\+memory\+\_\+resource\texorpdfstring{$\ast$}{*})
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1dictionary_1_1detail_a7a7fffba6141b6a8d9e0e41ef5fb5af0}\label{namespacecudf_1_1dictionary_1_1detail_a7a7fffba6141b6a8d9e0e41ef5fb5af0} 
+\index{cudf::dictionary::detail@{cudf::dictionary::detail}!match\_dictionaries@{match\_dictionaries}}
+\index{match\_dictionaries@{match\_dictionaries}!cudf::dictionary::detail@{cudf::dictionary::detail}}
+\doxysubsubsection{\texorpdfstring{match\_dictionaries()}{match\_dictionaries()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ $>$, std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} $>$ $>$ cudf\+::dictionary\+::detail\+::match\+\_\+dictionaries (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} $>$}]{tables,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Create new dictionaries that have keys merged from dictionary columns found in the provided tables. 
+
+The result includes a vector of new dictionary columns along with a vector of table\+\_\+views with corresponding updated column\+\_\+views. And any column\+\_\+views in the input tables that are not dictionary type are simply copied.
+
+Merging the dictionary keys also adjusts the indices appropriately in the output dictionary columns.
+
+Any null rows are left unchanged.
+
+
+\begin{DoxyParams}{参数}
+{\em input} & Vector of cudf\+::table\+\_\+views that include dictionary columns to be matched. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New dictionary columns and updated cudf\+::table\+\_\+views. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1dictionary_1_1detail_ae92e2cb3fb2c38be1622585a29c9c95d}\label{namespacecudf_1_1dictionary_1_1detail_ae92e2cb3fb2c38be1622585a29c9c95d} 
+\index{cudf::dictionary::detail@{cudf::dictionary::detail}!merge@{merge}}
+\index{merge@{merge}!cudf::dictionary::detail@{cudf::dictionary::detail}}
+\doxysubsubsection{\texorpdfstring{merge()}{merge()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::dictionary\+::detail\+::merge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&}]{lcol,  }\item[{\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&}]{rcol,  }\item[{cudf\+::detail\+::index\+\_\+vector const \&}]{row\+\_\+order,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Merges two dictionary columns. 
+
+The keys of both dictionary columns are expected to be already matched. Otherwise, the result is undefined behavior.
+
+Caller must set the validity mask in the output column.
+
+
+\begin{DoxyParams}{参数}
+{\em lcol} & First column. \\
+\hline
+{\em rcol} & Second column. \\
+\hline
+{\em row\+\_\+order} & Indexes for each column. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New dictionary column. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1dictionary_1_1detail_af53d958d8c9450c50e6da0318ce69234}\label{namespacecudf_1_1dictionary_1_1detail_af53d958d8c9450c50e6da0318ce69234} 
+\index{cudf::dictionary::detail@{cudf::dictionary::detail}!remove\_keys@{remove\_keys}}
+\index{remove\_keys@{remove\_keys}!cudf::dictionary::detail@{cudf::dictionary::detail}}
+\doxysubsubsection{\texorpdfstring{remove\_keys()}{remove\_keys()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::dictionary\+::detail\+::remove\+\_\+keys (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&}]{dictionary\+\_\+column,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{keys\+\_\+to\+\_\+remove,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1dictionary_1_1detail_af943038c7aae5a0a266e939ec863d51e}\label{namespacecudf_1_1dictionary_1_1detail_af943038c7aae5a0a266e939ec863d51e} 
+\index{cudf::dictionary::detail@{cudf::dictionary::detail}!remove\_unused\_keys@{remove\_unused\_keys}}
+\index{remove\_unused\_keys@{remove\_unused\_keys}!cudf::dictionary::detail@{cudf::dictionary::detail}}
+\doxysubsubsection{\texorpdfstring{remove\_unused\_keys()}{remove\_unused\_keys()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::dictionary\+::detail\+::remove\+\_\+unused\+\_\+keys (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&}]{dictionary\+\_\+column,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1dictionary_1_1detail_a139be10e86547418e112ed040ec72c4f}\label{namespacecudf_1_1dictionary_1_1detail_a139be10e86547418e112ed040ec72c4f} 
+\index{cudf::dictionary::detail@{cudf::dictionary::detail}!replace\_nulls@{replace\_nulls}}
+\index{replace\_nulls@{replace\_nulls}!cudf::dictionary::detail@{cudf::dictionary::detail}}
+\doxysubsubsection{\texorpdfstring{replace\_nulls()}{replace\_nulls()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::dictionary\+::detail\+::replace\+\_\+nulls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&}]{replacement,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Create a new dictionary column by replacing nulls with values from a second dictionary. 
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if the keys type of both dictionaries do not match. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if the column sizes do not match.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & Column with nulls to replace. \\
+\hline
+{\em replacement} & Column with values to use for replacing. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New dictionary column with null rows replaced. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1dictionary_1_1detail_ab5d3dc1ec77655cdf97013ba43298d2d}\label{namespacecudf_1_1dictionary_1_1detail_ab5d3dc1ec77655cdf97013ba43298d2d} 
+\index{cudf::dictionary::detail@{cudf::dictionary::detail}!replace\_nulls@{replace\_nulls}}
+\index{replace\_nulls@{replace\_nulls}!cudf::dictionary::detail@{cudf::dictionary::detail}}
+\doxysubsubsection{\texorpdfstring{replace\_nulls()}{replace\_nulls()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::dictionary\+::detail\+::replace\+\_\+nulls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&}]{replacement,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Create a new dictionary column by replacing nulls with a specified scalar. 
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if the keys type does not match the replacement type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & Column with nulls to replace. \\
+\hline
+{\em replacement} & Value to use for replacing. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New dictionary column with null rows replaced. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1dictionary_1_1detail_a92b0ae9c0c28a50e3b08f5dfc993db54}\label{namespacecudf_1_1dictionary_1_1detail_a92b0ae9c0c28a50e3b08f5dfc993db54} 
+\index{cudf::dictionary::detail@{cudf::dictionary::detail}!set\_keys@{set\_keys}}
+\index{set\_keys@{set\_keys}!cudf::dictionary::detail@{cudf::dictionary::detail}}
+\doxysubsubsection{\texorpdfstring{set\_keys()}{set\_keys()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::dictionary\+::detail\+::set\+\_\+keys (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&}]{dictionary\+\_\+column,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{keys,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}

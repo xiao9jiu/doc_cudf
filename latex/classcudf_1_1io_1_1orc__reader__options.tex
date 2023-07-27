@@ -1,0 +1,566 @@
+\doxysection{cudf\+::io\+::orc\+\_\+reader\+\_\+options类 参考}
+\hypertarget{classcudf_1_1io_1_1orc__reader__options}{}\label{classcudf_1_1io_1_1orc__reader__options}\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+
+
+Settings to use for {\ttfamily \doxylink{group__io__readers_ga48fe4888cec77a5428022d3dc792ddd5}{read\+\_\+orc()}}.  
+
+
+
+
+{\ttfamily \#include $<$orc.\+hpp$>$}
+
+
+
+cudf\+::io\+::orc\+\_\+reader\+\_\+options 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcudf_1_1io_1_1orc__reader__options__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_a176a673ff12488c8d5979da1e46d48a1}{orc\+\_\+reader\+\_\+options}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} const \& \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_ae69020aa7565bccaf2a0b7a8a1737056}{get\+\_\+source}} () const
+\begin{DoxyCompactList}\small\item\em Returns source info. \end{DoxyCompactList}\item 
+auto const \& \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_ab0acdb3aa47c4585ea71dd9d7b0c8f58}{get\+\_\+columns}} () const
+\begin{DoxyCompactList}\small\item\em Returns names of the columns to read, if set. \end{DoxyCompactList}\item 
+auto const \& \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_a6b690089586ce09020aa310c2466edab}{get\+\_\+stripes}} () const
+\begin{DoxyCompactList}\small\item\em Returns vector of vectors, stripes to read for each input source \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_a2272db208a7d10c50f2f36ea818eabb6}{get\+\_\+skip\+\_\+rows}} () const
+\begin{DoxyCompactList}\small\item\em Returns number of rows to skip from the start. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_ac4714262f01ef037dd54753d364d208e}{get\+\_\+num\+\_\+rows}} () const
+\begin{DoxyCompactList}\small\item\em Returns number of row to read. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_ae803efa827954d7e0318012ddafdd005}{is\+\_\+enabled\+\_\+use\+\_\+index}} () const
+\begin{DoxyCompactList}\small\item\em Whether to use row index to speed-\/up reading. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_ada55dd8f02c0ec8f9e9c56862cbdf5b3}{is\+\_\+enabled\+\_\+use\+\_\+np\+\_\+dtypes}} () const
+\begin{DoxyCompactList}\small\item\em Whether to use numpy-\/compatible dtypes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_a9dc39fdd558bdb92238a3759d5f666f4}{get\+\_\+timestamp\+\_\+type}} () const
+\begin{DoxyCompactList}\small\item\em Returns timestamp type to which timestamp column will be cast. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ const \& \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_adf7b40133c96827b0ece469789ee2809}{get\+\_\+decimal128\+\_\+columns}} () const
+\begin{DoxyCompactList}\small\item\em Returns fully qualified names of columns that should be read as 128-\/bit Decimal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_a83dbb198bfb19edd57cc29ebdb6806cd}{set\+\_\+columns}} (std\+::vector$<$ std\+::string $>$ col\+\_\+names)
+\begin{DoxyCompactList}\small\item\em Sets names of the column to read. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_ab8ab72b996119ab6019dc94b8a223eff}{set\+\_\+stripes}} (std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ $>$ stripes)
+\begin{DoxyCompactList}\small\item\em Sets list of stripes to read for each input source \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_abe5e824987afa2d5752eb02a622de30e}{set\+\_\+skip\+\_\+rows}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} rows)
+\begin{DoxyCompactList}\small\item\em Sets number of rows to skip from the start. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_aa04048076572227526a6f00853200615}{set\+\_\+num\+\_\+rows}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} nrows)
+\begin{DoxyCompactList}\small\item\em Sets number of row to read. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_a7cb98dd4c964bd5bbc86b8165d17285f}{enable\+\_\+use\+\_\+index}} (bool use)
+\begin{DoxyCompactList}\small\item\em Enable/\+Disable use of row index to speed-\/up reading. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_a4907e9dc1a8236e3268193a4e838a75b}{enable\+\_\+use\+\_\+np\+\_\+dtypes}} (bool use)
+\begin{DoxyCompactList}\small\item\em Enable/\+Disable use of numpy-\/compatible dtypes \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_afa5d158b8154968d1b0604f9780ff186}{set\+\_\+timestamp\+\_\+type}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Sets timestamp type to which timestamp column will be cast. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_a6ac5d72945e769fc7b78096ccc773a6a}{set\+\_\+decimal128\+\_\+columns}} (std\+::vector$<$ std\+::string $>$ val)
+\begin{DoxyCompactList}\small\item\em Set columns that should be read as 128-\/bit Decimal \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options__builder}{orc\+\_\+reader\+\_\+options\+\_\+builder}} \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_a9e4ca5ed4a98142b08f00cf436e822c7}{builder}} (\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} const \&src)
+\begin{DoxyCompactList}\small\item\em Creates {\ttfamily \doxylink{classcudf_1_1io_1_1orc__reader__options__builder}{orc\+\_\+reader\+\_\+options\+\_\+builder}} which will build {\ttfamily \doxylink{classcudf_1_1io_1_1orc__reader__options}{orc\+\_\+reader\+\_\+options}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_a16cf0556b861f729321d9a112064a4ce}{orc\+\_\+reader\+\_\+options}} (\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} const \&src)
+\begin{DoxyCompactList}\small\item\em Constructor from source info. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_acefe449446c42ed03a484de9ab18e56b}{\+\_\+source}}
+\item 
+std\+::optional$<$ std\+::vector$<$ std\+::string $>$ $>$ \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_aeb4a299f50285374b8b32802dcfb65b8}{\+\_\+columns}}
+\item 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ $>$ \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_a552579ab3a02a5f9aaca6cf15cc8c2c5}{\+\_\+stripes}}
+\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_af54e4b173487c19bd95190784493f88d}{\+\_\+skip\+\_\+rows}} = 0
+\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_a4afd2951a6968021e59b5dfb7174e519}{\+\_\+num\+\_\+rows}} = -\/1
+\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_a1baafb6b8f727d3fc4fe31372d324996}{\+\_\+use\+\_\+index}} = true
+\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_aee55574aa5b9271319e01ef3aecce6cf}{\+\_\+use\+\_\+np\+\_\+dtypes}} = true
+\item 
+\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_a083c33c268dedcb5a7b97285bd69919d}{\+\_\+timestamp\+\_\+type}} \{\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539aba2b45bdc11e2a4a6e86aab2ac693cbb}{type\+\_\+id\+::\+EMPTY}}\}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_a1e2759e6b0c1923c657f0d0f0eb107c5}{\+\_\+decimal128\+\_\+columns}}
+\item 
+friend \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options_a41e0ac238c6f6a3d84a92bcb82fe318e}{orc\+\_\+reader\+\_\+options\+\_\+builder}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Settings to use for {\ttfamily \doxylink{group__io__readers_ga48fe4888cec77a5428022d3dc792ddd5}{read\+\_\+orc()}}. 
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00052}{52}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_a16cf0556b861f729321d9a112064a4ce}\label{classcudf_1_1io_1_1orc__reader__options_a16cf0556b861f729321d9a112064a4ce} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!orc\_reader\_options@{orc\_reader\_options}}
+\index{orc\_reader\_options@{orc\_reader\_options}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{orc\_reader\_options()}{orc\_reader\_options()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::orc\+\_\+reader\+\_\+options (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} const \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [private]}}
+
+
+
+Constructor from source info. 
+
+
+\begin{DoxyParams}{参数}
+{\em src} & source information used to read orc file \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00083}{83}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_a176a673ff12488c8d5979da1e46d48a1}\label{classcudf_1_1io_1_1orc__reader__options_a176a673ff12488c8d5979da1e46d48a1} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!orc\_reader\_options@{orc\_reader\_options}}
+\index{orc\_reader\_options@{orc\_reader\_options}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{orc\_reader\_options()}{orc\_reader\_options()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::orc\+\_\+reader\+\_\+options (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor. 
+
+This has been added since Cython requires a default constructor to create objects on stack. 
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_a9e4ca5ed4a98142b08f00cf436e822c7}\label{classcudf_1_1io_1_1orc__reader__options_a9e4ca5ed4a98142b08f00cf436e822c7} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!builder@{builder}}
+\index{builder@{builder}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{builder()}{builder()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options__builder}{orc\+\_\+reader\+\_\+options\+\_\+builder}} cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::builder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} const \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates {\ttfamily \doxylink{classcudf_1_1io_1_1orc__reader__options__builder}{orc\+\_\+reader\+\_\+options\+\_\+builder}} which will build {\ttfamily \doxylink{classcudf_1_1io_1_1orc__reader__options}{orc\+\_\+reader\+\_\+options}}. 
+
+
+\begin{DoxyParams}{参数}
+{\em src} & Source information to read orc file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Builder to build reader options 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_a7cb98dd4c964bd5bbc86b8165d17285f}\label{classcudf_1_1io_1_1orc__reader__options_a7cb98dd4c964bd5bbc86b8165d17285f} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!enable\_use\_index@{enable\_use\_index}}
+\index{enable\_use\_index@{enable\_use\_index}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{enable\_use\_index()}{enable\_use\_index()}}
+{\footnotesize\ttfamily void cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::enable\+\_\+use\+\_\+index (\begin{DoxyParamCaption}\item[{bool}]{use }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Enable/\+Disable use of row index to speed-\/up reading. 
+
+
+\begin{DoxyParams}{参数}
+{\em use} & Boolean value to enable/disable row index use \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00212}{212}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_a4907e9dc1a8236e3268193a4e838a75b}\label{classcudf_1_1io_1_1orc__reader__options_a4907e9dc1a8236e3268193a4e838a75b} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!enable\_use\_np\_dtypes@{enable\_use\_np\_dtypes}}
+\index{enable\_use\_np\_dtypes@{enable\_use\_np\_dtypes}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{enable\_use\_np\_dtypes()}{enable\_use\_np\_dtypes()}}
+{\footnotesize\ttfamily void cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::enable\+\_\+use\+\_\+np\+\_\+dtypes (\begin{DoxyParamCaption}\item[{bool}]{use }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Enable/\+Disable use of numpy-\/compatible dtypes 
+
+
+\begin{DoxyParams}{参数}
+{\em use} & Boolean value to enable/disable \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00219}{219}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_ab0acdb3aa47c4585ea71dd9d7b0c8f58}\label{classcudf_1_1io_1_1orc__reader__options_ab0acdb3aa47c4585ea71dd9d7b0c8f58} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!get\_columns@{get\_columns}}
+\index{get\_columns@{get\_columns}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{get\_columns()}{get\_columns()}}
+{\footnotesize\ttfamily auto const  \& cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::get\+\_\+columns (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns names of the columns to read, if set. 
+
+\begin{DoxyReturn}{返回}
+Names of the columns to read; {\ttfamily nullopt} if the option is not set 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00113}{113}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_adf7b40133c96827b0ece469789ee2809}\label{classcudf_1_1io_1_1orc__reader__options_adf7b40133c96827b0ece469789ee2809} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!get\_decimal128\_columns@{get\_decimal128\_columns}}
+\index{get\_decimal128\_columns@{get\_decimal128\_columns}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{get\_decimal128\_columns()}{get\_decimal128\_columns()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ const  \& cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::get\+\_\+decimal128\+\_\+columns (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns fully qualified names of columns that should be read as 128-\/bit Decimal. 
+
+\begin{DoxyReturn}{返回}
+Fully qualified names of columns that should be read as 128-\/bit Decimal 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00162}{162}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_ac4714262f01ef037dd54753d364d208e}\label{classcudf_1_1io_1_1orc__reader__options_ac4714262f01ef037dd54753d364d208e} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!get\_num\_rows@{get\_num\_rows}}
+\index{get\_num\_rows@{get\_num\_rows}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{get\_num\_rows()}{get\_num\_rows()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::get\+\_\+num\+\_\+rows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns number of row to read. 
+
+\begin{DoxyReturn}{返回}
+Number of row to read 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00134}{134}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_a2272db208a7d10c50f2f36ea818eabb6}\label{classcudf_1_1io_1_1orc__reader__options_a2272db208a7d10c50f2f36ea818eabb6} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!get\_skip\_rows@{get\_skip\_rows}}
+\index{get\_skip\_rows@{get\_skip\_rows}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{get\_skip\_rows()}{get\_skip\_rows()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::get\+\_\+skip\+\_\+rows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns number of rows to skip from the start. 
+
+\begin{DoxyReturn}{返回}
+Number of rows to skip from the start 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00127}{127}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_ae69020aa7565bccaf2a0b7a8a1737056}\label{classcudf_1_1io_1_1orc__reader__options_ae69020aa7565bccaf2a0b7a8a1737056} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!get\_source@{get\_source}}
+\index{get\_source@{get\_source}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{get\_source()}{get\_source()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} const  \& cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::get\+\_\+source (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns source info. 
+
+\begin{DoxyReturn}{返回}
+Source info 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00106}{106}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_a6b690089586ce09020aa310c2466edab}\label{classcudf_1_1io_1_1orc__reader__options_a6b690089586ce09020aa310c2466edab} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!get\_stripes@{get\_stripes}}
+\index{get\_stripes@{get\_stripes}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{get\_stripes()}{get\_stripes()}}
+{\footnotesize\ttfamily auto const  \& cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::get\+\_\+stripes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns vector of vectors, stripes to read for each input source 
+
+\begin{DoxyReturn}{返回}
+Vector of vectors, stripes to read for each input source 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00120}{120}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_a9dc39fdd558bdb92238a3759d5f666f4}\label{classcudf_1_1io_1_1orc__reader__options_a9dc39fdd558bdb92238a3759d5f666f4} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!get\_timestamp\_type@{get\_timestamp\_type}}
+\index{get\_timestamp\_type@{get\_timestamp\_type}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{get\_timestamp\_type()}{get\_timestamp\_type()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::get\+\_\+timestamp\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns timestamp type to which timestamp column will be cast. 
+
+\begin{DoxyReturn}{返回}
+Timestamp type to which timestamp column will be cast 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00155}{155}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_ae803efa827954d7e0318012ddafdd005}\label{classcudf_1_1io_1_1orc__reader__options_ae803efa827954d7e0318012ddafdd005} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!is\_enabled\_use\_index@{is\_enabled\_use\_index}}
+\index{is\_enabled\_use\_index@{is\_enabled\_use\_index}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{is\_enabled\_use\_index()}{is\_enabled\_use\_index()}}
+{\footnotesize\ttfamily bool cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::is\+\_\+enabled\+\_\+use\+\_\+index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Whether to use row index to speed-\/up reading. 
+
+\begin{DoxyReturn}{返回}
+{\ttfamily true} if row index is used to speed-\/up reading 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00141}{141}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_ada55dd8f02c0ec8f9e9c56862cbdf5b3}\label{classcudf_1_1io_1_1orc__reader__options_ada55dd8f02c0ec8f9e9c56862cbdf5b3} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!is\_enabled\_use\_np\_dtypes@{is\_enabled\_use\_np\_dtypes}}
+\index{is\_enabled\_use\_np\_dtypes@{is\_enabled\_use\_np\_dtypes}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{is\_enabled\_use\_np\_dtypes()}{is\_enabled\_use\_np\_dtypes()}}
+{\footnotesize\ttfamily bool cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::is\+\_\+enabled\+\_\+use\+\_\+np\+\_\+dtypes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Whether to use numpy-\/compatible dtypes. 
+
+\begin{DoxyReturn}{返回}
+{\ttfamily true} if numpy-\/compatible dtypes are used 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00148}{148}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_a83dbb198bfb19edd57cc29ebdb6806cd}\label{classcudf_1_1io_1_1orc__reader__options_a83dbb198bfb19edd57cc29ebdb6806cd} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!set\_columns@{set\_columns}}
+\index{set\_columns@{set\_columns}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{set\_columns()}{set\_columns()}}
+{\footnotesize\ttfamily void cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::set\+\_\+columns (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{col\+\_\+names }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets names of the column to read. 
+
+
+\begin{DoxyParams}{参数}
+{\em col\+\_\+names} & Vector of column names \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00171}{171}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_a6ac5d72945e769fc7b78096ccc773a6a}\label{classcudf_1_1io_1_1orc__reader__options_a6ac5d72945e769fc7b78096ccc773a6a} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!set\_decimal128\_columns@{set\_decimal128\_columns}}
+\index{set\_decimal128\_columns@{set\_decimal128\_columns}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{set\_decimal128\_columns()}{set\_decimal128\_columns()}}
+{\footnotesize\ttfamily void cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::set\+\_\+decimal128\+\_\+columns (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set columns that should be read as 128-\/bit Decimal 
+
+
+\begin{DoxyParams}{参数}
+{\em val} & Vector of fully qualified column names \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00233}{233}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_aa04048076572227526a6f00853200615}\label{classcudf_1_1io_1_1orc__reader__options_aa04048076572227526a6f00853200615} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!set\_num\_rows@{set\_num\_rows}}
+\index{set\_num\_rows@{set\_num\_rows}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{set\_num\_rows()}{set\_num\_rows()}}
+{\footnotesize\ttfamily void cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::set\+\_\+num\+\_\+rows (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{nrows }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets number of row to read. 
+
+
+\begin{DoxyParams}{参数}
+{\em nrows} & Number of rows \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00201}{201}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_abe5e824987afa2d5752eb02a622de30e}\label{classcudf_1_1io_1_1orc__reader__options_abe5e824987afa2d5752eb02a622de30e} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!set\_skip\_rows@{set\_skip\_rows}}
+\index{set\_skip\_rows@{set\_skip\_rows}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{set\_skip\_rows()}{set\_skip\_rows()}}
+{\footnotesize\ttfamily void cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::set\+\_\+skip\+\_\+rows (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{rows }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets number of rows to skip from the start. 
+
+
+\begin{DoxyParams}{参数}
+{\em rows} & Number of rows \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00190}{190}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_ab8ab72b996119ab6019dc94b8a223eff}\label{classcudf_1_1io_1_1orc__reader__options_ab8ab72b996119ab6019dc94b8a223eff} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!set\_stripes@{set\_stripes}}
+\index{set\_stripes@{set\_stripes}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{set\_stripes()}{set\_stripes()}}
+{\footnotesize\ttfamily void cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::set\+\_\+stripes (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ $>$}]{stripes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets list of stripes to read for each input source 
+
+
+\begin{DoxyParams}{参数}
+{\em stripes} & Vector of vectors, mapping stripes to read to input sources \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00178}{178}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_afa5d158b8154968d1b0604f9780ff186}\label{classcudf_1_1io_1_1orc__reader__options_afa5d158b8154968d1b0604f9780ff186} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!set\_timestamp\_type@{set\_timestamp\_type}}
+\index{set\_timestamp\_type@{set\_timestamp\_type}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{set\_timestamp\_type()}{set\_timestamp\_type()}}
+{\footnotesize\ttfamily void cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::set\+\_\+timestamp\+\_\+type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets timestamp type to which timestamp column will be cast. 
+
+
+\begin{DoxyParams}{参数}
+{\em type} & Type of timestamp \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00226}{226}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_aeb4a299f50285374b8b32802dcfb65b8}\label{classcudf_1_1io_1_1orc__reader__options_aeb4a299f50285374b8b32802dcfb65b8} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!\_columns@{\_columns}}
+\index{\_columns@{\_columns}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_columns}{\_columns}}
+{\footnotesize\ttfamily std\+::optional$<$std\+::vector$<$std\+::string$>$ $>$ cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::\+\_\+columns\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00056}{56}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_a1e2759e6b0c1923c657f0d0f0eb107c5}\label{classcudf_1_1io_1_1orc__reader__options_a1e2759e6b0c1923c657f0d0f0eb107c5} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!\_decimal128\_columns@{\_decimal128\_columns}}
+\index{\_decimal128\_columns@{\_decimal128\_columns}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_decimal128\_columns}{\_decimal128\_columns}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::\+\_\+decimal128\+\_\+columns\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00074}{74}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_a4afd2951a6968021e59b5dfb7174e519}\label{classcudf_1_1io_1_1orc__reader__options_a4afd2951a6968021e59b5dfb7174e519} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!\_num\_rows@{\_num\_rows}}
+\index{\_num\_rows@{\_num\_rows}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_num\_rows}{\_num\_rows}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::\+\_\+num\+\_\+rows = -\/1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00063}{63}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_af54e4b173487c19bd95190784493f88d}\label{classcudf_1_1io_1_1orc__reader__options_af54e4b173487c19bd95190784493f88d} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!\_skip\_rows@{\_skip\_rows}}
+\index{\_skip\_rows@{\_skip\_rows}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_skip\_rows}{\_skip\_rows}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::\+\_\+skip\+\_\+rows = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00061}{61}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_acefe449446c42ed03a484de9ab18e56b}\label{classcudf_1_1io_1_1orc__reader__options_acefe449446c42ed03a484de9ab18e56b} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!\_source@{\_source}}
+\index{\_source@{\_source}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_source}{\_source}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::\+\_\+source\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00053}{53}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_a552579ab3a02a5f9aaca6cf15cc8c2c5}\label{classcudf_1_1io_1_1orc__reader__options_a552579ab3a02a5f9aaca6cf15cc8c2c5} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!\_stripes@{\_stripes}}
+\index{\_stripes@{\_stripes}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_stripes}{\_stripes}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}$>$ $>$ cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::\+\_\+stripes\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00059}{59}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_a083c33c268dedcb5a7b97285bd69919d}\label{classcudf_1_1io_1_1orc__reader__options_a083c33c268dedcb5a7b97285bd69919d} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!\_timestamp\_type@{\_timestamp\_type}}
+\index{\_timestamp\_type@{\_timestamp\_type}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_timestamp\_type}{\_timestamp\_type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::\+\_\+timestamp\+\_\+type \{\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539aba2b45bdc11e2a4a6e86aab2ac693cbb}{type\+\_\+id\+::\+EMPTY}}\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00071}{71}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_a1baafb6b8f727d3fc4fe31372d324996}\label{classcudf_1_1io_1_1orc__reader__options_a1baafb6b8f727d3fc4fe31372d324996} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!\_use\_index@{\_use\_index}}
+\index{\_use\_index@{\_use\_index}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_use\_index}{\_use\_index}}
+{\footnotesize\ttfamily bool cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::\+\_\+use\+\_\+index = true\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00066}{66}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_aee55574aa5b9271319e01ef3aecce6cf}\label{classcudf_1_1io_1_1orc__reader__options_aee55574aa5b9271319e01ef3aecce6cf} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!\_use\_np\_dtypes@{\_use\_np\_dtypes}}
+\index{\_use\_np\_dtypes@{\_use\_np\_dtypes}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_use\_np\_dtypes}{\_use\_np\_dtypes}}
+{\footnotesize\ttfamily bool cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::\+\_\+use\+\_\+np\+\_\+dtypes = true\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00069}{69}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__reader__options_a41e0ac238c6f6a3d84a92bcb82fe318e}\label{classcudf_1_1io_1_1orc__reader__options_a41e0ac238c6f6a3d84a92bcb82fe318e} 
+\index{cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}!orc\_reader\_options\_builder@{orc\_reader\_options\_builder}}
+\index{orc\_reader\_options\_builder@{orc\_reader\_options\_builder}!cudf::io::orc\_reader\_options@{cudf::io::orc\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{orc\_reader\_options\_builder}{orc\_reader\_options\_builder}}
+{\footnotesize\ttfamily friend cudf\+::io\+::orc\+\_\+reader\+\_\+options\+::orc\+\_\+reader\+\_\+options\+\_\+builder\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00076}{76}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/\mbox{\hyperlink{orc_8hpp}{orc.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,93 @@
+\doxysection{Dictionary\+\_\+encode}
+\hypertarget{group__dictionary__encode}{}\label{group__dictionary__encode}\index{Dictionary\_encode@{Dictionary\_encode}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{encode_8hpp}{encode.\+hpp}}
+\begin{DoxyCompactList}\small\item\em Dictionary column encode and decode APIs \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__dictionary__encode_ga0299ba09c930051bac7da06a2cb803d3}{cudf\+::dictionary\+::encode}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} indices\+\_\+type=\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}\{\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a17266551181f69a1b4a3ad5c9e270afc}{type\+\_\+id\+::\+UINT32}}\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Construct a dictionary column by dictionary encoding an existing column \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__dictionary__encode_gae8ad812bf110aea90e2a3868e36fa7dc}{cudf\+::dictionary\+::decode}} (\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&dictionary\+\_\+column, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a column by gathering the keys from the provided dictionary\+\_\+column into a new column using the indices from that column. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__dictionary__encode_gae8ad812bf110aea90e2a3868e36fa7dc}\label{group__dictionary__encode_gae8ad812bf110aea90e2a3868e36fa7dc} 
+\index{Dictionary\_encode@{Dictionary\_encode}!decode@{decode}}
+\index{decode@{decode}!Dictionary\_encode@{Dictionary\_encode}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::dictionary\+::decode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&}]{dictionary\+\_\+column,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Create a column by gathering the keys from the provided dictionary\+\_\+column into a new column using the indices from that column. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{d1\ =\ \{["{}a"{},\ "{}c"{},\ "{}d"{}],\ [2,\ 0,\ 1,\ 0]\}}
+\DoxyCodeLine{s\ =\ decode(d1)}
+\DoxyCodeLine{s\ is\ now\ ["{}d"{},\ "{}a"{},\ "{}c"{},\ "{}a"{}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em dictionary\+\_\+column} & Existing dictionary column \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New column with type matching the dictionary\+\_\+column\textquotesingle{}s keys 
+\end{DoxyReturn}
+\Hypertarget{group__dictionary__encode_ga0299ba09c930051bac7da06a2cb803d3}\label{group__dictionary__encode_ga0299ba09c930051bac7da06a2cb803d3} 
+\index{Dictionary\_encode@{Dictionary\_encode}!encode@{encode}}
+\index{encode@{encode}!Dictionary\_encode@{Dictionary\_encode}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::dictionary\+::encode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{column,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{indices\+\_\+type = {\ttfamily \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}\{\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a17266551181f69a1b4a3ad5c9e270afc}{type\+\_\+id\+::\+UINT32}}\}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Construct a dictionary column by dictionary encoding an existing column 
+
+The output column is a DICTIONARY type with a keys column of non-\/null, unique values that are in a strict, total order. Meaning, {\ttfamily keys\mbox{[}i\mbox{]}} is \+\_\+ordered before {\ttfamily keys\mbox{[}i+1\mbox{]}} for all {\ttfamily i in \mbox{[}0,n-\/1)} where {\ttfamily n} is the number of keys.
+
+The output column has a child indices column that is of integer type and with the same size as the input column.
+
+The null mask and null count are copied from the input column to the output column.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if indices type is not an unsigned integer type \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if the column to encode is already a DICTIONARY type\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{c\ =\ [429,\ 111,\ 213,\ 111,\ 213,\ 429,\ 213]}
+\DoxyCodeLine{d\ =\ encode(c)}
+\DoxyCodeLine{d\ now\ has\ keys\ [111,\ 213,\ 429]\ and\ indices\ [2,\ 0,\ 1,\ 0,\ 1,\ 2,\ 1]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em column} & The column to dictionary encode \\
+\hline
+{\em indices\+\_\+type} & The integer type to use for the indices \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Returns a dictionary column 
+\end{DoxyReturn}

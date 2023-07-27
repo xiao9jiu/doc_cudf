@@ -1,0 +1,160 @@
+\doxysection{Strings\+\_\+regex}
+\hypertarget{group__strings__regex}{}\label{group__strings__regex}\index{Strings\_regex@{Strings\_regex}}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1strings_1_1regex__program}{cudf\+::strings\+::regex\+\_\+program}}
+\begin{DoxyCompactList}\small\item\em Regex program class \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group__strings__regex_ga341eb616bce8b15119196ad8208ec16d}{cudf\+::strings\+::regex\+\_\+flags}} \+: uint32\+\_\+t \{ \mbox{\hyperlink{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da432e1bed0776491ae9d73f3915142912}{cudf\+::strings\+::\+DEFAULT}} = 0
+, \mbox{\hyperlink{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da5fbd6aff331b214f6042f54955becadb}{cudf\+::strings\+::\+MULTILINE}} = 8
+, \mbox{\hyperlink{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da20b3d35a53fddfb5bc6a6dfb7b6594c0}{cudf\+::strings\+::\+DOTALL}} = 16
+, \mbox{\hyperlink{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da467042b90d33829a8ae360d3c5d3c673}{cudf\+::strings\+::\+ASCII}} = 256
+ \}
+\begin{DoxyCompactList}\small\item\em Regex flags. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{group__strings__regex_ga227bb80d548c2970e05f829839966ba3}{cudf\+::strings\+::capture\+\_\+groups}} \+: uint32\+\_\+t \{ \mbox{\hyperlink{group__strings__regex_gga227bb80d548c2970e05f829839966ba3a06a05d6df9809ab85bf7734d9c49bc54}{cudf\+::strings\+::capture\+\_\+groups\+::\+EXTRACT}}
+, \mbox{\hyperlink{group__strings__regex_gga227bb80d548c2970e05f829839966ba3af3e94c14de21439caa9ef45151108b79}{cudf\+::strings\+::capture\+\_\+groups\+::\+NON\+\_\+\+CAPTURE}}
+ \}
+\begin{DoxyCompactList}\small\item\em Capture groups setting \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+constexpr bool \mbox{\hyperlink{group__strings__regex_gab59842da60262f5143a199be227b9d8e}{cudf\+::strings\+::is\+\_\+multiline}} (\mbox{\hyperlink{group__strings__regex_ga341eb616bce8b15119196ad8208ec16d}{regex\+\_\+flags}} const f)
+\begin{DoxyCompactList}\small\item\em Returns true if the given flags contain MULTILINE. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{group__strings__regex_ga817e21004c5c623990d063407794d13d}{cudf\+::strings\+::is\+\_\+dotall}} (\mbox{\hyperlink{group__strings__regex_ga341eb616bce8b15119196ad8208ec16d}{regex\+\_\+flags}} const f)
+\begin{DoxyCompactList}\small\item\em Returns true if the given flags contain DOTALL. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{group__strings__regex_gafa1a98e258a2831f917cbb4fefc9ab07}{cudf\+::strings\+::is\+\_\+ascii}} (\mbox{\hyperlink{group__strings__regex_ga341eb616bce8b15119196ad8208ec16d}{regex\+\_\+flags}} const f)
+\begin{DoxyCompactList}\small\item\em Returns true if the given flags contain ASCII. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{枚举类型说明}
+\Hypertarget{group__strings__regex_ga227bb80d548c2970e05f829839966ba3}\label{group__strings__regex_ga227bb80d548c2970e05f829839966ba3} 
+\index{Strings\_regex@{Strings\_regex}!capture\_groups@{capture\_groups}}
+\index{capture\_groups@{capture\_groups}!Strings\_regex@{Strings\_regex}}
+\doxysubsubsection{\texorpdfstring{capture\_groups}{capture\_groups}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__strings__regex_ga227bb80d548c2970e05f829839966ba3}{cudf\+::strings\+::capture\+\_\+groups}} \+: uint32\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Capture groups setting 
+
+For processing a regex pattern containing capture groups. These can be used to optimize the generated regex instructions where the capture groups do not require extracting the groups. \begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EXTRACT@{EXTRACT}!Strings\_regex@{Strings\_regex}}\index{Strings\_regex@{Strings\_regex}!EXTRACT@{EXTRACT}}}\Hypertarget{group__strings__regex_gga227bb80d548c2970e05f829839966ba3a06a05d6df9809ab85bf7734d9c49bc54}\label{group__strings__regex_gga227bb80d548c2970e05f829839966ba3a06a05d6df9809ab85bf7734d9c49bc54} 
+EXTRACT&Capture groups processed normally for extract \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NON\_CAPTURE@{NON\_CAPTURE}!Strings\_regex@{Strings\_regex}}\index{Strings\_regex@{Strings\_regex}!NON\_CAPTURE@{NON\_CAPTURE}}}\Hypertarget{group__strings__regex_gga227bb80d548c2970e05f829839966ba3af3e94c14de21439caa9ef45151108b79}\label{group__strings__regex_gga227bb80d548c2970e05f829839966ba3af3e94c14de21439caa9ef45151108b79} 
+NON\+\_\+\+CAPTURE&Convert all capture groups to non-\/capture groups \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{flags_8hpp_source}{flags.\+hpp}} 第 \mbox{\hyperlink{flags_8hpp_source_l00082}{82}} 行定义.
+
+\Hypertarget{group__strings__regex_ga341eb616bce8b15119196ad8208ec16d}\label{group__strings__regex_ga341eb616bce8b15119196ad8208ec16d} 
+\index{Strings\_regex@{Strings\_regex}!regex\_flags@{regex\_flags}}
+\index{regex\_flags@{regex\_flags}!Strings\_regex@{Strings\_regex}}
+\doxysubsubsection{\texorpdfstring{regex\_flags}{regex\_flags}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__strings__regex_ga341eb616bce8b15119196ad8208ec16d}{cudf\+::strings\+::regex\+\_\+flags}} \+: uint32\+\_\+t}
+
+
+
+Regex flags. 
+
+These types can be or\textquotesingle{}d to combine them. The values are chosen to leave room for future flags and to match the Python flag values. \begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DEFAULT@{DEFAULT}!Strings\_regex@{Strings\_regex}}\index{Strings\_regex@{Strings\_regex}!DEFAULT@{DEFAULT}}}\Hypertarget{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da432e1bed0776491ae9d73f3915142912}\label{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da432e1bed0776491ae9d73f3915142912} 
+DEFAULT&default \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MULTILINE@{MULTILINE}!Strings\_regex@{Strings\_regex}}\index{Strings\_regex@{Strings\_regex}!MULTILINE@{MULTILINE}}}\Hypertarget{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da5fbd6aff331b214f6042f54955becadb}\label{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da5fbd6aff331b214f6042f54955becadb} 
+MULTILINE&the \textquotesingle{}\texorpdfstring{$^\wedge$}{\string^}\textquotesingle{} and \textquotesingle{}\$\textquotesingle{} honor new-\/line characters \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DOTALL@{DOTALL}!Strings\_regex@{Strings\_regex}}\index{Strings\_regex@{Strings\_regex}!DOTALL@{DOTALL}}}\Hypertarget{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da20b3d35a53fddfb5bc6a6dfb7b6594c0}\label{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da20b3d35a53fddfb5bc6a6dfb7b6594c0} 
+DOTALL&the \textquotesingle{}.\textquotesingle{} matching includes new-\/line characters \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ASCII@{ASCII}!Strings\_regex@{Strings\_regex}}\index{Strings\_regex@{Strings\_regex}!ASCII@{ASCII}}}\Hypertarget{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da467042b90d33829a8ae360d3c5d3c673}\label{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da467042b90d33829a8ae360d3c5d3c673} 
+ASCII&use only ASCII when matching built-\/in character classes \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{flags_8hpp_source}{flags.\+hpp}} 第 \mbox{\hyperlink{flags_8hpp_source_l00035}{35}} 行定义.
+
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__strings__regex_gafa1a98e258a2831f917cbb4fefc9ab07}\label{group__strings__regex_gafa1a98e258a2831f917cbb4fefc9ab07} 
+\index{Strings\_regex@{Strings\_regex}!is\_ascii@{is\_ascii}}
+\index{is\_ascii@{is\_ascii}!Strings\_regex@{Strings\_regex}}
+\doxysubsubsection{\texorpdfstring{is\_ascii()}{is\_ascii()}}
+{\footnotesize\ttfamily constexpr bool cudf\+::strings\+::is\+\_\+ascii (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__strings__regex_ga341eb616bce8b15119196ad8208ec16d}{regex\+\_\+flags}} const}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Returns true if the given flags contain ASCII. 
+
+
+\begin{DoxyParams}{参数}
+{\em f} & Regex flags to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true if {\ttfamily f} includes ASCII 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{flags_8hpp_source}{flags.\+hpp}} 第 \mbox{\hyperlink{flags_8hpp_source_l00070}{70}} 行定义.
+
+\Hypertarget{group__strings__regex_ga817e21004c5c623990d063407794d13d}\label{group__strings__regex_ga817e21004c5c623990d063407794d13d} 
+\index{Strings\_regex@{Strings\_regex}!is\_dotall@{is\_dotall}}
+\index{is\_dotall@{is\_dotall}!Strings\_regex@{Strings\_regex}}
+\doxysubsubsection{\texorpdfstring{is\_dotall()}{is\_dotall()}}
+{\footnotesize\ttfamily constexpr bool cudf\+::strings\+::is\+\_\+dotall (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__strings__regex_ga341eb616bce8b15119196ad8208ec16d}{regex\+\_\+flags}} const}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Returns true if the given flags contain DOTALL. 
+
+
+\begin{DoxyParams}{参数}
+{\em f} & Regex flags to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true if {\ttfamily f} includes DOTALL 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{flags_8hpp_source}{flags.\+hpp}} 第 \mbox{\hyperlink{flags_8hpp_source_l00059}{59}} 行定义.
+
+\Hypertarget{group__strings__regex_gab59842da60262f5143a199be227b9d8e}\label{group__strings__regex_gab59842da60262f5143a199be227b9d8e} 
+\index{Strings\_regex@{Strings\_regex}!is\_multiline@{is\_multiline}}
+\index{is\_multiline@{is\_multiline}!Strings\_regex@{Strings\_regex}}
+\doxysubsubsection{\texorpdfstring{is\_multiline()}{is\_multiline()}}
+{\footnotesize\ttfamily constexpr bool cudf\+::strings\+::is\+\_\+multiline (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__strings__regex_ga341eb616bce8b15119196ad8208ec16d}{regex\+\_\+flags}} const}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Returns true if the given flags contain MULTILINE. 
+
+
+\begin{DoxyParams}{参数}
+{\em f} & Regex flags to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true if {\ttfamily f} includes MULTILINE 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{flags_8hpp_source}{flags.\+hpp}} 第 \mbox{\hyperlink{flags_8hpp_source_l00048}{48}} 行定义.
+

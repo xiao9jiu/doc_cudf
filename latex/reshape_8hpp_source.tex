@@ -1,0 +1,51 @@
+\doxysection{reshape.\+hpp}
+\hypertarget{reshape_8hpp_source}{}\label{reshape_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/reshape.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/reshape.hpp}}
+\mbox{\hyperlink{reshape_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2020-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{column_8hpp}{cudf/column/column.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{table__view_8hpp}{cudf/table/table\_view.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{types_8hpp}{cudf/types.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <rmm/mr/device/per\_device\_resource.hpp>}}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00027}00027\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00053}\mbox{\hyperlink{group__column__reshape_ga3e7d0d4fe81ad51f337a538cd019df2f}{00053}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__column__reshape_ga3e7d0d4fe81ad51f337a538cd019df2f}{interleave\_columns}}(}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00054}00054\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00055}00055\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00075}\mbox{\hyperlink{group__column__reshape_ga81245f60b1755f56e59c86291aebd7a0}{00075}}\ std::unique\_ptr<table>\ \mbox{\hyperlink{group__column__reshape_ga81245f60b1755f56e59c86291aebd7a0}{tile}}(}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00076}00076\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00077}00077\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ count,}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00078}00078\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00083}\mbox{\hyperlink{group__column__reshape_ga1fd286bca11d008f7945aaa6ecbab2e0}{00083}}\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{group__column__reshape_ga1fd286bca11d008f7945aaa6ecbab2e0}{flip\_endianness}}\ :\ \textcolor{keywordtype}{bool}\ \{\ \mbox{\hyperlink{group__label__bins_ggabadbffbcb403fac1ff712330ea10f2b3ac2f3f489a00553e7a01d369c103c7251}{NO}},\ \mbox{\hyperlink{group__label__bins_ggabadbffbcb403fac1ff712330ea10f2b3a7469a286259799e5b37e5db9296f00b3}{YES}}\ \};}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00100}\mbox{\hyperlink{group__column__reshape_gaa9912553b8cede8a16c86293e2c5a58d}{00100}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__column__reshape_gaa9912553b8cede8a16c86293e2c5a58d}{byte\_cast}}(}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00101}00101\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ input\_column,}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00102}00102\ \ \ \mbox{\hyperlink{group__column__reshape_ga1fd286bca11d008f7945aaa6ecbab2e0}{flip\_endianness}}\ endian\_configuration,}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00103}00103\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00104}00104\ \ \ \textcolor{comment}{//\ end\ of\ group}}
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{reshape_8hpp_source_l00107}00107\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

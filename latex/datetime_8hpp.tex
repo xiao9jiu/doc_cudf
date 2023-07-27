@@ -1,0 +1,91 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/datetime.hpp 文件参考}
+\hypertarget{datetime_8hpp}{}\label{datetime_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/datetime.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/datetime.hpp}}
+
+
+Date\+Time column APIs.  
+
+
+{\ttfamily \#include $<$cudf/types.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/mr/device/per\+\_\+device\+\_\+resource.\+hpp$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+datetime.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{datetime_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1datetime}{cudf\+::datetime}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__datetime__compute_gaf04facbc9720e8f048637c9726233e7a}{cudf\+::datetime\+::rounding\+\_\+frequency}} \+: int32\+\_\+t \{ \newline
+\mbox{\hyperlink{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa5b1d59b5451c06afb65ab1bc2713cfb4}{cudf\+::datetime\+::rounding\+\_\+frequency\+::\+DAY}}
+, \mbox{\hyperlink{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aadd3f965174e8bb2f64523981626ced1a}{cudf\+::datetime\+::rounding\+\_\+frequency\+::\+HOUR}}
+, \mbox{\hyperlink{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa46bda4cde2f10bdb9e51e3bbefa4a2bf}{cudf\+::datetime\+::rounding\+\_\+frequency\+::\+MINUTE}}
+, \mbox{\hyperlink{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa2200becb80f0019c4a2ccecec350d0db}{cudf\+::datetime\+::rounding\+\_\+frequency\+::\+SECOND}}
+, \newline
+\mbox{\hyperlink{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa241d7907de05ad50c011812e927cd671}{cudf\+::datetime\+::rounding\+\_\+frequency\+::\+MILLISECOND}}
+, \mbox{\hyperlink{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa52a3ae8e5d772e28d4e2105fefd2eed1}{cudf\+::datetime\+::rounding\+\_\+frequency\+::\+MICROSECOND}}
+, \mbox{\hyperlink{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aaeb8c6d69310ffef899148b680e672652}{cudf\+::datetime\+::rounding\+\_\+frequency\+::\+NANOSECOND}}
+ \}
+\begin{DoxyCompactList}\small\item\em Fixed frequencies supported by datetime rounding functions ceil, floor, round. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__extract_gaa3ddafc36e5a55193cd9d57328cbf9b4}{cudf\+::datetime\+::extract\+\_\+year}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Extracts year from any datetime type and returns an int16\+\_\+t \doxylink{classcudf_1_1column}{cudf\+::column}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__extract_gaced04c6370e65d0e6b3046d22dbe183d}{cudf\+::datetime\+::extract\+\_\+month}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Extracts month from any datetime type and returns an int16\+\_\+t \doxylink{classcudf_1_1column}{cudf\+::column}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__extract_gae71a2bd0b899a317134e0991da2ea01b}{cudf\+::datetime\+::extract\+\_\+day}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Extracts day from any datetime type and returns an int16\+\_\+t \doxylink{classcudf_1_1column}{cudf\+::column}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__extract_gab72553f073cfcf21ef8f89ebfef9d539}{cudf\+::datetime\+::extract\+\_\+weekday}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Extracts day from any datetime type and returns an int16\+\_\+t \doxylink{classcudf_1_1column}{cudf\+::column}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__extract_ga4e7b0f614e14cc5a8db5dfbedd9d268b}{cudf\+::datetime\+::extract\+\_\+hour}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Extracts hour from any datetime type and returns an int16\+\_\+t \doxylink{classcudf_1_1column}{cudf\+::column}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__extract_gadf3771cfb4833cf0634cff0d32979058}{cudf\+::datetime\+::extract\+\_\+minute}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Extracts minute from any datetime type and returns an int16\+\_\+t \doxylink{classcudf_1_1column}{cudf\+::column}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__extract_ga746c6f6bc0729dd3697fcdffe4975942}{cudf\+::datetime\+::extract\+\_\+second}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Extracts second from any datetime type and returns an int16\+\_\+t \doxylink{classcudf_1_1column}{cudf\+::column}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__extract_ga1507e741ce05cdab68fe6cf7a5fddbae}{cudf\+::datetime\+::extract\+\_\+millisecond\+\_\+fraction}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Extracts millisecond fraction from any datetime type and returns an int16\+\_\+t \doxylink{classcudf_1_1column}{cudf\+::column}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__extract_ga004730274c5005049812958ffc892d52}{cudf\+::datetime\+::extract\+\_\+microsecond\+\_\+fraction}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Extracts microsecond fraction from any datetime type and returns an int16\+\_\+t \doxylink{classcudf_1_1column}{cudf\+::column}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__extract_ga29ffa8f055ed7f963c02ba904cc7d411}{cudf\+::datetime\+::extract\+\_\+nanosecond\+\_\+fraction}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Extracts nanosecond fraction from any datetime type and returns an int16\+\_\+t \doxylink{classcudf_1_1column}{cudf\+::column}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__compute_ga53b4a3c8e588d84bdb88a06487ed1c00}{cudf\+::datetime\+::last\+\_\+day\+\_\+of\+\_\+month}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Computes the last day of the month in datetime type and returns a TIMESTAMP\+\_\+\+DAYS \doxylink{classcudf_1_1column}{cudf\+::column}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__compute_ga7fc1f768573a03ac6a03351f35af2517}{cudf\+::datetime\+::day\+\_\+of\+\_\+year}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Computes the day number since the start of the year from the datetime and returns an int16\+\_\+t \doxylink{classcudf_1_1column}{cudf\+::column}. The value is between \mbox{[}1, \{365-\/366\}\mbox{]} \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__compute_ga297d69fb9e7f257500458c3d1e5ed1f0}{cudf\+::datetime\+::add\+\_\+calendrical\+\_\+months}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&timestamps, \mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&months, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Adds or subtracts a number of months from the datetime type and returns a timestamp column that is of the same type as the input {\ttfamily timestamps} column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__compute_gaa339bd351bd3d48779a9ca1261515e36}{cudf\+::datetime\+::add\+\_\+calendrical\+\_\+months}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&timestamps, \mbox{\hyperlink{classcudf_1_1scalar}{cudf\+::scalar}} const \&months, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Adds or subtracts a number of months from the datetime type and returns a timestamp column that is of the same type as the input {\ttfamily timestamps} column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__compute_ga1d4d2721577faab676dcd8df1748de04}{cudf\+::datetime\+::is\+\_\+leap\+\_\+year}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Check if the year of the given date is a leap year \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__compute_ga26305295987c9f5e25a5fcb8da95f571}{cudf\+::datetime\+::days\+\_\+in\+\_\+month}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Extract the number of days in the month \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__compute_ga2f94182ad9c59b07de255770849a8a07}{cudf\+::datetime\+::extract\+\_\+quarter}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns the quarter of the date \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__compute_ga0a988cff7bc684f098188e6e11e9f145}{cudf\+::datetime\+::ceil\+\_\+datetimes}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, \mbox{\hyperlink{group__datetime__compute_gaf04facbc9720e8f048637c9726233e7a}{rounding\+\_\+frequency}} freq, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Round datetimes up to the nearest multiple of the given frequency. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__compute_ga4636bf1c0681d1c42e72022e7b2a8cc7}{cudf\+::datetime\+::floor\+\_\+datetimes}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, \mbox{\hyperlink{group__datetime__compute_gaf04facbc9720e8f048637c9726233e7a}{rounding\+\_\+frequency}} freq, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Round datetimes down to the nearest multiple of the given frequency. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__compute_ga6b9612e4fd08172bec84c600cb7292db}{cudf\+::datetime\+::round\+\_\+datetimes}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, \mbox{\hyperlink{group__datetime__compute_gaf04facbc9720e8f048637c9726233e7a}{rounding\+\_\+frequency}} freq, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Round datetimes to the nearest multiple of the given frequency. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Date\+Time column APIs. 
+
+
+
+在文件 \mbox{\hyperlink{datetime_8hpp_source}{datetime.\+hpp}} 中定义.
+

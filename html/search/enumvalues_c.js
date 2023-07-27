@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['nan_5fis_5fnull_0',['NAN_IS_NULL',['../group__utility__types.html#gga74641d3dfd6d96d0939b492ecf9b9cc8aeed6bbfa0697c54960c7e0baa97313f4',1,'cudf']]],
+  ['nan_5fis_5fvalid_1',['NAN_IS_VALID',['../group__utility__types.html#gga74641d3dfd6d96d0939b492ecf9b9cc8a27adbe26caa2eb99976344933c281a77',1,'cudf']]],
+  ['nanosecond_2',['NANOSECOND',['../group__datetime__compute.html#ggaf04facbc9720e8f048637c9726233e7aaeb8c6d69310ffef899148b680e672652',1,'cudf::datetime']]],
+  ['nearest_3',['NEAREST',['../group__utility__types.html#gga9cd17c1cdf028ead9a4783f605276ab3aad135772d7cf93dd0ccf9d2474b34e6a',1,'cudf']]],
+  ['never_4',['NEVER',['../group__column__copy.html#gga267e03474dcfd85242d2fdc6e5846ec6a443475558f0168dff92ecde26b98ae5a',1,'cudf']]],
+  ['no_5',['NO',['../namespacecudf_1_1io_1_1detail.html#ac04114990639289ba14c03af0b63e553ac2f3f489a00553e7a01d369c103c7251',1,'cudf::io::detail::NO'],['../group__label__bins.html#ggabadbffbcb403fac1ff712330ea10f2b3ac2f3f489a00553e7a01d369c103c7251',1,'cudf::NO'],['../group__column__reshape.html#gga1fd286bca11d008f7945aaa6ecbab2e0ac2f3f489a00553e7a01d369c103c7251',1,'cudf::NO'],['../group__strings__combine.html#ggaa57d4c778ab4df08467dfaab3dc7ec6dac2f3f489a00553e7a01d369c103c7251',1,'cudf::strings::NO'],['../group__utility__types.html#ggab283c517931abd4152ffa62fec62425dac2f3f489a00553e7a01d369c103c7251',1,'cudf::NO']]],
+  ['non_5fcapture_6',['NON_CAPTURE',['../group__strings__regex.html#gga227bb80d548c2970e05f829839966ba3af3e94c14de21439caa9ef45151108b79',1,'cudf::strings']]],
+  ['none_7',['NONE',['../namespacecudf_1_1io_1_1orc.html#a3d95f9b8d8e679d2a94d4b7689a7f653aad1fd4e938af02f7b500df23e50f157d',1,'cudf::io::orc::NONE'],['../group__aggregation__factories.html#gga3701f066cd6ad8bad2a70fbfcef93071ab50339a10e1de285ac99d4c3990b8693',1,'cudf::NONE'],['../namespacecudf_1_1io.html#a8033aa1109d4e77468bda8b81eb216a8ab50339a10e1de285ac99d4c3990b8693',1,'cudf::io::NONE'],['../namespacecudf_1_1io.html#a9b3038122e7e69390b062270cf403007ab50339a10e1de285ac99d4c3990b8693',1,'cudf::io::NONE']]],
+  ['nonnumeric_8',['NONNUMERIC',['../namespacecudf_1_1io.html#a9b3038122e7e69390b062270cf403007addc40c8362772af6ffc64aec536831ac',1,'cudf::io']]],
+  ['not_9',['NOT',['../namespacecudf_1_1ast.html#abf7da0251fa923970b1c6c85ccb7f9e7a10df3d67626099df882920ba6552f16d',1,'cudf::ast::NOT'],['../group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a10df3d67626099df882920ba6552f16d',1,'cudf::NOT']]],
+  ['not_5fallowed_10',['NOT_ALLOWED',['../namespacecudf_1_1detail.html#a1c29a0e8458ffb159e91481c0f37b0f5a4596302bc1e8ce6e62188e769aac94cf',1,'cudf::detail']]],
+  ['not_5fequal_11',['NOT_EQUAL',['../namespacecudf_1_1ast.html#abf7da0251fa923970b1c6c85ccb7f9e7a4ea2d378cdec20f59330f113297bc1ce',1,'cudf::ast::NOT_EQUAL'],['../group__transformation__binaryops.html#gga00ed76601b6db662550f6826cfd99edca4ea2d378cdec20f59330f113297bc1ce',1,'cudf::NOT_EQUAL']]],
+  ['nth_5felement_12',['NTH_ELEMENT',['../classcudf_1_1aggregation.html#a83579ae3cab2fc3d1c3b377d1cfab24cab225eca1add973e8f91951b9bebcffba',1,'cudf::aggregation']]],
+  ['null_5felement_13',['NULL_ELEMENT',['../group__strings__combine.html#gga7c7d6d8dfa7a6f67a794d6c868960855a03ff21f16ae3280d3358c204a1a5fddb',1,'cudf::strings']]],
+  ['null_5fequal_14',['NULL_EQUAL',['../namespacecudf_1_1ast.html#abf7da0251fa923970b1c6c85ccb7f9e7a291e4905a067d686f41c7780c85aed59',1,'cudf::ast']]],
+  ['null_5fequals_15',['NULL_EQUALS',['../group__transformation__binaryops.html#gga00ed76601b6db662550f6826cfd99edcacb8d87e20fe7c6f3786fb063814420e5',1,'cudf']]],
+  ['null_5flogical_5fand_16',['NULL_LOGICAL_AND',['../namespacecudf_1_1ast.html#abf7da0251fa923970b1c6c85ccb7f9e7a0b0eecbb7754f87b05d19490f50ddd4f',1,'cudf::ast::NULL_LOGICAL_AND'],['../group__transformation__binaryops.html#gga00ed76601b6db662550f6826cfd99edca0b0eecbb7754f87b05d19490f50ddd4f',1,'cudf::NULL_LOGICAL_AND']]],
+  ['null_5flogical_5for_17',['NULL_LOGICAL_OR',['../namespacecudf_1_1ast.html#abf7da0251fa923970b1c6c85ccb7f9e7a009adecefebadfcd26e7fad3b046104b',1,'cudf::ast::NULL_LOGICAL_OR'],['../group__transformation__binaryops.html#gga00ed76601b6db662550f6826cfd99edca009adecefebadfcd26e7fad3b046104b',1,'cudf::NULL_LOGICAL_OR']]],
+  ['null_5fmax_18',['NULL_MAX',['../group__transformation__binaryops.html#gga00ed76601b6db662550f6826cfd99edcaf96f1246ae59f3f396dd304c4e3efb2f',1,'cudf']]],
+  ['null_5fmin_19',['NULL_MIN',['../group__transformation__binaryops.html#gga00ed76601b6db662550f6826cfd99edcadb8b769d7a9c9d41242eb4b721228c50',1,'cudf']]],
+  ['nullify_20',['NULLIFY',['../group__column__copy.html#ggae3ba74951558bc7966aae86abc6af5dfacac2cdaff9b4ab3bcda3b538a86f9edb',1,'cudf']]],
+  ['nullify_5foutput_5frow_21',['NULLIFY_OUTPUT_ROW',['../group__lists__combine.html#ggabb916eaef8a82d11855f551d2e9b91ebad583c5e620ba4dc0af98a1eb440cc9a9',1,'cudf::lists']]],
+  ['num_5ftype_5fids_22',['NUM_TYPE_IDS',['../group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a44b418588ffa2779aaf862dc7aa81f8a',1,'cudf']]],
+  ['numeric_23',['NUMERIC',['../group__strings__types.html#ggacdc71043841f369de3cc8dd827a0eea1ae2a7c72103209f6dbc87d7d807adbc69',1,'cudf::strings']]],
+  ['nunique_24',['NUNIQUE',['../classcudf_1_1aggregation.html#a83579ae3cab2fc3d1c3b377d1cfab24ca575437b89e591628c1e9c33169831045',1,'cudf::aggregation']]]
+];

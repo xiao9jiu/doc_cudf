@@ -1,0 +1,251 @@
+\doxysection{cudf\+::io\+::arrow\+\_\+io\+\_\+source类 参考}
+\hypertarget{classcudf_1_1io_1_1arrow__io__source}{}\label{classcudf_1_1io_1_1arrow__io__source}\index{cudf::io::arrow\_io\_source@{cudf::io::arrow\_io\_source}}
+
+
+Implementation class for reading from an Apache Arrow file. The file could be a memory-\/mapped file or other implementation supported by Arrow.  
+
+
+
+
+{\ttfamily \#include $<$datasource.\+hpp$>$}
+
+
+
+类 cudf\+::io\+::arrow\+\_\+io\+\_\+source 继承关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{classcudf_1_1io_1_1arrow__io__source__inherit__graph}
+\end{center}
+\end{figure}
+
+
+cudf\+::io\+::arrow\+\_\+io\+\_\+source 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{classcudf_1_1io_1_1arrow__io__source__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcudf_1_1io_1_1arrow__io__source_1_1arrow__io__buffer}{arrow\+\_\+io\+\_\+buffer}}
+\begin{DoxyCompactList}\small\item\em Implementation for an owning buffer where {\ttfamily arrow\+::\+Buffer} holds the data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1arrow__io__source_a1d153d49b0e71955810a4d9cf8932de8}{arrow\+\_\+io\+\_\+source}} (std\+::string\+\_\+view arrow\+\_\+uri)
+\begin{DoxyCompactList}\small\item\em Constructs an object from an Apache Arrow Filesystem URI \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1arrow__io__source_ad85587d91df08750f004397b815fae8c}{arrow\+\_\+io\+\_\+source}} (std\+::shared\+\_\+ptr$<$ arrow\+::io\+::\+Random\+Access\+File $>$ file)
+\begin{DoxyCompactList}\small\item\em Constructs an object from an {\ttfamily arrow} source object. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1buffer}{buffer}} $>$ \mbox{\hyperlink{classcudf_1_1io_1_1arrow__io__source_a06fcb859d851c3c71c3a03830115ce84}{host\+\_\+read}} (size\+\_\+t offset, size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1arrow__io__source_addf8415c28750a5249a770ac3b9e6b7a}{size}}) override
+\begin{DoxyCompactList}\small\item\em Returns a buffer with a subset of data from the {\ttfamily arrow} source. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1arrow__io__source_a577711d7e7738894e331d83860e149ba}{host\+\_\+read}} (size\+\_\+t offset, size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1arrow__io__source_addf8415c28750a5249a770ac3b9e6b7a}{size}}, uint8\+\_\+t \texorpdfstring{$\ast$}{*}dst) override
+\begin{DoxyCompactList}\small\item\em Reads a selected range from the {\ttfamily arrow} source into a preallocated buffer. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1arrow__io__source_addf8415c28750a5249a770ac3b9e6b7a}{size}} () const override
+\begin{DoxyCompactList}\small\item\em Returns the size of the data in the {\ttfamily arrow} source. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public 成员函数 继承自 \mbox{\hyperlink{classcudf_1_1io_1_1datasource}{cudf\+::io\+::datasource}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classcudf_1_1io_1_1datasource_aa4486e8cfc15e495a15030f70d362437}{\texorpdfstring{$\sim$}{\string~}datasource}} ()
+\begin{DoxyCompactList}\small\item\em Base class destructor \end{DoxyCompactList}\item 
+virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1buffer}{datasource\+::buffer}} $>$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource_a5a07541102152a75e5ccbe563f4bfc01}{host\+\_\+read}} (size\+\_\+t offset, size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1datasource_acdec117c1e897d07db5195d6d9361e62}{size}})=0
+\begin{DoxyCompactList}\small\item\em Returns a buffer with a subset of data from the source. \end{DoxyCompactList}\item 
+virtual size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1datasource_a71e89cf5db6ad3c8073574a031ec52b3}{host\+\_\+read}} (size\+\_\+t offset, size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1datasource_acdec117c1e897d07db5195d6d9361e62}{size}}, uint8\+\_\+t \texorpdfstring{$\ast$}{*}dst)=0
+\begin{DoxyCompactList}\small\item\em Reads a selected range into a preallocated buffer. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classcudf_1_1io_1_1datasource_a23c750844eb97ccaabc5d6691a63c3e1}{supports\+\_\+device\+\_\+read}} () const
+\begin{DoxyCompactList}\small\item\em Whether or not this source supports reading directly into device memory. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classcudf_1_1io_1_1datasource_a3e9e6f902d0aadb9efbb6880cde1b521}{is\+\_\+device\+\_\+read\+\_\+preferred}} (size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1datasource_acdec117c1e897d07db5195d6d9361e62}{size}}) const
+\begin{DoxyCompactList}\small\item\em Estimates whether a direct device read would be more optimal for the given size. \end{DoxyCompactList}\item 
+virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1buffer}{datasource\+::buffer}} $>$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource_a2d572ce6a3cadf572180503602c65bd9}{device\+\_\+read}} (size\+\_\+t offset, size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1datasource_acdec117c1e897d07db5195d6d9361e62}{size}}, rmm\+::cuda\+\_\+stream\+\_\+view stream)
+\begin{DoxyCompactList}\small\item\em Returns a device buffer with a subset of data from the source. \end{DoxyCompactList}\item 
+virtual size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1datasource_a3a8de2f24a35f819c1838da189513243}{device\+\_\+read}} (size\+\_\+t offset, size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1datasource_acdec117c1e897d07db5195d6d9361e62}{size}}, uint8\+\_\+t \texorpdfstring{$\ast$}{*}dst, rmm\+::cuda\+\_\+stream\+\_\+view stream)
+\begin{DoxyCompactList}\small\item\em Reads a selected range into a preallocated device buffer \end{DoxyCompactList}\item 
+virtual std\+::future$<$ size\+\_\+t $>$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource_a753e159bd0ce3398f560af743d329d8d}{device\+\_\+read\+\_\+async}} (size\+\_\+t offset, size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1datasource_acdec117c1e897d07db5195d6d9361e62}{size}}, uint8\+\_\+t \texorpdfstring{$\ast$}{*}dst, rmm\+::cuda\+\_\+stream\+\_\+view stream)
+\begin{DoxyCompactList}\small\item\em Asynchronously reads a selected range into a preallocated device buffer \end{DoxyCompactList}\item 
+virtual size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1datasource_acdec117c1e897d07db5195d6d9361e62}{size}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the size of the data in the source. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classcudf_1_1io_1_1datasource_a60cd561f01f53dfc5d1158fdd615777d}{is\+\_\+empty}} () const
+\begin{DoxyCompactList}\small\item\em Returns whether the source contains any data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ arrow\+::fs\+::\+File\+System $>$ \mbox{\hyperlink{classcudf_1_1io_1_1arrow__io__source_a16275c0d729e3a55cc912ac93fc0e9f7}{filesystem}}
+\item 
+std\+::shared\+\_\+ptr$<$ arrow\+::io\+::\+Random\+Access\+File $>$ \mbox{\hyperlink{classcudf_1_1io_1_1arrow__io__source_a253cf0215f48300140fb19d6f53ee64a}{arrow\+\_\+file}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{额外继承的成员函数}
+\doxysubsection*{静态 Public 成员函数 继承自 \mbox{\hyperlink{classcudf_1_1io_1_1datasource}{cudf\+::io\+::datasource}}}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource}{datasource}} $>$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource_a56b2b6c3e748b474709817c099053030}{create}} (const std\+::string \&filepath, size\+\_\+t offset=0, size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1datasource_acdec117c1e897d07db5195d6d9361e62}{size}}=0)
+\begin{DoxyCompactList}\small\item\em Creates a source from a file path. \end{DoxyCompactList}\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource}{datasource}} $>$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource_a871730c2e4730027b53a4e72fc820761}{create}} (\mbox{\hyperlink{structcudf_1_1io_1_1host__buffer}{host\+\_\+buffer}} const \&\mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1buffer}{buffer}})
+\begin{DoxyCompactList}\small\item\em Creates a source from a memory buffer. \end{DoxyCompactList}\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource}{datasource}} $>$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource_a48c23255f5b7c0c8c4e3e3b7816acc89}{create}} (std\+::shared\+\_\+ptr$<$ arrow\+::io\+::\+Random\+Access\+File $>$ arrow\+\_\+file)
+\begin{DoxyCompactList}\small\item\em Creates a source from a from an Arrow file. \end{DoxyCompactList}\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource}{datasource}} $>$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource_a0290f229455107d7432bc3a4bc6e675c}{create}} (\mbox{\hyperlink{classcudf_1_1io_1_1datasource}{datasource}} \texorpdfstring{$\ast$}{*}source)
+\begin{DoxyCompactList}\small\item\em Creates a source from an user implemented datasource object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\static std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource}{datasource}} $>$ $>$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource_a611e6a27e101fbfc8d8bf8e262e177e0}{create}} (std\+::vector$<$ T $>$ const \&args)
+\begin{DoxyCompactList}\small\item\em Creates a vector of datasources, one per element in the input vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Implementation class for reading from an Apache Arrow file. The file could be a memory-\/mapped file or other implementation supported by Arrow. 
+
+在文件 \mbox{\hyperlink{datasource_8hpp_source}{datasource.\+hpp}} 第 \mbox{\hyperlink{datasource_8hpp_source_l00381}{381}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1io_1_1arrow__io__source_a1d153d49b0e71955810a4d9cf8932de8}\label{classcudf_1_1io_1_1arrow__io__source_a1d153d49b0e71955810a4d9cf8932de8} 
+\index{cudf::io::arrow\_io\_source@{cudf::io::arrow\_io\_source}!arrow\_io\_source@{arrow\_io\_source}}
+\index{arrow\_io\_source@{arrow\_io\_source}!cudf::io::arrow\_io\_source@{cudf::io::arrow\_io\_source}}
+\doxysubsubsection{\texorpdfstring{arrow\_io\_source()}{arrow\_io\_source()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily cudf\+::io\+::arrow\+\_\+io\+\_\+source\+::arrow\+\_\+io\+\_\+source (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{arrow\+\_\+uri }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructs an object from an Apache Arrow Filesystem URI 
+
+
+\begin{DoxyParams}{参数}
+{\em arrow\+\_\+uri} & Apache Arrow Filesystem URI \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{datasource_8hpp_source}{datasource.\+hpp}} 第 \mbox{\hyperlink{datasource_8hpp_source_l00403}{403}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1arrow__io__source_ad85587d91df08750f004397b815fae8c}\label{classcudf_1_1io_1_1arrow__io__source_ad85587d91df08750f004397b815fae8c} 
+\index{cudf::io::arrow\_io\_source@{cudf::io::arrow\_io\_source}!arrow\_io\_source@{arrow\_io\_source}}
+\index{arrow\_io\_source@{arrow\_io\_source}!cudf::io::arrow\_io\_source@{cudf::io::arrow\_io\_source}}
+\doxysubsubsection{\texorpdfstring{arrow\_io\_source()}{arrow\_io\_source()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily cudf\+::io\+::arrow\+\_\+io\+\_\+source\+::arrow\+\_\+io\+\_\+source (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ arrow\+::io\+::\+Random\+Access\+File $>$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructs an object from an {\ttfamily arrow} source object. 
+
+
+\begin{DoxyParams}{参数}
+{\em file} & The {\ttfamily arrow} object from which the data is read \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{datasource_8hpp_source}{datasource.\+hpp}} 第 \mbox{\hyperlink{datasource_8hpp_source_l00431}{431}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1io_1_1arrow__io__source_a06fcb859d851c3c71c3a03830115ce84}\label{classcudf_1_1io_1_1arrow__io__source_a06fcb859d851c3c71c3a03830115ce84} 
+\index{cudf::io::arrow\_io\_source@{cudf::io::arrow\_io\_source}!host\_read@{host\_read}}
+\index{host\_read@{host\_read}!cudf::io::arrow\_io\_source@{cudf::io::arrow\_io\_source}}
+\doxysubsubsection{\texorpdfstring{host\_read()}{host\_read()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1buffer}{buffer}} $>$ cudf\+::io\+::arrow\+\_\+io\+\_\+source\+::host\+\_\+read (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{offset,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns a buffer with a subset of data from the {\ttfamily arrow} source. 
+
+
+\begin{DoxyParams}{参数}
+{\em offset} & The offset in bytes from which to read \\
+\hline
+{\em size} & The number of bytes to read \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A buffer with the read data 
+\end{DoxyReturn}
+
+
+实现了 \mbox{\hyperlink{classcudf_1_1io_1_1datasource_a5a07541102152a75e5ccbe563f4bfc01}{cudf\+::io\+::datasource}}.
+
+
+
+在文件 \mbox{\hyperlink{datasource_8hpp_source}{datasource.\+hpp}} 第 \mbox{\hyperlink{datasource_8hpp_source_l00440}{440}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1arrow__io__source_a577711d7e7738894e331d83860e149ba}\label{classcudf_1_1io_1_1arrow__io__source_a577711d7e7738894e331d83860e149ba} 
+\index{cudf::io::arrow\_io\_source@{cudf::io::arrow\_io\_source}!host\_read@{host\_read}}
+\index{host\_read@{host\_read}!cudf::io::arrow\_io\_source@{cudf::io::arrow\_io\_source}}
+\doxysubsubsection{\texorpdfstring{host\_read()}{host\_read()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily size\+\_\+t cudf\+::io\+::arrow\+\_\+io\+\_\+source\+::host\+\_\+read (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{offset,  }\item[{size\+\_\+t}]{size,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{dst }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reads a selected range from the {\ttfamily arrow} source into a preallocated buffer. 
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em offset} & The offset in bytes from which to read \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & The number of bytes to read \\
+\hline
+\mbox{\texttt{ out}}  & {\em dst} & The preallocated buffer to read into \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The number of bytes read 
+\end{DoxyReturn}
+
+
+实现了 \mbox{\hyperlink{classcudf_1_1io_1_1datasource_a71e89cf5db6ad3c8073574a031ec52b3}{cudf\+::io\+::datasource}}.
+
+
+
+在文件 \mbox{\hyperlink{datasource_8hpp_source}{datasource.\+hpp}} 第 \mbox{\hyperlink{datasource_8hpp_source_l00455}{455}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1arrow__io__source_addf8415c28750a5249a770ac3b9e6b7a}\label{classcudf_1_1io_1_1arrow__io__source_addf8415c28750a5249a770ac3b9e6b7a} 
+\index{cudf::io::arrow\_io\_source@{cudf::io::arrow\_io\_source}!size@{size}}
+\index{size@{size}!cudf::io::arrow\_io\_source@{cudf::io::arrow\_io\_source}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily size\+\_\+t cudf\+::io\+::arrow\+\_\+io\+\_\+source\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the size of the data in the {\ttfamily arrow} source. 
+
+\begin{DoxyReturn}{返回}
+The size of the data in the {\ttfamily arrow} source 
+\end{DoxyReturn}
+
+
+实现了 \mbox{\hyperlink{classcudf_1_1io_1_1datasource_acdec117c1e897d07db5195d6d9361e62}{cudf\+::io\+::datasource}}.
+
+
+
+在文件 \mbox{\hyperlink{datasource_8hpp_source}{datasource.\+hpp}} 第 \mbox{\hyperlink{datasource_8hpp_source_l00467}{467}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1io_1_1arrow__io__source_a253cf0215f48300140fb19d6f53ee64a}\label{classcudf_1_1io_1_1arrow__io__source_a253cf0215f48300140fb19d6f53ee64a} 
+\index{cudf::io::arrow\_io\_source@{cudf::io::arrow\_io\_source}!arrow\_file@{arrow\_file}}
+\index{arrow\_file@{arrow\_file}!cudf::io::arrow\_io\_source@{cudf::io::arrow\_io\_source}}
+\doxysubsubsection{\texorpdfstring{arrow\_file}{arrow\_file}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$arrow\+::io\+::\+Random\+Access\+File$>$ cudf\+::io\+::arrow\+\_\+io\+\_\+source\+::arrow\+\_\+file\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{datasource_8hpp_source}{datasource.\+hpp}} 第 \mbox{\hyperlink{datasource_8hpp_source_l00476}{476}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1arrow__io__source_a16275c0d729e3a55cc912ac93fc0e9f7}\label{classcudf_1_1io_1_1arrow__io__source_a16275c0d729e3a55cc912ac93fc0e9f7} 
+\index{cudf::io::arrow\_io\_source@{cudf::io::arrow\_io\_source}!filesystem@{filesystem}}
+\index{filesystem@{filesystem}!cudf::io::arrow\_io\_source@{cudf::io::arrow\_io\_source}}
+\doxysubsubsection{\texorpdfstring{filesystem}{filesystem}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$arrow\+::fs\+::\+File\+System$>$ cudf\+::io\+::arrow\+\_\+io\+\_\+source\+::filesystem\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{datasource_8hpp_source}{datasource.\+hpp}} 第 \mbox{\hyperlink{datasource_8hpp_source_l00475}{475}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/\mbox{\hyperlink{datasource_8hpp}{datasource.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,35 @@
+\doxysection{cudf\+::dictionary 命名空间参考}
+\hypertarget{namespacecudf_1_1dictionary}{}\label{namespacecudf_1_1dictionary}\index{cudf::dictionary@{cudf::dictionary}}
+
+
+Dictionary column APIs.  
+
+
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1dictionary_1_1detail}{detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__dictionary__encode_ga0299ba09c930051bac7da06a2cb803d3}{encode}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} indices\+\_\+type=\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}\{\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a17266551181f69a1b4a3ad5c9e270afc}{type\+\_\+id\+::\+UINT32}}\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Construct a dictionary column by dictionary encoding an existing column \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__dictionary__encode_gae8ad812bf110aea90e2a3868e36fa7dc}{decode}} (\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&dictionary\+\_\+column, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a column by gathering the keys from the provided dictionary\+\_\+column into a new column using the indices from that column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ \mbox{\hyperlink{group__dictionary__search_ga79c98fac6cb6683b341707af1c0be936}{get\+\_\+index}} (\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&dictionary, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&key, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Return the index value for a given key. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__dictionary__update_ga26aab2d4065554ab7b800f98f3c5c0fd}{add\+\_\+keys}} (\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&dictionary\+\_\+column, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&new\+\_\+keys, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a new dictionary column by adding the new keys elements to the existing dictionary\+\_\+column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__dictionary__update_ga9e9d03e8d8183e43b6665911ca740b33}{remove\+\_\+keys}} (\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&dictionary\+\_\+column, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&keys\+\_\+to\+\_\+remove, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a new dictionary column by removing the specified keys from the existing dictionary\+\_\+column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__dictionary__update_ga001e8ae4abb0cc16cf2cc7b82626d286}{remove\+\_\+unused\+\_\+keys}} (\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&dictionary\+\_\+column, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a new dictionary column by removing any keys that are not referenced by any of the indices. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__dictionary__update_ga6b51b2c3778e68a55b0ccc641c0b2b33}{set\+\_\+keys}} (\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&dictionary\+\_\+column, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&keys, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a new dictionary column by applying only the specified keys to the existing dictionary\+\_\+column. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ $>$ \mbox{\hyperlink{group__dictionary__update_ga71b186f48400ed3231237ea25e520257}{match\+\_\+dictionaries}} (\mbox{\hyperlink{structcudf_1_1host__span}{cudf\+::host\+\_\+span}}$<$ \mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const $>$ input, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create new dictionaries that have keys merged from the input dictionaries. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Dictionary column APIs. 

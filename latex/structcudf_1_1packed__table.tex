@@ -1,0 +1,75 @@
+\doxysection{cudf\+::packed\+\_\+table结构体 参考}
+\hypertarget{structcudf_1_1packed__table}{}\label{structcudf_1_1packed__table}\index{cudf::packed\_table@{cudf::packed\_table}}
+
+
+The result(s) of a \doxylink{group__column__copy_gab171e877b57253d521eb8f6d3c7d7c4a}{cudf\+::contiguous\+\_\+split}  
+
+
+
+
+{\ttfamily \#include $<$copying.\+hpp$>$}
+
+
+
+cudf\+::packed\+\_\+table 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{structcudf_1_1packed__table__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} \mbox{\hyperlink{structcudf_1_1packed__table_aaeda9db832b5fabdc1e1914ff1fa7da1}{table}}
+\begin{DoxyCompactList}\small\item\em Result \doxylink{classcudf_1_1table__view}{table\+\_\+view} of a \doxylink{group__column__copy_gab171e877b57253d521eb8f6d3c7d7c4a}{cudf\+::contiguous\+\_\+split} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1packed__columns}{packed\+\_\+columns}} \mbox{\hyperlink{structcudf_1_1packed__table_aa9c2007b4b8877e159cad647f0516084}{data}}
+\begin{DoxyCompactList}\small\item\em Column data owned \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+The result(s) of a \doxylink{group__column__copy_gab171e877b57253d521eb8f6d3c7d7c4a}{cudf\+::contiguous\+\_\+split} 
+
+Each \doxylink{classcudf_1_1table__view}{table\+\_\+view} resulting from a split operation performed by contiguous\+\_\+split, will be returned wrapped in a {\ttfamily \doxylink{structcudf_1_1packed__table}{packed\+\_\+table}}. The \doxylink{classcudf_1_1table__view}{table\+\_\+view} and internal column\+\_\+views in this struct are not owned by a top level \doxylink{classcudf_1_1table}{cudf\+::table} or \doxylink{classcudf_1_1column}{cudf\+::column}. The backing memory and metadata is instead owned by the {\ttfamily data} field and is in one contiguous block.
+
+The user is responsible for assuring that the {\ttfamily table} or any derived table\+\_\+views do not outlive the memory owned by {\ttfamily data} 
+
+在文件 \mbox{\hyperlink{copying_8hpp_source}{copying.\+hpp}} 第 \mbox{\hyperlink{copying_8hpp_source_l00620}{620}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{structcudf_1_1packed__table_aa9c2007b4b8877e159cad647f0516084}\label{structcudf_1_1packed__table_aa9c2007b4b8877e159cad647f0516084} 
+\index{cudf::packed\_table@{cudf::packed\_table}!data@{data}}
+\index{data@{data}!cudf::packed\_table@{cudf::packed\_table}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1packed__columns}{packed\+\_\+columns}} cudf\+::packed\+\_\+table\+::data}
+
+
+
+Column data owned 
+
+
+
+在文件 \mbox{\hyperlink{copying_8hpp_source}{copying.\+hpp}} 第 \mbox{\hyperlink{copying_8hpp_source_l00622}{622}} 行定义.
+
+\Hypertarget{structcudf_1_1packed__table_aaeda9db832b5fabdc1e1914ff1fa7da1}\label{structcudf_1_1packed__table_aaeda9db832b5fabdc1e1914ff1fa7da1} 
+\index{cudf::packed\_table@{cudf::packed\_table}!table@{table}}
+\index{table@{table}!cudf::packed\_table@{cudf::packed\_table}}
+\doxysubsubsection{\texorpdfstring{table}{table}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} cudf\+::packed\+\_\+table\+::table}
+
+
+
+Result \doxylink{classcudf_1_1table__view}{table\+\_\+view} of a \doxylink{group__column__copy_gab171e877b57253d521eb8f6d3c7d7c4a}{cudf\+::contiguous\+\_\+split} 
+
+
+
+在文件 \mbox{\hyperlink{copying_8hpp_source}{copying.\+hpp}} 第 \mbox{\hyperlink{copying_8hpp_source_l00621}{621}} 行定义.
+
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/\mbox{\hyperlink{copying_8hpp}{copying.\+hpp}}\end{DoxyCompactItemize}

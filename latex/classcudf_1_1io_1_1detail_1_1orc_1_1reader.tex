@@ -1,0 +1,117 @@
+\doxysection{cudf\+::io\+::detail\+::orc\+::reader类 参考}
+\hypertarget{classcudf_1_1io_1_1detail_1_1orc_1_1reader}{}\label{classcudf_1_1io_1_1detail_1_1orc_1_1reader}\index{cudf::io::detail::orc::reader@{cudf::io::detail::orc::reader}}
+
+
+Class to read ORC dataset data into columns.  
+
+
+
+
+{\ttfamily \#include $<$orc.\+hpp$>$}
+
+
+
+cudf\+::io\+::detail\+::orc\+::reader 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{classcudf_1_1io_1_1detail_1_1orc_1_1reader__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1reader_a9df51ee16a309f838d6ba8bff431471d}{reader}} (std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource}{cudf\+::io\+::datasource}} $>$ $>$ \&\&sources, \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options}{orc\+\_\+reader\+\_\+options}} const \&options, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Constructor from an array of datasources \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1reader_a51a7afc216cbe1de9698e4bdcb8f8f80}{\texorpdfstring{$\sim$}{\string~}reader}} ()
+\begin{DoxyCompactList}\small\item\em Destructor explicitly declared to avoid inlining in header \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1table__with__metadata}{table\+\_\+with\+\_\+metadata}} \mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1reader_a20df68536272077c64ff84447304067c}{read}} (\mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options}{orc\+\_\+reader\+\_\+options}} const \&options, rmm\+::cuda\+\_\+stream\+\_\+view stream)
+\begin{DoxyCompactList}\small\item\em Reads the entire dataset. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ impl $>$ \mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1reader_a8267226f04ed3ec272f85d646409a76a}{\+\_\+impl}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Class to read ORC dataset data into columns. 
+
+在文件 \mbox{\hyperlink{detail_2orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{detail_2orc_8hpp_source_l00045}{45}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1io_1_1detail_1_1orc_1_1reader_a9df51ee16a309f838d6ba8bff431471d}\label{classcudf_1_1io_1_1detail_1_1orc_1_1reader_a9df51ee16a309f838d6ba8bff431471d} 
+\index{cudf::io::detail::orc::reader@{cudf::io::detail::orc::reader}!reader@{reader}}
+\index{reader@{reader}!cudf::io::detail::orc::reader@{cudf::io::detail::orc::reader}}
+\doxysubsubsection{\texorpdfstring{reader()}{reader()}}
+{\footnotesize\ttfamily cudf\+::io\+::detail\+::orc\+::reader\+::reader (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource}{cudf\+::io\+::datasource}} $>$ $>$ \&\&}]{sources,  }\item[{\mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options}{orc\+\_\+reader\+\_\+options}} const \&}]{options,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor from an array of datasources 
+
+
+\begin{DoxyParams}{参数}
+{\em sources} & Input {\ttfamily datasource} objects to read the dataset from \\
+\hline
+{\em options} & Settings for controlling reading behavior \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches \\
+\hline
+{\em mr} & Device memory resource to use for device memory allocation \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcudf_1_1io_1_1detail_1_1orc_1_1reader_a51a7afc216cbe1de9698e4bdcb8f8f80}\label{classcudf_1_1io_1_1detail_1_1orc_1_1reader_a51a7afc216cbe1de9698e4bdcb8f8f80} 
+\index{cudf::io::detail::orc::reader@{cudf::io::detail::orc::reader}!````~reader@{\texorpdfstring{$\sim$}{\string~}reader}}
+\index{````~reader@{\texorpdfstring{$\sim$}{\string~}reader}!cudf::io::detail::orc::reader@{cudf::io::detail::orc::reader}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}reader()}{\string~reader()}}
+{\footnotesize\ttfamily cudf\+::io\+::detail\+::orc\+::reader\+::\texorpdfstring{$\sim$}{\string~}reader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor explicitly declared to avoid inlining in header 
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1io_1_1detail_1_1orc_1_1reader_a20df68536272077c64ff84447304067c}\label{classcudf_1_1io_1_1detail_1_1orc_1_1reader_a20df68536272077c64ff84447304067c} 
+\index{cudf::io::detail::orc::reader@{cudf::io::detail::orc::reader}!read@{read}}
+\index{read@{read}!cudf::io::detail::orc::reader@{cudf::io::detail::orc::reader}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1io_1_1table__with__metadata}{table\+\_\+with\+\_\+metadata}} cudf\+::io\+::detail\+::orc\+::reader\+::read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options}{orc\+\_\+reader\+\_\+options}} const \&}]{options,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream }\end{DoxyParamCaption})}
+
+
+
+Reads the entire dataset. 
+
+
+\begin{DoxyParams}{参数}
+{\em options} & Settings for controlling reading behavior \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The set of columns along with table metadata 
+\end{DoxyReturn}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1io_1_1detail_1_1orc_1_1reader_a8267226f04ed3ec272f85d646409a76a}\label{classcudf_1_1io_1_1detail_1_1orc_1_1reader_a8267226f04ed3ec272f85d646409a76a} 
+\index{cudf::io::detail::orc::reader@{cudf::io::detail::orc::reader}!\_impl@{\_impl}}
+\index{\_impl@{\_impl}!cudf::io::detail::orc::reader@{cudf::io::detail::orc::reader}}
+\doxysubsubsection{\texorpdfstring{\_impl}{\_impl}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$impl$>$ cudf\+::io\+::detail\+::orc\+::reader\+::\+\_\+impl\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{detail_2orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{detail_2orc_8hpp_source_l00048}{48}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/detail/\mbox{\hyperlink{detail_2orc_8hpp}{orc.\+hpp}}\end{DoxyCompactItemize}

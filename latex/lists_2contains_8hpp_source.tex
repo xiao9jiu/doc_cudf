@@ -1,0 +1,63 @@
+\doxysection{contains.\+hpp}
+\hypertarget{lists_2contains_8hpp_source}{}\label{lists_2contains_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/lists/contains.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/lists/contains.hpp}}
+\mbox{\hyperlink{lists_2contains_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2021-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00016}00016\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{column_8hpp}{cudf/column/column.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{lists__column__view_8hpp}{cudf/lists/lists\_column\_view.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <rmm/mr/device/per\_device\_resource.hpp>}}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00023}00023\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00024}00024\ \textcolor{keyword}{namespace\ }lists\ \{}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00048}\mbox{\hyperlink{group__lists__contains_gadd78c82031400f8ca6054f85afbeed94}{00048}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__lists__contains_gadd78c82031400f8ca6054f85afbeed94}{contains}}(}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00049}00049\ \ \ \mbox{\hyperlink{classcudf_1_1lists__column__view}{cudf::lists\_column\_view}}\ \textcolor{keyword}{const}\&\ lists,}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00050}00050\ \ \ \mbox{\hyperlink{classcudf_1_1scalar}{cudf::scalar}}\ \textcolor{keyword}{const}\&\ search\_key,}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00051}00051\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00070}\mbox{\hyperlink{group__lists__contains_ga1a5553c1f416e410386ee15c5ca967d8}{00070}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__lists__contains_gadd78c82031400f8ca6054f85afbeed94}{contains}}(}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00071}00071\ \ \ \mbox{\hyperlink{classcudf_1_1lists__column__view}{cudf::lists\_column\_view}}\ \textcolor{keyword}{const}\&\ lists,}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00072}00072\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ search\_keys,}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00073}00073\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00091}\mbox{\hyperlink{group__lists__contains_ga7d5b77b73cda69a883ff3c96bded5de5}{00091}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__lists__contains_ga7d5b77b73cda69a883ff3c96bded5de5}{contains\_nulls}}(}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00092}00092\ \ \ \mbox{\hyperlink{classcudf_1_1lists__column__view}{cudf::lists\_column\_view}}\ \textcolor{keyword}{const}\&\ lists,}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00093}00093\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00099}\mbox{\hyperlink{group__lists__contains_gabc759fd5641585c3acfaea7e6a6a5981}{00099}}\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{group__lists__contains_gabc759fd5641585c3acfaea7e6a6a5981}{duplicate\_find\_option}}\ :\ int32\_t\ \{}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00100}00100\ \ \ \mbox{\hyperlink{group__lists__contains_ggabc759fd5641585c3acfaea7e6a6a5981a292f317162887f21487e7bc06fd90532}{FIND\_FIRST}}\ =\ 0,\ \ }
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00101}00101\ \ \ \mbox{\hyperlink{group__lists__contains_ggabc759fd5641585c3acfaea7e6a6a5981a76da49256092548ec4aa30325ef8f813}{FIND\_LAST}}\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00102}00102\ \};}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00133}\mbox{\hyperlink{group__lists__contains_gaa09390d7d862070a1df0740fc938ffab}{00133}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__lists__contains_gaa09390d7d862070a1df0740fc938ffab}{index\_of}}(}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00134}00134\ \ \ \mbox{\hyperlink{classcudf_1_1lists__column__view}{cudf::lists\_column\_view}}\ \textcolor{keyword}{const}\&\ lists,}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00135}00135\ \ \ \mbox{\hyperlink{classcudf_1_1scalar}{cudf::scalar}}\ \textcolor{keyword}{const}\&\ search\_key,}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00136}00136\ \ \ \mbox{\hyperlink{group__lists__contains_gabc759fd5641585c3acfaea7e6a6a5981}{duplicate\_find\_option}}\ find\_option\ \ \ =\ \mbox{\hyperlink{group__lists__contains_ggabc759fd5641585c3acfaea7e6a6a5981a292f317162887f21487e7bc06fd90532}{duplicate\_find\_option::FIND\_FIRST}},}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00137}00137\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00169}\mbox{\hyperlink{group__lists__contains_gaeb5c003b309b82c1832f76dd33efd432}{00169}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__lists__contains_gaa09390d7d862070a1df0740fc938ffab}{index\_of}}(}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00170}00170\ \ \ \mbox{\hyperlink{classcudf_1_1lists__column__view}{cudf::lists\_column\_view}}\ \textcolor{keyword}{const}\&\ lists,}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00171}00171\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ search\_keys,}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00172}00172\ \ \ \mbox{\hyperlink{group__lists__contains_gabc759fd5641585c3acfaea7e6a6a5981}{duplicate\_find\_option}}\ find\_option\ \ \ =\ \mbox{\hyperlink{group__lists__contains_ggabc759fd5641585c3acfaea7e6a6a5981a292f317162887f21487e7bc06fd90532}{duplicate\_find\_option::FIND\_FIRST}},}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00173}00173\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00174}00174\ \ \ \textcolor{comment}{//\ end\ of\ group}}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00176}00176\ \}\ \ \textcolor{comment}{//\ namespace\ lists}}
+\DoxyCodeLine{\Hypertarget{lists_2contains_8hpp_source_l00177}00177\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

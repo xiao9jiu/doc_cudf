@@ -1,0 +1,39 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/detail/gather.hpp 文件参考}
+\hypertarget{detail_2gather_8hpp}{}\label{detail_2gather_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/detail/gather.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/detail/gather.hpp}}
+{\ttfamily \#include $<$cudf/column/column\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/copying.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/table/table.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/table/table\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/utilities/default\+\_\+stream.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/utilities/span.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/cuda\+\_\+stream\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+gather.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{detail_2gather_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1detail}{cudf\+::detail}}
+\begin{DoxyCompactList}\small\item\em Inner interfaces and implementations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacecudf_1_1detail_a1c29a0e8458ffb159e91481c0f37b0f5}{cudf\+::detail\+::negative\+\_\+index\+\_\+policy}} \+: bool \{ \mbox{\hyperlink{namespacecudf_1_1detail_a1c29a0e8458ffb159e91481c0f37b0f5a9725825c796122ef40f01b2d8794f902}{cudf\+::detail\+::\+ALLOWED}}
+, \mbox{\hyperlink{namespacecudf_1_1detail_a1c29a0e8458ffb159e91481c0f37b0f5a4596302bc1e8ce6e62188e769aac94cf}{cudf\+::detail\+::\+NOT\+\_\+\+ALLOWED}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a5b23205b2ffc206924167683c00c48f5}{cudf\+::detail\+::gather}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&source\+\_\+table, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&gather\+\_\+map, \mbox{\hyperlink{group__column__copy_gae3ba74951558bc7966aae86abc6af5df}{out\+\_\+of\+\_\+bounds\+\_\+policy}} bounds\+\_\+policy, \mbox{\hyperlink{namespacecudf_1_1detail_a1c29a0e8458ffb159e91481c0f37b0f5}{negative\+\_\+index\+\_\+policy}} neg\+\_\+indices, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Gathers the specified rows of a set of columns according to a gather map. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_aef5dfc3e39242d68bd887f7e0b9fb373}{cudf\+::detail\+::gather}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&source\+\_\+table, \mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$ const gather\+\_\+map, \mbox{\hyperlink{group__column__copy_gae3ba74951558bc7966aae86abc6af5df}{out\+\_\+of\+\_\+bounds\+\_\+policy}} bounds\+\_\+policy, \mbox{\hyperlink{namespacecudf_1_1detail_a1c29a0e8458ffb159e91481c0f37b0f5}{negative\+\_\+index\+\_\+policy}} neg\+\_\+indices, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\end{DoxyCompactItemize}

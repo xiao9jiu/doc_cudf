@@ -1,0 +1,111 @@
+\doxysection{avro.\+hpp}
+\hypertarget{avro_8hpp_source}{}\label{avro_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/io/avro.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/io/avro.hpp}}
+\mbox{\hyperlink{avro_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2020-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_8hpp}{types.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{table__view_8hpp}{cudf/table/table\_view.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{types_8hpp}{cudf/types.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <rmm/mr/device/per\_device\_resource.hpp>}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00030}00030\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00031}\mbox{\hyperlink{namespacecudf_1_1io}{00031}}\ \textcolor{keyword}{namespace\ }io\ \{}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00038}00038\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder}{avro\_reader\_options\_builder}};}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00043}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options}{00043}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options}{avro\_reader\_options}}\ \{}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00044}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a2c377d2e55eb16d56f3ec2f554a2b22b}{00044}}\ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\_info}}\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a2c377d2e55eb16d56f3ec2f554a2b22b}{\_source}};}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00046}00046\ \ \ \textcolor{comment}{//\ Names\ of\ column\ to\ read;\ empty\ is\ all}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00047}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a27ed27f6bbea89a41cac072b49a8cdcf}{00047}}\ \ \ std::vector<std::string>\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a27ed27f6bbea89a41cac072b49a8cdcf}{\_columns}};}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00049}00049\ \ \ \textcolor{comment}{//\ Rows\ to\ skip\ from\ the\ start;}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00050}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a1daf0c3bb0e55eaf1ef8bb50d8b5aabb}{00050}}\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a1daf0c3bb0e55eaf1ef8bb50d8b5aabb}{\_skip\_rows}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00051}00051\ \ \ \textcolor{comment}{//\ Rows\ to\ read;\ -\/1\ is\ all}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00052}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a751e01971937a9d45bd4a6dae559e509}{00052}}\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a751e01971937a9d45bd4a6dae559e509}{\_num\_rows}}\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00059}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a7c7b4b3dc89cbd652d9f804b7aa789af}{00059}}\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a7c7b4b3dc89cbd652d9f804b7aa789af}{avro\_reader\_options}}(\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\_info}}\ \textcolor{keyword}{const}\&\ src)\ :\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a2c377d2e55eb16d56f3ec2f554a2b22b}{\_source}}(src)\ \{\}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00061}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a051be44ef6b5d9ca7f0d1d2ef161670d}{00061}}\ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a051be44ef6b5d9ca7f0d1d2ef161670d}{avro\_reader\_options\_builder}};}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00063}00063\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00069}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a067696bfb6a79e5fd81c9b1f1d9e845c}{00069}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a067696bfb6a79e5fd81c9b1f1d9e845c}{avro\_reader\_options}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00076}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a39a1eddf661d5e2fd2a4cc0c2ade69c8}{00076}}\ \ \ [[nodiscard]]\ \mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\_info}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a39a1eddf661d5e2fd2a4cc0c2ade69c8}{get\_source}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a2c377d2e55eb16d56f3ec2f554a2b22b}{\_source}};\ \}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00083}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a911aa8894294a210f63da401ca5239d0}{00083}}\ \ \ [[nodiscard]]\ std::vector<std::string>\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a911aa8894294a210f63da401ca5239d0}{get\_columns}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a27ed27f6bbea89a41cac072b49a8cdcf}{\_columns}};\ \}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00090}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_af9b4d3fd0f3b2286e8b3bfb841c86231}{00090}}\ \ \ [[nodiscard]]\ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_af9b4d3fd0f3b2286e8b3bfb841c86231}{get\_skip\_rows}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a1daf0c3bb0e55eaf1ef8bb50d8b5aabb}{\_skip\_rows}};\ \}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00097}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a8c170d535abfd0fd33381034651c7f1e}{00097}}\ \ \ [[nodiscard]]\ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a8c170d535abfd0fd33381034651c7f1e}{get\_num\_rows}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a751e01971937a9d45bd4a6dae559e509}{\_num\_rows}};\ \}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00104}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_ad0cc49d085b37072f28457dafe12781e}{00104}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_ad0cc49d085b37072f28457dafe12781e}{set\_columns}}(std::vector<std::string>\ col\_names)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a27ed27f6bbea89a41cac072b49a8cdcf}{\_columns}}\ =\ std::move(col\_names);\ \}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00111}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a8a9421d0a3cfdf623cf26762b265a9d8}{00111}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a8a9421d0a3cfdf623cf26762b265a9d8}{set\_skip\_rows}}(\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ val)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a1daf0c3bb0e55eaf1ef8bb50d8b5aabb}{\_skip\_rows}}\ =\ val;\ \}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00118}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_af51b2a9da8adf9c96e31bfa99134bf93}{00118}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_af51b2a9da8adf9c96e31bfa99134bf93}{set\_num\_rows}}(\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ val)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a751e01971937a9d45bd4a6dae559e509}{\_num\_rows}}\ =\ val;\ \}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00126}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a639e05774807854242055c8998ca2253}{00126}}\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder}{avro\_reader\_options\_builder}}\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a639e05774807854242055c8998ca2253}{builder}}(\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\_info}}\ \textcolor{keyword}{const}\&\ src);}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00127}00127\ \};}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00132}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder}{00132}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder}{avro\_reader\_options\_builder}}\ \{}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00133}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder_aa45e9b22dadd415a7e5d06fd1664ecfe}{00133}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options}{avro\_reader\_options}}\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder_aa45e9b22dadd415a7e5d06fd1664ecfe}{options}};}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00135}00135\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00141}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder_a0dfaa86b6687f7c0464d45b899d0f632}{00141}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder_a0dfaa86b6687f7c0464d45b899d0f632}{avro\_reader\_options\_builder}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00148}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder_a15d977b2a9b742e167579d3d7c70b0e6}{00148}}\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder_a15d977b2a9b742e167579d3d7c70b0e6}{avro\_reader\_options\_builder}}(\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\_info}}\ \textcolor{keyword}{const}\&\ src)\ :\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder_aa45e9b22dadd415a7e5d06fd1664ecfe}{options}}(src)\ \{\}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00156}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder_a4199fb1303b440d7c8065c401ce4c0aa}{00156}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder}{avro\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder_a4199fb1303b440d7c8065c401ce4c0aa}{columns}}(std::vector<std::string>\ col\_names)}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00157}00157\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00158}00158\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder_aa45e9b22dadd415a7e5d06fd1664ecfe}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a27ed27f6bbea89a41cac072b49a8cdcf}{\_columns}}\ =\ std::move(col\_names);}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00159}00159\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00160}00160\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00168}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder_a31a7494ee4a7f5e84f5fa8e19a9afd33}{00168}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder}{avro\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder_a31a7494ee4a7f5e84f5fa8e19a9afd33}{skip\_rows}}(\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ val)}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00169}00169\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00170}00170\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder_aa45e9b22dadd415a7e5d06fd1664ecfe}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a1daf0c3bb0e55eaf1ef8bb50d8b5aabb}{\_skip\_rows}}\ =\ val;}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00171}00171\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00172}00172\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00180}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder_a8ce5256c7a588cd04dd37032bea6bbdf}{00180}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder}{avro\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder_a8ce5256c7a588cd04dd37032bea6bbdf}{num\_rows}}(\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ val)}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00181}00181\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00182}00182\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder_aa45e9b22dadd415a7e5d06fd1664ecfe}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options_a751e01971937a9d45bd4a6dae559e509}{\_num\_rows}}\ =\ val;}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00183}00183\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00184}00184\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00189}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder_a21b516f308a4408c6374de6ddb4927ab}{00189}}\ \ \ \textcolor{keyword}{operator}\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options}{avro\_reader\_options}}\&\&()\ \{\ \textcolor{keywordflow}{return}\ std::move(\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder_aa45e9b22dadd415a7e5d06fd1664ecfe}{options}});\ \}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00198}\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder_af61d948d34a3de3613547050c7fda2dd}{00198}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options}{avro\_reader\_options}}\&\&\ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder_af61d948d34a3de3613547050c7fda2dd}{build}}()\ \{\ \textcolor{keywordflow}{return}\ std::move(\mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options__builder_aa45e9b22dadd415a7e5d06fd1664ecfe}{options}});\ \}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00199}00199\ \};}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00217}\mbox{\hyperlink{group__io__readers_gadb5c002fab990ed420e7e80d8354e718}{00217}}\ \mbox{\hyperlink{structcudf_1_1io_1_1table__with__metadata}{table\_with\_metadata}}\ \mbox{\hyperlink{group__io__readers_gadb5c002fab990ed420e7e80d8354e718}{read\_avro}}(}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00218}00218\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1avro__reader__options}{avro\_reader\_options}}\ \textcolor{keyword}{const}\&\ options,}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00219}00219\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00220}00220\ \ \ \textcolor{comment}{//\ end\ of\ group}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00222}00222\ \}\ \ \textcolor{comment}{//\ namespace\ io}}
+\DoxyCodeLine{\Hypertarget{avro_8hpp_source_l00223}00223\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

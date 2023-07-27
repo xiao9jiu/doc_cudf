@@ -1,0 +1,60 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/strings/detail/utf8.hpp 文件参考}
+\hypertarget{utf8_8hpp}{}\label{utf8_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/strings/detail/utf8.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/strings/detail/utf8.hpp}}
+
+
+Standalone string functions.  
+
+
+{\ttfamily \#include $<$cudf/types.\+hpp$>$}\newline
+utf8.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{utf8_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1strings}{cudf\+::strings}}
+\begin{DoxyCompactList}\small\item\em Strings column APIs \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail}{cudf\+::strings\+::detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{类型定义}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{cudf\+::char\+\_\+utf8}} = uint32\+\_\+t
+\begin{DoxyCompactList}\small\item\em UTF-\/8 characters are 1-\/4 bytes \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+constexpr bool \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a97882ae2ec7e0fbd7095aa6fe2be2bc1}{cudf\+::strings\+::detail\+::is\+\_\+utf8\+\_\+continuation\+\_\+char}} (unsigned char chr)
+\begin{DoxyCompactList}\small\item\em This will return true if passed a continuation byte of a UTF-\/8 character. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a47f61f43b790c0fd73c7c20d08e71858}{cudf\+::strings\+::detail\+::is\+\_\+begin\+\_\+utf8\+\_\+char}} (unsigned char chr)
+\begin{DoxyCompactList}\small\item\em This will return true if passed the first byte of a UTF-\/8 character. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_afb2de37c34a18957755e610fb13ca7db}{cudf\+::strings\+::detail\+::is\+\_\+valid\+\_\+begin\+\_\+utf8\+\_\+char}} (uint8\+\_\+t byte)
+\begin{DoxyCompactList}\small\item\em This will return true if the passed in byte could be the start of a valid UTF-\/8 character. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_aedd35aa84a624d2d86e9843267a0f702}{cudf\+::strings\+::detail\+::bytes\+\_\+in\+\_\+char\+\_\+utf8}} (\mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{char\+\_\+utf8}} character)
+\begin{DoxyCompactList}\small\item\em Returns the number of bytes in the specified character. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a84fc81ed8c5309e773228f5c7cca5acf}{cudf\+::strings\+::detail\+::bytes\+\_\+in\+\_\+utf8\+\_\+byte}} (uint8\+\_\+t byte)
+\begin{DoxyCompactList}\small\item\em Returns the number of bytes used to represent the provided byte. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a4859c71d3da9bd19a9a213411a91ac1a}{cudf\+::strings\+::detail\+::to\+\_\+char\+\_\+utf8}} (const char \texorpdfstring{$\ast$}{*}str, \mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{char\+\_\+utf8}} \&character)
+\begin{DoxyCompactList}\small\item\em Convert a char array into a char\+\_\+utf8 value. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a1116f22b0a7433ae97db9be910aa8ccd}{cudf\+::strings\+::detail\+::from\+\_\+char\+\_\+utf8}} (\mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{char\+\_\+utf8}} character, char \texorpdfstring{$\ast$}{*}str)
+\begin{DoxyCompactList}\small\item\em Place a char\+\_\+utf8 value into a char array. \end{DoxyCompactList}\item 
+constexpr uint32\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a1e06c92ed6f860d3e2009fa0f986b0e1}{cudf\+::strings\+::detail\+::utf8\+\_\+to\+\_\+codepoint}} (\mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{cudf\+::char\+\_\+utf8}} utf8\+\_\+char)
+\begin{DoxyCompactList}\small\item\em Converts a single UTF-\/8 character into a code-\/point value that can be used for lookup in the character flags or the character case tables. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{cudf\+::char\+\_\+utf8}} \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a1c65ee80af8fe6f7842c495d878c22a8}{cudf\+::strings\+::detail\+::codepoint\+\_\+to\+\_\+utf8}} (uint32\+\_\+t unchr)
+\begin{DoxyCompactList}\small\item\em Converts a character code-\/point value into a UTF-\/8 character. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Standalone string functions. 
+
+
+
+在文件 \mbox{\hyperlink{utf8_8hpp_source}{utf8.\+hpp}} 中定义.
+

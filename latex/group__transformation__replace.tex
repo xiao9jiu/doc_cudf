@@ -1,0 +1,414 @@
+\doxysection{Transformation\+\_\+replace}
+\hypertarget{group__transformation__replace}{}\label{group__transformation__replace}\index{Transformation\_replace@{Transformation\_replace}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{replace_8hpp}{replace.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__transformation__replace_ga7cdbc9bc3671930a743c86f36c38abf9}{cudf\+::replace\+\_\+policy}} \+: bool \{ \mbox{\hyperlink{group__transformation__replace_gga7cdbc9bc3671930a743c86f36c38abf9ab807500d0d02793339457f52b1914b90}{cudf\+::replace\+\_\+policy\+::\+PRECEDING}}
+, \mbox{\hyperlink{group__transformation__replace_gga7cdbc9bc3671930a743c86f36c38abf9ac172d52647d4fd6f81a2c3110d150c6a}{cudf\+::replace\+\_\+policy\+::\+FOLLOWING}}
+ \}
+\begin{DoxyCompactList}\small\item\em Policy to specify the position of replacement values relative to null rows \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__replace_gaebc49ddd15a8081dd2f99656de6f9d65}{cudf\+::replace\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&replacement, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Replaces all null values in a column with corresponding values of another column \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__replace_gae7795cfacadd6c1f100661afcfa0b63a}{cudf\+::replace\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&replacement, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Replaces all null values in a column with a scalar. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__replace_ga6240f27d9015ee38e957231c075ccb94}{cudf\+::replace\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{group__transformation__replace_ga7cdbc9bc3671930a743c86f36c38abf9}{replace\+\_\+policy}} const \&\mbox{\hyperlink{group__transformation__replace_ga7cdbc9bc3671930a743c86f36c38abf9}{replace\+\_\+policy}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Replaces all null values in a column with the first non-\/null value that precedes/follows. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__replace_ga63c76ec5fe77cb120d7100885bcddc5a}{cudf\+::replace\+\_\+nans}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&replacement, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Replaces all NaN values in a column with corresponding values from another column \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__replace_ga1276ab849fe5b0bef1024d0bcb4fc650}{cudf\+::replace\+\_\+nans}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&replacement, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Replaces all NaN values in a column with a scalar \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__replace_ga651a5fd9cf77f0ecaa9113715003fb7b}{cudf\+::find\+\_\+and\+\_\+replace\+\_\+all}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input\+\_\+col, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&values\+\_\+to\+\_\+replace, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&replacement\+\_\+values, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Return a copy of {\ttfamily input\+\_\+col} replacing any {\ttfamily values\+\_\+to\+\_\+replace\mbox{[}i\mbox{]}} found with {\ttfamily replacement\+\_\+values\mbox{[}i\mbox{]}}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__replace_gad6469ac807630034caf052c9e424712c}{cudf\+::clamp}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&lo, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&lo\+\_\+replace, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&hi, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&hi\+\_\+replace, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Replaces values less than {\ttfamily lo} in {\ttfamily input} with {\ttfamily lo\+\_\+replace}, and values greater than {\ttfamily hi} with {\ttfamily hi\+\_\+replace}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__replace_ga66a4270774c8c677a191d3aae79bb918}{cudf\+::clamp}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&lo, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&hi, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Replaces values less than {\ttfamily lo} in {\ttfamily input} with {\ttfamily lo}, and values greater than {\ttfamily hi} with {\ttfamily hi}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__replace_ga476eec13cde16b1ab30950a56317e5f6}{cudf\+::normalize\+\_\+nans\+\_\+and\+\_\+zeros}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Copies from a column of floating-\/point elements and replaces {\ttfamily -\/NaN} and {\ttfamily -\/0.\+0} with {\ttfamily +NaN} and {\ttfamily +0.\+0}, respectively. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__transformation__replace_gab2e8dd1b37b4175001b89219ab8ac96f}{cudf\+::normalize\+\_\+nans\+\_\+and\+\_\+zeros}} (\mbox{\hyperlink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view}} \&in\+\_\+out)
+\begin{DoxyCompactList}\small\item\em Modifies a column of floating-\/point elements to replace all {\ttfamily -\/NaN} and {\ttfamily -\/0.\+0} with {\ttfamily +NaN} and {\ttfamily +0.\+0}, respectively. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{枚举类型说明}
+\Hypertarget{group__transformation__replace_ga7cdbc9bc3671930a743c86f36c38abf9}\label{group__transformation__replace_ga7cdbc9bc3671930a743c86f36c38abf9} 
+\index{Transformation\_replace@{Transformation\_replace}!replace\_policy@{replace\_policy}}
+\index{replace\_policy@{replace\_policy}!Transformation\_replace@{Transformation\_replace}}
+\doxysubsubsection{\texorpdfstring{replace\_policy}{replace\_policy}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__transformation__replace_ga7cdbc9bc3671930a743c86f36c38abf9}{cudf\+::replace\+\_\+policy}} \+: bool\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Policy to specify the position of replacement values relative to null rows 
+
+{\ttfamily PRECEDING} means the replacement value is the first non-\/null value preceding the null row. {\ttfamily FOLLOWING} means the replacement value is the first non-\/null value following the null row. \begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PRECEDING@{PRECEDING}!Transformation\_replace@{Transformation\_replace}}\index{Transformation\_replace@{Transformation\_replace}!PRECEDING@{PRECEDING}}}\Hypertarget{group__transformation__replace_gga7cdbc9bc3671930a743c86f36c38abf9ab807500d0d02793339457f52b1914b90}\label{group__transformation__replace_gga7cdbc9bc3671930a743c86f36c38abf9ab807500d0d02793339457f52b1914b90} 
+PRECEDING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FOLLOWING@{FOLLOWING}!Transformation\_replace@{Transformation\_replace}}\index{Transformation\_replace@{Transformation\_replace}!FOLLOWING@{FOLLOWING}}}\Hypertarget{group__transformation__replace_gga7cdbc9bc3671930a743c86f36c38abf9ac172d52647d4fd6f81a2c3110d150c6a}\label{group__transformation__replace_gga7cdbc9bc3671930a743c86f36c38abf9ac172d52647d4fd6f81a2c3110d150c6a} 
+FOLLOWING&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{replace_8hpp_source}{replace.\+hpp}} 第 \mbox{\hyperlink{replace_8hpp_source_l00038}{38}} 行定义.
+
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__transformation__replace_ga66a4270774c8c677a191d3aae79bb918}\label{group__transformation__replace_ga66a4270774c8c677a191d3aae79bb918} 
+\index{Transformation\_replace@{Transformation\_replace}!clamp@{clamp}}
+\index{clamp@{clamp}!Transformation\_replace@{Transformation\_replace}}
+\doxysubsubsection{\texorpdfstring{clamp()}{clamp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::clamp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&}]{lo,  }\item[{\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&}]{hi,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Replaces values less than {\ttfamily lo} in {\ttfamily input} with {\ttfamily lo}, and values greater than {\ttfamily hi} with {\ttfamily hi}. 
+
+if {\ttfamily lo} is invalid, then lo will not be considered while evaluating the input (Essentially considered minimum value of that type). if {\ttfamily hi} is invalid, then hi will not be considered while evaluating the input (Essentially considered maximum value of that type).
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{\ \ \ input:\ \{1,\ 2,\ 3,\ NULL,\ 5,\ 6,\ 7\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ valid\ lo\ and\ hi}
+\DoxyCodeLine{\ \ \ lo:\ 3,\ hi:\ 5}
+\DoxyCodeLine{\ \ \ output:\{3,\ 3,\ 3,\ NULL,\ 5,\ 5,\ 5\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \mbox{\hyperlink{namespacecudf_1_1io_1_1text_1_1detail_afa2febf496d174632369d5b8314caa20afedb2d84cafe20862cb4399751a8a7e3}{invalid}}\ lo}
+\DoxyCodeLine{\ \ \ lo:\ NULL,\ hi:5}
+\DoxyCodeLine{\ \ \ output:\{1,\ 2,\ 3,\ NULL,\ 5,\ 5,\ 5\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \mbox{\hyperlink{namespacecudf_1_1io_1_1text_1_1detail_afa2febf496d174632369d5b8314caa20afedb2d84cafe20862cb4399751a8a7e3}{invalid}}\ hi}
+\DoxyCodeLine{\ \ \ lo:\ 3,\ hi:NULL}
+\DoxyCodeLine{\ \ \ output:\{3,\ 3,\ 3,\ NULL,\ 5,\ 6,\ 7\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily lo.\+type() != hi.\+type()} \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily lo.\+type() != input.\+type()}\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & Column whose elements will be clamped \\
+\hline
+\mbox{\texttt{ in}}  & {\em lo} & Minimum clamp value. All elements less than {\ttfamily lo} will be replaced by {\ttfamily lo} Ignored if null. \\
+\hline
+\mbox{\texttt{ in}}  & {\em hi} & Maximum clamp value. All elements greater than {\ttfamily hi} will be replaced by {\ttfamily hi} Ignored if null. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate device memory of the returned column\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Returns a clamped column as per {\ttfamily lo} and {\ttfamily hi} boundaries 
+\end{DoxyReturn}
+\Hypertarget{group__transformation__replace_gad6469ac807630034caf052c9e424712c}\label{group__transformation__replace_gad6469ac807630034caf052c9e424712c} 
+\index{Transformation\_replace@{Transformation\_replace}!clamp@{clamp}}
+\index{clamp@{clamp}!Transformation\_replace@{Transformation\_replace}}
+\doxysubsubsection{\texorpdfstring{clamp()}{clamp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::clamp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&}]{lo,  }\item[{\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&}]{lo\+\_\+replace,  }\item[{\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&}]{hi,  }\item[{\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&}]{hi\+\_\+replace,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Replaces values less than {\ttfamily lo} in {\ttfamily input} with {\ttfamily lo\+\_\+replace}, and values greater than {\ttfamily hi} with {\ttfamily hi\+\_\+replace}. 
+
+if {\ttfamily lo} is invalid, then lo will not be considered while evaluating the input (Essentially considered minimum value of that type). if {\ttfamily hi} is invalid, then hi will not be considered while evaluating the input (Essentially considered maximum value of that type).
+
+\begin{DoxyNote}{注解}
+\+: If {\ttfamily lo} is valid then {\ttfamily lo\+\_\+replace} should be valid If {\ttfamily hi} is valid then {\ttfamily hi\+\_\+replace} should be valid
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{\ \ \ input:\ \{1,\ 2,\ 3,\ NULL,\ 5,\ 6,\ 7\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ valid\ lo\ and\ hi}
+\DoxyCodeLine{\ \ \ lo:\ 3,\ hi:\ 5,\ lo\_replace\ :\ 0,\ hi\_replace\ :\ 16}
+\DoxyCodeLine{\ \ \ output:\{0,\ 0,\ 3,\ NULL,\ 5,\ 16,\ 16\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \mbox{\hyperlink{namespacecudf_1_1io_1_1text_1_1detail_afa2febf496d174632369d5b8314caa20afedb2d84cafe20862cb4399751a8a7e3}{invalid}}\ lo}
+\DoxyCodeLine{\ \ \ lo:\ NULL,\ hi:\ 5,\ lo\_replace\ :\ 0,\ hi\_replace\ :\ 16}
+\DoxyCodeLine{\ \ \ output:\{1,\ 2,\ 3,\ NULL,\ 5,\ 16,\ 16\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \mbox{\hyperlink{namespacecudf_1_1io_1_1text_1_1detail_afa2febf496d174632369d5b8314caa20afedb2d84cafe20862cb4399751a8a7e3}{invalid}}\ hi}
+\DoxyCodeLine{\ \ \ lo:\ 3,\ hi:\ NULL,\ lo\_replace\ :\ 0,\ hi\_replace\ :\ 16}
+\DoxyCodeLine{\ \ \ output:\{0,\ 0,\ 3,\ NULL,\ 5,\ 6,\ 7\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily lo.\+type() != hi.\+type()} \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily lo\+\_\+replace.\+type() != hi\+\_\+replace.\+type()} \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily lo.\+type() != lo\+\_\+replace.\+type()} \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily lo.\+type() != input.\+type()}\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & Column whose elements will be clamped \\
+\hline
+\mbox{\texttt{ in}}  & {\em lo} & Minimum clamp value. All elements less than {\ttfamily lo} will be replaced by {\ttfamily lo\+\_\+replace} Ignored if null. \\
+\hline
+\mbox{\texttt{ in}}  & {\em lo\+\_\+replace} & All elements less than {\ttfamily lo} will be replaced by {\ttfamily lo\+\_\+replace} \\
+\hline
+\mbox{\texttt{ in}}  & {\em hi} & Maximum clamp value. All elements greater than {\ttfamily hi} will be replaced by {\ttfamily hi\+\_\+replace}. Ignored if null. \\
+\hline
+\mbox{\texttt{ in}}  & {\em hi\+\_\+replace} & All elements greater than {\ttfamily hi} will be replaced by {\ttfamily hi\+\_\+replace} \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate device memory of the returned column\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Returns a clamped column as per {\ttfamily lo} and {\ttfamily hi} boundaries 
+\end{DoxyReturn}
+\Hypertarget{group__transformation__replace_ga651a5fd9cf77f0ecaa9113715003fb7b}\label{group__transformation__replace_ga651a5fd9cf77f0ecaa9113715003fb7b} 
+\index{Transformation\_replace@{Transformation\_replace}!find\_and\_replace\_all@{find\_and\_replace\_all}}
+\index{find\_and\_replace\_all@{find\_and\_replace\_all}!Transformation\_replace@{Transformation\_replace}}
+\doxysubsubsection{\texorpdfstring{find\_and\_replace\_all()}{find\_and\_replace\_all()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::find\+\_\+and\+\_\+replace\+\_\+all (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input\+\_\+col,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{values\+\_\+to\+\_\+replace,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{replacement\+\_\+values,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Return a copy of {\ttfamily input\+\_\+col} replacing any {\ttfamily values\+\_\+to\+\_\+replace\mbox{[}i\mbox{]}} found with {\ttfamily replacement\+\_\+values\mbox{[}i\mbox{]}}. 
+
+
+\begin{DoxyParams}{参数}
+{\em input\+\_\+col} & The column to find and replace values in \\
+\hline
+{\em values\+\_\+to\+\_\+replace} & The values to replace \\
+\hline
+{\em replacement\+\_\+values} & The values to replace with \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Copy of {\ttfamily input\+\_\+col} with specified values replaced 
+\end{DoxyReturn}
+\Hypertarget{group__transformation__replace_ga476eec13cde16b1ab30950a56317e5f6}\label{group__transformation__replace_ga476eec13cde16b1ab30950a56317e5f6} 
+\index{Transformation\_replace@{Transformation\_replace}!normalize\_nans\_and\_zeros@{normalize\_nans\_and\_zeros}}
+\index{normalize\_nans\_and\_zeros@{normalize\_nans\_and\_zeros}!Transformation\_replace@{Transformation\_replace}}
+\doxysubsubsection{\texorpdfstring{normalize\_nans\_and\_zeros()}{normalize\_nans\_and\_zeros()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::normalize\+\_\+nans\+\_\+and\+\_\+zeros (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Copies from a column of floating-\/point elements and replaces {\ttfamily -\/NaN} and {\ttfamily -\/0.\+0} with {\ttfamily +NaN} and {\ttfamily +0.\+0}, respectively. 
+
+Converts floating point values from {\ttfamily input} using the following rules\+: Convert -\/NaN -\/\texorpdfstring{$>$}{>} NaN Convert -\/0.\+0 -\/\texorpdfstring{$>$}{>} 0.\+0
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if column does not have floating point data type. \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & \doxylink{classcudf_1_1column__view}{column\+\_\+view} of floating-\/point elements to copy and normalize \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & device\+\_\+memory\+\_\+resource allocator for allocating output data\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+new column with the modified data 
+\end{DoxyReturn}
+\Hypertarget{group__transformation__replace_gab2e8dd1b37b4175001b89219ab8ac96f}\label{group__transformation__replace_gab2e8dd1b37b4175001b89219ab8ac96f} 
+\index{Transformation\_replace@{Transformation\_replace}!normalize\_nans\_and\_zeros@{normalize\_nans\_and\_zeros}}
+\index{normalize\_nans\_and\_zeros@{normalize\_nans\_and\_zeros}!Transformation\_replace@{Transformation\_replace}}
+\doxysubsubsection{\texorpdfstring{normalize\_nans\_and\_zeros()}{normalize\_nans\_and\_zeros()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void cudf\+::normalize\+\_\+nans\+\_\+and\+\_\+zeros (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view}} \&}]{in\+\_\+out }\end{DoxyParamCaption})}
+
+
+
+Modifies a column of floating-\/point elements to replace all {\ttfamily -\/NaN} and {\ttfamily -\/0.\+0} with {\ttfamily +NaN} and {\ttfamily +0.\+0}, respectively. 
+
+Converts floating point values from {\ttfamily in\+\_\+out} using the following rules\+: Convert -\/NaN -\/\texorpdfstring{$>$}{>} NaN Convert -\/0.\+0 -\/\texorpdfstring{$>$}{>} 0.\+0
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if column does not have floating point data type. \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in,out}}  & {\em in\+\_\+out} & of floating-\/point elements to normalize \\
+\hline
+\end{DoxyParams}
+\Hypertarget{group__transformation__replace_ga63c76ec5fe77cb120d7100885bcddc5a}\label{group__transformation__replace_ga63c76ec5fe77cb120d7100885bcddc5a} 
+\index{Transformation\_replace@{Transformation\_replace}!replace\_nans@{replace\_nans}}
+\index{replace\_nans@{replace\_nans}!Transformation\_replace@{Transformation\_replace}}
+\doxysubsubsection{\texorpdfstring{replace\_nans()}{replace\_nans()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::replace\+\_\+nans (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{replacement,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Replaces all NaN values in a column with corresponding values from another column 
+
+If {\ttfamily input\mbox{[}i\mbox{]}} is NaN, then {\ttfamily output\mbox{[}i\mbox{]}} will contain {\ttfamily replacement\mbox{[}i\mbox{]}}. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{input\ \ \ \ \ \ \ \ =\ \{1.0,\ NaN,\ 4.0\}}
+\DoxyCodeLine{replacement\ \ =\ \{3.0,\ 9.0,\ 7.0\}}
+\DoxyCodeLine{output\ \ \ \ \ \ \ =\ \{1.0,\ 9.0,\ 4.0\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{注解}
+Nulls are not considered as NaN
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & If {\ttfamily input} and {\ttfamily replacement} are of different type or size. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & If {\ttfamily input} or {\ttfamily replacement} are not of floating-\/point dtype.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & A column whose NaN values will be replaced \\
+\hline
+{\em replacement} & A \doxylink{classcudf_1_1column}{cudf\+::column} whose values will replace NaN values in input \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A copy of {\ttfamily input} with the NaN values replaced with corresponding values from {\ttfamily replacement}. 
+\end{DoxyReturn}
+\Hypertarget{group__transformation__replace_ga1276ab849fe5b0bef1024d0bcb4fc650}\label{group__transformation__replace_ga1276ab849fe5b0bef1024d0bcb4fc650} 
+\index{Transformation\_replace@{Transformation\_replace}!replace\_nans@{replace\_nans}}
+\index{replace\_nans@{replace\_nans}!Transformation\_replace@{Transformation\_replace}}
+\doxysubsubsection{\texorpdfstring{replace\_nans()}{replace\_nans()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::replace\+\_\+nans (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&}]{replacement,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Replaces all NaN values in a column with a scalar 
+
+If {\ttfamily input\mbox{[}i\mbox{]}} is NaN, then {\ttfamily output\mbox{[}i\mbox{]}} will contain {\ttfamily replacement}. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{input\ \ \ \ \ \ \ \ =\ \{1.0,\ NaN,\ 4.0\}}
+\DoxyCodeLine{replacement\ \ =\ 7.0}
+\DoxyCodeLine{output\ \ \ \ \ \ \ =\ \{1.0,\ 7.0,\ 4.0\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{注解}
+Nulls are not considered as NaN
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & If {\ttfamily input} and {\ttfamily replacement} are of different type. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & If {\ttfamily input} or {\ttfamily replacement} are not of floating-\/point dtype.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & A column whose NaN values will be replaced \\
+\hline
+{\em replacement} & A \doxylink{classcudf_1_1scalar}{cudf\+::scalar} whose value will replace NaN values in input \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A copy of {\ttfamily input} with the NaN values replaced by {\ttfamily replacement} 
+\end{DoxyReturn}
+\Hypertarget{group__transformation__replace_gaebc49ddd15a8081dd2f99656de6f9d65}\label{group__transformation__replace_gaebc49ddd15a8081dd2f99656de6f9d65} 
+\index{Transformation\_replace@{Transformation\_replace}!replace\_nulls@{replace\_nulls}}
+\index{replace\_nulls@{replace\_nulls}!Transformation\_replace@{Transformation\_replace}}
+\doxysubsubsection{\texorpdfstring{replace\_nulls()}{replace\_nulls()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::replace\+\_\+nulls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{replacement,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Replaces all null values in a column with corresponding values of another column 
+
+If {\ttfamily input\mbox{[}i\mbox{]}} is NULL, then {\ttfamily output\mbox{[}i\mbox{]}} will contain {\ttfamily replacement\mbox{[}i\mbox{]}}. {\ttfamily input} and {\ttfamily replacement} must be of the same type and size.
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & A column whose null values will be replaced \\
+\hline
+\mbox{\texttt{ in}}  & {\em replacement} & A \doxylink{classcudf_1_1column}{cudf\+::column} whose values will replace null values in input \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate device memory of the returned column\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A copy of {\ttfamily input} with the null values replaced with corresponding values from {\ttfamily replacement}. 
+\end{DoxyReturn}
+\Hypertarget{group__transformation__replace_ga6240f27d9015ee38e957231c075ccb94}\label{group__transformation__replace_ga6240f27d9015ee38e957231c075ccb94} 
+\index{Transformation\_replace@{Transformation\_replace}!replace\_nulls@{replace\_nulls}}
+\index{replace\_nulls@{replace\_nulls}!Transformation\_replace@{Transformation\_replace}}
+\doxysubsubsection{\texorpdfstring{replace\_nulls()}{replace\_nulls()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::replace\+\_\+nulls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__transformation__replace_ga7cdbc9bc3671930a743c86f36c38abf9}{replace\+\_\+policy}} const \&}]{replace\+\_\+policy,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Replaces all null values in a column with the first non-\/null value that precedes/follows. 
+
+If {\ttfamily input\mbox{[}i\mbox{]}} is NULL, then {\ttfamily output\mbox{[}i\mbox{]}} will contain the first non-\/null value that precedes or follows the null value, based on {\ttfamily replace\+\_\+policy}.
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & A column whose null values will be replaced \\
+\hline
+\mbox{\texttt{ in}}  & {\em replace\+\_\+policy} & Specify the position of replacement values relative to null values \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate device memory of the returned column\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Copy of {\ttfamily input} with null values replaced based on {\ttfamily replace\+\_\+policy} 
+\end{DoxyReturn}
+\Hypertarget{group__transformation__replace_gae7795cfacadd6c1f100661afcfa0b63a}\label{group__transformation__replace_gae7795cfacadd6c1f100661afcfa0b63a} 
+\index{Transformation\_replace@{Transformation\_replace}!replace\_nulls@{replace\_nulls}}
+\index{replace\_nulls@{replace\_nulls}!Transformation\_replace@{Transformation\_replace}}
+\doxysubsubsection{\texorpdfstring{replace\_nulls()}{replace\_nulls()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::replace\+\_\+nulls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&}]{replacement,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Replaces all null values in a column with a scalar. 
+
+If {\ttfamily input\mbox{[}i\mbox{]}} is NULL, then {\ttfamily output\mbox{[}i\mbox{]}} will contain {\ttfamily replacement}. {\ttfamily input} and {\ttfamily replacement} must have the same type.
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & A column whose null values will be replaced \\
+\hline
+\mbox{\texttt{ in}}  & {\em replacement} & Scalar used to replace null values in {\ttfamily input} \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate device memory of the returned column\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Copy of {\ttfamily input} with null values replaced by {\ttfamily replacement} 
+\end{DoxyReturn}

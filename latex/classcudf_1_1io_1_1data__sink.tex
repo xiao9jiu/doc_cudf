@@ -1,0 +1,341 @@
+\doxysection{cudf\+::io\+::data\+\_\+sink类 参考}
+\hypertarget{classcudf_1_1io_1_1data__sink}{}\label{classcudf_1_1io_1_1data__sink}\index{cudf::io::data\_sink@{cudf::io::data\_sink}}
+
+
+Interface class for storing the output data from the writers  
+
+
+
+
+{\ttfamily \#include $<$data\+\_\+sink.\+hpp$>$}
+
+
+
+cudf\+::io\+::data\+\_\+sink 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{classcudf_1_1io_1_1data__sink__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a778f6bad53ffc49dc6285dd8a9879f73}{\texorpdfstring{$\sim$}{\string~}data\+\_\+sink}} ()
+\begin{DoxyCompactList}\small\item\em Base class destructor \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_ab68621d609bd643680481195dc07422c}{host\+\_\+write}} (void const \texorpdfstring{$\ast$}{*}data, size\+\_\+t size)=0
+\begin{DoxyCompactList}\small\item\em Append the buffer content to the sink \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a3a2904b3b6e1167676f0d88e3324a3b3}{supports\+\_\+device\+\_\+write}} () const
+\begin{DoxyCompactList}\small\item\em Whether or not this sink supports writing from gpu memory addresses. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a61919a2f46a62914b64cb1756058f7a3}{is\+\_\+device\+\_\+write\+\_\+preferred}} (size\+\_\+t size) const
+\begin{DoxyCompactList}\small\item\em Estimates whether a direct device write would be more optimal for the given size. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a2a1de8c173d8320ba6e65e3ca72bb54c}{device\+\_\+write}} (void const \texorpdfstring{$\ast$}{*}gpu\+\_\+data, size\+\_\+t size, rmm\+::cuda\+\_\+stream\+\_\+view stream)
+\begin{DoxyCompactList}\small\item\em Append the buffer content to the sink from a gpu address \end{DoxyCompactList}\item 
+virtual std\+::future$<$ void $>$ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a33e8b3322ddc23f1d5be7ee2407a3b96}{device\+\_\+write\+\_\+async}} (void const \texorpdfstring{$\ast$}{*}gpu\+\_\+data, size\+\_\+t size, rmm\+::cuda\+\_\+stream\+\_\+view stream)
+\begin{DoxyCompactList}\small\item\em Asynchronously append the buffer content to the sink from a gpu address \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a059e16ef19d5901feed0098bc97babfa}{flush}} ()=0
+\begin{DoxyCompactList}\small\item\em Flush the data written into the sink \end{DoxyCompactList}\item 
+virtual size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a8b43b4b466aa55d96366e4fd934dd971}{bytes\+\_\+written}} ()=0
+\begin{DoxyCompactList}\small\item\em Returns the total number of bytes written into this sink \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{data\+\_\+sink}} $>$ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a548c5228c6f57f77346a4095c6718a02}{create}} (const std\+::string \&filepath)
+\begin{DoxyCompactList}\small\item\em Create a sink from a file path \end{DoxyCompactList}\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{data\+\_\+sink}} $>$ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a17a0c509947e843ce99f444d722e4fef}{create}} (std\+::vector$<$ char $>$ \texorpdfstring{$\ast$}{*}buffer)
+\begin{DoxyCompactList}\small\item\em Create a sink from a std\+::vector \end{DoxyCompactList}\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{data\+\_\+sink}} $>$ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_aaa8d5a963e97b707296df3d4e3b2552c}{create}} ()
+\begin{DoxyCompactList}\small\item\em Create a void sink (one that does no actual io) \end{DoxyCompactList}\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{data\+\_\+sink}} $>$ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a9c322a48d51176301f3a157291c09fbd}{create}} (\mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{cudf\+::io\+::data\+\_\+sink}} \texorpdfstring{$\ast$}{*}const user\+\_\+sink)
+\begin{DoxyCompactList}\small\item\em Create a wrapped custom user data sink \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\static std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{data\+\_\+sink}} $>$ $>$ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a09d85364483b33d6eddd24f031954fb7}{create}} (std\+::vector$<$ T $>$ const \&args)
+\begin{DoxyCompactList}\small\item\em Creates a vector of data sinks, one per element in the input vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Interface class for storing the output data from the writers 
+
+在文件 \mbox{\hyperlink{data__sink_8hpp_source}{data\+\_\+sink.\+hpp}} 第 \mbox{\hyperlink{data__sink_8hpp_source_l00035}{35}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1io_1_1data__sink_a778f6bad53ffc49dc6285dd8a9879f73}\label{classcudf_1_1io_1_1data__sink_a778f6bad53ffc49dc6285dd8a9879f73} 
+\index{cudf::io::data\_sink@{cudf::io::data\_sink}!````~data\_sink@{\texorpdfstring{$\sim$}{\string~}data\_sink}}
+\index{````~data\_sink@{\texorpdfstring{$\sim$}{\string~}data\_sink}!cudf::io::data\_sink@{cudf::io::data\_sink}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}data\_sink()}{\string~data\_sink()}}
+{\footnotesize\ttfamily virtual cudf\+::io\+::data\+\_\+sink\+::\texorpdfstring{$\sim$}{\string~}data\+\_\+sink (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Base class destructor 
+
+
+
+在文件 \mbox{\hyperlink{data__sink_8hpp_source}{data\+\_\+sink.\+hpp}} 第 \mbox{\hyperlink{data__sink_8hpp_source_l00096}{96}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1io_1_1data__sink_a8b43b4b466aa55d96366e4fd934dd971}\label{classcudf_1_1io_1_1data__sink_a8b43b4b466aa55d96366e4fd934dd971} 
+\index{cudf::io::data\_sink@{cudf::io::data\_sink}!bytes\_written@{bytes\_written}}
+\index{bytes\_written@{bytes\_written}!cudf::io::data\_sink@{cudf::io::data\_sink}}
+\doxysubsubsection{\texorpdfstring{bytes\_written()}{bytes\_written()}}
+{\footnotesize\ttfamily virtual size\+\_\+t cudf\+::io\+::data\+\_\+sink\+::bytes\+\_\+written (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns the total number of bytes written into this sink 
+
+\begin{DoxyReturn}{返回}
+size\+\_\+t Total number of bytes written into this sink 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1io_1_1data__sink_aaa8d5a963e97b707296df3d4e3b2552c}\label{classcudf_1_1io_1_1data__sink_aaa8d5a963e97b707296df3d4e3b2552c} 
+\index{cudf::io::data\_sink@{cudf::io::data\_sink}!create@{create}}
+\index{create@{create}!cudf::io::data\_sink@{cudf::io::data\_sink}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{data\+\_\+sink}} $>$ cudf\+::io\+::data\+\_\+sink\+::create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create a void sink (one that does no actual io) 
+
+A useful code path for benchmarking, to eliminate physical hardware randomness from profiling.
+
+\begin{DoxyReturn}{返回}
+Constructed \doxylink{classcudf_1_1io_1_1data__sink}{data\+\_\+sink} object 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1io_1_1data__sink_a548c5228c6f57f77346a4095c6718a02}\label{classcudf_1_1io_1_1data__sink_a548c5228c6f57f77346a4095c6718a02} 
+\index{cudf::io::data\_sink@{cudf::io::data\_sink}!create@{create}}
+\index{create@{create}!cudf::io::data\_sink@{cudf::io::data\_sink}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{data\+\_\+sink}} $>$ cudf\+::io\+::data\+\_\+sink\+::create (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filepath }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create a sink from a file path 
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em filepath} & Path to the file to use \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Constructed \doxylink{classcudf_1_1io_1_1data__sink}{data\+\_\+sink} object 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1io_1_1data__sink_a9c322a48d51176301f3a157291c09fbd}\label{classcudf_1_1io_1_1data__sink_a9c322a48d51176301f3a157291c09fbd} 
+\index{cudf::io::data\_sink@{cudf::io::data\_sink}!create@{create}}
+\index{create@{create}!cudf::io::data\_sink@{cudf::io::data\_sink}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{data\+\_\+sink}} $>$ cudf\+::io\+::data\+\_\+sink\+::create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{cudf\+::io\+::data\+\_\+sink}} \texorpdfstring{$\ast$}{*}const}]{user\+\_\+sink }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create a wrapped custom user data sink 
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em user\+\_\+sink} & User-\/provided data sink (typically custom class)\\
+\hline
+\end{DoxyParams}
+The data sink returned here is not the one passed by the user. It is an internal class that wraps the user pointer. The principle is to allow the user to declare a custom sink instance and use it across multiple write() calls.
+
+\begin{DoxyReturn}{返回}
+Constructed \doxylink{classcudf_1_1io_1_1data__sink}{data\+\_\+sink} object 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1io_1_1data__sink_a17a0c509947e843ce99f444d722e4fef}\label{classcudf_1_1io_1_1data__sink_a17a0c509947e843ce99f444d722e4fef} 
+\index{cudf::io::data\_sink@{cudf::io::data\_sink}!create@{create}}
+\index{create@{create}!cudf::io::data\_sink@{cudf::io::data\_sink}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{data\+\_\+sink}} $>$ cudf\+::io\+::data\+\_\+sink\+::create (\begin{DoxyParamCaption}\item[{std\+::vector$<$ char $>$ \texorpdfstring{$\ast$}{*}}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create a sink from a std\+::vector 
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in,out}}  & {\em buffer} & Pointer to the output vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Constructed \doxylink{classcudf_1_1io_1_1data__sink}{data\+\_\+sink} object 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1io_1_1data__sink_a09d85364483b33d6eddd24f031954fb7}\label{classcudf_1_1io_1_1data__sink_a09d85364483b33d6eddd24f031954fb7} 
+\index{cudf::io::data\_sink@{cudf::io::data\_sink}!create@{create}}
+\index{create@{create}!cudf::io::data\_sink@{cudf::io::data\_sink}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+static std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{data\+\_\+sink}} $>$ $>$ cudf\+::io\+::data\+\_\+sink\+::create (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$ const \&}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Creates a vector of data sinks, one per element in the input vector. 
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em args} & vector of parameters \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Constructed vector of data sinks 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{data__sink_8hpp_source}{data\+\_\+sink.\+hpp}} 第 \mbox{\hyperlink{data__sink_8hpp_source_l00083}{83}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1data__sink_a2a1de8c173d8320ba6e65e3ca72bb54c}\label{classcudf_1_1io_1_1data__sink_a2a1de8c173d8320ba6e65e3ca72bb54c} 
+\index{cudf::io::data\_sink@{cudf::io::data\_sink}!device\_write@{device\_write}}
+\index{device\_write@{device\_write}!cudf::io::data\_sink@{cudf::io::data\_sink}}
+\doxysubsubsection{\texorpdfstring{device\_write()}{device\_write()}}
+{\footnotesize\ttfamily virtual void cudf\+::io\+::data\+\_\+sink\+::device\+\_\+write (\begin{DoxyParamCaption}\item[{void const \texorpdfstring{$\ast$}{*}}]{gpu\+\_\+data,  }\item[{size\+\_\+t}]{size,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Append the buffer content to the sink from a gpu address 
+
+For optimal performance, should only be called when {\ttfamily is\+\_\+device\+\_\+write\+\_\+preferred} returns {\ttfamily true}. Data sink implementations that don\textquotesingle{}t support direct device writes don\textquotesingle{}t need to override this function.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & the object does not support direct device writes, i.\+e. {\ttfamily supports\+\_\+device\+\_\+write} returns {\ttfamily false}.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em gpu\+\_\+data} & Pointer to the buffer to be written into the sink object \\
+\hline
+{\em size} & Number of bytes to write \\
+\hline
+{\em stream} & CUDA stream to use \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{data__sink_8hpp_source}{data\+\_\+sink.\+hpp}} 第 \mbox{\hyperlink{data__sink_8hpp_source_l00155}{155}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1data__sink_a33e8b3322ddc23f1d5be7ee2407a3b96}\label{classcudf_1_1io_1_1data__sink_a33e8b3322ddc23f1d5be7ee2407a3b96} 
+\index{cudf::io::data\_sink@{cudf::io::data\_sink}!device\_write\_async@{device\_write\_async}}
+\index{device\_write\_async@{device\_write\_async}!cudf::io::data\_sink@{cudf::io::data\_sink}}
+\doxysubsubsection{\texorpdfstring{device\_write\_async()}{device\_write\_async()}}
+{\footnotesize\ttfamily virtual std\+::future$<$ void $>$ cudf\+::io\+::data\+\_\+sink\+::device\+\_\+write\+\_\+async (\begin{DoxyParamCaption}\item[{void const \texorpdfstring{$\ast$}{*}}]{gpu\+\_\+data,  }\item[{size\+\_\+t}]{size,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Asynchronously append the buffer content to the sink from a gpu address 
+
+For optimal performance, should only be called when {\ttfamily is\+\_\+device\+\_\+write\+\_\+preferred} returns {\ttfamily true}. Data sink implementations that don\textquotesingle{}t support direct device writes don\textquotesingle{}t need to override this function.
+
+{\ttfamily gpu\+\_\+data} must not be freed until this call is synchronized. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{auto\ result\ =\ device\_write\_async(gpu\_data,\ size,\ stream);}
+\DoxyCodeLine{result.wait();\ //\ OR\ result.get()}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & the object does not support direct device writes, i.\+e. {\ttfamily supports\+\_\+device\+\_\+write} returns {\ttfamily false}. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em gpu\+\_\+data} & Pointer to the buffer to be written into the sink object \\
+\hline
+{\em size} & Number of bytes to write \\
+\hline
+{\em stream} & CUDA stream to use \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+a future that can be used to synchronize the call 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{data__sink_8hpp_source}{data\+\_\+sink.\+hpp}} 第 \mbox{\hyperlink{data__sink_8hpp_source_l00182}{182}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1data__sink_a059e16ef19d5901feed0098bc97babfa}\label{classcudf_1_1io_1_1data__sink_a059e16ef19d5901feed0098bc97babfa} 
+\index{cudf::io::data\_sink@{cudf::io::data\_sink}!flush@{flush}}
+\index{flush@{flush}!cudf::io::data\_sink@{cudf::io::data\_sink}}
+\doxysubsubsection{\texorpdfstring{flush()}{flush()}}
+{\footnotesize\ttfamily virtual void cudf\+::io\+::data\+\_\+sink\+::flush (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Flush the data written into the sink 
+
+\Hypertarget{classcudf_1_1io_1_1data__sink_ab68621d609bd643680481195dc07422c}\label{classcudf_1_1io_1_1data__sink_ab68621d609bd643680481195dc07422c} 
+\index{cudf::io::data\_sink@{cudf::io::data\_sink}!host\_write@{host\_write}}
+\index{host\_write@{host\_write}!cudf::io::data\_sink@{cudf::io::data\_sink}}
+\doxysubsubsection{\texorpdfstring{host\_write()}{host\_write()}}
+{\footnotesize\ttfamily virtual void cudf\+::io\+::data\+\_\+sink\+::host\+\_\+write (\begin{DoxyParamCaption}\item[{void const \texorpdfstring{$\ast$}{*}}]{data,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Append the buffer content to the sink 
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em data} & Pointer to the buffer to be written into the sink object \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & Number of bytes to write \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcudf_1_1io_1_1data__sink_a61919a2f46a62914b64cb1756058f7a3}\label{classcudf_1_1io_1_1data__sink_a61919a2f46a62914b64cb1756058f7a3} 
+\index{cudf::io::data\_sink@{cudf::io::data\_sink}!is\_device\_write\_preferred@{is\_device\_write\_preferred}}
+\index{is\_device\_write\_preferred@{is\_device\_write\_preferred}!cudf::io::data\_sink@{cudf::io::data\_sink}}
+\doxysubsubsection{\texorpdfstring{is\_device\_write\_preferred()}{is\_device\_write\_preferred()}}
+{\footnotesize\ttfamily virtual bool cudf\+::io\+::data\+\_\+sink\+::is\+\_\+device\+\_\+write\+\_\+preferred (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Estimates whether a direct device write would be more optimal for the given size. 
+
+
+\begin{DoxyParams}{参数}
+{\em size} & Number of bytes to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+whether the device write is expected to be more performant for the given size 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{data__sink_8hpp_source}{data\+\_\+sink.\+hpp}} 第 \mbox{\hyperlink{data__sink_8hpp_source_l00136}{136}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1data__sink_a3a2904b3b6e1167676f0d88e3324a3b3}\label{classcudf_1_1io_1_1data__sink_a3a2904b3b6e1167676f0d88e3324a3b3} 
+\index{cudf::io::data\_sink@{cudf::io::data\_sink}!supports\_device\_write@{supports\_device\_write}}
+\index{supports\_device\_write@{supports\_device\_write}!cudf::io::data\_sink@{cudf::io::data\_sink}}
+\doxysubsubsection{\texorpdfstring{supports\_device\_write()}{supports\_device\_write()}}
+{\footnotesize\ttfamily virtual bool cudf\+::io\+::data\+\_\+sink\+::supports\+\_\+device\+\_\+write (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Whether or not this sink supports writing from gpu memory addresses. 
+
+Internal to some of the file format writers, we have code that does things like
+
+tmp\+\_\+buffer = alloc\+\_\+temp\+\_\+buffer(); cuda\+Memcpy(tmp\+\_\+buffer, device\+\_\+buffer, size); sink-\/\texorpdfstring{$>$}{>}write(tmp\+\_\+buffer, size);
+
+In the case where the sink type is itself a memory buffered write, this ends up being effectively a second memcpy. So a useful optimization for a \"{}smart\"{} custom \doxylink{classcudf_1_1io_1_1data__sink}{data\+\_\+sink} is to do it\textquotesingle{}s own internal management of the movement of data between cpu and gpu; turning the internals of the writer into simply
+
+sink-\/\texorpdfstring{$>$}{>}device\+\_\+write(device\+\_\+buffer, size)
+
+If this function returns true, the \doxylink{classcudf_1_1io_1_1data__sink}{data\+\_\+sink} will receive calls to \doxylink{classcudf_1_1io_1_1data__sink_a2a1de8c173d8320ba6e65e3ca72bb54c}{device\+\_\+write()} instead of write() when possible. However, it is still possible to receive write() calls as well.
+
+\begin{DoxyReturn}{返回}
+bool If this writer supports \doxylink{classcudf_1_1io_1_1data__sink_a2a1de8c173d8320ba6e65e3ca72bb54c}{device\+\_\+write()} calls 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{data__sink_8hpp_source}{data\+\_\+sink.\+hpp}} 第 \mbox{\hyperlink{data__sink_8hpp_source_l00128}{128}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/\mbox{\hyperlink{data__sink_8hpp}{data\+\_\+sink.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,47 @@
+\doxysection{Dictionary\+\_\+search}
+\hypertarget{group__dictionary__search}{}\label{group__dictionary__search}\index{Dictionary\_search@{Dictionary\_search}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{dictionary_2search_8hpp}{search.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ \mbox{\hyperlink{group__dictionary__search_ga79c98fac6cb6683b341707af1c0be936}{cudf\+::dictionary\+::get\+\_\+index}} (\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&dictionary, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&key, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Return the index value for a given key. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__dictionary__search_ga79c98fac6cb6683b341707af1c0be936}\label{group__dictionary__search_ga79c98fac6cb6683b341707af1c0be936} 
+\index{Dictionary\_search@{Dictionary\_search}!get\_index@{get\_index}}
+\index{get\_index@{get\_index}!Dictionary\_search@{Dictionary\_search}}
+\doxysubsubsection{\texorpdfstring{get\_index()}{get\_index()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ cudf\+::dictionary\+::get\+\_\+index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1dictionary__column__view}{dictionary\+\_\+column\+\_\+view}} const \&}]{dictionary,  }\item[{\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&}]{key,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Return the index value for a given key. 
+
+If the key does not exist in the dictionary the returned scalar will have {\ttfamily \doxylink{group__transformation__unaryops_ga6add319b999ddaa1ccf3477599fdc0bc}{is\+\_\+valid()}==false}
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily key.\+type() != dictionary.\+keys().type()}\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em dictionary} & The dictionary to search for the key. \\
+\hline
+{\em key} & The value to search for in the dictionary keyset. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned scalar\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Numeric scalar index value of the key within the dictionary 
+\end{DoxyReturn}

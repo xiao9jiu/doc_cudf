@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: D:/gitLibrary/cudf/cpp/include/cudf/hashing.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('hashing_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">hashing.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="hashing_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright (c) 2019-2022, NVIDIA CORPORATION.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;<a class="code" href="table_8hpp.html">cudf/table/table.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;<a class="code" href="table__view_8hpp.html">cudf/table/table_view.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;rmm/mr/device/per_device_resource.hpp&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecudf.html">cudf</a> {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="namespacecudf.html#a98b5509c0aeedbdb5bce4dc3b6869f26">   25</a></span><span class="keyword">using </span><a class="code hl_typedef" href="namespacecudf.html#a98b5509c0aeedbdb5bce4dc3b6869f26">hash_value_type</a> = uint32_t;  </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="group__column__hash.html#gaced8b9d129825edd13d76e912e4413c3">   36</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="group__column__hash.html#gaced8b9d129825edd13d76e912e4413c3">hash_id</a> {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <a class="code hl_enumvalue" href="group__column__hash.html#ggaced8b9d129825edd13d76e912e4413c3a87c5fdaedd591de89dc6528979fad559">HASH_IDENTITY</a> = 0,   </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  <a class="code hl_enumvalue" href="group__column__hash.html#ggaced8b9d129825edd13d76e912e4413c3ae9ec854e962136b1afcf108e5301c354">HASH_MURMUR3</a>,        </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <a class="code hl_enumvalue" href="group__column__hash.html#ggaced8b9d129825edd13d76e912e4413c3a86e5d77c8925733c14f2ead71e800939">HASH_SPARK_MURMUR3</a>,  </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <a class="code hl_enumvalue" href="group__column__hash.html#ggaced8b9d129825edd13d76e912e4413c3a1b39e06b1e490bb4792c0076b2733a45">HASH_MD5</a>             </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>};</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="group__column__hash.html#ga68de1d04aa2c0ea2eeacfc73fd99a915">   46</a></span><span class="keyword">static</span> <span class="keyword">constexpr</span> uint32_t <a class="code hl_variable" href="group__column__hash.html#ga68de1d04aa2c0ea2eeacfc73fd99a915">DEFAULT_HASH_SEED</a> = 0;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="group__column__hash.html#ga324d3e89c473ffe4810b14da49a6c1e7">   58</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__column__hash.html#ga324d3e89c473ffe4810b14da49a6c1e7">hash</a>(</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  <a class="code hl_class" href="classcudf_1_1table__view.html">table_view</a> <span class="keyword">const</span>&amp; input,</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  <a class="code hl_enumeration" href="group__column__hash.html#gaced8b9d129825edd13d76e912e4413c3">hash_id</a> hash_function               = <a class="code hl_enumvalue" href="group__column__hash.html#ggaced8b9d129825edd13d76e912e4413c3ae9ec854e962136b1afcf108e5301c354">hash_id::HASH_MURMUR3</a>,</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  uint32_t seed                       = <a class="code hl_variable" href="group__column__hash.html#ga68de1d04aa2c0ea2eeacfc73fd99a915">DEFAULT_HASH_SEED</a>,</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  <span class="comment">// end of group</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>}  <span class="comment">// namespace cudf</span></div>
+<div class="ttc" id="aclasscudf_1_1table__view_html"><div class="ttname"><a href="classcudf_1_1table__view.html">cudf::table_view</a></div><div class="ttdoc">A set of cudf::column_view's of the same size.</div><div class="ttdef"><b>Definition</b> <a href="table__view_8hpp_source.html#l00187">table_view.hpp:187</a></div></div>
+<div class="ttc" id="agroup__column__hash_html_ga324d3e89c473ffe4810b14da49a6c1e7"><div class="ttname"><a href="group__column__hash.html#ga324d3e89c473ffe4810b14da49a6c1e7">cudf::hash</a></div><div class="ttdeci">std::unique_ptr&lt; column &gt; hash(table_view const &amp;input, hash_id hash_function=hash_id::HASH_MURMUR3, uint32_t seed=DEFAULT_HASH_SEED, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Computes the hash value of each row in the input set of columns.</div></div>
+<div class="ttc" id="agroup__column__hash_html_ga68de1d04aa2c0ea2eeacfc73fd99a915"><div class="ttname"><a href="group__column__hash.html#ga68de1d04aa2c0ea2eeacfc73fd99a915">cudf::DEFAULT_HASH_SEED</a></div><div class="ttdeci">static constexpr uint32_t DEFAULT_HASH_SEED</div><div class="ttdoc">The default seed value for hash functions</div><div class="ttdef"><b>Definition</b> <a href="hashing_8hpp_source.html#l00046">hashing.hpp:46</a></div></div>
+<div class="ttc" id="agroup__column__hash_html_gaced8b9d129825edd13d76e912e4413c3"><div class="ttname"><a href="group__column__hash.html#gaced8b9d129825edd13d76e912e4413c3">cudf::hash_id</a></div><div class="ttdeci">hash_id</div><div class="ttdoc">Identifies the hash function to be used</div><div class="ttdef"><b>Definition</b> <a href="hashing_8hpp_source.html#l00036">hashing.hpp:36</a></div></div>
+<div class="ttc" id="agroup__column__hash_html_ggaced8b9d129825edd13d76e912e4413c3a1b39e06b1e490bb4792c0076b2733a45"><div class="ttname"><a href="group__column__hash.html#ggaced8b9d129825edd13d76e912e4413c3a1b39e06b1e490bb4792c0076b2733a45">cudf::hash_id::HASH_MD5</a></div><div class="ttdeci">@ HASH_MD5</div><div class="ttdoc">MD5 hash function</div></div>
+<div class="ttc" id="agroup__column__hash_html_ggaced8b9d129825edd13d76e912e4413c3a86e5d77c8925733c14f2ead71e800939"><div class="ttname"><a href="group__column__hash.html#ggaced8b9d129825edd13d76e912e4413c3a86e5d77c8925733c14f2ead71e800939">cudf::hash_id::HASH_SPARK_MURMUR3</a></div><div class="ttdeci">@ HASH_SPARK_MURMUR3</div><div class="ttdoc">Spark Murmur3 hash function</div></div>
+<div class="ttc" id="agroup__column__hash_html_ggaced8b9d129825edd13d76e912e4413c3a87c5fdaedd591de89dc6528979fad559"><div class="ttname"><a href="group__column__hash.html#ggaced8b9d129825edd13d76e912e4413c3a87c5fdaedd591de89dc6528979fad559">cudf::hash_id::HASH_IDENTITY</a></div><div class="ttdeci">@ HASH_IDENTITY</div><div class="ttdoc">Identity hash function that simply returns the key to be hashed</div></div>
+<div class="ttc" id="agroup__column__hash_html_ggaced8b9d129825edd13d76e912e4413c3ae9ec854e962136b1afcf108e5301c354"><div class="ttname"><a href="group__column__hash.html#ggaced8b9d129825edd13d76e912e4413c3ae9ec854e962136b1afcf108e5301c354">cudf::hash_id::HASH_MURMUR3</a></div><div class="ttdeci">@ HASH_MURMUR3</div><div class="ttdoc">Murmur3 hash function</div></div>
+<div class="ttc" id="anamespacecudf_html"><div class="ttname"><a href="namespacecudf.html">cudf</a></div><div class="ttdoc">cuDF interfaces</div><div class="ttdef"><b>Definition</b> <a href="aggregation_8hpp_source.html#l00034">aggregation.hpp:34</a></div></div>
+<div class="ttc" id="anamespacecudf_html_a98b5509c0aeedbdb5bce4dc3b6869f26"><div class="ttname"><a href="namespacecudf.html#a98b5509c0aeedbdb5bce4dc3b6869f26">cudf::hash_value_type</a></div><div class="ttdeci">uint32_t hash_value_type</div><div class="ttdoc">Type of hash value</div><div class="ttdef"><b>Definition</b> <a href="hashing_8hpp_source.html#l00025">hashing.hpp:25</a></div></div>
+<div class="ttc" id="atable_8hpp_html"><div class="ttname"><a href="table_8hpp.html">table.hpp</a></div><div class="ttdoc">Class definition for cudf::table</div></div>
+<div class="ttc" id="atable__view_8hpp_html"><div class="ttname"><a href="table__view_8hpp.html">table_view.hpp</a></div><div class="ttdoc">Class definitions for (mutable)_table_view</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_d998dea0bd4559303135358082015ac8.html">gitLibrary</a></li><li class="navelem"><a class="el" href="dir_b6486b3d9bd1f4b89c884933ed658179.html">cudf</a></li><li class="navelem"><a class="el" href="dir_318a4414914f49dc0e7605c41de9d4af.html">cpp</a></li><li class="navelem"><a class="el" href="dir_7fbf5ee8ae486656ea40e5ca1dd304f9.html">include</a></li><li class="navelem"><a class="el" href="dir_87e6427d1ef099fd52d9d0724c66b062.html">cudf</a></li><li class="navelem"><a class="el" href="hashing_8hpp.html">hashing.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+\doxysection{Lists\+\_\+sort}
+\hypertarget{group__lists__sort}{}\label{group__lists__sort}\index{Lists\_sort@{Lists\_sort}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{lists_2sorting_8hpp}{sorting.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__lists__sort_gad0de739b4cc43062b740182f005ec9c6}{cudf\+::lists\+::sort\+\_\+lists}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&source\+\_\+column, \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} column\+\_\+order, \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} null\+\_\+precedence, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Segmented sort of the elements within a list in each row of a list column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__lists__sort_gacab5f4da57088b8dbc53af4de12bc6ec}{cudf\+::lists\+::stable\+\_\+sort\+\_\+lists}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&source\+\_\+column, \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} column\+\_\+order, \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} null\+\_\+precedence, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Segmented sort of the elements within a list in each row of a list column using stable sort. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__lists__sort_gad0de739b4cc43062b740182f005ec9c6}\label{group__lists__sort_gad0de739b4cc43062b740182f005ec9c6} 
+\index{Lists\_sort@{Lists\_sort}!sort\_lists@{sort\_lists}}
+\index{sort\_lists@{sort\_lists}!Lists\_sort@{Lists\_sort}}
+\doxysubsubsection{\texorpdfstring{sort\_lists()}{sort\_lists()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::sort\+\_\+lists (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&}]{source\+\_\+column,  }\item[{\mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}}}]{column\+\_\+order,  }\item[{\mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}}}]{null\+\_\+precedence,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Segmented sort of the elements within a list in each row of a list column. 
+
+{\ttfamily source\+\_\+column} with depth 1 is only supported.
+
+
+\begin{DoxyItemize}
+\item 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source\_column\ \ \ \ \ \ \ \ \ \ \ \ :\ [\{4,\ 2,\ 3,\ 1\},\ \{1,\ 2,\ NULL,\ 4\},\ \{-\/10,\ 10,\ 0\}]}
+\DoxyCodeLine{}
+\DoxyCodeLine{Ascending,\ \ Null\ After\ \ \ :\ [\{1,\ 2,\ 3,\ 4\},\ \{1,\ 2,\ 4,\ NULL\},\ \{-\/10,\ 0,\ 10\}]}
+\DoxyCodeLine{Ascending,\ \ Null\ Before\ \ :\ [\{1,\ 2,\ 3,\ 4\},\ \{NULL,\ 1,\ 2,\ 4\},\ \{-\/10,\ 0,\ 10\}]}
+\DoxyCodeLine{Descending,\ Null\ After\ \ \ :\ [\{4,\ 3,\ 2,\ 1\},\ \{NULL,\ 4,\ 2,\ 1\},\ \{10,\ 0,\ -\/10\}]}
+\DoxyCodeLine{Descending,\ Null\ Before\ \ :\ [\{4,\ 3,\ 2,\ 1\},\ \{4,\ 2,\ 1,\ NULL\},\ \{10,\ 0,\ -\/10\}]}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{参数}
+{\em source\+\_\+column} & View of the list column of numeric types to sort \\
+\hline
+{\em column\+\_\+order} & The desired sort order \\
+\hline
+{\em null\+\_\+precedence} & The desired order of null compared to other elements in the list \\
+\hline
+{\em mr} & Device memory resource to allocate any returned objects \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+list column with elements in each list sorted. 
+\end{DoxyReturn}
+\Hypertarget{group__lists__sort_gacab5f4da57088b8dbc53af4de12bc6ec}\label{group__lists__sort_gacab5f4da57088b8dbc53af4de12bc6ec} 
+\index{Lists\_sort@{Lists\_sort}!stable\_sort\_lists@{stable\_sort\_lists}}
+\index{stable\_sort\_lists@{stable\_sort\_lists}!Lists\_sort@{Lists\_sort}}
+\doxysubsubsection{\texorpdfstring{stable\_sort\_lists()}{stable\_sort\_lists()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::stable\+\_\+sort\+\_\+lists (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&}]{source\+\_\+column,  }\item[{\mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}}}]{column\+\_\+order,  }\item[{\mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}}}]{null\+\_\+precedence,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Segmented sort of the elements within a list in each row of a list column using stable sort. 
+
+Segmented sort of the elements within a list in each row of a list column.  
+
+{\ttfamily source\+\_\+column} with depth 1 is only supported.
+
+
+\begin{DoxyItemize}
+\item 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source\_column\ \ \ \ \ \ \ \ \ \ \ \ :\ [\{4,\ 2,\ 3,\ 1\},\ \{1,\ 2,\ NULL,\ 4\},\ \{-\/10,\ 10,\ 0\}]}
+\DoxyCodeLine{}
+\DoxyCodeLine{Ascending,\ \ Null\ After\ \ \ :\ [\{1,\ 2,\ 3,\ 4\},\ \{1,\ 2,\ 4,\ NULL\},\ \{-\/10,\ 0,\ 10\}]}
+\DoxyCodeLine{Ascending,\ \ Null\ Before\ \ :\ [\{1,\ 2,\ 3,\ 4\},\ \{NULL,\ 1,\ 2,\ 4\},\ \{-\/10,\ 0,\ 10\}]}
+\DoxyCodeLine{Descending,\ Null\ After\ \ \ :\ [\{4,\ 3,\ 2,\ 1\},\ \{NULL,\ 4,\ 2,\ 1\},\ \{10,\ 0,\ -\/10\}]}
+\DoxyCodeLine{Descending,\ Null\ Before\ \ :\ [\{4,\ 3,\ 2,\ 1\},\ \{4,\ 2,\ 1,\ NULL\},\ \{10,\ 0,\ -\/10\}]}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{参数}
+{\em source\+\_\+column} & View of the list column of numeric types to sort \\
+\hline
+{\em column\+\_\+order} & The desired sort order \\
+\hline
+{\em null\+\_\+precedence} & The desired order of null compared to other elements in the list \\
+\hline
+{\em mr} & Device memory resource to allocate any returned objects \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+list column with elements in each list sorted.   
+\end{DoxyReturn}

@@ -1,0 +1,145 @@
+\doxysection{cudf\+::segmented\+\_\+reduce\+\_\+aggregation类 参考}
+\hypertarget{classcudf_1_1segmented__reduce__aggregation}{}\label{classcudf_1_1segmented__reduce__aggregation}\index{cudf::segmented\_reduce\_aggregation@{cudf::segmented\_reduce\_aggregation}}
+
+
+Derived class intended for segmented reduction usage.  
+
+
+
+
+{\ttfamily \#include $<$aggregation.\+hpp$>$}
+
+
+
+类 cudf\+::segmented\+\_\+reduce\+\_\+aggregation 继承关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcudf_1_1segmented__reduce__aggregation__inherit__graph}
+\end{center}
+\end{figure}
+
+
+cudf\+::segmented\+\_\+reduce\+\_\+aggregation 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{classcudf_1_1segmented__reduce__aggregation__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1segmented__reduce__aggregation_aa6fa52daf3e076aa32dd3aee199c725f}{\texorpdfstring{$\sim$}{\string~}segmented\+\_\+reduce\+\_\+aggregation}} () override=default
+\end{DoxyCompactItemize}
+\doxysubsection*{Public 成员函数 继承自 \mbox{\hyperlink{classcudf_1_1aggregation}{cudf\+::aggregation}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1aggregation_abffe682b440995d31cb76ec2f27d3d33}{aggregation}} ()=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1aggregation_accc9ecffbef584d992748b68f3066dc2}{aggregation}} (\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24c}{aggregation\+::\+Kind}} a)
+\begin{DoxyCompactList}\small\item\em Construct a new aggregation object \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classcudf_1_1aggregation_ae6796a5c82c41be8f529fff13a4d42db}{\texorpdfstring{$\sim$}{\string~}aggregation}} ()=default
+\item 
+virtual bool \mbox{\hyperlink{classcudf_1_1aggregation_ac6c12831e991ee7b2f37382f70983cab}{is\+\_\+equal}} (\mbox{\hyperlink{classcudf_1_1aggregation}{aggregation}} const \&other) const
+\begin{DoxyCompactList}\small\item\em Compares two aggregation objects for equality \end{DoxyCompactList}\item 
+virtual size\+\_\+t \mbox{\hyperlink{classcudf_1_1aggregation_ace1dfc51a2c72f7a98e256d8829fe0c9}{do\+\_\+hash}} () const
+\begin{DoxyCompactList}\small\item\em Computes the hash value of the aggregation \end{DoxyCompactList}\item 
+virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1aggregation}{aggregation}} $>$ \mbox{\hyperlink{classcudf_1_1aggregation_ae5bddf4f871f6090a5550cad4ca3b6ef}{clone}} () const =0
+\begin{DoxyCompactList}\small\item\em Clones the aggregation object \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1aggregation}{aggregation}} $>$ $>$ \mbox{\hyperlink{classcudf_1_1aggregation_a86e9cdf0142a938bf0aa4cb9494b155a}{get\+\_\+simple\+\_\+aggregations}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} col\+\_\+type, \mbox{\hyperlink{classcudf_1_1detail_1_1simple__aggregations__collector}{cudf\+::detail\+::simple\+\_\+aggregations\+\_\+collector}} \&collector) const =0
+\begin{DoxyCompactList}\small\item\em Get the simple aggregations that this aggregation requires to compute. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classcudf_1_1aggregation_a19ad663ad238d7281ed270d924ab4a77}{finalize}} (\mbox{\hyperlink{classcudf_1_1detail_1_1aggregation__finalizer}{cudf\+::detail\+::aggregation\+\_\+finalizer}} \&finalizer) const =0
+\begin{DoxyCompactList}\small\item\em Compute the aggregation after pre-\/requisite simple aggregations have been computed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1segmented__reduce__aggregation_aa4ec1abac73eeaf90269d7880f2ac174}{segmented\+\_\+reduce\+\_\+aggregation}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{额外继承的成员函数}
+\doxysubsection*{Public 类型 继承自 \mbox{\hyperlink{classcudf_1_1aggregation}{cudf\+::aggregation}}}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24c}{Kind}} \{ \newline
+\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24caabd3664f87be5147f644774133a057d0}{SUM}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca00d1a600db4e6ad4b605d1ea55d32e4e}{PRODUCT}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca7a3ce813bd89730410e942933ec009aa}{MIN}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca78e0dc39d23c4994e049353609a9dc43}{MAX}}
+, \newline
+\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24cad2df505a15b682fdae1fc914b4219024}{COUNT\+\_\+\+VALID}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24caf6567d6f079a08d7b8cd5794d5b49658}{COUNT\+\_\+\+ALL}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24cac9fd0b78d433f898b7dfd108eaedf65f}{ANY}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca20879f6c72118ef0b9a5dd06edea9f2c}{ALL}}
+, \newline
+\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24caab77380219a0b180391a113f599f887d}{SUM\+\_\+\+OF\+\_\+\+SQUARES}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca36bfe57d2e4fa21ec3fddde1354124d6}{MEAN}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca28346a8c29af15a4bac7a9218c5d2908}{M2}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca668fb6976b34ba937eb74f77700e749d}{VARIANCE}}
+, \newline
+\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca6b1ba846de925ba39b9ee9e352adf84a}{STD}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca4fbb08212f44cd6c048a0b0f18b6389c}{MEDIAN}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca6e5361905125d531234e50d50bcf5326}{QUANTILE}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24cae12429186d2ddd5cb76543df6aaa34d4}{ARGMAX}}
+, \newline
+\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca6583738472adeb8cfc0cfbc43faafbe9}{ARGMIN}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca575437b89e591628c1e9c33169831045}{NUNIQUE}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24cab225eca1add973e8f91951b9bebcffba}{NTH\+\_\+\+ELEMENT}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24cad4a18ecc31dd8ffa0f860614d7194265}{ROW\+\_\+\+NUMBER}}
+, \newline
+\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24cae49d812ed0a94cf199e3de84f0b3b11e}{RANK}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24cacda9e1244533f85aa96a34118735dfda}{COLLECT\+\_\+\+LIST}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca8a82336f87e3a3620f94d605e8d1b9bf}{COLLECT\+\_\+\+SET}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24caa5ac7846e04035445054739fdf00b1bc}{LEAD}}
+, \newline
+\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca981c3157fbc148b27f15d5aca516faee}{LAG}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca41e9f3ddf699f79662c7304406431856}{PTX}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca9e19b5026270492a8cfb65a21ee36a27}{CUDA}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24cab35a7a10d60805e6958015d2d8f39d7f}{MERGE\+\_\+\+LISTS}}
+, \newline
+\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca4e6537ac60eb8f721f1328eff2d024ab}{MERGE\+\_\+\+SETS}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca3c9c1267b969ca3cb5f6a37e67491d58}{MERGE\+\_\+\+M2}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca6fc2c9fc7f719339663730c4d5733d43}{COVARIANCE}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca6ac99d56bac359e4e8efdfd462ec4440}{CORRELATION}}
+, \newline
+\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca35c1a8d4c31a67334ac5787b6f5a21f5}{TDIGEST}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24cab98eb90586603683fad8322ae9f0fe18}{MERGE\+\_\+\+TDIGEST}}
+ \}
+\begin{DoxyCompactList}\small\item\em Possible aggregation operations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public 属性 继承自 \mbox{\hyperlink{classcudf_1_1aggregation}{cudf\+::aggregation}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24c}{Kind}} \mbox{\hyperlink{classcudf_1_1aggregation_af30ac280d80bf088cc1d8e6b98514764}{kind}}
+\begin{DoxyCompactList}\small\item\em The aggregation to perform \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Derived class intended for segmented reduction usage. 
+
+在文件 \mbox{\hyperlink{aggregation_8hpp_source}{aggregation.\+hpp}} 第 \mbox{\hyperlink{aggregation_8hpp_source_l00239}{239}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1segmented__reduce__aggregation_aa6fa52daf3e076aa32dd3aee199c725f}\label{classcudf_1_1segmented__reduce__aggregation_aa6fa52daf3e076aa32dd3aee199c725f} 
+\index{cudf::segmented\_reduce\_aggregation@{cudf::segmented\_reduce\_aggregation}!````~segmented\_reduce\_aggregation@{\texorpdfstring{$\sim$}{\string~}segmented\_reduce\_aggregation}}
+\index{````~segmented\_reduce\_aggregation@{\texorpdfstring{$\sim$}{\string~}segmented\_reduce\_aggregation}!cudf::segmented\_reduce\_aggregation@{cudf::segmented\_reduce\_aggregation}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}segmented\_reduce\_aggregation()}{\string~segmented\_reduce\_aggregation()}}
+{\footnotesize\ttfamily cudf\+::segmented\+\_\+reduce\+\_\+aggregation\+::\texorpdfstring{$\sim$}{\string~}segmented\+\_\+reduce\+\_\+aggregation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+\Hypertarget{classcudf_1_1segmented__reduce__aggregation_aa4ec1abac73eeaf90269d7880f2ac174}\label{classcudf_1_1segmented__reduce__aggregation_aa4ec1abac73eeaf90269d7880f2ac174} 
+\index{cudf::segmented\_reduce\_aggregation@{cudf::segmented\_reduce\_aggregation}!segmented\_reduce\_aggregation@{segmented\_reduce\_aggregation}}
+\index{segmented\_reduce\_aggregation@{segmented\_reduce\_aggregation}!cudf::segmented\_reduce\_aggregation@{cudf::segmented\_reduce\_aggregation}}
+\doxysubsubsection{\texorpdfstring{segmented\_reduce\_aggregation()}{segmented\_reduce\_aggregation()}}
+{\footnotesize\ttfamily cudf\+::segmented\+\_\+reduce\+\_\+aggregation\+::segmented\+\_\+reduce\+\_\+aggregation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+在文件 \mbox{\hyperlink{aggregation_8hpp_source}{aggregation.\+hpp}} 第 \mbox{\hyperlink{aggregation_8hpp_source_l00244}{244}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/\mbox{\hyperlink{aggregation_8hpp}{aggregation.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,32 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/strings/substring.hpp 文件参考}
+\hypertarget{substring_8hpp}{}\label{substring_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/strings/substring.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/strings/substring.hpp}}
+{\ttfamily \#include $<$cudf/column/column.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/scalar/scalar.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/strings/strings\+\_\+column\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/mr/device/per\+\_\+device\+\_\+resource.\+hpp$>$}\newline
+substring.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{substring_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1strings}{cudf\+::strings}}
+\begin{DoxyCompactList}\small\item\em Strings column APIs \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__substring_gaaef2683f47258c615885d57502c042af}{cudf\+::strings\+::slice\+\_\+strings}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1numeric__scalar}{numeric\+\_\+scalar}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&start=\mbox{\hyperlink{classcudf_1_1numeric__scalar}{numeric\+\_\+scalar}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$(0, false), \mbox{\hyperlink{classcudf_1_1numeric__scalar}{numeric\+\_\+scalar}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&stop=\mbox{\hyperlink{classcudf_1_1numeric__scalar}{numeric\+\_\+scalar}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$(0, false), \mbox{\hyperlink{classcudf_1_1numeric__scalar}{numeric\+\_\+scalar}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&step=\mbox{\hyperlink{classcudf_1_1numeric__scalar}{numeric\+\_\+scalar}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$(1), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a new strings column that contains substrings of the strings in the provided column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__substring_ga24a2feb9a5a477a37ea213750746cb23}{cudf\+::strings\+::slice\+\_\+strings}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&starts, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&stops, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a new strings column that contains substrings of the strings in the provided column using unique ranges for each string. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__substring_ga663b4812c350c7070c90aa9aff653fab}{cudf\+::strings\+::slice\+\_\+strings}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&delimiter, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} count, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Slices a column of strings by using a delimiter as a slice point. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__substring_ga867eac9aa0fef7d1971cfc09f6b9aaf2}{cudf\+::strings\+::slice\+\_\+strings}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&delimiter\+\_\+strings, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} count, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Slices a column of strings by using a delimiter column as slice points. \end{DoxyCompactList}\end{DoxyCompactItemize}

@@ -1,0 +1,349 @@
+\doxysection{cudf\+::detail\+::udf\+\_\+aggregation类 参考}
+\hypertarget{classcudf_1_1detail_1_1udf__aggregation}{}\label{classcudf_1_1detail_1_1udf__aggregation}\index{cudf::detail::udf\_aggregation@{cudf::detail::udf\_aggregation}}
+
+
+Derived class for specifying a custom aggregation specified in udf  
+
+
+
+
+{\ttfamily \#include $<$aggregation.\+hpp$>$}
+
+
+
+类 cudf\+::detail\+::udf\+\_\+aggregation 继承关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcudf_1_1detail_1_1udf__aggregation__inherit__graph}
+\end{center}
+\end{figure}
+
+
+cudf\+::detail\+::udf\+\_\+aggregation 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcudf_1_1detail_1_1udf__aggregation__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1udf__aggregation_af101694b03eae06651cde6bab426f958}{udf\+\_\+aggregation}} (\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24c}{aggregation\+::\+Kind}} type, std\+::string const \&user\+\_\+defined\+\_\+aggregator, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+type)
+\item 
+bool \mbox{\hyperlink{classcudf_1_1detail_1_1udf__aggregation_a0dc386b46fe9d07c6c3701e80e646385}{is\+\_\+equal}} (\mbox{\hyperlink{classcudf_1_1aggregation}{aggregation}} const \&\+\_\+other) const override
+\begin{DoxyCompactList}\small\item\em Compares two aggregation objects for equality \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classcudf_1_1detail_1_1udf__aggregation_adc63115aedfc35da15f88aa53718abf5}{do\+\_\+hash}} () const override
+\begin{DoxyCompactList}\small\item\em Computes the hash value of the aggregation \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1aggregation}{aggregation}} $>$ \mbox{\hyperlink{classcudf_1_1detail_1_1udf__aggregation_af1a8989924f9374518f51990eb60c473}{clone}} () const override
+\begin{DoxyCompactList}\small\item\em Clones the aggregation object \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1aggregation}{aggregation}} $>$ $>$ \mbox{\hyperlink{classcudf_1_1detail_1_1udf__aggregation_a8c85f867dc2b99d6fd38810ccf516aaf}{get\+\_\+simple\+\_\+aggregations}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} col\+\_\+type, \mbox{\hyperlink{classcudf_1_1detail_1_1simple__aggregations__collector}{simple\+\_\+aggregations\+\_\+collector}} \&collector) const override
+\begin{DoxyCompactList}\small\item\em Get the simple aggregations that this aggregation requires to compute. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1detail_1_1udf__aggregation_ae1b5efffffd61758a99eb4438cba77c1}{finalize}} (\mbox{\hyperlink{classcudf_1_1detail_1_1aggregation__finalizer}{aggregation\+\_\+finalizer}} \&finalizer) const override
+\begin{DoxyCompactList}\small\item\em Compute the aggregation after pre-\/requisite simple aggregations have been computed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public 成员函数 继承自 \mbox{\hyperlink{classcudf_1_1rolling__aggregation}{cudf\+::rolling\+\_\+aggregation}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1rolling__aggregation_af93d177ac3087b7a4553e0470d6895f1}{\texorpdfstring{$\sim$}{\string~}rolling\+\_\+aggregation}} () override=default
+\end{DoxyCompactItemize}
+\doxysubsection*{Public 成员函数 继承自 \mbox{\hyperlink{classcudf_1_1aggregation}{cudf\+::aggregation}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1aggregation_abffe682b440995d31cb76ec2f27d3d33}{aggregation}} ()=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1aggregation_accc9ecffbef584d992748b68f3066dc2}{aggregation}} (\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24c}{aggregation\+::\+Kind}} a)
+\begin{DoxyCompactList}\small\item\em Construct a new aggregation object \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classcudf_1_1aggregation_ae6796a5c82c41be8f529fff13a4d42db}{\texorpdfstring{$\sim$}{\string~}aggregation}} ()=default
+\item 
+virtual bool \mbox{\hyperlink{classcudf_1_1aggregation_ac6c12831e991ee7b2f37382f70983cab}{is\+\_\+equal}} (\mbox{\hyperlink{classcudf_1_1aggregation}{aggregation}} const \&other) const
+\begin{DoxyCompactList}\small\item\em Compares two aggregation objects for equality \end{DoxyCompactList}\item 
+virtual size\+\_\+t \mbox{\hyperlink{classcudf_1_1aggregation_ace1dfc51a2c72f7a98e256d8829fe0c9}{do\+\_\+hash}} () const
+\begin{DoxyCompactList}\small\item\em Computes the hash value of the aggregation \end{DoxyCompactList}\item 
+virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1aggregation}{aggregation}} $>$ \mbox{\hyperlink{classcudf_1_1aggregation_ae5bddf4f871f6090a5550cad4ca3b6ef}{clone}} () const =0
+\begin{DoxyCompactList}\small\item\em Clones the aggregation object \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1aggregation}{aggregation}} $>$ $>$ \mbox{\hyperlink{classcudf_1_1aggregation_a86e9cdf0142a938bf0aa4cb9494b155a}{get\+\_\+simple\+\_\+aggregations}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} col\+\_\+type, \mbox{\hyperlink{classcudf_1_1detail_1_1simple__aggregations__collector}{cudf\+::detail\+::simple\+\_\+aggregations\+\_\+collector}} \&collector) const =0
+\begin{DoxyCompactList}\small\item\em Get the simple aggregations that this aggregation requires to compute. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classcudf_1_1aggregation_a19ad663ad238d7281ed270d924ab4a77}{finalize}} (\mbox{\hyperlink{classcudf_1_1detail_1_1aggregation__finalizer}{cudf\+::detail\+::aggregation\+\_\+finalizer}} \&finalizer) const =0
+\begin{DoxyCompactList}\small\item\em Compute the aggregation after pre-\/requisite simple aggregations have been computed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string const \mbox{\hyperlink{classcudf_1_1detail_1_1udf__aggregation_a6cc3bc3a413cbebddb974c93a672e750}{\+\_\+source}}
+\item 
+std\+::string const \mbox{\hyperlink{classcudf_1_1detail_1_1udf__aggregation_aca969822be721d8dfff6fc335c0318b0}{\+\_\+operator\+\_\+name}}
+\item 
+std\+::string const \mbox{\hyperlink{classcudf_1_1detail_1_1udf__aggregation_abf972d1998d2e159cab2616bb69cbfa2}{\+\_\+function\+\_\+name}}
+\item 
+\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1udf__aggregation_a0322e6ae3962543cf9c0dab755602bcd}{\+\_\+output\+\_\+type}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public 属性 继承自 \mbox{\hyperlink{classcudf_1_1aggregation}{cudf\+::aggregation}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24c}{Kind}} \mbox{\hyperlink{classcudf_1_1aggregation_af30ac280d80bf088cc1d8e6b98514764}{kind}}
+\begin{DoxyCompactList}\small\item\em The aggregation to perform \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{classcudf_1_1detail_1_1udf__aggregation_af8579829fce87b67924193744c899d8e}{hash\+\_\+impl}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected 成员函数 继承自 \mbox{\hyperlink{classcudf_1_1rolling__aggregation}{cudf\+::rolling\+\_\+aggregation}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1rolling__aggregation_ae6a7fc19f91354caca551a1dfbb2b8b9}{rolling\+\_\+aggregation}} ()
+\item 
+\mbox{\hyperlink{classcudf_1_1rolling__aggregation_abffe682b440995d31cb76ec2f27d3d33}{aggregation}} ()=delete
+\begin{DoxyCompactList}\small\item\em constructor inherited from \doxylink{classcudf_1_1aggregation}{cudf\+::aggregation} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1rolling__aggregation_accc9ecffbef584d992748b68f3066dc2}{aggregation}} (\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24c}{aggregation\+::\+Kind}} a)
+\begin{DoxyCompactList}\small\item\em constructor inherited from \doxylink{classcudf_1_1aggregation}{cudf\+::aggregation} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{额外继承的成员函数}
+\doxysubsection*{Public 类型 继承自 \mbox{\hyperlink{classcudf_1_1aggregation}{cudf\+::aggregation}}}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24c}{Kind}} \{ \newline
+\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24caabd3664f87be5147f644774133a057d0}{SUM}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca00d1a600db4e6ad4b605d1ea55d32e4e}{PRODUCT}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca7a3ce813bd89730410e942933ec009aa}{MIN}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca78e0dc39d23c4994e049353609a9dc43}{MAX}}
+, \newline
+\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24cad2df505a15b682fdae1fc914b4219024}{COUNT\+\_\+\+VALID}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24caf6567d6f079a08d7b8cd5794d5b49658}{COUNT\+\_\+\+ALL}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24cac9fd0b78d433f898b7dfd108eaedf65f}{ANY}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca20879f6c72118ef0b9a5dd06edea9f2c}{ALL}}
+, \newline
+\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24caab77380219a0b180391a113f599f887d}{SUM\+\_\+\+OF\+\_\+\+SQUARES}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca36bfe57d2e4fa21ec3fddde1354124d6}{MEAN}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca28346a8c29af15a4bac7a9218c5d2908}{M2}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca668fb6976b34ba937eb74f77700e749d}{VARIANCE}}
+, \newline
+\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca6b1ba846de925ba39b9ee9e352adf84a}{STD}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca4fbb08212f44cd6c048a0b0f18b6389c}{MEDIAN}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca6e5361905125d531234e50d50bcf5326}{QUANTILE}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24cae12429186d2ddd5cb76543df6aaa34d4}{ARGMAX}}
+, \newline
+\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca6583738472adeb8cfc0cfbc43faafbe9}{ARGMIN}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca575437b89e591628c1e9c33169831045}{NUNIQUE}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24cab225eca1add973e8f91951b9bebcffba}{NTH\+\_\+\+ELEMENT}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24cad4a18ecc31dd8ffa0f860614d7194265}{ROW\+\_\+\+NUMBER}}
+, \newline
+\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24cae49d812ed0a94cf199e3de84f0b3b11e}{RANK}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24cacda9e1244533f85aa96a34118735dfda}{COLLECT\+\_\+\+LIST}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca8a82336f87e3a3620f94d605e8d1b9bf}{COLLECT\+\_\+\+SET}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24caa5ac7846e04035445054739fdf00b1bc}{LEAD}}
+, \newline
+\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca981c3157fbc148b27f15d5aca516faee}{LAG}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca41e9f3ddf699f79662c7304406431856}{PTX}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca9e19b5026270492a8cfb65a21ee36a27}{CUDA}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24cab35a7a10d60805e6958015d2d8f39d7f}{MERGE\+\_\+\+LISTS}}
+, \newline
+\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca4e6537ac60eb8f721f1328eff2d024ab}{MERGE\+\_\+\+SETS}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca3c9c1267b969ca3cb5f6a37e67491d58}{MERGE\+\_\+\+M2}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca6fc2c9fc7f719339663730c4d5733d43}{COVARIANCE}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca6ac99d56bac359e4e8efdfd462ec4440}{CORRELATION}}
+, \newline
+\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24ca35c1a8d4c31a67334ac5787b6f5a21f5}{TDIGEST}}
+, \mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24cab98eb90586603683fad8322ae9f0fe18}{MERGE\+\_\+\+TDIGEST}}
+ \}
+\begin{DoxyCompactList}\small\item\em Possible aggregation operations \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Derived class for specifying a custom aggregation specified in udf 
+
+在文件 \mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp_source}{aggregation.\+hpp}} 第 \mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp_source_l00834}{834}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1detail_1_1udf__aggregation_af101694b03eae06651cde6bab426f958}\label{classcudf_1_1detail_1_1udf__aggregation_af101694b03eae06651cde6bab426f958} 
+\index{cudf::detail::udf\_aggregation@{cudf::detail::udf\_aggregation}!udf\_aggregation@{udf\_aggregation}}
+\index{udf\_aggregation@{udf\_aggregation}!cudf::detail::udf\_aggregation@{cudf::detail::udf\_aggregation}}
+\doxysubsubsection{\texorpdfstring{udf\_aggregation()}{udf\_aggregation()}}
+{\footnotesize\ttfamily cudf\+::detail\+::udf\+\_\+aggregation\+::udf\+\_\+aggregation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1aggregation_a83579ae3cab2fc3d1c3b377d1cfab24c}{aggregation\+::\+Kind}}}]{type,  }\item[{std\+::string const \&}]{user\+\_\+defined\+\_\+aggregator,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{output\+\_\+type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+在文件 \mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp_source}{aggregation.\+hpp}} 第 \mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp_source_l00836}{836}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1detail_1_1udf__aggregation_af1a8989924f9374518f51990eb60c473}\label{classcudf_1_1detail_1_1udf__aggregation_af1a8989924f9374518f51990eb60c473} 
+\index{cudf::detail::udf\_aggregation@{cudf::detail::udf\_aggregation}!clone@{clone}}
+\index{clone@{clone}!cudf::detail::udf\_aggregation@{cudf::detail::udf\_aggregation}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1aggregation}{aggregation}} $>$ cudf\+::detail\+::udf\+\_\+aggregation\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Clones the aggregation object 
+
+\begin{DoxyReturn}{返回}
+A copy of the aggregation object 
+\end{DoxyReturn}
+
+
+实现了 \mbox{\hyperlink{classcudf_1_1aggregation_ae5bddf4f871f6090a5550cad4ca3b6ef}{cudf\+::aggregation}}.
+
+
+
+在文件 \mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp_source}{aggregation.\+hpp}} 第 \mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp_source_l00862}{862}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1udf__aggregation_adc63115aedfc35da15f88aa53718abf5}\label{classcudf_1_1detail_1_1udf__aggregation_adc63115aedfc35da15f88aa53718abf5} 
+\index{cudf::detail::udf\_aggregation@{cudf::detail::udf\_aggregation}!do\_hash@{do\_hash}}
+\index{do\_hash@{do\_hash}!cudf::detail::udf\_aggregation@{cudf::detail::udf\_aggregation}}
+\doxysubsubsection{\texorpdfstring{do\_hash()}{do\_hash()}}
+{\footnotesize\ttfamily size\+\_\+t cudf\+::detail\+::udf\+\_\+aggregation\+::do\+\_\+hash (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Computes the hash value of the aggregation 
+
+\begin{DoxyReturn}{返回}
+The hash value of the aggregation 
+\end{DoxyReturn}
+
+
+重载 \mbox{\hyperlink{classcudf_1_1aggregation_ace1dfc51a2c72f7a98e256d8829fe0c9}{cudf\+::aggregation}} .
+
+
+
+在文件 \mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp_source}{aggregation.\+hpp}} 第 \mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp_source_l00857}{857}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1udf__aggregation_ae1b5efffffd61758a99eb4438cba77c1}\label{classcudf_1_1detail_1_1udf__aggregation_ae1b5efffffd61758a99eb4438cba77c1} 
+\index{cudf::detail::udf\_aggregation@{cudf::detail::udf\_aggregation}!finalize@{finalize}}
+\index{finalize@{finalize}!cudf::detail::udf\_aggregation@{cudf::detail::udf\_aggregation}}
+\doxysubsubsection{\texorpdfstring{finalize()}{finalize()}}
+{\footnotesize\ttfamily void cudf\+::detail\+::udf\+\_\+aggregation\+::finalize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1detail_1_1aggregation__finalizer}{aggregation\+\_\+finalizer}} \&}]{finalizer }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Compute the aggregation after pre-\/requisite simple aggregations have been computed. 
+
+
+\begin{DoxyParams}{参数}
+{\em finalizer} & The finalizer visitor pattern to use to compute the aggregation \\
+\hline
+\end{DoxyParams}
+
+
+实现了 \mbox{\hyperlink{classcudf_1_1aggregation_a19ad663ad238d7281ed270d924ab4a77}{cudf\+::aggregation}}.
+
+
+
+在文件 \mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp_source}{aggregation.\+hpp}} 第 \mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp_source_l00871}{871}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1udf__aggregation_a8c85f867dc2b99d6fd38810ccf516aaf}\label{classcudf_1_1detail_1_1udf__aggregation_a8c85f867dc2b99d6fd38810ccf516aaf} 
+\index{cudf::detail::udf\_aggregation@{cudf::detail::udf\_aggregation}!get\_simple\_aggregations@{get\_simple\_aggregations}}
+\index{get\_simple\_aggregations@{get\_simple\_aggregations}!cudf::detail::udf\_aggregation@{cudf::detail::udf\_aggregation}}
+\doxysubsubsection{\texorpdfstring{get\_simple\_aggregations()}{get\_simple\_aggregations()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1aggregation}{aggregation}} $>$ $>$ cudf\+::detail\+::udf\+\_\+aggregation\+::get\+\_\+simple\+\_\+aggregations (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{col\+\_\+type,  }\item[{\mbox{\hyperlink{classcudf_1_1detail_1_1simple__aggregations__collector}{simple\+\_\+aggregations\+\_\+collector}} \&}]{collector }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the simple aggregations that this aggregation requires to compute. 
+
+
+\begin{DoxyParams}{参数}
+{\em col\+\_\+type} & The type of the column to aggregate \\
+\hline
+{\em collector} & The collector visitor pattern to use to collect the simple aggregations \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Vector of pre-\/requisite simple aggregations 
+\end{DoxyReturn}
+
+
+实现了 \mbox{\hyperlink{classcudf_1_1aggregation_a86e9cdf0142a938bf0aa4cb9494b155a}{cudf\+::aggregation}}.
+
+
+
+在文件 \mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp_source}{aggregation.\+hpp}} 第 \mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp_source_l00866}{866}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1udf__aggregation_af8579829fce87b67924193744c899d8e}\label{classcudf_1_1detail_1_1udf__aggregation_af8579829fce87b67924193744c899d8e} 
+\index{cudf::detail::udf\_aggregation@{cudf::detail::udf\_aggregation}!hash\_impl@{hash\_impl}}
+\index{hash\_impl@{hash\_impl}!cudf::detail::udf\_aggregation@{cudf::detail::udf\_aggregation}}
+\doxysubsubsection{\texorpdfstring{hash\_impl()}{hash\_impl()}}
+{\footnotesize\ttfamily size\+\_\+t cudf\+::detail\+::udf\+\_\+aggregation\+::hash\+\_\+impl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+在文件 \mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp_source}{aggregation.\+hpp}} 第 \mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp_source_l00879}{879}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1udf__aggregation_a0dc386b46fe9d07c6c3701e80e646385}\label{classcudf_1_1detail_1_1udf__aggregation_a0dc386b46fe9d07c6c3701e80e646385} 
+\index{cudf::detail::udf\_aggregation@{cudf::detail::udf\_aggregation}!is\_equal@{is\_equal}}
+\index{is\_equal@{is\_equal}!cudf::detail::udf\_aggregation@{cudf::detail::udf\_aggregation}}
+\doxysubsubsection{\texorpdfstring{is\_equal()}{is\_equal()}}
+{\footnotesize\ttfamily bool cudf\+::detail\+::udf\+\_\+aggregation\+::is\+\_\+equal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1aggregation}{aggregation}} const \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Compares two aggregation objects for equality 
+
+
+\begin{DoxyParams}{参数}
+{\em other} & The other aggregation to compare with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+True if the two aggregations are equal 
+\end{DoxyReturn}
+
+
+重载 \mbox{\hyperlink{classcudf_1_1aggregation_ac6c12831e991ee7b2f37382f70983cab}{cudf\+::aggregation}} .
+
+
+
+在文件 \mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp_source}{aggregation.\+hpp}} 第 \mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp_source_l00849}{849}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1detail_1_1udf__aggregation_abf972d1998d2e159cab2616bb69cbfa2}\label{classcudf_1_1detail_1_1udf__aggregation_abf972d1998d2e159cab2616bb69cbfa2} 
+\index{cudf::detail::udf\_aggregation@{cudf::detail::udf\_aggregation}!\_function\_name@{\_function\_name}}
+\index{\_function\_name@{\_function\_name}!cudf::detail::udf\_aggregation@{cudf::detail::udf\_aggregation}}
+\doxysubsubsection{\texorpdfstring{\_function\_name}{\_function\_name}}
+{\footnotesize\ttfamily std\+::string const cudf\+::detail\+::udf\+\_\+aggregation\+::\+\_\+function\+\_\+name}
+
+
+
+在文件 \mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp_source}{aggregation.\+hpp}} 第 \mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp_source_l00875}{875}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1udf__aggregation_aca969822be721d8dfff6fc335c0318b0}\label{classcudf_1_1detail_1_1udf__aggregation_aca969822be721d8dfff6fc335c0318b0} 
+\index{cudf::detail::udf\_aggregation@{cudf::detail::udf\_aggregation}!\_operator\_name@{\_operator\_name}}
+\index{\_operator\_name@{\_operator\_name}!cudf::detail::udf\_aggregation@{cudf::detail::udf\_aggregation}}
+\doxysubsubsection{\texorpdfstring{\_operator\_name}{\_operator\_name}}
+{\footnotesize\ttfamily std\+::string const cudf\+::detail\+::udf\+\_\+aggregation\+::\+\_\+operator\+\_\+name}
+
+
+
+在文件 \mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp_source}{aggregation.\+hpp}} 第 \mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp_source_l00874}{874}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1udf__aggregation_a0322e6ae3962543cf9c0dab755602bcd}\label{classcudf_1_1detail_1_1udf__aggregation_a0322e6ae3962543cf9c0dab755602bcd} 
+\index{cudf::detail::udf\_aggregation@{cudf::detail::udf\_aggregation}!\_output\_type@{\_output\_type}}
+\index{\_output\_type@{\_output\_type}!cudf::detail::udf\_aggregation@{cudf::detail::udf\_aggregation}}
+\doxysubsubsection{\texorpdfstring{\_output\_type}{\_output\_type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} cudf\+::detail\+::udf\+\_\+aggregation\+::\+\_\+output\+\_\+type}
+
+
+
+在文件 \mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp_source}{aggregation.\+hpp}} 第 \mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp_source_l00876}{876}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1udf__aggregation_a6cc3bc3a413cbebddb974c93a672e750}\label{classcudf_1_1detail_1_1udf__aggregation_a6cc3bc3a413cbebddb974c93a672e750} 
+\index{cudf::detail::udf\_aggregation@{cudf::detail::udf\_aggregation}!\_source@{\_source}}
+\index{\_source@{\_source}!cudf::detail::udf\_aggregation@{cudf::detail::udf\_aggregation}}
+\doxysubsubsection{\texorpdfstring{\_source}{\_source}}
+{\footnotesize\ttfamily std\+::string const cudf\+::detail\+::udf\+\_\+aggregation\+::\+\_\+source}
+
+
+
+在文件 \mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp_source}{aggregation.\+hpp}} 第 \mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp_source_l00873}{873}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/detail/aggregation/\mbox{\hyperlink{detail_2aggregation_2aggregation_8hpp}{aggregation.\+hpp}}\end{DoxyCompactItemize}

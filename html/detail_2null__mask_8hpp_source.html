@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: D:/gitLibrary/cudf/cpp/include/cudf/detail/null_mask.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('detail_2null__mask_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">null_mask.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="detail_2null__mask_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright (c) 2019-2022, NVIDIA CORPORATION.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;<a class="code" href="types_8hpp.html">cudf/types.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;<a class="code" href="utilities_2default__stream_8hpp.html">cudf/utilities/default_stream.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;<a class="code" href="span_8hpp.html">cudf/utilities/span.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;rmm/cuda_stream_view.hpp&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecudf.html">cudf</a> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">namespace </span>detail {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#a690f0e70c8c2bad53bf877483f2d346d">   34</a></span>rmm::device_buffer <a class="code hl_function" href="namespacecudf_1_1detail.html#a690f0e70c8c2bad53bf877483f2d346d">create_null_mask</a>(</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> size,</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  <a class="code hl_enumeration" href="group__utility__types.html#ga4daf20c000ab374d76f4d56f0ddb7b26">mask_state</a> state,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#a522f5649cb74a11dba58378f96e40f01">   45</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacecudf_1_1detail.html#a522f5649cb74a11dba58378f96e40f01">set_null_mask</a>(<a class="code hl_typedef" href="group__utility__types.html#ga1d17001baf070a639c3a5e8ed8c46d34">bitmask_type</a>* bitmask,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                   <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> begin_bit,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                   <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> end_bit,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                   <span class="keywordtype">bool</span> valid,</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                   rmm::cuda_stream_view stream);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#aedafe62653e88ef1440aed7287f89ab8">   65</a></span><a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">cudf::size_type</a> <a class="code hl_function" href="namespacecudf_1_1detail.html#aedafe62653e88ef1440aed7287f89ab8">count_set_bits</a>(<a class="code hl_typedef" href="group__utility__types.html#ga1d17001baf070a639c3a5e8ed8c46d34">bitmask_type</a> <span class="keyword">const</span>* bitmask,</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                               <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> start,</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                               <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> stop,</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                               rmm::cuda_stream_view stream);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#a96a79295789c1ba220298ea1dbc0e8f7">   84</a></span><a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">cudf::size_type</a> <a class="code hl_function" href="namespacecudf_1_1detail.html#a96a79295789c1ba220298ea1dbc0e8f7">count_unset_bits</a>(<a class="code hl_typedef" href="group__utility__types.html#ga1d17001baf070a639c3a5e8ed8c46d34">bitmask_type</a> <span class="keyword">const</span>* bitmask,</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                                 <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> start,</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                                 <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> stop,</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                                 rmm::cuda_stream_view stream);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#a0568781207d7824429d333aa3a8e0870">  102</a></span>std::vector&lt;size_type&gt; <a class="code hl_function" href="namespacecudf_1_1detail.html#a0568781207d7824429d333aa3a8e0870">segmented_count_set_bits</a>(<a class="code hl_typedef" href="group__utility__types.html#ga1d17001baf070a639c3a5e8ed8c46d34">bitmask_type</a> <span class="keyword">const</span>* bitmask,</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>                                                <a class="code hl_struct" href="structcudf_1_1host__span.html">host_span&lt;size_type const&gt;</a> indices,</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                                                rmm::cuda_stream_view stream);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#aab0e7344544634b61fd1f48a0931b231">  119</a></span>std::vector&lt;size_type&gt; <a class="code hl_function" href="namespacecudf_1_1detail.html#aab0e7344544634b61fd1f48a0931b231">segmented_count_unset_bits</a>(<a class="code hl_typedef" href="group__utility__types.html#ga1d17001baf070a639c3a5e8ed8c46d34">bitmask_type</a> <span class="keyword">const</span>* bitmask,</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>                                                  <a class="code hl_struct" href="structcudf_1_1host__span.html">host_span&lt;size_type const&gt;</a> indices,</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>                                                  rmm::cuda_stream_view stream);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#a052b9cabb17b4fc2ef27e00a6414c707">  139</a></span><a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">cudf::size_type</a> <a class="code hl_function" href="namespacecudf_1_1detail.html#a052b9cabb17b4fc2ef27e00a6414c707">valid_count</a>(<a class="code hl_typedef" href="group__utility__types.html#ga1d17001baf070a639c3a5e8ed8c46d34">bitmask_type</a> <span class="keyword">const</span>* bitmask,</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>                            <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> start,</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>                            <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> stop,</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>                            rmm::cuda_stream_view stream);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#a289827dc5428527e139352669318e55f">  160</a></span><a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">cudf::size_type</a> <a class="code hl_function" href="namespacecudf_1_1detail.html#a289827dc5428527e139352669318e55f">null_count</a>(<a class="code hl_typedef" href="group__utility__types.html#ga1d17001baf070a639c3a5e8ed8c46d34">bitmask_type</a> <span class="keyword">const</span>* bitmask,</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>                           <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> start,</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>                           <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> stop,</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>                           rmm::cuda_stream_view stream);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#a35145843e5dd4a43853838b02241881f">  182</a></span>std::vector&lt;size_type&gt; <a class="code hl_function" href="namespacecudf_1_1detail.html#a35145843e5dd4a43853838b02241881f">segmented_valid_count</a>(<a class="code hl_typedef" href="group__utility__types.html#ga1d17001baf070a639c3a5e8ed8c46d34">bitmask_type</a> <span class="keyword">const</span>* bitmask,</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>                                             <a class="code hl_struct" href="structcudf_1_1host__span.html">host_span&lt;size_type const&gt;</a> indices,</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>                                             rmm::cuda_stream_view stream);</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#aee03027237bac182e4be6d37fa6c4f37">  202</a></span>std::vector&lt;size_type&gt; <a class="code hl_function" href="namespacecudf_1_1detail.html#aee03027237bac182e4be6d37fa6c4f37">segmented_null_count</a>(<a class="code hl_typedef" href="group__utility__types.html#ga1d17001baf070a639c3a5e8ed8c46d34">bitmask_type</a> <span class="keyword">const</span>* bitmask,</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>                                            <a class="code hl_struct" href="structcudf_1_1host__span.html">host_span&lt;size_type const&gt;</a> indices,</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>                                            rmm::cuda_stream_view stream);</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#a9423550e270db631d429d61b140d7108">  212</a></span>rmm::device_buffer <a class="code hl_function" href="namespacecudf_1_1detail.html#a9423550e270db631d429d61b140d7108">copy_bitmask</a>(</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>  <a class="code hl_typedef" href="group__utility__types.html#ga1d17001baf070a639c3a5e8ed8c46d34">bitmask_type</a> <span class="keyword">const</span>* mask,</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> begin_bit,</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> end_bit,</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#aaddec64eefdf906a669dd8e65e23137c">  224</a></span>rmm::device_buffer <a class="code hl_function" href="namespacecudf_1_1detail.html#a9423550e270db631d429d61b140d7108">copy_bitmask</a>(</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; view,</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#adc5e9bcff0d652d054817afa71d20399">  235</a></span>std::pair&lt;rmm::device_buffer, size_type&gt; <a class="code hl_function" href="namespacecudf_1_1detail.html#adc5e9bcff0d652d054817afa71d20399">bitmask_and</a>(</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>  <a class="code hl_struct" href="structcudf_1_1host__span.html">host_span&lt;bitmask_type const* const&gt;</a> masks,</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>  <a class="code hl_struct" href="structcudf_1_1host__span.html">host_span&lt;size_type const&gt;</a> masks_begin_bits,</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> mask_size_bits,</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#abf99352f85f59ae17972b8462cfb4760">  247</a></span>std::pair&lt;rmm::device_buffer, size_type&gt; <a class="code hl_function" href="namespacecudf_1_1detail.html#adc5e9bcff0d652d054817afa71d20399">bitmask_and</a>(</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>  <a class="code hl_class" href="classcudf_1_1table__view.html">table_view</a> <span class="keyword">const</span>&amp; view,</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#a280d3e05cbbc973356f38c0ee1fca2e3">  257</a></span>std::pair&lt;rmm::device_buffer, size_type&gt; <a class="code hl_function" href="namespacecudf_1_1detail.html#a280d3e05cbbc973356f38c0ee1fca2e3">bitmask_or</a>(</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>  <a class="code hl_class" href="classcudf_1_1table__view.html">table_view</a> <span class="keyword">const</span>&amp; view,</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#af99f371b8101fc545e0c64553e5d81a9">  273</a></span><a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">cudf::size_type</a> <a class="code hl_function" href="namespacecudf_1_1detail.html#af99f371b8101fc545e0c64553e5d81a9">inplace_bitmask_and</a>(<a class="code hl_struct" href="structcudf_1_1device__span.html">device_span&lt;bitmask_type&gt;</a> dest_mask,</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>                                    <a class="code hl_struct" href="structcudf_1_1host__span.html">host_span&lt;bitmask_type const* const&gt;</a> masks,</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>                                    <a class="code hl_struct" href="structcudf_1_1host__span.html">host_span&lt;size_type const&gt;</a> masks_begin_bits,</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>                                    <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> mask_size_bits,</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>                                    rmm::cuda_stream_view stream);</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>}  <span class="comment">// namespace detail</span></div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span> </div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>}  <span class="comment">// namespace cudf</span></div>
+<div class="ttc" id="aclasscudf_1_1column__view_html"><div class="ttname"><a href="classcudf_1_1column__view.html">cudf::column_view</a></div><div class="ttdoc">A non-owning, immutable view of device data as a column of elements, some of which may be null as ind...</div><div class="ttdef"><b>Definition</b> <a href="column__view_8hpp_source.html#l00322">column_view.hpp:322</a></div></div>
+<div class="ttc" id="aclasscudf_1_1table__view_html"><div class="ttname"><a href="classcudf_1_1table__view.html">cudf::table_view</a></div><div class="ttdoc">A set of cudf::column_view's of the same size.</div><div class="ttdef"><b>Definition</b> <a href="table__view_8hpp_source.html#l00187">table_view.hpp:187</a></div></div>
+<div class="ttc" id="agroup__utility__types_html_ga0aff16b2db009d92300befaca11827e9"><div class="ttname"><a href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">cudf::size_type</a></div><div class="ttdeci">int32_t size_type</div><div class="ttdoc">Row index type for columns and tables</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00080">types.hpp:80</a></div></div>
+<div class="ttc" id="agroup__utility__types_html_ga1d17001baf070a639c3a5e8ed8c46d34"><div class="ttname"><a href="group__utility__types.html#ga1d17001baf070a639c3a5e8ed8c46d34">cudf::bitmask_type</a></div><div class="ttdeci">uint32_t bitmask_type</div><div class="ttdoc">Bitmask type stored as 32-bit unsigned integer</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00081">types.hpp:81</a></div></div>
+<div class="ttc" id="agroup__utility__types_html_ga4daf20c000ab374d76f4d56f0ddb7b26"><div class="ttname"><a href="group__utility__types.html#ga4daf20c000ab374d76f4d56f0ddb7b26">cudf::mask_state</a></div><div class="ttdeci">mask_state</div><div class="ttdoc">Controls the allocation/initialization of a null mask.</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00174">types.hpp:174</a></div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_a052b9cabb17b4fc2ef27e00a6414c707"><div class="ttname"><a href="namespacecudf_1_1detail.html#a052b9cabb17b4fc2ef27e00a6414c707">cudf::detail::valid_count</a></div><div class="ttdeci">cudf::size_type valid_count(bitmask_type const *bitmask, size_type start, size_type stop, rmm::cuda_stream_view stream)</div><div class="ttdoc">Given a validity bitmask, counts the number of valid elements (set bits) in the range [start,...</div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_a0568781207d7824429d333aa3a8e0870"><div class="ttname"><a href="namespacecudf_1_1detail.html#a0568781207d7824429d333aa3a8e0870">cudf::detail::segmented_count_set_bits</a></div><div class="ttdeci">std::vector&lt; size_type &gt; segmented_count_set_bits(bitmask_type const *bitmask, host_span&lt; size_type const &gt; indices, rmm::cuda_stream_view stream)</div><div class="ttdoc">Given a bitmask, counts the number of set (1) bits in every range [indices[2*i], indices[(2*i)+1]) (w...</div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_a280d3e05cbbc973356f38c0ee1fca2e3"><div class="ttname"><a href="namespacecudf_1_1detail.html#a280d3e05cbbc973356f38c0ee1fca2e3">cudf::detail::bitmask_or</a></div><div class="ttdeci">std::pair&lt; rmm::device_buffer, size_type &gt; bitmask_or(table_view const &amp;view, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Performs bitwise OR of the bitmasks of columns of a table. Returns a pair of resulting mask and count...</div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_a289827dc5428527e139352669318e55f"><div class="ttname"><a href="namespacecudf_1_1detail.html#a289827dc5428527e139352669318e55f">cudf::detail::null_count</a></div><div class="ttdeci">cudf::size_type null_count(bitmask_type const *bitmask, size_type start, size_type stop, rmm::cuda_stream_view stream)</div><div class="ttdoc">Given a validity bitmask, counts the number of null elements (unset bits) in the range [start,...</div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_a35145843e5dd4a43853838b02241881f"><div class="ttname"><a href="namespacecudf_1_1detail.html#a35145843e5dd4a43853838b02241881f">cudf::detail::segmented_valid_count</a></div><div class="ttdeci">std::vector&lt; size_type &gt; segmented_valid_count(bitmask_type const *bitmask, host_span&lt; size_type const &gt; indices, rmm::cuda_stream_view stream)</div><div class="ttdoc">Given a validity bitmask, counts the number of valid elements (set bits) in every range [indices[2*i]...</div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_a522f5649cb74a11dba58378f96e40f01"><div class="ttname"><a href="namespacecudf_1_1detail.html#a522f5649cb74a11dba58378f96e40f01">cudf::detail::set_null_mask</a></div><div class="ttdeci">void set_null_mask(bitmask_type *bitmask, size_type begin_bit, size_type end_bit, bool valid, rmm::cuda_stream_view stream)</div><div class="ttdoc">Sets a pre-allocated bitmask buffer to a given state in the range [begin_bit, end_bit)</div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_a690f0e70c8c2bad53bf877483f2d346d"><div class="ttname"><a href="namespacecudf_1_1detail.html#a690f0e70c8c2bad53bf877483f2d346d">cudf::detail::create_null_mask</a></div><div class="ttdeci">rmm::device_buffer create_null_mask(size_type size, mask_state state, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Creates a device_buffer for use as a null value indicator bitmask of a column.</div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_a9423550e270db631d429d61b140d7108"><div class="ttname"><a href="namespacecudf_1_1detail.html#a9423550e270db631d429d61b140d7108">cudf::detail::copy_bitmask</a></div><div class="ttdeci">rmm::device_buffer copy_bitmask(bitmask_type const *mask, size_type begin_bit, size_type end_bit, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Creates a device_buffer from a slice of bitmask defined by a range of indices [begin_bit,...</div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_a96a79295789c1ba220298ea1dbc0e8f7"><div class="ttname"><a href="namespacecudf_1_1detail.html#a96a79295789c1ba220298ea1dbc0e8f7">cudf::detail::count_unset_bits</a></div><div class="ttdeci">cudf::size_type count_unset_bits(bitmask_type const *bitmask, size_type start, size_type stop, rmm::cuda_stream_view stream)</div><div class="ttdoc">Given a bitmask, counts the number of unset (0) bits in the range [start, stop).</div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_aab0e7344544634b61fd1f48a0931b231"><div class="ttname"><a href="namespacecudf_1_1detail.html#aab0e7344544634b61fd1f48a0931b231">cudf::detail::segmented_count_unset_bits</a></div><div class="ttdeci">std::vector&lt; size_type &gt; segmented_count_unset_bits(bitmask_type const *bitmask, host_span&lt; size_type const &gt; indices, rmm::cuda_stream_view stream)</div><div class="ttdoc">Given a bitmask, counts the number of unset (0) bits in every range [indices[2*i],...</div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_adc5e9bcff0d652d054817afa71d20399"><div class="ttname"><a href="namespacecudf_1_1detail.html#adc5e9bcff0d652d054817afa71d20399">cudf::detail::bitmask_and</a></div><div class="ttdeci">std::pair&lt; rmm::device_buffer, size_type &gt; bitmask_and(host_span&lt; bitmask_type const *const &gt; masks, host_span&lt; size_type const &gt; masks_begin_bits, size_type mask_size_bits, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_aedafe62653e88ef1440aed7287f89ab8"><div class="ttname"><a href="namespacecudf_1_1detail.html#aedafe62653e88ef1440aed7287f89ab8">cudf::detail::count_set_bits</a></div><div class="ttdeci">cudf::size_type count_set_bits(bitmask_type const *bitmask, size_type start, size_type stop, rmm::cuda_stream_view stream)</div><div class="ttdoc">Given a bitmask, counts the number of set (1) bits in the range [start, stop).</div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_aee03027237bac182e4be6d37fa6c4f37"><div class="ttname"><a href="namespacecudf_1_1detail.html#aee03027237bac182e4be6d37fa6c4f37">cudf::detail::segmented_null_count</a></div><div class="ttdeci">std::vector&lt; size_type &gt; segmented_null_count(bitmask_type const *bitmask, host_span&lt; size_type const &gt; indices, rmm::cuda_stream_view stream)</div><div class="ttdoc">Given a validity bitmask, counts the number of null elements (unset bits) in every range [indices[2*i...</div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_af99f371b8101fc545e0c64553e5d81a9"><div class="ttname"><a href="namespacecudf_1_1detail.html#af99f371b8101fc545e0c64553e5d81a9">cudf::detail::inplace_bitmask_and</a></div><div class="ttdeci">cudf::size_type inplace_bitmask_and(device_span&lt; bitmask_type &gt; dest_mask, host_span&lt; bitmask_type const *const &gt; masks, host_span&lt; size_type const &gt; masks_begin_bits, size_type mask_size_bits, rmm::cuda_stream_view stream)</div><div class="ttdoc">Performs a bitwise AND of the specified bitmasks, and writes in place to destination</div></div>
+<div class="ttc" id="anamespacecudf_html"><div class="ttname"><a href="namespacecudf.html">cudf</a></div><div class="ttdoc">cuDF interfaces</div><div class="ttdef"><b>Definition</b> <a href="aggregation_8hpp_source.html#l00034">aggregation.hpp:34</a></div></div>
+<div class="ttc" id="aspan_8hpp_html"><div class="ttname"><a href="span_8hpp.html">span.hpp</a></div></div>
+<div class="ttc" id="astructcudf_1_1device__span_html"><div class="ttname"><a href="structcudf_1_1device__span.html">cudf::device_span</a></div><div class="ttdoc">Device version of C++20 std::span with reduced feature set.</div><div class="ttdef"><b>Definition</b> <a href="span_8hpp_source.html#l00285">span.hpp:285</a></div></div>
+<div class="ttc" id="astructcudf_1_1host__span_html"><div class="ttname"><a href="structcudf_1_1host__span.html">cudf::host_span</a></div><div class="ttdoc">C++20 std::span with reduced feature set.</div><div class="ttdef"><b>Definition</b> <a href="span_8hpp_source.html#l00214">span.hpp:214</a></div></div>
+<div class="ttc" id="atypes_8hpp_html"><div class="ttname"><a href="types_8hpp.html">types.hpp</a></div><div class="ttdoc">Type declarations for libcudf.</div></div>
+<div class="ttc" id="autilities_2default__stream_8hpp_html"><div class="ttname"><a href="utilities_2default__stream_8hpp.html">default_stream.hpp</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_d998dea0bd4559303135358082015ac8.html">gitLibrary</a></li><li class="navelem"><a class="el" href="dir_b6486b3d9bd1f4b89c884933ed658179.html">cudf</a></li><li class="navelem"><a class="el" href="dir_318a4414914f49dc0e7605c41de9d4af.html">cpp</a></li><li class="navelem"><a class="el" href="dir_7fbf5ee8ae486656ea40e5ca1dd304f9.html">include</a></li><li class="navelem"><a class="el" href="dir_87e6427d1ef099fd52d9d0724c66b062.html">cudf</a></li><li class="navelem"><a class="el" href="dir_a82d85c89be6cfc9cc0f5c38ca1aa1ac.html">detail</a></li><li class="navelem"><a class="el" href="detail_2null__mask_8hpp.html">null_mask.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

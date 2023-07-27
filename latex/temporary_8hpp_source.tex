@@ -1,0 +1,93 @@
+\doxysection{temporary.\+hpp}
+\hypertarget{temporary_8hpp_source}{}\label{temporary_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/fixed\_point/temporary.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/fixed\_point/temporary.hpp}}
+\mbox{\hyperlink{temporary_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2021-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{types_8hpp}{cudf/types.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00021}00021\ \textcolor{comment}{//\ Note:\ The\ <cuda/std/*>\ versions\ are\ used\ in\ order\ for\ Jitify\ to\ work\ with\ our\ fixed\_point\ type.}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00022}00022\ \textcolor{comment}{//\ \ \ \ \ \ \ Jitify\ is\ needed\ for\ several\ algorithms\ (binaryop,\ rolling,\ etc)}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <cuda/std/climits>}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <cuda/std/limits>}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <cuda/std/type\_traits>}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00030}00030\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenumeric}{numeric}}\ \{}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00031}00031\ \textcolor{keyword}{namespace\ }detail\ \{}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00033}00033\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00034}\mbox{\hyperlink{namespacenumeric_1_1detail_ad80ffb6269f582567fe1eba8e5a1e259}{00034}}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespacenumeric_1_1detail_ad80ffb6269f582567fe1eba8e5a1e259}{to\_string}}(T\ value)\ -\/>\ std::string}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00035}00035\ \{}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00036}00036\ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (cuda::std::is\_same\_v<T,\ \_\_int128\_t>)\ \{}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00037}00037\ \ \ \ \ \textcolor{keyword}{auto}\ s\ \ \ \ \ \ \ \ \ \ =\ std::string\{\};}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00038}00038\ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\ sign\ =\ value\ <\ 0;}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00039}00039\ \ \ \ \ \textcolor{keywordflow}{if}\ (sign)\ \{}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00040}00040\ \ \ \ \ \ \ value\ +=\ 1;\ \ \textcolor{comment}{//\ avoid\ overflowing\ if\ value\ ==\ \_int128\_t\ lowest}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00041}00041\ \ \ \ \ \ \ value\ *=\ -\/1;}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00042}00042\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ ==\ cuda::std::numeric\_limits<\_\_int128\_t>::max())}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}-\/170141183460469231731687303715884105728"{}};}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00044}00044\ \ \ \ \ \ \ value\ +=\ 1;\ \ \textcolor{comment}{//\ can\ add\ back\ the\ one,\ no\ need\ to\ avoid\ overflow\ anymore}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00045}00045\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00046}00046\ \ \ \ \ \textcolor{keywordflow}{while}\ (value)\ \{}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00047}00047\ \ \ \ \ \ \ s.push\_back(\textcolor{stringliteral}{"{}0123456789"{}}[value\ \%\ 10]);}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00048}00048\ \ \ \ \ \ \ value\ /=\ 10;}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00050}00050\ \ \ \ \ \textcolor{keywordflow}{if}\ (sign)\ s.push\_back(\textcolor{charliteral}{'-\/'});}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00051}00051\ \ \ \ \ std::reverse(s.begin(),\ s.end());}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00052}00052\ \ \ \ \ \textcolor{keywordflow}{return}\ s;}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00053}00053\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00054}00054\ \ \ \ \ \textcolor{keywordflow}{return}\ std::to\_string(value);}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00055}00055\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00056}00056\ \ \ \textcolor{keywordflow}{return}\ std::string\{\};\ \ \textcolor{comment}{//\ won't\ ever\ hit\ here,\ need\ to\ suppress\ warning\ though}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00057}00057\ \}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00059}00059\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00060}\mbox{\hyperlink{namespacenumeric_1_1detail_ad7597aacd8004bee10246759068ef73e}{00060}}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespacenumeric_1_1detail_ad7597aacd8004bee10246759068ef73e}{abs}}(T\ value)}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00061}00061\ \{}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00062}00062\ \ \ \textcolor{keywordflow}{return}\ value\ >=\ 0\ ?\ value\ :\ -\/value;}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00063}00063\ \}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00065}00065\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00066}\mbox{\hyperlink{namespacenumeric_1_1detail_ad9b788474cc5b9de5b8bed1ee372329b}{00066}}\ \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\_HOST\_DEVICE}}\ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespacenumeric_1_1detail_ad9b788474cc5b9de5b8bed1ee372329b}{min}}(T\ lhs,\ T\ rhs)}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00067}00067\ \{}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00068}00068\ \ \ \textcolor{keywordflow}{return}\ lhs\ <\ rhs\ ?\ lhs\ :\ rhs;}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00069}00069\ \}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00071}00071\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00072}\mbox{\hyperlink{namespacenumeric_1_1detail_a68f1a40e0c0625ccef372adc08accd2a}{00072}}\ \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\_HOST\_DEVICE}}\ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespacenumeric_1_1detail_a68f1a40e0c0625ccef372adc08accd2a}{max}}(T\ lhs,\ T\ rhs)}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00073}00073\ \{}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00074}00074\ \ \ \textcolor{keywordflow}{return}\ lhs\ >\ rhs\ ?\ lhs\ :\ rhs;}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00075}00075\ \}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00077}00077\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ BaseType>}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00078}\mbox{\hyperlink{namespacenumeric_1_1detail_a557b272284830cabcbb666736dc9b0c9}{00078}}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespacenumeric_1_1detail_a557b272284830cabcbb666736dc9b0c9}{exp10}}(int32\_t\ exponent)}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00079}00079\ \{}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00080}00080\ \ \ BaseType\ value\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00081}00081\ \ \ \textcolor{keywordflow}{while}\ (exponent\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00082}00082\ \ \ \ \ value\ *=\ 10,\ -\/-\/exponent;}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00083}00083\ \ \ \textcolor{keywordflow}{return}\ value;}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00084}00084\ \}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00086}00086\ \}\ \ \textcolor{comment}{//\ namespace\ detail}}
+\DoxyCodeLine{\Hypertarget{temporary_8hpp_source_l00087}00087\ \}\ \ \textcolor{comment}{//\ namespace\ numeric}}
+
+\end{DoxyCode}

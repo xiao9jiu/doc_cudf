@@ -1,0 +1,84 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/utilities/error.hpp 文件参考}
+\hypertarget{error_8hpp}{}\label{error_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/utilities/error.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/utilities/error.hpp}}
+{\ttfamily \#include $<$cuda.\+h$>$}\newline
+{\ttfamily \#include $<$cuda\+\_\+runtime\+\_\+api.\+h$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+error.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{error_8hpp__incl}
+\end{center}
+\end{figure}
+此图展示该文件直接或间接的被哪些文件引用了\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{error_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}}
+\begin{DoxyCompactList}\small\item\em Exception thrown when logical precondition is violated. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1cuda__error}{cudf\+::cuda\+\_\+error}}
+\begin{DoxyCompactList}\small\item\em Exception thrown when a CUDA error is encountered. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1fatal__cuda__error}{cudf\+::fatal\+\_\+cuda\+\_\+error}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1detail}{cudf\+::detail}}
+\begin{DoxyCompactList}\small\item\em Inner interfaces and implementations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{宏定义}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{error_8hpp_aafefdd05c438f655b1f34e1e66a48951}{STRINGIFY\+\_\+\+DETAIL}}(x)~\#x
+\begin{DoxyCompactList}\small\item\em Stringify a macro argument \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{error_8hpp_a5f5d02e10169c2bbee4f3b8a66f64164}{CUDF\+\_\+\+STRINGIFY}}(x)~\mbox{\hyperlink{error_8hpp_aafefdd05c438f655b1f34e1e66a48951}{STRINGIFY\+\_\+\+DETAIL}}(x)
+\begin{DoxyCompactList}\small\item\em Stringify a macro argument \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utility__error_ga855a389cbf4b44cfd6891cd2f90edf34}{CUDF\+\_\+\+EXPECTS}}(cond,  reason)
+\begin{DoxyCompactList}\small\item\em Macro for checking (pre-\/)conditions that throws an exception when a condition is violated. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utility__error_ga8fec215b7e7785312d292d75f797ccc1}{CUDF\+\_\+\+FAIL}}(reason)~  throw \mbox{\hyperlink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}}(\"{}cu\+DF failure at\+: \"{} \+\_\+\+\_\+\+FILE\+\_\+\+\_\+ \"{}\+:\"{} \mbox{\hyperlink{error_8hpp_a5f5d02e10169c2bbee4f3b8a66f64164}{CUDF\+\_\+\+STRINGIFY}}(\+\_\+\+\_\+\+LINE\+\_\+\+\_\+) \"{}\+: \"{} reason)
+\begin{DoxyCompactList}\small\item\em Indicates that an erroneous code path has been taken. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utility__error_gaeb308ca6145fb2250acd4e7651dec984}{CUDF\+\_\+\+CUDA\+\_\+\+TRY}}(call)
+\begin{DoxyCompactList}\small\item\em Error checking macro for CUDA runtime API functions. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utility__error_gaa37ff3115a47c6d658f1603746e54134}{CUDF\+\_\+\+CHECK\+\_\+\+CUDA}}(stream)
+\begin{DoxyCompactList}\small\item\em Debug macro to check for CUDA errors \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{宏定义说明}
+\Hypertarget{error_8hpp_a5f5d02e10169c2bbee4f3b8a66f64164}\label{error_8hpp_a5f5d02e10169c2bbee4f3b8a66f64164} 
+\index{error.hpp@{error.hpp}!CUDF\_STRINGIFY@{CUDF\_STRINGIFY}}
+\index{CUDF\_STRINGIFY@{CUDF\_STRINGIFY}!error.hpp@{error.hpp}}
+\doxysubsubsection{\texorpdfstring{CUDF\_STRINGIFY}{CUDF\_STRINGIFY}}
+{\footnotesize\ttfamily \#define CUDF\+\_\+\+STRINGIFY(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\mbox{\hyperlink{error_8hpp_aafefdd05c438f655b1f34e1e66a48951}{STRINGIFY\+\_\+\+DETAIL}}(x)}
+
+
+
+Stringify a macro argument 
+
+
+
+在文件 \mbox{\hyperlink{error_8hpp_source}{error.\+hpp}} 第 \mbox{\hyperlink{error_8hpp_source_l00091}{91}} 行定义.
+
+\Hypertarget{error_8hpp_aafefdd05c438f655b1f34e1e66a48951}\label{error_8hpp_aafefdd05c438f655b1f34e1e66a48951} 
+\index{error.hpp@{error.hpp}!STRINGIFY\_DETAIL@{STRINGIFY\_DETAIL}}
+\index{STRINGIFY\_DETAIL@{STRINGIFY\_DETAIL}!error.hpp@{error.hpp}}
+\doxysubsubsection{\texorpdfstring{STRINGIFY\_DETAIL}{STRINGIFY\_DETAIL}}
+{\footnotesize\ttfamily \#define STRINGIFY\+\_\+\+DETAIL(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\#x}
+
+
+
+Stringify a macro argument 
+
+
+
+在文件 \mbox{\hyperlink{error_8hpp_source}{error.\+hpp}} 第 \mbox{\hyperlink{error_8hpp_source_l00090}{90}} 行定义.
+

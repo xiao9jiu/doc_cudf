@@ -1,0 +1,208 @@
+\doxysection{cudf\+::host\+\_\+span\texorpdfstring{$<$}{<} T, Extent \texorpdfstring{$>$}{>} 模板结构体 参考}
+\hypertarget{structcudf_1_1host__span}{}\label{structcudf_1_1host__span}\index{cudf::host\_span$<$ T, Extent $>$@{cudf::host\_span$<$ T, Extent $>$}}
+
+
+C++20 std\+::span with reduced feature set.  
+
+
+
+
+{\ttfamily \#include $<$span.\+hpp$>$}
+
+
+
+类 cudf\+::host\+\_\+span\texorpdfstring{$<$}{<} T, Extent \texorpdfstring{$>$}{>} 继承关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{structcudf_1_1host__span__inherit__graph}
+\end{center}
+\end{figure}
+
+
+cudf\+::host\+\_\+span\texorpdfstring{$<$}{<} T, Extent \texorpdfstring{$>$}{>} 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{structcudf_1_1host__span__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 类型}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{structcudf_1_1host__span_ac74add65dd09aa068a81cf46b953a0db}{base}} = \mbox{\hyperlink{classcudf_1_1detail_1_1span__base}{cudf\+::detail\+::span\+\_\+base}}$<$ T, Extent, \mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ T, Extent $>$ $>$
+\begin{DoxyCompactList}\small\item\em Base type \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public 类型 继承自 \mbox{\hyperlink{classcudf_1_1detail_1_1span__base}{cudf\+::detail\+::span\+\_\+base$<$ T, Extent, Derived $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_afda7fdb123d16df824d9be5f5fc98fee}{element\+\_\+type}} = T
+\begin{DoxyCompactList}\small\item\em The type of the elements in the span \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a6e763be71eccf9aacc12ef7e6b9e58db}{value\+\_\+type}} = std\+::remove\+\_\+cv$<$ T $>$
+\begin{DoxyCompactList}\small\item\em Stored value type \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a0d7ab8191520a4e12352e2b7877232db}{size\+\_\+type}} = std\+::size\+\_\+t
+\begin{DoxyCompactList}\small\item\em The type used for the size of the span \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a7a28a324767cba3faf224bafd8455b42}{difference\+\_\+type}} = std\+::ptrdiff\+\_\+t
+\begin{DoxyCompactList}\small\item\em std\+::ptrdiff\+\_\+t \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a7beaa3396ddab0ddbc211eed47b1f450}{pointer}} = T \texorpdfstring{$\ast$}{*}
+\begin{DoxyCompactList}\small\item\em The type of the pointer returned by \doxylink{classcudf_1_1detail_1_1span__base_a69173bd857efea3b873d5777fee52e73}{data()} \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a36a07abd40108908ba27ecc5a02036f7}{iterator}} = T \texorpdfstring{$\ast$}{*}
+\begin{DoxyCompactList}\small\item\em The type of the iterator returned by \doxylink{classcudf_1_1detail_1_1span__base_aa8b7b5a55391e33465a8287fe61e4332}{begin()} \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a8ed328d5728032e729df6f4abecead59}{const\+\_\+pointer}} = T const  \texorpdfstring{$\ast$}{*}
+\begin{DoxyCompactList}\small\item\em The type of the pointer returned by \doxylink{classcudf_1_1detail_1_1span__base_a69173bd857efea3b873d5777fee52e73}{data() const} \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_aa6986fc5b58efff9bafbf0d1582a5021}{reference}} = T \&
+\begin{DoxyCompactList}\small\item\em The type of the reference returned by operator\mbox{[}$\,$\mbox{]}(size\+\_\+type) \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_afaec647f37b3ee5aca6a14d5f478f034}{const\+\_\+reference}} = T const  \&
+\begin{DoxyCompactList}\small\item\em The type of the reference returned by \doxylink{classcudf_1_1detail_1_1span__base_a1e427c5cc86714c90cfd785439679b24}{operator\mbox{[}$\,$\mbox{]}(size\+\_\+type) const} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+constexpr \mbox{\hyperlink{structcudf_1_1host__span_acc2905f4fc9f53d309d427be6ab1cfb5}{host\+\_\+span}} () noexcept
+\item 
+{\footnotesize template$<$typename C , std\+::enable\+\_\+if\+\_\+t$<$ \mbox{\hyperlink{structcudf_1_1is__host__span__supported__container}{is\+\_\+host\+\_\+span\+\_\+supported\+\_\+container}}$<$ C $>$\+::value \&\&std\+::is\+\_\+convertible\+\_\+v$<$ std\+::remove\+\_\+pointer\+\_\+t$<$ decltype(thrust\+::raw\+\_\+pointer\+\_\+cast(std\+::declval$<$ C \& $>$().\mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a69173bd857efea3b873d5777fee52e73}{data}}()))$>$(\texorpdfstring{$\ast$}{*})\mbox{[}$\,$\mbox{]}, T(\texorpdfstring{$\ast$}{*})\mbox{[}$\,$\mbox{]}$>$ , \texorpdfstring{$\ast$}{*}  = nullptr$>$ }\\constexpr \mbox{\hyperlink{structcudf_1_1host__span_af4664f07f00e0c7e60828d8aea3ad7c4}{host\+\_\+span}} (C \&in)
+\item 
+{\footnotesize template$<$typename C , std\+::enable\+\_\+if\+\_\+t$<$ \mbox{\hyperlink{structcudf_1_1is__host__span__supported__container}{is\+\_\+host\+\_\+span\+\_\+supported\+\_\+container}}$<$ C $>$\+::value \&\&std\+::is\+\_\+convertible\+\_\+v$<$ std\+::remove\+\_\+pointer\+\_\+t$<$ decltype(thrust\+::raw\+\_\+pointer\+\_\+cast(std\+::declval$<$ C \& $>$().\mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a69173bd857efea3b873d5777fee52e73}{data}}()))$>$(\texorpdfstring{$\ast$}{*})\mbox{[}$\,$\mbox{]}, T(\texorpdfstring{$\ast$}{*})\mbox{[}$\,$\mbox{]}$>$ , \texorpdfstring{$\ast$}{*}  = nullptr$>$ }\\constexpr \mbox{\hyperlink{structcudf_1_1host__span_a4414fbc0ab84eb1491705b16392977bd}{host\+\_\+span}} (C const \&in)
+\item 
+{\footnotesize template$<$typename OtherT , std\+::size\+\_\+t Other\+Extent, std\+::enable\+\_\+if\+\_\+t$<$(Extent==Other\+Extent\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}Extent==\mbox{\hyperlink{namespacecudf_add874002afe5d4f40cb59453704712bb}{dynamic\+\_\+extent}}) \&\&std\+::is\+\_\+convertible\+\_\+v$<$ OtherT(\texorpdfstring{$\ast$}{*})\mbox{[}$\,$\mbox{]}, T(\texorpdfstring{$\ast$}{*})\mbox{[}$\,$\mbox{]}$>$, void $>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ }\\constexpr \mbox{\hyperlink{structcudf_1_1host__span_ac66c88d4762619871e2bfeb536a99926}{host\+\_\+span}} (const \mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ OtherT, Other\+Extent $>$ \&other) noexcept
+\end{DoxyCompactItemize}
+\doxysubsection*{Public 成员函数 继承自 \mbox{\hyperlink{classcudf_1_1detail_1_1span__base}{cudf\+::detail\+::span\+\_\+base$<$ T, Extent, Derived $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+constexpr \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a22f4261817c1ef9ac21c8f24bb244782}{span\+\_\+base}} () noexcept
+\item 
+constexpr \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a64f2bf1131cccae8c851582d6266c103}{span\+\_\+base}} (\mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a7beaa3396ddab0ddbc211eed47b1f450}{pointer}} \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a69173bd857efea3b873d5777fee52e73}{data}}, \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a0d7ab8191520a4e12352e2b7877232db}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_af462a382d03fac3b2a2e79c51ffce67a}{size}})
+\begin{DoxyCompactList}\small\item\em Constructs a span from a pointer and a size. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a6a0c756567535d71591bc94120042ea7}{span\+\_\+base}} (\mbox{\hyperlink{classcudf_1_1detail_1_1span__base}{span\+\_\+base}} const \&) noexcept=default
+\begin{DoxyCompactList}\small\item\em Copy constructor \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{classcudf_1_1detail_1_1span__base}{span\+\_\+base}} \& \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a3672c7a66165781269584ded6eb3c9d1}{operator=}} (\mbox{\hyperlink{classcudf_1_1detail_1_1span__base}{span\+\_\+base}} const \&) noexcept=default
+\begin{DoxyCompactList}\small\item\em Copy assignment operator. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_aa6986fc5b58efff9bafbf0d1582a5021}{reference}} \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_adf4e29da1865298a654c72370f3be797}{front}} () const
+\begin{DoxyCompactList}\small\item\em Returns a reference to the first element in the span. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_aa6986fc5b58efff9bafbf0d1582a5021}{reference}} \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a34151076ca478b7411945c9165f2f540}{back}} () const
+\begin{DoxyCompactList}\small\item\em Returns a reference to the last element in the span. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_aa6986fc5b58efff9bafbf0d1582a5021}{reference}} \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a1e427c5cc86714c90cfd785439679b24}{operator\mbox{[}$\,$\mbox{]}}} (\mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a0d7ab8191520a4e12352e2b7877232db}{size\+\_\+type}} idx) const
+\begin{DoxyCompactList}\small\item\em Returns a reference to the idx-\/th element of the sequence. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a36a07abd40108908ba27ecc5a02036f7}{iterator}} \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_aa8b7b5a55391e33465a8287fe61e4332}{begin}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns an iterator to the first element of the span. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a36a07abd40108908ba27ecc5a02036f7}{iterator}} \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a05b599c4198246db8e8ed481fbfe2853}{end}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns an iterator to the element following the last element of the span. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a7beaa3396ddab0ddbc211eed47b1f450}{pointer}} \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a69173bd857efea3b873d5777fee52e73}{data}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns a pointer to the beginning of the sequence. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a0d7ab8191520a4e12352e2b7877232db}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_af462a382d03fac3b2a2e79c51ffce67a}{size}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the number of elements in the span. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a0d7ab8191520a4e12352e2b7877232db}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a5ef37eacb1f702c35f796c66e8712aa7}{size\+\_\+bytes}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the size of the sequence in bytes. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a187f48ab267b6cba5b3a4619c4c4f5b0}{empty}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Checks if the span is empty. \end{DoxyCompactList}\item 
+constexpr Derived \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a35101762ae9d939127f64eebad83e5b8}{first}} (\mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a0d7ab8191520a4e12352e2b7877232db}{size\+\_\+type}} count) const noexcept
+\begin{DoxyCompactList}\small\item\em Obtains a subspan consisting of the first N elements of the sequence \end{DoxyCompactList}\item 
+constexpr Derived \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a6cf5820ed1c653ff012311e5f6fce571}{last}} (\mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a0d7ab8191520a4e12352e2b7877232db}{size\+\_\+type}} count) const noexcept
+\begin{DoxyCompactList}\small\item\em Obtains a subspan consisting of the last N elements of the sequence \end{DoxyCompactList}\item 
+constexpr Derived \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a9f7981146805a6f14eb1f89eed7f8892}{subspan}} (\mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a0d7ab8191520a4e12352e2b7877232db}{size\+\_\+type}} offset, \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a0d7ab8191520a4e12352e2b7877232db}{size\+\_\+type}} count) const noexcept
+\begin{DoxyCompactList}\small\item\em Obtains a span that is a view over the {\ttfamily count} elements of this span starting at offset \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{额外继承的成员函数}
+\doxysubsection*{静态 Public 属性 继承自 \mbox{\hyperlink{classcudf_1_1detail_1_1span__base}{cudf\+::detail\+::span\+\_\+base$<$ T, Extent, Derived $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr std\+::size\+\_\+t \mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a8f2f6f3a209c859cfe60961e9f3fb09d}{extent}} = Extent
+\begin{DoxyCompactList}\small\item\em The extent of the span \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+\subsubsection*{template$<$typename T, std\+::size\+\_\+t Extent = cudf\+::dynamic\+\_\+extent$>$\newline
+struct cudf\+::host\+\_\+span$<$ T, Extent $>$}
+C++20 std\+::span with reduced feature set. 
+
+
+
+在文件 \mbox{\hyperlink{span_8hpp_source}{span.\+hpp}} 第 \mbox{\hyperlink{span_8hpp_source_l00214}{214}} 行定义.
+
+
+
+\doxysubsection{成员类型定义说明}
+\Hypertarget{structcudf_1_1host__span_ac74add65dd09aa068a81cf46b953a0db}\label{structcudf_1_1host__span_ac74add65dd09aa068a81cf46b953a0db} 
+\index{cudf::host\_span$<$ T, Extent $>$@{cudf::host\_span$<$ T, Extent $>$}!base@{base}}
+\index{base@{base}!cudf::host\_span$<$ T, Extent $>$@{cudf::host\_span$<$ T, Extent $>$}}
+\doxysubsubsection{\texorpdfstring{base}{base}}
+{\footnotesize\ttfamily template$<$typename T , std\+::size\+\_\+t Extent = cudf\+::dynamic\+\_\+extent$>$ \\
+using \mbox{\hyperlink{structcudf_1_1host__span}{cudf\+::host\+\_\+span}}$<$ T, Extent $>$\+::base =  \mbox{\hyperlink{classcudf_1_1detail_1_1span__base}{cudf\+::detail\+::span\+\_\+base}}$<$T, Extent, \mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$T, Extent$>$ $>$}
+
+
+
+Base type 
+
+
+
+在文件 \mbox{\hyperlink{span_8hpp_source}{span.\+hpp}} 第 \mbox{\hyperlink{span_8hpp_source_l00215}{215}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{structcudf_1_1host__span_acc2905f4fc9f53d309d427be6ab1cfb5}\label{structcudf_1_1host__span_acc2905f4fc9f53d309d427be6ab1cfb5} 
+\index{cudf::host\_span$<$ T, Extent $>$@{cudf::host\_span$<$ T, Extent $>$}!host\_span@{host\_span}}
+\index{host\_span@{host\_span}!cudf::host\_span$<$ T, Extent $>$@{cudf::host\_span$<$ T, Extent $>$}}
+\doxysubsubsection{\texorpdfstring{host\_span()}{host\_span()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename T , std\+::size\+\_\+t Extent = cudf\+::dynamic\+\_\+extent$>$ \\
+constexpr \mbox{\hyperlink{structcudf_1_1host__span}{cudf\+::host\+\_\+span}}$<$ T, Extent $>$\+::host\+\_\+span (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+在文件 \mbox{\hyperlink{span_8hpp_source}{span.\+hpp}} 第 \mbox{\hyperlink{span_8hpp_source_l00218}{218}} 行定义.
+
+\Hypertarget{structcudf_1_1host__span_af4664f07f00e0c7e60828d8aea3ad7c4}\label{structcudf_1_1host__span_af4664f07f00e0c7e60828d8aea3ad7c4} 
+\index{cudf::host\_span$<$ T, Extent $>$@{cudf::host\_span$<$ T, Extent $>$}!host\_span@{host\_span}}
+\index{host\_span@{host\_span}!cudf::host\_span$<$ T, Extent $>$@{cudf::host\_span$<$ T, Extent $>$}}
+\doxysubsubsection{\texorpdfstring{host\_span()}{host\_span()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename T , std\+::size\+\_\+t Extent = cudf\+::dynamic\+\_\+extent$>$ \\
+template$<$typename C , std\+::enable\+\_\+if\+\_\+t$<$ \mbox{\hyperlink{structcudf_1_1is__host__span__supported__container}{is\+\_\+host\+\_\+span\+\_\+supported\+\_\+container}}$<$ C $>$\+::value \&\&std\+::is\+\_\+convertible\+\_\+v$<$ std\+::remove\+\_\+pointer\+\_\+t$<$ decltype(thrust\+::raw\+\_\+pointer\+\_\+cast(std\+::declval$<$ C \& $>$().\mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a69173bd857efea3b873d5777fee52e73}{data}}()))$>$(\texorpdfstring{$\ast$}{*})\mbox{[}$\,$\mbox{]}, T(\texorpdfstring{$\ast$}{*})\mbox{[}$\,$\mbox{]}$>$ , \texorpdfstring{$\ast$}{*}  = nullptr$>$ \\
+constexpr \mbox{\hyperlink{structcudf_1_1host__span}{cudf\+::host\+\_\+span}}$<$ T, Extent $>$\+::host\+\_\+span (\begin{DoxyParamCaption}\item[{C \&}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+Constructor from container 
+\begin{DoxyParams}{参数}
+{\em in} & The container to construct the span from \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{span_8hpp_source}{span.\+hpp}} 第 \mbox{\hyperlink{span_8hpp_source_l00229}{229}} 行定义.
+
+\Hypertarget{structcudf_1_1host__span_a4414fbc0ab84eb1491705b16392977bd}\label{structcudf_1_1host__span_a4414fbc0ab84eb1491705b16392977bd} 
+\index{cudf::host\_span$<$ T, Extent $>$@{cudf::host\_span$<$ T, Extent $>$}!host\_span@{host\_span}}
+\index{host\_span@{host\_span}!cudf::host\_span$<$ T, Extent $>$@{cudf::host\_span$<$ T, Extent $>$}}
+\doxysubsubsection{\texorpdfstring{host\_span()}{host\_span()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename T , std\+::size\+\_\+t Extent = cudf\+::dynamic\+\_\+extent$>$ \\
+template$<$typename C , std\+::enable\+\_\+if\+\_\+t$<$ \mbox{\hyperlink{structcudf_1_1is__host__span__supported__container}{is\+\_\+host\+\_\+span\+\_\+supported\+\_\+container}}$<$ C $>$\+::value \&\&std\+::is\+\_\+convertible\+\_\+v$<$ std\+::remove\+\_\+pointer\+\_\+t$<$ decltype(thrust\+::raw\+\_\+pointer\+\_\+cast(std\+::declval$<$ C \& $>$().\mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a69173bd857efea3b873d5777fee52e73}{data}}()))$>$(\texorpdfstring{$\ast$}{*})\mbox{[}$\,$\mbox{]}, T(\texorpdfstring{$\ast$}{*})\mbox{[}$\,$\mbox{]}$>$ , \texorpdfstring{$\ast$}{*}  = nullptr$>$ \\
+constexpr \mbox{\hyperlink{structcudf_1_1host__span}{cudf\+::host\+\_\+span}}$<$ T, Extent $>$\+::host\+\_\+span (\begin{DoxyParamCaption}\item[{C const \&}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+Constructor from const container 
+\begin{DoxyParams}{参数}
+{\em in} & The container to construct the span from \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{span_8hpp_source}{span.\+hpp}} 第 \mbox{\hyperlink{span_8hpp_source_l00242}{242}} 行定义.
+
+\Hypertarget{structcudf_1_1host__span_ac66c88d4762619871e2bfeb536a99926}\label{structcudf_1_1host__span_ac66c88d4762619871e2bfeb536a99926} 
+\index{cudf::host\_span$<$ T, Extent $>$@{cudf::host\_span$<$ T, Extent $>$}!host\_span@{host\_span}}
+\index{host\_span@{host\_span}!cudf::host\_span$<$ T, Extent $>$@{cudf::host\_span$<$ T, Extent $>$}}
+\doxysubsubsection{\texorpdfstring{host\_span()}{host\_span()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename T , std\+::size\+\_\+t Extent = cudf\+::dynamic\+\_\+extent$>$ \\
+template$<$typename OtherT , std\+::size\+\_\+t Other\+Extent, std\+::enable\+\_\+if\+\_\+t$<$(Extent==Other\+Extent\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}Extent==\mbox{\hyperlink{namespacecudf_add874002afe5d4f40cb59453704712bb}{dynamic\+\_\+extent}}) \&\&std\+::is\+\_\+convertible\+\_\+v$<$ OtherT(\texorpdfstring{$\ast$}{*})\mbox{[}$\,$\mbox{]}, T(\texorpdfstring{$\ast$}{*})\mbox{[}$\,$\mbox{]}$>$, void $>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ \\
+constexpr \mbox{\hyperlink{structcudf_1_1host__span}{cudf\+::host\+\_\+span}}$<$ T, Extent $>$\+::host\+\_\+span (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ OtherT, Other\+Extent $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+\begin{DoxyParams}{参数}
+{\em other} & The span to copy \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{span_8hpp_source}{span.\+hpp}} 第 \mbox{\hyperlink{span_8hpp_source_l00253}{253}} 行定义.
+
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/utilities/\mbox{\hyperlink{span_8hpp}{span.\+hpp}}\end{DoxyCompactItemize}

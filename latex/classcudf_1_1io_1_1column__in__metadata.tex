@@ -1,0 +1,648 @@
+\doxysection{cudf\+::io\+::column\+\_\+in\+\_\+metadata类 参考}
+\hypertarget{classcudf_1_1io_1_1column__in__metadata}{}\label{classcudf_1_1io_1_1column__in__metadata}\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+
+
+Metadata for a column  
+
+
+
+
+{\ttfamily \#include $<$types.\+hpp$>$}
+
+
+
+cudf\+::io\+::column\+\_\+in\+\_\+metadata 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{classcudf_1_1io_1_1column__in__metadata__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_a9a918f2cc2fb2fd27995ba012d9bbe15}{column\+\_\+in\+\_\+metadata}} ()=default
+\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_aae9178f52e3a1aed14e2dd96871a332a}{column\+\_\+in\+\_\+metadata}} (std\+::string\+\_\+view name)
+\begin{DoxyCompactList}\small\item\em Construct a new column in metadata object \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata}{column\+\_\+in\+\_\+metadata}} \& \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_a65287bf3c73002973b8bea2be59e445f}{add\+\_\+child}} (\mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata}{column\+\_\+in\+\_\+metadata}} const \&\mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_accb931b316b6723effef0a4ca2206ca5}{child}})
+\begin{DoxyCompactList}\small\item\em Add the children metadata of this column \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata}{column\+\_\+in\+\_\+metadata}} \& \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_a250e39363fbae3c64f0fd79a90e2f21a}{set\+\_\+name}} (std\+::string const \&name) noexcept
+\begin{DoxyCompactList}\small\item\em Set the name of this column \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata}{column\+\_\+in\+\_\+metadata}} \& \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_a5bc0af02703b126023266e172085205b}{set\+\_\+nullability}} (bool \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_a46c1a1e8a9b7cbdab15d1a1de5e8ab78}{nullable}}) noexcept
+\begin{DoxyCompactList}\small\item\em Set the nullability of this column \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata}{column\+\_\+in\+\_\+metadata}} \& \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_a668a19dc60c5633c012be7a41bee0631}{set\+\_\+list\+\_\+column\+\_\+as\+\_\+map}} () noexcept
+\begin{DoxyCompactList}\small\item\em Specify that this list column should be encoded as a map in the written file \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata}{column\+\_\+in\+\_\+metadata}} \& \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_afb2fbaac9d2e7ada1e3f607bcc2791bc}{set\+\_\+int96\+\_\+timestamps}} (bool req) noexcept
+\begin{DoxyCompactList}\small\item\em Specifies whether this timestamp column should be encoded using the deprecated int96 physical type. Only valid for the following column types\+: timestamp\+\_\+s, timestamp\+\_\+ms, timestamp\+\_\+us, timestamp\+\_\+ns \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata}{column\+\_\+in\+\_\+metadata}} \& \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_ae1f7b32561d793815747a2f6d040136b}{set\+\_\+decimal\+\_\+precision}} (uint8\+\_\+t precision) noexcept
+\begin{DoxyCompactList}\small\item\em Set the decimal precision of this column. Only valid if this column is a decimal (fixed-\/point) type \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata}{column\+\_\+in\+\_\+metadata}} \& \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_ab0937741a57fb445b438d65da613a239}{set\+\_\+parquet\+\_\+field\+\_\+id}} (int32\+\_\+t field\+\_\+id) noexcept
+\begin{DoxyCompactList}\small\item\em Set the parquet field id of this column. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata}{column\+\_\+in\+\_\+metadata}} \& \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_a688279e3d062057d997b1b56bcb1124f}{set\+\_\+output\+\_\+as\+\_\+binary}} (bool binary) noexcept
+\begin{DoxyCompactList}\small\item\em Specifies whether this column should be written as binary or string data Only valid for the following column types\+: string \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata}{column\+\_\+in\+\_\+metadata}} \& \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_accb931b316b6723effef0a4ca2206ca5}{child}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} i) noexcept
+\begin{DoxyCompactList}\small\item\em Get reference to a child of this column \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata}{column\+\_\+in\+\_\+metadata}} const \& \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_ab22e3729884c230a590a72b506f50098}{child}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} i) const noexcept
+\begin{DoxyCompactList}\small\item\em Get const reference to a child of this column \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_aa68c5a0934034212f3e3f8e60aaabb66}{get\+\_\+name}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Get the name of this column \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_ad1e5e4b94878f4145fa5bb14150fdd10}{is\+\_\+nullability\+\_\+defined}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Get whether nullability has been explicitly set for this column. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_a46c1a1e8a9b7cbdab15d1a1de5e8ab78}{nullable}} () const
+\begin{DoxyCompactList}\small\item\em Gets the explicitly set nullability for this column. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_a601603adb1a7f6d370bac45b50f4b855}{is\+\_\+map}} () const noexcept
+\begin{DoxyCompactList}\small\item\em If this is the metadata of a list column, returns whether it is to be encoded as a map. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_a2e83aab01fbbb2083ae30b012177e6bc}{is\+\_\+enabled\+\_\+int96\+\_\+timestamps}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Get whether to encode this timestamp column using deprecated int96 physical type \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_a3ebd5eee3f6374617299759724bf689d}{is\+\_\+decimal\+\_\+precision\+\_\+set}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Get whether precision has been set for this decimal column \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_a7047e6bfa172e1a7885dcb2c781f4bf5}{get\+\_\+decimal\+\_\+precision}} () const
+\begin{DoxyCompactList}\small\item\em Get the decimal precision that was set for this column. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_a3a6ad6b24101140a2e25573299080f9f}{is\+\_\+parquet\+\_\+field\+\_\+id\+\_\+set}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Get whether parquet field id has been set for this column. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_aa59fdf3b31af479391874a30e9241a9e}{get\+\_\+parquet\+\_\+field\+\_\+id}} () const
+\begin{DoxyCompactList}\small\item\em Get the parquet field id that was set for this column. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_a4db050956548caf2337401e2adc195b1}{num\+\_\+children}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Get the number of children of this column \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_a175d6a84b937864dfa608d2be103cadb}{is\+\_\+enabled\+\_\+output\+\_\+as\+\_\+binary}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Get whether to encode this column as binary or string data \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+friend \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_a3ad7f761acd7c7c31319a3ac3c3e7c09}{table\+\_\+input\+\_\+metadata}}
+\item 
+std\+::string \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_a89f17eb8c33899b1f2d0663e9f85c49b}{\+\_\+name}} = \"{}\"{}
+\item 
+std\+::optional$<$ bool $>$ \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_addd63889a8947c1c73ef8415f4f7ff3d}{\+\_\+nullable}}
+\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_aea4d6d8af4c21e2dd9b4ca35775e1164}{\+\_\+list\+\_\+column\+\_\+is\+\_\+map}} = false
+\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_a4e027d3ce91f2c018356043332108c2e}{\+\_\+use\+\_\+int96\+\_\+timestamp}} = false
+\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_a381b4a99e87cade262dc0fc402795366}{\+\_\+output\+\_\+as\+\_\+binary}} = false
+\item 
+std\+::optional$<$ uint8\+\_\+t $>$ \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_a29aa00849a81fc098f403476ea9d8d16}{\+\_\+decimal\+\_\+precision}}
+\item 
+std\+::optional$<$ int32\+\_\+t $>$ \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_a3369cd3091c5656c93834e8cba6cb9c5}{\+\_\+parquet\+\_\+field\+\_\+id}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata}{column\+\_\+in\+\_\+metadata}} $>$ \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata_aca560e2e807d4eea657fd151e4700dc2}{children}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Metadata for a column 
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00385}{385}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_a9a918f2cc2fb2fd27995ba012d9bbe15}\label{classcudf_1_1io_1_1column__in__metadata_a9a918f2cc2fb2fd27995ba012d9bbe15} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!column\_in\_metadata@{column\_in\_metadata}}
+\index{column\_in\_metadata@{column\_in\_metadata}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{column\_in\_metadata()}{column\_in\_metadata()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::column\+\_\+in\+\_\+metadata (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_aae9178f52e3a1aed14e2dd96871a332a}\label{classcudf_1_1io_1_1column__in__metadata_aae9178f52e3a1aed14e2dd96871a332a} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!column\_in\_metadata@{column\_in\_metadata}}
+\index{column\_in\_metadata@{column\_in\_metadata}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{column\_in\_metadata()}{column\_in\_metadata()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::column\+\_\+in\+\_\+metadata (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new column in metadata object 
+
+
+\begin{DoxyParams}{参数}
+{\em name} & Column name \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00403}{403}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_a65287bf3c73002973b8bea2be59e445f}\label{classcudf_1_1io_1_1column__in__metadata_a65287bf3c73002973b8bea2be59e445f} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!add\_child@{add\_child}}
+\index{add\_child@{add\_child}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{add\_child()}{add\_child()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata}{column\+\_\+in\+\_\+metadata}} \& cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::add\+\_\+child (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata}{column\+\_\+in\+\_\+metadata}} const \&}]{child }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add the children metadata of this column 
+
+
+\begin{DoxyParams}{参数}
+{\em child} & The children metadata of this column to add \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+this for chaining 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00410}{410}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_ab22e3729884c230a590a72b506f50098}\label{classcudf_1_1io_1_1column__in__metadata_ab22e3729884c230a590a72b506f50098} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!child@{child}}
+\index{child@{child}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{child()}{child()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata}{column\+\_\+in\+\_\+metadata}} const  \& cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::child (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Get const reference to a child of this column 
+
+
+\begin{DoxyParams}{参数}
+{\em i} & Index of the child to get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+this for chaining 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00522}{522}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_accb931b316b6723effef0a4ca2206ca5}\label{classcudf_1_1io_1_1column__in__metadata_accb931b316b6723effef0a4ca2206ca5} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!child@{child}}
+\index{child@{child}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{child()}{child()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata}{column\+\_\+in\+\_\+metadata}} \& cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::child (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Get reference to a child of this column 
+
+
+\begin{DoxyParams}{参数}
+{\em i} & Index of the child to get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+this for chaining 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00514}{514}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_a7047e6bfa172e1a7885dcb2c781f4bf5}\label{classcudf_1_1io_1_1column__in__metadata_a7047e6bfa172e1a7885dcb2c781f4bf5} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!get\_decimal\_precision@{get\_decimal\_precision}}
+\index{get\_decimal\_precision@{get\_decimal\_precision}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{get\_decimal\_precision()}{get\_decimal\_precision()}}
+{\footnotesize\ttfamily uint8\+\_\+t cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::get\+\_\+decimal\+\_\+precision (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the decimal precision that was set for this column. 
+
+
+\begin{DoxyExceptions}{异常}
+{\em If} & decimal precision was not set for this column. Check using {\ttfamily \doxylink{classcudf_1_1io_1_1column__in__metadata_a3ebd5eee3f6374617299759724bf689d}{is\+\_\+decimal\+\_\+precision\+\_\+set()}} first. \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{返回}
+The decimal precision that was set for this column 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00579}{579}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_aa68c5a0934034212f3e3f8e60aaabb66}\label{classcudf_1_1io_1_1column__in__metadata_aa68c5a0934034212f3e3f8e60aaabb66} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!get\_name@{get\_name}}
+\index{get\_name@{get\_name}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{get\_name()}{get\_name()}}
+{\footnotesize\ttfamily std\+::string cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::get\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Get the name of this column 
+
+\begin{DoxyReturn}{返回}
+The name of this column 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00529}{529}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_aa59fdf3b31af479391874a30e9241a9e}\label{classcudf_1_1io_1_1column__in__metadata_aa59fdf3b31af479391874a30e9241a9e} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!get\_parquet\_field\_id@{get\_parquet\_field\_id}}
+\index{get\_parquet\_field\_id@{get\_parquet\_field\_id}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{get\_parquet\_field\_id()}{get\_parquet\_field\_id()}}
+{\footnotesize\ttfamily int32\+\_\+t cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::get\+\_\+parquet\+\_\+field\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the parquet field id that was set for this column. 
+
+
+\begin{DoxyExceptions}{异常}
+{\em If} & parquet field id was not set for this column. Check using {\ttfamily \doxylink{classcudf_1_1io_1_1column__in__metadata_a3a6ad6b24101140a2e25573299080f9f}{is\+\_\+parquet\+\_\+field\+\_\+id\+\_\+set()}} first. \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{返回}
+The parquet field id that was set for this column 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00598}{598}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_a3ebd5eee3f6374617299759724bf689d}\label{classcudf_1_1io_1_1column__in__metadata_a3ebd5eee3f6374617299759724bf689d} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!is\_decimal\_precision\_set@{is\_decimal\_precision\_set}}
+\index{is\_decimal\_precision\_set@{is\_decimal\_precision\_set}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{is\_decimal\_precision\_set()}{is\_decimal\_precision\_set()}}
+{\footnotesize\ttfamily bool cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::is\+\_\+decimal\+\_\+precision\+\_\+set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Get whether precision has been set for this decimal column 
+
+\begin{DoxyReturn}{返回}
+Boolean indicating whether precision has been set for this decimal column 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00567}{567}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_a2e83aab01fbbb2083ae30b012177e6bc}\label{classcudf_1_1io_1_1column__in__metadata_a2e83aab01fbbb2083ae30b012177e6bc} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!is\_enabled\_int96\_timestamps@{is\_enabled\_int96\_timestamps}}
+\index{is\_enabled\_int96\_timestamps@{is\_enabled\_int96\_timestamps}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{is\_enabled\_int96\_timestamps()}{is\_enabled\_int96\_timestamps()}}
+{\footnotesize\ttfamily bool cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::is\+\_\+enabled\+\_\+int96\+\_\+timestamps (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Get whether to encode this timestamp column using deprecated int96 physical type 
+
+\begin{DoxyReturn}{返回}
+Boolean indicating whether to encode this timestamp column using deprecated int96 physical type 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00560}{560}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_a175d6a84b937864dfa608d2be103cadb}\label{classcudf_1_1io_1_1column__in__metadata_a175d6a84b937864dfa608d2be103cadb} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!is\_enabled\_output\_as\_binary@{is\_enabled\_output\_as\_binary}}
+\index{is\_enabled\_output\_as\_binary@{is\_enabled\_output\_as\_binary}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{is\_enabled\_output\_as\_binary()}{is\_enabled\_output\_as\_binary()}}
+{\footnotesize\ttfamily bool cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::is\+\_\+enabled\+\_\+output\+\_\+as\+\_\+binary (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Get whether to encode this column as binary or string data 
+
+\begin{DoxyReturn}{返回}
+Boolean indicating whether to encode this column as binary data 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00612}{612}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_a601603adb1a7f6d370bac45b50f4b855}\label{classcudf_1_1io_1_1column__in__metadata_a601603adb1a7f6d370bac45b50f4b855} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!is\_map@{is\_map}}
+\index{is\_map@{is\_map}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{is\_map()}{is\_map()}}
+{\footnotesize\ttfamily bool cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::is\+\_\+map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+If this is the metadata of a list column, returns whether it is to be encoded as a map. 
+
+\begin{DoxyReturn}{返回}
+Boolean indicating whether this column is to be encoded as a map 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00552}{552}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_ad1e5e4b94878f4145fa5bb14150fdd10}\label{classcudf_1_1io_1_1column__in__metadata_ad1e5e4b94878f4145fa5bb14150fdd10} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!is\_nullability\_defined@{is\_nullability\_defined}}
+\index{is\_nullability\_defined@{is\_nullability\_defined}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{is\_nullability\_defined()}{is\_nullability\_defined()}}
+{\footnotesize\ttfamily bool cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::is\+\_\+nullability\+\_\+defined (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Get whether nullability has been explicitly set for this column. 
+
+\begin{DoxyReturn}{返回}
+Boolean indicating whether nullability has been explicitly set for this column 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00536}{536}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_a3a6ad6b24101140a2e25573299080f9f}\label{classcudf_1_1io_1_1column__in__metadata_a3a6ad6b24101140a2e25573299080f9f} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!is\_parquet\_field\_id\_set@{is\_parquet\_field\_id\_set}}
+\index{is\_parquet\_field\_id\_set@{is\_parquet\_field\_id\_set}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{is\_parquet\_field\_id\_set()}{is\_parquet\_field\_id\_set()}}
+{\footnotesize\ttfamily bool cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::is\+\_\+parquet\+\_\+field\+\_\+id\+\_\+set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Get whether parquet field id has been set for this column. 
+
+\begin{DoxyReturn}{返回}
+Boolean indicating whether parquet field id has been set for this column 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00586}{586}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_a46c1a1e8a9b7cbdab15d1a1de5e8ab78}\label{classcudf_1_1io_1_1column__in__metadata_a46c1a1e8a9b7cbdab15d1a1de5e8ab78} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!nullable@{nullable}}
+\index{nullable@{nullable}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{nullable()}{nullable()}}
+{\footnotesize\ttfamily bool cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::nullable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the explicitly set nullability for this column. 
+
+
+\begin{DoxyExceptions}{异常}
+{\em If} & nullability is not explicitly defined for this column. Check using {\ttfamily \doxylink{classcudf_1_1io_1_1column__in__metadata_ad1e5e4b94878f4145fa5bb14150fdd10}{is\+\_\+nullability\+\_\+defined()}} first. \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{返回}
+Boolean indicating whether this column is nullable 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00545}{545}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_a4db050956548caf2337401e2adc195b1}\label{classcudf_1_1io_1_1column__in__metadata_a4db050956548caf2337401e2adc195b1} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!num\_children@{num\_children}}
+\index{num\_children@{num\_children}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{num\_children()}{num\_children()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::num\+\_\+children (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Get the number of children of this column 
+
+\begin{DoxyReturn}{返回}
+The number of children of this column 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00605}{605}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_ae1f7b32561d793815747a2f6d040136b}\label{classcudf_1_1io_1_1column__in__metadata_ae1f7b32561d793815747a2f6d040136b} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!set\_decimal\_precision@{set\_decimal\_precision}}
+\index{set\_decimal\_precision@{set\_decimal\_precision}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{set\_decimal\_precision()}{set\_decimal\_precision()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata}{column\+\_\+in\+\_\+metadata}} \& cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::set\+\_\+decimal\+\_\+precision (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{precision }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Set the decimal precision of this column. Only valid if this column is a decimal (fixed-\/point) type 
+
+
+\begin{DoxyParams}{参数}
+{\em precision} & The integer precision to set for this decimal column \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+this for chaining 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00476}{476}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_afb2fbaac9d2e7ada1e3f607bcc2791bc}\label{classcudf_1_1io_1_1column__in__metadata_afb2fbaac9d2e7ada1e3f607bcc2791bc} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!set\_int96\_timestamps@{set\_int96\_timestamps}}
+\index{set\_int96\_timestamps@{set\_int96\_timestamps}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{set\_int96\_timestamps()}{set\_int96\_timestamps()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata}{column\+\_\+in\+\_\+metadata}} \& cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::set\+\_\+int96\+\_\+timestamps (\begin{DoxyParamCaption}\item[{bool}]{req }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Specifies whether this timestamp column should be encoded using the deprecated int96 physical type. Only valid for the following column types\+: timestamp\+\_\+s, timestamp\+\_\+ms, timestamp\+\_\+us, timestamp\+\_\+ns 
+
+
+\begin{DoxyParams}{参数}
+{\em req} & True = use int96 physical type. False = use int64 physical type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+this for chaining 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00463}{463}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_a668a19dc60c5633c012be7a41bee0631}\label{classcudf_1_1io_1_1column__in__metadata_a668a19dc60c5633c012be7a41bee0631} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!set\_list\_column\_as\_map@{set\_list\_column\_as\_map}}
+\index{set\_list\_column\_as\_map@{set\_list\_column\_as\_map}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{set\_list\_column\_as\_map()}{set\_list\_column\_as\_map()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata}{column\+\_\+in\+\_\+metadata}} \& cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::set\+\_\+list\+\_\+column\+\_\+as\+\_\+map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Specify that this list column should be encoded as a map in the written file 
+
+The column must have the structure list$<$struct$<$key, value$>$$>$. This option is invalid otherwise
+
+\begin{DoxyReturn}{返回}
+this for chaining 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00449}{449}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_a250e39363fbae3c64f0fd79a90e2f21a}\label{classcudf_1_1io_1_1column__in__metadata_a250e39363fbae3c64f0fd79a90e2f21a} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!set\_name@{set\_name}}
+\index{set\_name@{set\_name}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{set\_name()}{set\_name()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata}{column\+\_\+in\+\_\+metadata}} \& cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::set\+\_\+name (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Set the name of this column 
+
+
+\begin{DoxyParams}{参数}
+{\em name} & Name of the column \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+this for chaining 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00422}{422}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_a5bc0af02703b126023266e172085205b}\label{classcudf_1_1io_1_1column__in__metadata_a5bc0af02703b126023266e172085205b} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!set\_nullability@{set\_nullability}}
+\index{set\_nullability@{set\_nullability}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{set\_nullability()}{set\_nullability()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata}{column\+\_\+in\+\_\+metadata}} \& cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::set\+\_\+nullability (\begin{DoxyParamCaption}\item[{bool}]{nullable }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Set the nullability of this column 
+
+Only valid in case of chunked writes. In single writes, this option is ignored.
+
+
+\begin{DoxyParams}{参数}
+{\em nullable} & Whether this column is nullable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+this for chaining 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00436}{436}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_a688279e3d062057d997b1b56bcb1124f}\label{classcudf_1_1io_1_1column__in__metadata_a688279e3d062057d997b1b56bcb1124f} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!set\_output\_as\_binary@{set\_output\_as\_binary}}
+\index{set\_output\_as\_binary@{set\_output\_as\_binary}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{set\_output\_as\_binary()}{set\_output\_as\_binary()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata}{column\+\_\+in\+\_\+metadata}} \& cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::set\+\_\+output\+\_\+as\+\_\+binary (\begin{DoxyParamCaption}\item[{bool}]{binary }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Specifies whether this column should be written as binary or string data Only valid for the following column types\+: string 
+
+
+\begin{DoxyParams}{参数}
+{\em binary} & True = use binary data type. False = use string data type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+this for chaining 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00502}{502}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_ab0937741a57fb445b438d65da613a239}\label{classcudf_1_1io_1_1column__in__metadata_ab0937741a57fb445b438d65da613a239} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!set\_parquet\_field\_id@{set\_parquet\_field\_id}}
+\index{set\_parquet\_field\_id@{set\_parquet\_field\_id}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{set\_parquet\_field\_id()}{set\_parquet\_field\_id()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata}{column\+\_\+in\+\_\+metadata}} \& cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::set\+\_\+parquet\+\_\+field\+\_\+id (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{field\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Set the parquet field id of this column. 
+
+
+\begin{DoxyParams}{参数}
+{\em field\+\_\+id} & The parquet field id to set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+this for chaining 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00488}{488}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_a29aa00849a81fc098f403476ea9d8d16}\label{classcudf_1_1io_1_1column__in__metadata_a29aa00849a81fc098f403476ea9d8d16} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!\_decimal\_precision@{\_decimal\_precision}}
+\index{\_decimal\_precision@{\_decimal\_precision}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{\_decimal\_precision}{\_decimal\_precision}}
+{\footnotesize\ttfamily std\+::optional$<$uint8\+\_\+t$>$ cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::\+\_\+decimal\+\_\+precision\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00392}{392}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_aea4d6d8af4c21e2dd9b4ca35775e1164}\label{classcudf_1_1io_1_1column__in__metadata_aea4d6d8af4c21e2dd9b4ca35775e1164} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!\_list\_column\_is\_map@{\_list\_column\_is\_map}}
+\index{\_list\_column\_is\_map@{\_list\_column\_is\_map}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{\_list\_column\_is\_map}{\_list\_column\_is\_map}}
+{\footnotesize\ttfamily bool cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::\+\_\+list\+\_\+column\+\_\+is\+\_\+map = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00389}{389}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_a89f17eb8c33899b1f2d0663e9f85c49b}\label{classcudf_1_1io_1_1column__in__metadata_a89f17eb8c33899b1f2d0663e9f85c49b} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!\_name@{\_name}}
+\index{\_name@{\_name}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{\_name}{\_name}}
+{\footnotesize\ttfamily std\+::string cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::\+\_\+name = \"{}\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00387}{387}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_addd63889a8947c1c73ef8415f4f7ff3d}\label{classcudf_1_1io_1_1column__in__metadata_addd63889a8947c1c73ef8415f4f7ff3d} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!\_nullable@{\_nullable}}
+\index{\_nullable@{\_nullable}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{\_nullable}{\_nullable}}
+{\footnotesize\ttfamily std\+::optional$<$bool$>$ cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::\+\_\+nullable\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00388}{388}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_a381b4a99e87cade262dc0fc402795366}\label{classcudf_1_1io_1_1column__in__metadata_a381b4a99e87cade262dc0fc402795366} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!\_output\_as\_binary@{\_output\_as\_binary}}
+\index{\_output\_as\_binary@{\_output\_as\_binary}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{\_output\_as\_binary}{\_output\_as\_binary}}
+{\footnotesize\ttfamily bool cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::\+\_\+output\+\_\+as\+\_\+binary = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00391}{391}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_a3369cd3091c5656c93834e8cba6cb9c5}\label{classcudf_1_1io_1_1column__in__metadata_a3369cd3091c5656c93834e8cba6cb9c5} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!\_parquet\_field\_id@{\_parquet\_field\_id}}
+\index{\_parquet\_field\_id@{\_parquet\_field\_id}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{\_parquet\_field\_id}{\_parquet\_field\_id}}
+{\footnotesize\ttfamily std\+::optional$<$int32\+\_\+t$>$ cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::\+\_\+parquet\+\_\+field\+\_\+id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00393}{393}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_a4e027d3ce91f2c018356043332108c2e}\label{classcudf_1_1io_1_1column__in__metadata_a4e027d3ce91f2c018356043332108c2e} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!\_use\_int96\_timestamp@{\_use\_int96\_timestamp}}
+\index{\_use\_int96\_timestamp@{\_use\_int96\_timestamp}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{\_use\_int96\_timestamp}{\_use\_int96\_timestamp}}
+{\footnotesize\ttfamily bool cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::\+\_\+use\+\_\+int96\+\_\+timestamp = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00390}{390}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_aca560e2e807d4eea657fd151e4700dc2}\label{classcudf_1_1io_1_1column__in__metadata_aca560e2e807d4eea657fd151e4700dc2} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!children@{children}}
+\index{children@{children}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{children}{children}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classcudf_1_1io_1_1column__in__metadata}{column\+\_\+in\+\_\+metadata}}$>$ cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::children\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00394}{394}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1column__in__metadata_a3ad7f761acd7c7c31319a3ac3c3e7c09}\label{classcudf_1_1io_1_1column__in__metadata_a3ad7f761acd7c7c31319a3ac3c3e7c09} 
+\index{cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}!table\_input\_metadata@{table\_input\_metadata}}
+\index{table\_input\_metadata@{table\_input\_metadata}!cudf::io::column\_in\_metadata@{cudf::io::column\_in\_metadata}}
+\doxysubsubsection{\texorpdfstring{table\_input\_metadata}{table\_input\_metadata}}
+{\footnotesize\ttfamily friend cudf\+::io\+::column\+\_\+in\+\_\+metadata\+::table\+\_\+input\+\_\+metadata\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00386}{386}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/\mbox{\hyperlink{io_2types_8hpp}{types.\+hpp}}\end{DoxyCompactItemize}

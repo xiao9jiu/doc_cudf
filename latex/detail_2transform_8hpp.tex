@@ -1,0 +1,48 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/detail/transform.hpp 文件参考}
+\hypertarget{detail_2transform_8hpp}{}\label{detail_2transform_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/detail/transform.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/detail/transform.hpp}}
+{\ttfamily \#include $<$cudf/ast/expressions.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/transform.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/utilities/default\+\_\+stream.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/cuda\+\_\+stream\+\_\+view.\+hpp$>$}\newline
+transform.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{detail_2transform_8hpp__incl}
+\end{center}
+\end{figure}
+此图展示该文件直接或间接的被哪些文件引用了\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{detail_2transform_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1detail}{cudf\+::detail}}
+\begin{DoxyCompactList}\small\item\em Inner interfaces and implementations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a8dea2d4015483abd8062b4f3e8c49ecf}{cudf\+::detail\+::transform}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, std\+::string const \&unary\+\_\+udf, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+type, bool is\+\_\+ptx, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Creates a new column by applying a unary function against every element of an input column.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a0c8323757962d4b3d4b41b9d06289914}{cudf\+::detail\+::compute\+\_\+column}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \mbox{\hyperlink{classcudf_1_1table}{table}}, \mbox{\hyperlink{classcudf_1_1ast_1_1operation}{ast\+::operation}} const \&expr, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Compute a new column by evaluating an expression tree on a table.   \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ rmm\+::device\+\_\+buffer $>$, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_abb7e1bd82e43f366a0455d2c606ff212}{cudf\+::detail\+::nans\+\_\+to\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Creates a null\+\_\+mask from {\ttfamily input} by converting {\ttfamily NaN} to null and preserving existing null values and also returns new null\+\_\+count.   \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ rmm\+::device\+\_\+buffer $>$, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_ad38866396e5c2b317d7075374fe64777}{cudf\+::detail\+::bools\+\_\+to\+\_\+mask}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Creates a bitmask from a column of boolean elements.   \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{cudf\+::table}} $>$, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a861eb8ba4d559b6db57beb584530fb31}{cudf\+::detail\+::encode}} (\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&input, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Encode the rows of the given table as integers   \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_ad30bc52a8dbe05164e2d5fc0b49e1844}{cudf\+::detail\+::one\+\_\+hot\+\_\+encode}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&categories, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Encodes {\ttfamily input} by generating a new column for each value in {\ttfamily categories} indicating the presence of that value in {\ttfamily input}.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_adcca95b53757f3fc776e4a53c762e318}{cudf\+::detail\+::mask\+\_\+to\+\_\+bools}} (\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} const \texorpdfstring{$\ast$}{*}null\+\_\+mask, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} begin\+\_\+bit, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} end\+\_\+bit, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Creates a boolean column from given bitmask.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a6f65c99023599795be67aafb3c125b88}{cudf\+::detail\+::row\+\_\+bit\+\_\+count}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&t, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns an approximate cumulative size in bits of all columns in the {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} for each row.   \end{DoxyCompactList}\end{DoxyCompactItemize}

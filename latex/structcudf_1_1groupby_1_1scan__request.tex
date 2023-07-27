@@ -1,0 +1,75 @@
+\doxysection{cudf\+::groupby\+::scan\+\_\+request结构体 参考}
+\hypertarget{structcudf_1_1groupby_1_1scan__request}{}\label{structcudf_1_1groupby_1_1scan__request}\index{cudf::groupby::scan\_request@{cudf::groupby::scan\_request}}
+
+
+Request for groupby aggregation(s) for scanning a column.  
+
+
+
+
+{\ttfamily \#include $<$groupby.\+hpp$>$}
+
+
+
+cudf\+::groupby\+::scan\+\_\+request 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{structcudf_1_1groupby_1_1scan__request__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} \mbox{\hyperlink{structcudf_1_1groupby_1_1scan__request_a1954c5a8e5bf4e9e084c9af78977e1c6}{values}}
+\begin{DoxyCompactList}\small\item\em The elements to aggregate \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1groupby__scan__aggregation}{groupby\+\_\+scan\+\_\+aggregation}} $>$ $>$ \mbox{\hyperlink{structcudf_1_1groupby_1_1scan__request_a9bc151ffba86e31feb32667890a197f9}{aggregations}}
+\begin{DoxyCompactList}\small\item\em Desired aggregations \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Request for groupby aggregation(s) for scanning a column. 
+
+The group membership of each {\ttfamily value\mbox{[}i\mbox{]}} is determined by the corresponding row {\ttfamily i} in the original order of {\ttfamily keys} used to construct the {\ttfamily groupby}. I.\+e., for each {\ttfamily aggregation}, {\ttfamily values\mbox{[}i\mbox{]}} is aggregated with all other {\ttfamily values\mbox{[}j\mbox{]}} where rows {\ttfamily i} and {\ttfamily j} in {\ttfamily keys} are equivalent.
+
+{\ttfamily values.\+size()} column must equal {\ttfamily keys.\+num\+\_\+rows()}. 
+
+在文件 \mbox{\hyperlink{groupby_8hpp_source}{groupby.\+hpp}} 第 \mbox{\hyperlink{groupby_8hpp_source_l00074}{74}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{structcudf_1_1groupby_1_1scan__request_a9bc151ffba86e31feb32667890a197f9}\label{structcudf_1_1groupby_1_1scan__request_a9bc151ffba86e31feb32667890a197f9} 
+\index{cudf::groupby::scan\_request@{cudf::groupby::scan\_request}!aggregations@{aggregations}}
+\index{aggregations@{aggregations}!cudf::groupby::scan\_request@{cudf::groupby::scan\_request}}
+\doxysubsubsection{\texorpdfstring{aggregations}{aggregations}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classcudf_1_1groupby__scan__aggregation}{groupby\+\_\+scan\+\_\+aggregation}}$>$ $>$ cudf\+::groupby\+::scan\+\_\+request\+::aggregations}
+
+
+
+Desired aggregations 
+
+
+
+在文件 \mbox{\hyperlink{groupby_8hpp_source}{groupby.\+hpp}} 第 \mbox{\hyperlink{groupby_8hpp_source_l00076}{76}} 行定义.
+
+\Hypertarget{structcudf_1_1groupby_1_1scan__request_a1954c5a8e5bf4e9e084c9af78977e1c6}\label{structcudf_1_1groupby_1_1scan__request_a1954c5a8e5bf4e9e084c9af78977e1c6} 
+\index{cudf::groupby::scan\_request@{cudf::groupby::scan\_request}!values@{values}}
+\index{values@{values}!cudf::groupby::scan\_request@{cudf::groupby::scan\_request}}
+\doxysubsubsection{\texorpdfstring{values}{values}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} cudf\+::groupby\+::scan\+\_\+request\+::values}
+
+
+
+The elements to aggregate 
+
+
+
+在文件 \mbox{\hyperlink{groupby_8hpp_source}{groupby.\+hpp}} 第 \mbox{\hyperlink{groupby_8hpp_source_l00075}{75}} 行定义.
+
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/\mbox{\hyperlink{groupby_8hpp}{groupby.\+hpp}}\end{DoxyCompactItemize}

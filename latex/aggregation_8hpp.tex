@@ -1,0 +1,156 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/aggregation.hpp 文件参考}
+\hypertarget{aggregation_8hpp}{}\label{aggregation_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/aggregation.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/aggregation.hpp}}
+
+
+Representation for specifying desired aggregations from aggregation-\/based APIs, e.\+g., groupby, reductions, rolling, etc.  
+
+
+{\ttfamily \#include $<$cudf/types.\+hpp$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+aggregation.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aggregation_8hpp__incl}
+\end{center}
+\end{figure}
+此图展示该文件直接或间接的被哪些文件引用了\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aggregation_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcudf_1_1aggregation}{cudf\+::aggregation}}
+\begin{DoxyCompactList}\small\item\em Abstract base class for specifying the desired aggregation in an {\ttfamily aggregation\+\_\+request}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcudf_1_1rolling__aggregation}{cudf\+::rolling\+\_\+aggregation}}
+\begin{DoxyCompactList}\small\item\em Derived class intended for rolling\+\_\+window specific aggregation usage. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcudf_1_1groupby__aggregation}{cudf\+::groupby\+\_\+aggregation}}
+\begin{DoxyCompactList}\small\item\em Derived class intended for groupby specific aggregation usage. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcudf_1_1groupby__scan__aggregation}{cudf\+::groupby\+\_\+scan\+\_\+aggregation}}
+\begin{DoxyCompactList}\small\item\em Derived class intended for groupby specific scan usage. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcudf_1_1reduce__aggregation}{cudf\+::reduce\+\_\+aggregation}}
+\begin{DoxyCompactList}\small\item\em Derived class intended for reduction usage. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcudf_1_1scan__aggregation}{cudf\+::scan\+\_\+aggregation}}
+\begin{DoxyCompactList}\small\item\em Derived class intended for scan usage. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcudf_1_1segmented__reduce__aggregation}{cudf\+::segmented\+\_\+reduce\+\_\+aggregation}}
+\begin{DoxyCompactList}\small\item\em Derived class intended for segmented reduction usage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1detail}{cudf\+::detail}}
+\begin{DoxyCompactList}\small\item\em Inner interfaces and implementations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__column__sort_gac8975ec1273372f6ccae83a85bee71ce}{cudf\+::rank\+\_\+method}} \+: int32\+\_\+t \{ \newline
+\mbox{\hyperlink{group__column__sort_ggac8975ec1273372f6ccae83a85bee71cea2c2624a5059934a947d6e25fe8332ade}{cudf\+::rank\+\_\+method\+::\+FIRST}}
+, \mbox{\hyperlink{group__column__sort_ggac8975ec1273372f6ccae83a85bee71cea16de38737a9f8366e9b2042b4e9b6290}{cudf\+::rank\+\_\+method\+::\+AVERAGE}}
+, \mbox{\hyperlink{group__column__sort_ggac8975ec1273372f6ccae83a85bee71ceace31e2a082d17e038fcc6e3006166653}{cudf\+::rank\+\_\+method\+::\+MIN}}
+, \mbox{\hyperlink{group__column__sort_ggac8975ec1273372f6ccae83a85bee71cea26a4b44a837bf97b972628509912b4a5}{cudf\+::rank\+\_\+method\+::\+MAX}}
+, \newline
+\mbox{\hyperlink{group__column__sort_ggac8975ec1273372f6ccae83a85bee71cea0706fbbd929bd8abc4de386c53d439ff}{cudf\+::rank\+\_\+method\+::\+DENSE}}
+ \}
+\begin{DoxyCompactList}\small\item\em Tie-\/breaker method to use for ranking the column. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{group__aggregation__factories_ga3701f066cd6ad8bad2a70fbfcef93071}{cudf\+::rank\+\_\+percentage}} \+: int32\+\_\+t \{ \mbox{\hyperlink{group__aggregation__factories_gga3701f066cd6ad8bad2a70fbfcef93071ab50339a10e1de285ac99d4c3990b8693}{cudf\+::rank\+\_\+percentage\+::\+NONE}}
+, \mbox{\hyperlink{group__aggregation__factories_gga3701f066cd6ad8bad2a70fbfcef93071a90fa47f34fe7e9926f52e5eb144c798d}{cudf\+::rank\+\_\+percentage\+::\+ZERO\+\_\+\+NORMALIZED}}
+, \mbox{\hyperlink{group__aggregation__factories_gga3701f066cd6ad8bad2a70fbfcef93071a552e99f7f1cb96081c640e1756f137b6}{cudf\+::rank\+\_\+percentage\+::\+ONE\+\_\+\+NORMALIZED}}
+ \}
+\begin{DoxyCompactList}\small\item\em Whether returned rank should be percentage or not and mention the type of percentage normalization. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{group__aggregation__factories_gad2e43a487f20c968b2474a5cb980527e}{cudf\+::udf\+\_\+type}} \+: bool \{ \mbox{\hyperlink{group__aggregation__factories_ggad2e43a487f20c968b2474a5cb980527eaa33b7755e5f9b504d2d038eaca4ff28d}{cudf\+::udf\+\_\+type\+::\+CUDA}}
+, \mbox{\hyperlink{group__aggregation__factories_ggad2e43a487f20c968b2474a5cb980527eae3c5ca6a28ee215e0adfb1a014d9d7ab}{cudf\+::udf\+\_\+type\+::\+PTX}}
+ \}
+\begin{DoxyCompactList}\small\item\em Type of code in the user defined function string. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{group__aggregation__factories_ga1dc83597d5b1e9cf752fc20fcdd77d40}{cudf\+::correlation\+\_\+type}} \+: int32\+\_\+t \{ \mbox{\hyperlink{group__aggregation__factories_gga1dc83597d5b1e9cf752fc20fcdd77d40a04e79da97aad2da56010b0f681b8c7a2}{cudf\+::correlation\+\_\+type\+::\+PEARSON}}
+, \mbox{\hyperlink{group__aggregation__factories_gga1dc83597d5b1e9cf752fc20fcdd77d40a4ea5bfb1deff9aacbc55d3345c77d9ae}{cudf\+::correlation\+\_\+type\+::\+KENDALL}}
+, \mbox{\hyperlink{group__aggregation__factories_gga1dc83597d5b1e9cf752fc20fcdd77d40a17f4b051a83b72b0232e6c77c2bc4943}{cudf\+::correlation\+\_\+type\+::\+SPEARMAN}}
+ \}
+\begin{DoxyCompactList}\small\item\em Type of correlation method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gae5b74d72237dce180b58e72b9c2c4df5}{cudf\+::make\+\_\+sum\+\_\+aggregation}} ()
+\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gafb80c911d8fd6b7c99386e4ee0c19528}{cudf\+::make\+\_\+product\+\_\+aggregation}} ()
+\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga96fff41e453f8042dba3e8e3929dee3c}{cudf\+::make\+\_\+min\+\_\+aggregation}} ()
+\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gadf676fa44ede8206ef658ba6f3c2c493}{cudf\+::make\+\_\+max\+\_\+aggregation}} ()
+\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga42dad49568d0804fd536d8b3c7fad589}{cudf\+::make\+\_\+count\+\_\+aggregation}} (\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling=\mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}{null\+\_\+policy\+::\+EXCLUDE}})
+\begin{DoxyCompactList}\small\item\em Factory to create a COUNT aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga997b177576ffde84ada7258dcb46eacb}{cudf\+::make\+\_\+any\+\_\+aggregation}} ()
+\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga8466bb2dbb0a11b1343d2c8721bd9295}{cudf\+::make\+\_\+all\+\_\+aggregation}} ()
+\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga6a40c987b02d5daa60cb8bc3b4b92978}{cudf\+::make\+\_\+sum\+\_\+of\+\_\+squares\+\_\+aggregation}} ()
+\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gae5d94f062b4e6da50362a18957f21b78}{cudf\+::make\+\_\+mean\+\_\+aggregation}} ()
+\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gad6409efbd5fac20862b76065d17e3423}{cudf\+::make\+\_\+m2\+\_\+aggregation}} ()
+\begin{DoxyCompactList}\small\item\em Factory to create a M2 aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga9abb4c17f90c15712c5edba57c4b67d8}{cudf\+::make\+\_\+variance\+\_\+aggregation}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} ddof=1)
+\begin{DoxyCompactList}\small\item\em Factory to create a VARIANCE aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga4f3e8c7b8d395d160fed784479186412}{cudf\+::make\+\_\+std\+\_\+aggregation}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} ddof=1)
+\begin{DoxyCompactList}\small\item\em Factory to create a STD aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga5a96931dd2174dd158d7843e14c1e3e0}{cudf\+::make\+\_\+median\+\_\+aggregation}} ()
+\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gae2057553f0af67248aa9efd3607f9092}{cudf\+::make\+\_\+quantile\+\_\+aggregation}} (std\+::vector$<$ double $>$ const \&\mbox{\hyperlink{group__column__quantiles_ga5a7bfdd267148ba8038c50c3c27fa87a}{quantiles}}, \mbox{\hyperlink{group__utility__types_ga9cd17c1cdf028ead9a4783f605276ab3}{interpolation}} interp=\mbox{\hyperlink{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3aaac544aacc3615aada24897a215f5046}{interpolation\+::\+LINEAR}})
+\begin{DoxyCompactList}\small\item\em Factory to create a QUANTILE aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gad99a06c2f1299bd11fa7e1c352b976de}{cudf\+::make\+\_\+argmax\+\_\+aggregation}} ()
+\begin{DoxyCompactList}\small\item\em Factory to create an ARGMAX aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gafaf0438b1c84be2a9edecbc9f586593a}{cudf\+::make\+\_\+argmin\+\_\+aggregation}} ()
+\begin{DoxyCompactList}\small\item\em Factory to create an ARGMIN aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gacae54c114e7aefc438708bb5bbb391dc}{cudf\+::make\+\_\+nunique\+\_\+aggregation}} (\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling=\mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}{null\+\_\+policy\+::\+EXCLUDE}})
+\begin{DoxyCompactList}\small\item\em Factory to create a NUNIQUE aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gaaeb94e5a4cdf3250298b2e475fc1a7ef}{cudf\+::make\+\_\+nth\+\_\+element\+\_\+aggregation}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} n, \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling=\mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a04ff6a9583ba9957ebe1128d0f988ad8}{null\+\_\+policy\+::\+INCLUDE}})
+\begin{DoxyCompactList}\small\item\em Factory to create a NTH\+\_\+\+ELEMENT aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gac62f0cd24feeebf821f86d6d3daf03c1}{cudf\+::make\+\_\+row\+\_\+number\+\_\+aggregation}} ()
+\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga8459759dcad222d9e3376be39644e034}{cudf\+::make\+\_\+rank\+\_\+aggregation}} (\mbox{\hyperlink{group__column__sort_gac8975ec1273372f6ccae83a85bee71ce}{rank\+\_\+method}} method, \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} column\+\_\+order=\mbox{\hyperlink{group__utility__types_gga750f02016b046079f7062d334890b4fca83ec681a20197326c163ea3b39ef7c32}{order\+::\+ASCENDING}}, \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling=\mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}{null\+\_\+policy\+::\+EXCLUDE}}, \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} null\+\_\+precedence=\mbox{\hyperlink{group__utility__types_gga058e6d6e8a21583ce0e85ee73e5abb31ac130fda0cb93540bf1574912e78964fb}{null\+\_\+order\+::\+AFTER}}, \mbox{\hyperlink{group__aggregation__factories_ga3701f066cd6ad8bad2a70fbfcef93071}{rank\+\_\+percentage}} percentage=\mbox{\hyperlink{group__aggregation__factories_gga3701f066cd6ad8bad2a70fbfcef93071ab50339a10e1de285ac99d4c3990b8693}{rank\+\_\+percentage\+::\+NONE}})
+\begin{DoxyCompactList}\small\item\em Factory to create a RANK aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga3990aa8b1b93f589b59da40bb2db3a92}{cudf\+::make\+\_\+collect\+\_\+list\+\_\+aggregation}} (\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling=\mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a04ff6a9583ba9957ebe1128d0f988ad8}{null\+\_\+policy\+::\+INCLUDE}})
+\begin{DoxyCompactList}\small\item\em Factory to create a COLLECT\+\_\+\+LIST aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gaa5f717838c0e644888ee6d6fb277369c}{cudf\+::make\+\_\+collect\+\_\+set\+\_\+aggregation}} (\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling=\mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a04ff6a9583ba9957ebe1128d0f988ad8}{null\+\_\+policy\+::\+INCLUDE}}, \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}} nulls\+\_\+equal=\mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\+\_\+equality\+::\+EQUAL}}, \mbox{\hyperlink{group__utility__types_gae9d1055c69c3089452794783c7c82f83}{nan\+\_\+equality}} nans\+\_\+equal=\mbox{\hyperlink{group__utility__types_ggae9d1055c69c3089452794783c7c82f83acd6d9f766e6e2753da429d26078711d7}{nan\+\_\+equality\+::\+ALL\+\_\+\+EQUAL}})
+\begin{DoxyCompactList}\small\item\em Factory to create a COLLECT\+\_\+\+SET aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga4f7d7d2810366fb16dfa5beeb6ac558d}{cudf\+::make\+\_\+lag\+\_\+aggregation}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} offset)
+\begin{DoxyCompactList}\small\item\em Factory to create a LAG aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gae667d46023c348924a5bf6375b035d16}{cudf\+::make\+\_\+lead\+\_\+aggregation}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} offset)
+\begin{DoxyCompactList}\small\item\em Factory to create a LEAD aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gacffa15e505b5c0be97fcac800b1b6e4a}{cudf\+::make\+\_\+udf\+\_\+aggregation}} (\mbox{\hyperlink{group__aggregation__factories_gad2e43a487f20c968b2474a5cb980527e}{udf\+\_\+type}} type, std\+::string const \&user\+\_\+defined\+\_\+aggregator, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Factory to create an aggregation base on UDF for PTX or CUDA \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga289507baeaaa23c86bd0d7a13927fd7f}{cudf\+::make\+\_\+merge\+\_\+lists\+\_\+aggregation}} ()
+\begin{DoxyCompactList}\small\item\em Factory to create a MERGE\+\_\+\+LISTS aggregation. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gabe6648e29d5c2043be76299c089e0e20}{cudf\+::make\+\_\+merge\+\_\+sets\+\_\+aggregation}} (\mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}} nulls\+\_\+equal=\mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\+\_\+equality\+::\+EQUAL}}, \mbox{\hyperlink{group__utility__types_gae9d1055c69c3089452794783c7c82f83}{nan\+\_\+equality}} nans\+\_\+equal=\mbox{\hyperlink{group__utility__types_ggae9d1055c69c3089452794783c7c82f83acd6d9f766e6e2753da429d26078711d7}{nan\+\_\+equality\+::\+ALL\+\_\+\+EQUAL}})
+\begin{DoxyCompactList}\small\item\em Factory to create a MERGE\+\_\+\+SETS aggregation. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga39e2d507b2d0ea78658c5c2c76313b62}{cudf\+::make\+\_\+merge\+\_\+m2\+\_\+aggregation}} ()
+\begin{DoxyCompactList}\small\item\em Factory to create a MERGE\+\_\+\+M2 aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga93c7e22dc9ee73c06fdda6a592a240b3}{cudf\+::make\+\_\+covariance\+\_\+aggregation}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} min\+\_\+periods=1, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} ddof=1)
+\begin{DoxyCompactList}\small\item\em Factory to create a COVARIANCE aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga484a5d1daa12445e816036e72bfa1154}{cudf\+::make\+\_\+correlation\+\_\+aggregation}} (\mbox{\hyperlink{group__aggregation__factories_ga1dc83597d5b1e9cf752fc20fcdd77d40}{correlation\+\_\+type}} type, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} min\+\_\+periods=1)
+\begin{DoxyCompactList}\small\item\em Factory to create a CORRELATION aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base $>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga92a39b05abcbb6fb8ceff7d28e36477b}{cudf\+::make\+\_\+tdigest\+\_\+aggregation}} (int max\+\_\+centroids=1000)
+\begin{DoxyCompactList}\small\item\em Factory to create a TDIGEST aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base $>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga6541f64eed15c1ce29fdf27f67f31330}{cudf\+::make\+\_\+merge\+\_\+tdigest\+\_\+aggregation}} (int max\+\_\+centroids=1000)
+\begin{DoxyCompactList}\small\item\em Factory to create a MERGE\+\_\+\+TDIGEST aggregation \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Representation for specifying desired aggregations from aggregation-\/based APIs, e.\+g., groupby, reductions, rolling, etc. 
+
+\begin{DoxyNote}{注解}
+Not all aggregation APIs support all aggregation operations. See individual function documentation to see what aggregations are supported.
+\end{DoxyNote}
+
+
+在文件 \mbox{\hyperlink{aggregation_8hpp_source}{aggregation.\+hpp}} 中定义.
+

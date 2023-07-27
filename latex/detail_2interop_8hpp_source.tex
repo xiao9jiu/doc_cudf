@@ -1,0 +1,113 @@
+\doxysection{interop.\+hpp}
+\hypertarget{detail_2interop_8hpp_source}{}\label{detail_2interop_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/detail/interop.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/detail/interop.hpp}}
+\mbox{\hyperlink{detail_2interop_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2020-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00019}00019\ \textcolor{comment}{//\ We\ disable\ warning\ 611\ because\ the\ \`{}arrow::TableBatchReader`\ only\ partially}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00020}00020\ \textcolor{comment}{//\ override\ the\ \`{}ReadNext`\ method\ of\ \`{}arrow::RecordBatchReader::ReadNext`}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00021}00021\ \textcolor{comment}{//\ triggering\ warning\ 611-\/D\ from\ nvcc.}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#pragma\ nv\_diag\_suppress\ 611}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <arrow/api.h>}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#pragma\ nv\_diag\_default\ 611}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{interop_8hpp}{cudf/interop.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{utilities_2default__stream_8hpp}{cudf/utilities/default\_stream.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{error_8hpp}{cudf/utilities/error.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00031}00031\ \textcolor{preprocessor}{\#include\ <rmm/cuda\_stream\_view.hpp>}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00033}00033\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00034}00034\ \textcolor{keyword}{namespace\ }detail\ \{}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00041}\mbox{\hyperlink{namespacecudf_1_1detail_a94b63d8998a9b7eb5e1d4ae842f95a66}{00041}}\ std::unique\_ptr<table>\ \mbox{\hyperlink{namespacecudf_1_1detail_a94b63d8998a9b7eb5e1d4ae842f95a66}{from\_dlpack}}(}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00042}00042\ \ \ DLManagedTensor\ \textcolor{keyword}{const}*\ managed\_tensor,}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00043}00043\ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00044}00044\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00051}\mbox{\hyperlink{namespacecudf_1_1detail_a93794af21ad050c5390d6ccd97783c52}{00051}}\ DLManagedTensor*\ \mbox{\hyperlink{namespacecudf_1_1detail_a93794af21ad050c5390d6ccd97783c52}{to\_dlpack}}(}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00052}00052\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00053}00053\ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00054}00054\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00056}00056\ \textcolor{comment}{//\ Creating\ arrow\ as\ per\ given\ type\_id\ and\ buffer\ arguments}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00057}00057\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Ts>}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00058}\mbox{\hyperlink{namespacecudf_1_1detail_a65b402cf23474cf91d987693ebfdeaa9}{00058}}\ std::shared\_ptr<arrow::Array>\ \mbox{\hyperlink{namespacecudf_1_1detail_a65b402cf23474cf91d987693ebfdeaa9}{to\_arrow\_array}}(\mbox{\hyperlink{group__utility__types_gadf077607da617d1dadcc5417e2783539}{cudf::type\_id}}\ \textcolor{keywordtype}{id},\ Ts\&\&...\ args)}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00059}00059\ \{}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00060}00060\ \ \ \textcolor{keywordflow}{switch}\ (\textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00061}00061\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a05afd9eb8887a406d47474cd3809a5dd}{type\_id::BOOL8}}:\ \textcolor{keywordflow}{return}\ std::make\_shared<arrow::BooleanArray>(std::forward<Ts>(args)...);}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00062}00062\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539aee9d73311ff0658494edfff14c3ec1e3}{type\_id::INT8}}:\ \textcolor{keywordflow}{return}\ std::make\_shared<arrow::Int8Array>(std::forward<Ts>(args)...);}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00063}00063\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a5f90af42814c0a419d715d43ae54fd7a}{type\_id::INT16}}:\ \textcolor{keywordflow}{return}\ std::make\_shared<arrow::Int16Array>(std::forward<Ts>(args)...);}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a6495adba09844fac8eeb0aba86e6f1bf}{type\_id::INT32}}:\ \textcolor{keywordflow}{return}\ std::make\_shared<arrow::Int32Array>(std::forward<Ts>(args)...);}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00065}00065\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a4e866b275c85fbb439f6484251cfb31c}{type\_id::INT64}}:\ \textcolor{keywordflow}{return}\ std::make\_shared<arrow::Int64Array>(std::forward<Ts>(args)...);}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00066}00066\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539aecfc091ed2a607335524c8389cfa41b5}{type\_id::UINT8}}:\ \textcolor{keywordflow}{return}\ std::make\_shared<arrow::UInt8Array>(std::forward<Ts>(args)...);}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a48d8f1a723d44ff4a87db1bb6c551c62}{type\_id::UINT16}}:\ \textcolor{keywordflow}{return}\ std::make\_shared<arrow::UInt16Array>(std::forward<Ts>(args)...);}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a17266551181f69a1b4a3ad5c9e270afc}{type\_id::UINT32}}:\ \textcolor{keywordflow}{return}\ std::make\_shared<arrow::UInt32Array>(std::forward<Ts>(args)...);}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00069}00069\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a6de7acf711860176ba606e9aa2b85d5f}{type\_id::UINT64}}:\ \textcolor{keywordflow}{return}\ std::make\_shared<arrow::UInt64Array>(std::forward<Ts>(args)...);}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a967d280b5c16d95f2947647dd2ca6cc2}{type\_id::FLOAT32}}:\ \textcolor{keywordflow}{return}\ std::make\_shared<arrow::FloatArray>(std::forward<Ts>(args)...);}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00071}00071\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a139882c654db8a57f7c3092de1dd0b02}{type\_id::FLOAT64}}:\ \textcolor{keywordflow}{return}\ std::make\_shared<arrow::DoubleArray>(std::forward<Ts>(args)...);}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539acf04253e348544a8e841a76dfecef3f6}{type\_id::TIMESTAMP\_DAYS}}:}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00073}00073\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_shared<arrow::Date32Array>(std::make\_shared<arrow::Date32Type>(),}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::forward<Ts>(args)...);}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00075}00075\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539ac46dfe2dc12b66ab3bf6deac3cd1a945}{type\_id::TIMESTAMP\_SECONDS}}:}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00076}00076\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_shared<arrow::TimestampArray>(arrow::timestamp(arrow::TimeUnit::SECOND),}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::forward<Ts>(args)...);}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00078}00078\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a6244bf5dfcbc1adc3f9b4ccad8333f3c}{type\_id::TIMESTAMP\_MILLISECONDS}}:}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00079}00079\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_shared<arrow::TimestampArray>(arrow::timestamp(arrow::TimeUnit::MILLI),}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::forward<Ts>(args)...);}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00081}00081\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a7053796e0238a00cf12b96beb273ba30}{type\_id::TIMESTAMP\_MICROSECONDS}}:}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00082}00082\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_shared<arrow::TimestampArray>(arrow::timestamp(arrow::TimeUnit::MICRO),}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::forward<Ts>(args)...);}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00084}00084\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539ac62360a52ed83eda03975a09f092d7b0}{type\_id::TIMESTAMP\_NANOSECONDS}}:}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00085}00085\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_shared<arrow::TimestampArray>(arrow::timestamp(arrow::TimeUnit::NANO),}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::forward<Ts>(args)...);}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00087}00087\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a77029488e6452eca1a908121589d7fd9}{type\_id::DURATION\_SECONDS}}:}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00088}00088\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_shared<arrow::DurationArray>(arrow::duration(arrow::TimeUnit::SECOND),}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::forward<Ts>(args)...);}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00090}00090\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a446364d0c90ab0072e9fa60cd7c32c3d}{type\_id::DURATION\_MILLISECONDS}}:}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00091}00091\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_shared<arrow::DurationArray>(arrow::duration(arrow::TimeUnit::MILLI),}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::forward<Ts>(args)...);}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00093}00093\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a7e68d3150eeefe2afcb2d2c138be4d15}{type\_id::DURATION\_MICROSECONDS}}:}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00094}00094\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_shared<arrow::DurationArray>(arrow::duration(arrow::TimeUnit::MICRO),}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::forward<Ts>(args)...);}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00096}00096\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a628d57b49cb66c1d14ce8db33be558ce}{type\_id::DURATION\_NANOSECONDS}}:}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00097}00097\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_shared<arrow::DurationArray>(arrow::duration(arrow::TimeUnit::NANO),}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::forward<Ts>(args)...);}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00099}00099\ \ \ \ \ \textcolor{keywordflow}{default}:\ \mbox{\hyperlink{group__utility__error_ga8fec215b7e7785312d292d75f797ccc1}{CUDF\_FAIL}}(\textcolor{stringliteral}{"{}Unsupported\ type\_id\ conversion\ to\ arrow"{}});}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00100}00100\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00101}00101\ \}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00103}00103\ \textcolor{comment}{//\ Converting\ arrow\ type\ to\ cudf\ type}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00104}\mbox{\hyperlink{namespacecudf_1_1detail_a1b91b19cf5f6210875f2c8066c263092}{00104}}\ \mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ \mbox{\hyperlink{namespacecudf_1_1detail_a1b91b19cf5f6210875f2c8066c263092}{arrow\_to\_cudf\_type}}(arrow::DataType\ \textcolor{keyword}{const}\&\ arrow\_type);}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00111}\mbox{\hyperlink{namespacecudf_1_1detail_a69fbe0566c564337747a5ba0c30f7813}{00111}}\ std::shared\_ptr<arrow::Table>\ \mbox{\hyperlink{namespacecudf_1_1detail_a69fbe0566c564337747a5ba0c30f7813}{to\_arrow}}(\mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ input,}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<column\_metadata>\ \textcolor{keyword}{const}\&\ metadata\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::cuda\_stream\_view\ stream\ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arrow::MemoryPool*\ ar\_mr\ \ \ \ \ =\ arrow::default\_memory\_pool());}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00121}\mbox{\hyperlink{namespacecudf_1_1detail_ad2d059bf11972e2337fde993dbd2582b}{00121}}\ std::unique\_ptr<table>\ \mbox{\hyperlink{namespacecudf_1_1detail_ad2d059bf11972e2337fde993dbd2582b}{from\_arrow}}(}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00122}00122\ \ \ arrow::Table\ \textcolor{keyword}{const}\&\ input\_table,}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00123}00123\ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00124}00124\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00126}00126\ \}\ \ \textcolor{comment}{//\ namespace\ detail}}
+\DoxyCodeLine{\Hypertarget{detail_2interop_8hpp_source_l00127}00127\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

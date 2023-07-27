@@ -1,0 +1,615 @@
+\doxysection{cudf\+::detail\+::column\+\_\+view\+\_\+base类 参考}
+\hypertarget{classcudf_1_1detail_1_1column__view__base}{}\label{classcudf_1_1detail_1_1column__view__base}\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+
+
+A non-\/owning, immutable view of device data as a column of elements, some of which may be null as indicated by a bitmask.  
+
+
+
+
+{\ttfamily \#include $<$column\+\_\+view.\+hpp$>$}
+
+
+
+类 cudf\+::detail\+::column\+\_\+view\+\_\+base 继承关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcudf_1_1detail_1_1column__view__base__inherit__graph}
+\end{center}
+\end{figure}
+
+
+cudf\+::detail\+::column\+\_\+view\+\_\+base 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcudf_1_1detail_1_1column__view__base__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T  = void, \mbox{\hyperlink{group__utility__types_gadf63a9ff3257927585f111143a7c9ae4}{CUDF\+\_\+\+ENABLE\+\_\+\+IF}}(std\+::is\+\_\+same\+\_\+v$<$ T, void $>$ or \mbox{\hyperlink{group__utility__types_ga7c6839d4131493a1277f78a686226e54}{is\+\_\+rep\+\_\+layout\+\_\+compatible}}$<$ T $>$()) $>$ }\\T const \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a9bcf890479e80414d8ee03acb9716483}{head}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns pointer to the base device memory allocation casted to the specified type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , \mbox{\hyperlink{group__utility__types_gadf63a9ff3257927585f111143a7c9ae4}{CUDF\+\_\+\+ENABLE\+\_\+\+IF}}(\mbox{\hyperlink{group__utility__types_ga7c6839d4131493a1277f78a686226e54}{is\+\_\+rep\+\_\+layout\+\_\+compatible}}$<$ T $>$()) $>$ }\\T const \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a08f3baa04e9b305541034e22028e8e98}{data}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the underlying data casted to the specified type, plus the offset. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , \mbox{\hyperlink{group__utility__types_gadf63a9ff3257927585f111143a7c9ae4}{CUDF\+\_\+\+ENABLE\+\_\+\+IF}}(\mbox{\hyperlink{group__utility__types_ga7c6839d4131493a1277f78a686226e54}{is\+\_\+rep\+\_\+layout\+\_\+compatible}}$<$ T $>$()) $>$ }\\T const \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a7235c5bc0b745cd25b8f2e969a832a8e}{begin}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Return first element (accounting for offset) after underlying data is casted to the specified type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , \mbox{\hyperlink{group__utility__types_gadf63a9ff3257927585f111143a7c9ae4}{CUDF\+\_\+\+ENABLE\+\_\+\+IF}}(\mbox{\hyperlink{group__utility__types_ga7c6839d4131493a1277f78a686226e54}{is\+\_\+rep\+\_\+layout\+\_\+compatible}}$<$ T $>$()) $>$ }\\T const \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a0ee63a99b9869163c95fa880bf1417a2}{end}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Return one past the last element after underlying data is casted to the specified type. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a754fdc0ebe297a466d1b377638c6920a}{size}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the number of elements in the column \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_afab51e8ae20f5ae57a07f24fa90dd369}{is\+\_\+empty}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns true if {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base_a754fdc0ebe297a466d1b377638c6920a}{size()}} returns zero, or false otherwise \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a16452c9fb08f36de42cd13884f0933e1}{type}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the element {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_af4654a81e14e2390ea36d3a52d0f08fa}{nullable}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Indicates if the column can contain null elements, i.\+e., if it has an allocated bitmask. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a4b3a32978413e9c0246f31b4d083bf30}{null\+\_\+count}} () const
+\begin{DoxyCompactList}\small\item\em Returns the count of null elements \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a1449e5de056f7c1ac2b58861dd9d40f4}{null\+\_\+count}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a7235c5bc0b745cd25b8f2e969a832a8e}{begin}}, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a0ee63a99b9869163c95fa880bf1417a2}{end}}) const
+\begin{DoxyCompactList}\small\item\em Returns the count of null elements in the range \mbox{[}begin, end) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_ad67d943ff841c3fd4b460db3cc8277f3}{has\+\_\+nulls}} () const
+\begin{DoxyCompactList}\small\item\em Indicates if the column contains null elements, i.\+e., {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base_a4b3a32978413e9c0246f31b4d083bf30}{null\+\_\+count()} \texorpdfstring{$>$}{>} 0} \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_ad0971782b5003a69c3395ba7d2fcd356}{has\+\_\+nulls}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a7235c5bc0b745cd25b8f2e969a832a8e}{begin}}, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a0ee63a99b9869163c95fa880bf1417a2}{end}}) const
+\begin{DoxyCompactList}\small\item\em Indicates if the column contains null elements in the range \mbox{[}begin, end), i.\+e., {\ttfamily null\+\_\+count(begin, end) \texorpdfstring{$>$}{>} 0} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} const \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a8fc94e5f1403f7f1213efe2f855a9ac6}{null\+\_\+mask}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns raw pointer to the underlying bitmask allocation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a8bf33063791c751052a8ef20cf20468c}{offset}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the index of the first element relative to the base memory allocation, i.\+e., what is returned from {\ttfamily head\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}()}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_abeba7ff169f2b3d7afedc96881afba8e}{column\+\_\+view\+\_\+base}} ()=default
+\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a2fa3965e90e37f9b0dc029a6692065e5}{\texorpdfstring{$\sim$}{\string~}column\+\_\+view\+\_\+base}} ()=default
+\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_af8127596f14796c733c2a89cab2e2680}{column\+\_\+view\+\_\+base}} (\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} const \&)=default
+\begin{DoxyCompactList}\small\item\em Copy constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a31ad22fb0ed94aefd4896715d0c6299e}{column\+\_\+view\+\_\+base}} (\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} \&\&)=default
+\begin{DoxyCompactList}\small\item\em Move constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} \& \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_aacc64f424f3cdb545a43aa484bf85121}{operator=}} (\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} const \&)=default
+\begin{DoxyCompactList}\small\item\em Copy assignment operator \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} \& \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a2f2fa64afe53a23e8a44f5a75538a71f}{operator=}} (\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} \&\&)=default
+\begin{DoxyCompactList}\small\item\em Move assignment operator \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a3117094927e2440b88f3a5dace4b9f5a}{column\+\_\+view\+\_\+base}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a16452c9fb08f36de42cd13884f0933e1}{type}}, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a754fdc0ebe297a466d1b377638c6920a}{size}}, void const \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a08f3baa04e9b305541034e22028e8e98}{data}}, \mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} const \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a8fc94e5f1403f7f1213efe2f855a9ac6}{null\+\_\+mask}}=nullptr, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a4b3a32978413e9c0246f31b4d083bf30}{null\+\_\+count}}=\mbox{\hyperlink{group__utility__types_ga0eece3f40ff89fe8f1117097d86913b7}{UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT}}, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a8bf33063791c751052a8ef20cf20468c}{offset}}=0)
+\begin{DoxyCompactList}\small\item\em Construct a {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} from pointers to device memory for the elements and bitmask of the column. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_aae4ea5f9998c7c4a991ef9a81111c7b5}{\+\_\+type}} \{\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539aba2b45bdc11e2a4a6e86aab2ac693cbb}{type\+\_\+id\+::\+EMPTY}}\}
+\begin{DoxyCompactList}\small\item\em Element type \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a5df1f27c16c16819d65af2270f42800e}{\+\_\+size}} \{\}
+\begin{DoxyCompactList}\small\item\em Number of elements \end{DoxyCompactList}\item 
+void const  \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_acfe73a38fa04f01be62beb34b2a3f87a}{\+\_\+data}} \{\}
+\begin{DoxyCompactList}\small\item\em Pointer to device memory containing elements \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} const  \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a47cb87ff8d6c42393ad44aa1adb9fa9a}{\+\_\+null\+\_\+mask}} \{\}
+\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_abca5b3f93d8cef425990ed6907f25841}{\+\_\+null\+\_\+count}} \{\}
+\begin{DoxyCompactList}\small\item\em The number of null elements \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a1ac97d1e5a49bb5a297c9041d4191d75}{\+\_\+offset}} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+A non-\/owning, immutable view of device data as a column of elements, some of which may be null as indicated by a bitmask. 
+
+A {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} can be constructed implicitly from a {\ttfamily \doxylink{classcudf_1_1column}{cudf\+::column}}, or may be constructed explicitly from a pointer to pre-\/existing device memory.
+
+Unless otherwise noted, the memory layout of the {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}}\textquotesingle{}s data and bitmask is expected to adhere to the Arrow Physical Memory Layout Specification\+: \href{https://arrow.apache.org/docs/memory_layout.html}{\texttt{ https\+://arrow.\+apache.\+org/docs/memory\+\_\+layout.\+html}}
+
+Because {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} is non-\/owning, no device memory is allocated nor freed when {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} objects are created or destroyed.
+
+To enable zero-\/copy slicing, a {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} has an {\ttfamily offset} that indicates the index of the first element in the column relative to the base device memory allocation. By default, {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base_a8bf33063791c751052a8ef20cf20468c}{offset()}} is zero. 
+
+在文件 \mbox{\hyperlink{column__view_8hpp_source}{column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{column__view_8hpp_source_l00053}{53}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_abeba7ff169f2b3d7afedc96881afba8e}\label{classcudf_1_1detail_1_1column__view__base_abeba7ff169f2b3d7afedc96881afba8e} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!column\_view\_base@{column\_view\_base}}
+\index{column\_view\_base@{column\_view\_base}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{column\_view\_base()}{column\_view\_base()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily cudf\+::detail\+::column\+\_\+view\+\_\+base\+::column\+\_\+view\+\_\+base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [default]}}
+
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_a2fa3965e90e37f9b0dc029a6692065e5}\label{classcudf_1_1detail_1_1column__view__base_a2fa3965e90e37f9b0dc029a6692065e5} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!````~column\_view\_base@{\texorpdfstring{$\sim$}{\string~}column\_view\_base}}
+\index{````~column\_view\_base@{\texorpdfstring{$\sim$}{\string~}column\_view\_base}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}column\_view\_base()}{\string~column\_view\_base()}}
+{\footnotesize\ttfamily cudf\+::detail\+::column\+\_\+view\+\_\+base\+::\texorpdfstring{$\sim$}{\string~}column\+\_\+view\+\_\+base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [default]}}
+
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_af8127596f14796c733c2a89cab2e2680}\label{classcudf_1_1detail_1_1column__view__base_af8127596f14796c733c2a89cab2e2680} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!column\_view\_base@{column\_view\_base}}
+\index{column\_view\_base@{column\_view\_base}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{column\_view\_base()}{column\_view\_base()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily cudf\+::detail\+::column\+\_\+view\+\_\+base\+::column\+\_\+view\+\_\+base (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [default]}}
+
+
+
+Copy constructor 
+
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_a31ad22fb0ed94aefd4896715d0c6299e}\label{classcudf_1_1detail_1_1column__view__base_a31ad22fb0ed94aefd4896715d0c6299e} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!column\_view\_base@{column\_view\_base}}
+\index{column\_view\_base@{column\_view\_base}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{column\_view\_base()}{column\_view\_base()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily cudf\+::detail\+::column\+\_\+view\+\_\+base\+::column\+\_\+view\+\_\+base (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [default]}}
+
+
+
+Move constructor 
+
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_a3117094927e2440b88f3a5dace4b9f5a}\label{classcudf_1_1detail_1_1column__view__base_a3117094927e2440b88f3a5dace4b9f5a} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!column\_view\_base@{column\_view\_base}}
+\index{column\_view\_base@{column\_view\_base}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{column\_view\_base()}{column\_view\_base()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily cudf\+::detail\+::column\+\_\+view\+\_\+base\+::column\+\_\+view\+\_\+base (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{type,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{size,  }\item[{void const \texorpdfstring{$\ast$}{*}}]{data,  }\item[{\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} const \texorpdfstring{$\ast$}{*}}]{null\+\_\+mask = {\ttfamily nullptr},  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{null\+\_\+count = {\ttfamily \mbox{\hyperlink{group__utility__types_ga0eece3f40ff89fe8f1117097d86913b7}{UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT}}},  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{offset = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Construct a {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} from pointers to device memory for the elements and bitmask of the column. 
+
+If {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base_a4b3a32978413e9c0246f31b4d083bf30}{null\+\_\+count()}} is zero, {\ttfamily null\+\_\+mask} is optional.
+
+If the null count of the {\ttfamily null\+\_\+mask} is not specified, it defaults to {\ttfamily UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT}. The first invocation of {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base_a4b3a32978413e9c0246f31b4d083bf30}{null\+\_\+count()}} will then compute the null count if {\ttfamily null\+\_\+mask} exists.
+
+If {\ttfamily type} is {\ttfamily EMPTY}, the specified {\ttfamily null\+\_\+count} will be ignored and {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base_a4b3a32978413e9c0246f31b4d083bf30}{null\+\_\+count()}} will always return the same value as {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base_a754fdc0ebe297a466d1b377638c6920a}{size()}}
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily size \texorpdfstring{$<$}{<} 0} \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily size \texorpdfstring{$>$}{>} 0} but {\ttfamily data == nullptr} \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily type.\+id() == EMPTY} but {\ttfamily data != nullptr} or {\ttfamily null\+\_\+mask != nullptr} \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily null\+\_\+count \texorpdfstring{$>$}{>} 0}, but {\ttfamily null\+\_\+mask == nullptr} \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily offset \texorpdfstring{$<$}{<} 0}\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em type} & The element type \\
+\hline
+{\em size} & The number of elements \\
+\hline
+{\em data} & Pointer to device memory containing the column elements \\
+\hline
+{\em null\+\_\+mask} & Optional, pointer to device memory containing the null indicator bitmask \\
+\hline
+{\em null\+\_\+count} & Optional, the number of null elements. \\
+\hline
+{\em offset} & optional, index of the first element \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_a7235c5bc0b745cd25b8f2e969a832a8e}\label{classcudf_1_1detail_1_1column__view__base_a7235c5bc0b745cd25b8f2e969a832a8e} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!begin@{begin}}
+\index{begin@{begin}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily template$<$typename T , \mbox{\hyperlink{group__utility__types_gadf63a9ff3257927585f111143a7c9ae4}{CUDF\+\_\+\+ENABLE\+\_\+\+IF}}(\mbox{\hyperlink{group__utility__types_ga7c6839d4131493a1277f78a686226e54}{is\+\_\+rep\+\_\+layout\+\_\+compatible}}$<$ T $>$()) $>$ \\
+T const  \texorpdfstring{$\ast$}{*} cudf\+::detail\+::column\+\_\+view\+\_\+base\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Return first element (accounting for offset) after underlying data is casted to the specified type. 
+
+This function does not participate in overload resolution if {\ttfamily is\+\_\+rep\+\_\+layout\+\_\+compatible\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} is false.
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & The desired type \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+T const\texorpdfstring{$\ast$}{*} Pointer to the first element after casting 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{column__view_8hpp_source}{column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{column__view_8hpp_source_l00107}{107}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_a08f3baa04e9b305541034e22028e8e98}\label{classcudf_1_1detail_1_1column__view__base_a08f3baa04e9b305541034e22028e8e98} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!data@{data}}
+\index{data@{data}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}}
+{\footnotesize\ttfamily template$<$typename T , \mbox{\hyperlink{group__utility__types_gadf63a9ff3257927585f111143a7c9ae4}{CUDF\+\_\+\+ENABLE\+\_\+\+IF}}(\mbox{\hyperlink{group__utility__types_ga7c6839d4131493a1277f78a686226e54}{is\+\_\+rep\+\_\+layout\+\_\+compatible}}$<$ T $>$()) $>$ \\
+T const  \texorpdfstring{$\ast$}{*} cudf\+::detail\+::column\+\_\+view\+\_\+base\+::data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Returns the underlying data casted to the specified type, plus the offset. 
+
+\begin{DoxyNote}{注解}
+If {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base_a8bf33063791c751052a8ef20cf20468c}{offset()} == 0}, then {\ttfamily head\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}() == data\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}()}
+\end{DoxyNote}
+This function does not participate in overload resolution if {\ttfamily is\+\_\+rep\+\_\+layout\+\_\+compatible\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} is false.
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & The type to cast to \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+T const\texorpdfstring{$\ast$}{*} Typed pointer to underlying data, including the offset 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{column__view_8hpp_source}{column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{column__view_8hpp_source_l00091}{91}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_a0ee63a99b9869163c95fa880bf1417a2}\label{classcudf_1_1detail_1_1column__view__base_a0ee63a99b9869163c95fa880bf1417a2} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!end@{end}}
+\index{end@{end}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily template$<$typename T , \mbox{\hyperlink{group__utility__types_gadf63a9ff3257927585f111143a7c9ae4}{CUDF\+\_\+\+ENABLE\+\_\+\+IF}}(\mbox{\hyperlink{group__utility__types_ga7c6839d4131493a1277f78a686226e54}{is\+\_\+rep\+\_\+layout\+\_\+compatible}}$<$ T $>$()) $>$ \\
+T const  \texorpdfstring{$\ast$}{*} cudf\+::detail\+::column\+\_\+view\+\_\+base\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Return one past the last element after underlying data is casted to the specified type. 
+
+This function does not participate in overload resolution if {\ttfamily is\+\_\+rep\+\_\+layout\+\_\+compatible\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} is false.
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & The desired type \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+T const\texorpdfstring{$\ast$}{*} Pointer to one past the last element after casting 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{column__view_8hpp_source}{column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{column__view_8hpp_source_l00123}{123}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_ad67d943ff841c3fd4b460db3cc8277f3}\label{classcudf_1_1detail_1_1column__view__base_ad67d943ff841c3fd4b460db3cc8277f3} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!has\_nulls@{has\_nulls}}
+\index{has\_nulls@{has\_nulls}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{has\_nulls()}{has\_nulls()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool cudf\+::detail\+::column\+\_\+view\+\_\+base\+::has\+\_\+nulls (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Indicates if the column contains null elements, i.\+e., {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base_a4b3a32978413e9c0246f31b4d083bf30}{null\+\_\+count()} \texorpdfstring{$>$}{>} 0} 
+
+\begin{DoxyReturn}{返回}
+true One or more elements are null 
+
+false All elements are valid 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{column__view_8hpp_source}{column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{column__view_8hpp_source_l00195}{195}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_ad0971782b5003a69c3395ba7d2fcd356}\label{classcudf_1_1detail_1_1column__view__base_ad0971782b5003a69c3395ba7d2fcd356} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!has\_nulls@{has\_nulls}}
+\index{has\_nulls@{has\_nulls}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{has\_nulls()}{has\_nulls()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool cudf\+::detail\+::column\+\_\+view\+\_\+base\+::has\+\_\+nulls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{begin,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{end }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Indicates if the column contains null elements in the range \mbox{[}begin, end), i.\+e., {\ttfamily null\+\_\+count(begin, end) \texorpdfstring{$>$}{>} 0} 
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & for invalid range (if {\ttfamily begin \texorpdfstring{$<$}{<} 0}, {\ttfamily begin \texorpdfstring{$>$}{>} end}, {\ttfamily begin \texorpdfstring{$>$}{>}= \doxylink{classcudf_1_1detail_1_1column__view__base_a754fdc0ebe297a466d1b377638c6920a}{size()}}, or {\ttfamily end \texorpdfstring{$>$}{>} \doxylink{classcudf_1_1detail_1_1column__view__base_a754fdc0ebe297a466d1b377638c6920a}{size()}}).\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em begin} & The starting index of the range (inclusive). \\
+\hline
+{\em end} & The index of the last element in the range (exclusive). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true One or more elements are null in the range \mbox{[}begin, end) 
+
+false All elements are valid in the range \mbox{[}begin, end) 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{column__view_8hpp_source}{column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{column__view_8hpp_source_l00209}{209}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_a9bcf890479e80414d8ee03acb9716483}\label{classcudf_1_1detail_1_1column__view__base_a9bcf890479e80414d8ee03acb9716483} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!head@{head}}
+\index{head@{head}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{head()}{head()}}
+{\footnotesize\ttfamily template$<$typename T  = void, \mbox{\hyperlink{group__utility__types_gadf63a9ff3257927585f111143a7c9ae4}{CUDF\+\_\+\+ENABLE\+\_\+\+IF}}(std\+::is\+\_\+same\+\_\+v$<$ T, void $>$ or \mbox{\hyperlink{group__utility__types_ga7c6839d4131493a1277f78a686226e54}{is\+\_\+rep\+\_\+layout\+\_\+compatible}}$<$ T $>$()) $>$ \\
+T const  \texorpdfstring{$\ast$}{*} cudf\+::detail\+::column\+\_\+view\+\_\+base\+::head (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Returns pointer to the base device memory allocation casted to the specified type. 
+
+\begin{DoxyNote}{注解}
+If {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base_a8bf33063791c751052a8ef20cf20468c}{offset()} == 0}, then {\ttfamily head\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}() == data\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}()}
+
+It should be rare to need to access the {\ttfamily head\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}()} allocation of a column, and instead, accessing the elements should be done via {\ttfamily data\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}()}.
+\end{DoxyNote}
+This function will only participate in overload resolution if {\ttfamily is\+\_\+rep\+\_\+layout\+\_\+compatible\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}()} or {\ttfamily std\+::is\+\_\+same\+\_\+v\texorpdfstring{$<$}{<}T,void\texorpdfstring{$>$}{>}} are true.
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em The} & type to cast to \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+T const\texorpdfstring{$\ast$}{*} Typed pointer to underlying data 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{column__view_8hpp_source}{column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{column__view_8hpp_source_l00073}{73}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_afab51e8ae20f5ae57a07f24fa90dd369}\label{classcudf_1_1detail_1_1column__view__base_afab51e8ae20f5ae57a07f24fa90dd369} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!is\_empty@{is\_empty}}
+\index{is\_empty@{is\_empty}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{is\_empty()}{is\_empty()}}
+{\footnotesize\ttfamily bool cudf\+::detail\+::column\+\_\+view\+\_\+base\+::is\+\_\+empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Returns true if {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base_a754fdc0ebe297a466d1b377638c6920a}{size()}} returns zero, or false otherwise 
+
+\begin{DoxyReturn}{返回}
+True if {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base_a754fdc0ebe297a466d1b377638c6920a}{size()}} returns zero, or false otherwise 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{column__view_8hpp_source}{column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{column__view_8hpp_source_l00140}{140}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_a4b3a32978413e9c0246f31b4d083bf30}\label{classcudf_1_1detail_1_1column__view__base_a4b3a32978413e9c0246f31b4d083bf30} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!null\_count@{null\_count}}
+\index{null\_count@{null\_count}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{null\_count()}{null\_count()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::detail\+::column\+\_\+view\+\_\+base\+::null\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the count of null elements 
+
+\begin{DoxyNote}{注解}
+If the column was constructed with {\ttfamily UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT}, or if at any point {\ttfamily set\+\_\+null\+\_\+count(\+UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT)} was invoked, then the first invocation of {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base_a4b3a32978413e9c0246f31b4d083bf30}{null\+\_\+count()}} will compute and store the count of null elements indicated by the {\ttfamily null\+\_\+mask} (if it exists).
+\end{DoxyNote}
+\begin{DoxyReturn}{返回}
+The count of null elements 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_a1449e5de056f7c1ac2b58861dd9d40f4}\label{classcudf_1_1detail_1_1column__view__base_a1449e5de056f7c1ac2b58861dd9d40f4} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!null\_count@{null\_count}}
+\index{null\_count@{null\_count}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{null\_count()}{null\_count()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::detail\+::column\+\_\+view\+\_\+base\+::null\+\_\+count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{begin,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{end }\end{DoxyParamCaption}) const}
+
+
+
+Returns the count of null elements in the range \mbox{[}begin, end) 
+
+\begin{DoxyNote}{注解}
+If {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base_a4b3a32978413e9c0246f31b4d083bf30}{null\+\_\+count()} != 0}, every invocation of {\ttfamily null\+\_\+count(begin, end)} will recompute the count of null elements indicated by the {\ttfamily null\+\_\+mask} in the range \mbox{[}begin, end).
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & for invalid range (if {\ttfamily begin \texorpdfstring{$<$}{<} 0}, {\ttfamily begin \texorpdfstring{$>$}{>} end}, {\ttfamily begin \texorpdfstring{$>$}{>}= \doxylink{classcudf_1_1detail_1_1column__view__base_a754fdc0ebe297a466d1b377638c6920a}{size()}}, or {\ttfamily end \texorpdfstring{$>$}{>} \doxylink{classcudf_1_1detail_1_1column__view__base_a754fdc0ebe297a466d1b377638c6920a}{size()}}).\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em begin} & The starting index of the range (inclusive). \\
+\hline
+\mbox{\texttt{ in}}  & {\em end} & The index of the last element in the range (exclusive). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The count of null elements in the given range 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_a8fc94e5f1403f7f1213efe2f855a9ac6}\label{classcudf_1_1detail_1_1column__view__base_a8fc94e5f1403f7f1213efe2f855a9ac6} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!null\_mask@{null\_mask}}
+\index{null\_mask@{null\_mask}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{null\_mask()}{null\_mask()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} const  \texorpdfstring{$\ast$}{*} cudf\+::detail\+::column\+\_\+view\+\_\+base\+::null\+\_\+mask (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Returns raw pointer to the underlying bitmask allocation. 
+
+\begin{DoxyNote}{注解}
+This function does {\itshape not} account for the {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base_a8bf33063791c751052a8ef20cf20468c}{offset()}}.
+
+If {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base_a4b3a32978413e9c0246f31b4d083bf30}{null\+\_\+count()} == 0}, this may return {\ttfamily nullptr}. 
+\end{DoxyNote}
+\begin{DoxyReturn}{返回}
+Raw pointer to the bitmask 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{column__view_8hpp_source}{column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{column__view_8hpp_source_l00222}{222}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_af4654a81e14e2390ea36d3a52d0f08fa}\label{classcudf_1_1detail_1_1column__view__base_af4654a81e14e2390ea36d3a52d0f08fa} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!nullable@{nullable}}
+\index{nullable@{nullable}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{nullable()}{nullable()}}
+{\footnotesize\ttfamily bool cudf\+::detail\+::column\+\_\+view\+\_\+base\+::nullable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Indicates if the column can contain null elements, i.\+e., if it has an allocated bitmask. 
+
+\begin{DoxyNote}{注解}
+If {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base_a4b3a32978413e9c0246f31b4d083bf30}{null\+\_\+count()} \texorpdfstring{$>$}{>} 0}, this function must always return {\ttfamily true}.
+\end{DoxyNote}
+\begin{DoxyReturn}{返回}
+true The bitmask is allocated 
+
+false The bitmask is not allocated 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{column__view_8hpp_source}{column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{column__view_8hpp_source_l00158}{158}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_a8bf33063791c751052a8ef20cf20468c}\label{classcudf_1_1detail_1_1column__view__base_a8bf33063791c751052a8ef20cf20468c} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!offset@{offset}}
+\index{offset@{offset}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{offset()}{offset()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::detail\+::column\+\_\+view\+\_\+base\+::offset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Returns the index of the first element relative to the base memory allocation, i.\+e., what is returned from {\ttfamily head\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}()}. 
+
+\begin{DoxyReturn}{返回}
+The index of the first element relative to {\ttfamily head\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}()} 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{column__view_8hpp_source}{column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{column__view_8hpp_source_l00230}{230}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_a2f2fa64afe53a23e8a44f5a75538a71f}\label{classcudf_1_1detail_1_1column__view__base_a2f2fa64afe53a23e8a44f5a75538a71f} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!operator=@{operator=}}
+\index{operator=@{operator=}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} \& cudf\+::detail\+::column\+\_\+view\+\_\+base\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [default]}}
+
+
+
+Move assignment operator 
+
+\begin{DoxyReturn}{返回}
+Reference to this object (after transferring ownership) 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_aacc64f424f3cdb545a43aa484bf85121}\label{classcudf_1_1detail_1_1column__view__base_aacc64f424f3cdb545a43aa484bf85121} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!operator=@{operator=}}
+\index{operator=@{operator=}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} \& cudf\+::detail\+::column\+\_\+view\+\_\+base\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [default]}}
+
+
+
+Copy assignment operator 
+
+\begin{DoxyReturn}{返回}
+Reference to this object 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_a754fdc0ebe297a466d1b377638c6920a}\label{classcudf_1_1detail_1_1column__view__base_a754fdc0ebe297a466d1b377638c6920a} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!size@{size}}
+\index{size@{size}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::detail\+::column\+\_\+view\+\_\+base\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Returns the number of elements in the column 
+
+\begin{DoxyReturn}{返回}
+The number of elements in the column 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{column__view_8hpp_source}{column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{column__view_8hpp_source_l00133}{133}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_a16452c9fb08f36de42cd13884f0933e1}\label{classcudf_1_1detail_1_1column__view__base_a16452c9fb08f36de42cd13884f0933e1} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!type@{type}}
+\index{type@{type}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} cudf\+::detail\+::column\+\_\+view\+\_\+base\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Returns the element {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} 
+
+\begin{DoxyReturn}{返回}
+The {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} of the elements in the column 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{column__view_8hpp_source}{column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{column__view_8hpp_source_l00147}{147}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_acfe73a38fa04f01be62beb34b2a3f87a}\label{classcudf_1_1detail_1_1column__view__base_acfe73a38fa04f01be62beb34b2a3f87a} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!\_data@{\_data}}
+\index{\_data@{\_data}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{\_data}{\_data}}
+{\footnotesize\ttfamily void const\texorpdfstring{$\ast$}{*} cudf\+::detail\+::column\+\_\+view\+\_\+base\+::\+\_\+data \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Pointer to device memory containing elements 
+
+
+
+在文件 \mbox{\hyperlink{column__view_8hpp_source}{column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{column__view_8hpp_source_l00235}{235}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_abca5b3f93d8cef425990ed6907f25841}\label{classcudf_1_1detail_1_1column__view__base_abca5b3f93d8cef425990ed6907f25841} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!\_null\_count@{\_null\_count}}
+\index{\_null\_count@{\_null\_count}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{\_null\_count}{\_null\_count}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::detail\+::column\+\_\+view\+\_\+base\+::\+\_\+null\+\_\+count \{\}\hspace{0.3cm}{\ttfamily [mutable]}, {\ttfamily [protected]}}
+
+
+
+The number of null elements 
+
+
+
+在文件 \mbox{\hyperlink{column__view_8hpp_source}{column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{column__view_8hpp_source_l00239}{239}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_a47cb87ff8d6c42393ad44aa1adb9fa9a}\label{classcudf_1_1detail_1_1column__view__base_a47cb87ff8d6c42393ad44aa1adb9fa9a} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!\_null\_mask@{\_null\_mask}}
+\index{\_null\_mask@{\_null\_mask}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{\_null\_mask}{\_null\_mask}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} const\texorpdfstring{$\ast$}{*} cudf\+::detail\+::column\+\_\+view\+\_\+base\+::\+\_\+null\+\_\+mask \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+Pointer to device memory containing bitmask representing null elements. Optional if {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base_a4b3a32978413e9c0246f31b4d083bf30}{null\+\_\+count()} == 0} 
+
+在文件 \mbox{\hyperlink{column__view_8hpp_source}{column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{column__view_8hpp_source_l00236}{236}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_a1ac97d1e5a49bb5a297c9041d4191d75}\label{classcudf_1_1detail_1_1column__view__base_a1ac97d1e5a49bb5a297c9041d4191d75} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!\_offset@{\_offset}}
+\index{\_offset@{\_offset}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{\_offset}{\_offset}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::detail\+::column\+\_\+view\+\_\+base\+::\+\_\+offset \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+Index position of the first element. Enables zero-\/copy slicing 
+
+在文件 \mbox{\hyperlink{column__view_8hpp_source}{column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{column__view_8hpp_source_l00240}{240}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_a5df1f27c16c16819d65af2270f42800e}\label{classcudf_1_1detail_1_1column__view__base_a5df1f27c16c16819d65af2270f42800e} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!\_size@{\_size}}
+\index{\_size@{\_size}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{\_size}{\_size}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::detail\+::column\+\_\+view\+\_\+base\+::\+\_\+size \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Number of elements 
+
+
+
+在文件 \mbox{\hyperlink{column__view_8hpp_source}{column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{column__view_8hpp_source_l00234}{234}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1column__view__base_aae4ea5f9998c7c4a991ef9a81111c7b5}\label{classcudf_1_1detail_1_1column__view__base_aae4ea5f9998c7c4a991ef9a81111c7b5} 
+\index{cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}!\_type@{\_type}}
+\index{\_type@{\_type}!cudf::detail::column\_view\_base@{cudf::detail::column\_view\_base}}
+\doxysubsubsection{\texorpdfstring{\_type}{\_type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} cudf\+::detail\+::column\+\_\+view\+\_\+base\+::\+\_\+type \{\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539aba2b45bdc11e2a4a6e86aab2ac693cbb}{type\+\_\+id\+::\+EMPTY}}\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Element type 
+
+
+
+在文件 \mbox{\hyperlink{column__view_8hpp_source}{column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{column__view_8hpp_source_l00233}{233}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/column/\mbox{\hyperlink{column__view_8hpp}{column\+\_\+view.\+hpp}}\end{DoxyCompactItemize}

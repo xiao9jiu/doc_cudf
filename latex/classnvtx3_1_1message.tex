@@ -1,0 +1,296 @@
+\doxysection{nvtx3\+::message类 参考}
+\hypertarget{classnvtx3_1_1message}{}\label{classnvtx3_1_1message}\index{nvtx3::message@{nvtx3::message}}
+
+
+Allows associating a message string with an NVTX event via its {\ttfamily Event\+Attribute}s.  
+
+
+
+
+{\ttfamily \#include $<$nvtx3.\+hpp$>$}
+
+
+
+nvtx3\+::message 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=158pt]{classnvtx3_1_1message__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 类型}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classnvtx3_1_1message_a2931257fa5e38b2f2375dbddb6b36c89}{value\+\_\+type}} = nvtx\+Message\+Value\+\_\+t
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{nvtx3_8hpp_aed60c42629f272df1844fa29f4d6b86f}{NVTX3\+\_\+\+RELAXED\+\_\+\+CONSTEXPR}} \mbox{\hyperlink{classnvtx3_1_1message_ac94fed5f60784e9cbc5bc059897a9bc1}{message}} (char const \texorpdfstring{$\ast$}{*}msg) noexcept
+\begin{DoxyCompactList}\small\item\em Construct a {\ttfamily message} whose contents are specified by {\ttfamily msg}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnvtx3_1_1message_abfae8ef3fd3ba32b06e2f236fa89434d}{message}} (std\+::string const \&msg) noexcept
+\begin{DoxyCompactList}\small\item\em Construct a {\ttfamily message} whose contents are specified by {\ttfamily msg}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnvtx3_1_1message_a66adf74212f8be8f1ea8fca0869e097e}{message}} (std\+::string \&\&)=delete
+\begin{DoxyCompactList}\small\item\em Disallow construction for {\ttfamily std\+::string} r-\/value \end{DoxyCompactList}\item 
+\mbox{\hyperlink{nvtx3_8hpp_aed60c42629f272df1844fa29f4d6b86f}{NVTX3\+\_\+\+RELAXED\+\_\+\+CONSTEXPR}} \mbox{\hyperlink{classnvtx3_1_1message_ab2d77ead6e71231df81c9af8e07cf247}{message}} (wchar\+\_\+t const \texorpdfstring{$\ast$}{*}msg) noexcept
+\begin{DoxyCompactList}\small\item\em Construct a {\ttfamily message} whose contents are specified by {\ttfamily msg}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnvtx3_1_1message_acf32124d138c7c200fdd77511c5db07b}{message}} (std\+::wstring const \&msg) noexcept
+\begin{DoxyCompactList}\small\item\em Construct a {\ttfamily message} whose contents are specified by {\ttfamily msg}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnvtx3_1_1message_a9b93367766641efa21611390b778fa4b}{message}} (std\+::wstring \&\&)=delete
+\begin{DoxyCompactList}\small\item\em Disallow construction for {\ttfamily std\+::wstring} r-\/value \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename D $>$ }\\\mbox{\hyperlink{classnvtx3_1_1message_aa40181325d41d18df9e35c364d6e2e9d}{message}} (\mbox{\hyperlink{classnvtx3_1_1registered__message}{registered\+\_\+message}}$<$ D $>$ const \&msg) noexcept
+\begin{DoxyCompactList}\small\item\em Construct a {\ttfamily message} from a {\ttfamily \doxylink{classnvtx3_1_1registered__message}{registered\+\_\+message}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{nvtx3_8hpp_aed60c42629f272df1844fa29f4d6b86f}{NVTX3\+\_\+\+RELAXED\+\_\+\+CONSTEXPR}} \mbox{\hyperlink{classnvtx3_1_1message_a2931257fa5e38b2f2375dbddb6b36c89}{value\+\_\+type}} \mbox{\hyperlink{classnvtx3_1_1message_a913bd3c4b92d87e3438a9b1b26c378f2}{get\+\_\+value}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Return the union holding the value of the message. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{nvtx3_8hpp_aed60c42629f272df1844fa29f4d6b86f}{NVTX3\+\_\+\+RELAXED\+\_\+\+CONSTEXPR}} nvtx\+Message\+Type\+\_\+t \mbox{\hyperlink{classnvtx3_1_1message_a3d63030b7827a7cd6becdf69a23d1932}{get\+\_\+type}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Return the type information about the value the union holds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+nvtx\+Message\+Type\+\_\+t const \mbox{\hyperlink{classnvtx3_1_1message_a8012d47d90964357a62172a361385972}{type\+\_\+}} \{\}
+\begin{DoxyCompactList}\small\item\em message type \end{DoxyCompactList}\item 
+nvtx\+Message\+Value\+\_\+t \mbox{\hyperlink{classnvtx3_1_1message_aedbdfa2866eb126efa9aacd4b19ea554}{value\+\_\+}} \{\}
+\begin{DoxyCompactList}\small\item\em message contents \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Allows associating a message string with an NVTX event via its {\ttfamily Event\+Attribute}s. 
+
+Associating a {\ttfamily message} with an NVTX event through its {\ttfamily \doxylink{classnvtx3_1_1event__attributes}{event\+\_\+attributes}} allows for naming events to easily differentiate them from other events.
+
+Every time an NVTX event is created with an associated {\ttfamily message}, the contents of the message string must be copied. This may cause non-\/trivial overhead in highly performance sensitive sections of code. Use of a {\ttfamily \doxylink{classnvtx3_1_1registered__message}{nvtx3\+::registered\+\_\+message}} is recommended in these situations.
+
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Creates\ an\ \`{}event\_attributes`\ with\ message\ "{}message\ 0"{}}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1event__attributes}{nvtx3::event\_attributes}}\ attr0\{\mbox{\hyperlink{classnvtx3_1_1message}{nvtx3::message}}\{\textcolor{stringliteral}{"{}message\ 0"{}}\}\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ \`{}range0`\ contains\ message\ "{}message\ 0"{}}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::thread\_range}}\ range0\{attr0\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ \`{}std::string`\ and\ string\ literals\ are\ implicitly\ assumed\ to\ be}}
+\DoxyCodeLine{\textcolor{comment}{//\ the\ contents\ of\ an\ \`{}nvtx3::message`}}
+\DoxyCodeLine{\textcolor{comment}{//\ Creates\ an\ \`{}event\_attributes`\ with\ message\ "{}message\ 1"{}}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1event__attributes}{nvtx3::event\_attributes}}\ attr1\{\textcolor{stringliteral}{"{}message\ 1"{}}\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ \`{}range1`\ contains\ message\ "{}message\ 1"{}}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::thread\_range}}\ range1\{attr1\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ \`{}range2`\ contains\ message\ "{}message\ 2"{}}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::thread\_range}}\ range2\{\mbox{\hyperlink{classnvtx3_1_1message}{nvtx3::message}}\{\textcolor{stringliteral}{"{}message\ 2"{}}\}\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ \`{}std::string`\ and\ string\ literals\ are\ implicitly\ assumed\ to\ be}}
+\DoxyCodeLine{\textcolor{comment}{//\ the\ contents\ of\ an\ \`{}nvtx3::message`}}
+\DoxyCodeLine{\textcolor{comment}{//\ \`{}range3`\ contains\ message\ "{}message\ 3"{}}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::thread\_range}}\ range3\{\textcolor{stringliteral}{"{}message\ 3"{}}\};}
+
+\end{DoxyCode}
+ 
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01278}{1278}} 行定义.
+
+
+
+\doxysubsection{成员类型定义说明}
+\Hypertarget{classnvtx3_1_1message_a2931257fa5e38b2f2375dbddb6b36c89}\label{classnvtx3_1_1message_a2931257fa5e38b2f2375dbddb6b36c89} 
+\index{nvtx3::message@{nvtx3::message}!value\_type@{value\_type}}
+\index{value\_type@{value\_type}!nvtx3::message@{nvtx3::message}}
+\doxysubsubsection{\texorpdfstring{value\_type}{value\_type}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classnvtx3_1_1message_a2931257fa5e38b2f2375dbddb6b36c89}{nvtx3\+::message\+::value\+\_\+type}} =  nvtx\+Message\+Value\+\_\+t}
+
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01280}{1280}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classnvtx3_1_1message_ac94fed5f60784e9cbc5bc059897a9bc1}\label{classnvtx3_1_1message_ac94fed5f60784e9cbc5bc059897a9bc1} 
+\index{nvtx3::message@{nvtx3::message}!message@{message}}
+\index{message@{message}!nvtx3::message@{nvtx3::message}}
+\doxysubsubsection{\texorpdfstring{message()}{message()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nvtx3_8hpp_aed60c42629f272df1844fa29f4d6b86f}{NVTX3\+\_\+\+RELAXED\+\_\+\+CONSTEXPR}} nvtx3\+::message\+::message (\begin{DoxyParamCaption}\item[{char const \texorpdfstring{$\ast$}{*}}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Construct a {\ttfamily message} whose contents are specified by {\ttfamily msg}. 
+
+
+\begin{DoxyParams}{参数}
+{\em msg} & The contents of the message \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01287}{1287}} 行定义.
+
+\Hypertarget{classnvtx3_1_1message_abfae8ef3fd3ba32b06e2f236fa89434d}\label{classnvtx3_1_1message_abfae8ef3fd3ba32b06e2f236fa89434d} 
+\index{nvtx3::message@{nvtx3::message}!message@{message}}
+\index{message@{message}!nvtx3::message@{nvtx3::message}}
+\doxysubsubsection{\texorpdfstring{message()}{message()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily nvtx3\+::message\+::message (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Construct a {\ttfamily message} whose contents are specified by {\ttfamily msg}. 
+
+
+\begin{DoxyParams}{参数}
+{\em msg} & The contents of the message \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01297}{1297}} 行定义.
+
+\Hypertarget{classnvtx3_1_1message_a66adf74212f8be8f1ea8fca0869e097e}\label{classnvtx3_1_1message_a66adf74212f8be8f1ea8fca0869e097e} 
+\index{nvtx3::message@{nvtx3::message}!message@{message}}
+\index{message@{message}!nvtx3::message@{nvtx3::message}}
+\doxysubsubsection{\texorpdfstring{message()}{message()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily nvtx3\+::message\+::message (\begin{DoxyParamCaption}\item[{std\+::string \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Disallow construction for {\ttfamily std\+::string} r-\/value 
+
+{\ttfamily message} is a non-\/owning type and therefore cannot take ownership of an r-\/value. Therefore, constructing from an r-\/value is disallowed to prevent a dangling pointer. \Hypertarget{classnvtx3_1_1message_ab2d77ead6e71231df81c9af8e07cf247}\label{classnvtx3_1_1message_ab2d77ead6e71231df81c9af8e07cf247} 
+\index{nvtx3::message@{nvtx3::message}!message@{message}}
+\index{message@{message}!nvtx3::message@{nvtx3::message}}
+\doxysubsubsection{\texorpdfstring{message()}{message()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nvtx3_8hpp_aed60c42629f272df1844fa29f4d6b86f}{NVTX3\+\_\+\+RELAXED\+\_\+\+CONSTEXPR}} nvtx3\+::message\+::message (\begin{DoxyParamCaption}\item[{wchar\+\_\+t const \texorpdfstring{$\ast$}{*}}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Construct a {\ttfamily message} whose contents are specified by {\ttfamily msg}. 
+
+
+\begin{DoxyParams}{参数}
+{\em msg} & The contents of the message \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01314}{1314}} 行定义.
+
+\Hypertarget{classnvtx3_1_1message_acf32124d138c7c200fdd77511c5db07b}\label{classnvtx3_1_1message_acf32124d138c7c200fdd77511c5db07b} 
+\index{nvtx3::message@{nvtx3::message}!message@{message}}
+\index{message@{message}!nvtx3::message@{nvtx3::message}}
+\doxysubsubsection{\texorpdfstring{message()}{message()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily nvtx3\+::message\+::message (\begin{DoxyParamCaption}\item[{std\+::wstring const \&}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Construct a {\ttfamily message} whose contents are specified by {\ttfamily msg}. 
+
+
+\begin{DoxyParams}{参数}
+{\em msg} & The contents of the message \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01324}{1324}} 行定义.
+
+\Hypertarget{classnvtx3_1_1message_a9b93367766641efa21611390b778fa4b}\label{classnvtx3_1_1message_a9b93367766641efa21611390b778fa4b} 
+\index{nvtx3::message@{nvtx3::message}!message@{message}}
+\index{message@{message}!nvtx3::message@{nvtx3::message}}
+\doxysubsubsection{\texorpdfstring{message()}{message()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily nvtx3\+::message\+::message (\begin{DoxyParamCaption}\item[{std\+::wstring \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Disallow construction for {\ttfamily std\+::wstring} r-\/value 
+
+{\ttfamily message} is a non-\/owning type and therefore cannot take ownership of an r-\/value. Therefore, constructing from an r-\/value is disallowed to prevent a dangling pointer. \Hypertarget{classnvtx3_1_1message_aa40181325d41d18df9e35c364d6e2e9d}\label{classnvtx3_1_1message_aa40181325d41d18df9e35c364d6e2e9d} 
+\index{nvtx3::message@{nvtx3::message}!message@{message}}
+\index{message@{message}!nvtx3::message@{nvtx3::message}}
+\doxysubsubsection{\texorpdfstring{message()}{message()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily template$<$typename D $>$ \\
+nvtx3\+::message\+::message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnvtx3_1_1registered__message}{registered\+\_\+message}}$<$ D $>$ const \&}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Construct a {\ttfamily message} from a {\ttfamily \doxylink{classnvtx3_1_1registered__message}{registered\+\_\+message}}. 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em D} & Type containing {\ttfamily name} member used to identify the {\ttfamily domain} to which the {\ttfamily \doxylink{classnvtx3_1_1registered__message}{registered\+\_\+message}} belongs. Else, {\ttfamily \doxylink{structnvtx3_1_1domain_1_1global}{domain\+::global}} to indicate that the global NVTX domain should be used. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em msg} & The message that has already been registered with NVTX. \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01345}{1345}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classnvtx3_1_1message_a3d63030b7827a7cd6becdf69a23d1932}\label{classnvtx3_1_1message_a3d63030b7827a7cd6becdf69a23d1932} 
+\index{nvtx3::message@{nvtx3::message}!get\_type@{get\_type}}
+\index{get\_type@{get\_type}!nvtx3::message@{nvtx3::message}}
+\doxysubsubsection{\texorpdfstring{get\_type()}{get\_type()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nvtx3_8hpp_aed60c42629f272df1844fa29f4d6b86f}{NVTX3\+\_\+\+RELAXED\+\_\+\+CONSTEXPR}} nvtx\+Message\+Type\+\_\+t nvtx3\+::message\+::get\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Return the type information about the value the union holds. 
+
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01360}{1360}} 行定义.
+
+\Hypertarget{classnvtx3_1_1message_a913bd3c4b92d87e3438a9b1b26c378f2}\label{classnvtx3_1_1message_a913bd3c4b92d87e3438a9b1b26c378f2} 
+\index{nvtx3::message@{nvtx3::message}!get\_value@{get\_value}}
+\index{get\_value@{get\_value}!nvtx3::message@{nvtx3::message}}
+\doxysubsubsection{\texorpdfstring{get\_value()}{get\_value()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{nvtx3_8hpp_aed60c42629f272df1844fa29f4d6b86f}{NVTX3\+\_\+\+RELAXED\+\_\+\+CONSTEXPR}} \mbox{\hyperlink{classnvtx3_1_1message_a2931257fa5e38b2f2375dbddb6b36c89}{value\+\_\+type}} nvtx3\+::message\+::get\+\_\+value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Return the union holding the value of the message. 
+
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01354}{1354}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classnvtx3_1_1message_a8012d47d90964357a62172a361385972}\label{classnvtx3_1_1message_a8012d47d90964357a62172a361385972} 
+\index{nvtx3::message@{nvtx3::message}!type\_@{type\_}}
+\index{type\_@{type\_}!nvtx3::message@{nvtx3::message}}
+\doxysubsubsection{\texorpdfstring{type\_}{type\_}}
+{\footnotesize\ttfamily nvtx\+Message\+Type\+\_\+t const nvtx3\+::message\+::type\+\_\+ \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+message type 
+
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01363}{1363}} 行定义.
+
+\Hypertarget{classnvtx3_1_1message_aedbdfa2866eb126efa9aacd4b19ea554}\label{classnvtx3_1_1message_aedbdfa2866eb126efa9aacd4b19ea554} 
+\index{nvtx3::message@{nvtx3::message}!value\_@{value\_}}
+\index{value\_@{value\_}!nvtx3::message@{nvtx3::message}}
+\doxysubsubsection{\texorpdfstring{value\_}{value\_}}
+{\footnotesize\ttfamily nvtx\+Message\+Value\+\_\+t nvtx3\+::message\+::value\+\_\+ \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+message contents 
+
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01364}{1364}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/detail/nvtx/\mbox{\hyperlink{nvtx3_8hpp}{nvtx3.\+hpp}}\end{DoxyCompactItemize}

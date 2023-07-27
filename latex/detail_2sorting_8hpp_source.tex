@@ -1,0 +1,108 @@
+\doxysection{sorting.\+hpp}
+\hypertarget{detail_2sorting_8hpp_source}{}\label{detail_2sorting_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/detail/sorting.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/detail/sorting.hpp}}
+\mbox{\hyperlink{detail_2sorting_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2019-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{types_8hpp}{cudf/types.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{utilities_2default__stream_8hpp}{cudf/utilities/default\_stream.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <rmm/cuda\_stream\_view.hpp>}}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00027}00027\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00028}00028\ \textcolor{keyword}{namespace\ }detail\ \{}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00035}\mbox{\hyperlink{namespacecudf_1_1detail_a02dc7ba3e6b64741911634d22f34fa91}{00035}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{namespacecudf_1_1detail_a02dc7ba3e6b64741911634d22f34fa91}{sorted\_order}}(}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00036}00036\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00037}00037\ \ \ std::vector<order>\ \textcolor{keyword}{const}\&\ column\_order\ \ \ \ \ \ \ \ \ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00038}00038\ \ \ std::vector<null\_order>\ \textcolor{keyword}{const}\&\ null\_precedence\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00039}00039\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00040}00040\ \ \ rmm::mr::device\_memory\_resource*\ mr\ \ \ \ \ \ \ \ \ \ \ \ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00047}\mbox{\hyperlink{namespacecudf_1_1detail_a7eacf26ccb873b752827c9316f858ca9}{00047}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{namespacecudf_1_1detail_a7eacf26ccb873b752827c9316f858ca9}{stable\_sorted\_order}}(}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00048}00048\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00049}00049\ \ \ std::vector<order>\ \textcolor{keyword}{const}\&\ column\_order\ \ \ \ \ \ \ \ \ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00050}00050\ \ \ std::vector<null\_order>\ \textcolor{keyword}{const}\&\ null\_precedence\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00051}00051\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00052}00052\ \ \ rmm::mr::device\_memory\_resource*\ mr\ \ \ \ \ \ \ \ \ \ \ \ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00059}\mbox{\hyperlink{namespacecudf_1_1detail_a8ef04bcc6a371c3a2ecdd1a24d413b06}{00059}}\ std::unique\_ptr<table>\ \mbox{\hyperlink{namespacecudf_1_1detail_a8ef04bcc6a371c3a2ecdd1a24d413b06}{sort\_by\_key}}(}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00060}00060\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ values,}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00061}00061\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ keys,}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00062}00062\ \ \ std::vector<order>\ \textcolor{keyword}{const}\&\ column\_order\ \ \ \ \ \ \ \ \ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00063}00063\ \ \ std::vector<null\_order>\ \textcolor{keyword}{const}\&\ null\_precedence\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00064}00064\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00065}00065\ \ \ rmm::mr::device\_memory\_resource*\ mr\ \ \ \ \ \ \ \ \ \ \ \ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00072}\mbox{\hyperlink{namespacecudf_1_1detail_af8ef84bbffe708df280ab3edd030a761}{00072}}\ std::unique\_ptr<table>\ \mbox{\hyperlink{namespacecudf_1_1detail_af8ef84bbffe708df280ab3edd030a761}{stable\_sort\_by\_key}}(}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00073}00073\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ values,}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00074}00074\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ keys,}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00075}00075\ \ \ std::vector<order>\ \textcolor{keyword}{const}\&\ column\_order\ \ \ \ \ \ \ \ \ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00076}00076\ \ \ std::vector<null\_order>\ \textcolor{keyword}{const}\&\ null\_precedence\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00077}00077\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00078}00078\ \ \ rmm::mr::device\_memory\_resource*\ mr\ \ \ \ \ \ \ \ \ \ \ \ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00085}\mbox{\hyperlink{namespacecudf_1_1detail_a5ee83cd6aa2e87076b5f8c39fbf08719}{00085}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{namespacecudf_1_1detail_a5ee83cd6aa2e87076b5f8c39fbf08719}{segmented\_sorted\_order}}(}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00086}00086\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ keys,}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00087}00087\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ segment\_offsets,}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00088}00088\ \ \ std::vector<order>\ \textcolor{keyword}{const}\&\ column\_order\ \ \ \ \ \ \ \ \ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00089}00089\ \ \ std::vector<null\_order>\ \textcolor{keyword}{const}\&\ null\_precedence\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00090}00090\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00091}00091\ \ \ rmm::mr::device\_memory\_resource*\ mr\ \ \ \ \ \ \ \ \ \ \ \ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00098}\mbox{\hyperlink{namespacecudf_1_1detail_a9f2457ab266f3c83ee1803af46d40431}{00098}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{namespacecudf_1_1detail_a9f2457ab266f3c83ee1803af46d40431}{stable\_segmented\_sorted\_order}}(}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00099}00099\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ keys,}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00100}00100\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ segment\_offsets,}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00101}00101\ \ \ std::vector<order>\ \textcolor{keyword}{const}\&\ column\_order\ \ \ \ \ \ \ \ \ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00102}00102\ \ \ std::vector<null\_order>\ \textcolor{keyword}{const}\&\ null\_precedence\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00103}00103\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00104}00104\ \ \ rmm::mr::device\_memory\_resource*\ mr\ \ \ \ \ \ \ \ \ \ \ \ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00111}\mbox{\hyperlink{namespacecudf_1_1detail_a0143b14fe58e9f453958200e4bd745b2}{00111}}\ std::unique\_ptr<table>\ \mbox{\hyperlink{namespacecudf_1_1detail_a0143b14fe58e9f453958200e4bd745b2}{segmented\_sort\_by\_key}}(}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00112}00112\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ values,}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00113}00113\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ keys,}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00114}00114\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ segment\_offsets,}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00115}00115\ \ \ std::vector<order>\ \textcolor{keyword}{const}\&\ column\_order\ \ \ \ \ \ \ \ \ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00116}00116\ \ \ std::vector<null\_order>\ \textcolor{keyword}{const}\&\ null\_precedence\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00117}00117\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00118}00118\ \ \ rmm::mr::device\_memory\_resource*\ mr\ \ \ \ \ \ \ \ \ \ \ \ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00125}\mbox{\hyperlink{namespacecudf_1_1detail_a617cf9daf1ccb662f23d1751d8e9eef1}{00125}}\ std::unique\_ptr<table>\ \mbox{\hyperlink{namespacecudf_1_1detail_a617cf9daf1ccb662f23d1751d8e9eef1}{stable\_segmented\_sort\_by\_key}}(}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00126}00126\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ values,}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00127}00127\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ keys,}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00128}00128\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ segment\_offsets,}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00129}00129\ \ \ std::vector<order>\ \textcolor{keyword}{const}\&\ column\_order\ \ \ \ \ \ \ \ \ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00130}00130\ \ \ std::vector<null\_order>\ \textcolor{keyword}{const}\&\ null\_precedence\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00131}00131\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00132}00132\ \ \ rmm::mr::device\_memory\_resource*\ mr\ \ \ \ \ \ \ \ \ \ \ \ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00139}\mbox{\hyperlink{namespacecudf_1_1detail_a6ecb769bcadd1469d96dab94bc9fb92c}{00139}}\ std::unique\_ptr<table>\ \mbox{\hyperlink{namespacecudf_1_1detail_a6ecb769bcadd1469d96dab94bc9fb92c}{sort}}(}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00140}00140\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ values,}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00141}00141\ \ \ std::vector<order>\ \textcolor{keyword}{const}\&\ column\_order\ \ \ \ \ \ \ \ \ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00142}00142\ \ \ std::vector<null\_order>\ \textcolor{keyword}{const}\&\ null\_precedence\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00143}00143\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00144}00144\ \ \ rmm::mr::device\_memory\_resource*\ mr\ \ \ \ \ \ \ \ \ \ \ \ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00146}00146\ \}\ \ \textcolor{comment}{//\ namespace\ detail}}
+\DoxyCodeLine{\Hypertarget{detail_2sorting_8hpp_source_l00147}00147\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

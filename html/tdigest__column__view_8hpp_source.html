@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: D:/gitLibrary/cudf/cpp/include/cudf/tdigest/tdigest_column_view.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('tdigest__column__view_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">tdigest_column_view.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="tdigest__column__view_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright (c) 2021-2022, NVIDIA CORPORATION.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;<a class="code" href="column__view_8hpp.html">cudf/column/column_view.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;<a class="code" href="lists__column__view_8hpp.html">cudf/lists/lists_column_view.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecudf.html">cudf</a> {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">namespace </span>tdigest {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classcudf_1_1tdigest_1_1tdigest__column__view.html">   50</a></span><span class="keyword">class </span><a class="code hl_class" href="classcudf_1_1tdigest_1_1tdigest__column__view.html">tdigest_column_view</a> : <span class="keyword">private</span> <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> {</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#ab7c79eb2d945d9f250b1a5af418b2ed5">   52</a></span>  <a class="code hl_function" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#ab7c79eb2d945d9f250b1a5af418b2ed5">tdigest_column_view</a>(<a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp;);  </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a7d686d0a3c01e95a67a4fd2a991ff0a5">   53</a></span>  <a class="code hl_function" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a7d686d0a3c01e95a67a4fd2a991ff0a5">tdigest_column_view</a>(<a class="code hl_class" href="classcudf_1_1tdigest_1_1tdigest__column__view.html">tdigest_column_view</a>&amp;&amp;)      = <span class="keywordflow">default</span>;  </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a3309a7338f70404b04ebcc678972d56c">   54</a></span>  <a class="code hl_function" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a3309a7338f70404b04ebcc678972d56c">tdigest_column_view</a>(<span class="keyword">const</span> <a class="code hl_class" href="classcudf_1_1tdigest_1_1tdigest__column__view.html">tdigest_column_view</a>&amp;) = <span class="keywordflow">default</span>;  </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#af742fc9f2511000f71e5e1d4383b2cf5">   55</a></span>  <a class="code hl_function" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#af742fc9f2511000f71e5e1d4383b2cf5">~tdigest_column_view</a>()                          = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a05d61409bba361f0700dabb49dd5cf4b">   61</a></span>  <a class="code hl_class" href="classcudf_1_1tdigest_1_1tdigest__column__view.html">tdigest_column_view</a>&amp; <a class="code hl_function" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a05d61409bba361f0700dabb49dd5cf4b">operator=</a>(<a class="code hl_class" href="classcudf_1_1tdigest_1_1tdigest__column__view.html">tdigest_column_view</a> <span class="keyword">const</span>&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a479ff409203c0eb9ec77ade071acc427">   67</a></span>  <a class="code hl_class" href="classcudf_1_1tdigest_1_1tdigest__column__view.html">tdigest_column_view</a>&amp; <a class="code hl_function" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a479ff409203c0eb9ec77ade071acc427">operator=</a>(<a class="code hl_class" href="classcudf_1_1tdigest_1_1tdigest__column__view.html">tdigest_column_view</a>&amp;&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <span class="keyword">using </span><a class="code hl_function" href="classcudf_1_1detail_1_1column__view__base.html#a754fdc0ebe297a466d1b377638c6920a">column_view::size</a>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  <span class="keyword">static_assert</span>(std::is_same_v&lt;offset_type, size_type&gt;,</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                <span class="stringliteral">&quot;offset_type is expected to be the same as size_type.&quot;</span>);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#afcc7cb3925ed8d168d60deccb95c85ce">   72</a></span>  <span class="keyword">using </span><a class="code hl_typedef" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#afcc7cb3925ed8d168d60deccb95c85ce">offset_iterator</a> = <a class="code hl_typedef" href="group__utility__types.html#ga3391e2df0069d3e7a07f0ec96cd2473e">offset_type</a> <span class="keyword">const</span>*;  </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>  <span class="comment">// mean and weight column indices within tdigest inner struct columns</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a590cece1cc1b192f499a9995469cb825">   75</a></span>  <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> <a class="code hl_variable" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a590cece1cc1b192f499a9995469cb825">mean_column_index</a>{0};    </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#ac8ecf339ab50b0824ee4900767e736f3">   76</a></span>  <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> <a class="code hl_variable" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#ac8ecf339ab50b0824ee4900767e736f3">weight_column_index</a>{1};  </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  <span class="comment">// min and max column indices within tdigest outer struct columns</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#aaa8731b27c5b78b942e8f20ead0f190f">   79</a></span>  <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> <a class="code hl_variable" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#aaa8731b27c5b78b942e8f20ead0f190f">centroid_column_index</a>{0};  </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a8920be8f06ede4a966d724877d0ee7b3">   80</a></span>  <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> <a class="code hl_variable" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a8920be8f06ede4a966d724877d0ee7b3">min_column_index</a>{1};       </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a628212a640264700df0dba4d52996e02">   81</a></span>  <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> <a class="code hl_variable" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a628212a640264700df0dba4d52996e02">max_column_index</a>{2};       </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#aa9e0bee5baad363122613a7ff76dbb57">   88</a></span>  [[nodiscard]] <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <a class="code hl_function" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#aa9e0bee5baad363122613a7ff76dbb57">parent</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#ae30157024e3b10c5f320fdb5bc26c9ea">   95</a></span>  [[nodiscard]] <a class="code hl_class" href="classcudf_1_1lists__column__view.html">lists_column_view</a> <a class="code hl_function" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#ae30157024e3b10c5f320fdb5bc26c9ea">centroids</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a37652d6f6834a2ff9091546a0f087ff6">  102</a></span>  [[nodiscard]] <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <a class="code hl_function" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a37652d6f6834a2ff9091546a0f087ff6">means</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#aeefeda936ab59f079c70cf73976c95fc">  109</a></span>  [[nodiscard]] <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <a class="code hl_function" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#aeefeda936ab59f079c70cf73976c95fc">weights</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#aabc94430fb4def7bab37a0bc0ec9e72b">  117</a></span>  [[nodiscard]] <span class="keywordtype">double</span> <span class="keyword">const</span>* <a class="code hl_function" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#aabc94430fb4def7bab37a0bc0ec9e72b">min_begin</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a075ad516fea7f320d9bc46406373d23c">  125</a></span>  [[nodiscard]] <span class="keywordtype">double</span> <span class="keyword">const</span>* <a class="code hl_function" href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a075ad516fea7f320d9bc46406373d23c">max_begin</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>};</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>}  <span class="comment">// namespace tdigest</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>}  <span class="comment">// namespace cudf</span></div>
+<div class="ttc" id="aclasscudf_1_1column__view_html"><div class="ttname"><a href="classcudf_1_1column__view.html">cudf::column_view</a></div><div class="ttdoc">A non-owning, immutable view of device data as a column of elements, some of which may be null as ind...</div><div class="ttdef"><b>Definition</b> <a href="column__view_8hpp_source.html#l00322">column_view.hpp:322</a></div></div>
+<div class="ttc" id="aclasscudf_1_1detail_1_1column__view__base_html_a754fdc0ebe297a466d1b377638c6920a"><div class="ttname"><a href="classcudf_1_1detail_1_1column__view__base.html#a754fdc0ebe297a466d1b377638c6920a">cudf::detail::column_view_base::size</a></div><div class="ttdeci">size_type size() const noexcept</div><div class="ttdoc">Returns the number of elements in the column</div><div class="ttdef"><b>Definition</b> <a href="column__view_8hpp_source.html#l00133">column_view.hpp:133</a></div></div>
+<div class="ttc" id="aclasscudf_1_1lists__column__view_html"><div class="ttname"><a href="classcudf_1_1lists__column__view.html">cudf::lists_column_view</a></div><div class="ttdoc">Given a column-view of lists type, an instance of this class provides a wrapper on this compound colu...</div><div class="ttdef"><b>Definition</b> <a href="lists__column__view_8hpp_source.html#l00039">lists_column_view.hpp:39</a></div></div>
+<div class="ttc" id="aclasscudf_1_1tdigest_1_1tdigest__column__view_html"><div class="ttname"><a href="classcudf_1_1tdigest_1_1tdigest__column__view.html">cudf::tdigest::tdigest_column_view</a></div><div class="ttdoc">Given a column_view containing tdigest data, an instance of this class provides a wrapper on the comp...</div><div class="ttdef"><b>Definition</b> <a href="tdigest__column__view_8hpp_source.html#l00050">tdigest_column_view.hpp:50</a></div></div>
+<div class="ttc" id="aclasscudf_1_1tdigest_1_1tdigest__column__view_html_a05d61409bba361f0700dabb49dd5cf4b"><div class="ttname"><a href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a05d61409bba361f0700dabb49dd5cf4b">cudf::tdigest::tdigest_column_view::operator=</a></div><div class="ttdeci">tdigest_column_view &amp; operator=(tdigest_column_view const &amp;)=default</div><div class="ttdoc">Copy assignment operator</div></div>
+<div class="ttc" id="aclasscudf_1_1tdigest_1_1tdigest__column__view_html_a075ad516fea7f320d9bc46406373d23c"><div class="ttname"><a href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a075ad516fea7f320d9bc46406373d23c">cudf::tdigest::tdigest_column_view::max_begin</a></div><div class="ttdeci">double const * max_begin() const</div><div class="ttdoc">Returns the first max value for the column. Each row corresponds to the maximum value for the accompa...</div></div>
+<div class="ttc" id="aclasscudf_1_1tdigest_1_1tdigest__column__view_html_a3309a7338f70404b04ebcc678972d56c"><div class="ttname"><a href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a3309a7338f70404b04ebcc678972d56c">cudf::tdigest::tdigest_column_view::tdigest_column_view</a></div><div class="ttdeci">tdigest_column_view(const tdigest_column_view &amp;)=default</div><div class="ttdoc">Copy constructor</div></div>
+<div class="ttc" id="aclasscudf_1_1tdigest_1_1tdigest__column__view_html_a37652d6f6834a2ff9091546a0f087ff6"><div class="ttname"><a href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a37652d6f6834a2ff9091546a0f087ff6">cudf::tdigest::tdigest_column_view::means</a></div><div class="ttdeci">column_view means() const</div><div class="ttdoc">Returns the internal column of mean values</div></div>
+<div class="ttc" id="aclasscudf_1_1tdigest_1_1tdigest__column__view_html_a479ff409203c0eb9ec77ade071acc427"><div class="ttname"><a href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a479ff409203c0eb9ec77ade071acc427">cudf::tdigest::tdigest_column_view::operator=</a></div><div class="ttdeci">tdigest_column_view &amp; operator=(tdigest_column_view &amp;&amp;)=default</div><div class="ttdoc">Move assignment operator</div></div>
+<div class="ttc" id="aclasscudf_1_1tdigest_1_1tdigest__column__view_html_a590cece1cc1b192f499a9995469cb825"><div class="ttname"><a href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a590cece1cc1b192f499a9995469cb825">cudf::tdigest::tdigest_column_view::mean_column_index</a></div><div class="ttdeci">static constexpr size_type mean_column_index</div><div class="ttdoc">Mean column index</div><div class="ttdef"><b>Definition</b> <a href="tdigest__column__view_8hpp_source.html#l00075">tdigest_column_view.hpp:75</a></div></div>
+<div class="ttc" id="aclasscudf_1_1tdigest_1_1tdigest__column__view_html_a628212a640264700df0dba4d52996e02"><div class="ttname"><a href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a628212a640264700df0dba4d52996e02">cudf::tdigest::tdigest_column_view::max_column_index</a></div><div class="ttdeci">static constexpr size_type max_column_index</div><div class="ttdoc">Max column index</div><div class="ttdef"><b>Definition</b> <a href="tdigest__column__view_8hpp_source.html#l00081">tdigest_column_view.hpp:81</a></div></div>
+<div class="ttc" id="aclasscudf_1_1tdigest_1_1tdigest__column__view_html_a7d686d0a3c01e95a67a4fd2a991ff0a5"><div class="ttname"><a href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a7d686d0a3c01e95a67a4fd2a991ff0a5">cudf::tdigest::tdigest_column_view::tdigest_column_view</a></div><div class="ttdeci">tdigest_column_view(tdigest_column_view &amp;&amp;)=default</div><div class="ttdoc">Move constructor</div></div>
+<div class="ttc" id="aclasscudf_1_1tdigest_1_1tdigest__column__view_html_a8920be8f06ede4a966d724877d0ee7b3"><div class="ttname"><a href="classcudf_1_1tdigest_1_1tdigest__column__view.html#a8920be8f06ede4a966d724877d0ee7b3">cudf::tdigest::tdigest_column_view::min_column_index</a></div><div class="ttdeci">static constexpr size_type min_column_index</div><div class="ttdoc">Min column index</div><div class="ttdef"><b>Definition</b> <a href="tdigest__column__view_8hpp_source.html#l00080">tdigest_column_view.hpp:80</a></div></div>
+<div class="ttc" id="aclasscudf_1_1tdigest_1_1tdigest__column__view_html_aa9e0bee5baad363122613a7ff76dbb57"><div class="ttname"><a href="classcudf_1_1tdigest_1_1tdigest__column__view.html#aa9e0bee5baad363122613a7ff76dbb57">cudf::tdigest::tdigest_column_view::parent</a></div><div class="ttdeci">column_view parent() const</div><div class="ttdoc">Returns the parent column.</div></div>
+<div class="ttc" id="aclasscudf_1_1tdigest_1_1tdigest__column__view_html_aaa8731b27c5b78b942e8f20ead0f190f"><div class="ttname"><a href="classcudf_1_1tdigest_1_1tdigest__column__view.html#aaa8731b27c5b78b942e8f20ead0f190f">cudf::tdigest::tdigest_column_view::centroid_column_index</a></div><div class="ttdeci">static constexpr size_type centroid_column_index</div><div class="ttdoc">Centroid column index</div><div class="ttdef"><b>Definition</b> <a href="tdigest__column__view_8hpp_source.html#l00079">tdigest_column_view.hpp:79</a></div></div>
+<div class="ttc" id="aclasscudf_1_1tdigest_1_1tdigest__column__view_html_aabc94430fb4def7bab37a0bc0ec9e72b"><div class="ttname"><a href="classcudf_1_1tdigest_1_1tdigest__column__view.html#aabc94430fb4def7bab37a0bc0ec9e72b">cudf::tdigest::tdigest_column_view::min_begin</a></div><div class="ttdeci">double const * min_begin() const</div><div class="ttdoc">Returns the first min value for the column. Each row corresponds to the minimum value for the accompa...</div></div>
+<div class="ttc" id="aclasscudf_1_1tdigest_1_1tdigest__column__view_html_ab7c79eb2d945d9f250b1a5af418b2ed5"><div class="ttname"><a href="classcudf_1_1tdigest_1_1tdigest__column__view.html#ab7c79eb2d945d9f250b1a5af418b2ed5">cudf::tdigest::tdigest_column_view::tdigest_column_view</a></div><div class="ttdeci">tdigest_column_view(column_view const &amp;)</div><div class="ttdoc">Construct tdigest_column_view from a column_view</div></div>
+<div class="ttc" id="aclasscudf_1_1tdigest_1_1tdigest__column__view_html_ac8ecf339ab50b0824ee4900767e736f3"><div class="ttname"><a href="classcudf_1_1tdigest_1_1tdigest__column__view.html#ac8ecf339ab50b0824ee4900767e736f3">cudf::tdigest::tdigest_column_view::weight_column_index</a></div><div class="ttdeci">static constexpr size_type weight_column_index</div><div class="ttdoc">Weight column index</div><div class="ttdef"><b>Definition</b> <a href="tdigest__column__view_8hpp_source.html#l00076">tdigest_column_view.hpp:76</a></div></div>
+<div class="ttc" id="aclasscudf_1_1tdigest_1_1tdigest__column__view_html_ae30157024e3b10c5f320fdb5bc26c9ea"><div class="ttname"><a href="classcudf_1_1tdigest_1_1tdigest__column__view.html#ae30157024e3b10c5f320fdb5bc26c9ea">cudf::tdigest::tdigest_column_view::centroids</a></div><div class="ttdeci">lists_column_view centroids() const</div><div class="ttdoc">Returns the column of centroids</div></div>
+<div class="ttc" id="aclasscudf_1_1tdigest_1_1tdigest__column__view_html_aeefeda936ab59f079c70cf73976c95fc"><div class="ttname"><a href="classcudf_1_1tdigest_1_1tdigest__column__view.html#aeefeda936ab59f079c70cf73976c95fc">cudf::tdigest::tdigest_column_view::weights</a></div><div class="ttdeci">column_view weights() const</div><div class="ttdoc">Returns the internal column of weight values</div></div>
+<div class="ttc" id="aclasscudf_1_1tdigest_1_1tdigest__column__view_html_af742fc9f2511000f71e5e1d4383b2cf5"><div class="ttname"><a href="classcudf_1_1tdigest_1_1tdigest__column__view.html#af742fc9f2511000f71e5e1d4383b2cf5">cudf::tdigest::tdigest_column_view::~tdigest_column_view</a></div><div class="ttdeci">~tdigest_column_view()=default</div></div>
+<div class="ttc" id="aclasscudf_1_1tdigest_1_1tdigest__column__view_html_afcc7cb3925ed8d168d60deccb95c85ce"><div class="ttname"><a href="classcudf_1_1tdigest_1_1tdigest__column__view.html#afcc7cb3925ed8d168d60deccb95c85ce">cudf::tdigest::tdigest_column_view::offset_iterator</a></div><div class="ttdeci">offset_type const  * offset_iterator</div><div class="ttdoc">Iterator over offsets</div><div class="ttdef"><b>Definition</b> <a href="tdigest__column__view_8hpp_source.html#l00072">tdigest_column_view.hpp:72</a></div></div>
+<div class="ttc" id="acolumn__view_8hpp_html"><div class="ttname"><a href="column__view_8hpp.html">column_view.hpp</a></div><div class="ttdoc">column view class definitions</div></div>
+<div class="ttc" id="agroup__utility__types_html_ga0aff16b2db009d92300befaca11827e9"><div class="ttname"><a href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">cudf::size_type</a></div><div class="ttdeci">int32_t size_type</div><div class="ttdoc">Row index type for columns and tables</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00080">types.hpp:80</a></div></div>
+<div class="ttc" id="agroup__utility__types_html_ga3391e2df0069d3e7a07f0ec96cd2473e"><div class="ttname"><a href="group__utility__types.html#ga3391e2df0069d3e7a07f0ec96cd2473e">cudf::offset_type</a></div><div class="ttdeci">int32_t offset_type</div><div class="ttdoc">Offset type for column offsets</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00083">types.hpp:83</a></div></div>
+<div class="ttc" id="alists__column__view_8hpp_html"><div class="ttname"><a href="lists__column__view_8hpp.html">lists_column_view.hpp</a></div><div class="ttdoc">Class definition for cudf::lists_column_view</div></div>
+<div class="ttc" id="anamespacecudf_html"><div class="ttname"><a href="namespacecudf.html">cudf</a></div><div class="ttdoc">cuDF interfaces</div><div class="ttdef"><b>Definition</b> <a href="aggregation_8hpp_source.html#l00034">aggregation.hpp:34</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_d998dea0bd4559303135358082015ac8.html">gitLibrary</a></li><li class="navelem"><a class="el" href="dir_b6486b3d9bd1f4b89c884933ed658179.html">cudf</a></li><li class="navelem"><a class="el" href="dir_318a4414914f49dc0e7605c41de9d4af.html">cpp</a></li><li class="navelem"><a class="el" href="dir_7fbf5ee8ae486656ea40e5ca1dd304f9.html">include</a></li><li class="navelem"><a class="el" href="dir_87e6427d1ef099fd52d9d0724c66b062.html">cudf</a></li><li class="navelem"><a class="el" href="dir_cb1a6bbefdd038b6767b63dd79219a36.html">tdigest</a></li><li class="navelem"><a class="el" href="tdigest__column__view_8hpp.html">tdigest_column_view.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/quantiles.hpp 文件参考}
+\hypertarget{quantiles_8hpp}{}\label{quantiles_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/quantiles.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/quantiles.hpp}}
+{\ttfamily \#include $<$cudf/scalar/scalar.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/table/table\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/tdigest/tdigest\+\_\+column\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/types.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/mr/device/per\+\_\+device\+\_\+resource.\+hpp$>$}\newline
+quantiles.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{quantiles_8hpp__incl}
+\end{center}
+\end{figure}
+此图展示该文件直接或间接的被哪些文件引用了\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{quantiles_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__quantiles_gac7d0d668dd96213645444c32fc6582a1}{cudf\+::quantile}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, std\+::vector$<$ double $>$ const \&q, \mbox{\hyperlink{group__utility__types_ga9cd17c1cdf028ead9a4783f605276ab3}{interpolation}} interp=\mbox{\hyperlink{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3aaac544aacc3615aada24897a215f5046}{interpolation\+::\+LINEAR}}, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&ordered\+\_\+indices=\{\}, bool exact=true, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Computes quantiles with interpolation. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__quantiles_ga5a7bfdd267148ba8038c50c3c27fa87a}{cudf\+::quantiles}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::vector$<$ double $>$ const \&q, \mbox{\hyperlink{group__utility__types_ga9cd17c1cdf028ead9a4783f605276ab3}{interpolation}} interp=\mbox{\hyperlink{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3aad135772d7cf93dd0ccf9d2474b34e6a}{interpolation\+::\+NEAREST}}, \mbox{\hyperlink{group__utility__types_gab283c517931abd4152ffa62fec62425d}{cudf\+::sorted}} is\+\_\+input\+\_\+sorted=\mbox{\hyperlink{group__utility__types_ggab283c517931abd4152ffa62fec62425dac2f3f489a00553e7a01d369c103c7251}{sorted\+::\+NO}}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order=\{\}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence=\{\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns the rows of the input corresponding to the requested quantiles. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__quantiles_gac79832ed137f9001c00f6cfd5a0d87db}{cudf\+::percentile\+\_\+approx}} (\mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view}{tdigest\+::tdigest\+\_\+column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&percentiles, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Calculate approximate percentiles on an input tdigest column. \end{DoxyCompactList}\end{DoxyCompactItemize}

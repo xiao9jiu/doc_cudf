@@ -1,0 +1,52 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/detail/hashing.hpp 文件参考}
+\hypertarget{detail_2hashing_8hpp}{}\label{detail_2hashing_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/detail/hashing.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/detail/hashing.hpp}}
+{\ttfamily \#include $<$cudf/hashing.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/utilities/default\+\_\+stream.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/cuda\+\_\+stream\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+hashing.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{detail_2hashing_8hpp__incl}
+\end{center}
+\end{figure}
+此图展示该文件直接或间接的被哪些文件引用了\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{detail_2hashing_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structstd_1_1hash_3_01cudf_1_1data__type_01_4}{std\+::hash$<$ cudf\+::data\+\_\+type $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1detail}{cudf\+::detail}}
+\begin{DoxyCompactList}\small\item\em Inner interfaces and implementations \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacestd}{std}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_ac670d683b1e9e5c0682c3e2d23e79563}{cudf\+::detail\+::hash}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, \mbox{\hyperlink{group__column__hash_gaced8b9d129825edd13d76e912e4413c3}{hash\+\_\+id}} hash\+\_\+function=\mbox{\hyperlink{group__column__hash_ggaced8b9d129825edd13d76e912e4413c3ae9ec854e962136b1afcf108e5301c354}{hash\+\_\+id\+::\+HASH\+\_\+\+MURMUR3}}, uint32\+\_\+t seed=\mbox{\hyperlink{group__column__hash_ga68de1d04aa2c0ea2eeacfc73fd99a915}{cudf\+::\+DEFAULT\+\_\+\+HASH\+\_\+\+SEED}}, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}(), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Computes the hash value of each row in the input set of columns.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a349e2b28175e2d9ea71d7761fd9b03ce}{cudf\+::detail\+::murmur\+\_\+hash3\+\_\+32}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, uint32\+\_\+t seed=\mbox{\hyperlink{group__column__hash_ga68de1d04aa2c0ea2eeacfc73fd99a915}{cudf\+::\+DEFAULT\+\_\+\+HASH\+\_\+\+SEED}}, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}(), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a19d4598400aec3bb414a475b0e67588a}{cudf\+::detail\+::spark\+\_\+murmur\+\_\+hash3\+\_\+32}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, uint32\+\_\+t seed=\mbox{\hyperlink{group__column__hash_ga68de1d04aa2c0ea2eeacfc73fd99a915}{cudf\+::\+DEFAULT\+\_\+\+HASH\+\_\+\+SEED}}, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}(), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_affdf27f8bc86ce410050f009d8b9d894}{cudf\+::detail\+::md5\+\_\+hash}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\item 
+constexpr uint32\+\_\+t \mbox{\hyperlink{namespacecudf_1_1detail_afacc4b3c523b45ae3046691dcc061191}{cudf\+::detail\+::hash\+\_\+combine}} (uint32\+\_\+t lhs, uint32\+\_\+t rhs)
+\begin{DoxyCompactList}\small\item\em Combines two hash values into a single hash value. \end{DoxyCompactList}\item 
+constexpr std\+::size\+\_\+t \mbox{\hyperlink{namespacecudf_1_1detail_a31fed6fb6d5421eadcf1516f8d4e4fe9}{cudf\+::detail\+::hash\+\_\+combine}} (std\+::size\+\_\+t lhs, std\+::size\+\_\+t rhs)
+\begin{DoxyCompactList}\small\item\em Combines two hash values into a single hash value. \end{DoxyCompactList}\end{DoxyCompactItemize}

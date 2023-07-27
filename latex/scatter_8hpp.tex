@@ -1,0 +1,37 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/detail/scatter.hpp 文件参考}
+\hypertarget{scatter_8hpp}{}\label{scatter_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/detail/scatter.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/detail/scatter.hpp}}
+{\ttfamily \#include $<$cudf/column/column\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/table/table.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/table/table\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/utilities/default\+\_\+stream.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/utilities/span.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/cuda\+\_\+stream\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+scatter.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{scatter_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1detail}{cudf\+::detail}}
+\begin{DoxyCompactList}\small\item\em Inner interfaces and implementations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_ab0fafddc49374af3d9ab6815196d426f}{cudf\+::detail\+::scatter}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&source, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&scatter\+\_\+map, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&target, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Scatters the rows of the source table into a copy of the target table according to a scatter map. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a642afeffe44abb5382a4c44534503907}{cudf\+::detail\+::scatter}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&source, \mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$ const scatter\+\_\+map, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&target, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a5bdf86f00fd97bb400afe50fe644af52}{cudf\+::detail\+::scatter}} (std\+::vector$<$ std\+::reference\+\_\+wrapper$<$ const \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ $>$ const \&source, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&indices, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&target, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Scatters a row of scalar values into a copy of the target table according to a scatter map. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_ab632fac16d86dcdec8172f105e9cc3bb}{cudf\+::detail\+::boolean\+\_\+mask\+\_\+scatter}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&source, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&target, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&boolean\+\_\+mask, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Scatters rows from the input table to rows of the output corresponding to true values in a boolean mask.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_aca6f0ca2c888fcffaf3c516ba0b05498}{cudf\+::detail\+::boolean\+\_\+mask\+\_\+scatter}} (std\+::vector$<$ std\+::reference\+\_\+wrapper$<$ const \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ $>$ const \&source, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&target, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&boolean\+\_\+mask, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\end{DoxyCompactItemize}

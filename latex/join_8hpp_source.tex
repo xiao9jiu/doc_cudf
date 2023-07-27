@@ -1,0 +1,294 @@
+\doxysection{join.\+hpp}
+\hypertarget{join_8hpp_source}{}\label{join_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/join.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/join.hpp}}
+\mbox{\hyperlink{join_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2019-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{expressions_8hpp}{cudf/ast/expressions.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{hashing_8hpp}{cudf/hashing.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{table__view_8hpp}{cudf/table/table\_view.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{types_8hpp}{cudf/types.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{utilities_2default__stream_8hpp}{cudf/utilities/default\_stream.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{span_8hpp}{cudf/utilities/span.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <rmm/cuda\_stream\_view.hpp>}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <rmm/device\_uvector.hpp>}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <rmm/mr/device/per\_device\_resource.hpp>}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00031}00031\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00032}00032\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00034}00034\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00036}00036\ \textcolor{comment}{//\ forward\ declaration}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00037}00037\ \textcolor{keyword}{namespace\ }detail\ \{}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00038}00038\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00039}\mbox{\hyperlink{classcudf_1_1detail_1_1_murmur_hash3__32}{00039}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcudf_1_1detail_1_1_murmur_hash3__32}{MurmurHash3\_32}};}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00041}00041\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00042}00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{structcudf_1_1detail_1_1hash__join}{hash\_join}};}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00043}00043\ \}\ \ \textcolor{comment}{//\ namespace\ detail}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00083}00083\ std::pair<std::unique\_ptr<rmm::device\_uvector<size\_type>>,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<rmm::device\_uvector<size\_type>>>}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00085}\mbox{\hyperlink{group__column__join_gaaec6479cb2464d59cc29756420a3fe1c}{00085}}\ \mbox{\hyperlink{group__column__join_gaaec6479cb2464d59cc29756420a3fe1c}{inner\_join}}(\mbox{\hyperlink{classcudf_1_1table__view}{cudf::table\_view}}\ \textcolor{keyword}{const}\&\ left\_keys,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{cudf::table\_view}}\ \textcolor{keyword}{const}\&\ right\_keys,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\_equality}}\ compare\_nulls\ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\_equality::EQUAL}},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00123}00123\ std::pair<std::unique\_ptr<rmm::device\_uvector<size\_type>>,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<rmm::device\_uvector<size\_type>>>}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00125}\mbox{\hyperlink{group__column__join_gaaf40dc6e73a5aac3e0201dd7e5b939e3}{00125}}\ \mbox{\hyperlink{group__column__join_gaaf40dc6e73a5aac3e0201dd7e5b939e3}{left\_join}}(\mbox{\hyperlink{classcudf_1_1table__view}{cudf::table\_view}}\ \textcolor{keyword}{const}\&\ left\_keys,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{cudf::table\_view}}\ \textcolor{keyword}{const}\&\ right\_keys,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\_equality}}\ compare\_nulls\ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\_equality::EQUAL}},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00162}00162\ std::pair<std::unique\_ptr<rmm::device\_uvector<size\_type>>,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<rmm::device\_uvector<size\_type>>>}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00164}\mbox{\hyperlink{group__column__join_ga2a114dd54b0275e7d6a2f48c49be0764}{00164}}\ \mbox{\hyperlink{group__column__join_ga2a114dd54b0275e7d6a2f48c49be0764}{full\_join}}(\mbox{\hyperlink{classcudf_1_1table__view}{cudf::table\_view}}\ \textcolor{keyword}{const}\&\ left\_keys,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{cudf::table\_view}}\ \textcolor{keyword}{const}\&\ right\_keys,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\_equality}}\ compare\_nulls\ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\_equality::EQUAL}},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00195}\mbox{\hyperlink{group__column__join_gacc3566a24f282778bee1ca19012b37cb}{00195}}\ std::unique\_ptr<rmm::device\_uvector<size\_type>>\ \mbox{\hyperlink{group__column__join_gacc3566a24f282778bee1ca19012b37cb}{left\_semi\_join}}(}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00196}00196\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{cudf::table\_view}}\ \textcolor{keyword}{const}\&\ left\_keys,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00197}00197\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{cudf::table\_view}}\ \textcolor{keyword}{const}\&\ right\_keys,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00198}00198\ \ \ \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\_equality}}\ compare\_nulls\ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\_equality::EQUAL}},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00199}00199\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00226}\mbox{\hyperlink{group__column__join_ga959584969b3cc516888c6ceff655c15f}{00226}}\ std::unique\_ptr<rmm::device\_uvector<size\_type>>\ \mbox{\hyperlink{group__column__join_ga959584969b3cc516888c6ceff655c15f}{left\_anti\_join}}(}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00227}00227\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{cudf::table\_view}}\ \textcolor{keyword}{const}\&\ left\_keys,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00228}00228\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{cudf::table\_view}}\ \textcolor{keyword}{const}\&\ right\_keys,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00229}00229\ \ \ \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\_equality}}\ compare\_nulls\ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\_equality::EQUAL}},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00230}00230\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00231}00231\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00254}\mbox{\hyperlink{group__column__join_ga2c5fdcd931efcd717433575cfe0a0485}{00254}}\ std::unique\_ptr<cudf::table>\ \mbox{\hyperlink{group__column__join_ga2c5fdcd931efcd717433575cfe0a0485}{cross\_join}}(}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00255}00255\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{cudf::table\_view}}\ \textcolor{keyword}{const}\&\ left,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00256}00256\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{cudf::table\_view}}\ \textcolor{keyword}{const}\&\ right,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00257}00257\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00258}00258\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00266}\mbox{\hyperlink{classcudf_1_1hash__join}{00266}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcudf_1_1hash__join}{hash\_join}}\ \{}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00267}00267\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00268}\mbox{\hyperlink{classcudf_1_1hash__join_af6e59c597e8cdf9613fd3da41971f43c}{00268}}\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classcudf_1_1hash__join_af6e59c597e8cdf9613fd3da41971f43c}{impl\_type}}\ =\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{structcudf_1_1detail_1_1hash__join}{cudf::detail::hash\_join}}<}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00269}00269\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1detail_1_1_murmur_hash3__32}{cudf::detail::MurmurHash3\_32<cudf::hash\_value\_type>}}>;\ \ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00270}00270\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00271}\mbox{\hyperlink{classcudf_1_1hash__join_ab5dcc0c0a2c2bbe653de4f08757c7a05}{00271}}\ \ \ \mbox{\hyperlink{classcudf_1_1hash__join_ab5dcc0c0a2c2bbe653de4f08757c7a05}{hash\_join}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00272}\mbox{\hyperlink{classcudf_1_1hash__join_a85eb47f6abc2b85c3f8b2ffb5c039177}{00272}}\ \ \ \mbox{\hyperlink{classcudf_1_1hash__join_a85eb47f6abc2b85c3f8b2ffb5c039177}{\string~hash\_join}}();}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00273}\mbox{\hyperlink{classcudf_1_1hash__join_a9cabf891f64dcc178405c148d6a887ad}{00273}}\ \ \ \mbox{\hyperlink{classcudf_1_1hash__join_a9cabf891f64dcc178405c148d6a887ad}{hash\_join}}(\mbox{\hyperlink{classcudf_1_1hash__join}{hash\_join}}\ \textcolor{keyword}{const}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00274}\mbox{\hyperlink{classcudf_1_1hash__join_a2d5e64a59f1d9a128cefd5ddaa36dc33}{00274}}\ \ \ \mbox{\hyperlink{classcudf_1_1hash__join_a2d5e64a59f1d9a128cefd5ddaa36dc33}{hash\_join}}(\mbox{\hyperlink{classcudf_1_1hash__join}{hash\_join}}\&\&)\ \ \ \ \ \ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00275}\mbox{\hyperlink{classcudf_1_1hash__join_a47350e93b484b5701be7bf9a43991763}{00275}}\ \ \ \mbox{\hyperlink{classcudf_1_1hash__join}{hash\_join}}\&\ \mbox{\hyperlink{classcudf_1_1hash__join_a47350e93b484b5701be7bf9a43991763}{operator=}}(\mbox{\hyperlink{classcudf_1_1hash__join}{hash\_join}}\ \textcolor{keyword}{const}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00276}\mbox{\hyperlink{classcudf_1_1hash__join_aa92b945ba5f9285a373cf34ad87148bf}{00276}}\ \ \ \mbox{\hyperlink{classcudf_1_1hash__join}{hash\_join}}\&\ \mbox{\hyperlink{classcudf_1_1hash__join_aa92b945ba5f9285a373cf34ad87148bf}{operator=}}(\mbox{\hyperlink{classcudf_1_1hash__join}{hash\_join}}\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00277}00277\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00288}\mbox{\hyperlink{classcudf_1_1hash__join_a8680001f829c7aab709615686d3d165f}{00288}}\ \ \ \mbox{\hyperlink{classcudf_1_1hash__join_a8680001f829c7aab709615686d3d165f}{hash\_join}}(\mbox{\hyperlink{classcudf_1_1table__view}{cudf::table\_view}}\ \textcolor{keyword}{const}\&\ build,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00289}00289\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\_equality}}\ compare\_nulls,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00290}00290\ \ \ \ \ \ \ \ \ \ \ \ \ rmm::cuda\_stream\_view\ stream\ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}());}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00291}00291\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00307}00307\ \ \ std::pair<std::unique\_ptr<rmm::device\_uvector<size\_type>>,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00308}00308\ \ \ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<rmm::device\_uvector<size\_type>>>}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00309}\mbox{\hyperlink{classcudf_1_1hash__join_a5fb5252bdf3b8a4acba88ad29a4d3778}{00309}}\ \ \ \mbox{\hyperlink{classcudf_1_1hash__join_a5fb5252bdf3b8a4acba88ad29a4d3778}{inner\_join}}(\mbox{\hyperlink{classcudf_1_1table__view}{cudf::table\_view}}\ \textcolor{keyword}{const}\&\ probe,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00310}00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<std::size\_t>\ output\_size\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00311}00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00312}00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::mr::device\_memory\_resource*\ mr\ \ \ \ =\ rmm::mr::get\_current\_device\_resource())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00313}00313\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00329}00329\ \ \ std::pair<std::unique\_ptr<rmm::device\_uvector<size\_type>>,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00330}00330\ \ \ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<rmm::device\_uvector<size\_type>>>}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00331}\mbox{\hyperlink{classcudf_1_1hash__join_aa0c6688a4876c11717668660f52b2e35}{00331}}\ \ \ \mbox{\hyperlink{classcudf_1_1hash__join_aa0c6688a4876c11717668660f52b2e35}{left\_join}}(\mbox{\hyperlink{classcudf_1_1table__view}{cudf::table\_view}}\ \textcolor{keyword}{const}\&\ probe,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00332}00332\ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<std::size\_t>\ output\_size\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00333}00333\ \ \ \ \ \ \ \ \ \ \ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00334}00334\ \ \ \ \ \ \ \ \ \ \ \ \ rmm::mr::device\_memory\_resource*\ mr\ \ \ \ =\ rmm::mr::get\_current\_device\_resource())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00335}00335\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00351}00351\ \ \ std::pair<std::unique\_ptr<rmm::device\_uvector<size\_type>>,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00352}00352\ \ \ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<rmm::device\_uvector<size\_type>>>}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00353}\mbox{\hyperlink{classcudf_1_1hash__join_a25a992ad835bf7af5869f914f3181160}{00353}}\ \ \ \mbox{\hyperlink{classcudf_1_1hash__join_a25a992ad835bf7af5869f914f3181160}{full\_join}}(\mbox{\hyperlink{classcudf_1_1table__view}{cudf::table\_view}}\ \textcolor{keyword}{const}\&\ probe,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00354}00354\ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<std::size\_t>\ output\_size\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00355}00355\ \ \ \ \ \ \ \ \ \ \ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00356}00356\ \ \ \ \ \ \ \ \ \ \ \ \ rmm::mr::device\_memory\_resource*\ mr\ \ \ \ =\ rmm::mr::get\_current\_device\_resource())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00357}00357\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00368}\mbox{\hyperlink{classcudf_1_1hash__join_a85d5aafccb5ed61826503367ee849822}{00368}}\ \ \ [[nodiscard]]\ std::size\_t\ \mbox{\hyperlink{classcudf_1_1hash__join_a85d5aafccb5ed61826503367ee849822}{inner\_join\_size}}(}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00369}00369\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{cudf::table\_view}}\ \textcolor{keyword}{const}\&\ probe,\ rmm::cuda\_stream\_view\ stream\ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00370}00370\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00381}\mbox{\hyperlink{classcudf_1_1hash__join_a3df048507614481af13b4eb6aafebaa7}{00381}}\ \ \ [[nodiscard]]\ std::size\_t\ \mbox{\hyperlink{classcudf_1_1hash__join_a3df048507614481af13b4eb6aafebaa7}{left\_join\_size}}(}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00382}00382\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{cudf::table\_view}}\ \textcolor{keyword}{const}\&\ probe,\ rmm::cuda\_stream\_view\ stream\ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00383}00383\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00396}\mbox{\hyperlink{classcudf_1_1hash__join_a797523ea71d97d8f5d8eb076a8303236}{00396}}\ \ \ std::size\_t\ \mbox{\hyperlink{classcudf_1_1hash__join_a797523ea71d97d8f5d8eb076a8303236}{full\_join\_size}}(}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00397}00397\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{cudf::table\_view}}\ \textcolor{keyword}{const}\&\ probe,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00398}00398\ \ \ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00399}00399\ \ \ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00400}00400\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00401}00401\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00402}\mbox{\hyperlink{classcudf_1_1hash__join_a4ac5835b6f7fa18829bb675c5b1f48aa}{00402}}\ \ \ \textcolor{keyword}{const}\ std::unique\_ptr<const\ impl\_type>\ \mbox{\hyperlink{classcudf_1_1hash__join_a4ac5835b6f7fa18829bb675c5b1f48aa}{\_impl}};}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00403}00403\ \};}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00404}00404\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00440}00440\ std::pair<std::unique\_ptr<rmm::device\_uvector<size\_type>>,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00441}00441\ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<rmm::device\_uvector<size\_type>>>}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00442}\mbox{\hyperlink{group__column__join_ga1d44d1f83ccd6ef03903b19319e723eb}{00442}}\ \mbox{\hyperlink{group__column__join_ga1d44d1f83ccd6ef03903b19319e723eb}{conditional\_inner\_join}}(}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00443}00443\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00444}00444\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00445}00445\ \ \ \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{ast::expression}}\ \textcolor{keyword}{const}\&\ binary\_predicate,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00446}00446\ \ \ std::optional<std::size\_t>\ output\_size\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00447}00447\ \ \ rmm::mr::device\_memory\_resource*\ mr\ \ \ \ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00448}00448\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00486}00486\ std::pair<std::unique\_ptr<rmm::device\_uvector<size\_type>>,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00487}00487\ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<rmm::device\_uvector<size\_type>>>}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00488}\mbox{\hyperlink{group__column__join_ga57db4d65964bae48621e71311bfeeef7}{00488}}\ \mbox{\hyperlink{group__column__join_ga57db4d65964bae48621e71311bfeeef7}{conditional\_left\_join}}(\mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00489}00489\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00490}00490\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{ast::expression}}\ \textcolor{keyword}{const}\&\ binary\_predicate,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00491}00491\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<std::size\_t>\ output\_size\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00492}00492\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00493}00493\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00529}00529\ std::pair<std::unique\_ptr<rmm::device\_uvector<size\_type>>,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00530}00530\ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<rmm::device\_uvector<size\_type>>>}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00531}\mbox{\hyperlink{group__column__join_ga3c44f3f46f804a8856b272f996805199}{00531}}\ \mbox{\hyperlink{group__column__join_ga3c44f3f46f804a8856b272f996805199}{conditional\_full\_join}}(\mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00532}00532\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00533}00533\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{ast::expression}}\ \textcolor{keyword}{const}\&\ binary\_predicate,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00534}00534\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00535}00535\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00568}\mbox{\hyperlink{group__column__join_gab11d54280732c3d0498ca66114ba3528}{00568}}\ std::unique\_ptr<rmm::device\_uvector<size\_type>>\ \mbox{\hyperlink{group__column__join_gab11d54280732c3d0498ca66114ba3528}{conditional\_left\_semi\_join}}(}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00569}00569\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00570}00570\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00571}00571\ \ \ \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{ast::expression}}\ \textcolor{keyword}{const}\&\ binary\_predicate,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00572}00572\ \ \ std::optional<std::size\_t>\ output\_size\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00573}00573\ \ \ rmm::mr::device\_memory\_resource*\ mr\ \ \ \ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00574}00574\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00607}\mbox{\hyperlink{group__column__join_ga60d5de456b8ff180f07e1c5dfe30bc9b}{00607}}\ std::unique\_ptr<rmm::device\_uvector<size\_type>>\ \mbox{\hyperlink{group__column__join_ga60d5de456b8ff180f07e1c5dfe30bc9b}{conditional\_left\_anti\_join}}(}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00608}00608\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00609}00609\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00610}00610\ \ \ \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{ast::expression}}\ \textcolor{keyword}{const}\&\ binary\_predicate,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00611}00611\ \ \ std::optional<std::size\_t>\ output\_size\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00612}00612\ \ \ rmm::mr::device\_memory\_resource*\ mr\ \ \ \ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00613}00613\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00660}00660\ std::pair<std::unique\_ptr<rmm::device\_uvector<size\_type>>,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00661}00661\ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<rmm::device\_uvector<size\_type>>>}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00662}\mbox{\hyperlink{group__column__join_ga8dfa37f1888c32299c2195bb6d3a18a2}{00662}}\ \mbox{\hyperlink{group__column__join_ga8dfa37f1888c32299c2195bb6d3a18a2}{mixed\_inner\_join}}(}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00663}00663\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left\_equality,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00664}00664\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right\_equality,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00665}00665\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left\_conditional,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00666}00666\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right\_conditional,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00667}00667\ \ \ \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{ast::expression}}\ \textcolor{keyword}{const}\&\ binary\_predicate,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00668}00668\ \ \ \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\_equality}}\ compare\_nulls\ =\ \mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\_equality::EQUAL}},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00669}00669\ \ \ std::optional<std::pair<std::size\_t,\ \mbox{\hyperlink{structcudf_1_1device__span}{device\_span<size\_type\ const>}}>>\ output\_size\_data\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00670}00670\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00671}00671\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00720}00720\ std::pair<std::unique\_ptr<rmm::device\_uvector<size\_type>>,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00721}00721\ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<rmm::device\_uvector<size\_type>>>}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00722}\mbox{\hyperlink{group__column__join_gaa5d3f1d5d22db234d64bf94ddf1ebf9f}{00722}}\ \mbox{\hyperlink{group__column__join_gaa5d3f1d5d22db234d64bf94ddf1ebf9f}{mixed\_left\_join}}(}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00723}00723\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left\_equality,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00724}00724\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right\_equality,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00725}00725\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left\_conditional,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00726}00726\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right\_conditional,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00727}00727\ \ \ \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{ast::expression}}\ \textcolor{keyword}{const}\&\ binary\_predicate,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00728}00728\ \ \ \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\_equality}}\ compare\_nulls\ =\ \mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\_equality::EQUAL}},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00729}00729\ \ \ std::optional<std::pair<std::size\_t,\ \mbox{\hyperlink{structcudf_1_1device__span}{device\_span<size\_type\ const>}}>>\ output\_size\_data\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00730}00730\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00731}00731\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00780}00780\ std::pair<std::unique\_ptr<rmm::device\_uvector<size\_type>>,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00781}00781\ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<rmm::device\_uvector<size\_type>>>}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00782}\mbox{\hyperlink{group__column__join_ga86d03c65afa922c57dc09ef6c46d9863}{00782}}\ \mbox{\hyperlink{group__column__join_ga86d03c65afa922c57dc09ef6c46d9863}{mixed\_full\_join}}(}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00783}00783\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left\_equality,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00784}00784\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right\_equality,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00785}00785\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left\_conditional,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00786}00786\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right\_conditional,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00787}00787\ \ \ \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{ast::expression}}\ \textcolor{keyword}{const}\&\ binary\_predicate,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00788}00788\ \ \ \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\_equality}}\ compare\_nulls\ =\ \mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\_equality::EQUAL}},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00789}00789\ \ \ std::optional<std::pair<std::size\_t,\ \mbox{\hyperlink{structcudf_1_1device__span}{device\_span<size\_type\ const>}}>>\ output\_size\_data\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00790}00790\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00791}00791\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00833}\mbox{\hyperlink{group__column__join_gacc4891543ed750a24df1ecf32c89d34a}{00833}}\ std::unique\_ptr<rmm::device\_uvector<size\_type>>\ \mbox{\hyperlink{group__column__join_gacc4891543ed750a24df1ecf32c89d34a}{mixed\_left\_semi\_join}}(}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00834}00834\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left\_equality,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00835}00835\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right\_equality,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00836}00836\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left\_conditional,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00837}00837\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right\_conditional,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00838}00838\ \ \ \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{ast::expression}}\ \textcolor{keyword}{const}\&\ binary\_predicate,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00839}00839\ \ \ \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\_equality}}\ compare\_nulls\ =\ \mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\_equality::EQUAL}},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00840}00840\ \ \ std::optional<std::pair<std::size\_t,\ \mbox{\hyperlink{structcudf_1_1device__span}{device\_span<size\_type\ const>}}>>\ output\_size\_data\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00841}00841\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00842}00842\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00885}\mbox{\hyperlink{group__column__join_gac97dffde787f3e34ca4fb70651dc0a3d}{00885}}\ std::unique\_ptr<rmm::device\_uvector<size\_type>>\ \mbox{\hyperlink{group__column__join_gac97dffde787f3e34ca4fb70651dc0a3d}{mixed\_left\_anti\_join}}(}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00886}00886\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left\_equality,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00887}00887\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right\_equality,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00888}00888\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left\_conditional,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00889}00889\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right\_conditional,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00890}00890\ \ \ \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{ast::expression}}\ \textcolor{keyword}{const}\&\ binary\_predicate,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00891}00891\ \ \ \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\_equality}}\ compare\_nulls\ =\ \mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\_equality::EQUAL}},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00892}00892\ \ \ std::optional<std::pair<std::size\_t,\ \mbox{\hyperlink{structcudf_1_1device__span}{device\_span<size\_type\ const>}}>>\ output\_size\_data\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00893}00893\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00894}00894\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00926}\mbox{\hyperlink{group__column__join_gaae7646ce51f06df36848a6c8369bbdbf}{00926}}\ std::pair<std::size\_t,\ std::unique\_ptr<rmm::device\_uvector<size\_type>>>\ \mbox{\hyperlink{group__column__join_gaae7646ce51f06df36848a6c8369bbdbf}{mixed\_inner\_join\_size}}(}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00927}00927\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left\_equality,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00928}00928\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right\_equality,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00929}00929\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left\_conditional,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00930}00930\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right\_conditional,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00931}00931\ \ \ \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{ast::expression}}\ \textcolor{keyword}{const}\&\ binary\_predicate,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00932}00932\ \ \ \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\_equality}}\ compare\_nulls\ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\_equality::EQUAL}},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00933}00933\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00934}00934\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00966}\mbox{\hyperlink{group__column__join_ga50660ed5802b44c6c2d30b9af17748f1}{00966}}\ std::pair<std::size\_t,\ std::unique\_ptr<rmm::device\_uvector<size\_type>>>\ \mbox{\hyperlink{group__column__join_ga50660ed5802b44c6c2d30b9af17748f1}{mixed\_left\_join\_size}}(}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00967}00967\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left\_equality,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00968}00968\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right\_equality,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00969}00969\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left\_conditional,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00970}00970\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right\_conditional,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00971}00971\ \ \ \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{ast::expression}}\ \textcolor{keyword}{const}\&\ binary\_predicate,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00972}00972\ \ \ \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\_equality}}\ compare\_nulls\ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\_equality::EQUAL}},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00973}00973\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l00974}00974\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01006}\mbox{\hyperlink{group__column__join_ga4bb8ff36bf310bd8d0300efb5f246eaf}{01006}}\ std::pair<std::size\_t,\ std::unique\_ptr<rmm::device\_uvector<size\_type>>>\ \mbox{\hyperlink{group__column__join_ga4bb8ff36bf310bd8d0300efb5f246eaf}{mixed\_left\_semi\_join\_size}}(}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01007}01007\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left\_equality,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01008}01008\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right\_equality,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01009}01009\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left\_conditional,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01010}01010\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right\_conditional,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01011}01011\ \ \ \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{ast::expression}}\ \textcolor{keyword}{const}\&\ binary\_predicate,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01012}01012\ \ \ \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\_equality}}\ compare\_nulls\ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\_equality::EQUAL}},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01013}01013\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01014}01014\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01044}\mbox{\hyperlink{group__column__join_gaac1c30f857c0e1930946f5237333c932}{01044}}\ std::pair<std::size\_t,\ std::unique\_ptr<rmm::device\_uvector<size\_type>>>\ \mbox{\hyperlink{group__column__join_gaac1c30f857c0e1930946f5237333c932}{mixed\_left\_anti\_join\_size}}(}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01045}01045\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left\_equality,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01046}01046\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right\_equality,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01047}01047\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left\_conditional,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01048}01048\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right\_conditional,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01049}01049\ \ \ \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{ast::expression}}\ \textcolor{keyword}{const}\&\ binary\_predicate,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01050}01050\ \ \ \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\_equality}}\ compare\_nulls\ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\_equality::EQUAL}},}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01051}01051\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01052}01052\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01070}\mbox{\hyperlink{group__column__join_gac277e7cb56bd0f822bb0b9f5bcedd0e9}{01070}}\ std::size\_t\ \mbox{\hyperlink{group__column__join_gac277e7cb56bd0f822bb0b9f5bcedd0e9}{conditional\_inner\_join\_size}}(}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01071}01071\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01072}01072\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01073}01073\ \ \ \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{ast::expression}}\ \textcolor{keyword}{const}\&\ binary\_predicate,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01074}01074\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01075}01075\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01093}\mbox{\hyperlink{group__column__join_ga9f8addde02ded299a45f57eb769c587e}{01093}}\ std::size\_t\ \mbox{\hyperlink{group__column__join_ga9f8addde02ded299a45f57eb769c587e}{conditional\_left\_join\_size}}(}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01094}01094\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01095}01095\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01096}01096\ \ \ \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{ast::expression}}\ \textcolor{keyword}{const}\&\ binary\_predicate,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01097}01097\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01098}01098\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01116}\mbox{\hyperlink{group__column__join_gaecfa4e8182521bb5630adf1bb0b609c2}{01116}}\ std::size\_t\ \mbox{\hyperlink{group__column__join_gaecfa4e8182521bb5630adf1bb0b609c2}{conditional\_left\_semi\_join\_size}}(}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01117}01117\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01118}01118\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01119}01119\ \ \ \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{ast::expression}}\ \textcolor{keyword}{const}\&\ binary\_predicate,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01120}01120\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01121}01121\ }
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01139}\mbox{\hyperlink{group__column__join_ga00b702723fd8953d5de802bc37965525}{01139}}\ std::size\_t\ \mbox{\hyperlink{group__column__join_ga00b702723fd8953d5de802bc37965525}{conditional\_left\_anti\_join\_size}}(}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01140}01140\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ left,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01141}01141\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ right,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01142}01142\ \ \ \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{ast::expression}}\ \textcolor{keyword}{const}\&\ binary\_predicate,}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01143}01143\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());\ \ \textcolor{comment}{//\ end\ of\ group}}
+\DoxyCodeLine{\Hypertarget{join_8hpp_source_l01145}01145\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: D:/gitLibrary/cudf/cpp/include/cudf/strings/regex/flags.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('flags_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">flags.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="flags_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright (c) 2021-2022, NVIDIA CORPORATION.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecudf.html">cudf</a> {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">namespace </span>strings {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="group__strings__regex.html#ga341eb616bce8b15119196ad8208ec16d">   35</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="group__strings__regex.html#ga341eb616bce8b15119196ad8208ec16d">regex_flags</a> : uint32_t {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="group__strings__regex.html#gga341eb616bce8b15119196ad8208ec16da432e1bed0776491ae9d73f3915142912">   36</a></span>  <a class="code hl_enumvalue" href="group__strings__regex.html#gga341eb616bce8b15119196ad8208ec16da432e1bed0776491ae9d73f3915142912">DEFAULT</a>   = 0,   </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="group__strings__regex.html#gga341eb616bce8b15119196ad8208ec16da5fbd6aff331b214f6042f54955becadb">   37</a></span>  <a class="code hl_enumvalue" href="group__strings__regex.html#gga341eb616bce8b15119196ad8208ec16da5fbd6aff331b214f6042f54955becadb">MULTILINE</a> = 8,   </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="group__strings__regex.html#gga341eb616bce8b15119196ad8208ec16da20b3d35a53fddfb5bc6a6dfb7b6594c0">   38</a></span>  <a class="code hl_enumvalue" href="group__strings__regex.html#gga341eb616bce8b15119196ad8208ec16da20b3d35a53fddfb5bc6a6dfb7b6594c0">DOTALL</a>    = 16,  </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <a class="code hl_enumvalue" href="group__strings__regex.html#gga341eb616bce8b15119196ad8208ec16da467042b90d33829a8ae360d3c5d3c673">ASCII</a>     = 256  </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="group__strings__regex.html#gga341eb616bce8b15119196ad8208ec16da467042b90d33829a8ae360d3c5d3c673">   40</a></span>};</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="group__strings__regex.html#gab59842da60262f5143a199be227b9d8e">   48</a></span><span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="group__strings__regex.html#gab59842da60262f5143a199be227b9d8e">is_multiline</a>(<a class="code hl_enumeration" href="group__strings__regex.html#ga341eb616bce8b15119196ad8208ec16d">regex_flags</a> <span class="keyword">const</span> f)</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>{</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <span class="keywordflow">return</span> (f &amp; <a class="code hl_enumvalue" href="group__strings__regex.html#gga341eb616bce8b15119196ad8208ec16da5fbd6aff331b214f6042f54955becadb">regex_flags::MULTILINE</a>) == <a class="code hl_enumvalue" href="group__strings__regex.html#gga341eb616bce8b15119196ad8208ec16da5fbd6aff331b214f6042f54955becadb">regex_flags::MULTILINE</a>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>}</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="group__strings__regex.html#ga817e21004c5c623990d063407794d13d">   59</a></span><span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="group__strings__regex.html#ga817e21004c5c623990d063407794d13d">is_dotall</a>(<a class="code hl_enumeration" href="group__strings__regex.html#ga341eb616bce8b15119196ad8208ec16d">regex_flags</a> <span class="keyword">const</span> f)</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>{</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  <span class="keywordflow">return</span> (f &amp; <a class="code hl_enumvalue" href="group__strings__regex.html#gga341eb616bce8b15119196ad8208ec16da20b3d35a53fddfb5bc6a6dfb7b6594c0">regex_flags::DOTALL</a>) == <a class="code hl_enumvalue" href="group__strings__regex.html#gga341eb616bce8b15119196ad8208ec16da20b3d35a53fddfb5bc6a6dfb7b6594c0">regex_flags::DOTALL</a>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>}</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="group__strings__regex.html#gafa1a98e258a2831f917cbb4fefc9ab07">   70</a></span><span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="group__strings__regex.html#gafa1a98e258a2831f917cbb4fefc9ab07">is_ascii</a>(<a class="code hl_enumeration" href="group__strings__regex.html#ga341eb616bce8b15119196ad8208ec16d">regex_flags</a> <span class="keyword">const</span> f)</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>{</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  <span class="keywordflow">return</span> (f &amp; <a class="code hl_enumvalue" href="group__strings__regex.html#gga341eb616bce8b15119196ad8208ec16da467042b90d33829a8ae360d3c5d3c673">regex_flags::ASCII</a>) == <a class="code hl_enumvalue" href="group__strings__regex.html#gga341eb616bce8b15119196ad8208ec16da467042b90d33829a8ae360d3c5d3c673">regex_flags::ASCII</a>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>}</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="group__strings__regex.html#ga227bb80d548c2970e05f829839966ba3">   82</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="group__strings__regex.html#ga227bb80d548c2970e05f829839966ba3">capture_groups</a> : uint32_t {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>  <a class="code hl_enumvalue" href="group__strings__regex.html#gga227bb80d548c2970e05f829839966ba3a06a05d6df9809ab85bf7734d9c49bc54">EXTRACT</a>,     </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  <a class="code hl_enumvalue" href="group__strings__regex.html#gga227bb80d548c2970e05f829839966ba3af3e94c14de21439caa9ef45151108b79">NON_CAPTURE</a>  </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>};</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>  <span class="comment">// end of doxygen group</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>}  <span class="comment">// namespace strings</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>}  <span class="comment">// namespace cudf</span></div>
+<div class="ttc" id="agroup__strings__regex_html_ga227bb80d548c2970e05f829839966ba3"><div class="ttname"><a href="group__strings__regex.html#ga227bb80d548c2970e05f829839966ba3">cudf::strings::capture_groups</a></div><div class="ttdeci">capture_groups</div><div class="ttdoc">Capture groups setting</div><div class="ttdef"><b>Definition</b> <a href="flags_8hpp_source.html#l00082">flags.hpp:82</a></div></div>
+<div class="ttc" id="agroup__strings__regex_html_ga341eb616bce8b15119196ad8208ec16d"><div class="ttname"><a href="group__strings__regex.html#ga341eb616bce8b15119196ad8208ec16d">cudf::strings::regex_flags</a></div><div class="ttdeci">regex_flags</div><div class="ttdoc">Regex flags.</div><div class="ttdef"><b>Definition</b> <a href="flags_8hpp_source.html#l00035">flags.hpp:35</a></div></div>
+<div class="ttc" id="agroup__strings__regex_html_ga817e21004c5c623990d063407794d13d"><div class="ttname"><a href="group__strings__regex.html#ga817e21004c5c623990d063407794d13d">cudf::strings::is_dotall</a></div><div class="ttdeci">constexpr bool is_dotall(regex_flags const f)</div><div class="ttdoc">Returns true if the given flags contain DOTALL.</div><div class="ttdef"><b>Definition</b> <a href="flags_8hpp_source.html#l00059">flags.hpp:59</a></div></div>
+<div class="ttc" id="agroup__strings__regex_html_gab59842da60262f5143a199be227b9d8e"><div class="ttname"><a href="group__strings__regex.html#gab59842da60262f5143a199be227b9d8e">cudf::strings::is_multiline</a></div><div class="ttdeci">constexpr bool is_multiline(regex_flags const f)</div><div class="ttdoc">Returns true if the given flags contain MULTILINE.</div><div class="ttdef"><b>Definition</b> <a href="flags_8hpp_source.html#l00048">flags.hpp:48</a></div></div>
+<div class="ttc" id="agroup__strings__regex_html_gafa1a98e258a2831f917cbb4fefc9ab07"><div class="ttname"><a href="group__strings__regex.html#gafa1a98e258a2831f917cbb4fefc9ab07">cudf::strings::is_ascii</a></div><div class="ttdeci">constexpr bool is_ascii(regex_flags const f)</div><div class="ttdoc">Returns true if the given flags contain ASCII.</div><div class="ttdef"><b>Definition</b> <a href="flags_8hpp_source.html#l00070">flags.hpp:70</a></div></div>
+<div class="ttc" id="agroup__strings__regex_html_gga227bb80d548c2970e05f829839966ba3a06a05d6df9809ab85bf7734d9c49bc54"><div class="ttname"><a href="group__strings__regex.html#gga227bb80d548c2970e05f829839966ba3a06a05d6df9809ab85bf7734d9c49bc54">cudf::strings::capture_groups::EXTRACT</a></div><div class="ttdeci">@ EXTRACT</div><div class="ttdoc">Capture groups processed normally for extract</div></div>
+<div class="ttc" id="agroup__strings__regex_html_gga227bb80d548c2970e05f829839966ba3af3e94c14de21439caa9ef45151108b79"><div class="ttname"><a href="group__strings__regex.html#gga227bb80d548c2970e05f829839966ba3af3e94c14de21439caa9ef45151108b79">cudf::strings::capture_groups::NON_CAPTURE</a></div><div class="ttdeci">@ NON_CAPTURE</div><div class="ttdoc">Convert all capture groups to non-capture groups</div></div>
+<div class="ttc" id="agroup__strings__regex_html_gga341eb616bce8b15119196ad8208ec16da20b3d35a53fddfb5bc6a6dfb7b6594c0"><div class="ttname"><a href="group__strings__regex.html#gga341eb616bce8b15119196ad8208ec16da20b3d35a53fddfb5bc6a6dfb7b6594c0">cudf::strings::DOTALL</a></div><div class="ttdeci">@ DOTALL</div><div class="ttdoc">the '.' matching includes new-line characters</div><div class="ttdef"><b>Definition</b> <a href="flags_8hpp_source.html#l00038">flags.hpp:38</a></div></div>
+<div class="ttc" id="agroup__strings__regex_html_gga341eb616bce8b15119196ad8208ec16da432e1bed0776491ae9d73f3915142912"><div class="ttname"><a href="group__strings__regex.html#gga341eb616bce8b15119196ad8208ec16da432e1bed0776491ae9d73f3915142912">cudf::strings::DEFAULT</a></div><div class="ttdeci">@ DEFAULT</div><div class="ttdoc">default</div><div class="ttdef"><b>Definition</b> <a href="flags_8hpp_source.html#l00036">flags.hpp:36</a></div></div>
+<div class="ttc" id="agroup__strings__regex_html_gga341eb616bce8b15119196ad8208ec16da467042b90d33829a8ae360d3c5d3c673"><div class="ttname"><a href="group__strings__regex.html#gga341eb616bce8b15119196ad8208ec16da467042b90d33829a8ae360d3c5d3c673">cudf::strings::ASCII</a></div><div class="ttdeci">@ ASCII</div><div class="ttdoc">use only ASCII when matching built-in character classes</div><div class="ttdef"><b>Definition</b> <a href="flags_8hpp_source.html#l00040">flags.hpp:39</a></div></div>
+<div class="ttc" id="agroup__strings__regex_html_gga341eb616bce8b15119196ad8208ec16da5fbd6aff331b214f6042f54955becadb"><div class="ttname"><a href="group__strings__regex.html#gga341eb616bce8b15119196ad8208ec16da5fbd6aff331b214f6042f54955becadb">cudf::strings::MULTILINE</a></div><div class="ttdeci">@ MULTILINE</div><div class="ttdoc">the '^' and '$' honor new-line characters</div><div class="ttdef"><b>Definition</b> <a href="flags_8hpp_source.html#l00037">flags.hpp:37</a></div></div>
+<div class="ttc" id="anamespacecudf_html"><div class="ttname"><a href="namespacecudf.html">cudf</a></div><div class="ttdoc">cuDF interfaces</div><div class="ttdef"><b>Definition</b> <a href="aggregation_8hpp_source.html#l00034">aggregation.hpp:34</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_d998dea0bd4559303135358082015ac8.html">gitLibrary</a></li><li class="navelem"><a class="el" href="dir_b6486b3d9bd1f4b89c884933ed658179.html">cudf</a></li><li class="navelem"><a class="el" href="dir_318a4414914f49dc0e7605c41de9d4af.html">cpp</a></li><li class="navelem"><a class="el" href="dir_7fbf5ee8ae486656ea40e5ca1dd304f9.html">include</a></li><li class="navelem"><a class="el" href="dir_87e6427d1ef099fd52d9d0724c66b062.html">cudf</a></li><li class="navelem"><a class="el" href="dir_e52a7cfcc5412b565f6ae0686e8a94b2.html">strings</a></li><li class="navelem"><a class="el" href="dir_568a03f11001829ed8df14935cd38280.html">regex</a></li><li class="navelem"><a class="el" href="flags_8hpp.html">flags.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

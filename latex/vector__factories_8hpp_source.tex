@@ -1,0 +1,244 @@
+\doxysection{vector\+\_\+factories.\+hpp}
+\hypertarget{vector__factories_8hpp_source}{}\label{vector__factories_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/detail/utilities/vector\_factories.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/detail/utilities/vector\_factories.hpp}}
+\mbox{\hyperlink{vector__factories_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2021-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{utilities_2default__stream_8hpp}{cudf/utilities/default\_stream.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{error_8hpp}{cudf/utilities/error.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{span_8hpp}{cudf/utilities/span.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <rmm/cuda\_stream\_view.hpp>}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <rmm/device\_uvector.hpp>}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <rmm/mr/device/device\_memory\_resource.hpp>}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00032}00032\ \textcolor{preprocessor}{\#include\ <thrust/host\_vector.h>}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00034}00034\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00036}00036\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00037}00037\ \textcolor{keyword}{namespace\ }detail\ \{}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00050}00050\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00051}\mbox{\hyperlink{namespacecudf_1_1detail_ab330bdc16d921431c949ade216386305}{00051}}\ rmm::device\_uvector<T>\ \mbox{\hyperlink{namespacecudf_1_1detail_ab330bdc16d921431c949ade216386305}{make\_zeroed\_device\_uvector\_async}}(}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00052}00052\ \ \ std::size\_t\ size,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00053}00053\ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00054}00054\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource())}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00055}00055\ \{}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00056}00056\ \ \ rmm::device\_uvector<T>\ ret(size,\ stream,\ mr);}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00057}00057\ \ \ \mbox{\hyperlink{group__utility__error_gaeb308ca6145fb2250acd4e7651dec984}{CUDF\_CUDA\_TRY}}(cudaMemsetAsync(ret.data(),\ 0,\ size\ *\ \textcolor{keyword}{sizeof}(T),\ stream.value()));}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00058}00058\ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00059}00059\ \}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00072}00072\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00073}\mbox{\hyperlink{namespacecudf_1_1detail_a1cbce3bdea9ae93c27fedd21b4177e4f}{00073}}\ rmm::device\_uvector<T>\ \mbox{\hyperlink{namespacecudf_1_1detail_a1cbce3bdea9ae93c27fedd21b4177e4f}{make\_zeroed\_device\_uvector\_sync}}(}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00074}00074\ \ \ std::size\_t\ size,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00075}00075\ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00076}00076\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource())}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00077}00077\ \{}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00078}00078\ \ \ rmm::device\_uvector<T>\ ret(size,\ stream,\ mr);}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00079}00079\ \ \ \mbox{\hyperlink{group__utility__error_gaeb308ca6145fb2250acd4e7651dec984}{CUDF\_CUDA\_TRY}}(cudaMemsetAsync(ret.data(),\ 0,\ size\ *\ \textcolor{keyword}{sizeof}(T),\ stream.value()));}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00080}00080\ \ \ stream.synchronize();}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00081}00081\ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00082}00082\ \}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00096}00096\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00097}\mbox{\hyperlink{namespacecudf_1_1detail_af58212f43ad1509a309bf99b6abcabb3}{00097}}\ rmm::device\_uvector<T>\ \mbox{\hyperlink{namespacecudf_1_1detail_af58212f43ad1509a309bf99b6abcabb3}{make\_device\_uvector\_async}}(}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00098}00098\ \ \ \mbox{\hyperlink{structcudf_1_1host__span}{host\_span<T\ const>}}\ source\_data,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00099}00099\ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00100}00100\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource())}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00101}00101\ \{}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00102}00102\ \ \ rmm::device\_uvector<T>\ ret(source\_data.\mbox{\hyperlink{classcudf_1_1detail_1_1span__base_af462a382d03fac3b2a2e79c51ffce67a}{size}}(),\ stream,\ mr);}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00103}00103\ \ \ \mbox{\hyperlink{group__utility__error_gaeb308ca6145fb2250acd4e7651dec984}{CUDF\_CUDA\_TRY}}(cudaMemcpyAsync(ret.data(),}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ source\_data.\mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a69173bd857efea3b873d5777fee52e73}{data}}(),}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ source\_data.\mbox{\hyperlink{classcudf_1_1detail_1_1span__base_af462a382d03fac3b2a2e79c51ffce67a}{size}}()\ *\ \textcolor{keyword}{sizeof}(T),}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cudaMemcpyDefault,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stream.value()));}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00108}00108\ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00109}00109\ \}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00124}00124\ \textcolor{keyword}{template}\ <}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00125}00125\ \ \ \textcolor{keyword}{typename}\ Container,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00126}00126\ \ \ std::enable\_if\_t<}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00127}00127\ \ \ \ \ std::is\_convertible\_v<Container,\ host\_span<typename\ Container::value\_type\ const>>>*\ =\ \textcolor{keyword}{nullptr}>}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00128}\mbox{\hyperlink{namespacecudf_1_1detail_ad3025511800f795e70b22eba7fd0def7}{00128}}\ rmm::device\_uvector<typename\ Container::value\_type>\ \mbox{\hyperlink{namespacecudf_1_1detail_af58212f43ad1509a309bf99b6abcabb3}{make\_device\_uvector\_async}}(}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00129}00129\ \ \ Container\ \textcolor{keyword}{const}\&\ c,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00130}00130\ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00131}00131\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource())}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00132}00132\ \{}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00133}00133\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacecudf_1_1detail_af58212f43ad1509a309bf99b6abcabb3}{make\_device\_uvector\_async}}(\mbox{\hyperlink{structcudf_1_1host__span}{host\_span<typename\ Container::value\_type\ const>}}\{c\},\ stream,\ mr);}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00134}00134\ \}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00148}00148\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00149}\mbox{\hyperlink{namespacecudf_1_1detail_a556dd2e77b79628c78ec6718935f565d}{00149}}\ rmm::device\_uvector<T>\ \mbox{\hyperlink{namespacecudf_1_1detail_af58212f43ad1509a309bf99b6abcabb3}{make\_device\_uvector\_async}}(}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00150}00150\ \ \ \mbox{\hyperlink{structcudf_1_1device__span}{device\_span<T\ const>}}\ source\_data,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00151}00151\ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00152}00152\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource())}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00153}00153\ \{}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00154}00154\ \ \ rmm::device\_uvector<T>\ ret(source\_data.\mbox{\hyperlink{classcudf_1_1detail_1_1span__base_af462a382d03fac3b2a2e79c51ffce67a}{size}}(),\ stream,\ mr);}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00155}00155\ \ \ \mbox{\hyperlink{group__utility__error_gaeb308ca6145fb2250acd4e7651dec984}{CUDF\_CUDA\_TRY}}(cudaMemcpyAsync(ret.data(),}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ source\_data.\mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a69173bd857efea3b873d5777fee52e73}{data}}(),}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ source\_data.\mbox{\hyperlink{classcudf_1_1detail_1_1span__base_af462a382d03fac3b2a2e79c51ffce67a}{size}}()\ *\ \textcolor{keyword}{sizeof}(T),}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cudaMemcpyDefault,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stream.value()));}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00160}00160\ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00161}00161\ \}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00176}00176\ \textcolor{keyword}{template}\ <}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00177}00177\ \ \ \textcolor{keyword}{typename}\ Container,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00178}00178\ \ \ std::enable\_if\_t<}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00179}00179\ \ \ \ \ std::is\_convertible\_v<Container,\ device\_span<typename\ Container::value\_type\ const>>>*\ =\ \textcolor{keyword}{nullptr}>}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00180}00180\ rmm::device\_uvector<typename\ Container::value\_type>\ \mbox{\hyperlink{namespacecudf_1_1detail_af58212f43ad1509a309bf99b6abcabb3}{make\_device\_uvector\_async}}(}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00181}00181\ \ \ Container\ \textcolor{keyword}{const}\&\ c,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00182}00182\ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00183}00183\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource())}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00184}00184\ \{}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00185}00185\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacecudf_1_1detail_af58212f43ad1509a309bf99b6abcabb3}{make\_device\_uvector\_async}}(}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00186}00186\ \ \ \ \ \mbox{\hyperlink{structcudf_1_1device__span}{device\_span<typename\ Container::value\_type\ const>}}\{c\},\ stream,\ mr);}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00187}00187\ \}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00201}00201\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00202}\mbox{\hyperlink{namespacecudf_1_1detail_a567b65a608d7b1818cff9632b3dafde8}{00202}}\ rmm::device\_uvector<T>\ \mbox{\hyperlink{namespacecudf_1_1detail_a567b65a608d7b1818cff9632b3dafde8}{make\_device\_uvector\_sync}}(}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00203}00203\ \ \ \mbox{\hyperlink{structcudf_1_1host__span}{host\_span<T\ const>}}\ source\_data,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00204}00204\ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00205}00205\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource())}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00206}00206\ \{}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00207}00207\ \ \ \textcolor{keyword}{auto}\ ret\ =\ \mbox{\hyperlink{namespacecudf_1_1detail_af58212f43ad1509a309bf99b6abcabb3}{make\_device\_uvector\_async}}(source\_data,\ stream,\ mr);}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00208}00208\ \ \ stream.synchronize();}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00209}00209\ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00210}00210\ \}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00211}00211\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00225}00225\ \textcolor{keyword}{template}\ <}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00226}00226\ \ \ \textcolor{keyword}{typename}\ Container,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00227}00227\ \ \ std::enable\_if\_t<}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00228}00228\ \ \ \ \ std::is\_convertible\_v<Container,\ host\_span<typename\ Container::value\_type\ const>>>*\ =\ \textcolor{keyword}{nullptr}>}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00229}\mbox{\hyperlink{namespacecudf_1_1detail_a5f1c217de33d11bb490a51d1904361f9}{00229}}\ rmm::device\_uvector<typename\ Container::value\_type>\ \mbox{\hyperlink{namespacecudf_1_1detail_a567b65a608d7b1818cff9632b3dafde8}{make\_device\_uvector\_sync}}(}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00230}00230\ \ \ Container\ \textcolor{keyword}{const}\&\ c,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00231}00231\ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00232}00232\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource())}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00233}00233\ \{}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00234}00234\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacecudf_1_1detail_a567b65a608d7b1818cff9632b3dafde8}{make\_device\_uvector\_sync}}(\mbox{\hyperlink{structcudf_1_1host__span}{host\_span<typename\ Container::value\_type\ const>}}\{c\},\ stream,\ mr);}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00235}00235\ \}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00236}00236\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00249}00249\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00250}\mbox{\hyperlink{namespacecudf_1_1detail_a5a7fae42222fe71f2374141166c508cc}{00250}}\ rmm::device\_uvector<T>\ \mbox{\hyperlink{namespacecudf_1_1detail_a567b65a608d7b1818cff9632b3dafde8}{make\_device\_uvector\_sync}}(}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00251}00251\ \ \ \mbox{\hyperlink{structcudf_1_1device__span}{device\_span<T\ const>}}\ source\_data,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00252}00252\ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00253}00253\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource())}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00254}00254\ \{}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00255}00255\ \ \ \textcolor{keyword}{auto}\ ret\ =\ \mbox{\hyperlink{namespacecudf_1_1detail_af58212f43ad1509a309bf99b6abcabb3}{make\_device\_uvector\_async}}(source\_data,\ stream,\ mr);}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00256}00256\ \ \ stream.synchronize();}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00257}00257\ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00258}00258\ \}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00259}00259\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00273}00273\ \textcolor{keyword}{template}\ <}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00274}00274\ \ \ \textcolor{keyword}{typename}\ Container,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00275}00275\ \ \ std::enable\_if\_t<}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00276}00276\ \ \ \ \ std::is\_convertible\_v<Container,\ device\_span<typename\ Container::value\_type\ const>>>*\ =\ \textcolor{keyword}{nullptr}>}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00277}00277\ rmm::device\_uvector<typename\ Container::value\_type>\ \mbox{\hyperlink{namespacecudf_1_1detail_a567b65a608d7b1818cff9632b3dafde8}{make\_device\_uvector\_sync}}(}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00278}00278\ \ \ Container\ \textcolor{keyword}{const}\&\ c,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00279}00279\ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00280}00280\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource())}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00281}00281\ \{}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00282}00282\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacecudf_1_1detail_a567b65a608d7b1818cff9632b3dafde8}{make\_device\_uvector\_sync}}(\mbox{\hyperlink{structcudf_1_1device__span}{device\_span<typename\ Container::value\_type\ const>}}\{c\},\ stream,\ mr);}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00283}00283\ \}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00284}00284\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00285}00285\ \textcolor{comment}{//\ Utility\ function\ template\ to\ allow\ copying\ to\ either\ a\ thrust::host\_vector\ or\ std::vector}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00286}00286\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ OutContainer>}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00287}\mbox{\hyperlink{namespacecudf_1_1detail_a0b73da63a9fe3fdc5f94d0095cb43c83}{00287}}\ OutContainer\ \mbox{\hyperlink{namespacecudf_1_1detail_a0b73da63a9fe3fdc5f94d0095cb43c83}{make\_vector\_async}}(\mbox{\hyperlink{structcudf_1_1device__span}{device\_span<T\ const>}}\ v,\ rmm::cuda\_stream\_view\ stream)}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00288}00288\ \{}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00289}00289\ \ \ OutContainer\ result(v.\mbox{\hyperlink{classcudf_1_1detail_1_1span__base_af462a382d03fac3b2a2e79c51ffce67a}{size}}());}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00290}00290\ \ \ \mbox{\hyperlink{group__utility__error_gaeb308ca6145fb2250acd4e7651dec984}{CUDF\_CUDA\_TRY}}(cudaMemcpyAsync(}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00291}00291\ \ \ \ \ result.data(),\ v.\mbox{\hyperlink{classcudf_1_1detail_1_1span__base_a69173bd857efea3b873d5777fee52e73}{data}}(),\ v.\mbox{\hyperlink{classcudf_1_1detail_1_1span__base_af462a382d03fac3b2a2e79c51ffce67a}{size}}()\ *\ \textcolor{keyword}{sizeof}(T),\ cudaMemcpyDeviceToHost,\ stream.value()));}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00292}00292\ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00293}00293\ \}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00294}00294\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00306}00306\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00307}\mbox{\hyperlink{namespacecudf_1_1detail_a0f86869461e901b87a711c8fb331c17a}{00307}}\ std::vector<T>\ \mbox{\hyperlink{namespacecudf_1_1detail_a0f86869461e901b87a711c8fb331c17a}{make\_std\_vector\_async}}(\mbox{\hyperlink{structcudf_1_1device__span}{device\_span<T\ const>}}\ v,\ rmm::cuda\_stream\_view\ stream)}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00308}00308\ \{}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00309}00309\ \ \ \textcolor{keywordflow}{return}\ make\_vector\_async<T,\ std::vector<T>>(v,\ stream);}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00310}00310\ \}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00311}00311\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00324}00324\ \textcolor{keyword}{template}\ <}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00325}00325\ \ \ \textcolor{keyword}{typename}\ Container,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00326}00326\ \ \ std::enable\_if\_t<}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00327}00327\ \ \ \ \ std::is\_convertible\_v<Container,\ device\_span<typename\ Container::value\_type\ const>>>*\ =\ \textcolor{keyword}{nullptr}>}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00328}\mbox{\hyperlink{namespacecudf_1_1detail_af13119be3a169f0210957725db3d144d}{00328}}\ std::vector<typename\ Container::value\_type>\ \mbox{\hyperlink{namespacecudf_1_1detail_a0f86869461e901b87a711c8fb331c17a}{make\_std\_vector\_async}}(Container\ \textcolor{keyword}{const}\&\ c,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00329}00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::cuda\_stream\_view\ stream)}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00330}00330\ \{}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00331}00331\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacecudf_1_1detail_a0f86869461e901b87a711c8fb331c17a}{make\_std\_vector\_async}}(\mbox{\hyperlink{structcudf_1_1device__span}{device\_span<typename\ Container::value\_type\ const>}}\{c\},\ stream);}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00332}00332\ \}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00333}00333\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00345}00345\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00346}\mbox{\hyperlink{namespacecudf_1_1detail_aea3ae2fa6ca2edd73742c6e0ffcb8d49}{00346}}\ std::vector<T>\ \mbox{\hyperlink{namespacecudf_1_1detail_aea3ae2fa6ca2edd73742c6e0ffcb8d49}{make\_std\_vector\_sync}}(\mbox{\hyperlink{structcudf_1_1device__span}{device\_span<T\ const>}}\ v,\ rmm::cuda\_stream\_view\ stream)}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00347}00347\ \{}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00348}00348\ \ \ \textcolor{keyword}{auto}\ result\ =\ \mbox{\hyperlink{namespacecudf_1_1detail_a0f86869461e901b87a711c8fb331c17a}{make\_std\_vector\_async}}(v,\ stream);}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00349}00349\ \ \ stream.synchronize();}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00350}00350\ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00351}00351\ \}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00352}00352\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00365}00365\ \textcolor{keyword}{template}\ <}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00366}00366\ \ \ \textcolor{keyword}{typename}\ Container,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00367}00367\ \ \ std::enable\_if\_t<}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00368}00368\ \ \ \ \ std::is\_convertible\_v<Container,\ device\_span<typename\ Container::value\_type\ const>>>*\ =\ \textcolor{keyword}{nullptr}>}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00369}\mbox{\hyperlink{namespacecudf_1_1detail_a76e49334977092cc1447d12b3aad3b76}{00369}}\ std::vector<typename\ Container::value\_type>\ \mbox{\hyperlink{namespacecudf_1_1detail_aea3ae2fa6ca2edd73742c6e0ffcb8d49}{make\_std\_vector\_sync}}(Container\ \textcolor{keyword}{const}\&\ c,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00370}00370\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::cuda\_stream\_view\ stream)}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00371}00371\ \{}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00372}00372\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacecudf_1_1detail_aea3ae2fa6ca2edd73742c6e0ffcb8d49}{make\_std\_vector\_sync}}(\mbox{\hyperlink{structcudf_1_1device__span}{device\_span<typename\ Container::value\_type\ const>}}\{c\},\ stream);}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00373}00373\ \}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00374}00374\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00386}00386\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00387}\mbox{\hyperlink{namespacecudf_1_1detail_a6a6bc114d57f9b4ebe7b1fd1c0debeb3}{00387}}\ thrust::host\_vector<T>\ \mbox{\hyperlink{namespacecudf_1_1detail_a6a6bc114d57f9b4ebe7b1fd1c0debeb3}{make\_host\_vector\_async}}(\mbox{\hyperlink{structcudf_1_1device__span}{device\_span<T\ const>}}\ v,\ rmm::cuda\_stream\_view\ stream)}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00388}00388\ \{}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00389}00389\ \ \ \textcolor{keywordflow}{return}\ make\_vector\_async<T,\ thrust::host\_vector<T>>(v,\ stream);}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00390}00390\ \}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00391}00391\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00404}00404\ \textcolor{keyword}{template}\ <}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00405}00405\ \ \ \textcolor{keyword}{typename}\ Container,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00406}00406\ \ \ std::enable\_if\_t<}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00407}00407\ \ \ \ \ std::is\_convertible\_v<Container,\ device\_span<typename\ Container::value\_type\ const>>>*\ =\ \textcolor{keyword}{nullptr}>}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00408}\mbox{\hyperlink{namespacecudf_1_1detail_ac8a6ec6815c3166045d3417e832d1601}{00408}}\ thrust::host\_vector<typename\ Container::value\_type>\ \mbox{\hyperlink{namespacecudf_1_1detail_a6a6bc114d57f9b4ebe7b1fd1c0debeb3}{make\_host\_vector\_async}}(}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00409}00409\ \ \ Container\ \textcolor{keyword}{const}\&\ c,\ rmm::cuda\_stream\_view\ stream)}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00410}00410\ \{}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00411}00411\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacecudf_1_1detail_a6a6bc114d57f9b4ebe7b1fd1c0debeb3}{make\_host\_vector\_async}}(\mbox{\hyperlink{structcudf_1_1device__span}{device\_span<typename\ Container::value\_type\ const>}}\{c\},\ stream);}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00412}00412\ \}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00413}00413\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00425}00425\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00426}\mbox{\hyperlink{namespacecudf_1_1detail_ac324b531a3240ff154b04007561c9f34}{00426}}\ thrust::host\_vector<T>\ \mbox{\hyperlink{namespacecudf_1_1detail_ac324b531a3240ff154b04007561c9f34}{make\_host\_vector\_sync}}(\mbox{\hyperlink{structcudf_1_1device__span}{device\_span<T\ const>}}\ v,\ rmm::cuda\_stream\_view\ stream)}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00427}00427\ \{}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00428}00428\ \ \ \textcolor{keyword}{auto}\ result\ =\ \mbox{\hyperlink{namespacecudf_1_1detail_a6a6bc114d57f9b4ebe7b1fd1c0debeb3}{make\_host\_vector\_async}}(v,\ stream);}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00429}00429\ \ \ stream.synchronize();}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00430}00430\ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00431}00431\ \}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00432}00432\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00445}00445\ \textcolor{keyword}{template}\ <}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00446}00446\ \ \ \textcolor{keyword}{typename}\ Container,}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00447}00447\ \ \ std::enable\_if\_t<}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00448}00448\ \ \ \ \ std::is\_convertible\_v<Container,\ device\_span<typename\ Container::value\_type\ const>>>*\ =\ \textcolor{keyword}{nullptr}>}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00449}\mbox{\hyperlink{namespacecudf_1_1detail_a19a07077e71fffd39a9bae1ef7bfa379}{00449}}\ thrust::host\_vector<typename\ Container::value\_type>\ \mbox{\hyperlink{namespacecudf_1_1detail_ac324b531a3240ff154b04007561c9f34}{make\_host\_vector\_sync}}(}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00450}00450\ \ \ Container\ \textcolor{keyword}{const}\&\ c,\ rmm::cuda\_stream\_view\ stream)}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00451}00451\ \{}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00452}00452\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacecudf_1_1detail_ac324b531a3240ff154b04007561c9f34}{make\_host\_vector\_sync}}(\mbox{\hyperlink{structcudf_1_1device__span}{device\_span<typename\ Container::value\_type\ const>}}\{c\},\ stream);}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00453}00453\ \}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00454}00454\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00455}00455\ \}\ \ \textcolor{comment}{//\ namespace\ detail}}
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00456}00456\ }
+\DoxyCodeLine{\Hypertarget{vector__factories_8hpp_source_l00457}00457\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

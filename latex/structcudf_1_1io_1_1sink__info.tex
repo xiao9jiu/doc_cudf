@@ -1,0 +1,358 @@
+\doxysection{cudf\+::io\+::sink\+\_\+info结构体 参考}
+\hypertarget{structcudf_1_1io_1_1sink__info}{}\label{structcudf_1_1io_1_1sink__info}\index{cudf::io::sink\_info@{cudf::io::sink\_info}}
+
+
+Destination information for write interfaces  
+
+
+
+
+{\ttfamily \#include $<$types.\+hpp$>$}
+
+
+
+cudf\+::io\+::sink\+\_\+info 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{structcudf_1_1io_1_1sink__info__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1sink__info_ae72d230fa40420633984a9595f1f34c2}{sink\+\_\+info}} ()=default
+\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1sink__info_adb49376c5aae9c7b2afd60a224089a9b}{sink\+\_\+info}} (size\+\_\+t \mbox{\hyperlink{structcudf_1_1io_1_1sink__info_abf97ebc7f1677012723ed1e9f25dfff8}{num\+\_\+sinks}})
+\begin{DoxyCompactList}\small\item\em Construct a new sink info object \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1sink__info_acd2794fd33260f48fdb4796fc4b90f49}{sink\+\_\+info}} (std\+::vector$<$ std\+::string $>$ const \&file\+\_\+paths)
+\begin{DoxyCompactList}\small\item\em Construct a new sink info object for multiple files \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1sink__info_a8cae57424afb08c8fa7edd6803de7062}{sink\+\_\+info}} (std\+::string const \&file\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Construct a new sink info object for a single file \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1sink__info_a84af4097bb4a7a109ea6377cf22d1008}{sink\+\_\+info}} (std\+::vector$<$ std\+::vector$<$ char $>$ \texorpdfstring{$\ast$}{*} $>$ const \&\mbox{\hyperlink{structcudf_1_1io_1_1sink__info_aff5f90312aee0d57d7e57844aadf3210}{buffers}})
+\begin{DoxyCompactList}\small\item\em Construct a new sink info object for multiple host buffers \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1sink__info_af4f43c61a9af7efec6f6dfc59c4fba14}{sink\+\_\+info}} (std\+::vector$<$ char $>$ \texorpdfstring{$\ast$}{*}buffer)
+\begin{DoxyCompactList}\small\item\em Construct a new sink info object for a single host buffer \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1sink__info_ab22384cfa868f4957a9bb155cd7a25ec}{sink\+\_\+info}} (std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{cudf\+::io\+::data\+\_\+sink}} \texorpdfstring{$\ast$}{*} $>$ const \&\mbox{\hyperlink{structcudf_1_1io_1_1sink__info_ad933d90647a9a11763f3fdfd9e5e6f15}{user\+\_\+sinks}})
+\begin{DoxyCompactList}\small\item\em Construct a new sink info object for multiple user-\/implemented sinks \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1sink__info_aabecdf0a93b250862b2fe93e1920554d}{sink\+\_\+info}} (class \mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{cudf\+::io\+::data\+\_\+sink}} \texorpdfstring{$\ast$}{*}user\+\_\+sink)
+\begin{DoxyCompactList}\small\item\em Construct a new sink info object for a single user-\/implemented sink \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{structcudf_1_1io_1_1sink__info_af36a771a39b5d221e9bc9aed5d1d090c}{type}} () const
+\begin{DoxyCompactList}\small\item\em Get the type of the input \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{structcudf_1_1io_1_1sink__info_abf97ebc7f1677012723ed1e9f25dfff8}{num\+\_\+sinks}} () const
+\begin{DoxyCompactList}\small\item\em Get the number of sinks \end{DoxyCompactList}\item 
+auto const \& \mbox{\hyperlink{structcudf_1_1io_1_1sink__info_a5d73827e08eb28416aa26f0418b49048}{filepaths}} () const
+\begin{DoxyCompactList}\small\item\em Get the filepaths of the input \end{DoxyCompactList}\item 
+auto const \& \mbox{\hyperlink{structcudf_1_1io_1_1sink__info_aff5f90312aee0d57d7e57844aadf3210}{buffers}} () const
+\begin{DoxyCompactList}\small\item\em Get the host buffers of the input \end{DoxyCompactList}\item 
+auto const \& \mbox{\hyperlink{structcudf_1_1io_1_1sink__info_ad933d90647a9a11763f3fdfd9e5e6f15}{user\+\_\+sinks}} () const
+\begin{DoxyCompactList}\small\item\em Get the user sinks of the input \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacecudf_1_1io_a4a5909c7c1b3aef5e86d1f92e1b1d69d}{io\+\_\+type}} \mbox{\hyperlink{structcudf_1_1io_1_1sink__info_af1154629788e862df67791e4a2300560}{\+\_\+type}} = \mbox{\hyperlink{namespacecudf_1_1io_a4a5909c7c1b3aef5e86d1f92e1b1d69da6d0c9fc747131795e6e5d0c5119f12cb}{io\+\_\+type\+::\+VOID}}
+\item 
+size\+\_\+t \mbox{\hyperlink{structcudf_1_1io_1_1sink__info_a83628a24db87e0ce9f2950c4753c8490}{\+\_\+num\+\_\+sinks}} = 1
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{structcudf_1_1io_1_1sink__info_a1dd8096df0ab8a84a7b3a2575abaa89b}{\+\_\+filepaths}}
+\item 
+std\+::vector$<$ std\+::vector$<$ char $>$ \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{structcudf_1_1io_1_1sink__info_ad36375de8b5d32b9a8472a1683804642}{\+\_\+buffers}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{cudf\+::io\+::data\+\_\+sink}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{structcudf_1_1io_1_1sink__info_ad9e4875166e7d9258f7c56055bdce6bc}{\+\_\+user\+\_\+sinks}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Destination information for write interfaces 
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00276}{276}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{structcudf_1_1io_1_1sink__info_ae72d230fa40420633984a9595f1f34c2}\label{structcudf_1_1io_1_1sink__info_ae72d230fa40420633984a9595f1f34c2} 
+\index{cudf::io::sink\_info@{cudf::io::sink\_info}!sink\_info@{sink\_info}}
+\index{sink\_info@{sink\_info}!cudf::io::sink\_info@{cudf::io::sink\_info}}
+\doxysubsubsection{\texorpdfstring{sink\_info()}{sink\_info()}\hspace{0.1cm}{\footnotesize\ttfamily [1/8]}}
+{\footnotesize\ttfamily cudf\+::io\+::sink\+\_\+info\+::sink\+\_\+info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{structcudf_1_1io_1_1sink__info_adb49376c5aae9c7b2afd60a224089a9b}\label{structcudf_1_1io_1_1sink__info_adb49376c5aae9c7b2afd60a224089a9b} 
+\index{cudf::io::sink\_info@{cudf::io::sink\_info}!sink\_info@{sink\_info}}
+\index{sink\_info@{sink\_info}!cudf::io::sink\_info@{cudf::io::sink\_info}}
+\doxysubsubsection{\texorpdfstring{sink\_info()}{sink\_info()}\hspace{0.1cm}{\footnotesize\ttfamily [2/8]}}
+{\footnotesize\ttfamily cudf\+::io\+::sink\+\_\+info\+::sink\+\_\+info (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{num\+\_\+sinks }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new sink info object 
+
+
+\begin{DoxyParams}{参数}
+{\em num\+\_\+sinks} & Number of sinks \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00283}{283}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1sink__info_acd2794fd33260f48fdb4796fc4b90f49}\label{structcudf_1_1io_1_1sink__info_acd2794fd33260f48fdb4796fc4b90f49} 
+\index{cudf::io::sink\_info@{cudf::io::sink\_info}!sink\_info@{sink\_info}}
+\index{sink\_info@{sink\_info}!cudf::io::sink\_info@{cudf::io::sink\_info}}
+\doxysubsubsection{\texorpdfstring{sink\_info()}{sink\_info()}\hspace{0.1cm}{\footnotesize\ttfamily [3/8]}}
+{\footnotesize\ttfamily cudf\+::io\+::sink\+\_\+info\+::sink\+\_\+info (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ const \&}]{file\+\_\+paths }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Construct a new sink info object for multiple files 
+
+
+\begin{DoxyParams}{参数}
+{\em file\+\_\+paths} & Output files paths \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00290}{290}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1sink__info_a8cae57424afb08c8fa7edd6803de7062}\label{structcudf_1_1io_1_1sink__info_a8cae57424afb08c8fa7edd6803de7062} 
+\index{cudf::io::sink\_info@{cudf::io::sink\_info}!sink\_info@{sink\_info}}
+\index{sink\_info@{sink\_info}!cudf::io::sink\_info@{cudf::io::sink\_info}}
+\doxysubsubsection{\texorpdfstring{sink\_info()}{sink\_info()}\hspace{0.1cm}{\footnotesize\ttfamily [4/8]}}
+{\footnotesize\ttfamily cudf\+::io\+::sink\+\_\+info\+::sink\+\_\+info (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{file\+\_\+path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Construct a new sink info object for a single file 
+
+
+\begin{DoxyParams}{参数}
+{\em file\+\_\+path} & Single output file path \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00300}{300}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1sink__info_a84af4097bb4a7a109ea6377cf22d1008}\label{structcudf_1_1io_1_1sink__info_a84af4097bb4a7a109ea6377cf22d1008} 
+\index{cudf::io::sink\_info@{cudf::io::sink\_info}!sink\_info@{sink\_info}}
+\index{sink\_info@{sink\_info}!cudf::io::sink\_info@{cudf::io::sink\_info}}
+\doxysubsubsection{\texorpdfstring{sink\_info()}{sink\_info()}\hspace{0.1cm}{\footnotesize\ttfamily [5/8]}}
+{\footnotesize\ttfamily cudf\+::io\+::sink\+\_\+info\+::sink\+\_\+info (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ char $>$ \texorpdfstring{$\ast$}{*} $>$ const \&}]{buffers }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Construct a new sink info object for multiple host buffers 
+
+
+\begin{DoxyParams}{参数}
+{\em buffers} & Output host buffers \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00310}{310}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1sink__info_af4f43c61a9af7efec6f6dfc59c4fba14}\label{structcudf_1_1io_1_1sink__info_af4f43c61a9af7efec6f6dfc59c4fba14} 
+\index{cudf::io::sink\_info@{cudf::io::sink\_info}!sink\_info@{sink\_info}}
+\index{sink\_info@{sink\_info}!cudf::io::sink\_info@{cudf::io::sink\_info}}
+\doxysubsubsection{\texorpdfstring{sink\_info()}{sink\_info()}\hspace{0.1cm}{\footnotesize\ttfamily [6/8]}}
+{\footnotesize\ttfamily cudf\+::io\+::sink\+\_\+info\+::sink\+\_\+info (\begin{DoxyParamCaption}\item[{std\+::vector$<$ char $>$ \texorpdfstring{$\ast$}{*}}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Construct a new sink info object for a single host buffer 
+
+
+\begin{DoxyParams}{参数}
+{\em buffer} & Single output host buffer \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00319}{319}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1sink__info_ab22384cfa868f4957a9bb155cd7a25ec}\label{structcudf_1_1io_1_1sink__info_ab22384cfa868f4957a9bb155cd7a25ec} 
+\index{cudf::io::sink\_info@{cudf::io::sink\_info}!sink\_info@{sink\_info}}
+\index{sink\_info@{sink\_info}!cudf::io::sink\_info@{cudf::io::sink\_info}}
+\doxysubsubsection{\texorpdfstring{sink\_info()}{sink\_info()}\hspace{0.1cm}{\footnotesize\ttfamily [7/8]}}
+{\footnotesize\ttfamily cudf\+::io\+::sink\+\_\+info\+::sink\+\_\+info (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{cudf\+::io\+::data\+\_\+sink}} \texorpdfstring{$\ast$}{*} $>$ const \&}]{user\+\_\+sinks }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Construct a new sink info object for multiple user-\/implemented sinks 
+
+
+\begin{DoxyParams}{参数}
+{\em user\+\_\+sinks} & Output user-\/implemented sinks \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00326}{326}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1sink__info_aabecdf0a93b250862b2fe93e1920554d}\label{structcudf_1_1io_1_1sink__info_aabecdf0a93b250862b2fe93e1920554d} 
+\index{cudf::io::sink\_info@{cudf::io::sink\_info}!sink\_info@{sink\_info}}
+\index{sink\_info@{sink\_info}!cudf::io::sink\_info@{cudf::io::sink\_info}}
+\doxysubsubsection{\texorpdfstring{sink\_info()}{sink\_info()}\hspace{0.1cm}{\footnotesize\ttfamily [8/8]}}
+{\footnotesize\ttfamily cudf\+::io\+::sink\+\_\+info\+::sink\+\_\+info (\begin{DoxyParamCaption}\item[{class \mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{cudf\+::io\+::data\+\_\+sink}} \texorpdfstring{$\ast$}{*}}]{user\+\_\+sink }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Construct a new sink info object for a single user-\/implemented sink 
+
+
+\begin{DoxyParams}{参数}
+{\em user\+\_\+sink} & Single output user-\/implemented sink \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00336}{336}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{structcudf_1_1io_1_1sink__info_aff5f90312aee0d57d7e57844aadf3210}\label{structcudf_1_1io_1_1sink__info_aff5f90312aee0d57d7e57844aadf3210} 
+\index{cudf::io::sink\_info@{cudf::io::sink\_info}!buffers@{buffers}}
+\index{buffers@{buffers}!cudf::io::sink\_info@{cudf::io::sink\_info}}
+\doxysubsubsection{\texorpdfstring{buffers()}{buffers()}}
+{\footnotesize\ttfamily auto const  \& cudf\+::io\+::sink\+\_\+info\+::buffers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the host buffers of the input 
+
+\begin{DoxyReturn}{返回}
+The host buffers of the input 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00364}{364}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1sink__info_a5d73827e08eb28416aa26f0418b49048}\label{structcudf_1_1io_1_1sink__info_a5d73827e08eb28416aa26f0418b49048} 
+\index{cudf::io::sink\_info@{cudf::io::sink\_info}!filepaths@{filepaths}}
+\index{filepaths@{filepaths}!cudf::io::sink\_info@{cudf::io::sink\_info}}
+\doxysubsubsection{\texorpdfstring{filepaths()}{filepaths()}}
+{\footnotesize\ttfamily auto const  \& cudf\+::io\+::sink\+\_\+info\+::filepaths (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the filepaths of the input 
+
+\begin{DoxyReturn}{返回}
+The filepaths of the input 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00358}{358}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1sink__info_abf97ebc7f1677012723ed1e9f25dfff8}\label{structcudf_1_1io_1_1sink__info_abf97ebc7f1677012723ed1e9f25dfff8} 
+\index{cudf::io::sink\_info@{cudf::io::sink\_info}!num\_sinks@{num\_sinks}}
+\index{num\_sinks@{num\_sinks}!cudf::io::sink\_info@{cudf::io::sink\_info}}
+\doxysubsubsection{\texorpdfstring{num\_sinks()}{num\_sinks()}}
+{\footnotesize\ttfamily auto cudf\+::io\+::sink\+\_\+info\+::num\+\_\+sinks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the number of sinks 
+
+\begin{DoxyReturn}{返回}
+The number of sinks 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00352}{352}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1sink__info_af36a771a39b5d221e9bc9aed5d1d090c}\label{structcudf_1_1io_1_1sink__info_af36a771a39b5d221e9bc9aed5d1d090c} 
+\index{cudf::io::sink\_info@{cudf::io::sink\_info}!type@{type}}
+\index{type@{type}!cudf::io::sink\_info@{cudf::io::sink\_info}}
+\doxysubsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily auto cudf\+::io\+::sink\+\_\+info\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the type of the input 
+
+\begin{DoxyReturn}{返回}
+The type of the input 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00346}{346}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1sink__info_ad933d90647a9a11763f3fdfd9e5e6f15}\label{structcudf_1_1io_1_1sink__info_ad933d90647a9a11763f3fdfd9e5e6f15} 
+\index{cudf::io::sink\_info@{cudf::io::sink\_info}!user\_sinks@{user\_sinks}}
+\index{user\_sinks@{user\_sinks}!cudf::io::sink\_info@{cudf::io::sink\_info}}
+\doxysubsubsection{\texorpdfstring{user\_sinks()}{user\_sinks()}}
+{\footnotesize\ttfamily auto const  \& cudf\+::io\+::sink\+\_\+info\+::user\+\_\+sinks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the user sinks of the input 
+
+\begin{DoxyReturn}{返回}
+The user sinks of the input 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00370}{370}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{structcudf_1_1io_1_1sink__info_ad36375de8b5d32b9a8472a1683804642}\label{structcudf_1_1io_1_1sink__info_ad36375de8b5d32b9a8472a1683804642} 
+\index{cudf::io::sink\_info@{cudf::io::sink\_info}!\_buffers@{\_buffers}}
+\index{\_buffers@{\_buffers}!cudf::io::sink\_info@{cudf::io::sink\_info}}
+\doxysubsubsection{\texorpdfstring{\_buffers}{\_buffers}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$char$>$\texorpdfstring{$\ast$}{*}$>$ cudf\+::io\+::sink\+\_\+info\+::\+\_\+buffers\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00376}{376}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1sink__info_a1dd8096df0ab8a84a7b3a2575abaa89b}\label{structcudf_1_1io_1_1sink__info_a1dd8096df0ab8a84a7b3a2575abaa89b} 
+\index{cudf::io::sink\_info@{cudf::io::sink\_info}!\_filepaths@{\_filepaths}}
+\index{\_filepaths@{\_filepaths}!cudf::io::sink\_info@{cudf::io::sink\_info}}
+\doxysubsubsection{\texorpdfstring{\_filepaths}{\_filepaths}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ cudf\+::io\+::sink\+\_\+info\+::\+\_\+filepaths\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00375}{375}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1sink__info_a83628a24db87e0ce9f2950c4753c8490}\label{structcudf_1_1io_1_1sink__info_a83628a24db87e0ce9f2950c4753c8490} 
+\index{cudf::io::sink\_info@{cudf::io::sink\_info}!\_num\_sinks@{\_num\_sinks}}
+\index{\_num\_sinks@{\_num\_sinks}!cudf::io::sink\_info@{cudf::io::sink\_info}}
+\doxysubsubsection{\texorpdfstring{\_num\_sinks}{\_num\_sinks}}
+{\footnotesize\ttfamily size\+\_\+t cudf\+::io\+::sink\+\_\+info\+::\+\_\+num\+\_\+sinks = 1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00374}{374}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1sink__info_af1154629788e862df67791e4a2300560}\label{structcudf_1_1io_1_1sink__info_af1154629788e862df67791e4a2300560} 
+\index{cudf::io::sink\_info@{cudf::io::sink\_info}!\_type@{\_type}}
+\index{\_type@{\_type}!cudf::io::sink\_info@{cudf::io::sink\_info}}
+\doxysubsubsection{\texorpdfstring{\_type}{\_type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecudf_1_1io_a4a5909c7c1b3aef5e86d1f92e1b1d69d}{io\+\_\+type}} cudf\+::io\+::sink\+\_\+info\+::\+\_\+type = \mbox{\hyperlink{namespacecudf_1_1io_a4a5909c7c1b3aef5e86d1f92e1b1d69da6d0c9fc747131795e6e5d0c5119f12cb}{io\+\_\+type\+::\+VOID}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00373}{373}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1sink__info_ad9e4875166e7d9258f7c56055bdce6bc}\label{structcudf_1_1io_1_1sink__info_ad9e4875166e7d9258f7c56055bdce6bc} 
+\index{cudf::io::sink\_info@{cudf::io::sink\_info}!\_user\_sinks@{\_user\_sinks}}
+\index{\_user\_sinks@{\_user\_sinks}!cudf::io::sink\_info@{cudf::io::sink\_info}}
+\doxysubsubsection{\texorpdfstring{\_user\_sinks}{\_user\_sinks}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{cudf\+::io\+::data\+\_\+sink}}\texorpdfstring{$\ast$}{*}$>$ cudf\+::io\+::sink\+\_\+info\+::\+\_\+user\+\_\+sinks\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00377}{377}} 行定义.
+
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/\mbox{\hyperlink{io_2types_8hpp}{types.\+hpp}}\end{DoxyCompactItemize}

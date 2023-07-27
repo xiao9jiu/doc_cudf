@@ -1,0 +1,144 @@
+\doxysection{cudf\+::ast\+::expression结构体 参考}
+\hypertarget{structcudf_1_1ast_1_1expression}{}\label{structcudf_1_1ast_1_1expression}\index{cudf::ast::expression@{cudf::ast::expression}}
+
+
+A generic expression that can be evaluated to return a value.  
+
+
+
+
+{\ttfamily \#include $<$expressions.\+hpp$>$}
+
+
+
+类 cudf\+::ast\+::expression 继承关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structcudf_1_1ast_1_1expression__inherit__graph}
+\end{center}
+\end{figure}
+
+
+cudf\+::ast\+::expression 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{structcudf_1_1ast_1_1expression__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{structcudf_1_1ast_1_1expression_a7f49bf2645bf703e48b2218944aca8ef}{accept}} (\mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser}{detail\+::expression\+\_\+parser}} \&visitor) const =0
+\begin{DoxyCompactList}\small\item\em Accepts a visitor class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structcudf_1_1ast_1_1expression_a58bbcca679ee9e1447a43387e5684b0e}{may\+\_\+evaluate\+\_\+null}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&left, rmm\+::cuda\+\_\+stream\+\_\+view stream) const
+\begin{DoxyCompactList}\small\item\em Returns true if the expression may evaluate to null. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{structcudf_1_1ast_1_1expression_ae0e50e0d105d9c261c98cb7cd828f76b}{may\+\_\+evaluate\+\_\+null}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&left, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&right, rmm\+::cuda\+\_\+stream\+\_\+view stream) const =0
+\begin{DoxyCompactList}\small\item\em Returns true if the expression may evaluate to null. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{structcudf_1_1ast_1_1expression_a0d427dac4d82c624c68139c841913705}{\texorpdfstring{$\sim$}{\string~}expression}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+A generic expression that can be evaluated to return a value. 
+
+This class is a part of a \"{}visitor\"{} pattern with the {\ttfamily expression\+\_\+parser} class. Expressions inheriting from this class can accept parsers as visitors. 
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00040}{40}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{structcudf_1_1ast_1_1expression_a0d427dac4d82c624c68139c841913705}\label{structcudf_1_1ast_1_1expression_a0d427dac4d82c624c68139c841913705} 
+\index{cudf::ast::expression@{cudf::ast::expression}!````~expression@{\texorpdfstring{$\sim$}{\string~}expression}}
+\index{````~expression@{\texorpdfstring{$\sim$}{\string~}expression}!cudf::ast::expression@{cudf::ast::expression}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}expression()}{\string~expression()}}
+{\footnotesize\ttfamily virtual cudf\+::ast\+::expression\+::\texorpdfstring{$\sim$}{\string~}expression (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00073}{73}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{structcudf_1_1ast_1_1expression_a7f49bf2645bf703e48b2218944aca8ef}\label{structcudf_1_1ast_1_1expression_a7f49bf2645bf703e48b2218944aca8ef} 
+\index{cudf::ast::expression@{cudf::ast::expression}!accept@{accept}}
+\index{accept@{accept}!cudf::ast::expression@{cudf::ast::expression}}
+\doxysubsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::ast\+::expression\+::accept (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser}{detail\+::expression\+\_\+parser}} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Accepts a visitor class. 
+
+
+\begin{DoxyParams}{参数}
+{\em visitor} & The {\ttfamily expression\+\_\+parser} parsing this expression tree \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Index of device data reference for this instance 
+\end{DoxyReturn}
+
+
+在 \mbox{\hyperlink{classcudf_1_1ast_1_1literal_a2479d1d37f58c28ea612ea53f2d7a87a}{cudf\+::ast\+::literal}}, \mbox{\hyperlink{classcudf_1_1ast_1_1column__reference_a1dda4e01dc610710d8fb85579bf49d62}{cudf\+::ast\+::column\+\_\+reference}} , 以及 \mbox{\hyperlink{classcudf_1_1ast_1_1operation_afe7fbef9f20da5ecc9a82791037c024d}{cudf\+::ast\+::operation}} 内被实现.
+
+\Hypertarget{structcudf_1_1ast_1_1expression_a58bbcca679ee9e1447a43387e5684b0e}\label{structcudf_1_1ast_1_1expression_a58bbcca679ee9e1447a43387e5684b0e} 
+\index{cudf::ast::expression@{cudf::ast::expression}!may\_evaluate\_null@{may\_evaluate\_null}}
+\index{may\_evaluate\_null@{may\_evaluate\_null}!cudf::ast::expression@{cudf::ast::expression}}
+\doxysubsubsection{\texorpdfstring{may\_evaluate\_null()}{may\_evaluate\_null()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool cudf\+::ast\+::expression\+::may\+\_\+evaluate\+\_\+null (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{left,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns true if the expression may evaluate to null. 
+
+
+\begin{DoxyParams}{参数}
+{\em left} & The left operand of the expression (The same is used as right operand) \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+{\ttfamily true} if the expression may evaluate to null, otherwise false 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00056}{56}} 行定义.
+
+\Hypertarget{structcudf_1_1ast_1_1expression_ae0e50e0d105d9c261c98cb7cd828f76b}\label{structcudf_1_1ast_1_1expression_ae0e50e0d105d9c261c98cb7cd828f76b} 
+\index{cudf::ast::expression@{cudf::ast::expression}!may\_evaluate\_null@{may\_evaluate\_null}}
+\index{may\_evaluate\_null@{may\_evaluate\_null}!cudf::ast::expression@{cudf::ast::expression}}
+\doxysubsubsection{\texorpdfstring{may\_evaluate\_null()}{may\_evaluate\_null()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual bool cudf\+::ast\+::expression\+::may\+\_\+evaluate\+\_\+null (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{left,  }\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{right,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns true if the expression may evaluate to null. 
+
+
+\begin{DoxyParams}{参数}
+{\em left} & The left operand of the expression \\
+\hline
+{\em right} & The right operand of the expression \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+{\ttfamily true} if the expression may evaluate to null, otherwise false 
+\end{DoxyReturn}
+
+
+在 \mbox{\hyperlink{classcudf_1_1ast_1_1literal_acca8d47ddd35fbf5de5dd5dfbafa986f}{cudf\+::ast\+::literal}}, \mbox{\hyperlink{classcudf_1_1ast_1_1column__reference_a02b427f444325e02003283a00f5c6d66}{cudf\+::ast\+::column\+\_\+reference}} , 以及 \mbox{\hyperlink{classcudf_1_1ast_1_1operation_a747bc06a1d693741c7ae126de8a940ee}{cudf\+::ast\+::operation}} 内被实现.
+
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/ast/\mbox{\hyperlink{expressions_8hpp}{expressions.\+hpp}}\end{DoxyCompactItemize}

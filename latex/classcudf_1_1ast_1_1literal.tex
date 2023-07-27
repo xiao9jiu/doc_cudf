@@ -1,0 +1,292 @@
+\doxysection{cudf\+::ast\+::literal类 参考}
+\hypertarget{classcudf_1_1ast_1_1literal}{}\label{classcudf_1_1ast_1_1literal}\index{cudf::ast::literal@{cudf::ast::literal}}
+
+
+A literal value used in an abstract syntax tree.  
+
+
+
+
+{\ttfamily \#include $<$expressions.\+hpp$>$}
+
+
+
+类 cudf\+::ast\+::literal 继承关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{classcudf_1_1ast_1_1literal__inherit__graph}
+\end{center}
+\end{figure}
+
+
+cudf\+::ast\+::literal 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcudf_1_1ast_1_1literal__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classcudf_1_1ast_1_1literal_a01c8f74cd43c30af45f670d76114dc9f}{literal}} (\mbox{\hyperlink{classcudf_1_1numeric__scalar}{cudf\+::numeric\+\_\+scalar}}$<$ T $>$ \&\mbox{\hyperlink{classcudf_1_1ast_1_1literal_aa8df02608ac83b5bbe83bf94bbff77d4}{value}})
+\begin{DoxyCompactList}\small\item\em Construct a new literal object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classcudf_1_1ast_1_1literal_aedc9fbba55eb4735053d1eed3cfbde9a}{literal}} (\mbox{\hyperlink{classcudf_1_1timestamp__scalar}{cudf\+::timestamp\+\_\+scalar}}$<$ T $>$ \&\mbox{\hyperlink{classcudf_1_1ast_1_1literal_aa8df02608ac83b5bbe83bf94bbff77d4}{value}})
+\begin{DoxyCompactList}\small\item\em Construct a new literal object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classcudf_1_1ast_1_1literal_a66de9a0f5742035c8c447ed51c3d4940}{literal}} (\mbox{\hyperlink{classcudf_1_1duration__scalar}{cudf\+::duration\+\_\+scalar}}$<$ T $>$ \&\mbox{\hyperlink{classcudf_1_1ast_1_1literal_aa8df02608ac83b5bbe83bf94bbff77d4}{value}})
+\begin{DoxyCompactList}\small\item\em Construct a new literal object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} \mbox{\hyperlink{classcudf_1_1ast_1_1literal_a4591e8dfc3e0ec8b952459822a46b84c}{get\+\_\+data\+\_\+type}} () const
+\begin{DoxyCompactList}\small\item\em Get the data type. \end{DoxyCompactList}\item 
+cudf\+::detail\+::fixed\+\_\+width\+\_\+scalar\+\_\+device\+\_\+view\+\_\+base \mbox{\hyperlink{classcudf_1_1ast_1_1literal_afa8cd5bbac4afa9f8c799994ec5e7d59}{get\+\_\+value}} () const
+\begin{DoxyCompactList}\small\item\em Get the value object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1ast_1_1literal_a2479d1d37f58c28ea612ea53f2d7a87a}{accept}} (\mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser}{detail\+::expression\+\_\+parser}} \&visitor) const override
+\begin{DoxyCompactList}\small\item\em Accepts a visitor class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1ast_1_1literal_acca8d47ddd35fbf5de5dd5dfbafa986f}{may\+\_\+evaluate\+\_\+null}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&left, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&right, rmm\+::cuda\+\_\+stream\+\_\+view stream) const override
+\begin{DoxyCompactList}\small\item\em Returns true if the expression may evaluate to null. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1ast_1_1literal_a8d502ea240c41337b3de3f93de0af051}{is\+\_\+valid}} (rmm\+::cuda\+\_\+stream\+\_\+view stream) const
+\begin{DoxyCompactList}\small\item\em Check if the underlying scalar is valid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public 成员函数 继承自 \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{cudf\+::ast\+::expression}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{structcudf_1_1ast_1_1expression_a7f49bf2645bf703e48b2218944aca8ef}{accept}} (\mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser}{detail\+::expression\+\_\+parser}} \&visitor) const =0
+\begin{DoxyCompactList}\small\item\em Accepts a visitor class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structcudf_1_1ast_1_1expression_a58bbcca679ee9e1447a43387e5684b0e}{may\+\_\+evaluate\+\_\+null}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&left, rmm\+::cuda\+\_\+stream\+\_\+view stream) const
+\begin{DoxyCompactList}\small\item\em Returns true if the expression may evaluate to null. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{structcudf_1_1ast_1_1expression_ae0e50e0d105d9c261c98cb7cd828f76b}{may\+\_\+evaluate\+\_\+null}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&left, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&right, rmm\+::cuda\+\_\+stream\+\_\+view stream) const =0
+\begin{DoxyCompactList}\small\item\em Returns true if the expression may evaluate to null. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{structcudf_1_1ast_1_1expression_a0d427dac4d82c624c68139c841913705}{\texorpdfstring{$\sim$}{\string~}expression}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1scalar}{cudf\+::scalar}} const  \& \mbox{\hyperlink{classcudf_1_1ast_1_1literal_a450886db704dcad11917ef75cc44483b}{scalar}}
+\item 
+cudf\+::detail\+::fixed\+\_\+width\+\_\+scalar\+\_\+device\+\_\+view\+\_\+base const \mbox{\hyperlink{classcudf_1_1ast_1_1literal_aa8df02608ac83b5bbe83bf94bbff77d4}{value}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+A literal value used in an abstract syntax tree. 
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00156}{156}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1ast_1_1literal_a01c8f74cd43c30af45f670d76114dc9f}\label{classcudf_1_1ast_1_1literal_a01c8f74cd43c30af45f670d76114dc9f} 
+\index{cudf::ast::literal@{cudf::ast::literal}!literal@{literal}}
+\index{literal@{literal}!cudf::ast::literal@{cudf::ast::literal}}
+\doxysubsubsection{\texorpdfstring{literal()}{literal()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+cudf\+::ast\+::literal\+::literal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1numeric__scalar}{cudf\+::numeric\+\_\+scalar}}$<$ T $>$ \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new literal object. 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & Numeric scalar template type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em value} & A numeric scalar value \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00165}{165}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1literal_aedc9fbba55eb4735053d1eed3cfbde9a}\label{classcudf_1_1ast_1_1literal_aedc9fbba55eb4735053d1eed3cfbde9a} 
+\index{cudf::ast::literal@{cudf::ast::literal}!literal@{literal}}
+\index{literal@{literal}!cudf::ast::literal@{cudf::ast::literal}}
+\doxysubsubsection{\texorpdfstring{literal()}{literal()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+cudf\+::ast\+::literal\+::literal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1timestamp__scalar}{cudf\+::timestamp\+\_\+scalar}}$<$ T $>$ \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new literal object. 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & Timestamp scalar template type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em value} & A timestamp scalar value \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00177}{177}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1literal_a66de9a0f5742035c8c447ed51c3d4940}\label{classcudf_1_1ast_1_1literal_a66de9a0f5742035c8c447ed51c3d4940} 
+\index{cudf::ast::literal@{cudf::ast::literal}!literal@{literal}}
+\index{literal@{literal}!cudf::ast::literal@{cudf::ast::literal}}
+\doxysubsubsection{\texorpdfstring{literal()}{literal()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+cudf\+::ast\+::literal\+::literal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1duration__scalar}{cudf\+::duration\+\_\+scalar}}$<$ T $>$ \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new literal object. 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & Duration scalar template type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em value} & A duration scalar value \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00189}{189}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1ast_1_1literal_a2479d1d37f58c28ea612ea53f2d7a87a}\label{classcudf_1_1ast_1_1literal_a2479d1d37f58c28ea612ea53f2d7a87a} 
+\index{cudf::ast::literal@{cudf::ast::literal}!accept@{accept}}
+\index{accept@{accept}!cudf::ast::literal@{cudf::ast::literal}}
+\doxysubsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::ast\+::literal\+::accept (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser}{detail\+::expression\+\_\+parser}} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Accepts a visitor class. 
+
+
+\begin{DoxyParams}{参数}
+{\em visitor} & The {\ttfamily expression\+\_\+parser} parsing this expression tree \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Index of device data reference for this instance 
+\end{DoxyReturn}
+
+
+实现了 \mbox{\hyperlink{structcudf_1_1ast_1_1expression_a7f49bf2645bf703e48b2218944aca8ef}{cudf\+::ast\+::expression}}.
+
+\Hypertarget{classcudf_1_1ast_1_1literal_a4591e8dfc3e0ec8b952459822a46b84c}\label{classcudf_1_1ast_1_1literal_a4591e8dfc3e0ec8b952459822a46b84c} 
+\index{cudf::ast::literal@{cudf::ast::literal}!get\_data\_type@{get\_data\_type}}
+\index{get\_data\_type@{get\_data\_type}!cudf::ast::literal@{cudf::ast::literal}}
+\doxysubsubsection{\texorpdfstring{get\_data\_type()}{get\_data\_type()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} cudf\+::ast\+::literal\+::get\+\_\+data\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the data type. 
+
+\begin{DoxyReturn}{返回}
+The data type of the literal 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00199}{199}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1literal_afa8cd5bbac4afa9f8c799994ec5e7d59}\label{classcudf_1_1ast_1_1literal_afa8cd5bbac4afa9f8c799994ec5e7d59} 
+\index{cudf::ast::literal@{cudf::ast::literal}!get\_value@{get\_value}}
+\index{get\_value@{get\_value}!cudf::ast::literal@{cudf::ast::literal}}
+\doxysubsubsection{\texorpdfstring{get\_value()}{get\_value()}}
+{\footnotesize\ttfamily cudf\+::detail\+::fixed\+\_\+width\+\_\+scalar\+\_\+device\+\_\+view\+\_\+base cudf\+::ast\+::literal\+::get\+\_\+value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the value object. 
+
+\begin{DoxyReturn}{返回}
+The device scalar object 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00206}{206}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1literal_a8d502ea240c41337b3de3f93de0af051}\label{classcudf_1_1ast_1_1literal_a8d502ea240c41337b3de3f93de0af051} 
+\index{cudf::ast::literal@{cudf::ast::literal}!is\_valid@{is\_valid}}
+\index{is\_valid@{is\_valid}!cudf::ast::literal@{cudf::ast::literal}}
+\doxysubsubsection{\texorpdfstring{is\_valid()}{is\_valid()}}
+{\footnotesize\ttfamily bool cudf\+::ast\+::literal\+::is\+\_\+valid (\begin{DoxyParamCaption}\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if the underlying scalar is valid. 
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true if the underlying scalar is valid 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00232}{232}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1literal_acca8d47ddd35fbf5de5dd5dfbafa986f}\label{classcudf_1_1ast_1_1literal_acca8d47ddd35fbf5de5dd5dfbafa986f} 
+\index{cudf::ast::literal@{cudf::ast::literal}!may\_evaluate\_null@{may\_evaluate\_null}}
+\index{may\_evaluate\_null@{may\_evaluate\_null}!cudf::ast::literal@{cudf::ast::literal}}
+\doxysubsubsection{\texorpdfstring{may\_evaluate\_null()}{may\_evaluate\_null()}}
+{\footnotesize\ttfamily bool cudf\+::ast\+::literal\+::may\+\_\+evaluate\+\_\+null (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{left,  }\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{right,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns true if the expression may evaluate to null. 
+
+
+\begin{DoxyParams}{参数}
+{\em left} & The left operand of the expression \\
+\hline
+{\em right} & The right operand of the expression \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+{\ttfamily true} if the expression may evaluate to null, otherwise false 
+\end{DoxyReturn}
+
+
+实现了 \mbox{\hyperlink{structcudf_1_1ast_1_1expression_ae0e50e0d105d9c261c98cb7cd828f76b}{cudf\+::ast\+::expression}}.
+
+
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00219}{219}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1ast_1_1literal_a450886db704dcad11917ef75cc44483b}\label{classcudf_1_1ast_1_1literal_a450886db704dcad11917ef75cc44483b} 
+\index{cudf::ast::literal@{cudf::ast::literal}!scalar@{scalar}}
+\index{scalar@{scalar}!cudf::ast::literal@{cudf::ast::literal}}
+\doxysubsubsection{\texorpdfstring{scalar}{scalar}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1scalar}{cudf\+::scalar}} const\& cudf\+::ast\+::literal\+::scalar\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00238}{238}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1literal_aa8df02608ac83b5bbe83bf94bbff77d4}\label{classcudf_1_1ast_1_1literal_aa8df02608ac83b5bbe83bf94bbff77d4} 
+\index{cudf::ast::literal@{cudf::ast::literal}!value@{value}}
+\index{value@{value}!cudf::ast::literal@{cudf::ast::literal}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily cudf\+::detail\+::fixed\+\_\+width\+\_\+scalar\+\_\+device\+\_\+view\+\_\+base const cudf\+::ast\+::literal\+::value\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00239}{239}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/ast/\mbox{\hyperlink{expressions_8hpp}{expressions.\+hpp}}\end{DoxyCompactItemize}

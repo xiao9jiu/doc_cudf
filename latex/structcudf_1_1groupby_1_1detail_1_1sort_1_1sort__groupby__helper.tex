@@ -1,0 +1,549 @@
+\doxysection{cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper结构体 参考}
+\hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper}{}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper}\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+
+
+Helper class for computing sort-\/based groupby  
+
+
+
+
+{\ttfamily \#include $<$sort\+\_\+helper.\+hpp$>$}
+
+
+
+cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 类型}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a2d68acd7880e06d60ab391d8d0a91ed8}{index\+\_\+vector}} = rmm\+::device\+\_\+uvector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$
+\item 
+using \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a1197874184f36bf5355afedd17f60c03}{bitmask\+\_\+vector}} = rmm\+::device\+\_\+uvector$<$ \mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} $>$
+\item 
+using \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_acf6dacd6443926cc0be3ed92f998dbed}{column\+\_\+ptr}} = std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$
+\item 
+using \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a62dcba6dc967f0519a2ddba46ca307d8}{index\+\_\+vector\+\_\+ptr}} = std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a2d68acd7880e06d60ab391d8d0a91ed8}{index\+\_\+vector}} $>$
+\item 
+using \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a8eed383cff7cf82d0c648f72ff184a02}{bitmask\+\_\+vector\+\_\+ptr}} = std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a1197874184f36bf5355afedd17f60c03}{bitmask\+\_\+vector}} $>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a3699e4a61699cb195c22478cf45cbbb9}{sort\+\_\+groupby\+\_\+helper}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&keys, \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} include\+\_\+null\+\_\+keys=\mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}{null\+\_\+policy\+::\+EXCLUDE}}, \mbox{\hyperlink{group__utility__types_gab283c517931abd4152ffa62fec62425d}{sorted}} keys\+\_\+pre\+\_\+sorted=\mbox{\hyperlink{group__utility__types_ggab283c517931abd4152ffa62fec62425dac2f3f489a00553e7a01d369c103c7251}{sorted\+::\+NO}})
+\begin{DoxyCompactList}\small\item\em Construct a new helper object \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a051a500e757977d32c14850d07310f18}{\texorpdfstring{$\sim$}{\string~}sort\+\_\+groupby\+\_\+helper}} ()=default
+\item 
+\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a753421adc02293c676c52053d155f81a}{sort\+\_\+groupby\+\_\+helper}} (\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper}{sort\+\_\+groupby\+\_\+helper}} const \&)=delete
+\item 
+\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper}{sort\+\_\+groupby\+\_\+helper}} \& \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a054ac234745b83a23a77986613cbff7a}{operator=}} (\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper}{sort\+\_\+groupby\+\_\+helper}} const \&)=delete
+\item 
+\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a7a8ada3aef1d2c165e7bc5394ec08c60}{sort\+\_\+groupby\+\_\+helper}} (\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper}{sort\+\_\+groupby\+\_\+helper}} \&\&)=default
+\item 
+\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper}{sort\+\_\+groupby\+\_\+helper}} \& \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a8897ec51229c194af1ca4ef221bb617e}{operator=}} (\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper}{sort\+\_\+groupby\+\_\+helper}} \&\&)=default
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_ad601ce066e540c34827d3932c5e5476e}{sorted\+\_\+values}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&values, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Groups a column of values according to {\ttfamily keys} and sorts within each group. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a6fec0e1063e34c1f44b8213dfc062163}{grouped\+\_\+values}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&values, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Groups a column of values according to {\ttfamily keys} \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a342160b5582643beda13449124647a44}{unique\+\_\+keys}} (rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Get a table of sorted unique keys \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a401277961d89e05113061514ac202732}{sorted\+\_\+keys}} (rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Get a table of sorted keys \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a9bd572bd55e2ab9c9b7be0d7aead5415}{num\+\_\+groups}} (rmm\+::cuda\+\_\+stream\+\_\+view stream)
+\begin{DoxyCompactList}\small\item\em Get the number of groups in {\ttfamily keys} \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_aba10af6a285ac105d9f61ae35e9d45ed}{is\+\_\+presorted}} ()
+\begin{DoxyCompactList}\small\item\em check if the groupby keys are presorted \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a07031dad4500186f08030023c0fb0fe2}{num\+\_\+keys}} (rmm\+::cuda\+\_\+stream\+\_\+view stream)
+\begin{DoxyCompactList}\small\item\em Return the effective number of keys \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a7e145e85b91e870afeb4068eddc070e4}{key\+\_\+sort\+\_\+order}} (rmm\+::cuda\+\_\+stream\+\_\+view stream)
+\begin{DoxyCompactList}\small\item\em Get the sorted order of {\ttfamily keys}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a2d68acd7880e06d60ab391d8d0a91ed8}{index\+\_\+vector}} const \& \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a3a313d08378fbda6d2aa323db9339c02}{group\+\_\+offsets}} (rmm\+::cuda\+\_\+stream\+\_\+view stream)
+\begin{DoxyCompactList}\small\item\em Get each group\textquotesingle{}s offset into the sorted order of {\ttfamily keys}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a2d68acd7880e06d60ab391d8d0a91ed8}{index\+\_\+vector}} const \& \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_afee676bdbd82a1b618847f912c82525c}{group\+\_\+labels}} (rmm\+::cuda\+\_\+stream\+\_\+view stream)
+\begin{DoxyCompactList}\small\item\em Get the group labels corresponding to the sorted order of {\ttfamily keys}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_af061d9557c186442b8168dfe3ba52a52}{unsorted\+\_\+keys\+\_\+labels}} (rmm\+::cuda\+\_\+stream\+\_\+view stream)
+\begin{DoxyCompactList}\small\item\em Get the group labels for unsorted keys \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a7d4aef0d98b801b4a1832a104cf42d27}{keys\+\_\+bitmask\+\_\+column}} (rmm\+::cuda\+\_\+stream\+\_\+view stream)
+\begin{DoxyCompactList}\small\item\em Get the column representing the row bitmask for the {\ttfamily keys} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_acf6dacd6443926cc0be3ed92f998dbed}{column\+\_\+ptr}} \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a6c2d04a16b135da4a0523fb0e33360ca}{\+\_\+key\+\_\+sorted\+\_\+order}}
+\begin{DoxyCompactList}\small\item\em Indices to produce \+\_\+keys in sorted order \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_acf6dacd6443926cc0be3ed92f998dbed}{column\+\_\+ptr}} \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_ae3e7889d485d83e2630b68b1e3de4f30}{\+\_\+unsorted\+\_\+keys\+\_\+labels}}
+\begin{DoxyCompactList}\small\item\em Group labels for unsorted \+\_\+keys \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_acf6dacd6443926cc0be3ed92f998dbed}{column\+\_\+ptr}} \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_af0e215b5b680aebf2416d1ca29dc94c4}{\+\_\+keys\+\_\+bitmask\+\_\+column}}
+\begin{DoxyCompactList}\small\item\em Column representing rows with one or more nulls values \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a0b3fd92f36f9affb2f28ebd1e013e722}{\+\_\+keys}}
+\begin{DoxyCompactList}\small\item\em Input keys to sort by \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a62dcba6dc967f0519a2ddba46ca307d8}{index\+\_\+vector\+\_\+ptr}} \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a27e3654c6b77c207777adcc71d022c7a}{\+\_\+group\+\_\+offsets}}
+\begin{DoxyCompactList}\small\item\em Indices into sorted \+\_\+keys indicating starting index of each groups \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a62dcba6dc967f0519a2ddba46ca307d8}{index\+\_\+vector\+\_\+ptr}} \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_af37f0c2d3c254fc858af248f288ed9f4}{\+\_\+group\+\_\+labels}}
+\begin{DoxyCompactList}\small\item\em Group labels for sorted \+\_\+keys \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a009f997cef561e30577927fb9442736f}{\+\_\+num\+\_\+keys}}
+\begin{DoxyCompactList}\small\item\em Number of effective rows in \+\_\+keys (adjusted for \+\_\+include\+\_\+null\+\_\+keys) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_gab283c517931abd4152ffa62fec62425d}{sorted}} \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a7b224be6e5ed7423c6e00f7d2de63ffc}{\+\_\+keys\+\_\+pre\+\_\+sorted}}
+\begin{DoxyCompactList}\small\item\em Whether \+\_\+keys are pre-\/sorted \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_acd60be61fbebf1a9e1c6aa81ce1fa786}{\+\_\+include\+\_\+null\+\_\+keys}}
+\begin{DoxyCompactList}\small\item\em Whether to use rows with nulls in \+\_\+keys for grouping \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Helper class for computing sort-\/based groupby 
+
+This class serves the purpose of sorting the keys and values and provides building blocks for aggregations. It can provide\+:
+\begin{DoxyEnumerate}
+\item On-\/demand grouping or sorting of a value column based on {\ttfamily keys} which is provided at construction
+\item Group offsets\+: starting offsets of all groups in sorted key table
+\item Group valid sizes\+: The number of valid values in each group in a sorted value column 
+\end{DoxyEnumerate}
+
+在文件 \mbox{\hyperlink{sort__helper_8hpp_source}{sort\+\_\+helper.\+hpp}} 第 \mbox{\hyperlink{sort__helper_8hpp_source_l00043}{43}} 行定义.
+
+
+
+\doxysubsection{成员类型定义说明}
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a1197874184f36bf5355afedd17f60c03}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a1197874184f36bf5355afedd17f60c03} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!bitmask\_vector@{bitmask\_vector}}
+\index{bitmask\_vector@{bitmask\_vector}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{bitmask\_vector}{bitmask\_vector}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a1197874184f36bf5355afedd17f60c03}{cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::bitmask\+\_\+vector}} =  rmm\+::device\+\_\+uvector$<$\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}}$>$}
+
+
+
+在文件 \mbox{\hyperlink{sort__helper_8hpp_source}{sort\+\_\+helper.\+hpp}} 第 \mbox{\hyperlink{sort__helper_8hpp_source_l00045}{45}} 行定义.
+
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a8eed383cff7cf82d0c648f72ff184a02}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a8eed383cff7cf82d0c648f72ff184a02} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!bitmask\_vector\_ptr@{bitmask\_vector\_ptr}}
+\index{bitmask\_vector\_ptr@{bitmask\_vector\_ptr}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{bitmask\_vector\_ptr}{bitmask\_vector\_ptr}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a8eed383cff7cf82d0c648f72ff184a02}{cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::bitmask\+\_\+vector\+\_\+ptr}} =  std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a1197874184f36bf5355afedd17f60c03}{bitmask\+\_\+vector}}$>$}
+
+
+
+在文件 \mbox{\hyperlink{sort__helper_8hpp_source}{sort\+\_\+helper.\+hpp}} 第 \mbox{\hyperlink{sort__helper_8hpp_source_l00048}{48}} 行定义.
+
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_acf6dacd6443926cc0be3ed92f998dbed}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_acf6dacd6443926cc0be3ed92f998dbed} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!column\_ptr@{column\_ptr}}
+\index{column\_ptr@{column\_ptr}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{column\_ptr}{column\_ptr}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_acf6dacd6443926cc0be3ed92f998dbed}{cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::column\+\_\+ptr}} =  std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classcudf_1_1column}{column}}$>$}
+
+
+
+在文件 \mbox{\hyperlink{sort__helper_8hpp_source}{sort\+\_\+helper.\+hpp}} 第 \mbox{\hyperlink{sort__helper_8hpp_source_l00046}{46}} 行定义.
+
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a2d68acd7880e06d60ab391d8d0a91ed8}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a2d68acd7880e06d60ab391d8d0a91ed8} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!index\_vector@{index\_vector}}
+\index{index\_vector@{index\_vector}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{index\_vector}{index\_vector}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a2d68acd7880e06d60ab391d8d0a91ed8}{cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::index\+\_\+vector}} =  rmm\+::device\+\_\+uvector$<$\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}$>$}
+
+
+
+在文件 \mbox{\hyperlink{sort__helper_8hpp_source}{sort\+\_\+helper.\+hpp}} 第 \mbox{\hyperlink{sort__helper_8hpp_source_l00044}{44}} 行定义.
+
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a62dcba6dc967f0519a2ddba46ca307d8}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a62dcba6dc967f0519a2ddba46ca307d8} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!index\_vector\_ptr@{index\_vector\_ptr}}
+\index{index\_vector\_ptr@{index\_vector\_ptr}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{index\_vector\_ptr}{index\_vector\_ptr}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a62dcba6dc967f0519a2ddba46ca307d8}{cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::index\+\_\+vector\+\_\+ptr}} =  std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a2d68acd7880e06d60ab391d8d0a91ed8}{index\+\_\+vector}}$>$}
+
+
+
+在文件 \mbox{\hyperlink{sort__helper_8hpp_source}{sort\+\_\+helper.\+hpp}} 第 \mbox{\hyperlink{sort__helper_8hpp_source_l00047}{47}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a3699e4a61699cb195c22478cf45cbbb9}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a3699e4a61699cb195c22478cf45cbbb9} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!sort\_groupby\_helper@{sort\_groupby\_helper}}
+\index{sort\_groupby\_helper@{sort\_groupby\_helper}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{sort\_groupby\_helper()}{sort\_groupby\_helper()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::sort\+\_\+groupby\+\_\+helper (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{keys,  }\item[{\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}}}]{include\+\_\+null\+\_\+keys = {\ttfamily \mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}{null\+\_\+policy\+::\+EXCLUDE}}},  }\item[{\mbox{\hyperlink{group__utility__types_gab283c517931abd4152ffa62fec62425d}{sorted}}}]{keys\+\_\+pre\+\_\+sorted = {\ttfamily \mbox{\hyperlink{group__utility__types_ggab283c517931abd4152ffa62fec62425dac2f3f489a00553e7a01d369c103c7251}{sorted\+::\+NO}}} }\end{DoxyParamCaption})}
+
+
+
+Construct a new helper object 
+
+If {\ttfamily include\+\_\+null\+\_\+keys == NO}, then any row in {\ttfamily keys} containing a null value will effectively be discarded. I.\+e., any values corresponding to discarded rows in {\ttfamily keys} will not contribute to any aggregation.
+
+
+\begin{DoxyParams}{参数}
+{\em keys} & table to group by \\
+\hline
+{\em include\+\_\+null\+\_\+keys} & Include rows in keys with nulls \\
+\hline
+{\em keys\+\_\+pre\+\_\+sorted} & Indicate if the keys are already sorted. Enables optimizations to help skip re-\/sorting keys. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a051a500e757977d32c14850d07310f18}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a051a500e757977d32c14850d07310f18} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!````~sort\_groupby\_helper@{\texorpdfstring{$\sim$}{\string~}sort\_groupby\_helper}}
+\index{````~sort\_groupby\_helper@{\texorpdfstring{$\sim$}{\string~}sort\_groupby\_helper}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}sort\_groupby\_helper()}{\string~sort\_groupby\_helper()}}
+{\footnotesize\ttfamily cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::\texorpdfstring{$\sim$}{\string~}sort\+\_\+groupby\+\_\+helper (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a753421adc02293c676c52053d155f81a}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a753421adc02293c676c52053d155f81a} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!sort\_groupby\_helper@{sort\_groupby\_helper}}
+\index{sort\_groupby\_helper@{sort\_groupby\_helper}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{sort\_groupby\_helper()}{sort\_groupby\_helper()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::sort\+\_\+groupby\+\_\+helper (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper}{sort\+\_\+groupby\+\_\+helper}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a7a8ada3aef1d2c165e7bc5394ec08c60}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a7a8ada3aef1d2c165e7bc5394ec08c60} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!sort\_groupby\_helper@{sort\_groupby\_helper}}
+\index{sort\_groupby\_helper@{sort\_groupby\_helper}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{sort\_groupby\_helper()}{sort\_groupby\_helper()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::sort\+\_\+groupby\+\_\+helper (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper}{sort\+\_\+groupby\+\_\+helper}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_afee676bdbd82a1b618847f912c82525c}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_afee676bdbd82a1b618847f912c82525c} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!group\_labels@{group\_labels}}
+\index{group\_labels@{group\_labels}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{group\_labels()}{group\_labels()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a2d68acd7880e06d60ab391d8d0a91ed8}{index\+\_\+vector}} const  \& cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::group\+\_\+labels (\begin{DoxyParamCaption}\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream }\end{DoxyParamCaption})}
+
+
+
+Get the group labels corresponding to the sorted order of {\ttfamily keys}. 
+
+Each group is assigned a unique numerical \"{}label\"{} in {\ttfamily \mbox{[}0, 1, 2, ... , \doxylink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a9bd572bd55e2ab9c9b7be0d7aead5415}{num\+\_\+groups()} -\/ 1, num\+\_\+groups(stream))}. For a row in sorted {\ttfamily keys}, its corresponding group label indicates which group it belongs to.
+
+Computes and stores labels on first invocation and returns stored labels on subsequent calls.
+
+\begin{DoxyReturn}{返回}
+vector of group labels for each row in the sorted key column 
+\end{DoxyReturn}
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a3a313d08378fbda6d2aa323db9339c02}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a3a313d08378fbda6d2aa323db9339c02} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!group\_offsets@{group\_offsets}}
+\index{group\_offsets@{group\_offsets}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{group\_offsets()}{group\_offsets()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a2d68acd7880e06d60ab391d8d0a91ed8}{index\+\_\+vector}} const  \& cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::group\+\_\+offsets (\begin{DoxyParamCaption}\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream }\end{DoxyParamCaption})}
+
+
+
+Get each group\textquotesingle{}s offset into the sorted order of {\ttfamily keys}. 
+
+Computes and stores the group offsets on first invocation and returns the stored group offsets on subsequent calls. This returns a vector of size {\ttfamily \doxylink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a9bd572bd55e2ab9c9b7be0d7aead5415}{num\+\_\+groups()} + 1} such that the size of group {\ttfamily i} is {\ttfamily group\+\_\+offsets\mbox{[}i+1\mbox{]} -\/ group\+\_\+offsets\mbox{[}i\mbox{]}}
+
+\begin{DoxyReturn}{返回}
+vector of offsets of the starting point of each group in the sorted key table 
+\end{DoxyReturn}
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a6fec0e1063e34c1f44b8213dfc062163}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a6fec0e1063e34c1f44b8213dfc062163} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!grouped\_values@{grouped\_values}}
+\index{grouped\_values@{grouped\_values}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{grouped\_values()}{grouped\_values()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::grouped\+\_\+values (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{values,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Groups a column of values according to {\ttfamily keys} 
+
+The values within each group maintain their original order.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily values.\+size() != keys.\+num\+\_\+rows()}\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em values} & The value column to group \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+the grouped column 
+\end{DoxyReturn}
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_aba10af6a285ac105d9f61ae35e9d45ed}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_aba10af6a285ac105d9f61ae35e9d45ed} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!is\_presorted@{is\_presorted}}
+\index{is\_presorted@{is\_presorted}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{is\_presorted()}{is\_presorted()}}
+{\footnotesize\ttfamily bool cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::is\+\_\+presorted (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+check if the groupby keys are presorted 
+
+
+
+在文件 \mbox{\hyperlink{sort__helper_8hpp_source}{sort\+\_\+helper.\+hpp}} 第 \mbox{\hyperlink{sort__helper_8hpp_source_l00131}{131}} 行定义.
+
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a7e145e85b91e870afeb4068eddc070e4}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a7e145e85b91e870afeb4068eddc070e4} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!key\_sort\_order@{key\_sort\_order}}
+\index{key\_sort\_order@{key\_sort\_order}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{key\_sort\_order()}{key\_sort\_order()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::key\+\_\+sort\+\_\+order (\begin{DoxyParamCaption}\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream }\end{DoxyParamCaption})}
+
+
+
+Get the sorted order of {\ttfamily keys}. 
+
+Gathering {\ttfamily keys} by sort order indices will produce the sorted key table.
+
+When ignore\+\_\+null\+\_\+keys = true, the result will not include indices for null keys.
+
+Computes and stores the key sorted order on first invocation, and returns the stored order on subsequent calls.
+
+\begin{DoxyReturn}{返回}
+the sort order indices for {\ttfamily keys}. 
+\end{DoxyReturn}
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a7d4aef0d98b801b4a1832a104cf42d27}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a7d4aef0d98b801b4a1832a104cf42d27} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!keys\_bitmask\_column@{keys\_bitmask\_column}}
+\index{keys\_bitmask\_column@{keys\_bitmask\_column}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{keys\_bitmask\_column()}{keys\_bitmask\_column()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::keys\+\_\+bitmask\+\_\+column (\begin{DoxyParamCaption}\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get the column representing the row bitmask for the {\ttfamily keys} 
+
+Computes a bitmask corresponding to the rows of {\ttfamily keys} where if bit {\ttfamily i} is zero, then row {\ttfamily i} contains one or more null values. If bit {\ttfamily i} is one, then row {\ttfamily i} does not contain null values. This bitmask is added as null mask of a column of type {\ttfamily INT8} where all the data values are the same and the elements differ only in validity.
+
+Computes and stores bitmask on first invocation and returns stored column on subsequent calls. \Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a9bd572bd55e2ab9c9b7be0d7aead5415}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a9bd572bd55e2ab9c9b7be0d7aead5415} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!num\_groups@{num\_groups}}
+\index{num\_groups@{num\_groups}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{num\_groups()}{num\_groups()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::num\+\_\+groups (\begin{DoxyParamCaption}\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the number of groups in {\ttfamily keys} 
+
+
+
+在文件 \mbox{\hyperlink{sort__helper_8hpp_source}{sort\+\_\+helper.\+hpp}} 第 \mbox{\hyperlink{sort__helper_8hpp_source_l00126}{126}} 行定义.
+
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a07031dad4500186f08030023c0fb0fe2}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a07031dad4500186f08030023c0fb0fe2} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!num\_keys@{num\_keys}}
+\index{num\_keys@{num\_keys}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{num\_keys()}{num\_keys()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::num\+\_\+keys (\begin{DoxyParamCaption}\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream }\end{DoxyParamCaption})}
+
+
+
+Return the effective number of keys 
+
+When include\+\_\+null\+\_\+keys = YES, returned value is same as {\ttfamily keys.\+num\+\_\+rows()} When include\+\_\+null\+\_\+keys = NO, returned value is the number of rows in {\ttfamily keys} in which no element is null \Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a8897ec51229c194af1ca4ef221bb617e}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a8897ec51229c194af1ca4ef221bb617e} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!operator=@{operator=}}
+\index{operator=@{operator=}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper}{sort\+\_\+groupby\+\_\+helper}} \& cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper}{sort\+\_\+groupby\+\_\+helper}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a054ac234745b83a23a77986613cbff7a}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a054ac234745b83a23a77986613cbff7a} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!operator=@{operator=}}
+\index{operator=@{operator=}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper}{sort\+\_\+groupby\+\_\+helper}} \& cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper}{sort\+\_\+groupby\+\_\+helper}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a401277961d89e05113061514ac202732}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a401277961d89e05113061514ac202732} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!sorted\_keys@{sorted\_keys}}
+\index{sorted\_keys@{sorted\_keys}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{sorted\_keys()}{sorted\_keys()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::sorted\+\_\+keys (\begin{DoxyParamCaption}\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Get a table of sorted keys 
+
+\begin{DoxyReturn}{返回}
+a new table containing the sorted keys. 
+\end{DoxyReturn}
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_ad601ce066e540c34827d3932c5e5476e}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_ad601ce066e540c34827d3932c5e5476e} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!sorted\_values@{sorted\_values}}
+\index{sorted\_values@{sorted\_values}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{sorted\_values()}{sorted\_values()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::sorted\+\_\+values (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{values,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Groups a column of values according to {\ttfamily keys} and sorts within each group. 
+
+Groups the {\ttfamily values} where the groups are dictated by key table and each group is sorted in ascending order, with NULL elements positioned at the end of each group.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily values.\+size() != keys.\+num\+\_\+rows()}\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em values} & The value column to group and sort \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+the sorted and grouped column 
+\end{DoxyReturn}
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a342160b5582643beda13449124647a44}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a342160b5582643beda13449124647a44} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!unique\_keys@{unique\_keys}}
+\index{unique\_keys@{unique\_keys}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{unique\_keys()}{unique\_keys()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::unique\+\_\+keys (\begin{DoxyParamCaption}\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Get a table of sorted unique keys 
+
+\begin{DoxyReturn}{返回}
+a new table in which each row is a unique row in the sorted key table. 
+\end{DoxyReturn}
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_af061d9557c186442b8168dfe3ba52a52}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_af061d9557c186442b8168dfe3ba52a52} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!unsorted\_keys\_labels@{unsorted\_keys\_labels}}
+\index{unsorted\_keys\_labels@{unsorted\_keys\_labels}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{unsorted\_keys\_labels()}{unsorted\_keys\_labels()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::unsorted\+\_\+keys\+\_\+labels (\begin{DoxyParamCaption}\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get the group labels for unsorted keys 
+
+Returns the group label for every row in the original {\ttfamily keys} table. For a given unique key row, its group label is equivalent to what is returned by {\ttfamily group\+\_\+labels(stream)}. However, if a row contains a null value, and {\ttfamily include\+\_\+null\+\_\+keys == NO}, then its label is NULL.
+
+Computes and stores unsorted labels on first invocation and returns stored labels on subsequent calls.
+
+\begin{DoxyReturn}{返回}
+A nullable column of {\ttfamily INT32} containing group labels in the order of the unsorted key table 
+\end{DoxyReturn}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_af37f0c2d3c254fc858af248f288ed9f4}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_af37f0c2d3c254fc858af248f288ed9f4} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!\_group\_labels@{\_group\_labels}}
+\index{\_group\_labels@{\_group\_labels}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{\_group\_labels}{\_group\_labels}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a62dcba6dc967f0519a2ddba46ca307d8}{index\+\_\+vector\+\_\+ptr}} cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::\+\_\+group\+\_\+labels\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Group labels for sorted \+\_\+keys 
+
+
+
+在文件 \mbox{\hyperlink{sort__helper_8hpp_source}{sort\+\_\+helper.\+hpp}} 第 \mbox{\hyperlink{sort__helper_8hpp_source_l00224}{224}} 行定义.
+
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a27e3654c6b77c207777adcc71d022c7a}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a27e3654c6b77c207777adcc71d022c7a} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!\_group\_offsets@{\_group\_offsets}}
+\index{\_group\_offsets@{\_group\_offsets}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{\_group\_offsets}{\_group\_offsets}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a62dcba6dc967f0519a2ddba46ca307d8}{index\+\_\+vector\+\_\+ptr}} cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::\+\_\+group\+\_\+offsets\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Indices into sorted \+\_\+keys indicating starting index of each groups 
+
+
+
+在文件 \mbox{\hyperlink{sort__helper_8hpp_source}{sort\+\_\+helper.\+hpp}} 第 \mbox{\hyperlink{sort__helper_8hpp_source_l00223}{223}} 行定义.
+
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_acd60be61fbebf1a9e1c6aa81ce1fa786}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_acd60be61fbebf1a9e1c6aa81ce1fa786} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!\_include\_null\_keys@{\_include\_null\_keys}}
+\index{\_include\_null\_keys@{\_include\_null\_keys}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{\_include\_null\_keys}{\_include\_null\_keys}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::\+\_\+include\+\_\+null\+\_\+keys\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Whether to use rows with nulls in \+\_\+keys for grouping 
+
+
+
+在文件 \mbox{\hyperlink{sort__helper_8hpp_source}{sort\+\_\+helper.\+hpp}} 第 \mbox{\hyperlink{sort__helper_8hpp_source_l00228}{228}} 行定义.
+
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a6c2d04a16b135da4a0523fb0e33360ca}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a6c2d04a16b135da4a0523fb0e33360ca} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!\_key\_sorted\_order@{\_key\_sorted\_order}}
+\index{\_key\_sorted\_order@{\_key\_sorted\_order}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{\_key\_sorted\_order}{\_key\_sorted\_order}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_acf6dacd6443926cc0be3ed92f998dbed}{column\+\_\+ptr}} cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::\+\_\+key\+\_\+sorted\+\_\+order\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Indices to produce \+\_\+keys in sorted order 
+
+
+
+在文件 \mbox{\hyperlink{sort__helper_8hpp_source}{sort\+\_\+helper.\+hpp}} 第 \mbox{\hyperlink{sort__helper_8hpp_source_l00217}{217}} 行定义.
+
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a0b3fd92f36f9affb2f28ebd1e013e722}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a0b3fd92f36f9affb2f28ebd1e013e722} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!\_keys@{\_keys}}
+\index{\_keys@{\_keys}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{\_keys}{\_keys}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::\+\_\+keys\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Input keys to sort by 
+
+
+
+在文件 \mbox{\hyperlink{sort__helper_8hpp_source}{sort\+\_\+helper.\+hpp}} 第 \mbox{\hyperlink{sort__helper_8hpp_source_l00220}{220}} 行定义.
+
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_af0e215b5b680aebf2416d1ca29dc94c4}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_af0e215b5b680aebf2416d1ca29dc94c4} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!\_keys\_bitmask\_column@{\_keys\_bitmask\_column}}
+\index{\_keys\_bitmask\_column@{\_keys\_bitmask\_column}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{\_keys\_bitmask\_column}{\_keys\_bitmask\_column}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_acf6dacd6443926cc0be3ed92f998dbed}{column\+\_\+ptr}} cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::\+\_\+keys\+\_\+bitmask\+\_\+column\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Column representing rows with one or more nulls values 
+
+
+
+在文件 \mbox{\hyperlink{sort__helper_8hpp_source}{sort\+\_\+helper.\+hpp}} 第 \mbox{\hyperlink{sort__helper_8hpp_source_l00219}{219}} 行定义.
+
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a7b224be6e5ed7423c6e00f7d2de63ffc}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a7b224be6e5ed7423c6e00f7d2de63ffc} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!\_keys\_pre\_sorted@{\_keys\_pre\_sorted}}
+\index{\_keys\_pre\_sorted@{\_keys\_pre\_sorted}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{\_keys\_pre\_sorted}{\_keys\_pre\_sorted}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_gab283c517931abd4152ffa62fec62425d}{sorted}} cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::\+\_\+keys\+\_\+pre\+\_\+sorted\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Whether \+\_\+keys are pre-\/sorted 
+
+
+
+在文件 \mbox{\hyperlink{sort__helper_8hpp_source}{sort\+\_\+helper.\+hpp}} 第 \mbox{\hyperlink{sort__helper_8hpp_source_l00227}{227}} 行定义.
+
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a009f997cef561e30577927fb9442736f}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_a009f997cef561e30577927fb9442736f} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!\_num\_keys@{\_num\_keys}}
+\index{\_num\_keys@{\_num\_keys}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{\_num\_keys}{\_num\_keys}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::\+\_\+num\+\_\+keys\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Number of effective rows in \+\_\+keys (adjusted for \+\_\+include\+\_\+null\+\_\+keys) 
+
+
+
+在文件 \mbox{\hyperlink{sort__helper_8hpp_source}{sort\+\_\+helper.\+hpp}} 第 \mbox{\hyperlink{sort__helper_8hpp_source_l00226}{226}} 行定义.
+
+\Hypertarget{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_ae3e7889d485d83e2630b68b1e3de4f30}\label{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_ae3e7889d485d83e2630b68b1e3de4f30} 
+\index{cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}!\_unsorted\_keys\_labels@{\_unsorted\_keys\_labels}}
+\index{\_unsorted\_keys\_labels@{\_unsorted\_keys\_labels}!cudf::groupby::detail::sort::sort\_groupby\_helper@{cudf::groupby::detail::sort::sort\_groupby\_helper}}
+\doxysubsubsection{\texorpdfstring{\_unsorted\_keys\_labels}{\_unsorted\_keys\_labels}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_acf6dacd6443926cc0be3ed92f998dbed}{column\+\_\+ptr}} cudf\+::groupby\+::detail\+::sort\+::sort\+\_\+groupby\+\_\+helper\+::\+\_\+unsorted\+\_\+keys\+\_\+labels\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Group labels for unsorted \+\_\+keys 
+
+
+
+在文件 \mbox{\hyperlink{sort__helper_8hpp_source}{sort\+\_\+helper.\+hpp}} 第 \mbox{\hyperlink{sort__helper_8hpp_source_l00218}{218}} 行定义.
+
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/detail/groupby/\mbox{\hyperlink{sort__helper_8hpp}{sort\+\_\+helper.\+hpp}}\end{DoxyCompactItemize}

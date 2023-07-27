@@ -1,0 +1,131 @@
+\doxysection{cudf\+::detail\+::result\+\_\+cache类 参考}
+\hypertarget{classcudf_1_1detail_1_1result__cache}{}\label{classcudf_1_1detail_1_1result__cache}\index{cudf::detail::result\_cache@{cudf::detail::result\_cache}}
+
+
+{\ttfamily \#include $<$result\+\_\+cache.\+hpp$>$}
+
+
+
+cudf\+::detail\+::result\+\_\+cache 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=167pt]{classcudf_1_1detail_1_1result__cache__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1result__cache_a8015391fb7476abc598fa302f372a080}{result\+\_\+cache}} ()=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1result__cache_aa988286d2f60c07a3f8a62c3de60c365}{\texorpdfstring{$\sim$}{\string~}result\+\_\+cache}} ()=default
+\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1result__cache_a81dd365f8c0a7db358cb2bed5f63a69c}{result\+\_\+cache}} (\mbox{\hyperlink{classcudf_1_1detail_1_1result__cache}{result\+\_\+cache}} const \&)=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1result__cache}{result\+\_\+cache}} \& \mbox{\hyperlink{classcudf_1_1detail_1_1result__cache_a94906fc4210115ff0d6a39ba8f6e81ac}{operator=}} (const \mbox{\hyperlink{classcudf_1_1detail_1_1result__cache}{result\+\_\+cache}} \&other)=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1result__cache_a2ad2fe6ac38f979d18d5408af856d344}{result\+\_\+cache}} (size\+\_\+t num\+\_\+columns)
+\item 
+bool \mbox{\hyperlink{classcudf_1_1detail_1_1result__cache_a308565e21833eb28582aa9ebd23c923e}{has\+\_\+result}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1aggregation}{aggregation}} const \&agg) const
+\item 
+void \mbox{\hyperlink{classcudf_1_1detail_1_1result__cache_a6a1264214ae081b7a6f512ce8ba9868e}{add\+\_\+result}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1aggregation}{aggregation}} const \&agg, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \&\&col)
+\item 
+\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} \mbox{\hyperlink{classcudf_1_1detail_1_1result__cache_a1f32f98c5a5c737f5b05807ec370c2f2}{get\+\_\+result}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1aggregation}{aggregation}} const \&agg) const
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{classcudf_1_1detail_1_1result__cache_ae691a1991f47b3d0ab8a40a8a8b62544}{release\+\_\+result}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1aggregation}{aggregation}} const \&agg)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unordered\+\_\+map$<$ std\+::pair$<$ \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}}, std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classcudf_1_1aggregation}{aggregation}} const  $>$ $>$, std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1aggregation}{aggregation}} $>$, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ $>$, \mbox{\hyperlink{structcudf_1_1detail_1_1pair__column__aggregation__hash}{pair\+\_\+column\+\_\+aggregation\+\_\+hash}}, \mbox{\hyperlink{structcudf_1_1detail_1_1pair__column__aggregation__equal__to}{pair\+\_\+column\+\_\+aggregation\+\_\+equal\+\_\+to}} $>$ \mbox{\hyperlink{classcudf_1_1detail_1_1result__cache_a72bd8778f60ed7183a9f2bd21ef5d169}{\+\_\+cache}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+在文件 \mbox{\hyperlink{result__cache_8hpp_source}{result\+\_\+cache.\+hpp}} 第 \mbox{\hyperlink{result__cache_8hpp_source_l00043}{43}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1detail_1_1result__cache_a8015391fb7476abc598fa302f372a080}\label{classcudf_1_1detail_1_1result__cache_a8015391fb7476abc598fa302f372a080} 
+\index{cudf::detail::result\_cache@{cudf::detail::result\_cache}!result\_cache@{result\_cache}}
+\index{result\_cache@{result\_cache}!cudf::detail::result\_cache@{cudf::detail::result\_cache}}
+\doxysubsubsection{\texorpdfstring{result\_cache()}{result\_cache()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily cudf\+::detail\+::result\+\_\+cache\+::result\+\_\+cache (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classcudf_1_1detail_1_1result__cache_aa988286d2f60c07a3f8a62c3de60c365}\label{classcudf_1_1detail_1_1result__cache_aa988286d2f60c07a3f8a62c3de60c365} 
+\index{cudf::detail::result\_cache@{cudf::detail::result\_cache}!````~result\_cache@{\texorpdfstring{$\sim$}{\string~}result\_cache}}
+\index{````~result\_cache@{\texorpdfstring{$\sim$}{\string~}result\_cache}!cudf::detail::result\_cache@{cudf::detail::result\_cache}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}result\_cache()}{\string~result\_cache()}}
+{\footnotesize\ttfamily cudf\+::detail\+::result\+\_\+cache\+::\texorpdfstring{$\sim$}{\string~}result\+\_\+cache (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classcudf_1_1detail_1_1result__cache_a81dd365f8c0a7db358cb2bed5f63a69c}\label{classcudf_1_1detail_1_1result__cache_a81dd365f8c0a7db358cb2bed5f63a69c} 
+\index{cudf::detail::result\_cache@{cudf::detail::result\_cache}!result\_cache@{result\_cache}}
+\index{result\_cache@{result\_cache}!cudf::detail::result\_cache@{cudf::detail::result\_cache}}
+\doxysubsubsection{\texorpdfstring{result\_cache()}{result\_cache()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily cudf\+::detail\+::result\+\_\+cache\+::result\+\_\+cache (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1detail_1_1result__cache}{result\+\_\+cache}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classcudf_1_1detail_1_1result__cache_a2ad2fe6ac38f979d18d5408af856d344}\label{classcudf_1_1detail_1_1result__cache_a2ad2fe6ac38f979d18d5408af856d344} 
+\index{cudf::detail::result\_cache@{cudf::detail::result\_cache}!result\_cache@{result\_cache}}
+\index{result\_cache@{result\_cache}!cudf::detail::result\_cache@{cudf::detail::result\_cache}}
+\doxysubsubsection{\texorpdfstring{result\_cache()}{result\_cache()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily cudf\+::detail\+::result\+\_\+cache\+::result\+\_\+cache (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{num\+\_\+columns }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+在文件 \mbox{\hyperlink{result__cache_8hpp_source}{result\+\_\+cache.\+hpp}} 第 \mbox{\hyperlink{result__cache_8hpp_source_l00050}{50}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1detail_1_1result__cache_a6a1264214ae081b7a6f512ce8ba9868e}\label{classcudf_1_1detail_1_1result__cache_a6a1264214ae081b7a6f512ce8ba9868e} 
+\index{cudf::detail::result\_cache@{cudf::detail::result\_cache}!add\_result@{add\_result}}
+\index{add\_result@{add\_result}!cudf::detail::result\_cache@{cudf::detail::result\_cache}}
+\doxysubsubsection{\texorpdfstring{add\_result()}{add\_result()}}
+{\footnotesize\ttfamily void cudf\+::detail\+::result\+\_\+cache\+::add\+\_\+result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1aggregation}{aggregation}} const \&}]{agg,  }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \&\&}]{col }\end{DoxyParamCaption})}
+
+\Hypertarget{classcudf_1_1detail_1_1result__cache_a1f32f98c5a5c737f5b05807ec370c2f2}\label{classcudf_1_1detail_1_1result__cache_a1f32f98c5a5c737f5b05807ec370c2f2} 
+\index{cudf::detail::result\_cache@{cudf::detail::result\_cache}!get\_result@{get\_result}}
+\index{get\_result@{get\_result}!cudf::detail::result\_cache@{cudf::detail::result\_cache}}
+\doxysubsubsection{\texorpdfstring{get\_result()}{get\_result()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} cudf\+::detail\+::result\+\_\+cache\+::get\+\_\+result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1aggregation}{aggregation}} const \&}]{agg }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classcudf_1_1detail_1_1result__cache_a308565e21833eb28582aa9ebd23c923e}\label{classcudf_1_1detail_1_1result__cache_a308565e21833eb28582aa9ebd23c923e} 
+\index{cudf::detail::result\_cache@{cudf::detail::result\_cache}!has\_result@{has\_result}}
+\index{has\_result@{has\_result}!cudf::detail::result\_cache@{cudf::detail::result\_cache}}
+\doxysubsubsection{\texorpdfstring{has\_result()}{has\_result()}}
+{\footnotesize\ttfamily bool cudf\+::detail\+::result\+\_\+cache\+::has\+\_\+result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1aggregation}{aggregation}} const \&}]{agg }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classcudf_1_1detail_1_1result__cache_a94906fc4210115ff0d6a39ba8f6e81ac}\label{classcudf_1_1detail_1_1result__cache_a94906fc4210115ff0d6a39ba8f6e81ac} 
+\index{cudf::detail::result\_cache@{cudf::detail::result\_cache}!operator=@{operator=}}
+\index{operator=@{operator=}!cudf::detail::result\_cache@{cudf::detail::result\_cache}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1detail_1_1result__cache}{result\+\_\+cache}} \& cudf\+::detail\+::result\+\_\+cache\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcudf_1_1detail_1_1result__cache}{result\+\_\+cache}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classcudf_1_1detail_1_1result__cache_ae691a1991f47b3d0ab8a40a8a8b62544}\label{classcudf_1_1detail_1_1result__cache_ae691a1991f47b3d0ab8a40a8a8b62544} 
+\index{cudf::detail::result\_cache@{cudf::detail::result\_cache}!release\_result@{release\_result}}
+\index{release\_result@{release\_result}!cudf::detail::result\_cache@{cudf::detail::result\_cache}}
+\doxysubsubsection{\texorpdfstring{release\_result()}{release\_result()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::detail\+::result\+\_\+cache\+::release\+\_\+result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1aggregation}{aggregation}} const \&}]{agg }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1detail_1_1result__cache_a72bd8778f60ed7183a9f2bd21ef5d169}\label{classcudf_1_1detail_1_1result__cache_a72bd8778f60ed7183a9f2bd21ef5d169} 
+\index{cudf::detail::result\_cache@{cudf::detail::result\_cache}!\_cache@{\_cache}}
+\index{\_cache@{\_cache}!cudf::detail::result\_cache@{cudf::detail::result\_cache}}
+\doxysubsubsection{\texorpdfstring{\_cache}{\_cache}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$std\+::pair$<$\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}}, std\+::reference\+\_\+wrapper$<$\mbox{\hyperlink{classcudf_1_1aggregation}{aggregation}} const$>$ $>$, std\+::pair$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classcudf_1_1aggregation}{aggregation}}$>$, std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classcudf_1_1column}{column}}$>$ $>$, \mbox{\hyperlink{structcudf_1_1detail_1_1pair__column__aggregation__hash}{pair\+\_\+column\+\_\+aggregation\+\_\+hash}}, \mbox{\hyperlink{structcudf_1_1detail_1_1pair__column__aggregation__equal__to}{pair\+\_\+column\+\_\+aggregation\+\_\+equal\+\_\+to}}$>$ cudf\+::detail\+::result\+\_\+cache\+::\+\_\+cache\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{result__cache_8hpp_source}{result\+\_\+cache.\+hpp}} 第 \mbox{\hyperlink{result__cache_8hpp_source_l00065}{65}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/detail/aggregation/\mbox{\hyperlink{result__cache_8hpp}{result\+\_\+cache.\+hpp}}\end{DoxyCompactItemize}

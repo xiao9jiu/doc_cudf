@@ -1,0 +1,371 @@
+\chapter{My Project}
+\hypertarget{index}{}\label{index}\index{My Project@{My Project}}
+\hypertarget{index_QUICK_START}{}\doxysection{\texorpdfstring{Quick Start}{Quick Start}}\label{index_QUICK_START}
+To add NVTX ranges to your code, use the {\ttfamily \doxylink{namespacenvtx3_a39e1b5e1f3eabab59d1ed7241972ef9d}{nvtx3\+::thread\+\_\+range}} RAII object. A range begins when the object is created, and ends when the object is destroyed.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{nvtx3_8hpp}{nvtx3.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ some\_function()\{}
+\DoxyCodeLine{\ \ \ \textcolor{comment}{//\ Begins\ a\ NVTX\ range\ with\ the\ message\ "{}some\_function"{}}}
+\DoxyCodeLine{\ \ \ \textcolor{comment}{//\ The\ range\ ends\ when\ some\_function()\ returns\ and\ \`{}r`\ is\ destroyed}}
+\DoxyCodeLine{\ \ \ \mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::thread\_range}}\ r\{\textcolor{stringliteral}{"{}some\_function"{}}\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 6;\ ++i)\{}
+\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::thread\_range}}\ loop\{\textcolor{stringliteral}{"{}loop\ range"{}}\};}
+\DoxyCodeLine{\ \ \ \ \ \ std::this\_thread::sleep\_for(std::chrono::seconds\{1\});}
+\DoxyCodeLine{\ \ \ \}}
+\DoxyCodeLine{\}\ \textcolor{comment}{//\ Range\ ends\ when\ \`{}r`\ is\ destroyed}}
+
+\end{DoxyCode}
+
+
+The example code above generates the following timeline view in Nsight Systems\+:
+
+
+
+Alternatively, use the \doxysectlink{index_MACROS}{Convenience Macros}{1} like {\ttfamily \doxylink{nvtx3_8hpp_a0e511c3c6fd0b67c9160b485018bedd7}{NVTX3\+\_\+\+FUNC\+\_\+\+RANGE()}} to add ranges to your code that automatically use the name of the enclosing function as the range\textquotesingle{}s message.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{nvtx3_8hpp}{nvtx3.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ some\_function()\{}
+\DoxyCodeLine{\ \ \ \textcolor{comment}{//\ Creates\ a\ range\ with\ a\ message\ "{}some\_function"{}\ that\ ends\ when\ the}}
+\DoxyCodeLine{enclosing}
+\DoxyCodeLine{\ \ \ \textcolor{comment}{//\ function\ returns}}
+\DoxyCodeLine{\ \ \ \mbox{\hyperlink{nvtx3_8hpp_a0e511c3c6fd0b67c9160b485018bedd7}{NVTX3\_FUNC\_RANGE}}();}
+\DoxyCodeLine{\ \ \ ...}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{index_Overview}{}\doxysection{\texorpdfstring{Overview}{Overview}}\label{index_Overview}
+The NVTX library provides a set of functions for users to annotate their code to aid in performance profiling and optimization. These annotations provide information to tools like Nsight Systems to improve visualization of application timelines.
+
+\doxysectlink{index_RANGES}{Ranges}{1} are one of the most commonly used NVTX constructs for annotating a span of time. For example, imagine a user wanted to see every time a function, {\ttfamily my\+\_\+function}, is called and how long it takes to execute. This can be accomplished with an NVTX range created on the entry to the function and terminated on return from {\ttfamily my\+\_\+function} using the push/pop C APIs\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ my\_function(...)\{}
+\DoxyCodeLine{\ \ \ nvtxRangePushA(\textcolor{stringliteral}{"{}my\_function"{}});\ \textcolor{comment}{//\ Begins\ NVTX\ range}}
+\DoxyCodeLine{\ \ \ \textcolor{comment}{//\ do\ work}}
+\DoxyCodeLine{\ \ \ nvtxRangePop();\ \textcolor{comment}{//\ Ends\ NVTX\ range}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+One of the challenges with using the NVTX C API is that it requires manually terminating the end of the range with {\ttfamily nvtx\+Range\+Pop}. This can be challenging if {\ttfamily my\+\_\+function()} has multiple returns or can throw exceptions as it requires calling {\ttfamily nvtx\+Range\+Pop()} before all possible return points.
+
+NVTX++ solves this inconvenience through the \"{}\+RAII\"{} technique by providing a {\ttfamily \doxylink{namespacenvtx3_a39e1b5e1f3eabab59d1ed7241972ef9d}{nvtx3\+::thread\+\_\+range}} class that begins a range at construction and ends the range on destruction. The above example then becomes\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ my\_function(...)\{}
+\DoxyCodeLine{\ \ \ \mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::thread\_range}}\ r\{\textcolor{stringliteral}{"{}my\_function"{}}\};\ \textcolor{comment}{//\ Begins\ NVTX\ range}}
+\DoxyCodeLine{\ \ \ \textcolor{comment}{//\ do\ work}}
+\DoxyCodeLine{\}\ \textcolor{comment}{//\ Range\ ends\ on\ exit\ from\ \`{}my\_function`\ when\ \`{}r`\ is\ destroyed}}
+
+\end{DoxyCode}
+
+
+The range object {\ttfamily r} is deterministically destroyed whenever {\ttfamily my\+\_\+function} returns---ending the NVTX range without manual intervention. For more information, see \doxysectlink{index_RANGES}{Ranges}{1} and {\ttfamily \doxylink{classnvtx3_1_1domain__thread__range}{nvtx3\+::domain\+\_\+thread\+\_\+range}}.
+
+Another inconvenience of the NVTX C APIs are the several constructs where the user is expected to initialize an object at the beginning of an application and reuse that object throughout the lifetime of the application. For example Domains, Categories, and Registered messages.
+
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{nvtxDomainHandle\_t\ D\ =\ nvtxDomainCreateA(\textcolor{stringliteral}{"{}my\ domain"{}});}
+\DoxyCodeLine{\textcolor{comment}{//\ Reuse\ \`{}D`\ throughout\ the\ rest\ of\ the\ application}}
+
+\end{DoxyCode}
+
+
+This can be problematic if the user application or library does not have an explicit initialization function called before all other functions to ensure that these long-\/lived objects are initialized before being used.
+
+NVTX++ makes use of the \"{}construct on first use\"{} technique to alleviate this inconvenience. In short, a function local static object is constructed upon the first invocation of a function and returns a reference to that object on all future invocations. See the documentation for {\ttfamily \doxylink{classnvtx3_1_1registered__message}{nvtx3\+::registered\+\_\+message}}, {\ttfamily \doxylink{classnvtx3_1_1domain}{nvtx3\+::domain}}, {\ttfamily \doxylink{classnvtx3_1_1named__category}{nvtx3\+::named\+\_\+category}}, and \href{https://isocpp.org/wiki/faq/ctors\#static-init-order-on-first-use}{\texttt{ https\+://isocpp.\+org/wiki/faq/ctors\#static-\/init-\/order-\/on-\/first-\/use}} for more information.
+
+Using construct on first use, the above example becomes\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }my\_domain\{\ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ name\{\textcolor{stringliteral}{"{}my\ domain"{}}\};\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ The\ first\ invocation\ of\ \`{}domain::get`\ for\ the\ type\ \`{}my\_domain`\ will}}
+\DoxyCodeLine{\textcolor{comment}{//\ construct\ a\ \`{}nvtx3::domain`\ object\ and\ return\ a\ reference\ to\ it.\ Future}}
+\DoxyCodeLine{\textcolor{comment}{//\ invocations\ simply\ return\ a\ reference.}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1domain}{nvtx3::domain}}\ \textcolor{keyword}{const}\&\ D\ =\ nvtx3::domain::get<my\_domain>();}
+
+\end{DoxyCode}
+ For more information about NVTX and how it can be used, see \href{https://docs.nvidia.com/cuda/profiler-users-guide/index.html\#nvtx}{\texttt{ https\+://docs.\+nvidia.\+com/cuda/profiler-\/users-\/guide/index.\+html\#nvtx}} and \href{https://devblogs.nvidia.com/cuda-pro-tip-generate-custom-application-profile-timelines-nvtx/}{\texttt{ https\+://devblogs.\+nvidia.\+com/cuda-\/pro-\/tip-\/generate-\/custom-\/application-\/profile-\/timelines-\/nvtx/}} for more information.\hypertarget{index_RANGES}{}\doxysection{\texorpdfstring{Ranges}{Ranges}}\label{index_RANGES}
+Ranges are used to describe a span of time during the execution of an application. Common examples are using ranges to annotate the time it takes to execute a function or an iteration of a loop.
+
+NVTX++ uses RAII to automate the generation of ranges that are tied to the lifetime of objects. Similar to {\ttfamily std\+::lock\+\_\+guard} in the C++ Standard Template Library.\hypertarget{index_THREAD_RANGE}{}\doxysubsection{\texorpdfstring{Thread Range}{Thread Range}}\label{index_THREAD_RANGE}
+{\ttfamily \doxylink{classnvtx3_1_1domain__thread__range}{nvtx3\+::domain\+\_\+thread\+\_\+range}} is a class that begins a range upon construction and ends the range at destruction. This is one of the most commonly used constructs in NVTX++ and is useful for annotating spans of time on a particular thread. These ranges can be nested to arbitrary depths.
+
+{\ttfamily \doxylink{namespacenvtx3_a39e1b5e1f3eabab59d1ed7241972ef9d}{nvtx3\+::thread\+\_\+range}} is an alias for a {\ttfamily \doxylink{classnvtx3_1_1domain__thread__range}{nvtx3\+::domain\+\_\+thread\+\_\+range}} in the global NVTX domain. For more information about Domains, see \doxysectlink{index_DOMAINS}{Domains}{1}.
+
+Various attributes of a range can be configured constructing a {\ttfamily \doxylink{classnvtx3_1_1domain__thread__range}{nvtx3\+::domain\+\_\+thread\+\_\+range}} with a {\ttfamily \doxylink{classnvtx3_1_1event__attributes}{nvtx3\+::event\+\_\+attributes}} object. For more information, see \doxysectlink{index_ATTRIBUTES}{Event Attributes}{1}.
+
+Example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ some\_function()\{}
+\DoxyCodeLine{\ \ \ \textcolor{comment}{//\ Creates\ a\ range\ for\ the\ duration\ of\ \`{}some\_function`}}
+\DoxyCodeLine{\ \ \ \mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::thread\_range}}\ r\{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \textcolor{keywordflow}{while}(\textcolor{keyword}{true})\{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ Creates\ a\ range\ for\ every\ loop\ iteration}}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ \`{}loop\_range`\ is\ nested\ inside\ \`{}r`}}
+\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::thread\_range}}\ loop\_range\{\};}
+\DoxyCodeLine{\ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{index_PROCESS_RANGE}{}\doxysubsection{\texorpdfstring{Process Range}{Process Range}}\label{index_PROCESS_RANGE}
+{\ttfamily \doxylink{classnvtx3_1_1domain__process__range}{nvtx3\+::domain\+\_\+process\+\_\+range}} is identical to {\ttfamily \doxylink{classnvtx3_1_1domain__thread__range}{nvtx3\+::domain\+\_\+thread\+\_\+range}} with the exception that a {\ttfamily domain\+\_\+process\+\_\+range} can be created and destroyed on different threads. This is useful to annotate spans of time that can bridge multiple threads.
+
+{\ttfamily \doxylink{classnvtx3_1_1domain__thread__range}{nvtx3\+::domain\+\_\+thread\+\_\+range}}s should be preferred unless one needs the ability to begin and end a range on different threads.\hypertarget{index_MARKS}{}\doxysection{\texorpdfstring{Marks}{Marks}}\label{index_MARKS}
+{\ttfamily \doxylink{namespacenvtx3_a96c1ba521a0672df70afcb1070875c18}{nvtx3\+::mark}} allows annotating an instantaneous event in an application\textquotesingle{}s timeline. For example, indicating when a mutex is locked or unlocked.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::mutex\ global\_lock;}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ lock\_mutex()\{}
+\DoxyCodeLine{\ \ \ global\_lock.lock();}
+\DoxyCodeLine{\ \ \ \textcolor{comment}{//\ Marks\ an\ event\ immediately\ after\ the\ mutex\ is\ locked}}
+\DoxyCodeLine{\ \ \ nvtx3::mark<my\_domain>(\textcolor{stringliteral}{"{}lock\_mutex"{}});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{index_DOMAINS}{}\doxysection{\texorpdfstring{Domains}{Domains}}\label{index_DOMAINS}
+Similar to C++ namespaces, Domains allow for scoping NVTX events. By default, all NVTX events belong to the \"{}global\"{} domain. Libraries and applications should scope their events to use a custom domain to differentiate where the events originate from.
+
+It is common for a library or application to have only a single domain and for the name of that domain to be known at compile time. Therefore, Domains in NVTX++ are represented by {\itshape tag types}.
+
+For example, to define a custom domain, simply define a new concrete type (a {\ttfamily class} or {\ttfamily struct}) with a {\ttfamily static} member called {\ttfamily name} that contains the desired name of the domain.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }my\_domain\{\ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ name\{\textcolor{stringliteral}{"{}my\ domain"{}}\};\ \};}
+
+\end{DoxyCode}
+
+
+For any NVTX++ construct that can be scoped to a domain, the type {\ttfamily my\+\_\+domain} can be passed as an explicit template argument to scope it to the custom domain.
+
+The tag type {\ttfamily \doxylink{structnvtx3_1_1domain_1_1global}{nvtx3\+::domain\+::global}} represents the global NVTX domain.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ By\ default,\ \`{}domain\_thread\_range`\ belongs\ to\ the\ global\ domain}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::domain\_thread\_range<>}}\ r0\{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Alias\ for\ a\ \`{}domain\_thread\_range`\ in\ the\ global\ domain}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::thread\_range}}\ r1\{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ \`{}r`\ belongs\ to\ the\ custom\ domain}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::domain\_thread\_range<my\_domain>}}\ r\{\};}
+
+\end{DoxyCode}
+
+
+When using a custom domain, it is recommended to define type aliases for NVTX constructs in the custom domain. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }my\_thread\_range\ =\ \mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::domain\_thread\_range<my\_domain>}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ }my\_registered\_message\ =\ \mbox{\hyperlink{classnvtx3_1_1registered__message}{nvtx3::registered\_message<my\_domain>}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ }my\_named\_category\ =\ \mbox{\hyperlink{classnvtx3_1_1named__category}{nvtx3::named\_category<my\_domain>}};}
+
+\end{DoxyCode}
+
+
+See {\ttfamily \doxylink{classnvtx3_1_1domain}{nvtx3\+::domain}} for more information.\hypertarget{index_ATTRIBUTES}{}\doxysection{\texorpdfstring{Event Attributes}{Event Attributes}}\label{index_ATTRIBUTES}
+NVTX events can be customized with various attributes to provide additional information (such as a custom message) or to control visualization of the event (such as the color used). These attributes can be specified per-\/event via arguments to a {\ttfamily \doxylink{classnvtx3_1_1event__attributes}{nvtx3\+::event\+\_\+attributes}} object.
+
+NVTX events can be customized via four \"{}attributes\"{}\+:
+\begin{DoxyItemize}
+\item \doxysectlink{index_COLOR}{color}{2} \+: color used to visualize the event in tools.
+\item \doxysectlink{index_MESSAGES}{message}{2} \+: Custom message string.
+\item \doxysectlink{index_PAYLOAD}{payload}{2} \+: User-\/defined numerical value.
+\item \doxysectlink{index_CATEGORY}{category}{2} \+: Intra-\/domain grouping.
+\end{DoxyItemize}
+
+It is possible to construct a {\ttfamily \doxylink{classnvtx3_1_1event__attributes}{nvtx3\+::event\+\_\+attributes}} from any number of attribute objects (\doxylink{classnvtx3_1_1color}{nvtx3\+::color}, \doxylink{classnvtx3_1_1message}{nvtx3\+::message}, \doxylink{classnvtx3_1_1payload}{nvtx3\+::payload}, \doxylink{classnvtx3_1_1category}{nvtx3\+::category}) in any order. If an attribute is not specified, a tool specific default value is used. See {\ttfamily \doxylink{classnvtx3_1_1event__attributes}{nvtx3\+::event\+\_\+attributes}} for more information.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Custom\ color,\ message}}
+\DoxyCodeLine{event\_attributes\ attr\{\mbox{\hyperlink{structnvtx3_1_1rgb}{nvtx3::rgb}}\{127,\ 255,\ 0\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}message"{}}\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Custom\ color,\ message,\ payload,\ category}}
+\DoxyCodeLine{event\_attributes\ attr\{\mbox{\hyperlink{structnvtx3_1_1rgb}{nvtx3::rgb}}\{127,\ 255,\ 0\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnvtx3_1_1payload}{nvtx3::payload}}\{42\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}message"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnvtx3_1_1category}{nvtx3::category}}\{1\}\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Arguments\ can\ be\ in\ any\ order}}
+\DoxyCodeLine{event\_attributes\ attr\{\mbox{\hyperlink{classnvtx3_1_1payload}{nvtx3::payload}}\{42\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnvtx3_1_1category}{nvtx3::category}}\{1\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}message"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structnvtx3_1_1rgb}{nvtx3::rgb}}\{127,\ 255,\ 0\}\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ "{}First\ wins"{}\ with\ multiple\ arguments\ of\ the\ same\ type}}
+\DoxyCodeLine{event\_attributes\ attr\{\ \mbox{\hyperlink{classnvtx3_1_1payload}{nvtx3::payload}}\{42\},\ \mbox{\hyperlink{classnvtx3_1_1payload}{nvtx3::payload}}\{7\}\ \};\ \textcolor{comment}{//\ payload\ is}}
+\DoxyCodeLine{42\ }
+
+\end{DoxyCode}
+\hypertarget{index_MESSAGES}{}\doxysubsection{\texorpdfstring{message}{message}}\label{index_MESSAGES}
+A {\ttfamily \doxylink{classnvtx3_1_1message}{nvtx3\+::message}} allows associating a custom message string with an NVTX event.
+
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Create\ an\ \`{}event\_attributes`\ with\ the\ custom\ message\ "{}my\ message"{}}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1event__attributes}{nvtx3::event\_attributes}}\ attr\{\mbox{\hyperlink{classnvtx3_1_1message}{nvtx3::message}}\{\textcolor{stringliteral}{"{}my\ message"{}}\}\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ strings\ and\ string\ literals\ implicitly\ assumed\ to\ be\ a\ \`{}nvtx3::message`}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1event__attributes}{nvtx3::event\_attributes}}\ attr\{\textcolor{stringliteral}{"{}my\ message"{}}\};}
+
+\end{DoxyCode}
+\hypertarget{index_REGISTERED_MESSAGE}{}\doxysubsubsection{\texorpdfstring{Registered Messages}{Registered Messages}}\label{index_REGISTERED_MESSAGE}
+Associating a {\ttfamily \doxylink{classnvtx3_1_1message}{nvtx3\+::message}} with an event requires copying the contents of the message every time the message is used, i.\+e., copying the entire message string. This may cause non-\/trivial overhead in performance sensitive code.
+
+To eliminate this overhead, NVTX allows registering a message string, yielding a \"{}handle\"{} that is inexpensive to copy that may be used in place of a message string. When visualizing the events, tools such as Nsight Systems will take care of mapping the message handle to its string.
+
+A message should be registered once and the handle reused throughout the rest of the application. This can be done by either explicitly creating static {\ttfamily \doxylink{classnvtx3_1_1registered__message}{nvtx3\+::registered\+\_\+message}} objects, or using the {\ttfamily \doxylink{classnvtx3_1_1registered__message_a8e587b148ec78a04dc18b5917e00022b}{nvtx3\+::registered\+\_\+message\+::get}} construct on first use helper (recommended).
+
+Similar to \doxysectlink{index_DOMAINS}{Domains}{1}, {\ttfamily \doxylink{classnvtx3_1_1registered__message_a8e587b148ec78a04dc18b5917e00022b}{nvtx3\+::registered\+\_\+message\+::get}} requires defining a custom tag type with a static {\ttfamily message} member whose value will be the contents of the registered string.
+
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Explicitly\ constructed,\ static\ \`{}registered\_message`}}
+\DoxyCodeLine{\textcolor{keyword}{static}\ registered\_message<my\_domain>\ static\_message\{\textcolor{stringliteral}{"{}my\ message"{}}\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Or\ use\ construct\ on\ first\ use:}}
+\DoxyCodeLine{\textcolor{comment}{//\ Define\ a\ tag\ type\ with\ a\ \`{}message`\ member\ string\ to\ register}}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }my\_message\{\ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ message\{\ \textcolor{stringliteral}{"{}my\ message"{}}\ \};\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Uses\ construct\ on\ first\ use\ to\ register\ the\ contents\ of}}
+\DoxyCodeLine{\textcolor{comment}{//\ \`{}my\_message::message`}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1registered__message}{nvtx3::registered\_message<my\_domain>}}\ \textcolor{keyword}{const}\&\ msg\ =}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1registered__message}{nvtx3::registered\_message<my\_domain>::get<my\_message>}}();\ }
+
+\end{DoxyCode}
+\hypertarget{index_COLOR}{}\doxysubsection{\texorpdfstring{color}{color}}\label{index_COLOR}
+Associating a {\ttfamily \doxylink{classnvtx3_1_1color}{nvtx3\+::color}} with an event allows controlling how the event is visualized in a tool such as Nsight Systems. This is a convenient way to visually differentiate among different events.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Define\ a\ color\ via\ rgb\ color\ values}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1color}{nvtx3::color}}\ c\{\mbox{\hyperlink{structnvtx3_1_1rgb}{nvtx3::rgb}}\{127,\ 255,\ 0\}\};}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1event__attributes}{nvtx3::event\_attributes}}\ attr\{c\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ rgb\ color\ values\ can\ be\ passed\ directly\ to\ an\ \`{}event\_attributes`}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1event__attributes}{nvtx3::event\_attributes}}\ attr1\{\mbox{\hyperlink{structnvtx3_1_1rgb}{nvtx3::rgb}}\{127,255,0\}\};}
+
+\end{DoxyCode}
+\hypertarget{index_CATEGORY}{}\doxysubsection{\texorpdfstring{category}{category}}\label{index_CATEGORY}
+A {\ttfamily \doxylink{classnvtx3_1_1category}{nvtx3\+::category}} is simply an integer id that allows for fine-\/grain grouping of NVTX events. For example, one might use separate categories for IO, memory allocation, compute, etc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1event__attributes}{nvtx3::event\_attributes}}\{\mbox{\hyperlink{classnvtx3_1_1category}{nvtx3::category}}\{1\}\};}
+
+\end{DoxyCode}
+\hypertarget{index_NAMED_CATEGORIES}{}\doxysubsubsection{\texorpdfstring{Named Categories}{Named Categories}}\label{index_NAMED_CATEGORIES}
+Associates a {\ttfamily name} string with a category {\ttfamily id} to help differentiate among categories.
+
+For any given category id {\ttfamily Id}, a {\ttfamily named\+\_\+category\{Id, \"{}name\"{}\}} should only be constructed once and reused throughout an application. This can be done by either explicitly creating static {\ttfamily \doxylink{classnvtx3_1_1named__category}{nvtx3\+::named\+\_\+category}} objects, or using the {\ttfamily \doxylink{classnvtx3_1_1named__category_a0f7446a3381a38e2edc62e1cefe7333b}{nvtx3\+::named\+\_\+category\+::get}} construct on first use helper (recommended).
+
+Similar to \doxysectlink{index_DOMAINS}{Domains}{1}, {\ttfamily \doxylink{classnvtx3_1_1named__category_a0f7446a3381a38e2edc62e1cefe7333b}{nvtx3\+::named\+\_\+category\+::get}} requires defining a custom tag type with static {\ttfamily name} and {\ttfamily id} members.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Explicitly\ constructed,\ static\ \`{}named\_category`}}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \mbox{\hyperlink{classnvtx3_1_1named__category}{nvtx3::named\_category}}\ static\_category\{42,\ \textcolor{stringliteral}{"{}my\ category"{}}\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ OR\ use\ construct\ on\ first\ use:}}
+\DoxyCodeLine{\textcolor{comment}{//\ Define\ a\ tag\ type\ with\ \`{}name`\ and\ \`{}id`\ members}}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }my\_category\{}
+\DoxyCodeLine{\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ name\{\textcolor{stringliteral}{"{}my\ category"{}}\};\ \textcolor{comment}{//\ category\ name}}
+\DoxyCodeLine{\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ category::id\_type\ \textcolor{keywordtype}{id}\{42\};\ \textcolor{comment}{//\ category\ id}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Use\ construct\ on\ first\ use\ to\ name\ the\ category\ id\ \`{}42`}}
+\DoxyCodeLine{\textcolor{comment}{//\ with\ name\ "{}my\ category"{}}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1named__category}{nvtx3::named\_category}}\ \textcolor{keyword}{const}\&\ my\_category\ =}
+\DoxyCodeLine{named\_category<my\_domain>::get<my\_category>();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Range\ \`{}r`\ associated\ with\ category\ id\ \`{}42`}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1event__attributes}{nvtx3::event\_attributes}}\ attr\{my\_category\};}
+
+\end{DoxyCode}
+\hypertarget{index_PAYLOAD}{}\doxysubsection{\texorpdfstring{payload}{payload}}\label{index_PAYLOAD}
+Allows associating a user-\/defined numerical value with an event.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{nvtx3::\ event\_attributes\ attr\{\mbox{\hyperlink{classnvtx3_1_1payload}{nvtx3::payload}}\{42\}\};\ \textcolor{comment}{//\ Constructs\ a\ payload}}
+\DoxyCodeLine{from}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ \`{}int32\_t`\ value\ 42}}
+
+\end{DoxyCode}
+\hypertarget{index_EXAMPLE}{}\doxysection{\texorpdfstring{Example}{Example}}\label{index_EXAMPLE}
+Putting it all together\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Define\ a\ custom\ domain\ tag\ type}}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }my\_domain\{\ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ name\{\textcolor{stringliteral}{"{}my\ domain"{}}\};\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Define\ a\ named\ category\ tag\ type}}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }my\_category\{}
+\DoxyCodeLine{\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ name\{\textcolor{stringliteral}{"{}my\ category"{}}\};}
+\DoxyCodeLine{\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ uint32\_t\ \textcolor{keywordtype}{id}\{42\};}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Define\ a\ registered\ message\ tag\ type}}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }my\_message\{\ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ message\{\textcolor{stringliteral}{"{}my\ message"{}}\};\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ For\ convenience,\ use\ aliases\ for\ domain\ scoped\ objects}}
+\DoxyCodeLine{\textcolor{keyword}{using\ }my\_thread\_range\ =\ \mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::domain\_thread\_range<my\_domain>}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ }my\_registered\_message\ =\ \mbox{\hyperlink{classnvtx3_1_1registered__message}{nvtx3::registered\_message<my\_domain>}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ }my\_named\_category\ =\ \mbox{\hyperlink{classnvtx3_1_1named__category}{nvtx3::named\_category<my\_domain>}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Default\ values\ for\ all\ attributes}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1event__attributes}{nvtx3::event\_attributes}}\ attr\{\};}
+\DoxyCodeLine{my\_thread\_range\ r0\{attr\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Custom\ (unregistered)\ message,\ and\ unnamed\ category}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1event__attributes}{nvtx3::event\_attributes}}\ attr1\{\textcolor{stringliteral}{"{}message"{}},\ \mbox{\hyperlink{classnvtx3_1_1category}{nvtx3::category}}\{2\}\};}
+\DoxyCodeLine{my\_thread\_range\ r1\{attr1\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Alternatively,\ pass\ arguments\ of\ \`{}event\_attributes`\ ctor\ directly\ to}}
+\DoxyCodeLine{\textcolor{comment}{//\ \`{}my\_thread\_range`}}
+\DoxyCodeLine{my\_thread\_range\ r2\{\textcolor{stringliteral}{"{}message"{}},\ \mbox{\hyperlink{classnvtx3_1_1category}{nvtx3::category}}\{2\}\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ construct\ on\ first\ use\ a\ registered\ message}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ msg\ =\ my\_registered\_message::get<my\_message>();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ construct\ on\ first\ use\ a\ named\ category}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ category\ =\ my\_named\_category::get<my\_category>();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Use\ registered\ message\ and\ named\ category}}
+\DoxyCodeLine{my\_thread\_range\ r3\{msg,\ category,\ \mbox{\hyperlink{structnvtx3_1_1rgb}{nvtx3::rgb}}\{127,\ 255,\ 0\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnvtx3_1_1payload}{nvtx3::payload}}\{42\}\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Any\ number\ of\ arguments\ in\ any\ order}}
+\DoxyCodeLine{my\_thread\_range\ r\{\mbox{\hyperlink{structnvtx3_1_1rgb}{nvtx3::rgb}}\{127,\ 255,0\},\ msg\};}
+
+\end{DoxyCode}
+ \hypertarget{index_MACROS}{}\doxysection{\texorpdfstring{Convenience Macros}{Convenience Macros}}\label{index_MACROS}
+Oftentimes users want to quickly and easily add NVTX ranges to their library or application to aid in profiling and optimization.
+
+A convenient way to do this is to use the \doxylink{nvtx3_8hpp_a0e511c3c6fd0b67c9160b485018bedd7}{NVTX3\+\_\+\+FUNC\+\_\+\+RANGE} and \doxylink{nvtx3_8hpp_a5e20d020db37fe0012d1cf2b9dbcd83b}{NVTX3\+\_\+\+FUNC\+\_\+\+RANGE\+\_\+\+IN} macros. These macros take care of constructing an {\ttfamily \doxylink{classnvtx3_1_1domain__thread__range}{nvtx3\+::domain\+\_\+thread\+\_\+range}} with the name of the enclosing function as the range\textquotesingle{}s message.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ some\_function()\{}
+\DoxyCodeLine{\ \ \ \textcolor{comment}{//\ Automatically\ generates\ an\ NVTX\ range\ for\ the\ duration\ of\ the\ function}}
+\DoxyCodeLine{\ \ \ \textcolor{comment}{//\ using\ "{}some\_function"{}\ as\ the\ event's\ message.}}
+\DoxyCodeLine{\ \ \ \mbox{\hyperlink{nvtx3_8hpp_a0e511c3c6fd0b67c9160b485018bedd7}{NVTX3\_FUNC\_RANGE}}();}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 

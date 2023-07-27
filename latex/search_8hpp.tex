@@ -1,0 +1,46 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/search.hpp 文件参考}
+\hypertarget{search_8hpp}{}\label{search_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/search.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/search.hpp}}
+
+
+Column APIs for lower\+\_\+bound, upper\+\_\+bound, and contains  
+
+
+{\ttfamily \#include $<$cudf/column/column.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/scalar/scalar.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/table/table.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/types.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/mr/device/per\+\_\+device\+\_\+resource.\+hpp$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+search.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{search_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__search_ga858b67a25fd51b339eee1e3a02d46485}{cudf\+::lower\+\_\+bound}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&haystack, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&needles, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Find smallest indices in a sorted table where values should be inserted to maintain order. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__search_gad59489c94927ed191ef9720e0026008a}{cudf\+::upper\+\_\+bound}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&haystack, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&needles, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Find largest indices in a sorted table where values should be inserted to maintain order. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__column__search_ga287ee5469bf49b45112b27ed87cdefd7}{cudf\+::contains}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&haystack, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&needle)
+\begin{DoxyCompactList}\small\item\em Check if the given {\ttfamily needle} value exists in the {\ttfamily haystack} column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__search_gaada7019e9af242a3fd508726a3abe081}{cudf\+::contains}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&haystack, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&needles, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Check if the given {\ttfamily needles} values exists in the {\ttfamily haystack} column. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Column APIs for lower\+\_\+bound, upper\+\_\+bound, and contains 
+
+
+
+在文件 \mbox{\hyperlink{search_8hpp_source}{search.\+hpp}} 中定义.
+

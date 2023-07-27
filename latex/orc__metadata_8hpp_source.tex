@@ -1,0 +1,177 @@
+\doxysection{orc\+\_\+metadata.\+hpp}
+\hypertarget{orc__metadata_8hpp_source}{}\label{orc__metadata_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/io/orc\_metadata.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/io/orc\_metadata.hpp}}
+\mbox{\hyperlink{orc__metadata_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2019-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{orc__types_8hpp}{cudf/io/orc\_types.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{io_2types_8hpp}{cudf/io/types.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <variant>}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00031}00031\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00032}00032\ \textcolor{keyword}{namespace\ }io\ \{}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00043}\mbox{\hyperlink{structcudf_1_1io_1_1raw__orc__statistics}{00043}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1io_1_1raw__orc__statistics}{raw\_orc\_statistics}}\ \{}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00044}\mbox{\hyperlink{structcudf_1_1io_1_1raw__orc__statistics_a2f6c5d1959ba1d8552fe589e42edb3b1}{00044}}\ \ \ std::vector<std::string>\ \mbox{\hyperlink{structcudf_1_1io_1_1raw__orc__statistics_a2f6c5d1959ba1d8552fe589e42edb3b1}{column\_names}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00045}\mbox{\hyperlink{structcudf_1_1io_1_1raw__orc__statistics_a87bfab9e08d3f63324bd4ee61c6e3065}{00045}}\ \ \ std::vector<std::string>\ \mbox{\hyperlink{structcudf_1_1io_1_1raw__orc__statistics_a87bfab9e08d3f63324bd4ee61c6e3065}{file\_stats}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00046}\mbox{\hyperlink{structcudf_1_1io_1_1raw__orc__statistics_a16f1d51e021c8d7da1b3924d1c16e55f}{00046}}\ \ \ std::vector<std::vector<std::string>>\ \mbox{\hyperlink{structcudf_1_1io_1_1raw__orc__statistics_a16f1d51e021c8d7da1b3924d1c16e55f}{stripes\_stats}};\ \ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00047}00047\ \};}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00064}\mbox{\hyperlink{group__io__readers_ga8045a73a80008301deb2c8d08ece0c14}{00064}}\ \mbox{\hyperlink{structcudf_1_1io_1_1raw__orc__statistics}{raw\_orc\_statistics}}\ \mbox{\hyperlink{group__io__readers_ga8045a73a80008301deb2c8d08ece0c14}{read\_raw\_orc\_statistics}}(\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\_info}}\ \textcolor{keyword}{const}\&\ src\_info);}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00069}\mbox{\hyperlink{namespacecudf_1_1io_a9f776ed5167dffd65625471a7bdb3996}{00069}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacecudf_1_1io_a9f776ed5167dffd65625471a7bdb3996}{no\_statistics}}\ =\ std::monostate;}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00076}00076\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00077}\mbox{\hyperlink{structcudf_1_1io_1_1minmax__statistics}{00077}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1io_1_1minmax__statistics}{minmax\_statistics}}\ \{}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00078}\mbox{\hyperlink{structcudf_1_1io_1_1minmax__statistics_a0c484304ce2c1cf59519021e5e31c202}{00078}}\ \ \ std::optional<T>\ \mbox{\hyperlink{structcudf_1_1io_1_1minmax__statistics_a0c484304ce2c1cf59519021e5e31c202}{minimum}};\ \ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00079}\mbox{\hyperlink{structcudf_1_1io_1_1minmax__statistics_a52ca40bbcbdd2d803f88c51bfbf6a1f8}{00079}}\ \ \ std::optional<T>\ \mbox{\hyperlink{structcudf_1_1io_1_1minmax__statistics_a52ca40bbcbdd2d803f88c51bfbf6a1f8}{maximum}};\ \ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00080}00080\ \};}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00087}00087\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00088}\mbox{\hyperlink{structcudf_1_1io_1_1sum__statistics}{00088}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1io_1_1sum__statistics}{sum\_statistics}}\ \{}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00089}\mbox{\hyperlink{structcudf_1_1io_1_1sum__statistics_aa1ebc0602a69347dff9c659a6188f019}{00089}}\ \ \ std::optional<T>\ \mbox{\hyperlink{structcudf_1_1io_1_1sum__statistics_aa1ebc0602a69347dff9c659a6188f019}{sum}};\ \ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00090}00090\ \};}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00095}\mbox{\hyperlink{structcudf_1_1io_1_1integer__statistics}{00095}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1io_1_1integer__statistics}{integer\_statistics}}\ :\ \mbox{\hyperlink{structcudf_1_1io_1_1minmax__statistics}{minmax\_statistics}}<int64\_t>,\ \mbox{\hyperlink{structcudf_1_1io_1_1sum__statistics}{sum\_statistics}}<int64\_t>\ \{}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00096}00096\ \};}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00101}\mbox{\hyperlink{structcudf_1_1io_1_1double__statistics}{00101}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1io_1_1double__statistics}{double\_statistics}}\ :\ \mbox{\hyperlink{structcudf_1_1io_1_1minmax__statistics}{minmax\_statistics}}<double>,\ \mbox{\hyperlink{structcudf_1_1io_1_1sum__statistics}{sum\_statistics}}<double>\ \{}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00102}00102\ \};}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00111}\mbox{\hyperlink{structcudf_1_1io_1_1string__statistics}{00111}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1io_1_1string__statistics}{string\_statistics}}\ :\ \mbox{\hyperlink{structcudf_1_1io_1_1minmax__statistics}{minmax\_statistics}}<std::string>,\ \mbox{\hyperlink{structcudf_1_1io_1_1sum__statistics}{sum\_statistics}}<int64\_t>\ \{}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00112}00112\ \};}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00119}\mbox{\hyperlink{structcudf_1_1io_1_1bucket__statistics}{00119}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1io_1_1bucket__statistics}{bucket\_statistics}}\ \{}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00120}\mbox{\hyperlink{structcudf_1_1io_1_1bucket__statistics_a3ac0ee8c40517df5ddb375a7f5885260}{00120}}\ \ \ std::vector<uint64\_t>\ \mbox{\hyperlink{structcudf_1_1io_1_1bucket__statistics_a3ac0ee8c40517df5ddb375a7f5885260}{count}};\ \ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00121}00121\ \};}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00126}\mbox{\hyperlink{structcudf_1_1io_1_1decimal__statistics}{00126}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1io_1_1decimal__statistics}{decimal\_statistics}}\ :\ \mbox{\hyperlink{structcudf_1_1io_1_1minmax__statistics}{minmax\_statistics}}<std::string>,\ \mbox{\hyperlink{structcudf_1_1io_1_1sum__statistics}{sum\_statistics}}<std::string>\ \{}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00127}00127\ \};}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00132}\mbox{\hyperlink{namespacecudf_1_1io_a7db6680f79f2ca2f8fab3ca6e349582d}{00132}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{structcudf_1_1io_1_1minmax__statistics}{date\_statistics}}\ =\ \mbox{\hyperlink{structcudf_1_1io_1_1minmax__statistics}{minmax\_statistics<int32\_t>}};}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00139}\mbox{\hyperlink{namespacecudf_1_1io_a088a78a3e5d3e680910436b6ced538cf}{00139}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{structcudf_1_1io_1_1sum__statistics}{binary\_statistics}}\ =\ \mbox{\hyperlink{structcudf_1_1io_1_1sum__statistics}{sum\_statistics<int64\_t>}};}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00147}\mbox{\hyperlink{structcudf_1_1io_1_1timestamp__statistics}{00147}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1io_1_1timestamp__statistics}{timestamp\_statistics}}\ :\ \mbox{\hyperlink{structcudf_1_1io_1_1minmax__statistics}{minmax\_statistics}}<int64\_t>\ \{}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00148}\mbox{\hyperlink{structcudf_1_1io_1_1timestamp__statistics_accf3f7c3b0824e2787530b71dd5d34ae}{00148}}\ \ \ std::optional<int64\_t>\ \mbox{\hyperlink{structcudf_1_1io_1_1timestamp__statistics_accf3f7c3b0824e2787530b71dd5d34ae}{minimum\_utc}};\ \ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00149}\mbox{\hyperlink{structcudf_1_1io_1_1timestamp__statistics_ad7bfb050405b59e4f7c8a876abba6cb4}{00149}}\ \ \ std::optional<int64\_t>\ \mbox{\hyperlink{structcudf_1_1io_1_1timestamp__statistics_ad7bfb050405b59e4f7c8a876abba6cb4}{maximum\_utc}};\ \ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00150}00150\ \};}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00152}\mbox{\hyperlink{namespacecudf_1_1io_1_1orc}{00152}}\ \textcolor{keyword}{namespace\ }orc\ \{}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00153}00153\ \textcolor{comment}{//\ forward\ declare\ the\ type\ that\ ProtobufReader\ uses.\ The\ \`{}cudf::io::column\_statistics`\ objects,}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00154}00154\ \textcolor{comment}{//\ returned\ from\ \`{}read\_parsed\_orc\_statistics`,\ are\ constructed\ from}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00155}00155\ \textcolor{comment}{//\ \`{}cudf::io::orc::column\_statistics`\ objects\ that\ \`{}ProtobufReader`\ initializes.}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00156}00156\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1io_1_1column__statistics}{column\_statistics}};}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00157}00157\ \}\ \ \textcolor{comment}{//\ namespace\ orc}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00165}\mbox{\hyperlink{structcudf_1_1io_1_1column__statistics}{00165}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1io_1_1column__statistics}{column\_statistics}}\ \{}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00166}\mbox{\hyperlink{structcudf_1_1io_1_1column__statistics_a951bbe26ea9bbd2a701c9c7927318886}{00166}}\ \ \ std::optional<uint64\_t>\ \mbox{\hyperlink{structcudf_1_1io_1_1column__statistics_a951bbe26ea9bbd2a701c9c7927318886}{number\_of\_values}};\ \ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00167}\mbox{\hyperlink{structcudf_1_1io_1_1column__statistics_ab6f4122dd213847d16718e67f9df76cd}{00167}}\ \ \ std::optional<bool>\ \mbox{\hyperlink{structcudf_1_1io_1_1column__statistics_ab6f4122dd213847d16718e67f9df76cd}{has\_null}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00168}00168\ \ \ std::variant<\mbox{\hyperlink{namespacecudf_1_1io_a9f776ed5167dffd65625471a7bdb3996}{no\_statistics}},}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1integer__statistics}{integer\_statistics}},}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1double__statistics}{double\_statistics}},}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1string__statistics}{string\_statistics}},}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1bucket__statistics}{bucket\_statistics}},}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1decimal__statistics}{decimal\_statistics}},}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacecudf_1_1io_a7db6680f79f2ca2f8fab3ca6e349582d}{date\_statistics}},}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacecudf_1_1io_a088a78a3e5d3e680910436b6ced538cf}{binary\_statistics}},}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1timestamp__statistics}{timestamp\_statistics}}>}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00177}\mbox{\hyperlink{structcudf_1_1io_1_1column__statistics_acab0a6e77faac173089d33abc8d78973}{00177}}\ \ \ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1column__statistics_acab0a6e77faac173089d33abc8d78973}{type\_specific\_stats}};\ \ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00184}\mbox{\hyperlink{structcudf_1_1io_1_1column__statistics_ac615b0af3c06eed692dc6af3829bcb56}{00184}}\ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1column__statistics_ac615b0af3c06eed692dc6af3829bcb56}{column\_statistics}}(orc::column\_statistics\&\&\ detail\_statistics);}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00185}00185\ \};}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00194}\mbox{\hyperlink{structcudf_1_1io_1_1parsed__orc__statistics}{00194}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1io_1_1parsed__orc__statistics}{parsed\_orc\_statistics}}\ \{}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00195}\mbox{\hyperlink{structcudf_1_1io_1_1parsed__orc__statistics_a74623a2ea7e2111838cdccfcac00b955}{00195}}\ \ \ std::vector<std::string>\ \mbox{\hyperlink{structcudf_1_1io_1_1parsed__orc__statistics_a74623a2ea7e2111838cdccfcac00b955}{column\_names}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00196}\mbox{\hyperlink{structcudf_1_1io_1_1parsed__orc__statistics_ad1f9122e5890a43560c89c3225a5777c}{00196}}\ \ \ std::vector<column\_statistics>\ \mbox{\hyperlink{structcudf_1_1io_1_1parsed__orc__statistics_ad1f9122e5890a43560c89c3225a5777c}{file\_stats}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00197}\mbox{\hyperlink{structcudf_1_1io_1_1parsed__orc__statistics_a41a95262f2c29e7275d3bec29a172e15}{00197}}\ \ \ std::vector<std::vector<column\_statistics>>\ \mbox{\hyperlink{structcudf_1_1io_1_1parsed__orc__statistics_a41a95262f2c29e7275d3bec29a172e15}{stripes\_stats}};\ \ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00198}00198\ \};}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00209}\mbox{\hyperlink{group__io__readers_ga70be592a55fe55b019cc327b723ef9ba}{00209}}\ \mbox{\hyperlink{structcudf_1_1io_1_1parsed__orc__statistics}{parsed\_orc\_statistics}}\ \mbox{\hyperlink{group__io__readers_ga70be592a55fe55b019cc327b723ef9ba}{read\_parsed\_orc\_statistics}}(\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\_info}}\ \textcolor{keyword}{const}\&\ src\_info);}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00214}\mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema}{00214}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema}{orc\_column\_schema}}\ \{}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00215}00215\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00223}\mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a125852366e9d62ba024f4d719a776990}{00223}}\ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a125852366e9d62ba024f4d719a776990}{orc\_column\_schema}}(std::string\_view\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a9320660119bc7c9408b92fcbcd58c88d}{name}},}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203}{orc::TypeKind}}\ type,}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<orc\_column\_schema>\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a1aeb1ed1e6f24269dcf843c647ea3b16}{children}})}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00226}00226\ \ \ \ \ :\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a6e7356abd04093f26f56fafb6e177f3d}{\_name}}\{\mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a9320660119bc7c9408b92fcbcd58c88d}{name}}\},\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a396e9f05e39a373c594ae6af0c1f956b}{\_type\_kind}}\{type\},\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_ac5842c75bc2e57ce18952b91f283cfab}{\_children}}\{\mbox{\hyperlink{namespacestd}{std}}::move(\mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a1aeb1ed1e6f24269dcf843c647ea3b16}{children}})\}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00227}00227\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00228}00228\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00235}\mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a9320660119bc7c9408b92fcbcd58c88d}{00235}}\ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a9320660119bc7c9408b92fcbcd58c88d}{name}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a6e7356abd04093f26f56fafb6e177f3d}{\_name}};\ \}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00236}00236\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00242}\mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a73e98ecabd8f9f052abbb5a2a1ba9b46}{00242}}\ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a73e98ecabd8f9f052abbb5a2a1ba9b46}{type\_kind}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a396e9f05e39a373c594ae6af0c1f956b}{\_type\_kind}};\ \}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00243}00243\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00249}\mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a1aeb1ed1e6f24269dcf843c647ea3b16}{00249}}\ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a1aeb1ed1e6f24269dcf843c647ea3b16}{children}}()\ const\&\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_ac5842c75bc2e57ce18952b91f283cfab}{\_children}};\ \}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00250}00250\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00255}\mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_aff7b34371bd3cab85a6996b6e12861a5}{00255}}\ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_aff7b34371bd3cab85a6996b6e12861a5}{children}}()\ \&\&\ \{\ \textcolor{keywordflow}{return}\ std::move(\mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_ac5842c75bc2e57ce18952b91f283cfab}{\_children}});\ \}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00256}00256\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00264}\mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_ac0723004e8325ba55f75bc51be845f98}{00264}}\ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_ac0723004e8325ba55f75bc51be845f98}{child}}(\textcolor{keywordtype}{int}\ idx)\ \textcolor{keyword}{const}\&\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a1aeb1ed1e6f24269dcf843c647ea3b16}{children}}().at(idx);\ \}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00265}00265\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00270}\mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a6e3f29d13e3753132f106dd577a61981}{00270}}\ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a6e3f29d13e3753132f106dd577a61981}{child}}(\textcolor{keywordtype}{int}\ idx)\ \&\&\ \{\ \textcolor{keywordflow}{return}\ std::move(\mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a1aeb1ed1e6f24269dcf843c647ea3b16}{children}}().at(idx));\ \}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00277}\mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_ac66a7999e781a8158d99076d73d86f0b}{00277}}\ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_ac66a7999e781a8158d99076d73d86f0b}{num\_children}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a1aeb1ed1e6f24269dcf843c647ea3b16}{children}}().size();\ \}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00278}00278\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00279}00279\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00280}\mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a6e7356abd04093f26f56fafb6e177f3d}{00280}}\ \ \ std::string\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a6e7356abd04093f26f56fafb6e177f3d}{\_name}};}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00281}\mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a396e9f05e39a373c594ae6af0c1f956b}{00281}}\ \ \ \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203}{orc::TypeKind}}\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_a396e9f05e39a373c594ae6af0c1f956b}{\_type\_kind}};}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00282}\mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_ac5842c75bc2e57ce18952b91f283cfab}{00282}}\ \ \ std::vector<orc\_column\_schema>\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema_ac5842c75bc2e57ce18952b91f283cfab}{\_children}};}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00283}00283\ \};}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00284}00284\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00288}\mbox{\hyperlink{structcudf_1_1io_1_1orc__schema}{00288}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1io_1_1orc__schema}{orc\_schema}}\ \{}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00289}00289\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00295}\mbox{\hyperlink{structcudf_1_1io_1_1orc__schema_a8d4a2c6e18f6494e85c68da9af2d02aa}{00295}}\ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1orc__schema_a8d4a2c6e18f6494e85c68da9af2d02aa}{orc\_schema}}(\mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema}{orc\_column\_schema}}\ root\_column\_schema)\ :\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__schema_ad5d33b4685e1b1082b56a77b9abbaf1e}{\_root}}\{\mbox{\hyperlink{namespacestd}{std}}::move(root\_column\_schema)\}\ \{\}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00296}00296\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00302}\mbox{\hyperlink{structcudf_1_1io_1_1orc__schema_a9f6a3b864f71272af11a0f74db739a85}{00302}}\ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__schema_a9f6a3b864f71272af11a0f74db739a85}{root}}()\ const\&\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__schema_ad5d33b4685e1b1082b56a77b9abbaf1e}{\_root}};\ \}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00303}00303\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00308}\mbox{\hyperlink{structcudf_1_1io_1_1orc__schema_a54be1409d189051adcf1f40e3b405c52}{00308}}\ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__schema_a54be1409d189051adcf1f40e3b405c52}{root}}()\ \&\&\ \{\ \textcolor{keywordflow}{return}\ std::move(\mbox{\hyperlink{structcudf_1_1io_1_1orc__schema_ad5d33b4685e1b1082b56a77b9abbaf1e}{\_root}});\ \}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00309}00309\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00310}00310\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00311}\mbox{\hyperlink{structcudf_1_1io_1_1orc__schema_ad5d33b4685e1b1082b56a77b9abbaf1e}{00311}}\ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema}{orc\_column\_schema}}\ \mbox{\hyperlink{structcudf_1_1io_1_1orc__schema_ad5d33b4685e1b1082b56a77b9abbaf1e}{\_root}};}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00312}00312\ \};}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00313}00313\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00317}\mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata}{00317}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata}{orc\_metadata}}\ \{}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00318}00318\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00326}\mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_ac27cce84571b612788d29b0d81c4cb05}{00326}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_ac27cce84571b612788d29b0d81c4cb05}{orc\_metadata}}(\mbox{\hyperlink{structcudf_1_1io_1_1orc__schema}{orc\_schema}}\ \mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_a656108f8b9bfd44e578ee6fbc5f442b3}{schema}},\ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_a5f71d6ee3ab37fa8c10fab7c0a1b1dea}{num\_rows}},\ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_ab1b4f85b505d2b7471cd49a5c07ed044}{num\_stripes}})}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00327}00327\ \ \ \ \ :\ \mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_a549cedaaaa0b872dbd0d846f81f86b70}{\_schema}}\{\mbox{\hyperlink{namespacestd}{std}}::move(\mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_a656108f8b9bfd44e578ee6fbc5f442b3}{schema}})\},\ \mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_a4dee88c0a8dfc758f9de07196ada552b}{\_num\_rows}}\{\mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_a5f71d6ee3ab37fa8c10fab7c0a1b1dea}{num\_rows}}\},\ \mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_afc451b1992aa333e1c49c2e0c2ab788f}{\_num\_stripes}}\{\mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_ab1b4f85b505d2b7471cd49a5c07ed044}{num\_stripes}}\}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00328}00328\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00329}00329\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00330}00330\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00336}\mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_a656108f8b9bfd44e578ee6fbc5f442b3}{00336}}\ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_a656108f8b9bfd44e578ee6fbc5f442b3}{schema}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_a549cedaaaa0b872dbd0d846f81f86b70}{\_schema}};\ \}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00337}00337\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00339}00339\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00346}\mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_a5f71d6ee3ab37fa8c10fab7c0a1b1dea}{00346}}\ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_a5f71d6ee3ab37fa8c10fab7c0a1b1dea}{num\_rows}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_a4dee88c0a8dfc758f9de07196ada552b}{\_num\_rows}};\ \}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00347}00347\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00353}\mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_ab1b4f85b505d2b7471cd49a5c07ed044}{00353}}\ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_ab1b4f85b505d2b7471cd49a5c07ed044}{num\_stripes}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_afc451b1992aa333e1c49c2e0c2ab788f}{\_num\_stripes}};\ \}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00354}00354\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00355}00355\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00356}\mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_a549cedaaaa0b872dbd0d846f81f86b70}{00356}}\ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1orc__schema}{orc\_schema}}\ \mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_a549cedaaaa0b872dbd0d846f81f86b70}{\_schema}};}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00357}\mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_a4dee88c0a8dfc758f9de07196ada552b}{00357}}\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_a4dee88c0a8dfc758f9de07196ada552b}{\_num\_rows}};}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00358}\mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_afc451b1992aa333e1c49c2e0c2ab788f}{00358}}\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata_afc451b1992aa333e1c49c2e0c2ab788f}{\_num\_stripes}};}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00359}00359\ \};}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00360}00360\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00370}\mbox{\hyperlink{group__io__readers_ga8d4346f591df1c4737e8a6485a936e71}{00370}}\ \mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata}{orc\_metadata}}\ \mbox{\hyperlink{group__io__readers_ga8d4346f591df1c4737e8a6485a936e71}{read\_orc\_metadata}}(\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\_info}}\ \textcolor{keyword}{const}\&\ src\_info);}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00371}00371\ }
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00372}00372\ \}\ \ \textcolor{comment}{//\ namespace\ io}}
+\DoxyCodeLine{\Hypertarget{orc__metadata_8hpp_source_l00373}00373\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

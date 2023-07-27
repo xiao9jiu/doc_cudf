@@ -1,0 +1,384 @@
+\doxysection{cudf\+::string\+\_\+scalar类 参考}
+\hypertarget{classcudf_1_1string__scalar}{}\label{classcudf_1_1string__scalar}\index{cudf::string\_scalar@{cudf::string\_scalar}}
+
+
+An owning class to represent a string in device memory.  
+
+
+
+
+{\ttfamily \#include $<$scalar.\+hpp$>$}
+
+
+
+类 cudf\+::string\+\_\+scalar 继承关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcudf_1_1string__scalar__inherit__graph}
+\end{center}
+\end{figure}
+
+
+cudf\+::string\+\_\+scalar 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcudf_1_1string__scalar__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 类型}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classcudf_1_1string__scalar_a96b29f91169120702da3b7162e5f424c}{value\+\_\+type}} = \mbox{\hyperlink{classcudf_1_1string__view}{cudf\+::string\+\_\+view}}
+\begin{DoxyCompactList}\small\item\em The value type of the string scalar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1string__scalar_afe8099ff33666d50a40fb2780d4292d1}{string\+\_\+scalar}} ()=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1string__scalar_a5d9772b9f96cdce901a5d19e27b34f92}{\texorpdfstring{$\sim$}{\string~}string\+\_\+scalar}} () override=default
+\item 
+\mbox{\hyperlink{classcudf_1_1string__scalar_a4e86d6670608ef4a7e44ef0ac9856ba7}{string\+\_\+scalar}} (\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} \&\&other)=default
+\begin{DoxyCompactList}\small\item\em Move constructor for \doxylink{classcudf_1_1string__scalar}{string\+\_\+scalar}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} \& \mbox{\hyperlink{classcudf_1_1string__scalar_a086fdfb8b6726eb0985581fc58103dd9}{operator=}} (\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&other)=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} \& \mbox{\hyperlink{classcudf_1_1string__scalar_a0579022ad7b145aed03d70f28c647f05}{operator=}} (\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} \&\&other)=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1string__scalar_a9659318d639235bb7b86b34876d7acc6}{string\+\_\+scalar}} (\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&other, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}(), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Construct a new string scalar object by deep copying another \doxylink{classcudf_1_1string__scalar}{string\+\_\+scalar}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1string__scalar_ab6f662291b2819d1d3c9decf86dc57b8}{string\+\_\+scalar}} (std\+::string const \&\mbox{\hyperlink{classcudf_1_1string__scalar_a6a7ae61bbbf85127da2c2d2837cd2042}{string}}, bool \mbox{\hyperlink{classcudf_1_1scalar_a1a1fd922cacc88449792ed329ed3ebdb}{is\+\_\+valid}}=true, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}(), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Construct a new string scalar object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1string__scalar_a6a67b4192c721fc6797a576fd806aa94}{string\+\_\+scalar}} (\mbox{\hyperlink{classcudf_1_1string__scalar_a96b29f91169120702da3b7162e5f424c}{value\+\_\+type}} const \&source, bool \mbox{\hyperlink{classcudf_1_1scalar_a1a1fd922cacc88449792ed329ed3ebdb}{is\+\_\+valid}}=true, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}(), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Construct a new string scalar object from \doxylink{classcudf_1_1string__view}{string\+\_\+view}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1string__scalar_a513182fe055464c5e3e0d2bbe830a55d}{string\+\_\+scalar}} (rmm\+::device\+\_\+scalar$<$ \mbox{\hyperlink{classcudf_1_1string__scalar_a96b29f91169120702da3b7162e5f424c}{value\+\_\+type}} $>$ \&\mbox{\hyperlink{classcudf_1_1string__scalar_ae1e48ec9eca8761a1ea54094d64da0c4}{data}}, bool \mbox{\hyperlink{classcudf_1_1scalar_a1a1fd922cacc88449792ed329ed3ebdb}{is\+\_\+valid}}=true, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}(), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Construct a new string scalar object from \doxylink{classcudf_1_1string__view}{string\+\_\+view} in device memory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1string__scalar_a494d0e7eb3aa111b2d698064b2e31b3d}{string\+\_\+scalar}} (rmm\+::device\+\_\+buffer \&\&\mbox{\hyperlink{classcudf_1_1string__scalar_ae1e48ec9eca8761a1ea54094d64da0c4}{data}}, bool \mbox{\hyperlink{classcudf_1_1scalar_a1a1fd922cacc88449792ed329ed3ebdb}{is\+\_\+valid}}=true, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}(), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Construct a new string scalar object by moving an existing string data buffer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1string__scalar_a6a7ae61bbbf85127da2c2d2837cd2042}{operator std\+::string}} () const
+\begin{DoxyCompactList}\small\item\em Explicit conversion operator to get the value of the scalar in a host std\+::string. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classcudf_1_1string__scalar_a0e17858682c82a055693964f633b3444}{to\+\_\+string}} (rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}()) const
+\begin{DoxyCompactList}\small\item\em Get the value of the scalar in a host std\+::string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1string__scalar_a96b29f91169120702da3b7162e5f424c}{value\+\_\+type}} \mbox{\hyperlink{classcudf_1_1string__scalar_a8137537559c495274b0d7c8b1cfe1c22}{value}} (rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}()) const
+\begin{DoxyCompactList}\small\item\em Get the value of the scalar as a \doxylink{classcudf_1_1string__view}{string\+\_\+view}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1string__scalar_a3d02805b8a223903a3b809e4ab9215f5}{size}} () const
+\begin{DoxyCompactList}\small\item\em Returns the size of the string in bytes. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1string__scalar_ae1e48ec9eca8761a1ea54094d64da0c4}{data}} () const
+\begin{DoxyCompactList}\small\item\em Returns a raw pointer to the string in device memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public 成员函数 继承自 \mbox{\hyperlink{classcudf_1_1scalar}{cudf\+::scalar}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classcudf_1_1scalar_a58b392aa15566b5f38335594d7eae084}{\texorpdfstring{$\sim$}{\string~}scalar}} ()=default
+\item 
+\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} \& \mbox{\hyperlink{classcudf_1_1scalar_ab99548567de6ea6687cfcb6592648a98}{operator=}} (\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&other)=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} \& \mbox{\hyperlink{classcudf_1_1scalar_a513f9e0e0be7487514939a6a51ef9bd7}{operator=}} (\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} \&\&other)=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \mbox{\hyperlink{classcudf_1_1scalar_ac8d5454d018a4e79722b0fb465e1abe0}{type}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the scalar\textquotesingle{}s logical value type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1scalar_a3de612652333b6c20cee910cad9f8d2a}{set\+\_\+valid\+\_\+async}} (bool \mbox{\hyperlink{classcudf_1_1scalar_a1a1fd922cacc88449792ed329ed3ebdb}{is\+\_\+valid}}, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}())
+\begin{DoxyCompactList}\small\item\em Updates the validity of the value. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1scalar_a1a1fd922cacc88449792ed329ed3ebdb}{is\+\_\+valid}} (rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}()) const
+\begin{DoxyCompactList}\small\item\em Indicates whether the scalar contains a valid value. \end{DoxyCompactList}\item 
+bool \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1scalar_a2c7ed8a705a0f11e6d3465dc95a3a81f}{validity\+\_\+data}} ()
+\begin{DoxyCompactList}\small\item\em Returns a raw pointer to the validity bool in device memory. \end{DoxyCompactList}\item 
+bool const \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1scalar_aaa20c3e1f6f2242433a72ead7df141d0}{validity\+\_\+data}} () const
+\begin{DoxyCompactList}\small\item\em Return a const raw pointer to the validity bool in device memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected 属性}
+\begin{DoxyCompactItemize}
+\item 
+rmm\+::device\+\_\+buffer \mbox{\hyperlink{classcudf_1_1string__scalar_a20f76862a02f3605fc0c9455538e6baf}{\+\_\+data}} \{\}
+\begin{DoxyCompactList}\small\item\em device memory containing the string \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected 属性 继承自 \mbox{\hyperlink{classcudf_1_1scalar}{cudf\+::scalar}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \mbox{\hyperlink{classcudf_1_1scalar_a7bb71203faa726cc0b0fa37ae256de8d}{\+\_\+type}} \{\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539aba2b45bdc11e2a4a6e86aab2ac693cbb}{type\+\_\+id\+::\+EMPTY}}\}
+\begin{DoxyCompactList}\small\item\em Logical type of value in the scalar \end{DoxyCompactList}\item 
+rmm\+::device\+\_\+scalar$<$ bool $>$ \mbox{\hyperlink{classcudf_1_1scalar_a382327b94f0176aec21b2303a41a54e7}{\+\_\+is\+\_\+valid}}
+\begin{DoxyCompactList}\small\item\em Device bool signifying validity \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{额外继承的成员函数}
+\doxysubsection*{Protected 成员函数 继承自 \mbox{\hyperlink{classcudf_1_1scalar}{cudf\+::scalar}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1scalar_a36c9057b9dc35099a744f915991e15dd}{scalar}} ()=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1scalar_a618ba43e6820f4ea9eff8e07e549d82a}{scalar}} (\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} \&\&other)=default
+\begin{DoxyCompactList}\small\item\em Move constructor for scalar. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1scalar_ac07b0f697d7510390a4ec944175938b1}{scalar}} (\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&other, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}(), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Construct a new scalar object by deep copying another. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1scalar_a53ac56dc6a92452e19e0b97ac6052570}{scalar}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \mbox{\hyperlink{classcudf_1_1scalar_ac8d5454d018a4e79722b0fb465e1abe0}{type}}, bool \mbox{\hyperlink{classcudf_1_1scalar_a1a1fd922cacc88449792ed329ed3ebdb}{is\+\_\+valid}}=false, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}(), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Construct a new scalar object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+An owning class to represent a string in device memory. 
+
+在文件 \mbox{\hyperlink{scalar_8hpp_source}{scalar.\+hpp}} 第 \mbox{\hyperlink{scalar_8hpp_source_l00429}{429}} 行定义.
+
+
+
+\doxysubsection{成员类型定义说明}
+\Hypertarget{classcudf_1_1string__scalar_a96b29f91169120702da3b7162e5f424c}\label{classcudf_1_1string__scalar_a96b29f91169120702da3b7162e5f424c} 
+\index{cudf::string\_scalar@{cudf::string\_scalar}!value\_type@{value\_type}}
+\index{value\_type@{value\_type}!cudf::string\_scalar@{cudf::string\_scalar}}
+\doxysubsubsection{\texorpdfstring{value\_type}{value\_type}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classcudf_1_1string__scalar_a96b29f91169120702da3b7162e5f424c}{cudf\+::string\+\_\+scalar\+::value\+\_\+type}} =  \mbox{\hyperlink{classcudf_1_1string__view}{cudf\+::string\+\_\+view}}}
+
+
+
+The value type of the string scalar. 
+
+
+
+在文件 \mbox{\hyperlink{scalar_8hpp_source}{scalar.\+hpp}} 第 \mbox{\hyperlink{scalar_8hpp_source_l00431}{431}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1string__scalar_afe8099ff33666d50a40fb2780d4292d1}\label{classcudf_1_1string__scalar_afe8099ff33666d50a40fb2780d4292d1} 
+\index{cudf::string\_scalar@{cudf::string\_scalar}!string\_scalar@{string\_scalar}}
+\index{string\_scalar@{string\_scalar}!cudf::string\_scalar@{cudf::string\_scalar}}
+\doxysubsubsection{\texorpdfstring{string\_scalar()}{string\_scalar()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily cudf\+::string\+\_\+scalar\+::string\+\_\+scalar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classcudf_1_1string__scalar_a5d9772b9f96cdce901a5d19e27b34f92}\label{classcudf_1_1string__scalar_a5d9772b9f96cdce901a5d19e27b34f92} 
+\index{cudf::string\_scalar@{cudf::string\_scalar}!````~string\_scalar@{\texorpdfstring{$\sim$}{\string~}string\_scalar}}
+\index{````~string\_scalar@{\texorpdfstring{$\sim$}{\string~}string\_scalar}!cudf::string\_scalar@{cudf::string\_scalar}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}string\_scalar()}{\string~string\_scalar()}}
+{\footnotesize\ttfamily cudf\+::string\+\_\+scalar\+::\texorpdfstring{$\sim$}{\string~}string\+\_\+scalar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+\Hypertarget{classcudf_1_1string__scalar_a4e86d6670608ef4a7e44ef0ac9856ba7}\label{classcudf_1_1string__scalar_a4e86d6670608ef4a7e44ef0ac9856ba7} 
+\index{cudf::string\_scalar@{cudf::string\_scalar}!string\_scalar@{string\_scalar}}
+\index{string\_scalar@{string\_scalar}!cudf::string\_scalar@{cudf::string\_scalar}}
+\doxysubsubsection{\texorpdfstring{string\_scalar()}{string\_scalar()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily cudf\+::string\+\_\+scalar\+::string\+\_\+scalar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Move constructor for \doxylink{classcudf_1_1string__scalar}{string\+\_\+scalar}. 
+
+
+\begin{DoxyParams}{参数}
+{\em other} & The other \doxylink{classcudf_1_1string__scalar}{string\+\_\+scalar} to move from. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcudf_1_1string__scalar_a9659318d639235bb7b86b34876d7acc6}\label{classcudf_1_1string__scalar_a9659318d639235bb7b86b34876d7acc6} 
+\index{cudf::string\_scalar@{cudf::string\_scalar}!string\_scalar@{string\_scalar}}
+\index{string\_scalar@{string\_scalar}!cudf::string\_scalar@{cudf::string\_scalar}}
+\doxysubsubsection{\texorpdfstring{string\_scalar()}{string\_scalar()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily cudf\+::string\+\_\+scalar\+::string\+\_\+scalar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{other,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream = {\ttfamily \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}()},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Construct a new string scalar object by deep copying another \doxylink{classcudf_1_1string__scalar}{string\+\_\+scalar}. 
+
+
+\begin{DoxyParams}{参数}
+{\em other} & The other \doxylink{classcudf_1_1string__scalar}{string\+\_\+scalar} to copy. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations. \\
+\hline
+{\em mr} & Device memory resource to use for device memory allocation. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcudf_1_1string__scalar_ab6f662291b2819d1d3c9decf86dc57b8}\label{classcudf_1_1string__scalar_ab6f662291b2819d1d3c9decf86dc57b8} 
+\index{cudf::string\_scalar@{cudf::string\_scalar}!string\_scalar@{string\_scalar}}
+\index{string\_scalar@{string\_scalar}!cudf::string\_scalar@{cudf::string\_scalar}}
+\doxysubsubsection{\texorpdfstring{string\_scalar()}{string\_scalar()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily cudf\+::string\+\_\+scalar\+::string\+\_\+scalar (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{string,  }\item[{bool}]{is\+\_\+valid = {\ttfamily true},  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream = {\ttfamily \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}()},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Construct a new string scalar object. 
+
+
+\begin{DoxyParams}{参数}
+{\em string} & The value of the string. \\
+\hline
+{\em is\+\_\+valid} & Whether the value held by the scalar is valid. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations. \\
+\hline
+{\em mr} & Device memory resource to use for device memory allocation. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcudf_1_1string__scalar_a6a67b4192c721fc6797a576fd806aa94}\label{classcudf_1_1string__scalar_a6a67b4192c721fc6797a576fd806aa94} 
+\index{cudf::string\_scalar@{cudf::string\_scalar}!string\_scalar@{string\_scalar}}
+\index{string\_scalar@{string\_scalar}!cudf::string\_scalar@{cudf::string\_scalar}}
+\doxysubsubsection{\texorpdfstring{string\_scalar()}{string\_scalar()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily cudf\+::string\+\_\+scalar\+::string\+\_\+scalar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1string__scalar_a96b29f91169120702da3b7162e5f424c}{value\+\_\+type}} const \&}]{source,  }\item[{bool}]{is\+\_\+valid = {\ttfamily true},  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream = {\ttfamily \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}()},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Construct a new string scalar object from \doxylink{classcudf_1_1string__view}{string\+\_\+view}. 
+
+Note that this function copies the data pointed by \doxylink{classcudf_1_1string__view}{string\+\_\+view}.
+
+
+\begin{DoxyParams}{参数}
+{\em source} & The \doxylink{classcudf_1_1string__view}{string\+\_\+view} pointing the string value to copy. \\
+\hline
+{\em is\+\_\+valid} & Whether the value held by the scalar is valid. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations. \\
+\hline
+{\em mr} & Device memory resource to use for device memory allocation. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcudf_1_1string__scalar_a513182fe055464c5e3e0d2bbe830a55d}\label{classcudf_1_1string__scalar_a513182fe055464c5e3e0d2bbe830a55d} 
+\index{cudf::string\_scalar@{cudf::string\_scalar}!string\_scalar@{string\_scalar}}
+\index{string\_scalar@{string\_scalar}!cudf::string\_scalar@{cudf::string\_scalar}}
+\doxysubsubsection{\texorpdfstring{string\_scalar()}{string\_scalar()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily cudf\+::string\+\_\+scalar\+::string\+\_\+scalar (\begin{DoxyParamCaption}\item[{rmm\+::device\+\_\+scalar$<$ \mbox{\hyperlink{classcudf_1_1string__scalar_a96b29f91169120702da3b7162e5f424c}{value\+\_\+type}} $>$ \&}]{data,  }\item[{bool}]{is\+\_\+valid = {\ttfamily true},  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream = {\ttfamily \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}()},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Construct a new string scalar object from \doxylink{classcudf_1_1string__view}{string\+\_\+view} in device memory. 
+
+Note that this function copies the data pointed by \doxylink{classcudf_1_1string__view}{string\+\_\+view}.
+
+
+\begin{DoxyParams}{参数}
+{\em data} & The device\+\_\+scalar of \doxylink{classcudf_1_1string__view}{string\+\_\+view} pointing to the string value to copy. \\
+\hline
+{\em is\+\_\+valid} & Whether the value held by the scalar is valid. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations. \\
+\hline
+{\em mr} & Device memory resource to use for device memory allocation. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcudf_1_1string__scalar_a494d0e7eb3aa111b2d698064b2e31b3d}\label{classcudf_1_1string__scalar_a494d0e7eb3aa111b2d698064b2e31b3d} 
+\index{cudf::string\_scalar@{cudf::string\_scalar}!string\_scalar@{string\_scalar}}
+\index{string\_scalar@{string\_scalar}!cudf::string\_scalar@{cudf::string\_scalar}}
+\doxysubsubsection{\texorpdfstring{string\_scalar()}{string\_scalar()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily cudf\+::string\+\_\+scalar\+::string\+\_\+scalar (\begin{DoxyParamCaption}\item[{rmm\+::device\+\_\+buffer \&\&}]{data,  }\item[{bool}]{is\+\_\+valid = {\ttfamily true},  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream = {\ttfamily \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}()},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Construct a new string scalar object by moving an existing string data buffer. 
+
+Note that this constructor moves the existing buffer into the internal data buffer; no copy is performed.
+
+
+\begin{DoxyParams}{参数}
+{\em data} & The existing buffer to take over. \\
+\hline
+{\em is\+\_\+valid} & Whether the value held by the scalar is valid. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations. \\
+\hline
+{\em mr} & Device memory resource to use for device memory allocation. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1string__scalar_ae1e48ec9eca8761a1ea54094d64da0c4}\label{classcudf_1_1string__scalar_ae1e48ec9eca8761a1ea54094d64da0c4} 
+\index{cudf::string\_scalar@{cudf::string\_scalar}!data@{data}}
+\index{data@{data}!cudf::string\_scalar@{cudf::string\_scalar}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} cudf\+::string\+\_\+scalar\+::data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns a raw pointer to the string in device memory. 
+
+\begin{DoxyReturn}{返回}
+a raw pointer to the string in device memory 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__scalar_a6a7ae61bbbf85127da2c2d2837cd2042}\label{classcudf_1_1string__scalar_a6a7ae61bbbf85127da2c2d2837cd2042} 
+\index{cudf::string\_scalar@{cudf::string\_scalar}!operator std::string@{operator std::string}}
+\index{operator std::string@{operator std::string}!cudf::string\_scalar@{cudf::string\_scalar}}
+\doxysubsubsection{\texorpdfstring{operator std::string()}{operator std::string()}}
+{\footnotesize\ttfamily cudf\+::string\+\_\+scalar\+::operator std\+::string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Explicit conversion operator to get the value of the scalar in a host std\+::string. 
+
+\Hypertarget{classcudf_1_1string__scalar_a0579022ad7b145aed03d70f28c647f05}\label{classcudf_1_1string__scalar_a0579022ad7b145aed03d70f28c647f05} 
+\index{cudf::string\_scalar@{cudf::string\_scalar}!operator=@{operator=}}
+\index{operator=@{operator=}!cudf::string\_scalar@{cudf::string\_scalar}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} \& cudf\+::string\+\_\+scalar\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classcudf_1_1string__scalar_a086fdfb8b6726eb0985581fc58103dd9}\label{classcudf_1_1string__scalar_a086fdfb8b6726eb0985581fc58103dd9} 
+\index{cudf::string\_scalar@{cudf::string\_scalar}!operator=@{operator=}}
+\index{operator=@{operator=}!cudf::string\_scalar@{cudf::string\_scalar}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} \& cudf\+::string\+\_\+scalar\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classcudf_1_1string__scalar_a3d02805b8a223903a3b809e4ab9215f5}\label{classcudf_1_1string__scalar_a3d02805b8a223903a3b809e4ab9215f5} 
+\index{cudf::string\_scalar@{cudf::string\_scalar}!size@{size}}
+\index{size@{size}!cudf::string\_scalar@{cudf::string\_scalar}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::string\+\_\+scalar\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the size of the string in bytes. 
+
+\begin{DoxyReturn}{返回}
+The size of the string in bytes 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__scalar_a0e17858682c82a055693964f633b3444}\label{classcudf_1_1string__scalar_a0e17858682c82a055693964f633b3444} 
+\index{cudf::string\_scalar@{cudf::string\_scalar}!to\_string@{to\_string}}
+\index{to\_string@{to\_string}!cudf::string\_scalar@{cudf::string\_scalar}}
+\doxysubsubsection{\texorpdfstring{to\_string()}{to\_string()}}
+{\footnotesize\ttfamily std\+::string cudf\+::string\+\_\+scalar\+::to\+\_\+string (\begin{DoxyParamCaption}\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream = {\ttfamily \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}()} }\end{DoxyParamCaption}) const}
+
+
+
+Get the value of the scalar in a host std\+::string. 
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The value of the scalar in a host std\+::string 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__scalar_a8137537559c495274b0d7c8b1cfe1c22}\label{classcudf_1_1string__scalar_a8137537559c495274b0d7c8b1cfe1c22} 
+\index{cudf::string\_scalar@{cudf::string\_scalar}!value@{value}}
+\index{value@{value}!cudf::string\_scalar@{cudf::string\_scalar}}
+\doxysubsubsection{\texorpdfstring{value()}{value()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1string__scalar_a96b29f91169120702da3b7162e5f424c}{value\+\_\+type}} cudf\+::string\+\_\+scalar\+::value (\begin{DoxyParamCaption}\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream = {\ttfamily \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}()} }\end{DoxyParamCaption}) const}
+
+
+
+Get the value of the scalar as a \doxylink{classcudf_1_1string__view}{string\+\_\+view}. 
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The value of the scalar as a \doxylink{classcudf_1_1string__view}{string\+\_\+view} 
+\end{DoxyReturn}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1string__scalar_a20f76862a02f3605fc0c9455538e6baf}\label{classcudf_1_1string__scalar_a20f76862a02f3605fc0c9455538e6baf} 
+\index{cudf::string\_scalar@{cudf::string\_scalar}!\_data@{\_data}}
+\index{\_data@{\_data}!cudf::string\_scalar@{cudf::string\_scalar}}
+\doxysubsubsection{\texorpdfstring{\_data}{\_data}}
+{\footnotesize\ttfamily rmm\+::device\+\_\+buffer cudf\+::string\+\_\+scalar\+::\+\_\+data \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+device memory containing the string 
+
+
+
+在文件 \mbox{\hyperlink{scalar_8hpp_source}{scalar.\+hpp}} 第 \mbox{\hyperlink{scalar_8hpp_source_l00551}{551}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/scalar/\mbox{\hyperlink{scalar_8hpp}{scalar.\+hpp}}\end{DoxyCompactItemize}

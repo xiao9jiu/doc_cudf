@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: D:/gitLibrary/cudf/cpp/include/cudf/strings/convert/convert_lists.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('convert__lists_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">convert_lists.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="convert__lists_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright (c) 2021-2022, NVIDIA CORPORATION.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;<a class="code" href="column_8hpp.html">cudf/column/column.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;<a class="code" href="lists__column__view_8hpp.html">cudf/lists/lists_column_view.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;<a class="code" href="scalar_8hpp.html">cudf/scalar/scalar.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;<a class="code" href="strings__column__view_8hpp.html">cudf/strings/strings_column_view.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;rmm/mr/device/per_device_resource.hpp&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecudf.html">cudf</a> {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">namespace </span>strings {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="group__strings__convert.html#ga7ae1bf5dea1de2f7d85c142e66c3ddd2">   59</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__strings__convert.html#ga7ae1bf5dea1de2f7d85c142e66c3ddd2">format_list_column</a>(</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  <a class="code hl_class" href="classcudf_1_1lists__column__view.html">lists_column_view</a> <span class="keyword">const</span>&amp; input,</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  <a class="code hl_class" href="classcudf_1_1string__scalar.html">string_scalar</a> <span class="keyword">const</span>&amp; na_rep           = <a class="code hl_class" href="classcudf_1_1string__scalar.html">string_scalar</a>(<span class="stringliteral">&quot;NULL&quot;</span>),</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  <a class="code hl_class" href="classcudf_1_1strings__column__view.html">strings_column_view</a> <span class="keyword">const</span>&amp; separators = <a class="code hl_class" href="classcudf_1_1strings__column__view.html">strings_column_view</a>(<a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a>{</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_class" href="classcudf_1_1data__type.html">data_type</a>{<a class="code hl_enumvalue" href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a63b588d5559f64f89a416e656880b949">type_id::STRING</a>}, 0, <span class="keyword">nullptr</span>}),</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  rmm::mr::device_memory_resource* mr   = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  <span class="comment">// end of doxygen group</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>}  <span class="comment">// namespace strings</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>}  <span class="comment">// namespace cudf</span></div>
+<div class="ttc" id="aclasscudf_1_1column__view_html"><div class="ttname"><a href="classcudf_1_1column__view.html">cudf::column_view</a></div><div class="ttdoc">A non-owning, immutable view of device data as a column of elements, some of which may be null as ind...</div><div class="ttdef"><b>Definition</b> <a href="column__view_8hpp_source.html#l00322">column_view.hpp:322</a></div></div>
+<div class="ttc" id="aclasscudf_1_1data__type_html"><div class="ttname"><a href="classcudf_1_1data__type.html">cudf::data_type</a></div><div class="ttdoc">Indicator for the logical data type of an element in a column.</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00236">types.hpp:236</a></div></div>
+<div class="ttc" id="aclasscudf_1_1lists__column__view_html"><div class="ttname"><a href="classcudf_1_1lists__column__view.html">cudf::lists_column_view</a></div><div class="ttdoc">Given a column-view of lists type, an instance of this class provides a wrapper on this compound colu...</div><div class="ttdef"><b>Definition</b> <a href="lists__column__view_8hpp_source.html#l00039">lists_column_view.hpp:39</a></div></div>
+<div class="ttc" id="aclasscudf_1_1string__scalar_html"><div class="ttname"><a href="classcudf_1_1string__scalar.html">cudf::string_scalar</a></div><div class="ttdoc">An owning class to represent a string in device memory.</div><div class="ttdef"><b>Definition</b> <a href="scalar_8hpp_source.html#l00429">scalar.hpp:429</a></div></div>
+<div class="ttc" id="aclasscudf_1_1strings__column__view_html"><div class="ttname"><a href="classcudf_1_1strings__column__view.html">cudf::strings_column_view</a></div><div class="ttdoc">Given a column-view of strings type, an instance of this class provides a wrapper on this compound co...</div><div class="ttdef"><b>Definition</b> <a href="strings__column__view_8hpp_source.html#l00036">strings_column_view.hpp:36</a></div></div>
+<div class="ttc" id="acolumn_8hpp_html"><div class="ttname"><a href="column_8hpp.html">column.hpp</a></div><div class="ttdoc">Class definition for cudf::column</div></div>
+<div class="ttc" id="agroup__strings__convert_html_ga7ae1bf5dea1de2f7d85c142e66c3ddd2"><div class="ttname"><a href="group__strings__convert.html#ga7ae1bf5dea1de2f7d85c142e66c3ddd2">cudf::strings::format_list_column</a></div><div class="ttdeci">std::unique_ptr&lt; column &gt; format_list_column(lists_column_view const &amp;input, string_scalar const &amp;na_rep=string_scalar(&quot;NULL&quot;), strings_column_view const &amp;separators=strings_column_view(column_view{ data_type{type_id::STRING}, 0, nullptr}), rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Convert a list column of strings into a formatted strings column.</div></div>
+<div class="ttc" id="agroup__utility__types_html_ggadf077607da617d1dadcc5417e2783539a63b588d5559f64f89a416e656880b949"><div class="ttname"><a href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a63b588d5559f64f89a416e656880b949">cudf::type_id::STRING</a></div><div class="ttdeci">@ STRING</div><div class="ttdoc">String elements</div></div>
+<div class="ttc" id="alists__column__view_8hpp_html"><div class="ttname"><a href="lists__column__view_8hpp.html">lists_column_view.hpp</a></div><div class="ttdoc">Class definition for cudf::lists_column_view</div></div>
+<div class="ttc" id="anamespacecudf_html"><div class="ttname"><a href="namespacecudf.html">cudf</a></div><div class="ttdoc">cuDF interfaces</div><div class="ttdef"><b>Definition</b> <a href="aggregation_8hpp_source.html#l00034">aggregation.hpp:34</a></div></div>
+<div class="ttc" id="ascalar_8hpp_html"><div class="ttname"><a href="scalar_8hpp.html">scalar.hpp</a></div><div class="ttdoc">Class definitions for cudf::scalar</div></div>
+<div class="ttc" id="astrings__column__view_8hpp_html"><div class="ttname"><a href="strings__column__view_8hpp.html">strings_column_view.hpp</a></div><div class="ttdoc">Class definition for cudf::strings_column_view</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_d998dea0bd4559303135358082015ac8.html">gitLibrary</a></li><li class="navelem"><a class="el" href="dir_b6486b3d9bd1f4b89c884933ed658179.html">cudf</a></li><li class="navelem"><a class="el" href="dir_318a4414914f49dc0e7605c41de9d4af.html">cpp</a></li><li class="navelem"><a class="el" href="dir_7fbf5ee8ae486656ea40e5ca1dd304f9.html">include</a></li><li class="navelem"><a class="el" href="dir_87e6427d1ef099fd52d9d0724c66b062.html">cudf</a></li><li class="navelem"><a class="el" href="dir_e52a7cfcc5412b565f6ae0686e8a94b2.html">strings</a></li><li class="navelem"><a class="el" href="dir_6016d4e8e7183150b11ef1e535008346.html">convert</a></li><li class="navelem"><a class="el" href="convert__lists_8hpp.html">convert_lists.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

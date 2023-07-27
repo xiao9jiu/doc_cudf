@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: D:/gitLibrary/cudf/cpp/include/cudf/io/text/detail/trie.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('trie_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">trie.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="trie_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright (c) 2021-2022, NVIDIA CORPORATION.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;<a class="code" href="vector__factories_8hpp.html">cudf/detail/utilities/vector_factories.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;<a class="code" href="multistate_8hpp.html">cudf/io/text/detail/multistate.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;<a class="code" href="span_8hpp.html">cudf/utilities/span.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;rmm/cuda_stream_view.hpp&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;rmm/mr/device/device_memory_resource.hpp&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;queue&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecudf.html">cudf</a> {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">namespace </span>io {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">namespace </span>text {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">namespace </span>detail {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__node.html">   37</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__node.html">trie_node</a> {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__node.html#a1cc1891857d2fb4d86ed61e7168bdfc6">   38</a></span>  <span class="keywordtype">char</span> <a class="code hl_variable" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__node.html#a1cc1891857d2fb4d86ed61e7168bdfc6">token</a>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__node.html#a83f88c56fdb9a295dd720533ab6307cd">   39</a></span>  uint8_t <a class="code hl_variable" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__node.html#a83f88c56fdb9a295dd720533ab6307cd">match_length</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__node.html#a3072eabbec01854d231a35527e5be544">   40</a></span>  uint8_t <a class="code hl_variable" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__node.html#a3072eabbec01854d231a35527e5be544">child_begin</a>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>};</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html">   43</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html">trie_device_view</a> {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#a62ff7ea9515b285ab02a7b03545737f6">   44</a></span>  <a class="code hl_struct" href="structcudf_1_1device__span.html">device_span&lt;trie_node const&gt;</a> <a class="code hl_variable" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#a62ff7ea9515b285ab02a7b03545737f6">_nodes</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#a4eaba773750b0572780c49f73ca6dbab">   49</a></span>  <span class="keyword">constexpr</span> <a class="code hl_struct" href="structcudf_1_1io_1_1text_1_1detail_1_1multistate.html">multistate</a> <a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#a4eaba773750b0572780c49f73ca6dbab">transition_init</a>(<span class="keywordtype">char</span> c)</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  {</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">auto</span> result = <a class="code hl_struct" href="structcudf_1_1io_1_1text_1_1detail_1_1multistate.html">multistate</a>();</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    result.enqueue(0, 0);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordflow">for</span> (uint8_t curr = 0; curr &lt; <a class="code hl_variable" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#a62ff7ea9515b285ab02a7b03545737f6">_nodes</a>.size() - 1; curr++) {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>      <a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#a8d634c29c9ac3352f9ef5877ffe62f52">transition_enqueue_all</a>(c, result, curr, curr);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#a2f765d6156091ef0c1c708f2c5a6761b">   68</a></span>  <span class="keyword">constexpr</span> <a class="code hl_struct" href="structcudf_1_1io_1_1text_1_1detail_1_1multistate.html">multistate</a> <a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#a2f765d6156091ef0c1c708f2c5a6761b">transition</a>(<span class="keywordtype">char</span> c, <a class="code hl_struct" href="structcudf_1_1io_1_1text_1_1detail_1_1multistate.html">multistate</a> <span class="keyword">const</span>&amp; states)</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keyword">auto</span> result = <a class="code hl_struct" href="structcudf_1_1io_1_1text_1_1detail_1_1multistate.html">multistate</a>();</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    result.enqueue(0, 0);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordflow">for</span> (uint8_t i = 0; i &lt; states.<a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1multistate.html#a9f3b0753045f1259d62781a65c7587fc">size</a>(); i++) {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>      <a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#a8d634c29c9ac3352f9ef5877ffe62f52">transition_enqueue_all</a>(c, result, states.<a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1multistate.html#aebce6d9e6b904c11aae3d1a0673f0aea">get_head</a>(i), states.<a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1multistate.html#a193b76e025bf9fa3369dd9ba971a041f">get_tail</a>(i));</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#abdee05875969a0d23482dc30fd9e60d8">   84</a></span>  <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#abdee05875969a0d23482dc30fd9e60d8">is_match</a>(uint16_t idx) { <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">bool</span><span class="keyword">&gt;</span>(<a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#adbca1f3b8833ba548186fe397e7af5e6">get_match_length</a>(idx)); }</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#adbca1f3b8833ba548186fe397e7af5e6">   90</a></span>  <span class="keyword">constexpr</span> uint8_t <a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#adbca1f3b8833ba548186fe397e7af5e6">get_match_length</a>(uint16_t idx) { <span class="keywordflow">return</span> <a class="code hl_variable" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#a62ff7ea9515b285ab02a7b03545737f6">_nodes</a>[idx].match_length; }</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#a8d634c29c9ac3352f9ef5877ffe62f52">   93</a></span>  <span class="keyword">constexpr</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#a8d634c29c9ac3352f9ef5877ffe62f52">transition_enqueue_all</a>(  <span class="comment">//</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">char</span> c,</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_struct" href="structcudf_1_1io_1_1text_1_1detail_1_1multistate.html">multistate</a>&amp; states,</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    uint8_t head,</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    uint8_t curr)</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>  {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordflow">for</span> (uint32_t tail = <a class="code hl_variable" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#a62ff7ea9515b285ab02a7b03545737f6">_nodes</a>[curr].child_begin; tail &lt; <a class="code hl_variable" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#a62ff7ea9515b285ab02a7b03545737f6">_nodes</a>[curr + 1].child_begin; tail++) {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#a62ff7ea9515b285ab02a7b03545737f6">_nodes</a>[tail].token == c) {  <span class="comment">//</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        states.<a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1multistate.html#a2dd9ff9590d65922c249ea02b78a241c">enqueue</a>(head, tail);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>      }</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    }</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  }</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>};</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html">  110</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html">trie</a> {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#ab30118857d395d2aa0fc4db8ade4cc80">  112</a></span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">cudf::size_type</a> <a class="code hl_variable" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#ab30118857d395d2aa0fc4db8ade4cc80">_max_duplicate_tokens</a>;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#a2e5d1f2dbb5328745ce71bf3b722390d">  113</a></span>  rmm::device_uvector&lt;trie_node&gt; <a class="code hl_variable" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#a2e5d1f2dbb5328745ce71bf3b722390d">_nodes</a>;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#a0e638cea4271c264008902dd0c7aa90e">  115</a></span>  <a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#a0e638cea4271c264008902dd0c7aa90e">trie</a>(<a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">cudf::size_type</a> <a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#aed846ea47d4f2510854e870a3110dfaf">max_duplicate_tokens</a>, rmm::device_uvector&lt;trie_node&gt;&amp;&amp; nodes)</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    : <a class="code hl_variable" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#ab30118857d395d2aa0fc4db8ade4cc80">_max_duplicate_tokens</a>(<a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#aed846ea47d4f2510854e870a3110dfaf">max_duplicate_tokens</a>), <a class="code hl_variable" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#a2e5d1f2dbb5328745ce71bf3b722390d">_nodes</a>(<a class="code hl_namespace" href="namespacestd.html">std</a>::move(nodes))</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>  {</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>  }</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node.html">  123</a></span>  <span class="keyword">struct </span><a class="code hl_struct" href="structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node.html">trie_builder_node</a> {</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node.html#a8db78fd0efa51e0025efebced098817f">  124</a></span>    uint8_t <a class="code hl_variable" href="structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node.html#a8db78fd0efa51e0025efebced098817f">match_length</a>;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node.html#add7b876c2be6eaa8edde51bbe1f1b6e4">  125</a></span>    std::unordered_map&lt;char, std::unique_ptr&lt;trie_builder_node&gt;&gt; <a class="code hl_variable" href="structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node.html#add7b876c2be6eaa8edde51bbe1f1b6e4">children</a>;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node.html#a76dd948746fe43d6a34bfc3b69f2f38d">  130</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node.html#a76dd948746fe43d6a34bfc3b69f2f38d">insert</a>(std::string s) { <a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node.html#a76dd948746fe43d6a34bfc3b69f2f38d">insert</a>(s.c_str(), s.size(), 0); }</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>   <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node.html#a7810a7adb471bfddfd006ccd5aaf0cb4">  133</a></span>    <a class="code hl_struct" href="structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node.html">trie_builder_node</a>&amp; <a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node.html#a7810a7adb471bfddfd006ccd5aaf0cb4">insert</a>(<span class="keywordtype">char</span> <span class="keyword">const</span>* s, uint16_t <a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#a5497b4fcbb103d321e6a19adab52aae9">size</a>, uint8_t depth)</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    {</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>      <span class="keywordflow">if</span> (<a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#a5497b4fcbb103d321e6a19adab52aae9">size</a> == 0) {</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <a class="code hl_variable" href="structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node.html#a8db78fd0efa51e0025efebced098817f">match_length</a> = depth;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>      }</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node.html#add7b876c2be6eaa8edde51bbe1f1b6e4">children</a>[*s] == <span class="keyword">nullptr</span>) { <a class="code hl_variable" href="structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node.html#add7b876c2be6eaa8edde51bbe1f1b6e4">children</a>[*s] = std::make_unique&lt;trie_builder_node&gt;(); }</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>      <span class="keywordflow">return</span> <a class="code hl_variable" href="structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node.html#add7b876c2be6eaa8edde51bbe1f1b6e4">children</a>[*s]-&gt;insert(s + 1, <a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#a5497b4fcbb103d321e6a19adab52aae9">size</a> - 1, depth + 1);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    }</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>  };</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#a5497b4fcbb103d321e6a19adab52aae9">  150</a></span>  [[nodiscard]] <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">cudf::size_type</a> <a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#a5497b4fcbb103d321e6a19adab52aae9">size</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#a2e5d1f2dbb5328745ce71bf3b722390d">_nodes</a>.size(); }</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#aed846ea47d4f2510854e870a3110dfaf">  156</a></span>  [[nodiscard]] <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">cudf::size_type</a> <a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#aed846ea47d4f2510854e870a3110dfaf">max_duplicate_tokens</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#ab30118857d395d2aa0fc4db8ade4cc80">_max_duplicate_tokens</a>; }</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#ad763910e1b3ae91761327742088cd878">  166</a></span>  <span class="keyword">static</span> <a class="code hl_struct" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html">trie</a> <a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#ad763910e1b3ae91761327742088cd878">create</a>(std::string <span class="keyword">const</span>&amp; pattern,</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>                     rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>                     rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource())</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>  {</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#ad763910e1b3ae91761327742088cd878">create</a>(std::vector&lt;std::string&gt;{pattern}, stream, mr);</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>  }</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#ac96f47cbe83e87c7452f0e8d57bb3ee7">  182</a></span>  <span class="keyword">static</span> <a class="code hl_struct" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html">trie</a> <a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#ac96f47cbe83e87c7452f0e8d57bb3ee7">create</a>(std::vector&lt;std::string&gt; <span class="keyword">const</span>&amp; patterns,</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>                     rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>                     rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource())</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>  {</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    std::vector&lt;char&gt; tokens;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    std::vector&lt;uint8_t&gt; transitions;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    std::vector&lt;uint8_t&gt; match_length;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="comment">// create the trie tree</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="keyword">auto</span> root = std::make_unique&lt;trie_builder_node&gt;();</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; pattern : patterns) {</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>      root-&gt;insert(pattern);</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    }</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <span class="comment">// flatten</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="keyword">auto</span> sum = 1;</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    transitions.emplace_back(sum);</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    match_length.emplace_back(root-&gt;match_length);</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    <span class="keyword">auto</span> builder_nodes = std::queue&lt;std::unique_ptr&lt;trie_builder_node&gt;&gt;();</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    builder_nodes.push(std::move(root));</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    tokens.emplace_back(0);</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keywordflow">while</span> (builder_nodes.size()) {</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>      <span class="keyword">auto</span> layer_size = builder_nodes.size();</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>      <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; layer_size; i++) {</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        <span class="keyword">auto</span> node = std::move(builder_nodes.front());</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        builder_nodes.pop();</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        sum += node-&gt;children.size();</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        transitions.emplace_back(sum);</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; item : node-&gt;children) {</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>          match_length.emplace_back(item.second-&gt;match_length);</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>          tokens.emplace_back(item.first);</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>          builder_nodes.push(std::move(item.second));</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        }</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>      }</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    }</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    tokens.emplace_back(0);</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    match_length.emplace_back(0);</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    std::vector&lt;trie_node&gt; trie_nodes;</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <span class="keyword">auto</span> token_counts = std::unordered_map&lt;cudf::size_type, int32_t&gt;();</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; tokens.size(); i++) {</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>      trie_nodes.emplace_back(<a class="code hl_struct" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__node.html">trie_node</a>{tokens[i], match_length[i], transitions[i]});</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>      token_counts[tokens[i]]++;</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    }</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <span class="keyword">auto</span> most_common_token =</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>      std::max_element(token_counts.begin(), token_counts.end(), [](<span class="keyword">auto</span> <span class="keyword">const</span>&amp; a, <span class="keyword">auto</span> <span class="keyword">const</span>&amp; b) {</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        return a.second &lt; b.second;</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>      });</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="keyword">auto</span> <a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#aed846ea47d4f2510854e870a3110dfaf">max_duplicate_tokens</a> = most_common_token-&gt;second;</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <span class="keywordflow">return</span> <a class="code hl_struct" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html">trie</a>{<a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#aed846ea47d4f2510854e870a3110dfaf">max_duplicate_tokens</a>,</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>                <a class="code hl_function" href="namespacecudf_1_1detail.html#a567b65a608d7b1818cff9632b3dafde8">cudf::detail::make_device_uvector_sync</a>(trie_nodes, stream, mr)};</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>  }</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno"><a class="line" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#a5aea60bcb908820ced654b0976d850cc">  244</a></span>  [[nodiscard]] <a class="code hl_struct" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html">trie_device_view</a> <a class="code hl_function" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#a5aea60bcb908820ced654b0976d850cc">view</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_struct" href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html">trie_device_view</a>{<a class="code hl_variable" href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#a2e5d1f2dbb5328745ce71bf3b722390d">_nodes</a>}; }</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>};</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>}  <span class="comment">// namespace detail</span></div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>}  <span class="comment">// namespace text</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>}  <span class="comment">// namespace io</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>}  <span class="comment">// namespace cudf</span></div>
+<div class="ttc" id="agroup__utility__types_html_ga0aff16b2db009d92300befaca11827e9"><div class="ttname"><a href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">cudf::size_type</a></div><div class="ttdeci">int32_t size_type</div><div class="ttdoc">Row index type for columns and tables</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00080">types.hpp:80</a></div></div>
+<div class="ttc" id="amultistate_8hpp_html"><div class="ttname"><a href="multistate_8hpp.html">multistate.hpp</a></div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_a567b65a608d7b1818cff9632b3dafde8"><div class="ttname"><a href="namespacecudf_1_1detail.html#a567b65a608d7b1818cff9632b3dafde8">cudf::detail::make_device_uvector_sync</a></div><div class="ttdeci">rmm::device_uvector&lt; T &gt; make_device_uvector_sync(host_span&lt; T const &gt; source_data, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Synchronously construct a device_uvector containing a deep copy of data from a host_span</div><div class="ttdef"><b>Definition</b> <a href="vector__factories_8hpp_source.html#l00202">vector_factories.hpp:202</a></div></div>
+<div class="ttc" id="anamespacecudf_html"><div class="ttname"><a href="namespacecudf.html">cudf</a></div><div class="ttdoc">cuDF interfaces</div><div class="ttdef"><b>Definition</b> <a href="aggregation_8hpp_source.html#l00034">aggregation.hpp:34</a></div></div>
+<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdef"><b>Definition</b> <a href="detail_2hashing_8hpp_source.html#l00104">hashing.hpp:104</a></div></div>
+<div class="ttc" id="aspan_8hpp_html"><div class="ttname"><a href="span_8hpp.html">span.hpp</a></div></div>
+<div class="ttc" id="astructcudf_1_1device__span_html"><div class="ttname"><a href="structcudf_1_1device__span.html">cudf::device_span</a></div><div class="ttdoc">Device version of C++20 std::span with reduced feature set.</div><div class="ttdef"><b>Definition</b> <a href="span_8hpp_source.html#l00285">span.hpp:285</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1multistate_html"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1multistate.html">cudf::io::text::detail::multistate</a></div><div class="ttdoc">Represents up to 7 segments</div><div class="ttdef"><b>Definition</b> <a href="multistate_8hpp_source.html#l00029">multistate.hpp:29</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1multistate_html_a193b76e025bf9fa3369dd9ba971a041f"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1multistate.html#a193b76e025bf9fa3369dd9ba971a041f">cudf::io::text::detail::multistate::get_tail</a></div><div class="ttdeci">constexpr uint8_t get_tail(uint8_t idx) const</div><div class="ttdoc">get's the Nth (____, tail] value state this multistate represents</div><div class="ttdef"><b>Definition</b> <a href="multistate_8hpp_source.html#l00083">multistate.hpp:83</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1multistate_html_a2dd9ff9590d65922c249ea02b78a241c"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1multistate.html#a2dd9ff9590d65922c249ea02b78a241c">cudf::io::text::detail::multistate::enqueue</a></div><div class="ttdeci">constexpr void enqueue(uint8_t head, uint8_t tail)</div><div class="ttdoc">Enqueues a (head, tail] segment to this multistate</div><div class="ttdef"><b>Definition</b> <a href="multistate_8hpp_source.html#l00046">multistate.hpp:46</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1multistate_html_a9f3b0753045f1259d62781a65c7587fc"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1multistate.html#a9f3b0753045f1259d62781a65c7587fc">cudf::io::text::detail::multistate::size</a></div><div class="ttdeci">constexpr uint8_t size() const</div><div class="ttdoc">get's the number of segments this multistate represents</div><div class="ttdef"><b>Definition</b> <a href="multistate_8hpp_source.html#l00056">multistate.hpp:56</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1multistate_html_aebce6d9e6b904c11aae3d1a0673f0aea"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1multistate.html#aebce6d9e6b904c11aae3d1a0673f0aea">cudf::io::text::detail::multistate::get_head</a></div><div class="ttdeci">constexpr uint8_t get_head(uint8_t idx) const</div><div class="ttdoc">get's the Nth (head, ____] value state this multistate represents</div><div class="ttdef"><b>Definition</b> <a href="multistate_8hpp_source.html#l00075">multistate.hpp:75</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_html"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node.html">cudf::io::text::detail::trie::trie_builder_node</a></div><div class="ttdoc">Used to build a hierarchical trie which can then be flattened.</div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00123">trie.hpp:123</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_html_a76dd948746fe43d6a34bfc3b69f2f38d"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node.html#a76dd948746fe43d6a34bfc3b69f2f38d">cudf::io::text::detail::trie::trie_builder_node::insert</a></div><div class="ttdeci">void insert(std::string s)</div><div class="ttdoc">Insert the string in to the trie tree, growing the trie as necessary</div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00130">trie.hpp:130</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_html_a7810a7adb471bfddfd006ccd5aaf0cb4"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node.html#a7810a7adb471bfddfd006ccd5aaf0cb4">cudf::io::text::detail::trie::trie_builder_node::insert</a></div><div class="ttdeci">trie_builder_node &amp; insert(char const *s, uint16_t size, uint8_t depth)</div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00133">trie.hpp:133</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_html_a8db78fd0efa51e0025efebced098817f"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node.html#a8db78fd0efa51e0025efebced098817f">cudf::io::text::detail::trie::trie_builder_node::match_length</a></div><div class="ttdeci">uint8_t match_length</div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00124">trie.hpp:124</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_html_add7b876c2be6eaa8edde51bbe1f1b6e4"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node.html#add7b876c2be6eaa8edde51bbe1f1b6e4">cudf::io::text::detail::trie::trie_builder_node::children</a></div><div class="ttdeci">std::unordered_map&lt; char, std::unique_ptr&lt; trie_builder_node &gt; &gt; children</div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00125">trie.hpp:125</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_html"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html">cudf::io::text::detail::trie_device_view</a></div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00043">trie.hpp:43</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_html_a2f765d6156091ef0c1c708f2c5a6761b"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#a2f765d6156091ef0c1c708f2c5a6761b">cudf::io::text::detail::trie_device_view::transition</a></div><div class="ttdeci">constexpr multistate transition(char c, multistate const &amp;states)</div><div class="ttdoc">create a new multistate by transitioning all states in the multistate by the given token</div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00068">trie.hpp:68</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_html_a4eaba773750b0572780c49f73ca6dbab"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#a4eaba773750b0572780c49f73ca6dbab">cudf::io::text::detail::trie_device_view::transition_init</a></div><div class="ttdeci">constexpr multistate transition_init(char c)</div><div class="ttdoc">create a multistate which contains all partial path matches for the given token.</div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00049">trie.hpp:49</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_html_a62ff7ea9515b285ab02a7b03545737f6"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#a62ff7ea9515b285ab02a7b03545737f6">cudf::io::text::detail::trie_device_view::_nodes</a></div><div class="ttdeci">device_span&lt; trie_node const  &gt; _nodes</div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00044">trie.hpp:44</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_html_a8d634c29c9ac3352f9ef5877ffe62f52"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#a8d634c29c9ac3352f9ef5877ffe62f52">cudf::io::text::detail::trie_device_view::transition_enqueue_all</a></div><div class="ttdeci">constexpr void transition_enqueue_all(char c, multistate &amp;states, uint8_t head, uint8_t curr)</div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00093">trie.hpp:93</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_html_abdee05875969a0d23482dc30fd9e60d8"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#abdee05875969a0d23482dc30fd9e60d8">cudf::io::text::detail::trie_device_view::is_match</a></div><div class="ttdeci">constexpr bool is_match(uint16_t idx)</div><div class="ttdoc">returns true if the given index is associated with a matching state.</div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00084">trie.hpp:84</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_html_adbca1f3b8833ba548186fe397e7af5e6"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view.html#adbca1f3b8833ba548186fe397e7af5e6">cudf::io::text::detail::trie_device_view::get_match_length</a></div><div class="ttdeci">constexpr uint8_t get_match_length(uint16_t idx)</div><div class="ttdoc">returns the match length if the given index is associated with a matching state, otherwise zero.</div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00090">trie.hpp:90</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie__node_html"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie__node.html">cudf::io::text::detail::trie_node</a></div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00037">trie.hpp:37</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie__node_html_a1cc1891857d2fb4d86ed61e7168bdfc6"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie__node.html#a1cc1891857d2fb4d86ed61e7168bdfc6">cudf::io::text::detail::trie_node::token</a></div><div class="ttdeci">char token</div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00038">trie.hpp:38</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie__node_html_a3072eabbec01854d231a35527e5be544"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie__node.html#a3072eabbec01854d231a35527e5be544">cudf::io::text::detail::trie_node::child_begin</a></div><div class="ttdeci">uint8_t child_begin</div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00040">trie.hpp:40</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie__node_html_a83f88c56fdb9a295dd720533ab6307cd"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie__node.html#a83f88c56fdb9a295dd720533ab6307cd">cudf::io::text::detail::trie_node::match_length</a></div><div class="ttdeci">uint8_t match_length</div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00039">trie.hpp:39</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie_html"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html">cudf::io::text::detail::trie</a></div><div class="ttdoc">A flat trie contained in device memory.</div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00110">trie.hpp:110</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie_html_a0e638cea4271c264008902dd0c7aa90e"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#a0e638cea4271c264008902dd0c7aa90e">cudf::io::text::detail::trie::trie</a></div><div class="ttdeci">trie(cudf::size_type max_duplicate_tokens, rmm::device_uvector&lt; trie_node &gt; &amp;&amp;nodes)</div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00115">trie.hpp:115</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie_html_a2e5d1f2dbb5328745ce71bf3b722390d"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#a2e5d1f2dbb5328745ce71bf3b722390d">cudf::io::text::detail::trie::_nodes</a></div><div class="ttdeci">rmm::device_uvector&lt; trie_node &gt; _nodes</div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00113">trie.hpp:113</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie_html_a5497b4fcbb103d321e6a19adab52aae9"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#a5497b4fcbb103d321e6a19adab52aae9">cudf::io::text::detail::trie::size</a></div><div class="ttdeci">cudf::size_type size() const</div><div class="ttdoc">Gets the number of nodes contained in this trie.</div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00150">trie.hpp:150</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie_html_a5aea60bcb908820ced654b0976d850cc"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#a5aea60bcb908820ced654b0976d850cc">cudf::io::text::detail::trie::view</a></div><div class="ttdeci">trie_device_view view() const</div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00244">trie.hpp:244</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie_html_ab30118857d395d2aa0fc4db8ade4cc80"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#ab30118857d395d2aa0fc4db8ade4cc80">cudf::io::text::detail::trie::_max_duplicate_tokens</a></div><div class="ttdeci">cudf::size_type _max_duplicate_tokens</div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00112">trie.hpp:112</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie_html_ac96f47cbe83e87c7452f0e8d57bb3ee7"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#ac96f47cbe83e87c7452f0e8d57bb3ee7">cudf::io::text::detail::trie::create</a></div><div class="ttdeci">static trie create(std::vector&lt; std::string &gt; const &amp;patterns, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Create a trie which represents the given pattern.</div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00182">trie.hpp:182</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie_html_ad763910e1b3ae91761327742088cd878"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#ad763910e1b3ae91761327742088cd878">cudf::io::text::detail::trie::create</a></div><div class="ttdeci">static trie create(std::string const &amp;pattern, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Create a trie which represents the given pattern.</div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00166">trie.hpp:166</a></div></div>
+<div class="ttc" id="astructcudf_1_1io_1_1text_1_1detail_1_1trie_html_aed846ea47d4f2510854e870a3110dfaf"><div class="ttname"><a href="structcudf_1_1io_1_1text_1_1detail_1_1trie.html#aed846ea47d4f2510854e870a3110dfaf">cudf::io::text::detail::trie::max_duplicate_tokens</a></div><div class="ttdeci">cudf::size_type max_duplicate_tokens() const</div><div class="ttdoc">A pessimistic count of duplicate tokens in the trie. Used to determine the maximum possible stack siz...</div><div class="ttdef"><b>Definition</b> <a href="trie_8hpp_source.html#l00156">trie.hpp:156</a></div></div>
+<div class="ttc" id="avector__factories_8hpp_html"><div class="ttname"><a href="vector__factories_8hpp.html">vector_factories.hpp</a></div><div class="ttdoc">Convenience factories for creating device vectors from host spans</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_d998dea0bd4559303135358082015ac8.html">gitLibrary</a></li><li class="navelem"><a class="el" href="dir_b6486b3d9bd1f4b89c884933ed658179.html">cudf</a></li><li class="navelem"><a class="el" href="dir_318a4414914f49dc0e7605c41de9d4af.html">cpp</a></li><li class="navelem"><a class="el" href="dir_7fbf5ee8ae486656ea40e5ca1dd304f9.html">include</a></li><li class="navelem"><a class="el" href="dir_87e6427d1ef099fd52d9d0724c66b062.html">cudf</a></li><li class="navelem"><a class="el" href="dir_6c957c959b1bf3b7bc34e42fb1407625.html">io</a></li><li class="navelem"><a class="el" href="dir_3702ac16d4dc63c2bfeccc5334b1b453.html">text</a></li><li class="navelem"><a class="el" href="dir_0c5653e95863ffd3a24db0fa8201a268.html">detail</a></li><li class="navelem"><a class="el" href="trie_8hpp.html">trie.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

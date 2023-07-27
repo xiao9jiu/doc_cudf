@@ -1,0 +1,101 @@
+\doxysection{cudf\+::ast\+::detail\+::expression\+\_\+device\+\_\+view结构体 参考}
+\hypertarget{structcudf_1_1ast_1_1detail_1_1expression__device__view}{}\label{structcudf_1_1ast_1_1detail_1_1expression__device__view}\index{cudf::ast::detail::expression\_device\_view@{cudf::ast::detail::expression\_device\_view}}
+
+
+A container of all device data required to evaluate an expression on tables.  
+
+
+
+
+{\ttfamily \#include $<$expression\+\_\+parser.\+hpp$>$}
+
+
+
+cudf\+::ast\+::detail\+::expression\+\_\+device\+\_\+view 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structcudf_1_1ast_1_1detail_1_1expression__device__view__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1device__data__reference}{detail\+::device\+\_\+data\+\_\+reference}} const  $>$ \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1expression__device__view_ad242b960071088e5f054bc29a3045647}{data\+\_\+references}}
+\item 
+\mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ cudf\+::detail\+::fixed\+\_\+width\+\_\+scalar\+\_\+device\+\_\+view\+\_\+base const  $>$ \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1expression__device__view_ac2777f23b1b4a43e7d8db1c03ad1eb0c}{literals}}
+\item 
+\mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}} const  $>$ \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1expression__device__view_a8f61f0036135b95f312db9fec78b9438}{operators}}
+\item 
+\mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} const  $>$ \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1expression__device__view_aebaaa76596c65fee4198be54593ae991}{operator\+\_\+source\+\_\+indices}}
+\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1expression__device__view_af0019a4019ba0ccdf8c8f3a42ea99ef4}{num\+\_\+intermediates}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+A container of all device data required to evaluate an expression on tables. 
+
+This struct should never be instantiated directly. It is created by the {\ttfamily \doxylink{classcudf_1_1ast_1_1detail_1_1expression__parser}{expression\+\_\+parser}} on construction, and the resulting member is publicly accessible for passing to kernels for constructing an {\ttfamily expression\+\_\+evaluator}. 
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00105}{105}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{structcudf_1_1ast_1_1detail_1_1expression__device__view_ad242b960071088e5f054bc29a3045647}\label{structcudf_1_1ast_1_1detail_1_1expression__device__view_ad242b960071088e5f054bc29a3045647} 
+\index{cudf::ast::detail::expression\_device\_view@{cudf::ast::detail::expression\_device\_view}!data\_references@{data\_references}}
+\index{data\_references@{data\_references}!cudf::ast::detail::expression\_device\_view@{cudf::ast::detail::expression\_device\_view}}
+\doxysubsubsection{\texorpdfstring{data\_references}{data\_references}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$\mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1device__data__reference}{detail\+::device\+\_\+data\+\_\+reference}} const$>$ cudf\+::ast\+::detail\+::expression\+\_\+device\+\_\+view\+::data\+\_\+references}
+
+
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00106}{106}} 行定义.
+
+\Hypertarget{structcudf_1_1ast_1_1detail_1_1expression__device__view_ac2777f23b1b4a43e7d8db1c03ad1eb0c}\label{structcudf_1_1ast_1_1detail_1_1expression__device__view_ac2777f23b1b4a43e7d8db1c03ad1eb0c} 
+\index{cudf::ast::detail::expression\_device\_view@{cudf::ast::detail::expression\_device\_view}!literals@{literals}}
+\index{literals@{literals}!cudf::ast::detail::expression\_device\_view@{cudf::ast::detail::expression\_device\_view}}
+\doxysubsubsection{\texorpdfstring{literals}{literals}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$cudf\+::detail\+::fixed\+\_\+width\+\_\+scalar\+\_\+device\+\_\+view\+\_\+base const$>$ cudf\+::ast\+::detail\+::expression\+\_\+device\+\_\+view\+::literals}
+
+
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00107}{107}} 行定义.
+
+\Hypertarget{structcudf_1_1ast_1_1detail_1_1expression__device__view_af0019a4019ba0ccdf8c8f3a42ea99ef4}\label{structcudf_1_1ast_1_1detail_1_1expression__device__view_af0019a4019ba0ccdf8c8f3a42ea99ef4} 
+\index{cudf::ast::detail::expression\_device\_view@{cudf::ast::detail::expression\_device\_view}!num\_intermediates@{num\_intermediates}}
+\index{num\_intermediates@{num\_intermediates}!cudf::ast::detail::expression\_device\_view@{cudf::ast::detail::expression\_device\_view}}
+\doxysubsubsection{\texorpdfstring{num\_intermediates}{num\_intermediates}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::ast\+::detail\+::expression\+\_\+device\+\_\+view\+::num\+\_\+intermediates}
+
+
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00110}{110}} 行定义.
+
+\Hypertarget{structcudf_1_1ast_1_1detail_1_1expression__device__view_aebaaa76596c65fee4198be54593ae991}\label{structcudf_1_1ast_1_1detail_1_1expression__device__view_aebaaa76596c65fee4198be54593ae991} 
+\index{cudf::ast::detail::expression\_device\_view@{cudf::ast::detail::expression\_device\_view}!operator\_source\_indices@{operator\_source\_indices}}
+\index{operator\_source\_indices@{operator\_source\_indices}!cudf::ast::detail::expression\_device\_view@{cudf::ast::detail::expression\_device\_view}}
+\doxysubsubsection{\texorpdfstring{operator\_source\_indices}{operator\_source\_indices}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} const$>$ cudf\+::ast\+::detail\+::expression\+\_\+device\+\_\+view\+::operator\+\_\+source\+\_\+indices}
+
+
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00109}{109}} 行定义.
+
+\Hypertarget{structcudf_1_1ast_1_1detail_1_1expression__device__view_a8f61f0036135b95f312db9fec78b9438}\label{structcudf_1_1ast_1_1detail_1_1expression__device__view_a8f61f0036135b95f312db9fec78b9438} 
+\index{cudf::ast::detail::expression\_device\_view@{cudf::ast::detail::expression\_device\_view}!operators@{operators}}
+\index{operators@{operators}!cudf::ast::detail::expression\_device\_view@{cudf::ast::detail::expression\_device\_view}}
+\doxysubsubsection{\texorpdfstring{operators}{operators}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}} const$>$ cudf\+::ast\+::detail\+::expression\+\_\+device\+\_\+view\+::operators}
+
+
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00108}{108}} 行定义.
+
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/ast/detail/\mbox{\hyperlink{expression__parser_8hpp}{expression\+\_\+parser.\+hpp}}\end{DoxyCompactItemize}

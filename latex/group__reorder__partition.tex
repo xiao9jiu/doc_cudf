@@ -1,0 +1,247 @@
+\doxysection{Reorder\+\_\+partition}
+\hypertarget{group__reorder__partition}{}\label{group__reorder__partition}\index{Reorder\_partition@{Reorder\_partition}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{partitioning_8hpp}{partitioning.\+hpp}}
+\begin{DoxyCompactList}\small\item\em Column partitioning APIs \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ $>$ \mbox{\hyperlink{group__reorder__partition_gac862ac3926d44c41e92e6d3a47c6d388}{cudf\+::partition}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&t, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&partition\+\_\+map, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} num\+\_\+partitions, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Partitions rows of {\ttfamily t} according to the mapping specified by {\ttfamily partition\+\_\+map}. \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ $>$ \mbox{\hyperlink{group__reorder__partition_gac5e2aad87e6f5f09fa4370f4cec3be17}{cudf\+::hash\+\_\+partition}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&columns\+\_\+to\+\_\+hash, int num\+\_\+partitions, \mbox{\hyperlink{group__column__hash_gaced8b9d129825edd13d76e912e4413c3}{hash\+\_\+id}} hash\+\_\+function=\mbox{\hyperlink{group__column__hash_ggaced8b9d129825edd13d76e912e4413c3ae9ec854e962136b1afcf108e5301c354}{hash\+\_\+id\+::\+HASH\+\_\+\+MURMUR3}}, uint32\+\_\+t seed=\mbox{\hyperlink{group__column__hash_ga68de1d04aa2c0ea2eeacfc73fd99a915}{DEFAULT\+\_\+\+HASH\+\_\+\+SEED}}, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}(), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Partitions rows from the input table into multiple output tables. \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{cudf\+::table}} $>$, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} $>$ $>$ \mbox{\hyperlink{group__reorder__partition_ga5db3c207f2be3f7659416122ba3a1fdb}{cudf\+::round\+\_\+robin\+\_\+partition}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} num\+\_\+partitions, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} start\+\_\+partition=0, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Round-\/robin partition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__reorder__partition_gac5e2aad87e6f5f09fa4370f4cec3be17}\label{group__reorder__partition_gac5e2aad87e6f5f09fa4370f4cec3be17} 
+\index{Reorder\_partition@{Reorder\_partition}!hash\_partition@{hash\_partition}}
+\index{hash\_partition@{hash\_partition}!Reorder\_partition@{Reorder\_partition}}
+\doxysubsubsection{\texorpdfstring{hash\_partition()}{hash\_partition()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ $>$ cudf\+::hash\+\_\+partition (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&}]{columns\+\_\+to\+\_\+hash,  }\item[{int}]{num\+\_\+partitions,  }\item[{\mbox{\hyperlink{group__column__hash_gaced8b9d129825edd13d76e912e4413c3}{hash\+\_\+id}}}]{hash\+\_\+function = {\ttfamily \mbox{\hyperlink{group__column__hash_ggaced8b9d129825edd13d76e912e4413c3ae9ec854e962136b1afcf108e5301c354}{hash\+\_\+id\+::\+HASH\+\_\+\+MURMUR3}}},  }\item[{uint32\+\_\+t}]{seed = {\ttfamily \mbox{\hyperlink{group__column__hash_ga68de1d04aa2c0ea2eeacfc73fd99a915}{DEFAULT\+\_\+\+HASH\+\_\+\+SEED}}},  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream = {\ttfamily \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}()},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Partitions rows from the input table into multiple output tables. 
+
+Partitions rows of {\ttfamily input} into {\ttfamily num\+\_\+partitions} bins based on the hash value of the columns specified by {\ttfamily columns\+\_\+to\+\_\+hash}. Rows partitioned into the same bin are grouped consecutively in the output table. Returns a vector of row offsets to the start of each partition in the output table.
+
+
+\begin{DoxyExceptions}{异常}
+{\em std\+::out\+\_\+of\+\_\+range} & if index is {\ttfamily columns\+\_\+to\+\_\+hash} is invalid\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & The table to partition \\
+\hline
+{\em columns\+\_\+to\+\_\+hash} & Indices of input columns to hash \\
+\hline
+{\em num\+\_\+partitions} & The number of partitions to use \\
+\hline
+{\em hash\+\_\+function} & Optional hash id that chooses the hash function to use \\
+\hline
+{\em seed} & Optional seed value to the hash function \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+An output table and a vector of row offsets to each partition 
+\end{DoxyReturn}
+\Hypertarget{group__reorder__partition_gac862ac3926d44c41e92e6d3a47c6d388}\label{group__reorder__partition_gac862ac3926d44c41e92e6d3a47c6d388} 
+\index{Reorder\_partition@{Reorder\_partition}!partition@{partition}}
+\index{partition@{partition}!Reorder\_partition@{Reorder\_partition}}
+\doxysubsubsection{\texorpdfstring{partition()}{partition()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ $>$ cudf\+::partition (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{t,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{partition\+\_\+map,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{num\+\_\+partitions,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Partitions rows of {\ttfamily t} according to the mapping specified by {\ttfamily partition\+\_\+map}. 
+
+For each row at {\ttfamily i} in {\ttfamily t}, {\ttfamily partition\+\_\+map\mbox{[}i\mbox{]}} indicates which partition row {\ttfamily i} belongs to. {\ttfamily partition} creates a new table by rearranging the rows of {\ttfamily t} such that rows in the same partition are contiguous. The returned table is in ascending partition order from {\ttfamily \mbox{[}0, num\+\_\+partitions)}. The order within each partition is undefined.
+
+Returns a {\ttfamily vector\texorpdfstring{$<$}{<}size\+\_\+type\texorpdfstring{$>$}{>}} of {\ttfamily num\+\_\+partitions + 1} values that indicate the starting position of each partition within the returned table, i.\+e., partition {\ttfamily i} starts at {\ttfamily offsets\mbox{[}i\mbox{]}} (inclusive) and ends at {\ttfamily offset\mbox{[}i+1\mbox{]}} (exclusive). As a result, if value {\ttfamily j} in {\ttfamily \mbox{[}0, num\+\_\+partitions)} does not appear in {\ttfamily partition\+\_\+map}, partition {\ttfamily j} will be empty, i.\+e., {\ttfamily offsets\mbox{[}j+1\mbox{]} -\/ offsets\mbox{[}j\mbox{]} == 0}.
+
+Values in {\ttfamily partition\+\_\+map} must be in the range {\ttfamily \mbox{[}0, num\+\_\+partitions)}, otherwise behavior is undefined.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & when {\ttfamily partition\+\_\+map} is a non-\/integer type \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & when {\ttfamily partition\+\_\+map.\+has\+\_\+nulls() == true} \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & when {\ttfamily partition\+\_\+map.\+size() != t.\+num\+\_\+rows()}\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em t} & The table to partition \\
+\hline
+{\em partition\+\_\+map} & Non-\/nullable column of integer values that map each row in {\ttfamily t} to it\textquotesingle{}s partition. \\
+\hline
+{\em num\+\_\+partitions} & The total number of partitions \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Pair containing the reordered table and vector of {\ttfamily num\+\_\+partitions + 1} offsets to each partition such that the size of partition {\ttfamily i} is determined by {\ttfamily offset\mbox{[}i+1\mbox{]} -\/ offset\mbox{[}i\mbox{]}}. 
+\end{DoxyReturn}
+\Hypertarget{group__reorder__partition_ga5db3c207f2be3f7659416122ba3a1fdb}\label{group__reorder__partition_ga5db3c207f2be3f7659416122ba3a1fdb} 
+\index{Reorder\_partition@{Reorder\_partition}!round\_robin\_partition@{round\_robin\_partition}}
+\index{round\_robin\_partition@{round\_robin\_partition}!Reorder\_partition@{Reorder\_partition}}
+\doxysubsubsection{\texorpdfstring{round\_robin\_partition()}{round\_robin\_partition()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{cudf\+::table}} $>$, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} $>$ $>$ cudf\+::round\+\_\+robin\+\_\+partition (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}}}]{num\+\_\+partitions,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}}}]{start\+\_\+partition = {\ttfamily 0},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Round-\/robin partition. 
+
+Returns a new table with rows re-\/arranged into partition groups and a vector of row offsets to the start of each partition in the output table. Rows are assigned partitions based on their row index in the table, in a round robin fashion.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily num\+\_\+partitions \texorpdfstring{$<$}{<}= 1} \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily start\+\_\+partition \texorpdfstring{$>$}{>}= num\+\_\+partitions}\\
+\hline
+\end{DoxyExceptions}
+A good analogy for the algorithm is dealing out cards\+:
+
+
+\begin{DoxyEnumerate}
+\item The deck of cards is represented as the rows in the table.
+\item The number of partitions is the number of players being dealt cards.
+\item the start\+\_\+partition indicates which player starts getting cards first.
+\end{DoxyEnumerate}
+
+The algorithm has two outcomes\+:
+
+
+\begin{DoxyEnumerate}
+\item Another deck of cards formed by stacking each player\textquotesingle{}s cards back into a deck again, preserving the order of cards dealt to each player, starting with player 0.
+\item A vector into the output deck indicating where a player\textquotesingle{}s cards start.
+\end{DoxyEnumerate}
+
+A player\textquotesingle{}s deck (partition) is the range of cards starting at the corresponding offset and ending at the next player\textquotesingle{}s starting offset or the last card in the deck if it\textquotesingle{}s the last player.
+
+When num\+\_\+partitions \texorpdfstring{$>$}{>} nrows, we have more players than cards. We start dealing to the first indicated player and continuing around the players until we run out of cards before we run out of players. Players that did not get any cards are represented by {\ttfamily offset\mbox{[}i\mbox{]} == offset\mbox{[}i+1\mbox{]} or offset\mbox{[}i\mbox{]} == \doxylink{classcudf_1_1table_a6f413ef7e62bf5b2863c26e98f664c54}{table.\+num\+\_\+rows()} if i == num\+\_\+partitions-\/1} meaning there are no cards (rows) in their deck (partition).
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example\ 1:}
+\DoxyCodeLine{input:}
+\DoxyCodeLine{\mbox{\hyperlink{classcudf_1_1table}{table}}\ =>\ col\ 1\ \{0,\ ...,\ 12\}}
+\DoxyCodeLine{num\_partitions\ =\ 3}
+\DoxyCodeLine{start\_partition\ =\ 0}
+\DoxyCodeLine{}
+\DoxyCodeLine{output:\ pair<table,\ partition\_offsets>}
+\DoxyCodeLine{table\ =>\ col\ 1\ \{0,3,6,9,12,1,4,7,10,2,5,8,11\}}
+\DoxyCodeLine{partition\_offsets\ =>\ \{0,5,9\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{Example\ 2:}
+\DoxyCodeLine{input:}
+\DoxyCodeLine{table\ =>\ col\ 1\ \{0,\ ...,\ 12\}}
+\DoxyCodeLine{num\_partitions\ =\ 3}
+\DoxyCodeLine{start\_partition\ =\ 1}
+\DoxyCodeLine{}
+\DoxyCodeLine{output:\ pair<table,\ partition\_offsets>}
+\DoxyCodeLine{table\ =>\ col\ 1\ \{2,5,8,11,0,3,6,9,12,1,4,7,10\}}
+\DoxyCodeLine{partition\_offsets\ =>\ \{0,4,9\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{Example\ 3:}
+\DoxyCodeLine{input:}
+\DoxyCodeLine{table\ =>\ col\ 1\ \{0,\ ...,\ 10\}}
+\DoxyCodeLine{num\_partitions\ =\ 3}
+\DoxyCodeLine{start\_partition\ =\ 0}
+\DoxyCodeLine{}
+\DoxyCodeLine{output:\ pair<table,\ partition\_offsets>}
+\DoxyCodeLine{table\ =>\ col\ 1\ \{0,3,6,9,1,4,7,10,2,5,8\}}
+\DoxyCodeLine{partition\_offsets\ =>\ \{0,4,8\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{Example\ 4:}
+\DoxyCodeLine{input:}
+\DoxyCodeLine{table\ =>\ col\ 1\ \{0,\ ...,\ 10\}}
+\DoxyCodeLine{num\_partitions\ =\ 3}
+\DoxyCodeLine{start\_partition\ =\ 1}
+\DoxyCodeLine{}
+\DoxyCodeLine{output:\ pair<table,\ partition\_offsets>}
+\DoxyCodeLine{table\ =>\ col\ 1\ \{2,5,8,0,3,6,9,1,4,7,10\}}
+\DoxyCodeLine{partition\_offsets\ =>\ \{0,3,7\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{Example\ 5:}
+\DoxyCodeLine{input:}
+\DoxyCodeLine{table\ =>\ col\ 1\ \{0,\ ...,\ 10\}}
+\DoxyCodeLine{num\_partitions\ =\ 3}
+\DoxyCodeLine{start\_partition\ =\ 2}
+\DoxyCodeLine{}
+\DoxyCodeLine{output:\ pair<table,\ partition\_offsets>}
+\DoxyCodeLine{table\ =>\ col\ 1\ \{1,4,7,10,2,5,8,0,3,6,9\}}
+\DoxyCodeLine{partition\_offsets\ =>\ \{0,4,7\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{Example\ 6:}
+\DoxyCodeLine{input:}
+\DoxyCodeLine{table\ =>\ col\ 1\ \{0,\ ...,\ 10\}}
+\DoxyCodeLine{num\_partitions\ =\ 15\ >\ num\_rows\ =\ 11}
+\DoxyCodeLine{start\_partition\ =\ 2}
+\DoxyCodeLine{}
+\DoxyCodeLine{output:\ pair<table,\ partition\_offsets>}
+\DoxyCodeLine{table\ =>\ col\ 1\ \{0,1,2,3,4,5,6,7,8,9,10\}}
+\DoxyCodeLine{partition\_offsets\ =>\ \{0,0,0,1,2,3,4,5,6,7,8,9,10,11,11\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{Example\ 7:}
+\DoxyCodeLine{input:}
+\DoxyCodeLine{table\ =>\ col\ 1\ \{0,\ ...,\ 10\}}
+\DoxyCodeLine{num\_partitions\ =\ 15\ >\ num\_rows\ =\ 11}
+\DoxyCodeLine{start\_partition\ =\ 10}
+\DoxyCodeLine{}
+\DoxyCodeLine{output:\ pair<table,\ partition\_offsets>}
+\DoxyCodeLine{table\ =>\ col\ 1\ \{5,6,7,8,9,10,0,1,2,3,4\}}
+\DoxyCodeLine{partition\_offsets\ =>\ \{0,1,2,3,4,5,6,6,6,6,6,7,8,9,10\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{Example\ 8:}
+\DoxyCodeLine{input:}
+\DoxyCodeLine{table\ =>\ col\ 1\ \{0,\ ...,\ 10\}}
+\DoxyCodeLine{num\_partitions\ =\ 15\ >\ num\_rows\ =\ 11}
+\DoxyCodeLine{start\_partition\ =\ 14}
+\DoxyCodeLine{}
+\DoxyCodeLine{output:\ pair<table,\ partition\_offsets>}
+\DoxyCodeLine{table\ =>\ col\ 1\ \{1,2,3,4,5,6,7,8,9,10,0\}}
+\DoxyCodeLine{partition\_offsets\ =>\ \{0,1,2,3,4,5,6,7,8,9,10,10,10,10,10\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{Example\ 9:}
+\DoxyCodeLine{input:}
+\DoxyCodeLine{table\ =>\ col\ 1\ \{0,\ ...,\ 10\}}
+\DoxyCodeLine{num\_partitions\ =\ 11\ ==\ num\_rows\ =\ 11}
+\DoxyCodeLine{start\_partition\ =\ 2}
+\DoxyCodeLine{}
+\DoxyCodeLine{output:\ pair<table,\ partition\_offsets>}
+\DoxyCodeLine{table\ =>\ col\ 1\ \{9,10,0,1,2,3,4,5,6,7,8\}}
+\DoxyCodeLine{partition\_offsets\ =>\ \{0,1,2,3,4,5,6,7,8,9,10\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & The input table to be round-\/robin partitioned \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+\_\+partitions} & Number of partitions for the table \\
+\hline
+\mbox{\texttt{ in}}  & {\em start\+\_\+partition} & Index of the 1st partition \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A std\+::pair consisting of a unique\+\_\+ptr to the partitioned table and the partition offsets for each partition within the table. 
+\end{DoxyReturn}

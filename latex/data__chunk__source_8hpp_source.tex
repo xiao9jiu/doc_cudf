@@ -1,0 +1,60 @@
+\doxysection{data\+\_\+chunk\+\_\+source.\+hpp}
+\hypertarget{data__chunk__source_8hpp_source}{}\label{data__chunk__source_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/io/text/data\_chunk\_source.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/io/text/data\_chunk\_source.hpp}}
+\mbox{\hyperlink{data__chunk__source_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2021-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{span_8hpp}{cudf/utilities/span.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <rmm/cuda\_stream\_pool.hpp>}}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <rmm/device\_buffer.hpp>}}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00024}00024\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00025}00025\ \textcolor{keyword}{namespace\ }io\ \{}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00026}00026\ \textcolor{keyword}{namespace\ }text\ \{}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00037}\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1device__data__chunk}{00037}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1device__data__chunk}{device\_data\_chunk}}\ \{}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00038}00038\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00039}\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1device__data__chunk_a70521210450c3bf08e9503d98fdfaf7e}{00039}}\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1device__data__chunk_a70521210450c3bf08e9503d98fdfaf7e}{\string~device\_data\_chunk}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00045}\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1device__data__chunk_a7706fb49cc039306acc7ec71e8b35ab2}{00045}}\ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1device__data__chunk_a7706fb49cc039306acc7ec71e8b35ab2}{data}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00051}\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1device__data__chunk_ae26766037265fc94c3d3d43bc92a7ec1}{00051}}\ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ std::size\_t\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1device__data__chunk_ae26766037265fc94c3d3d43bc92a7ec1}{size}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00057}\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1device__data__chunk_a747ee7b1390419fe0918062e3b779b9c}{00057}}\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{operator}\ \mbox{\hyperlink{structcudf_1_1device__span}{device\_span<char\ const>}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00058}00058\ \};}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00069}\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__reader}{00069}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__reader}{data\_chunk\_reader}}\ \{}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00070}00070\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00071}\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__reader_ab1a9da0014ed09070ffcfcb1c326c0c7}{00071}}\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__reader_ab1a9da0014ed09070ffcfcb1c326c0c7}{\string~data\_chunk\_reader}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00077}\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__reader_aabb5797050e785f37b8cf2a906f37dca}{00077}}\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__reader_aabb5797050e785f37b8cf2a906f37dca}{skip\_bytes}}(std::size\_t\ size)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00093}\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__reader_adc05cc58e9ed48d5060abb4d4dda67c8}{00093}}\ \ \ \textcolor{keyword}{virtual}\ std::unique\_ptr<device\_data\_chunk>\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__reader_adc05cc58e9ed48d5060abb4d4dda67c8}{get\_next\_chunk}}(std::size\_t\ size,}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::cuda\_stream\_view\ stream)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00095}00095\ \};}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00101}\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source}{00101}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source}{data\_chunk\_source}}\ \{}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00102}00102\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00103}\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source_ab2ceb1418282336d71aca38d01a3ad22}{00103}}\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source_ab2ceb1418282336d71aca38d01a3ad22}{\string~data\_chunk\_source}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00110}\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source_a00cd7ea09cc8ebec9e9f3f835a72d946}{00110}}\ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ std::unique\_ptr<data\_chunk\_reader>\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source_a00cd7ea09cc8ebec9e9f3f835a72d946}{create\_reader}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00111}00111\ \};}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00113}00113\ \}\ \ \textcolor{comment}{//\ namespace\ text}}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00114}00114\ \}\ \ \textcolor{comment}{//\ namespace\ io}}
+\DoxyCodeLine{\Hypertarget{data__chunk__source_8hpp_source_l00115}00115\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

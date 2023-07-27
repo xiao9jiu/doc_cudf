@@ -1,0 +1,56 @@
+\doxysection{partitioning.\+hpp}
+\hypertarget{partitioning_8hpp_source}{}\label{partitioning_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/partitioning.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/partitioning.hpp}}
+\mbox{\hyperlink{partitioning_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2020-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{hashing_8hpp}{cudf/hashing.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{utilities_2default__stream_8hpp}{cudf/utilities/default\_stream.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <rmm/cuda\_stream\_view.hpp>}}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <rmm/mr/device/per\_device\_resource.hpp>}}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00028}00028\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00069}\mbox{\hyperlink{group__reorder__partition_gac862ac3926d44c41e92e6d3a47c6d388}{00069}}\ std::pair<std::unique\_ptr<table>,\ std::vector<size\_type>>\ \mbox{\hyperlink{group__reorder__partition_gac862ac3926d44c41e92e6d3a47c6d388}{partition}}(}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00070}00070\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ t,}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00071}00071\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ partition\_map,}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00072}00072\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ num\_partitions,}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00073}00073\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00095}\mbox{\hyperlink{group__reorder__partition_gac5e2aad87e6f5f09fa4370f4cec3be17}{00095}}\ std::pair<std::unique\_ptr<table>,\ std::vector<size\_type>>\ \mbox{\hyperlink{group__reorder__partition_gac5e2aad87e6f5f09fa4370f4cec3be17}{hash\_partition}}(}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00096}00096\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00097}00097\ \ \ std::vector<size\_type>\ \textcolor{keyword}{const}\&\ columns\_to\_hash,}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00098}00098\ \ \ \textcolor{keywordtype}{int}\ num\_partitions,}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00099}00099\ \ \ \mbox{\hyperlink{group__column__hash_gaced8b9d129825edd13d76e912e4413c3}{hash\_id}}\ hash\_function\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__column__hash_ggaced8b9d129825edd13d76e912e4413c3ae9ec854e962136b1afcf108e5301c354}{hash\_id::HASH\_MURMUR3}},}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00100}00100\ \ \ uint32\_t\ seed\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__column__hash_ga68de1d04aa2c0ea2eeacfc73fd99a915}{DEFAULT\_HASH\_SEED}},}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00101}00101\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00102}00102\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00241}\mbox{\hyperlink{group__reorder__partition_ga5db3c207f2be3f7659416122ba3a1fdb}{00241}}\ std::pair<std::unique\_ptr<cudf::table>,\ std::vector<cudf::size\_type>>\ \mbox{\hyperlink{group__reorder__partition_ga5db3c207f2be3f7659416122ba3a1fdb}{round\_robin\_partition}}(}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00242}00242\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00243}00243\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf::size\_type}}\ num\_partitions,}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00244}00244\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf::size\_type}}\ start\_partition\ \ \ \ \ =\ 0,}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00245}00245\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00246}00246\ \ \ \textcolor{comment}{//\ end\ of\ group}}
+\DoxyCodeLine{\Hypertarget{partitioning_8hpp_source_l00248}00248\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

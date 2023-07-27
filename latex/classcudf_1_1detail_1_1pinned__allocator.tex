@@ -1,0 +1,422 @@
+\doxysection{cudf\+::detail\+::pinned\+\_\+allocator\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} 模板类 参考}
+\hypertarget{classcudf_1_1detail_1_1pinned__allocator}{}\label{classcudf_1_1detail_1_1pinned__allocator}\index{cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}}
+
+
+{\ttfamily \#include $<$pinned\+\_\+allocator.\+hpp$>$}
+
+
+
+cudf\+::detail\+::pinned\+\_\+allocator\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{classcudf_1_1detail_1_1pinned__allocator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1detail_1_1pinned__allocator_1_1rebind}{rebind}}
+\begin{DoxyCompactList}\small\item\em converts a {\ttfamily \doxylink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} to {\ttfamily \doxylink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}\texorpdfstring{$<$}{<}U\texorpdfstring{$>$}{>}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 类型}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_aedea26b20c0a7ef74aa5f486eb4022dd}{value\+\_\+type}} = T
+\begin{DoxyCompactList}\small\item\em The type of the elements in the allocator \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_a2cd8d53872892d3246fca516fcfdb11d}{pointer}} = T \texorpdfstring{$\ast$}{*}
+\begin{DoxyCompactList}\small\item\em The type returned by \doxylink{classcudf_1_1detail_1_1pinned__allocator_a2a79c2b76d274ecca802b26b37417781}{address()} / \doxylink{classcudf_1_1detail_1_1pinned__allocator_a03c1597e42a2cbc97a84efbc5078ed77}{allocate()} \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_ac83133f9935a7264396fb77857d3aa14}{const\+\_\+pointer}} = const T \texorpdfstring{$\ast$}{*}
+\begin{DoxyCompactList}\small\item\em The type returned by \doxylink{classcudf_1_1detail_1_1pinned__allocator_a2a79c2b76d274ecca802b26b37417781}{address()} \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_a75c05ae161bd0bc184f5e5825a814582}{reference}} = T \&
+\begin{DoxyCompactList}\small\item\em The parameter type for \doxylink{classcudf_1_1detail_1_1pinned__allocator_a2a79c2b76d274ecca802b26b37417781}{address()} \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_a638f87fd21d4fb312c654404bd238d43}{const\+\_\+reference}} = const T \&
+\begin{DoxyCompactList}\small\item\em The parameter type for \doxylink{classcudf_1_1detail_1_1pinned__allocator_a2a79c2b76d274ecca802b26b37417781}{address()} \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_adef30a02e71ca4f9ba5fadb99fcea189}{size\+\_\+type}} = std\+::size\+\_\+t
+\begin{DoxyCompactList}\small\item\em The type used for the size of the allocation \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_aa5c65a0efc5b29736d0d3d3440c72339}{difference\+\_\+type}} = std\+::ptrdiff\+\_\+t
+\begin{DoxyCompactList}\small\item\em The type of the distance between two pointers \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+\_\+host\+\_\+\+\_\+ \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_a27a883f383fccee98d2289016005273f}{pinned\+\_\+allocator}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}\textquotesingle{}s null constructor does nothing. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+host\+\_\+\+\_\+ \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_ad5963f48b9600559c44cc51c6fa25e4f}{\texorpdfstring{$\sim$}{\string~}pinned\+\_\+allocator}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}\textquotesingle{}s null destructor does nothing. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+host\+\_\+\+\_\+ \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_a831a52d2247af61b9203c263137aeb6b}{pinned\+\_\+allocator}} (\mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}} const \&)
+\begin{DoxyCompactList}\small\item\em \doxylink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}\textquotesingle{}s copy constructor does nothing. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename U $>$ }\\\+\_\+\+\_\+host\+\_\+\+\_\+ \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_a9e9034b6a50d75ac79178fca5e12b993}{pinned\+\_\+allocator}} (\mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}}$<$ U $>$ const \&)
+\begin{DoxyCompactList}\small\item\em \doxylink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}\textquotesingle{}s copy constructor does nothing. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+host\+\_\+\+\_\+ \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_a2cd8d53872892d3246fca516fcfdb11d}{pointer}} \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_a2a79c2b76d274ecca802b26b37417781}{address}} (\mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_a75c05ae161bd0bc184f5e5825a814582}{reference}} r)
+\begin{DoxyCompactList}\small\item\em This method returns the address of a {\ttfamily reference} of interest. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+host\+\_\+\+\_\+ \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_ac83133f9935a7264396fb77857d3aa14}{const\+\_\+pointer}} \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_ab3c32e0ed97416a65f884f7bd115f77f}{address}} (\mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_a638f87fd21d4fb312c654404bd238d43}{const\+\_\+reference}} r)
+\begin{DoxyCompactList}\small\item\em This method returns the address of a {\ttfamily const\+\_\+reference} of interest. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+host\+\_\+\+\_\+ \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_a2cd8d53872892d3246fca516fcfdb11d}{pointer}} \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_a03c1597e42a2cbc97a84efbc5078ed77}{allocate}} (\mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_adef30a02e71ca4f9ba5fadb99fcea189}{size\+\_\+type}} cnt, \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_ac83133f9935a7264396fb77857d3aa14}{const\+\_\+pointer}}=0)
+\begin{DoxyCompactList}\small\item\em This method allocates storage for objects in pinned host memory. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+host\+\_\+\+\_\+ void \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_ad93caad4233ae6c10b4918db792679ad}{deallocate}} (\mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_a2cd8d53872892d3246fca516fcfdb11d}{pointer}} p, \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_adef30a02e71ca4f9ba5fadb99fcea189}{size\+\_\+type}})
+\begin{DoxyCompactList}\small\item\em This method deallocates pinned host memory previously allocated with this {\ttfamily \doxylink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_adef30a02e71ca4f9ba5fadb99fcea189}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_a5b7b97017e2465eed757e7d986223823}{max\+\_\+size}} () const
+\begin{DoxyCompactList}\small\item\em This method returns the maximum size of the {\ttfamily cnt} parameter accepted by the {\ttfamily \doxylink{classcudf_1_1detail_1_1pinned__allocator_a03c1597e42a2cbc97a84efbc5078ed77}{allocate()}} method. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+host\+\_\+\+\_\+ \+\_\+\+\_\+device\+\_\+\+\_\+ bool \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_ac43a107e308821a299469464876b0629}{operator==}} (\mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}} const \&x) const
+\begin{DoxyCompactList}\small\item\em This method tests this {\ttfamily \doxylink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}} for equality to another. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+host\+\_\+\+\_\+ \+\_\+\+\_\+device\+\_\+\+\_\+ bool \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_ac69a3d38671ebdab7a5635c05d48ab6d}{operator!=}} (\mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}} const \&x) const
+\begin{DoxyCompactList}\small\item\em This method tests this {\ttfamily \doxylink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}} for inequality to another. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+\subsubsection*{template$<$typename T$>$\newline
+class cudf\+::detail\+::pinned\+\_\+allocator$<$ T $>$}
+{\ttfamily \doxylink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}} is a CUDA-\/specific host memory allocator that employs {\ttfamily cuda\+Malloc\+Host} for allocation.
+
+This implementation is ported from the experimental/pinned\+\_\+allocator that Thrust used to provide.
+
+\begin{DoxySeeAlso}{参见}
+\href{https://en.cppreference.com/w/cpp/memory/allocator}{\texttt{ https\+://en.\+cppreference.\+com/w/cpp/memory/allocator}} 
+\end{DoxySeeAlso}
+
+
+在文件 \mbox{\hyperlink{pinned__allocator_8hpp_source}{pinned\+\_\+allocator.\+hpp}} 第 \mbox{\hyperlink{pinned__allocator_8hpp_source_l00073}{73}} 行定义.
+
+
+
+\doxysubsection{成员类型定义说明}
+\Hypertarget{classcudf_1_1detail_1_1pinned__allocator_ac83133f9935a7264396fb77857d3aa14}\label{classcudf_1_1detail_1_1pinned__allocator_ac83133f9935a7264396fb77857d3aa14} 
+\index{cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}!const\_pointer@{const\_pointer}}
+\index{const\_pointer@{const\_pointer}!cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{const\_pointer}{const\_pointer}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{cudf\+::detail\+::pinned\+\_\+allocator}}$<$ T $>$\+::const\+\_\+pointer =  const T\texorpdfstring{$\ast$}{*}}
+
+
+
+The type returned by \doxylink{classcudf_1_1detail_1_1pinned__allocator_a2a79c2b76d274ecca802b26b37417781}{address()} 
+
+
+
+在文件 \mbox{\hyperlink{pinned__allocator_8hpp_source}{pinned\+\_\+allocator.\+hpp}} 第 \mbox{\hyperlink{pinned__allocator_8hpp_source_l00077}{77}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1pinned__allocator_a638f87fd21d4fb312c654404bd238d43}\label{classcudf_1_1detail_1_1pinned__allocator_a638f87fd21d4fb312c654404bd238d43} 
+\index{cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}!const\_reference@{const\_reference}}
+\index{const\_reference@{const\_reference}!cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{const\_reference}{const\_reference}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{cudf\+::detail\+::pinned\+\_\+allocator}}$<$ T $>$\+::const\+\_\+reference =  const T\&}
+
+
+
+The parameter type for \doxylink{classcudf_1_1detail_1_1pinned__allocator_a2a79c2b76d274ecca802b26b37417781}{address()} 
+
+
+
+在文件 \mbox{\hyperlink{pinned__allocator_8hpp_source}{pinned\+\_\+allocator.\+hpp}} 第 \mbox{\hyperlink{pinned__allocator_8hpp_source_l00079}{79}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1pinned__allocator_aa5c65a0efc5b29736d0d3d3440c72339}\label{classcudf_1_1detail_1_1pinned__allocator_aa5c65a0efc5b29736d0d3d3440c72339} 
+\index{cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}!difference\_type@{difference\_type}}
+\index{difference\_type@{difference\_type}!cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{difference\_type}{difference\_type}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{cudf\+::detail\+::pinned\+\_\+allocator}}$<$ T $>$\+::difference\+\_\+type =  std\+::ptrdiff\+\_\+t}
+
+
+
+The type of the distance between two pointers 
+
+
+
+在文件 \mbox{\hyperlink{pinned__allocator_8hpp_source}{pinned\+\_\+allocator.\+hpp}} 第 \mbox{\hyperlink{pinned__allocator_8hpp_source_l00081}{81}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1pinned__allocator_a2cd8d53872892d3246fca516fcfdb11d}\label{classcudf_1_1detail_1_1pinned__allocator_a2cd8d53872892d3246fca516fcfdb11d} 
+\index{cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}!pointer@{pointer}}
+\index{pointer@{pointer}!cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pointer}{pointer}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{cudf\+::detail\+::pinned\+\_\+allocator}}$<$ T $>$\+::pointer =  T\texorpdfstring{$\ast$}{*}}
+
+
+
+The type returned by \doxylink{classcudf_1_1detail_1_1pinned__allocator_a2a79c2b76d274ecca802b26b37417781}{address()} / \doxylink{classcudf_1_1detail_1_1pinned__allocator_a03c1597e42a2cbc97a84efbc5078ed77}{allocate()} 
+
+
+
+在文件 \mbox{\hyperlink{pinned__allocator_8hpp_source}{pinned\+\_\+allocator.\+hpp}} 第 \mbox{\hyperlink{pinned__allocator_8hpp_source_l00076}{76}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1pinned__allocator_a75c05ae161bd0bc184f5e5825a814582}\label{classcudf_1_1detail_1_1pinned__allocator_a75c05ae161bd0bc184f5e5825a814582} 
+\index{cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}!reference@{reference}}
+\index{reference@{reference}!cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{reference}{reference}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{cudf\+::detail\+::pinned\+\_\+allocator}}$<$ T $>$\+::reference =  T\&}
+
+
+
+The parameter type for \doxylink{classcudf_1_1detail_1_1pinned__allocator_a2a79c2b76d274ecca802b26b37417781}{address()} 
+
+
+
+在文件 \mbox{\hyperlink{pinned__allocator_8hpp_source}{pinned\+\_\+allocator.\+hpp}} 第 \mbox{\hyperlink{pinned__allocator_8hpp_source_l00078}{78}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1pinned__allocator_adef30a02e71ca4f9ba5fadb99fcea189}\label{classcudf_1_1detail_1_1pinned__allocator_adef30a02e71ca4f9ba5fadb99fcea189} 
+\index{cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}!size\_type@{size\_type}}
+\index{size\_type@{size\_type}!cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{size\_type}{size\_type}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{cudf\+::detail\+::pinned\+\_\+allocator}}$<$ T $>$\+::size\+\_\+type =  std\+::size\+\_\+t}
+
+
+
+The type used for the size of the allocation 
+
+
+
+在文件 \mbox{\hyperlink{pinned__allocator_8hpp_source}{pinned\+\_\+allocator.\+hpp}} 第 \mbox{\hyperlink{pinned__allocator_8hpp_source_l00080}{80}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1pinned__allocator_aedea26b20c0a7ef74aa5f486eb4022dd}\label{classcudf_1_1detail_1_1pinned__allocator_aedea26b20c0a7ef74aa5f486eb4022dd} 
+\index{cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}!value\_type@{value\_type}}
+\index{value\_type@{value\_type}!cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{value\_type}{value\_type}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{cudf\+::detail\+::pinned\+\_\+allocator}}$<$ T $>$\+::value\+\_\+type =  T}
+
+
+
+The type of the elements in the allocator 
+
+
+
+在文件 \mbox{\hyperlink{pinned__allocator_8hpp_source}{pinned\+\_\+allocator.\+hpp}} 第 \mbox{\hyperlink{pinned__allocator_8hpp_source_l00075}{75}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1detail_1_1pinned__allocator_a27a883f383fccee98d2289016005273f}\label{classcudf_1_1detail_1_1pinned__allocator_a27a883f383fccee98d2289016005273f} 
+\index{cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}!pinned\_allocator@{pinned\_allocator}}
+\index{pinned\_allocator@{pinned\_allocator}!cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pinned\_allocator()}{pinned\_allocator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\+\_\+\+\_\+host\+\_\+\+\_\+ \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{cudf\+::detail\+::pinned\+\_\+allocator}}$<$ T $>$\+::pinned\+\_\+allocator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxylink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}\textquotesingle{}s null constructor does nothing. 
+
+
+
+在文件 \mbox{\hyperlink{pinned__allocator_8hpp_source}{pinned\+\_\+allocator.\+hpp}} 第 \mbox{\hyperlink{pinned__allocator_8hpp_source_l00094}{94}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1pinned__allocator_ad5963f48b9600559c44cc51c6fa25e4f}\label{classcudf_1_1detail_1_1pinned__allocator_ad5963f48b9600559c44cc51c6fa25e4f} 
+\index{cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}!````~pinned\_allocator@{\texorpdfstring{$\sim$}{\string~}pinned\_allocator}}
+\index{````~pinned\_allocator@{\texorpdfstring{$\sim$}{\string~}pinned\_allocator}!cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}pinned\_allocator()}{\string~pinned\_allocator()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\+\_\+\+\_\+host\+\_\+\+\_\+ \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{cudf\+::detail\+::pinned\+\_\+allocator}}$<$ T $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxylink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}\textquotesingle{}s null destructor does nothing. 
+
+
+
+在文件 \mbox{\hyperlink{pinned__allocator_8hpp_source}{pinned\+\_\+allocator.\+hpp}} 第 \mbox{\hyperlink{pinned__allocator_8hpp_source_l00099}{99}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1pinned__allocator_a831a52d2247af61b9203c263137aeb6b}\label{classcudf_1_1detail_1_1pinned__allocator_a831a52d2247af61b9203c263137aeb6b} 
+\index{cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}!pinned\_allocator@{pinned\_allocator}}
+\index{pinned\_allocator@{pinned\_allocator}!cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pinned\_allocator()}{pinned\_allocator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\+\_\+\+\_\+host\+\_\+\+\_\+ \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{cudf\+::detail\+::pinned\+\_\+allocator}}$<$ T $>$\+::pinned\+\_\+allocator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}}$<$ T $>$ const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxylink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}\textquotesingle{}s copy constructor does nothing. 
+
+
+
+在文件 \mbox{\hyperlink{pinned__allocator_8hpp_source}{pinned\+\_\+allocator.\+hpp}} 第 \mbox{\hyperlink{pinned__allocator_8hpp_source_l00104}{104}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1pinned__allocator_a9e9034b6a50d75ac79178fca5e12b993}\label{classcudf_1_1detail_1_1pinned__allocator_a9e9034b6a50d75ac79178fca5e12b993} 
+\index{cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}!pinned\_allocator@{pinned\_allocator}}
+\index{pinned\_allocator@{pinned\_allocator}!cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pinned\_allocator()}{pinned\_allocator()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename U $>$ \\
+\+\_\+\+\_\+host\+\_\+\+\_\+ \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{cudf\+::detail\+::pinned\+\_\+allocator}}$<$ T $>$\+::pinned\+\_\+allocator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}}$<$ U $>$ const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxylink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}\textquotesingle{}s copy constructor does nothing. 
+
+This version of \doxylink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}\textquotesingle{}s copy constructor is templated on the {\ttfamily value\+\_\+type} of the \doxylink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator} to copy from. It is provided merely for convenience; it does nothing. 
+
+在文件 \mbox{\hyperlink{pinned__allocator_8hpp_source}{pinned\+\_\+allocator.\+hpp}} 第 \mbox{\hyperlink{pinned__allocator_8hpp_source_l00115}{115}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1detail_1_1pinned__allocator_ab3c32e0ed97416a65f884f7bd115f77f}\label{classcudf_1_1detail_1_1pinned__allocator_ab3c32e0ed97416a65f884f7bd115f77f} 
+\index{cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}!address@{address}}
+\index{address@{address}!cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{address()}{address()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\+\_\+\+\_\+host\+\_\+\+\_\+ \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_ac83133f9935a7264396fb77857d3aa14}{const\+\_\+pointer}} \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{cudf\+::detail\+::pinned\+\_\+allocator}}$<$ T $>$\+::address (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_a638f87fd21d4fb312c654404bd238d43}{const\+\_\+reference}}}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This method returns the address of a {\ttfamily const\+\_\+reference} of interest. 
+
+
+\begin{DoxyParams}{参数}
+{\em r} & The {\ttfamily const\+\_\+reference} of interest. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+{\ttfamily r\textquotesingle{}s} address. 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{pinned__allocator_8hpp_source}{pinned\+\_\+allocator.\+hpp}} 第 \mbox{\hyperlink{pinned__allocator_8hpp_source_l00135}{135}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1pinned__allocator_a2a79c2b76d274ecca802b26b37417781}\label{classcudf_1_1detail_1_1pinned__allocator_a2a79c2b76d274ecca802b26b37417781} 
+\index{cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}!address@{address}}
+\index{address@{address}!cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{address()}{address()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\+\_\+\+\_\+host\+\_\+\+\_\+ \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_a2cd8d53872892d3246fca516fcfdb11d}{pointer}} \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{cudf\+::detail\+::pinned\+\_\+allocator}}$<$ T $>$\+::address (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_a75c05ae161bd0bc184f5e5825a814582}{reference}}}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This method returns the address of a {\ttfamily reference} of interest. 
+
+
+\begin{DoxyParams}{参数}
+{\em r} & The {\ttfamily reference} of interest. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+{\ttfamily r\textquotesingle{}s} address. 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{pinned__allocator_8hpp_source}{pinned\+\_\+allocator.\+hpp}} 第 \mbox{\hyperlink{pinned__allocator_8hpp_source_l00126}{126}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1pinned__allocator_a03c1597e42a2cbc97a84efbc5078ed77}\label{classcudf_1_1detail_1_1pinned__allocator_a03c1597e42a2cbc97a84efbc5078ed77} 
+\index{cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}!allocate@{allocate}}
+\index{allocate@{allocate}!cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{allocate()}{allocate()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\+\_\+\+\_\+host\+\_\+\+\_\+ \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_a2cd8d53872892d3246fca516fcfdb11d}{pointer}} \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{cudf\+::detail\+::pinned\+\_\+allocator}}$<$ T $>$\+::allocate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_adef30a02e71ca4f9ba5fadb99fcea189}{size\+\_\+type}}}]{cnt,  }\item[{\mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_ac83133f9935a7264396fb77857d3aa14}{const\+\_\+pointer}}}]{ = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This method allocates storage for objects in pinned host memory. 
+
+
+\begin{DoxyParams}{参数}
+{\em cnt} & The number of objects to allocate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+a {\ttfamily pointer} to the newly allocated objects. 
+\end{DoxyReturn}
+\begin{DoxyNote}{注解}
+The second parameter to this function is meant as a hint pointer to a nearby memory location, but is not used by this allocator. 
+
+This method does not invoke {\ttfamily value\+\_\+type\textquotesingle{}s} constructor. It is the responsibility of the caller to initialize the objects at the returned {\ttfamily pointer}. 
+\end{DoxyNote}
+
+
+在文件 \mbox{\hyperlink{pinned__allocator_8hpp_source}{pinned\+\_\+allocator.\+hpp}} 第 \mbox{\hyperlink{pinned__allocator_8hpp_source_l00150}{150}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1pinned__allocator_ad93caad4233ae6c10b4918db792679ad}\label{classcudf_1_1detail_1_1pinned__allocator_ad93caad4233ae6c10b4918db792679ad} 
+\index{cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}!deallocate@{deallocate}}
+\index{deallocate@{deallocate}!cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{deallocate()}{deallocate()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\+\_\+\+\_\+host\+\_\+\+\_\+ void \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{cudf\+::detail\+::pinned\+\_\+allocator}}$<$ T $>$\+::deallocate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_a2cd8d53872892d3246fca516fcfdb11d}{pointer}}}]{p,  }\item[{\mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_adef30a02e71ca4f9ba5fadb99fcea189}{size\+\_\+type}}}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This method deallocates pinned host memory previously allocated with this {\ttfamily \doxylink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}}. 
+
+
+\begin{DoxyParams}{参数}
+{\em p} & A {\ttfamily pointer} to the previously allocated memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{注解}
+The second parameter is the number of objects previously allocated but is ignored by this allocator. 
+
+This method does not invoke {\ttfamily value\+\_\+type\textquotesingle{}s} destructor. It is the responsibility of the caller to destroy the objects stored at {\ttfamily p}. 
+\end{DoxyNote}
+
+
+在文件 \mbox{\hyperlink{pinned__allocator_8hpp_source}{pinned\+\_\+allocator.\+hpp}} 第 \mbox{\hyperlink{pinned__allocator_8hpp_source_l00170}{170}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1pinned__allocator_a5b7b97017e2465eed757e7d986223823}\label{classcudf_1_1detail_1_1pinned__allocator_a5b7b97017e2465eed757e7d986223823} 
+\index{cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}!max\_size@{max\_size}}
+\index{max\_size@{max\_size}!cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{max\_size()}{max\_size()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator_adef30a02e71ca4f9ba5fadb99fcea189}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{cudf\+::detail\+::pinned\+\_\+allocator}}$<$ T $>$\+::max\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This method returns the maximum size of the {\ttfamily cnt} parameter accepted by the {\ttfamily \doxylink{classcudf_1_1detail_1_1pinned__allocator_a03c1597e42a2cbc97a84efbc5078ed77}{allocate()}} method. 
+
+\begin{DoxyReturn}{返回}
+The maximum number of objects that may be allocated by a single call to {\ttfamily \doxylink{classcudf_1_1detail_1_1pinned__allocator_a03c1597e42a2cbc97a84efbc5078ed77}{allocate()}}. 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{pinned__allocator_8hpp_source}{pinned\+\_\+allocator.\+hpp}} 第 \mbox{\hyperlink{pinned__allocator_8hpp_source_l00179}{179}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1pinned__allocator_ac69a3d38671ebdab7a5635c05d48ab6d}\label{classcudf_1_1detail_1_1pinned__allocator_ac69a3d38671ebdab7a5635c05d48ab6d} 
+\index{cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\+\_\+\+\_\+host\+\_\+\+\_\+ \+\_\+\+\_\+device\+\_\+\+\_\+ bool \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{cudf\+::detail\+::pinned\+\_\+allocator}}$<$ T $>$\+::operator!= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}}$<$ T $>$ const \&}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This method tests this {\ttfamily \doxylink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}} for inequality to another. 
+
+
+\begin{DoxyParams}{参数}
+{\em x} & The other {\ttfamily \doxylink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}} of interest. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+This method always returns {\ttfamily false}. 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{pinned__allocator_8hpp_source}{pinned\+\_\+allocator.\+hpp}} 第 \mbox{\hyperlink{pinned__allocator_8hpp_source_l00197}{197}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1pinned__allocator_ac43a107e308821a299469464876b0629}\label{classcudf_1_1detail_1_1pinned__allocator_ac43a107e308821a299469464876b0629} 
+\index{cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!cudf::detail::pinned\_allocator$<$ T $>$@{cudf::detail::pinned\_allocator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\+\_\+\+\_\+host\+\_\+\+\_\+ \+\_\+\+\_\+device\+\_\+\+\_\+ bool \mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{cudf\+::detail\+::pinned\+\_\+allocator}}$<$ T $>$\+::operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}}$<$ T $>$ const \&}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This method tests this {\ttfamily \doxylink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}} for equality to another. 
+
+
+\begin{DoxyParams}{参数}
+{\em x} & The other {\ttfamily \doxylink{classcudf_1_1detail_1_1pinned__allocator}{pinned\+\_\+allocator}} of interest. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+This method always returns {\ttfamily true}. 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{pinned__allocator_8hpp_source}{pinned\+\_\+allocator.\+hpp}} 第 \mbox{\hyperlink{pinned__allocator_8hpp_source_l00188}{188}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/detail/utilities/\mbox{\hyperlink{pinned__allocator_8hpp}{pinned\+\_\+allocator.\+hpp}}\end{DoxyCompactItemize}

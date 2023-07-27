@@ -1,0 +1,51 @@
+\doxysection{Strings\+\_\+json}
+\hypertarget{group__strings__json}{}\label{group__strings__json}\index{Strings\_json@{Strings\_json}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{strings_2json_8hpp}{json.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcudf_1_1strings_1_1get__json__object__options}{cudf\+::strings\+::get\+\_\+json\+\_\+object\+\_\+options}}
+\begin{DoxyCompactList}\small\item\em Settings for {\ttfamily \doxylink{group__strings__json_gae0e061193f3409ff9e58887c8489b083}{get\+\_\+json\+\_\+object()}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__strings__json_gae0e061193f3409ff9e58887c8489b083}{cudf\+::strings\+::get\+\_\+json\+\_\+object}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{cudf\+::strings\+\_\+column\+\_\+view}} const \&col, \mbox{\hyperlink{classcudf_1_1string__scalar}{cudf\+::string\+\_\+scalar}} const \&json\+\_\+path, \mbox{\hyperlink{classcudf_1_1strings_1_1get__json__object__options}{get\+\_\+json\+\_\+object\+\_\+options}} options=\mbox{\hyperlink{classcudf_1_1strings_1_1get__json__object__options}{get\+\_\+json\+\_\+object\+\_\+options}}\{\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Apply a JSONPath string to all rows in an input strings column. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__strings__json_gae0e061193f3409ff9e58887c8489b083}\label{group__strings__json_gae0e061193f3409ff9e58887c8489b083} 
+\index{Strings\_json@{Strings\_json}!get\_json\_object@{get\_json\_object}}
+\index{get\_json\_object@{get\_json\_object}!Strings\_json@{Strings\_json}}
+\doxysubsubsection{\texorpdfstring{get\_json\_object()}{get\_json\_object()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ cudf\+::strings\+::get\+\_\+json\+\_\+object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{cudf\+::strings\+\_\+column\+\_\+view}} const \&}]{col,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{cudf\+::string\+\_\+scalar}} const \&}]{json\+\_\+path,  }\item[{\mbox{\hyperlink{classcudf_1_1strings_1_1get__json__object__options}{get\+\_\+json\+\_\+object\+\_\+options}}}]{options = {\ttfamily \mbox{\hyperlink{classcudf_1_1strings_1_1get__json__object__options}{get\+\_\+json\+\_\+object\+\_\+options}}\{\}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Apply a JSONPath string to all rows in an input strings column. 
+
+Applies a JSONPath string to an incoming strings column where each row in the column is a valid json string. The output is returned by row as a strings column.
+
+\href{https://tools.ietf.org/id/draft-goessner-dispatch-jsonpath-00.html}{\texttt{ https\+://tools.\+ietf.\+org/id/draft-\/goessner-\/dispatch-\/jsonpath-\/00.\+html}} Implements only the operators\+: \$ . \mbox{[}\mbox{]} \texorpdfstring{$\ast$}{*}
+
+
+\begin{DoxyParams}{参数}
+{\em col} & The input strings column. Each row must contain a valid json string \\
+\hline
+{\em json\+\_\+path} & The JSONPath string to be applied to each row \\
+\hline
+{\em options} & Options for controlling the behavior of the function \\
+\hline
+{\em mr} & Resource for allocating device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column containing the retrieved json object strings 
+\end{DoxyReturn}

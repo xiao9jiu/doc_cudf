@@ -1,0 +1,78 @@
+\doxysection{cudf\+::ast\+::detail\+::type\+\_\+dispatch\+\_\+binary\+\_\+op结构体 参考}
+\hypertarget{structcudf_1_1ast_1_1detail_1_1type__dispatch__binary__op}{}\label{structcudf_1_1ast_1_1detail_1_1type__dispatch__binary__op}\index{cudf::ast::detail::type\_dispatch\_binary\_op@{cudf::ast::detail::type\_dispatch\_binary\_op}}
+
+
+Functor performing a type dispatch for a binary operator.  
+
+
+
+
+{\ttfamily \#include $<$operators.\+hpp$>$}
+
+
+
+cudf\+::ast\+::detail\+::type\+\_\+dispatch\+\_\+binary\+\_\+op 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{structcudf_1_1ast_1_1detail_1_1type__dispatch__binary__op__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}} op, typename F , typename... Ts$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} void \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1type__dispatch__binary__op_a4b654d68ce1e13cd0b54148cda2e8872}{operator()}} (\mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} lhs\+\_\+type, \mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} rhs\+\_\+type, F \&\&f, Ts \&\&... args)
+\begin{DoxyCompactList}\small\item\em Performs type dispatch for a binary operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Functor performing a type dispatch for a binary operator. 
+
+This functor performs single dispatch, which assumes lhs\+\_\+type == rhs\+\_\+type. This may not be true for all binary operators but holds for all currently implemented operators. 
+
+在文件 \mbox{\hyperlink{operators_8hpp_source}{operators.\+hpp}} 第 \mbox{\hyperlink{operators_8hpp_source_l00948}{948}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{structcudf_1_1ast_1_1detail_1_1type__dispatch__binary__op_a4b654d68ce1e13cd0b54148cda2e8872}\label{structcudf_1_1ast_1_1detail_1_1type__dispatch__binary__op_a4b654d68ce1e13cd0b54148cda2e8872} 
+\index{cudf::ast::detail::type\_dispatch\_binary\_op@{cudf::ast::detail::type\_dispatch\_binary\_op}!operator()@{operator()}}
+\index{operator()@{operator()}!cudf::ast::detail::type\_dispatch\_binary\_op@{cudf::ast::detail::type\_dispatch\_binary\_op}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}} op, typename F , typename... Ts$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} void cudf\+::ast\+::detail\+::type\+\_\+dispatch\+\_\+binary\+\_\+op\+::operator() (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}}}]{lhs\+\_\+type,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}}}]{rhs\+\_\+type,  }\item[{F \&\&}]{f,  }\item[{Ts \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Performs type dispatch for a binary operator. 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em op} & AST operator. \\
+\hline
+{\em F} & Type of forwarded functor. \\
+\hline
+{\em Ts} & Parameter pack of forwarded arguments. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em lhs\+\_\+type} & Type of left input data. \\
+\hline
+{\em rhs\+\_\+type} & Type of right input data. \\
+\hline
+{\em f} & Forwarded functor to be called. \\
+\hline
+{\em args} & Forwarded arguments to {\ttfamily operator()} of {\ttfamily f}. \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{operators_8hpp_source}{operators.\+hpp}} 第 \mbox{\hyperlink{operators_8hpp_source_l00961}{961}} 行定义.
+
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/ast/detail/\mbox{\hyperlink{operators_8hpp}{operators.\+hpp}}\end{DoxyCompactItemize}

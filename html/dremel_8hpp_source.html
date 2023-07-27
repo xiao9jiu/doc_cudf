@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: D:/gitLibrary/cudf/cpp/include/cudf/lists/detail/dremel.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('dremel_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">dremel.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="dremel_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright (c) 2022, NVIDIA CORPORATION.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;<a class="code" href="column_8hpp.html">cudf/column/column.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;rmm/device_uvector.hpp&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecudf_1_1detail.html">cudf::detail</a> {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="structcudf_1_1detail_1_1dremel__device__view.html">   30</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structcudf_1_1detail_1_1dremel__device__view.html">dremel_device_view</a> {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structcudf_1_1detail_1_1dremel__device__view.html#a10618eb25fe582cb414a41f3aebfd9be">   31</a></span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> <span class="keyword">const</span>* <a class="code hl_variable" href="structcudf_1_1detail_1_1dremel__device__view.html#a10618eb25fe582cb414a41f3aebfd9be">offsets</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="structcudf_1_1detail_1_1dremel__device__view.html#a65959c1d368f230ee9bddaf890a51ec6">   32</a></span>  uint8_t <span class="keyword">const</span>* <a class="code hl_variable" href="structcudf_1_1detail_1_1dremel__device__view.html#a65959c1d368f230ee9bddaf890a51ec6">rep_levels</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="structcudf_1_1detail_1_1dremel__device__view.html#aa5d79699b037fc0efbce693ece1a3cb4">   33</a></span>  uint8_t <span class="keyword">const</span>* <a class="code hl_variable" href="structcudf_1_1detail_1_1dremel__device__view.html#aa5d79699b037fc0efbce693ece1a3cb4">def_levels</a>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="structcudf_1_1detail_1_1dremel__device__view.html#afe96b1fab1e45af2b519cd324f4bddc6">   34</a></span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> <span class="keyword">const</span> <a class="code hl_variable" href="structcudf_1_1detail_1_1dremel__device__view.html#afe96b1fab1e45af2b519cd324f4bddc6">leaf_data_size</a>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="structcudf_1_1detail_1_1dremel__device__view.html#a1208df2c18793ed09f170cef0ef87f3e">   35</a></span>  uint8_t <span class="keyword">const</span> <a class="code hl_variable" href="structcudf_1_1detail_1_1dremel__device__view.html#a1208df2c18793ed09f170cef0ef87f3e">max_def_level</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>};</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="structcudf_1_1detail_1_1dremel__data.html">   43</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structcudf_1_1detail_1_1dremel__data.html">dremel_data</a> {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="structcudf_1_1detail_1_1dremel__data.html#a6a53e06cf611cb7f99579c4e3727f103">   44</a></span>  rmm::device_uvector&lt;size_type&gt; <a class="code hl_variable" href="structcudf_1_1detail_1_1dremel__data.html#a6a53e06cf611cb7f99579c4e3727f103">dremel_offsets</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="structcudf_1_1detail_1_1dremel__data.html#a5dae7b6e0ed23fa56d3bab9764760f0d">   45</a></span>  rmm::device_uvector&lt;uint8_t&gt; <a class="code hl_variable" href="structcudf_1_1detail_1_1dremel__data.html#a5dae7b6e0ed23fa56d3bab9764760f0d">rep_level</a>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="structcudf_1_1detail_1_1dremel__data.html#ae22cf9d6399e376b26e6e713c1c27cb7">   46</a></span>  rmm::device_uvector&lt;uint8_t&gt; <a class="code hl_variable" href="structcudf_1_1detail_1_1dremel__data.html#ae22cf9d6399e376b26e6e713c1c27cb7">def_level</a>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="structcudf_1_1detail_1_1dremel__data.html#a2d6094c32e1e7d0aacbc2b3afab117b7">   48</a></span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> <span class="keyword">const</span> <a class="code hl_variable" href="structcudf_1_1detail_1_1dremel__data.html#a2d6094c32e1e7d0aacbc2b3afab117b7">leaf_data_size</a>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="structcudf_1_1detail_1_1dremel__data.html#a5cb4974bae181fa4a22a59050a6b4502">   49</a></span>  uint8_t <span class="keyword">const</span> <a class="code hl_variable" href="structcudf_1_1detail_1_1dremel__data.html#a5cb4974bae181fa4a22a59050a6b4502">max_def_level</a>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="structcudf_1_1detail_1_1dremel__data.html#af37002fb86f93eab901e9afc357ecc32">   51</a></span>  <span class="keyword">operator</span> <a class="code hl_struct" href="structcudf_1_1detail_1_1dremel__device__view.html">dremel_device_view</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordflow">return</span> <a class="code hl_struct" href="structcudf_1_1detail_1_1dremel__device__view.html">dremel_device_view</a>{</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>      <a class="code hl_variable" href="structcudf_1_1detail_1_1dremel__data.html#a6a53e06cf611cb7f99579c4e3727f103">dremel_offsets</a>.data(), <a class="code hl_variable" href="structcudf_1_1detail_1_1dremel__data.html#a5dae7b6e0ed23fa56d3bab9764760f0d">rep_level</a>.data(), <a class="code hl_variable" href="structcudf_1_1detail_1_1dremel__data.html#ae22cf9d6399e376b26e6e713c1c27cb7">def_level</a>.data(), <a class="code hl_variable" href="structcudf_1_1detail_1_1dremel__data.html#a2d6094c32e1e7d0aacbc2b3afab117b7">leaf_data_size</a>, <a class="code hl_variable" href="structcudf_1_1detail_1_1dremel__data.html#a5cb4974bae181fa4a22a59050a6b4502">max_def_level</a>};</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>};</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#a6ca203cd4504a08ef2fd489410d6db95">  193</a></span><a class="code hl_struct" href="structcudf_1_1detail_1_1dremel__data.html">dremel_data</a> <a class="code hl_function" href="namespacecudf_1_1detail.html#a6ca203cd4504a08ef2fd489410d6db95">get_dremel_data</a>(<a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> h_col,</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>                            std::vector&lt;uint8_t&gt; nullability,</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>                            <span class="keywordtype">bool</span> output_as_byte_array,</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>                            rmm::cuda_stream_view stream);</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>}  <span class="comment">// namespace cudf::detail</span></div>
+<div class="ttc" id="aclasscudf_1_1column__view_html"><div class="ttname"><a href="classcudf_1_1column__view.html">cudf::column_view</a></div><div class="ttdoc">A non-owning, immutable view of device data as a column of elements, some of which may be null as ind...</div><div class="ttdef"><b>Definition</b> <a href="column__view_8hpp_source.html#l00322">column_view.hpp:322</a></div></div>
+<div class="ttc" id="acolumn_8hpp_html"><div class="ttname"><a href="column_8hpp.html">column.hpp</a></div><div class="ttdoc">Class definition for cudf::column</div></div>
+<div class="ttc" id="agroup__utility__types_html_ga0aff16b2db009d92300befaca11827e9"><div class="ttname"><a href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">cudf::size_type</a></div><div class="ttdeci">int32_t size_type</div><div class="ttdoc">Row index type for columns and tables</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00080">types.hpp:80</a></div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html"><div class="ttname"><a href="namespacecudf_1_1detail.html">cudf::detail</a></div><div class="ttdoc">Inner interfaces and implementations</div><div class="ttdef"><b>Definition</b> <a href="aggregation_8hpp_source.html#l00042">aggregation.hpp:42</a></div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_a6ca203cd4504a08ef2fd489410d6db95"><div class="ttname"><a href="namespacecudf_1_1detail.html#a6ca203cd4504a08ef2fd489410d6db95">cudf::detail::get_dremel_data</a></div><div class="ttdeci">dremel_data get_dremel_data(column_view h_col, std::vector&lt; uint8_t &gt; nullability, bool output_as_byte_array, rmm::cuda_stream_view stream)</div><div class="ttdoc">Get the dremel offsets and repetition and definition levels for a LIST column</div></div>
+<div class="ttc" id="astructcudf_1_1detail_1_1dremel__data_html"><div class="ttname"><a href="structcudf_1_1detail_1_1dremel__data.html">cudf::detail::dremel_data</a></div><div class="ttdoc">Dremel data that describes one nested type column</div><div class="ttdef"><b>Definition</b> <a href="dremel_8hpp_source.html#l00043">dremel.hpp:43</a></div></div>
+<div class="ttc" id="astructcudf_1_1detail_1_1dremel__data_html_a2d6094c32e1e7d0aacbc2b3afab117b7"><div class="ttname"><a href="structcudf_1_1detail_1_1dremel__data.html#a2d6094c32e1e7d0aacbc2b3afab117b7">cudf::detail::dremel_data::leaf_data_size</a></div><div class="ttdeci">size_type const leaf_data_size</div><div class="ttdef"><b>Definition</b> <a href="dremel_8hpp_source.html#l00048">dremel.hpp:48</a></div></div>
+<div class="ttc" id="astructcudf_1_1detail_1_1dremel__data_html_a5cb4974bae181fa4a22a59050a6b4502"><div class="ttname"><a href="structcudf_1_1detail_1_1dremel__data.html#a5cb4974bae181fa4a22a59050a6b4502">cudf::detail::dremel_data::max_def_level</a></div><div class="ttdeci">uint8_t const max_def_level</div><div class="ttdef"><b>Definition</b> <a href="dremel_8hpp_source.html#l00049">dremel.hpp:49</a></div></div>
+<div class="ttc" id="astructcudf_1_1detail_1_1dremel__data_html_a5dae7b6e0ed23fa56d3bab9764760f0d"><div class="ttname"><a href="structcudf_1_1detail_1_1dremel__data.html#a5dae7b6e0ed23fa56d3bab9764760f0d">cudf::detail::dremel_data::rep_level</a></div><div class="ttdeci">rmm::device_uvector&lt; uint8_t &gt; rep_level</div><div class="ttdef"><b>Definition</b> <a href="dremel_8hpp_source.html#l00045">dremel.hpp:45</a></div></div>
+<div class="ttc" id="astructcudf_1_1detail_1_1dremel__data_html_a6a53e06cf611cb7f99579c4e3727f103"><div class="ttname"><a href="structcudf_1_1detail_1_1dremel__data.html#a6a53e06cf611cb7f99579c4e3727f103">cudf::detail::dremel_data::dremel_offsets</a></div><div class="ttdeci">rmm::device_uvector&lt; size_type &gt; dremel_offsets</div><div class="ttdef"><b>Definition</b> <a href="dremel_8hpp_source.html#l00044">dremel.hpp:44</a></div></div>
+<div class="ttc" id="astructcudf_1_1detail_1_1dremel__data_html_ae22cf9d6399e376b26e6e713c1c27cb7"><div class="ttname"><a href="structcudf_1_1detail_1_1dremel__data.html#ae22cf9d6399e376b26e6e713c1c27cb7">cudf::detail::dremel_data::def_level</a></div><div class="ttdeci">rmm::device_uvector&lt; uint8_t &gt; def_level</div><div class="ttdef"><b>Definition</b> <a href="dremel_8hpp_source.html#l00046">dremel.hpp:46</a></div></div>
+<div class="ttc" id="astructcudf_1_1detail_1_1dremel__device__view_html"><div class="ttname"><a href="structcudf_1_1detail_1_1dremel__device__view.html">cudf::detail::dremel_device_view</a></div><div class="ttdoc">Device view for dremel_data.</div><div class="ttdef"><b>Definition</b> <a href="dremel_8hpp_source.html#l00030">dremel.hpp:30</a></div></div>
+<div class="ttc" id="astructcudf_1_1detail_1_1dremel__device__view_html_a10618eb25fe582cb414a41f3aebfd9be"><div class="ttname"><a href="structcudf_1_1detail_1_1dremel__device__view.html#a10618eb25fe582cb414a41f3aebfd9be">cudf::detail::dremel_device_view::offsets</a></div><div class="ttdeci">size_type const  * offsets</div><div class="ttdef"><b>Definition</b> <a href="dremel_8hpp_source.html#l00031">dremel.hpp:31</a></div></div>
+<div class="ttc" id="astructcudf_1_1detail_1_1dremel__device__view_html_a1208df2c18793ed09f170cef0ef87f3e"><div class="ttname"><a href="structcudf_1_1detail_1_1dremel__device__view.html#a1208df2c18793ed09f170cef0ef87f3e">cudf::detail::dremel_device_view::max_def_level</a></div><div class="ttdeci">uint8_t const max_def_level</div><div class="ttdef"><b>Definition</b> <a href="dremel_8hpp_source.html#l00035">dremel.hpp:35</a></div></div>
+<div class="ttc" id="astructcudf_1_1detail_1_1dremel__device__view_html_a65959c1d368f230ee9bddaf890a51ec6"><div class="ttname"><a href="structcudf_1_1detail_1_1dremel__device__view.html#a65959c1d368f230ee9bddaf890a51ec6">cudf::detail::dremel_device_view::rep_levels</a></div><div class="ttdeci">uint8_t const  * rep_levels</div><div class="ttdef"><b>Definition</b> <a href="dremel_8hpp_source.html#l00032">dremel.hpp:32</a></div></div>
+<div class="ttc" id="astructcudf_1_1detail_1_1dremel__device__view_html_aa5d79699b037fc0efbce693ece1a3cb4"><div class="ttname"><a href="structcudf_1_1detail_1_1dremel__device__view.html#aa5d79699b037fc0efbce693ece1a3cb4">cudf::detail::dremel_device_view::def_levels</a></div><div class="ttdeci">uint8_t const  * def_levels</div><div class="ttdef"><b>Definition</b> <a href="dremel_8hpp_source.html#l00033">dremel.hpp:33</a></div></div>
+<div class="ttc" id="astructcudf_1_1detail_1_1dremel__device__view_html_afe96b1fab1e45af2b519cd324f4bddc6"><div class="ttname"><a href="structcudf_1_1detail_1_1dremel__device__view.html#afe96b1fab1e45af2b519cd324f4bddc6">cudf::detail::dremel_device_view::leaf_data_size</a></div><div class="ttdeci">size_type const leaf_data_size</div><div class="ttdef"><b>Definition</b> <a href="dremel_8hpp_source.html#l00034">dremel.hpp:34</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_d998dea0bd4559303135358082015ac8.html">gitLibrary</a></li><li class="navelem"><a class="el" href="dir_b6486b3d9bd1f4b89c884933ed658179.html">cudf</a></li><li class="navelem"><a class="el" href="dir_318a4414914f49dc0e7605c41de9d4af.html">cpp</a></li><li class="navelem"><a class="el" href="dir_7fbf5ee8ae486656ea40e5ca1dd304f9.html">include</a></li><li class="navelem"><a class="el" href="dir_87e6427d1ef099fd52d9d0724c66b062.html">cudf</a></li><li class="navelem"><a class="el" href="dir_d4a9dbbcf74344d51a464821ca87a47e.html">lists</a></li><li class="navelem"><a class="el" href="dir_75ffe9cc2dd5d9ac31c6ffd09a29d349.html">detail</a></li><li class="navelem"><a class="el" href="dremel_8hpp.html">dremel.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

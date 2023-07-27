@@ -1,0 +1,47 @@
+\doxysection{findall.\+hpp}
+\hypertarget{findall_8hpp_source}{}\label{findall_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/strings/findall.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/strings/findall.hpp}}
+\mbox{\hyperlink{findall_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2019-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00016}00016\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{flags_8hpp}{cudf/strings/regex/flags.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{strings__column__view_8hpp}{cudf/strings/strings\_column\_view.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{table_8hpp}{cudf/table/table.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <rmm/mr/device/per\_device\_resource.hpp>}}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00024}00024\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00025}00025\ \textcolor{keyword}{namespace\ }strings\ \{}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00027}00027\ \textcolor{keyword}{struct\ }regex\_program;}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00063}\mbox{\hyperlink{group__strings__contains_ga014d0445f21b5a7b281ed06856baac9e}{00063}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__strings__contains_ga014d0445f21b5a7b281ed06856baac9e}{findall}}(}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00064}00064\ \ \ \mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\_column\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00065}00065\ \ \ std::string\_view\ pattern,}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00066}00066\ \ \ \mbox{\hyperlink{group__strings__regex_ga341eb616bce8b15119196ad8208ec16d}{regex\_flags}}\ \textcolor{keyword}{const}\ flags\ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da432e1bed0776491ae9d73f3915142912}{regex\_flags::DEFAULT}},}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00067}00067\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00097}\mbox{\hyperlink{group__strings__contains_ga684d4c712b96cc5ce186db9efdbce9e6}{00097}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__strings__contains_ga014d0445f21b5a7b281ed06856baac9e}{findall}}(}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00098}00098\ \ \ \mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\_column\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00099}00099\ \ \ \mbox{\hyperlink{structcudf_1_1strings_1_1regex__program}{regex\_program}}\ \textcolor{keyword}{const}\&\ prog,}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00100}00100\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00101}00101\ \ \ \textcolor{comment}{//\ end\ of\ doxygen\ group}}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00103}00103\ \}\ \ \textcolor{comment}{//\ namespace\ strings}}
+\DoxyCodeLine{\Hypertarget{findall_8hpp_source_l00104}00104\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

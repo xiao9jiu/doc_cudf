@@ -1,0 +1,361 @@
+\doxysection{Strings\+\_\+modify}
+\hypertarget{group__strings__modify}{}\label{group__strings__modify}\index{Strings\_modify@{Strings\_modify}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{padding_8hpp}{padding.\+hpp}}
+\item 
+文件 \mbox{\hyperlink{side__type_8hpp}{side\+\_\+type.\+hpp}}
+\item 
+文件 \mbox{\hyperlink{strip_8hpp}{strip.\+hpp}}
+\item 
+文件 \mbox{\hyperlink{translate_8hpp}{translate.\+hpp}}
+\item 
+文件 \mbox{\hyperlink{wrap_8hpp}{wrap.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__strings__modify_ga869589e3a64f8815a14c494fd10ece53}{cudf\+::strings\+::side\+\_\+type}} \{ \mbox{\hyperlink{group__strings__modify_gga869589e3a64f8815a14c494fd10ece53a684d325a7303f52e64011467ff5c5758}{cudf\+::strings\+::side\+\_\+type\+::\+LEFT}}
+, \mbox{\hyperlink{group__strings__modify_gga869589e3a64f8815a14c494fd10ece53a21507b40c80068eda19865706fdc2403}{cudf\+::strings\+::side\+\_\+type\+::\+RIGHT}}
+, \mbox{\hyperlink{group__strings__modify_gga869589e3a64f8815a14c494fd10ece53a6328e5e3186c227a021ef2ff77e40197}{cudf\+::strings\+::side\+\_\+type\+::\+BOTH}}
+ \}
+\begin{DoxyCompactList}\small\item\em Direction identifier for \doxylink{group__strings__modify_ga9aaa46a25b1a13a883d2ff4674685840}{cudf\+::strings\+::strip} and \doxylink{group__strings__modify_gabec4b38ce2ed20ecb6ea84f5e320854d}{cudf\+::strings\+::pad} functions. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{group__strings__modify_ga9641be68cf161f3e42888a73be40f264}{cudf\+::strings\+::filter\+\_\+type}} \+: bool \{ \mbox{\hyperlink{group__strings__modify_gga9641be68cf161f3e42888a73be40f264a60cba2874369bd3790e14ea5f8a7bc58}{cudf\+::strings\+::filter\+\_\+type\+::\+KEEP}}
+, \mbox{\hyperlink{group__strings__modify_gga9641be68cf161f3e42888a73be40f264a78baf367c4626442174307cdf41c6538}{cudf\+::strings\+::filter\+\_\+type\+::\+REMOVE}}
+ \}
+\begin{DoxyCompactList}\small\item\em Removes or keeps the specified character ranges in \doxylink{group__strings__modify_ga09524f52197e6c51545d01fc996d7885}{cudf\+::strings\+::filter\+\_\+characters} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__modify_gabec4b38ce2ed20ecb6ea84f5e320854d}{cudf\+::strings\+::pad}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} width, \mbox{\hyperlink{group__strings__modify_ga869589e3a64f8815a14c494fd10ece53}{side\+\_\+type}} side=\mbox{\hyperlink{group__strings__modify_gga869589e3a64f8815a14c494fd10ece53a21507b40c80068eda19865706fdc2403}{side\+\_\+type\+::\+RIGHT}}, std\+::string\+\_\+view fill\+\_\+char=\"{} \"{}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Add padding to each string using a provided character. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__modify_ga3ec03c91a8748cd2c14370b6b76852a1}{cudf\+::strings\+::zfill}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} width, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Add \textquotesingle{}0\textquotesingle{} as padding to the left of each string. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__modify_ga9aaa46a25b1a13a883d2ff4674685840}{cudf\+::strings\+::strip}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&input, \mbox{\hyperlink{group__strings__modify_ga869589e3a64f8815a14c494fd10ece53}{side\+\_\+type}} side=\mbox{\hyperlink{group__strings__modify_gga869589e3a64f8815a14c494fd10ece53a6328e5e3186c227a021ef2ff77e40197}{side\+\_\+type\+::\+BOTH}}, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&to\+\_\+strip=\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{}), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Removes the specified characters from the beginning or end (or both) of each string. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__modify_gacb54867db2248b0381f7b9539c5844bc}{cudf\+::strings\+::translate}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{char\+\_\+utf8}}, \mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{char\+\_\+utf8}} $>$ $>$ const \&chars\+\_\+table, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Translates individual characters within each string. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__modify_ga09524f52197e6c51545d01fc996d7885}{cudf\+::strings\+::filter\+\_\+characters}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{cudf\+::char\+\_\+utf8}}, \mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{cudf\+::char\+\_\+utf8}} $>$ $>$ characters\+\_\+to\+\_\+filter, \mbox{\hyperlink{group__strings__modify_ga9641be68cf161f3e42888a73be40f264}{filter\+\_\+type}} keep\+\_\+characters=\mbox{\hyperlink{group__strings__modify_gga9641be68cf161f3e42888a73be40f264a60cba2874369bd3790e14ea5f8a7bc58}{filter\+\_\+type\+::\+KEEP}}, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&replacement=\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{}), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Removes ranges of characters from each string in a strings column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__modify_ga77e79ede7598725d2430848f0e1692e8}{cudf\+::strings\+::wrap}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} width, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Wraps strings onto multiple lines shorter than {\ttfamily width} by replacing appropriate white space with new-\/line characters (ASCII 0x0A). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{枚举类型说明}
+\Hypertarget{group__strings__modify_ga9641be68cf161f3e42888a73be40f264}\label{group__strings__modify_ga9641be68cf161f3e42888a73be40f264} 
+\index{Strings\_modify@{Strings\_modify}!filter\_type@{filter\_type}}
+\index{filter\_type@{filter\_type}!Strings\_modify@{Strings\_modify}}
+\doxysubsubsection{\texorpdfstring{filter\_type}{filter\_type}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__strings__modify_ga9641be68cf161f3e42888a73be40f264}{cudf\+::strings\+::filter\+\_\+type}} \+: bool\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Removes or keeps the specified character ranges in \doxylink{group__strings__modify_ga09524f52197e6c51545d01fc996d7885}{cudf\+::strings\+::filter\+\_\+characters} 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEEP@{KEEP}!Strings\_modify@{Strings\_modify}}\index{Strings\_modify@{Strings\_modify}!KEEP@{KEEP}}}\Hypertarget{group__strings__modify_gga9641be68cf161f3e42888a73be40f264a60cba2874369bd3790e14ea5f8a7bc58}\label{group__strings__modify_gga9641be68cf161f3e42888a73be40f264a60cba2874369bd3790e14ea5f8a7bc58} 
+KEEP&All characters but those specified are removed \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{REMOVE@{REMOVE}!Strings\_modify@{Strings\_modify}}\index{Strings\_modify@{Strings\_modify}!REMOVE@{REMOVE}}}\Hypertarget{group__strings__modify_gga9641be68cf161f3e42888a73be40f264a78baf367c4626442174307cdf41c6538}\label{group__strings__modify_gga9641be68cf161f3e42888a73be40f264a78baf367c4626442174307cdf41c6538} 
+REMOVE&Only the specified characters are removed \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{translate_8hpp_source}{translate.\+hpp}} 第 \mbox{\hyperlink{translate_8hpp_source_l00063}{63}} 行定义.
+
+\Hypertarget{group__strings__modify_ga869589e3a64f8815a14c494fd10ece53}\label{group__strings__modify_ga869589e3a64f8815a14c494fd10ece53} 
+\index{Strings\_modify@{Strings\_modify}!side\_type@{side\_type}}
+\index{side\_type@{side\_type}!Strings\_modify@{Strings\_modify}}
+\doxysubsubsection{\texorpdfstring{side\_type}{side\_type}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__strings__modify_ga869589e3a64f8815a14c494fd10ece53}{cudf\+::strings\+::side\+\_\+type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Direction identifier for \doxylink{group__strings__modify_ga9aaa46a25b1a13a883d2ff4674685840}{cudf\+::strings\+::strip} and \doxylink{group__strings__modify_gabec4b38ce2ed20ecb6ea84f5e320854d}{cudf\+::strings\+::pad} functions. 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEFT@{LEFT}!Strings\_modify@{Strings\_modify}}\index{Strings\_modify@{Strings\_modify}!LEFT@{LEFT}}}\Hypertarget{group__strings__modify_gga869589e3a64f8815a14c494fd10ece53a684d325a7303f52e64011467ff5c5758}\label{group__strings__modify_gga869589e3a64f8815a14c494fd10ece53a684d325a7303f52e64011467ff5c5758} 
+LEFT&strip/pad characters from the beginning of the string \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RIGHT@{RIGHT}!Strings\_modify@{Strings\_modify}}\index{Strings\_modify@{Strings\_modify}!RIGHT@{RIGHT}}}\Hypertarget{group__strings__modify_gga869589e3a64f8815a14c494fd10ece53a21507b40c80068eda19865706fdc2403}\label{group__strings__modify_gga869589e3a64f8815a14c494fd10ece53a21507b40c80068eda19865706fdc2403} 
+RIGHT&strip/pad characters from the end of the string \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BOTH@{BOTH}!Strings\_modify@{Strings\_modify}}\index{Strings\_modify@{Strings\_modify}!BOTH@{BOTH}}}\Hypertarget{group__strings__modify_gga869589e3a64f8815a14c494fd10ece53a6328e5e3186c227a021ef2ff77e40197}\label{group__strings__modify_gga869589e3a64f8815a14c494fd10ece53a6328e5e3186c227a021ef2ff77e40197} 
+BOTH&strip/pad characters from the beginning and end of the string \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{side__type_8hpp_source}{side\+\_\+type.\+hpp}} 第 \mbox{\hyperlink{side__type_8hpp_source_l00029}{29}} 行定义.
+
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__strings__modify_ga09524f52197e6c51545d01fc996d7885}\label{group__strings__modify_ga09524f52197e6c51545d01fc996d7885} 
+\index{Strings\_modify@{Strings\_modify}!filter\_characters@{filter\_characters}}
+\index{filter\_characters@{filter\_characters}!Strings\_modify@{Strings\_modify}}
+\doxysubsubsection{\texorpdfstring{filter\_characters()}{filter\_characters()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::filter\+\_\+characters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{cudf\+::char\+\_\+utf8}}, \mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{cudf\+::char\+\_\+utf8}} $>$ $>$}]{characters\+\_\+to\+\_\+filter,  }\item[{\mbox{\hyperlink{group__strings__modify_ga9641be68cf161f3e42888a73be40f264}{filter\+\_\+type}}}]{keep\+\_\+characters = {\ttfamily \mbox{\hyperlink{group__strings__modify_gga9641be68cf161f3e42888a73be40f264a60cba2874369bd3790e14ea5f8a7bc58}{filter\+\_\+type\+::\+KEEP}}},  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{replacement = {\ttfamily \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{})},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Removes ranges of characters from each string in a strings column. 
+
+This can also be used to keep only the specified character ranges and remove all others from each string.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{s\ =\ ["{}aeiou"{},\ "{}AEIOU"{},\ "{}0123456789"{},\ "{}bcdOPQ5"{}]}
+\DoxyCodeLine{f\ =\ [\{'M','Z'\},\ \{'a','l'\},\ \{'4','6'\}]}
+\DoxyCodeLine{r1\ =\ filter\_characters(s,\ f)}
+\DoxyCodeLine{r1\ is\ now\ ["{}aei"{},\ "{}OU"{},\ "{}456"{},\ "{}bcdOPQ5"{}]}
+\DoxyCodeLine{r2\ =\ filter\_characters(s,\ f,\ REMOVE)}
+\DoxyCodeLine{r2\ is\ now\ ["{}ou"{},\ "{}AEI"{},\ "{}0123789"{},\ "{}"{}]}
+\DoxyCodeLine{r3\ =\ filter\_characters(s,\ f,\ KEEP,\ "{}*"{})}
+\DoxyCodeLine{r3\ is\ now\ ["{}aei**"{},\ "{}***OU"{},\ "{}****456***"{},\ "{}bcdOPQ5"{}]}
+
+\end{DoxyCode}
+
+
+Null string entries result in null entries in the output column.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily replacement} is invalid\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em characters\+\_\+to\+\_\+filter} & Table of character ranges to filter on. \\
+\hline
+{\em keep\+\_\+characters} & If true, the {\ttfamily characters\+\_\+to\+\_\+filter} are retained and all other characters are removed. \\
+\hline
+{\em replacement} & Optional replacement string for each character removed. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New column with filtered strings. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__modify_gabec4b38ce2ed20ecb6ea84f5e320854d}\label{group__strings__modify_gabec4b38ce2ed20ecb6ea84f5e320854d} 
+\index{Strings\_modify@{Strings\_modify}!pad@{pad}}
+\index{pad@{pad}!Strings\_modify@{Strings\_modify}}
+\doxysubsubsection{\texorpdfstring{pad()}{pad()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::pad (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{width,  }\item[{\mbox{\hyperlink{group__strings__modify_ga869589e3a64f8815a14c494fd10ece53}{side\+\_\+type}}}]{side = {\ttfamily \mbox{\hyperlink{group__strings__modify_gga869589e3a64f8815a14c494fd10ece53a21507b40c80068eda19865706fdc2403}{side\+\_\+type\+::\+RIGHT}}},  }\item[{std\+::string\+\_\+view}]{fill\+\_\+char = {\ttfamily \"{}~\"{}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Add padding to each string using a provided character. 
+
+If the string is already {\ttfamily width} or more characters, no padding is performed. Also, no strings are truncated.
+
+Null string entries result in corresponding null entries in the output column.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{s\ =\ ['aa','bbb','cccc','ddddd']}
+\DoxyCodeLine{r\ =\ pad(s,4)}
+\DoxyCodeLine{r\ is\ now\ ['aa\ \ ','bbb\ ','cccc','ddddd']}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em input} & Strings instance for this operation \\
+\hline
+{\em width} & The minimum number of characters for each string \\
+\hline
+{\em side} & Where to place the padding characters; Default is pad right (left justify) \\
+\hline
+{\em fill\+\_\+char} & Single UTF-\/8 character to use for padding; Default is the space character \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New column with padded strings 
+\end{DoxyReturn}
+\Hypertarget{group__strings__modify_ga9aaa46a25b1a13a883d2ff4674685840}\label{group__strings__modify_ga9aaa46a25b1a13a883d2ff4674685840} 
+\index{Strings\_modify@{Strings\_modify}!strip@{strip}}
+\index{strip@{strip}!Strings\_modify@{Strings\_modify}}
+\doxysubsubsection{\texorpdfstring{strip()}{strip()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::strip (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__strings__modify_ga869589e3a64f8815a14c494fd10ece53}{side\+\_\+type}}}]{side = {\ttfamily \mbox{\hyperlink{group__strings__modify_gga869589e3a64f8815a14c494fd10ece53a6328e5e3186c227a021ef2ff77e40197}{side\+\_\+type\+::\+BOTH}}},  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{to\+\_\+strip = {\ttfamily \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{})},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Removes the specified characters from the beginning or end (or both) of each string. 
+
+The to\+\_\+strip parameter can contain one or more characters. All characters in {\ttfamily to\+\_\+strip} are removed from the input strings.
+
+If {\ttfamily to\+\_\+strip} is the empty string, whitespace characters are removed. Whitespace is considered the space character plus control characters like tab and line feed.
+
+Any null string entries return corresponding null output column entries.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{s\ =\ ["{}\ aaa\ "{},\ "{}\_bbbb\ "{},\ "{}\_\_cccc\ \ "{},\ "{}ddd"{},\ "{}\ ee\ \_ff\ gg\_"{}]}
+\DoxyCodeLine{r\ =\ strip(s,both,"{}\ \_"{})}
+\DoxyCodeLine{r\ is\ now\ ["{}aaa"{},\ "{}bbbb"{},\ "{}cccc"{},\ "{}ddd"{},\ "{}ee\ \_ff\ gg"{}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily to\+\_\+strip} is invalid.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & Strings column for this operation \\
+\hline
+{\em side} & Indicates characters are to be stripped from the beginning, end, or both of each string; Default is both \\
+\hline
+{\em to\+\_\+strip} & UTF-\/8 encoded characters to strip from each string; Default is empty string which indicates strip whitespace characters \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__modify_gacb54867db2248b0381f7b9539c5844bc}\label{group__strings__modify_gacb54867db2248b0381f7b9539c5844bc} 
+\index{Strings\_modify@{Strings\_modify}!translate@{translate}}
+\index{translate@{translate}!Strings\_modify@{Strings\_modify}}
+\doxysubsubsection{\texorpdfstring{translate()}{translate()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::translate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{char\+\_\+utf8}}, \mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{char\+\_\+utf8}} $>$ $>$ const \&}]{chars\+\_\+table,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Translates individual characters within each string. 
+
+This can also be used to remove a character by specifying 0 for the corresponding table entry.
+
+Null string entries result in null entries in the output column.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{s\ =\ ["{}aa"{},"{}bbb"{},"{}cccc"{},"{}abcd"{}]}
+\DoxyCodeLine{t\ =\ [['a','A'],['b',''],['d':'Q']]}
+\DoxyCodeLine{r\ =\ translate(s,t)}
+\DoxyCodeLine{r\ is\ now\ ["{}AA"{},\ "{}"{},\ "{}cccc"{},\ "{}AcQ"{}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em chars\+\_\+table} & Table of UTF-\/8 character mappings. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New column with padded strings. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__modify_ga77e79ede7598725d2430848f0e1692e8}\label{group__strings__modify_ga77e79ede7598725d2430848f0e1692e8} 
+\index{Strings\_modify@{Strings\_modify}!wrap@{wrap}}
+\index{wrap@{wrap}!Strings\_modify@{Strings\_modify}}
+\doxysubsubsection{\texorpdfstring{wrap()}{wrap()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::wrap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{width,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Wraps strings onto multiple lines shorter than {\ttfamily width} by replacing appropriate white space with new-\/line characters (ASCII 0x0A). 
+
+For each string row in the input column longer than {\ttfamily width}, the corresponding output string row will have newline characters inserted so that each line is no more than {\ttfamily width characters}. Attempts to use existing white space locations to split the strings, but may split non-\/white-\/space sequences if necessary.
+
+Any null string entries return corresponding null output column entries.
+
+Example 1\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{width\ =\ 3}
+\DoxyCodeLine{input\_string\_tbl\ =\ [\ \textcolor{stringliteral}{"{}12345"{}},\ \textcolor{stringliteral}{"{}thesé"{}},\ \textcolor{keyword}{nullptr},\ \textcolor{stringliteral}{"{}ARE\ THE"{}},\ \textcolor{stringliteral}{"{}tést\ strings"{}},\ \textcolor{stringliteral}{"{}"{}}\ ];}
+\DoxyCodeLine{}
+\DoxyCodeLine{wrapped\_string\_tbl\ =\ \mbox{\hyperlink{group__strings__modify_ga77e79ede7598725d2430848f0e1692e8}{wrap}}(input\_string\_tbl,\ width)}
+\DoxyCodeLine{wrapped\_string\_tbl\ =\ [\ \textcolor{stringliteral}{"{}12345"{}},\ \textcolor{stringliteral}{"{}thesé"{}},\ \textcolor{keyword}{nullptr},\ \textcolor{stringliteral}{"{}ARE\(\backslash\)nTHE"{}},\ \textcolor{stringliteral}{"{}tést\(\backslash\)nstrings"{}},\ \textcolor{stringliteral}{"{}"{}}\ ]}
+
+\end{DoxyCode}
+
+
+Example 2\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{width\ =\ 12;}
+\DoxyCodeLine{input\_string\_tbl\ =\ [\textcolor{stringliteral}{"{}the\ quick\ brown\ fox\ jumped\ over\ the\ lazy\ brown\ dog"{}},\ \textcolor{stringliteral}{"{}hello,\ world"{}}]}
+\DoxyCodeLine{}
+\DoxyCodeLine{wrapped\_string\_tbl\ =\ \mbox{\hyperlink{group__strings__modify_ga77e79ede7598725d2430848f0e1692e8}{wrap}}(input\_string\_tbl,\ width)}
+\DoxyCodeLine{wrapped\_string\_tbl\ =\ [\textcolor{stringliteral}{"{}the\ quick\(\backslash\)nbrown\ fox\(\backslash\)njumped\ over\(\backslash\)nthe\ lazy\(\backslash\)nbrown\ dog"{}},\ \textcolor{stringliteral}{"{}hello,\ world"{}}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em strings} & String column. \\
+\hline
+\mbox{\texttt{ in}}  & {\em width} & Maximum character width of a line within each string. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Column of wrapped strings. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__modify_ga3ec03c91a8748cd2c14370b6b76852a1}\label{group__strings__modify_ga3ec03c91a8748cd2c14370b6b76852a1} 
+\index{Strings\_modify@{Strings\_modify}!zfill@{zfill}}
+\index{zfill@{zfill}!Strings\_modify@{Strings\_modify}}
+\doxysubsubsection{\texorpdfstring{zfill()}{zfill()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::zfill (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{width,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Add \textquotesingle{}0\textquotesingle{} as padding to the left of each string. 
+
+This is equivalent to `pad(width,left,\textquotesingle{}0')\`{} but preserves the sign character if it appears in the first position.
+
+If the string is already width or more characters, no padding is performed. No strings are truncated.
+
+Null rows in the input result in corresponding null rows in the output column.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{s\ =\ ['1234','-\/9876','+0.34','-\/342567',\ '2+2']}
+\DoxyCodeLine{r\ =\ zfill(s,6)}
+\DoxyCodeLine{r\ is\ now\ ['001234','-\/09876','+00.34','-\/342567',\ '0002+2']}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em input} & Strings instance for this operation. \\
+\hline
+{\em width} & The minimum number of characters for each string. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New column of strings. 
+\end{DoxyReturn}

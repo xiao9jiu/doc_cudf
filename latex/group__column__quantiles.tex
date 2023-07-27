@@ -1,0 +1,130 @@
+\doxysection{Column\+\_\+quantiles}
+\hypertarget{group__column__quantiles}{}\label{group__column__quantiles}\index{Column\_quantiles@{Column\_quantiles}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{quantiles_8hpp}{quantiles.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__quantiles_gac7d0d668dd96213645444c32fc6582a1}{cudf\+::quantile}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, std\+::vector$<$ double $>$ const \&q, \mbox{\hyperlink{group__utility__types_ga9cd17c1cdf028ead9a4783f605276ab3}{interpolation}} interp=\mbox{\hyperlink{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3aaac544aacc3615aada24897a215f5046}{interpolation\+::\+LINEAR}}, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&ordered\+\_\+indices=\{\}, bool exact=true, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Computes quantiles with interpolation. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__quantiles_ga5a7bfdd267148ba8038c50c3c27fa87a}{cudf\+::quantiles}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::vector$<$ double $>$ const \&q, \mbox{\hyperlink{group__utility__types_ga9cd17c1cdf028ead9a4783f605276ab3}{interpolation}} interp=\mbox{\hyperlink{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3aad135772d7cf93dd0ccf9d2474b34e6a}{interpolation\+::\+NEAREST}}, \mbox{\hyperlink{group__utility__types_gab283c517931abd4152ffa62fec62425d}{cudf\+::sorted}} is\+\_\+input\+\_\+sorted=\mbox{\hyperlink{group__utility__types_ggab283c517931abd4152ffa62fec62425dac2f3f489a00553e7a01d369c103c7251}{sorted\+::\+NO}}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order=\{\}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence=\{\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns the rows of the input corresponding to the requested quantiles. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__quantiles_gac79832ed137f9001c00f6cfd5a0d87db}{cudf\+::percentile\+\_\+approx}} (\mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view}{tdigest\+::tdigest\+\_\+column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&percentiles, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Calculate approximate percentiles on an input tdigest column. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__column__quantiles_gac79832ed137f9001c00f6cfd5a0d87db}\label{group__column__quantiles_gac79832ed137f9001c00f6cfd5a0d87db} 
+\index{Column\_quantiles@{Column\_quantiles}!percentile\_approx@{percentile\_approx}}
+\index{percentile\_approx@{percentile\_approx}!Column\_quantiles@{Column\_quantiles}}
+\doxysubsubsection{\texorpdfstring{percentile\_approx()}{percentile\_approx()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::percentile\+\_\+approx (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view}{tdigest\+::tdigest\+\_\+column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{percentiles,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Calculate approximate percentiles on an input tdigest column. 
+
+tdigest (\href{https://arxiv.org/pdf/1902.04023.pdf}{\texttt{ https\+://arxiv.\+org/pdf/1902.\+04023.\+pdf}}) columns are produced specifically by the TDIGEST and MERGE\+\_\+\+TDIGEST aggregations. These columns represent compressed representations of a very large input data set that can be queried for quantile information.
+
+Produces a LIST column where each row {\ttfamily i} represents output from querying the corresponding tdigest from {\ttfamily input} row {\ttfamily i}. The length of each output list is the number of percentages specified in {\ttfamily percentages}.
+
+
+\begin{DoxyParams}{参数}
+{\em input} & tdigest input data. One tdigest per row \\
+\hline
+{\em percentiles} & Desired percentiles in range \mbox{[}0, 1\mbox{]} \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily input} is not a valid tdigest column. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily percentiles} is not a FLOAT64 column.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{返回}
+LIST Column containing requested percentile values as FLOAT64 
+\end{DoxyReturn}
+\Hypertarget{group__column__quantiles_gac7d0d668dd96213645444c32fc6582a1}\label{group__column__quantiles_gac7d0d668dd96213645444c32fc6582a1} 
+\index{Column\_quantiles@{Column\_quantiles}!quantile@{quantile}}
+\index{quantile@{quantile}!Column\_quantiles@{Column\_quantiles}}
+\doxysubsubsection{\texorpdfstring{quantile()}{quantile()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::quantile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{std\+::vector$<$ double $>$ const \&}]{q,  }\item[{\mbox{\hyperlink{group__utility__types_ga9cd17c1cdf028ead9a4783f605276ab3}{interpolation}}}]{interp = {\ttfamily \mbox{\hyperlink{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3aaac544aacc3615aada24897a215f5046}{interpolation\+::\+LINEAR}}},  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{ordered\+\_\+indices = {\ttfamily \{\}},  }\item[{bool}]{exact = {\ttfamily true},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Computes quantiles with interpolation. 
+
+Computes the specified quantiles by interpolating values between which they lie, using the interpolation strategy specified in {\ttfamily interp}.
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & Column from which to compute quantile values \\
+\hline
+\mbox{\texttt{ in}}  & {\em q} & Specified quantiles in range \mbox{[}0, 1\mbox{]} \\
+\hline
+\mbox{\texttt{ in}}  & {\em interp} & Strategy used to select between values adjacent to a specified quantile. \\
+\hline
+\mbox{\texttt{ in}}  & {\em ordered\+\_\+indices} & Column containing the sorted order of {\ttfamily input}. If the column is empty, all {\ttfamily input} values are used in existing order. Indices must be in range \mbox{[}0, {\ttfamily input.\+size()}), but are not required to be unique. Values not indexed by this column will be ignored. \\
+\hline
+\mbox{\texttt{ in}}  & {\em exact} & If true, returns doubles. If false, returns same type as input. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Column of specified quantiles, with nulls for indeterminable values 
+\end{DoxyReturn}
+\Hypertarget{group__column__quantiles_ga5a7bfdd267148ba8038c50c3c27fa87a}\label{group__column__quantiles_ga5a7bfdd267148ba8038c50c3c27fa87a} 
+\index{Column\_quantiles@{Column\_quantiles}!quantiles@{quantiles}}
+\index{quantiles@{quantiles}!Column\_quantiles@{Column\_quantiles}}
+\doxysubsubsection{\texorpdfstring{quantiles()}{quantiles()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::quantiles (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{std\+::vector$<$ double $>$ const \&}]{q,  }\item[{\mbox{\hyperlink{group__utility__types_ga9cd17c1cdf028ead9a4783f605276ab3}{interpolation}}}]{interp = {\ttfamily \mbox{\hyperlink{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3aad135772d7cf93dd0ccf9d2474b34e6a}{interpolation\+::\+NEAREST}}},  }\item[{\mbox{\hyperlink{group__utility__types_gab283c517931abd4152ffa62fec62425d}{cudf\+::sorted}}}]{is\+\_\+input\+\_\+sorted = {\ttfamily \mbox{\hyperlink{group__utility__types_ggab283c517931abd4152ffa62fec62425dac2f3f489a00553e7a01d369c103c7251}{sorted\+::\+NO}}},  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&}]{column\+\_\+order = {\ttfamily \{\}},  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&}]{null\+\_\+precedence = {\ttfamily \{\}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns the rows of the input corresponding to the requested quantiles. 
+
+Quantiles are cut points that divide the range of a dataset into continuous intervals. e.\+g\+: quartiles are the three cut points that divide a dataset into four equal-\/sized groups. See \href{https://en.wikipedia.org/wiki/Quantile}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Quantile}}
+
+The indices used to gather rows are computed by interpolating between the index on either side of the desired quantile. Since some columns may be non-\/arithmetic, interpolation between rows is limited to non-\/arithmetic strategies.
+
+Non-\/arithmetic interpolation strategies include HIGHER, LOWER, and NEAREST.
+
+quantiles {\ttfamily \texorpdfstring{$<$}{<}= 0} correspond to row {\ttfamily 0}. (first) quantiles {\ttfamily \texorpdfstring{$>$}{>}= 1} correspond to row {\ttfamily input.\+size() -\/ 1}. (last)
+
+
+\begin{DoxyParams}{参数}
+{\em input} & Table used to compute quantile rows \\
+\hline
+{\em q} & Desired quantiles in range \mbox{[}0, 1\mbox{]} \\
+\hline
+{\em interp} & Strategy used to select between the two rows on either side of the desired quantile. \\
+\hline
+{\em is\+\_\+input\+\_\+sorted} & Indicates if the input has been pre-\/sorted \\
+\hline
+{\em column\+\_\+order} & The desired sort order for each column \\
+\hline
+{\em null\+\_\+precedence} & The desired order of null compared to other elements \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Table of specified quantiles, with nulls for indeterminable values 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily interp} is an arithmetic interpolation strategy \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily input} is empty \\
+\hline
+\end{DoxyExceptions}

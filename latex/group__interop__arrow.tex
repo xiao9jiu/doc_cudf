@@ -1,0 +1,82 @@
+\doxysection{Interop\+\_\+arrow}
+\hypertarget{group__interop__arrow}{}\label{group__interop__arrow}\index{Interop\_arrow@{Interop\_arrow}}
+Interop\+\_\+arrow 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{group__interop__arrow}
+\end{center}
+\end{figure}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{interop_8hpp}{interop.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1column__metadata}{cudf\+::column\+\_\+metadata}}
+\begin{DoxyCompactList}\small\item\em Detailed metadata information for arrow array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ arrow\+::\+Table $>$ \mbox{\hyperlink{group__interop__arrow_ga72feccc6e06f2d73d91f8dca5cb01501}{cudf\+::to\+\_\+arrow}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} input, std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1column__metadata}{column\+\_\+metadata}} $>$ const \&metadata=\{\}, arrow\+::\+Memory\+Pool \texorpdfstring{$\ast$}{*}ar\+\_\+mr=arrow\+::default\+\_\+memory\+\_\+pool())
+\begin{DoxyCompactList}\small\item\em Create {\ttfamily arrow\+::\+Table} from cudf table {\ttfamily input} \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__interop__arrow_gae29f5c6a2d2158b6bfd89fd7a5284383}{cudf\+::from\+\_\+arrow}} (arrow\+::\+Table const \&input, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create {\ttfamily \doxylink{classcudf_1_1table}{cudf\+::table}} from given arrow Table input \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__interop__arrow_gae29f5c6a2d2158b6bfd89fd7a5284383}\label{group__interop__arrow_gae29f5c6a2d2158b6bfd89fd7a5284383} 
+\index{Interop\_arrow@{Interop\_arrow}!from\_arrow@{from\_arrow}}
+\index{from\_arrow@{from\_arrow}!Interop\_arrow@{Interop\_arrow}}
+\doxysubsubsection{\texorpdfstring{from\_arrow()}{from\_arrow()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::from\+\_\+arrow (\begin{DoxyParamCaption}\item[{arrow\+::\+Table const \&}]{input,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Create {\ttfamily \doxylink{classcudf_1_1table}{cudf\+::table}} from given arrow Table input 
+
+
+\begin{DoxyParams}{参数}
+{\em input} & arrow\+:Table that needs to be converted to {\ttfamily \doxylink{classcudf_1_1table}{cudf\+::table}} \\
+\hline
+{\em mr} & Device memory resource used to allocate {\ttfamily \doxylink{classcudf_1_1table}{cudf\+::table}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+cudf table generated from given arrow Table 
+\end{DoxyReturn}
+\Hypertarget{group__interop__arrow_ga72feccc6e06f2d73d91f8dca5cb01501}\label{group__interop__arrow_ga72feccc6e06f2d73d91f8dca5cb01501} 
+\index{Interop\_arrow@{Interop\_arrow}!to\_arrow@{to\_arrow}}
+\index{to\_arrow@{to\_arrow}!Interop\_arrow@{Interop\_arrow}}
+\doxysubsubsection{\texorpdfstring{to\_arrow()}{to\_arrow()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ arrow\+::\+Table $>$ cudf\+::to\+\_\+arrow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}}}]{input,  }\item[{std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1column__metadata}{column\+\_\+metadata}} $>$ const \&}]{metadata = {\ttfamily \{\}},  }\item[{arrow\+::\+Memory\+Pool \texorpdfstring{$\ast$}{*}}]{ar\+\_\+mr = {\ttfamily arrow\+:\+:default\+\_\+memory\+\_\+pool()} }\end{DoxyParamCaption})}
+
+
+
+Create {\ttfamily arrow\+::\+Table} from cudf table {\ttfamily input} 
+
+Converts the {\ttfamily \doxylink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} to {\ttfamily arrow\+::\+Table} with the provided metadata {\ttfamily column\+\_\+names}.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily column\+\_\+names} size doesn\textquotesingle{}t match with number of columns.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & \doxylink{classcudf_1_1table__view}{table\+\_\+view} that needs to be converted to arrow Table \\
+\hline
+{\em metadata} & Contains hierarchy of names of columns and children \\
+\hline
+{\em ar\+\_\+mr} & arrow memory pool to allocate memory for arrow Table \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+arrow Table generated from {\ttfamily input} 
+\end{DoxyReturn}

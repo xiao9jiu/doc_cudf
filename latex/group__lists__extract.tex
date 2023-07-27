@@ -1,0 +1,117 @@
+\doxysection{Lists\+\_\+extract}
+\hypertarget{group__lists__extract}{}\label{group__lists__extract}\index{Lists\_extract@{Lists\_extract}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{lists_2extract_8hpp}{extract.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__lists__extract_gacd37dd6909e63ea82969489e7f75c994}{cudf\+::lists\+::extract\+\_\+list\+\_\+element}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&lists\+\_\+column, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} index, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a column where each row is the element at position {\ttfamily index} from the corresponding sublist in the input {\ttfamily lists\+\_\+column}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__lists__extract_ga7242f2431b4e08c3f6065b6c7a6109ee}{cudf\+::lists\+::extract\+\_\+list\+\_\+element}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&lists\+\_\+column, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&indices, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a column where each row is a single element from the corresponding sublist in the input {\ttfamily lists\+\_\+column}, selected using indices from the {\ttfamily indices} column. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__lists__extract_ga7242f2431b4e08c3f6065b6c7a6109ee}\label{group__lists__extract_ga7242f2431b4e08c3f6065b6c7a6109ee} 
+\index{Lists\_extract@{Lists\_extract}!extract\_list\_element@{extract\_list\_element}}
+\index{extract\_list\_element@{extract\_list\_element}!Lists\_extract@{Lists\_extract}}
+\doxysubsubsection{\texorpdfstring{extract\_list\_element()}{extract\_list\_element()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::extract\+\_\+list\+\_\+element (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&}]{lists\+\_\+column,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{indices,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Create a column where each row is a single element from the corresponding sublist in the input {\ttfamily lists\+\_\+column}, selected using indices from the {\ttfamily indices} column. 
+
+Output {\ttfamily column\mbox{[}i\mbox{]}} is set from element {\ttfamily lists\+\_\+column\mbox{[}i\mbox{]}\mbox{[}indices\mbox{[}i\mbox{]}\mbox{]}}. If {\ttfamily indices\mbox{[}i\mbox{]}} is larger than the size of the sublist at {\ttfamily lists\+\_\+column\mbox{[}i\mbox{]}} then output {\ttfamily column\mbox{[}i\mbox{]} = null}. Similarly, if {\ttfamily indices\mbox{[}i\mbox{]}} is {\ttfamily null}, then {\ttfamily column\mbox{[}i\mbox{]} = null}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{l\ =\ \{\ \{1,\ 2,\ 3\},\ \{4\},\ \{5,\ 6\}\ \}}
+\DoxyCodeLine{r\ =\ extract\_list\_element(l,\ \{0,\ null,\ 2\})}
+\DoxyCodeLine{r\ is\ now\ \{1,\ null,\ null\}}
+
+\end{DoxyCode}
+
+
+{\ttfamily indices\mbox{[}i\mbox{]}} may also be negative, in which case the row retrieved is offset from the end of each sublist.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{l\ =\ \{\ \{"{}a"{}\},\ \{"{}b"{},\ "{}c"{}\},\ \{"{}d"{},\ "{}e"{},\ "{}f"{}\}\ \}}
+\DoxyCodeLine{r\ =\ extract\_list\_element(l,\ \{-\/1,\ -\/2,\ -\/4\})}
+\DoxyCodeLine{r\ is\ now\ \{"{}a"{},\ "{}b"{},\ null\}}
+
+\end{DoxyCode}
+
+
+Any input where {\ttfamily lists\+\_\+column\mbox{[}i\mbox{]} == null} produces output {\ttfamily column\mbox{[}i\mbox{]} = null}. Any input where {\ttfamily lists\+\_\+column\mbox{[}i\mbox{]}\mbox{[}indices\mbox{[}i\mbox{]}\mbox{]} == null} produces output {\ttfamily column\mbox{[}i\mbox{]} = null}.
+
+
+\begin{DoxyParams}{参数}
+{\em lists\+\_\+column} & Column to extract elements from. \\
+\hline
+{\em indices} & The column whose rows indicate the element index to be retrieved from each list row. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Column of extracted elements. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & If the sizes of {\ttfamily lists\+\_\+column} and {\ttfamily indices} do not match. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{group__lists__extract_gacd37dd6909e63ea82969489e7f75c994}\label{group__lists__extract_gacd37dd6909e63ea82969489e7f75c994} 
+\index{Lists\_extract@{Lists\_extract}!extract\_list\_element@{extract\_list\_element}}
+\index{extract\_list\_element@{extract\_list\_element}!Lists\_extract@{Lists\_extract}}
+\doxysubsubsection{\texorpdfstring{extract\_list\_element()}{extract\_list\_element()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::extract\+\_\+list\+\_\+element (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&}]{lists\+\_\+column,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{index,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Create a column where each row is the element at position {\ttfamily index} from the corresponding sublist in the input {\ttfamily lists\+\_\+column}. 
+
+Output {\ttfamily column\mbox{[}i\mbox{]}} is set from element {\ttfamily lists\+\_\+column\mbox{[}i\mbox{]}\mbox{[}index\mbox{]}}. If {\ttfamily index} is larger than the size of the sublist at {\ttfamily lists\+\_\+column\mbox{[}i\mbox{]}} then output {\ttfamily column\mbox{[}i\mbox{]} = null}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{l\ =\ \{\ \{1,\ 2,\ 3\},\ \{4\},\ \{5,\ 6\}\ \}}
+\DoxyCodeLine{r\ =\ extract\_list\_element(l,\ 1)}
+\DoxyCodeLine{r\ is\ now\ \{2,\ null,\ 6\}}
+
+\end{DoxyCode}
+
+
+The {\ttfamily index} may also be negative in which case the row retrieved is offset from the end of each sublist.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{l\ =\ \{\ \{"{}a"{}\},\ \{"{}b"{},\ "{}c"{}\},\ \{"{}d"{},\ "{}e"{},\ "{}f"{}\}\ \}}
+\DoxyCodeLine{r\ =\ extract\_list\_element(l,\ -\/1)}
+\DoxyCodeLine{r\ is\ now\ \{"{}a"{},\ "{}c"{},\ "{}f"{}\}}
+
+\end{DoxyCode}
+
+
+Any input where {\ttfamily lists\+\_\+column\mbox{[}i\mbox{]} == null} will produce output {\ttfamily column\mbox{[}i\mbox{]} = null}. Also, any element where {\ttfamily lists\+\_\+column\mbox{[}i\mbox{]}\mbox{[}index\mbox{]} == null} will produce output {\ttfamily column\mbox{[}i\mbox{]} = null}.
+
+
+\begin{DoxyParams}{参数}
+{\em lists\+\_\+column} & Column to extract elements from. \\
+\hline
+{\em index} & The row within each sublist to retrieve. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Column of extracted elements. 
+\end{DoxyReturn}

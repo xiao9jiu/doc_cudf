@@ -1,0 +1,238 @@
+\doxysection{cudf\+::util 命名空间参考}
+\hypertarget{namespacecudf_1_1util}{}\label{namespacecudf_1_1util}\index{cudf::util@{cudf::util}}
+
+
+Utility functions  
+
+
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1util_1_1detail}{detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename S $>$ }\\S \mbox{\hyperlink{namespacecudf_1_1util_ad92e7a683250a2bd1f8f3bcaabc6bf9f}{round\+\_\+up\+\_\+safe}} (S number\+\_\+to\+\_\+round, S modulus)
+\begin{DoxyCompactList}\small\item\em Rounds {\ttfamily number\+\_\+to\+\_\+round} up to the next multiple of modulus \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename S $>$ }\\S \mbox{\hyperlink{namespacecudf_1_1util_a1f0a3599075ac4a667ee0817b4840696}{round\+\_\+down\+\_\+safe}} (S number\+\_\+to\+\_\+round, S modulus) noexcept
+\begin{DoxyCompactList}\small\item\em Rounds {\ttfamily number\+\_\+to\+\_\+round} down to the last multiple of modulus \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename S $>$ }\\constexpr S \mbox{\hyperlink{namespacecudf_1_1util_abfb9644b0d39cf734610a2c8552e8c6a}{round\+\_\+up\+\_\+unsafe}} (S number\+\_\+to\+\_\+round, S modulus) noexcept
+\begin{DoxyCompactList}\small\item\em Rounds {\ttfamily number\+\_\+to\+\_\+round} up to the next multiple of modulus \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename S , typename T $>$ }\\constexpr S \mbox{\hyperlink{namespacecudf_1_1util_ad5dcf0e19a83ef99dfa6d676c423c36f}{div\+\_\+rounding\+\_\+up\+\_\+unsafe}} (const S \&dividend, const T \&divisor) noexcept
+\item 
+{\footnotesize template$<$typename I $>$ }\\constexpr I \mbox{\hyperlink{namespacecudf_1_1util_a6fe189a1e4b812440a51a97c67fa7860}{div\+\_\+rounding\+\_\+up\+\_\+safe}} (I dividend, I divisor) noexcept
+\item 
+{\footnotesize template$<$typename I $>$ }\\constexpr bool \mbox{\hyperlink{namespacecudf_1_1util_a514583024139235b4d606f11c940fff5}{is\+\_\+a\+\_\+power\+\_\+of\+\_\+two}} (I val) noexcept
+\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr auto \mbox{\hyperlink{namespacecudf_1_1util_a414d91e01fb97879e2a4dd61673b866e}{absolute\+\_\+value}} (T value) -\/$>$ T
+\begin{DoxyCompactList}\small\item\em Return the absolute value of a number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Utility functions 
+
+\doxysubsection{函数说明}
+\Hypertarget{namespacecudf_1_1util_a414d91e01fb97879e2a4dd61673b866e}\label{namespacecudf_1_1util_a414d91e01fb97879e2a4dd61673b866e} 
+\index{cudf::util@{cudf::util}!absolute\_value@{absolute\_value}}
+\index{absolute\_value@{absolute\_value}!cudf::util@{cudf::util}}
+\doxysubsubsection{\texorpdfstring{absolute\_value()}{absolute\_value()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr auto cudf\+::util\+::absolute\+\_\+value (\begin{DoxyParamCaption}\item[{T}]{value }\end{DoxyParamCaption}) -\/$>$ T \hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Return the absolute value of a number. 
+
+This calls {\ttfamily std\+::abs()} which performs equivalent\+: {\ttfamily (value \texorpdfstring{$<$}{<} 0) ? -\/value \+: value}.
+
+This was created to prevent compile errors calling {\ttfamily std\+::abs()} with unsigned integers. An example compile error appears as follows\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{error:\ more\ than\ one\ instance\ of\ overloaded\ function\ "{}std::abs"{}\ matches\ the\ argument\ list:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ function\ "{}abs(int)"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ function\ "{}std::abs(long)"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ function\ "{}std::abs(long\ long)"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ function\ "{}std::abs(double)"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ function\ "{}std::abs(float)"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ function\ "{}std::abs(long\ double)"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ argument\ types\ are:\ (uint64\_t)}
+
+\end{DoxyCode}
+
+
+Not all cases could be if-\/ed out using {\ttfamily std\+::is\+\_\+signed\+\_\+v\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} and satisfy the compiler.
+
+
+\begin{DoxyParams}{参数}
+{\em value} & Numeric value can be either integer or float type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Absolute value if value type is signed. 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{integer__utils_8hpp_source}{integer\+\_\+utils.\+hpp}} 第 \mbox{\hyperlink{integer__utils_8hpp_source_l00186}{186}} 行定义.
+
+\Hypertarget{namespacecudf_1_1util_a6fe189a1e4b812440a51a97c67fa7860}\label{namespacecudf_1_1util_a6fe189a1e4b812440a51a97c67fa7860} 
+\index{cudf::util@{cudf::util}!div\_rounding\_up\_safe@{div\_rounding\_up\_safe}}
+\index{div\_rounding\_up\_safe@{div\_rounding\_up\_safe}!cudf::util@{cudf::util}}
+\doxysubsubsection{\texorpdfstring{div\_rounding\_up\_safe()}{div\_rounding\_up\_safe()}}
+{\footnotesize\ttfamily template$<$typename I $>$ \\
+constexpr I cudf\+::util\+::div\+\_\+rounding\+\_\+up\+\_\+safe (\begin{DoxyParamCaption}\item[{I}]{dividend,  }\item[{I}]{divisor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+Divides the left-\/hand-\/side by the right-\/hand-\/side, rounding up to an integral multiple of the right-\/hand-\/side, e.\+g. (9,5) -\/\texorpdfstring{$>$}{>} 2 , (10,5) -\/\texorpdfstring{$>$}{>} 2, (11,5) -\/\texorpdfstring{$>$}{>} 3.
+
+
+\begin{DoxyParams}{参数}
+{\em dividend} & the number to divide \\
+\hline
+{\em divisor} & the number of by which to divide \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The least integer multiple of {\ttfamily \doxylink{}{divisor}} which is greater than or equal to the non-\/integral division dividend/divisor.
+\end{DoxyReturn}
+\begin{DoxyNote}{注解}
+will not overflow, and may {\itshape or may not} be slower than the intuitive approach of using (dividend + divisor -\/ 1) / divisor 
+\end{DoxyNote}
+
+
+在文件 \mbox{\hyperlink{integer__utils_8hpp_source}{integer\+\_\+utils.\+hpp}} 第 \mbox{\hyperlink{integer__utils_8hpp_source_l00149}{149}} 行定义.
+
+\Hypertarget{namespacecudf_1_1util_ad5dcf0e19a83ef99dfa6d676c423c36f}\label{namespacecudf_1_1util_ad5dcf0e19a83ef99dfa6d676c423c36f} 
+\index{cudf::util@{cudf::util}!div\_rounding\_up\_unsafe@{div\_rounding\_up\_unsafe}}
+\index{div\_rounding\_up\_unsafe@{div\_rounding\_up\_unsafe}!cudf::util@{cudf::util}}
+\doxysubsubsection{\texorpdfstring{div\_rounding\_up\_unsafe()}{div\_rounding\_up\_unsafe()}}
+{\footnotesize\ttfamily template$<$typename S , typename T $>$ \\
+constexpr S cudf\+::util\+::div\+\_\+rounding\+\_\+up\+\_\+unsafe (\begin{DoxyParamCaption}\item[{const S \&}]{dividend,  }\item[{const T \&}]{divisor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+Divides the left-\/hand-\/side by the right-\/hand-\/side, rounding up to an integral multiple of the right-\/hand-\/side, e.\+g. (9,5) -\/\texorpdfstring{$>$}{>} 2 , (10,5) -\/\texorpdfstring{$>$}{>} 2, (11,5) -\/\texorpdfstring{$>$}{>} 3.
+
+
+\begin{DoxyParams}{参数}
+{\em dividend} & the number to divide \\
+\hline
+{\em divisor} & the number by which to divide \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The least integer multiple of {\ttfamily \doxylink{}{divisor}} which is greater than or equal to the non-\/integral division dividend/divisor.
+\end{DoxyReturn}
+\begin{DoxyNote}{注解}
+sensitive to overflow, i.\+e. if dividend \texorpdfstring{$>$}{>} std\+::numeric\+\_\+limits$<$\+S$>$\+::max() -\/ divisor, the result will be incorrect 
+\end{DoxyNote}
+
+
+在文件 \mbox{\hyperlink{integer__utils_8hpp_source}{integer\+\_\+utils.\+hpp}} 第 \mbox{\hyperlink{integer__utils_8hpp_source_l00110}{110}} 行定义.
+
+\Hypertarget{namespacecudf_1_1util_a514583024139235b4d606f11c940fff5}\label{namespacecudf_1_1util_a514583024139235b4d606f11c940fff5} 
+\index{cudf::util@{cudf::util}!is\_a\_power\_of\_two@{is\_a\_power\_of\_two}}
+\index{is\_a\_power\_of\_two@{is\_a\_power\_of\_two}!cudf::util@{cudf::util}}
+\doxysubsubsection{\texorpdfstring{is\_a\_power\_of\_two()}{is\_a\_power\_of\_two()}}
+{\footnotesize\ttfamily template$<$typename I $>$ \\
+constexpr bool cudf\+::util\+::is\+\_\+a\+\_\+power\+\_\+of\+\_\+two (\begin{DoxyParamCaption}\item[{I}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+在文件 \mbox{\hyperlink{integer__utils_8hpp_source}{integer\+\_\+utils.\+hpp}} 第 \mbox{\hyperlink{integer__utils_8hpp_source_l00156}{156}} 行定义.
+
+\Hypertarget{namespacecudf_1_1util_a1f0a3599075ac4a667ee0817b4840696}\label{namespacecudf_1_1util_a1f0a3599075ac4a667ee0817b4840696} 
+\index{cudf::util@{cudf::util}!round\_down\_safe@{round\_down\_safe}}
+\index{round\_down\_safe@{round\_down\_safe}!cudf::util@{cudf::util}}
+\doxysubsubsection{\texorpdfstring{round\_down\_safe()}{round\_down\_safe()}}
+{\footnotesize\ttfamily template$<$typename S $>$ \\
+S cudf\+::util\+::round\+\_\+down\+\_\+safe (\begin{DoxyParamCaption}\item[{S}]{number\+\_\+to\+\_\+round,  }\item[{S}]{modulus }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Rounds {\ttfamily number\+\_\+to\+\_\+round} down to the last multiple of modulus 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em S} & type to return \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em number\+\_\+to\+\_\+round} & number that is being rounded \\
+\hline
+{\em modulus} & value to which to round \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+largest integer not greater than {\ttfamily number\+\_\+to\+\_\+round} and modulo {\ttfamily S} is zero.
+\end{DoxyReturn}
+\begin{DoxyNote}{注解}
+This function assumes that {\ttfamily number\+\_\+to\+\_\+round} is non-\/negative and {\ttfamily modulus} is positive and does not check for overflow. 
+\end{DoxyNote}
+
+
+在文件 \mbox{\hyperlink{integer__utils_8hpp_source}{integer\+\_\+utils.\+hpp}} 第 \mbox{\hyperlink{integer__utils_8hpp_source_l00070}{70}} 行定义.
+
+\Hypertarget{namespacecudf_1_1util_ad92e7a683250a2bd1f8f3bcaabc6bf9f}\label{namespacecudf_1_1util_ad92e7a683250a2bd1f8f3bcaabc6bf9f} 
+\index{cudf::util@{cudf::util}!round\_up\_safe@{round\_up\_safe}}
+\index{round\_up\_safe@{round\_up\_safe}!cudf::util@{cudf::util}}
+\doxysubsubsection{\texorpdfstring{round\_up\_safe()}{round\_up\_safe()}}
+{\footnotesize\ttfamily template$<$typename S $>$ \\
+S cudf\+::util\+::round\+\_\+up\+\_\+safe (\begin{DoxyParamCaption}\item[{S}]{number\+\_\+to\+\_\+round,  }\item[{S}]{modulus }\end{DoxyParamCaption})}
+
+
+
+Rounds {\ttfamily number\+\_\+to\+\_\+round} up to the next multiple of modulus 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em S} & type to return \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em number\+\_\+to\+\_\+round} & number that is being rounded \\
+\hline
+{\em modulus} & value to which to round \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+smallest integer greater than {\ttfamily number\+\_\+to\+\_\+round} and modulo {\ttfamily S} is zero.
+\end{DoxyReturn}
+\begin{DoxyNote}{注解}
+This function assumes that {\ttfamily number\+\_\+to\+\_\+round} is non-\/negative and {\ttfamily modulus} is positive. The safety is in regard to rollover. 
+\end{DoxyNote}
+
+
+在文件 \mbox{\hyperlink{integer__utils_8hpp_source}{integer\+\_\+utils.\+hpp}} 第 \mbox{\hyperlink{integer__utils_8hpp_source_l00047}{47}} 行定义.
+
+\Hypertarget{namespacecudf_1_1util_abfb9644b0d39cf734610a2c8552e8c6a}\label{namespacecudf_1_1util_abfb9644b0d39cf734610a2c8552e8c6a} 
+\index{cudf::util@{cudf::util}!round\_up\_unsafe@{round\_up\_unsafe}}
+\index{round\_up\_unsafe@{round\_up\_unsafe}!cudf::util@{cudf::util}}
+\doxysubsubsection{\texorpdfstring{round\_up\_unsafe()}{round\_up\_unsafe()}}
+{\footnotesize\ttfamily template$<$typename S $>$ \\
+constexpr S cudf\+::util\+::round\+\_\+up\+\_\+unsafe (\begin{DoxyParamCaption}\item[{S}]{number\+\_\+to\+\_\+round,  }\item[{S}]{modulus }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Rounds {\ttfamily number\+\_\+to\+\_\+round} up to the next multiple of modulus 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em S} & type to return \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em number\+\_\+to\+\_\+round} & number that is being rounded \\
+\hline
+{\em modulus} & value to which to round \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+smallest integer greater than {\ttfamily number\+\_\+to\+\_\+round} and modulo {\ttfamily S} is zero.
+\end{DoxyReturn}
+\begin{DoxyNote}{注解}
+This function assumes that {\ttfamily number\+\_\+to\+\_\+round} is non-\/negative and {\ttfamily modulus} is positive and does not check for overflow. 
+\end{DoxyNote}
+
+
+在文件 \mbox{\hyperlink{integer__utils_8hpp_source}{integer\+\_\+utils.\+hpp}} 第 \mbox{\hyperlink{integer__utils_8hpp_source_l00089}{89}} 行定义.
+

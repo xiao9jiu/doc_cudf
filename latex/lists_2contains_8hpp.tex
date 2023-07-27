@@ -1,0 +1,48 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/lists/contains.hpp 文件参考}
+\hypertarget{lists_2contains_8hpp}{}\label{lists_2contains_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/lists/contains.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/lists/contains.hpp}}
+{\ttfamily \#include $<$cudf/column/column.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/lists/lists\+\_\+column\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/mr/device/per\+\_\+device\+\_\+resource.\+hpp$>$}\newline
+contains.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lists_2contains_8hpp__incl}
+\end{center}
+\end{figure}
+此图展示该文件直接或间接的被哪些文件引用了\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{lists_2contains_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1lists}{cudf\+::lists}}
+\begin{DoxyCompactList}\small\item\em Lists column APIs \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__lists__contains_gabc759fd5641585c3acfaea7e6a6a5981}{cudf\+::lists\+::duplicate\+\_\+find\+\_\+option}} \+: int32\+\_\+t \{ \mbox{\hyperlink{group__lists__contains_ggabc759fd5641585c3acfaea7e6a6a5981a292f317162887f21487e7bc06fd90532}{cudf\+::lists\+::duplicate\+\_\+find\+\_\+option\+::\+FIND\+\_\+\+FIRST}} = 0
+, \mbox{\hyperlink{group__lists__contains_ggabc759fd5641585c3acfaea7e6a6a5981a76da49256092548ec4aa30325ef8f813}{cudf\+::lists\+::duplicate\+\_\+find\+\_\+option\+::\+FIND\+\_\+\+LAST}}
+ \}
+\begin{DoxyCompactList}\small\item\em Option to choose whether {\ttfamily index\+\_\+of()} returns the first or last match of a search key in a list row \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__lists__contains_gadd78c82031400f8ca6054f85afbeed94}{cudf\+::lists\+::contains}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{cudf\+::lists\+\_\+column\+\_\+view}} const \&lists, \mbox{\hyperlink{classcudf_1_1scalar}{cudf\+::scalar}} const \&search\+\_\+key, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a column of {\ttfamily bool} values indicating whether the specified scalar is an element of each row of a list column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__lists__contains_ga1a5553c1f416e410386ee15c5ca967d8}{cudf\+::lists\+::contains}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{cudf\+::lists\+\_\+column\+\_\+view}} const \&lists, \mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&search\+\_\+keys, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a column of {\ttfamily bool} values indicating whether the list rows of the first column contain the corresponding values in the second column \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__lists__contains_ga7d5b77b73cda69a883ff3c96bded5de5}{cudf\+::lists\+::contains\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{cudf\+::lists\+\_\+column\+\_\+view}} const \&lists, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a column of {\ttfamily bool} values indicating whether each row in the {\ttfamily lists} column contains at least one null element. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__lists__contains_gaa09390d7d862070a1df0740fc938ffab}{cudf\+::lists\+::index\+\_\+of}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{cudf\+::lists\+\_\+column\+\_\+view}} const \&lists, \mbox{\hyperlink{classcudf_1_1scalar}{cudf\+::scalar}} const \&search\+\_\+key, \mbox{\hyperlink{group__lists__contains_gabc759fd5641585c3acfaea7e6a6a5981}{duplicate\+\_\+find\+\_\+option}} find\+\_\+option=\mbox{\hyperlink{group__lists__contains_ggabc759fd5641585c3acfaea7e6a6a5981a292f317162887f21487e7bc06fd90532}{duplicate\+\_\+find\+\_\+option\+::\+FIND\+\_\+\+FIRST}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a column of {\ttfamily size\+\_\+type} values indicating the position of a search key within each list row in the {\ttfamily lists} column \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__lists__contains_gaeb5c003b309b82c1832f76dd33efd432}{cudf\+::lists\+::index\+\_\+of}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{cudf\+::lists\+\_\+column\+\_\+view}} const \&lists, \mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&search\+\_\+keys, \mbox{\hyperlink{group__lists__contains_gabc759fd5641585c3acfaea7e6a6a5981}{duplicate\+\_\+find\+\_\+option}} find\+\_\+option=\mbox{\hyperlink{group__lists__contains_ggabc759fd5641585c3acfaea7e6a6a5981a292f317162887f21487e7bc06fd90532}{duplicate\+\_\+find\+\_\+option\+::\+FIND\+\_\+\+FIRST}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a column of {\ttfamily size\+\_\+type} values indicating the position of a search key row within the corresponding list row in the {\ttfamily lists} column \end{DoxyCompactList}\end{DoxyCompactItemize}

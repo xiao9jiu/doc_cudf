@@ -1,0 +1,173 @@
+\doxysection{numeric 命名空间参考}
+\hypertarget{namespacenumeric}{}\label{namespacenumeric}\index{numeric@{numeric}}
+
+
+{\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} and supporting types  
+
+
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacenumeric_1_1detail}{detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}
+\begin{DoxyCompactList}\small\item\em A type for representing a number with a fixed amount of precision \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structnumeric_1_1scaled__integer}{scaled\+\_\+integer}}
+\begin{DoxyCompactList}\small\item\em Helper struct for constructing {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} when value is already shifted \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{类型定义}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{group__fixed__point__classes_ga74f28c0e58f5105d5a67b658d839ffa0}{decimal32}} = \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ int32\+\_\+t, \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2a329acff975f3cc434528bec43bd5b6aa}{Radix\+::\+BASE\+\_\+10}} $>$
+\begin{DoxyCompactList}\small\item\em 32-\/bit decimal fixed point \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{group__fixed__point__classes_ga85be3b2e76e27778378832af34cf88a5}{decimal64}} = \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ int64\+\_\+t, \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2a329acff975f3cc434528bec43bd5b6aa}{Radix\+::\+BASE\+\_\+10}} $>$
+\begin{DoxyCompactList}\small\item\em 64-\/bit decimal fixed point \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{group__fixed__point__classes_ga9f2da6ca14cb6371184004c5aac343a0}{decimal128}} = \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ \+\_\+\+\_\+int128\+\_\+t, \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2a329acff975f3cc434528bec43bd5b6aa}{Radix\+::\+BASE\+\_\+10}} $>$
+\begin{DoxyCompactList}\small\item\em 128-\/bit decimal fixed point \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacenumeric_a86733f2294a22704e81208c5ee8082be}{scale\+\_\+type}} \+: int32\+\_\+t 
+\begin{DoxyCompactList}\small\item\em The scale type for fixed\+\_\+point \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} \+: int32\+\_\+t \{ \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2ab47b1a7bacaef8ae6a6df16c671f76ca}{BASE\+\_\+2}} = 2
+, \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2a329acff975f3cc434528bec43bd5b6aa}{BASE\+\_\+10}} = 10
+ \}
+\begin{DoxyCompactList}\small\item\em Scoped enumerator to use when constructing {\ttfamily fixed\+\_\+point} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr auto \mbox{\hyperlink{namespacenumeric_af75e4827d2539a1f5ea93858d2854eaa}{is\+\_\+supported\+\_\+representation\+\_\+type}} ()
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if the representation type is supported by {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr auto \mbox{\hyperlink{namespacenumeric_a7c6957d07de145140ca003e9c6dc34b3}{is\+\_\+supported\+\_\+construction\+\_\+value\+\_\+type}} ()
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if the value type is supported for constructing a {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep , typename T $>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} auto \mbox{\hyperlink{group__fixed__point__classes_gab3988ba31cae7bf3a64e1058e94e85f1}{addition\+\_\+overflow}} (T lhs, T rhs)
+\begin{DoxyCompactList}\small\item\em Function for identifying integer overflow when adding \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep , typename T $>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} auto \mbox{\hyperlink{group__fixed__point__classes_gadcf3f08432a660f4460ecc7faddea980}{subtraction\+\_\+overflow}} (T lhs, T rhs)
+\begin{DoxyCompactList}\small\item\em Function for identifying integer overflow when subtracting \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep , typename T $>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} auto \mbox{\hyperlink{group__fixed__point__classes_ga6c5efc50f674b549eaa19ff93fcc5294}{division\+\_\+overflow}} (T lhs, T rhs)
+\begin{DoxyCompactList}\small\item\em Function for identifying integer overflow when dividing \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep , typename T $>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} auto \mbox{\hyperlink{group__fixed__point__classes_gad98540d9560b07a08d978ecea99dda3a}{multiplication\+\_\+overflow}} (T lhs, T rhs)
+\begin{DoxyCompactList}\small\item\em Function for identifying integer overflow when multiplying \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ \mbox{\hyperlink{group__fixed__point__classes_ga7f486d2b929a620577bdbb6a03794f8f}{operator+}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&lhs, \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ \mbox{\hyperlink{group__fixed__point__classes_ga301c00ef95f1e3e21ef06850283bbc77}{operator-\/}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&lhs, \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ \mbox{\hyperlink{group__fixed__point__classes_gaeb7cc133c45f965d7db366a6f3e67380}{operator\texorpdfstring{$\ast$}{*}}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&lhs, \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ \mbox{\hyperlink{group__fixed__point__classes_ga63d7f1cf63c6a589b075555b145a602d}{operator/}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&lhs, \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} bool \mbox{\hyperlink{group__fixed__point__classes_ga56f9e62ac0217e5cfce78d3194ec2ea2}{operator==}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&lhs, \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} bool \mbox{\hyperlink{group__fixed__point__classes_gadcea7987d685b5f919aab54bda0272cd}{operator!=}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&lhs, \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} bool \mbox{\hyperlink{group__fixed__point__classes_ga533de93b9e7025ba825e579058cf3b71}{operator$<$=}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&lhs, \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} bool \mbox{\hyperlink{group__fixed__point__classes_ga1f0ff9042b4ba40ec51bf62961d5cc22}{operator$>$=}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&lhs, \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} bool \mbox{\hyperlink{group__fixed__point__classes_gaecb4d835411792c790de5022f52764c1}{operator$<$}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&lhs, \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} bool \mbox{\hyperlink{group__fixed__point__classes_gaaa2513da579946abd1c5be5ade508165}{operator$>$}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&lhs, \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ \mbox{\hyperlink{group__fixed__point__classes_ga3247dd06376f52f9bf68a44c4669d3eb}{operator\%}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&lhs, \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+{\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} and supporting types 
+
+\doxysubsection{枚举类型说明}
+\Hypertarget{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}\label{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2} 
+\index{numeric@{numeric}!Radix@{Radix}}
+\index{Radix@{Radix}!numeric@{numeric}}
+\doxysubsubsection{\texorpdfstring{Radix}{Radix}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{numeric\+::\+Radix}} \+: int32\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Scoped enumerator to use when constructing {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} 
+
+Examples\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }\mbox{\hyperlink{classnumeric_1_1fixed__point}{decimal32}}\ =\ \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\_point<int32\_t,\ Radix::BASE\_10>}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ }binary64\ \ =\ \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\_point<int64\_t,\ Radix::BASE\_2>}};}
+
+\end{DoxyCode}
+ \begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BASE\_2@{BASE\_2}!numeric@{numeric}}\index{numeric@{numeric}!BASE\_2@{BASE\_2}}}\Hypertarget{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2ab47b1a7bacaef8ae6a6df16c671f76ca}\label{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2ab47b1a7bacaef8ae6a6df16c671f76ca} 
+BASE\+\_\+2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BASE\_10@{BASE\_10}!numeric@{numeric}}\index{numeric@{numeric}!BASE\_10@{BASE\_10}}}\Hypertarget{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2a329acff975f3cc434528bec43bd5b6aa}\label{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2a329acff975f3cc434528bec43bd5b6aa} 
+BASE\+\_\+10&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00049}{49}} 行定义.
+
+\Hypertarget{namespacenumeric_a86733f2294a22704e81208c5ee8082be}\label{namespacenumeric_a86733f2294a22704e81208c5ee8082be} 
+\index{numeric@{numeric}!scale\_type@{scale\_type}}
+\index{scale\_type@{scale\_type}!numeric@{numeric}}
+\doxysubsubsection{\texorpdfstring{scale\_type}{scale\_type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacenumeric_a86733f2294a22704e81208c5ee8082be}{numeric\+::scale\+\_\+type}} \+: int32\+\_\+t}
+
+
+
+The scale type for \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point} 
+
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00038}{38}} 行定义.
+
+
+
+\doxysubsection{函数说明}
+\Hypertarget{namespacenumeric_a7c6957d07de145140ca003e9c6dc34b3}\label{namespacenumeric_a7c6957d07de145140ca003e9c6dc34b3} 
+\index{numeric@{numeric}!is\_supported\_construction\_value\_type@{is\_supported\_construction\_value\_type}}
+\index{is\_supported\_construction\_value\_type@{is\_supported\_construction\_value\_type}!numeric@{numeric}}
+\doxysubsubsection{\texorpdfstring{is\_supported\_construction\_value\_type()}{is\_supported\_construction\_value\_type()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr auto numeric\+::is\+\_\+supported\+\_\+construction\+\_\+value\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Returns {\ttfamily true} if the value type is supported for constructing a {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & The construction value type \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+{\ttfamily true} if the value type is supported to construct a {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} type 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00072}{72}} 行定义.
+
+\Hypertarget{namespacenumeric_af75e4827d2539a1f5ea93858d2854eaa}\label{namespacenumeric_af75e4827d2539a1f5ea93858d2854eaa} 
+\index{numeric@{numeric}!is\_supported\_representation\_type@{is\_supported\_representation\_type}}
+\index{is\_supported\_representation\_type@{is\_supported\_representation\_type}!numeric@{numeric}}
+\doxysubsubsection{\texorpdfstring{is\_supported\_representation\_type()}{is\_supported\_representation\_type()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr auto numeric\+::is\+\_\+supported\+\_\+representation\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Returns {\ttfamily true} if the representation type is supported by {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & The representation type \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+{\ttfamily true} if the type is supported by {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} implementation 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00058}{58}} 行定义.
+

@@ -1,0 +1,207 @@
+\doxysection{trie.\+hpp}
+\hypertarget{trie_8hpp_source}{}\label{trie_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/io/text/detail/trie.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/io/text/detail/trie.hpp}}
+\mbox{\hyperlink{trie_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2021-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{vector__factories_8hpp}{cudf/detail/utilities/vector\_factories.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{multistate_8hpp}{cudf/io/text/detail/multistate.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{span_8hpp}{cudf/utilities/span.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <rmm/cuda\_stream\_view.hpp>}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <rmm/mr/device/device\_memory\_resource.hpp>}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00032}00032\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00033}00033\ \textcolor{keyword}{namespace\ }io\ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00034}00034\ \textcolor{keyword}{namespace\ }text\ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00035}00035\ \textcolor{keyword}{namespace\ }detail\ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00037}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__node}{00037}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__node}{trie\_node}}\ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00038}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__node_a1cc1891857d2fb4d86ed61e7168bdfc6}{00038}}\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__node_a1cc1891857d2fb4d86ed61e7168bdfc6}{token}};}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00039}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__node_a83f88c56fdb9a295dd720533ab6307cd}{00039}}\ \ \ uint8\_t\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__node_a83f88c56fdb9a295dd720533ab6307cd}{match\_length}};}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00040}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__node_a3072eabbec01854d231a35527e5be544}{00040}}\ \ \ uint8\_t\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__node_a3072eabbec01854d231a35527e5be544}{child\_begin}};}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00041}00041\ \};}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00043}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view}{00043}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view}{trie\_device\_view}}\ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00044}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a62ff7ea9515b285ab02a7b03545737f6}{00044}}\ \ \ \mbox{\hyperlink{structcudf_1_1device__span}{device\_span<trie\_node\ const>}}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a62ff7ea9515b285ab02a7b03545737f6}{\_nodes}};}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00049}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a4eaba773750b0572780c49f73ca6dbab}{00049}}\ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate}{multistate}}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a4eaba773750b0572780c49f73ca6dbab}{transition\_init}}(\textcolor{keywordtype}{char}\ c)}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00050}00050\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00051}00051\ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate}{multistate}}();}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00053}00053\ \ \ \ \ result.enqueue(0,\ 0);}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint8\_t\ curr\ =\ 0;\ curr\ <\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a62ff7ea9515b285ab02a7b03545737f6}{\_nodes}}.size()\ -\/\ 1;\ curr++)\ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00056}00056\ \ \ \ \ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a8d634c29c9ac3352f9ef5877ffe62f52}{transition\_enqueue\_all}}(c,\ result,\ curr,\ curr);}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00057}00057\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00059}00059\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00068}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a2f765d6156091ef0c1c708f2c5a6761b}{00068}}\ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate}{multistate}}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a2f765d6156091ef0c1c708f2c5a6761b}{transition}}(\textcolor{keywordtype}{char}\ c,\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate}{multistate}}\ \textcolor{keyword}{const}\&\ states)}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00069}00069\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00070}00070\ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate}{multistate}}();}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00072}00072\ \ \ \ \ result.enqueue(0,\ 0);}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint8\_t\ i\ =\ 0;\ i\ <\ states.\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a9f3b0753045f1259d62781a65c7587fc}{size}}();\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00075}00075\ \ \ \ \ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a8d634c29c9ac3352f9ef5877ffe62f52}{transition\_enqueue\_all}}(c,\ result,\ states.\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_aebce6d9e6b904c11aae3d1a0673f0aea}{get\_head}}(i),\ states.\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a193b76e025bf9fa3369dd9ba971a041f}{get\_tail}}(i));}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00076}00076\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00078}00078\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00079}00079\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00084}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_abdee05875969a0d23482dc30fd9e60d8}{00084}}\ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_abdee05875969a0d23482dc30fd9e60d8}{is\_match}}(uint16\_t\ idx)\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{bool}\textcolor{keyword}{>}(\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_adbca1f3b8833ba548186fe397e7af5e6}{get\_match\_length}}(idx));\ \}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00090}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_adbca1f3b8833ba548186fe397e7af5e6}{00090}}\ \ \ \textcolor{keyword}{constexpr}\ uint8\_t\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_adbca1f3b8833ba548186fe397e7af5e6}{get\_match\_length}}(uint16\_t\ idx)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a62ff7ea9515b285ab02a7b03545737f6}{\_nodes}}[idx].match\_length;\ \}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00092}00092\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00093}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a8d634c29c9ac3352f9ef5877ffe62f52}{00093}}\ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a8d634c29c9ac3352f9ef5877ffe62f52}{transition\_enqueue\_all}}(\ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00094}00094\ \ \ \ \ \textcolor{keywordtype}{char}\ c,}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00095}00095\ \ \ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate}{multistate}}\&\ states,}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00096}00096\ \ \ \ \ uint8\_t\ head,}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00097}00097\ \ \ \ \ uint8\_t\ curr)}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00098}00098\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00099}00099\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ tail\ =\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a62ff7ea9515b285ab02a7b03545737f6}{\_nodes}}[curr].child\_begin;\ tail\ <\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a62ff7ea9515b285ab02a7b03545737f6}{\_nodes}}[curr\ +\ 1].child\_begin;\ tail++)\ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00100}00100\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a62ff7ea9515b285ab02a7b03545737f6}{\_nodes}}[tail].token\ ==\ c)\ \{\ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00101}00101\ \ \ \ \ \ \ \ \ states.\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a2dd9ff9590d65922c249ea02b78a241c}{enqueue}}(head,\ tail);}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00102}00102\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00103}00103\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00104}00104\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00105}00105\ \};}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00110}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie}{00110}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie}{trie}}\ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00111}00111\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00112}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_ab30118857d395d2aa0fc4db8ade4cc80}{00112}}\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf::size\_type}}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_ab30118857d395d2aa0fc4db8ade4cc80}{\_max\_duplicate\_tokens}};}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00113}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_a2e5d1f2dbb5328745ce71bf3b722390d}{00113}}\ \ \ rmm::device\_uvector<trie\_node>\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_a2e5d1f2dbb5328745ce71bf3b722390d}{\_nodes}};}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00115}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_a0e638cea4271c264008902dd0c7aa90e}{00115}}\ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_a0e638cea4271c264008902dd0c7aa90e}{trie}}(\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf::size\_type}}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_aed846ea47d4f2510854e870a3110dfaf}{max\_duplicate\_tokens}},\ rmm::device\_uvector<trie\_node>\&\&\ nodes)}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00116}00116\ \ \ \ \ :\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_ab30118857d395d2aa0fc4db8ade4cc80}{\_max\_duplicate\_tokens}}(\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_aed846ea47d4f2510854e870a3110dfaf}{max\_duplicate\_tokens}}),\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_a2e5d1f2dbb5328745ce71bf3b722390d}{\_nodes}}(\mbox{\hyperlink{namespacestd}{std}}::move(nodes))}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00117}00117\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00118}00118\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00123}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node}{00123}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node}{trie\_builder\_node}}\ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00124}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_a8db78fd0efa51e0025efebced098817f}{00124}}\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_a8db78fd0efa51e0025efebced098817f}{match\_length}};}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00125}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_add7b876c2be6eaa8edde51bbe1f1b6e4}{00125}}\ \ \ \ \ std::unordered\_map<char,\ std::unique\_ptr<trie\_builder\_node>>\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_add7b876c2be6eaa8edde51bbe1f1b6e4}{children}};}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00130}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_a76dd948746fe43d6a34bfc3b69f2f38d}{00130}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_a76dd948746fe43d6a34bfc3b69f2f38d}{insert}}(std::string\ s)\ \{\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_a76dd948746fe43d6a34bfc3b69f2f38d}{insert}}(s.c\_str(),\ s.size(),\ 0);\ \}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00132}00132\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00133}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_a7810a7adb471bfddfd006ccd5aaf0cb4}{00133}}\ \ \ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node}{trie\_builder\_node}}\&\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_a7810a7adb471bfddfd006ccd5aaf0cb4}{insert}}(\textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ s,\ uint16\_t\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_a5497b4fcbb103d321e6a19adab52aae9}{size}},\ uint8\_t\ depth)}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00134}00134\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00135}00135\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_a5497b4fcbb103d321e6a19adab52aae9}{size}}\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_a8db78fd0efa51e0025efebced098817f}{match\_length}}\ =\ depth;}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00138}00138\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00140}00140\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_add7b876c2be6eaa8edde51bbe1f1b6e4}{children}}[*s]\ ==\ \textcolor{keyword}{nullptr})\ \{\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_add7b876c2be6eaa8edde51bbe1f1b6e4}{children}}[*s]\ =\ std::make\_unique<trie\_builder\_node>();\ \}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00142}00142\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_add7b876c2be6eaa8edde51bbe1f1b6e4}{children}}[*s]-\/>insert(s\ +\ 1,\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_a5497b4fcbb103d321e6a19adab52aae9}{size}}\ -\/\ 1,\ depth\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00143}00143\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00144}00144\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00146}00146\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00150}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_a5497b4fcbb103d321e6a19adab52aae9}{00150}}\ \ \ [[nodiscard]]\ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf::size\_type}}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_a5497b4fcbb103d321e6a19adab52aae9}{size}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_a2e5d1f2dbb5328745ce71bf3b722390d}{\_nodes}}.size();\ \}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00156}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_aed846ea47d4f2510854e870a3110dfaf}{00156}}\ \ \ [[nodiscard]]\ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf::size\_type}}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_aed846ea47d4f2510854e870a3110dfaf}{max\_duplicate\_tokens}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_ab30118857d395d2aa0fc4db8ade4cc80}{\_max\_duplicate\_tokens}};\ \}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00166}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_ad763910e1b3ae91761327742088cd878}{00166}}\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie}{trie}}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_ad763910e1b3ae91761327742088cd878}{create}}(std::string\ \textcolor{keyword}{const}\&\ pattern,}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource())}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00170}00170\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00171}00171\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_ad763910e1b3ae91761327742088cd878}{create}}(std::vector<std::string>\{pattern\},\ stream,\ mr);}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00172}00172\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00182}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_ac96f47cbe83e87c7452f0e8d57bb3ee7}{00182}}\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie}{trie}}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_ac96f47cbe83e87c7452f0e8d57bb3ee7}{create}}(std::vector<std::string>\ \textcolor{keyword}{const}\&\ patterns,}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource())}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00185}00185\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00186}00186\ \ \ \ \ std::vector<char>\ tokens;}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00187}00187\ \ \ \ \ std::vector<uint8\_t>\ transitions;}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00188}00188\ \ \ \ \ std::vector<uint8\_t>\ match\_length;}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00189}00189\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00190}00190\ \ \ \ \ \textcolor{comment}{//\ create\ the\ trie\ tree}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00191}00191\ \ \ \ \ \textcolor{keyword}{auto}\ root\ =\ std::make\_unique<trie\_builder\_node>();}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00192}00192\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ pattern\ :\ patterns)\ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00193}00193\ \ \ \ \ \ \ root-\/>insert(pattern);}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00194}00194\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00196}00196\ \ \ \ \ \textcolor{comment}{//\ flatten}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00197}00197\ \ \ \ \ \textcolor{keyword}{auto}\ sum\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00198}00198\ \ \ \ \ transitions.emplace\_back(sum);}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00199}00199\ \ \ \ \ match\_length.emplace\_back(root-\/>match\_length);}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00201}00201\ \ \ \ \ \textcolor{keyword}{auto}\ builder\_nodes\ =\ std::queue<std::unique\_ptr<trie\_builder\_node>>();}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00202}00202\ \ \ \ \ builder\_nodes.push(std::move(root));}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00204}00204\ \ \ \ \ tokens.emplace\_back(0);}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00206}00206\ \ \ \ \ \textcolor{keywordflow}{while}\ (builder\_nodes.size())\ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00207}00207\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ layer\_size\ =\ builder\_nodes.size();}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00208}00208\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ layer\_size;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00209}00209\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ node\ =\ std::move(builder\_nodes.front());}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00210}00210\ \ \ \ \ \ \ \ \ builder\_nodes.pop();}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00211}00211\ \ \ \ \ \ \ \ \ sum\ +=\ node-\/>children.size();}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00212}00212\ \ \ \ \ \ \ \ \ transitions.emplace\_back(sum);}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00213}00213\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ item\ :\ node-\/>children)\ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ match\_length.emplace\_back(item.second-\/>match\_length);}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ tokens.emplace\_back(item.first);}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ builder\_nodes.push(std::move(item.second));}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00217}00217\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00218}00218\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00219}00219\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00221}00221\ \ \ \ \ tokens.emplace\_back(0);}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00222}00222\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00223}00223\ \ \ \ \ match\_length.emplace\_back(0);}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00225}00225\ \ \ \ \ std::vector<trie\_node>\ trie\_nodes;}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00226}00226\ \ \ \ \ \textcolor{keyword}{auto}\ token\_counts\ =\ std::unordered\_map<cudf::size\_type,\ int32\_t>();}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00227}00227\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00228}00228\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ tokens.size();\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00229}00229\ \ \ \ \ \ \ trie\_nodes.emplace\_back(\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__node}{trie\_node}}\{tokens[i],\ match\_length[i],\ transitions[i]\});}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00230}00230\ \ \ \ \ \ \ token\_counts[tokens[i]]++;}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00231}00231\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00233}00233\ \ \ \ \ \textcolor{keyword}{auto}\ most\_common\_token\ =}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00234}00234\ \ \ \ \ \ \ std::max\_element(token\_counts.begin(),\ token\_counts.end(),\ [](\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ a,\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ b)\ \{}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00235}00235\ \ \ \ \ \ \ \ \ return\ a.second\ <\ b.second;}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00236}00236\ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00238}00238\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_aed846ea47d4f2510854e870a3110dfaf}{max\_duplicate\_tokens}}\ =\ most\_common\_token-\/>second;}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00240}00240\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie}{trie}}\{\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_aed846ea47d4f2510854e870a3110dfaf}{max\_duplicate\_tokens}},}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacecudf_1_1detail_a567b65a608d7b1818cff9632b3dafde8}{cudf::detail::make\_device\_uvector\_sync}}(trie\_nodes,\ stream,\ mr)\};}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00242}00242\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00243}00243\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00244}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_a5aea60bcb908820ced654b0976d850cc}{00244}}\ \ \ [[nodiscard]]\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view}{trie\_device\_view}}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_a5aea60bcb908820ced654b0976d850cc}{view}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view}{trie\_device\_view}}\{\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_a2e5d1f2dbb5328745ce71bf3b722390d}{\_nodes}}\};\ \}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00245}00245\ \};}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00246}00246\ }
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00247}00247\ \}\ \ \textcolor{comment}{//\ namespace\ detail}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00248}00248\ \}\ \ \textcolor{comment}{//\ namespace\ text}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00249}00249\ \}\ \ \textcolor{comment}{//\ namespace\ io}}
+\DoxyCodeLine{\Hypertarget{trie_8hpp_source_l00250}00250\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

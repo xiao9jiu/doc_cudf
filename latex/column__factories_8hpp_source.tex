@@ -1,0 +1,223 @@
+\doxysection{column\+\_\+factories.\+hpp}
+\hypertarget{column__factories_8hpp_source}{}\label{column__factories_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/column/column\_factories.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/column/column\_factories.hpp}}
+\mbox{\hyperlink{column__factories_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2019-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00016}00016\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{column_8hpp}{cudf/column/column.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{types_8hpp}{cudf/types.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{utilities_2default__stream_8hpp}{cudf/utilities/default\_stream.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{span_8hpp}{cudf/utilities/span.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{traits_8hpp}{cudf/utilities/traits.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <rmm/cuda\_stream\_view.hpp>}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <rmm/mr/device/per\_device\_resource.hpp>}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <thrust/pair.h>}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00029}00029\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00045}\mbox{\hyperlink{group__column__factories_gaa80de7d88a408ab660541a4a3b214ead}{00045}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__column__factories_gaa80de7d88a408ab660541a4a3b214ead}{make\_empty\_column}}(\mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type);}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00055}\mbox{\hyperlink{group__column__factories_ga890d1519f4d245dca1f33d09b90f7ca5}{00055}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__column__factories_gaa80de7d88a408ab660541a4a3b214ead}{make\_empty\_column}}(\mbox{\hyperlink{group__utility__types_gadf077607da617d1dadcc5417e2783539}{type\_id}}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00075}\mbox{\hyperlink{group__column__factories_ga84a9f9deecdbac612cb79cec10a1cff6}{00075}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__column__factories_ga84a9f9deecdbac612cb79cec10a1cff6}{make\_numeric\_column}}(}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00076}00076\ \ \ \mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00077}00077\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ size,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00078}00078\ \ \ \mbox{\hyperlink{group__utility__types_ga4daf20c000ab374d76f4d56f0ddb7b26}{mask\_state}}\ state\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__utility__types_gga4daf20c000ab374d76f4d56f0ddb7b26a628732521c22dcf8a24bf1a0326bde80}{mask\_state::UNALLOCATED}},}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00079}00079\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00080}00080\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00099}00099\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ B>}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00100}\mbox{\hyperlink{group__column__factories_gad908ea3b27809643a5459d191e52ac91}{00100}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__column__factories_ga84a9f9deecdbac612cb79cec10a1cff6}{make\_numeric\_column}}(}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00101}00101\ \ \ \mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00102}00102\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ size,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00103}00103\ \ \ B\&\&\ null\_mask,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00104}00104\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ null\_count\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__utility__types_ga0eece3f40ff89fe8f1117097d86913b7}{cudf::UNKNOWN\_NULL\_COUNT}},}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00105}00105\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00106}00106\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource())}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00107}00107\ \{}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00108}00108\ \ \ \mbox{\hyperlink{group__utility__error_ga855a389cbf4b44cfd6891cd2f90edf34}{CUDF\_EXPECTS}}(\mbox{\hyperlink{group__utility__types_ga736c39af324b57534639bd3d8af357e4}{is\_numeric}}(type),\ \textcolor{stringliteral}{"{}Invalid,\ non-\/numeric\ type."{}});}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00109}00109\ \ \ \textcolor{keywordflow}{return}\ std::make\_unique<column>(type,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ size,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::device\_buffer\{size\ *\ \mbox{\hyperlink{group__utility__types_ga51b0daf2c01663d51cb3b87ad8ce93c0}{cudf::size\_of}}(type),\ stream,\ mr\},}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::forward<B>(null\_mask),}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ null\_count);}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00114}00114\ \}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00133}\mbox{\hyperlink{group__column__factories_ga9329fc1ef9d96f36d71eab418926c206}{00133}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__column__factories_ga9329fc1ef9d96f36d71eab418926c206}{make\_fixed\_point\_column}}(}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00134}00134\ \ \ \mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00135}00135\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ size,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00136}00136\ \ \ \mbox{\hyperlink{group__utility__types_ga4daf20c000ab374d76f4d56f0ddb7b26}{mask\_state}}\ state\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__utility__types_gga4daf20c000ab374d76f4d56f0ddb7b26a628732521c22dcf8a24bf1a0326bde80}{mask\_state::UNALLOCATED}},}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00137}00137\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00138}00138\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00156}00156\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ B>}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00157}\mbox{\hyperlink{group__column__factories_gae70cbf7bed0d8e08087cbef612d0affb}{00157}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__column__factories_ga9329fc1ef9d96f36d71eab418926c206}{make\_fixed\_point\_column}}(}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00158}00158\ \ \ \mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00159}00159\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ size,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00160}00160\ \ \ B\&\&\ null\_mask,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00161}00161\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ null\_count\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__utility__types_ga0eece3f40ff89fe8f1117097d86913b7}{cudf::UNKNOWN\_NULL\_COUNT}},}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00162}00162\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00163}00163\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource())}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00164}00164\ \{}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00165}00165\ \ \ \mbox{\hyperlink{group__utility__error_ga855a389cbf4b44cfd6891cd2f90edf34}{CUDF\_EXPECTS}}(\mbox{\hyperlink{group__utility__types_ga02880fc9d2470aa36761dfe41c5309ee}{is\_fixed\_point}}(type),\ \textcolor{stringliteral}{"{}Invalid,\ non-\/fixed\_point\ type."{}});}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00166}00166\ \ \ \textcolor{keywordflow}{return}\ std::make\_unique<column>(type,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ size,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::device\_buffer\{size\ *\ \mbox{\hyperlink{group__utility__types_ga51b0daf2c01663d51cb3b87ad8ce93c0}{cudf::size\_of}}(type),\ stream,\ mr\},}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::forward<B>(null\_mask),}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ null\_count);}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00171}00171\ \}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00191}\mbox{\hyperlink{group__column__factories_gad3dd1ff4b11ca9c70322004ea72fdf0d}{00191}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__column__factories_gad3dd1ff4b11ca9c70322004ea72fdf0d}{make\_timestamp\_column}}(}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00192}00192\ \ \ \mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00193}00193\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ size,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00194}00194\ \ \ \mbox{\hyperlink{group__utility__types_ga4daf20c000ab374d76f4d56f0ddb7b26}{mask\_state}}\ state\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__utility__types_gga4daf20c000ab374d76f4d56f0ddb7b26a628732521c22dcf8a24bf1a0326bde80}{mask\_state::UNALLOCATED}},}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00195}00195\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00196}00196\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00215}00215\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ B>}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00216}\mbox{\hyperlink{group__column__factories_ga82d67ff8acbde7370b6dfa4eeaf63893}{00216}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__column__factories_gad3dd1ff4b11ca9c70322004ea72fdf0d}{make\_timestamp\_column}}(}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00217}00217\ \ \ \mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00218}00218\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ size,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00219}00219\ \ \ B\&\&\ null\_mask,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00220}00220\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ null\_count\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__utility__types_ga0eece3f40ff89fe8f1117097d86913b7}{cudf::UNKNOWN\_NULL\_COUNT}},}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00221}00221\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00222}00222\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource())}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00223}00223\ \{}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00224}00224\ \ \ \mbox{\hyperlink{group__utility__error_ga855a389cbf4b44cfd6891cd2f90edf34}{CUDF\_EXPECTS}}(\mbox{\hyperlink{group__utility__types_ga90ebb90931abfed637396889b7829173}{is\_timestamp}}(type),\ \textcolor{stringliteral}{"{}Invalid,\ non-\/timestamp\ type."{}});}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00225}00225\ \ \ \textcolor{keywordflow}{return}\ std::make\_unique<column>(type,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ size,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::device\_buffer\{size\ *\ \mbox{\hyperlink{group__utility__types_ga51b0daf2c01663d51cb3b87ad8ce93c0}{cudf::size\_of}}(type),\ stream,\ mr\},}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::forward<B>(null\_mask),}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ null\_count);}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00230}00230\ \}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00231}00231\ }
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00250}\mbox{\hyperlink{group__column__factories_ga7b83c4013e49cc28c0a2a74569853228}{00250}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__column__factories_ga7b83c4013e49cc28c0a2a74569853228}{make\_duration\_column}}(}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00251}00251\ \ \ \mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00252}00252\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ size,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00253}00253\ \ \ \mbox{\hyperlink{group__utility__types_ga4daf20c000ab374d76f4d56f0ddb7b26}{mask\_state}}\ state\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__utility__types_gga4daf20c000ab374d76f4d56f0ddb7b26a628732521c22dcf8a24bf1a0326bde80}{mask\_state::UNALLOCATED}},}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00254}00254\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00255}00255\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00256}00256\ }
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00274}00274\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ B>}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00275}\mbox{\hyperlink{group__column__factories_ga0720e031f009c728943536a1cc9d361d}{00275}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__column__factories_ga7b83c4013e49cc28c0a2a74569853228}{make\_duration\_column}}(}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00276}00276\ \ \ \mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00277}00277\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ size,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00278}00278\ \ \ B\&\&\ null\_mask,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00279}00279\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ null\_count\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__utility__types_ga0eece3f40ff89fe8f1117097d86913b7}{cudf::UNKNOWN\_NULL\_COUNT}},}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00280}00280\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00281}00281\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource())}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00282}00282\ \{}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00283}00283\ \ \ \mbox{\hyperlink{group__utility__error_ga855a389cbf4b44cfd6891cd2f90edf34}{CUDF\_EXPECTS}}(\mbox{\hyperlink{group__utility__types_ga5196242442d99904c755da4920f1043f}{is\_duration}}(type),\ \textcolor{stringliteral}{"{}Invalid,\ non-\/duration\ type."{}});}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00284}00284\ \ \ \textcolor{keywordflow}{return}\ std::make\_unique<column>(type,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00285}00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ size,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00286}00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::device\_buffer\{size\ *\ \mbox{\hyperlink{group__utility__types_ga51b0daf2c01663d51cb3b87ad8ce93c0}{cudf::size\_of}}(type),\ stream,\ mr\},}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00287}00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::forward<B>(null\_mask),}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00288}00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ null\_count);}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00289}00289\ \}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00290}00290\ }
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00309}\mbox{\hyperlink{group__column__factories_gac251edf105c64ee963df5e53eeffd091}{00309}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__column__factories_gac251edf105c64ee963df5e53eeffd091}{make\_fixed\_width\_column}}(}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00310}00310\ \ \ \mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00311}00311\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ size,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00312}00312\ \ \ \mbox{\hyperlink{group__utility__types_ga4daf20c000ab374d76f4d56f0ddb7b26}{mask\_state}}\ state\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__utility__types_gga4daf20c000ab374d76f4d56f0ddb7b26a628732521c22dcf8a24bf1a0326bde80}{mask\_state::UNALLOCATED}},}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00313}00313\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00314}00314\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00315}00315\ }
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00333}00333\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ B>}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00334}\mbox{\hyperlink{group__column__factories_gabe7756d1ac2c1027c2d1403054f482cb}{00334}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__column__factories_gac251edf105c64ee963df5e53eeffd091}{make\_fixed\_width\_column}}(}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00335}00335\ \ \ \mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00336}00336\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ size,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00337}00337\ \ \ B\&\&\ null\_mask,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00338}00338\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ null\_count\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__utility__types_ga0eece3f40ff89fe8f1117097d86913b7}{cudf::UNKNOWN\_NULL\_COUNT}},}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00339}00339\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00340}00340\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource())}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00341}00341\ \{}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00342}00342\ \ \ \mbox{\hyperlink{group__utility__error_ga855a389cbf4b44cfd6891cd2f90edf34}{CUDF\_EXPECTS}}(\mbox{\hyperlink{group__utility__types_gaaa937abead085ea9420b15c6473f08a7}{is\_fixed\_width}}(type),\ \textcolor{stringliteral}{"{}Invalid,\ non-\/fixed-\/width\ type."{}});}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00343}00343\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__utility__types_ga90ebb90931abfed637396889b7829173}{is\_timestamp}}(type))\ \{}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00344}00344\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{group__column__factories_gad3dd1ff4b11ca9c70322004ea72fdf0d}{make\_timestamp\_column}}(type,\ size,\ std::forward<B>(null\_mask),\ null\_count,\ stream,\ mr);}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00345}00345\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__utility__types_ga5196242442d99904c755da4920f1043f}{is\_duration}}(type))\ \{}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00346}00346\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{group__column__factories_ga7b83c4013e49cc28c0a2a74569853228}{make\_duration\_column}}(type,\ size,\ std::forward<B>(null\_mask),\ null\_count,\ stream,\ mr);}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00347}00347\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group__utility__types_ga02880fc9d2470aa36761dfe41c5309ee}{is\_fixed\_point}}(type))\ \{}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00348}00348\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{group__column__factories_ga9329fc1ef9d96f36d71eab418926c206}{make\_fixed\_point\_column}}(type,\ size,\ std::forward<B>(null\_mask),\ null\_count,\ stream,\ mr);}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00349}00349\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00350}00350\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{group__column__factories_ga84a9f9deecdbac612cb79cec10a1cff6}{make\_numeric\_column}}(type,\ size,\ std::forward<B>(null\_mask),\ null\_count,\ stream,\ mr);}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00351}00351\ \}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00352}00352\ }
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00376}\mbox{\hyperlink{group__column__factories_ga1b4c7323b0728830bccaf9fd8785ce18}{00376}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__column__factories_ga1b4c7323b0728830bccaf9fd8785ce18}{make\_strings\_column}}(}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00377}00377\ \ \ \mbox{\hyperlink{structcudf_1_1device__span}{cudf::device\_span}}<thrust::pair<const\ char*,\ size\_type>\ \textcolor{keyword}{const}>\ strings,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00378}00378\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00379}00379\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00380}00380\ }
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00407}\mbox{\hyperlink{group__column__factories_gac63c5f712a69911f57e1a25ea19aa4b9}{00407}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__column__factories_ga1b4c7323b0728830bccaf9fd8785ce18}{make\_strings\_column}}(}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00408}00408\ \ \ \mbox{\hyperlink{structcudf_1_1device__span}{cudf::device\_span<string\_view\ const>}}\ string\_views,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00409}00409\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classcudf_1_1string__view}{string\_view}}\ null\_placeholder,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00410}00410\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00411}00411\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00412}00412\ }
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00441}\mbox{\hyperlink{group__column__factories_ga344b235a4e1cbecd985858e64d8b2075}{00441}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__column__factories_ga1b4c7323b0728830bccaf9fd8785ce18}{make\_strings\_column}}(}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00442}00442\ \ \ \mbox{\hyperlink{structcudf_1_1device__span}{cudf::device\_span<char\ const>}}\ strings,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00443}00443\ \ \ \mbox{\hyperlink{structcudf_1_1device__span}{cudf::device\_span<size\_type\ const>}}\ offsets,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00444}00444\ \ \ \mbox{\hyperlink{structcudf_1_1device__span}{cudf::device\_span<bitmask\_type\ const>}}\ null\_mask\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00445}00445\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ null\_count\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__utility__types_ga0eece3f40ff89fe8f1117097d86913b7}{cudf::UNKNOWN\_NULL\_COUNT}},}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00446}00446\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00447}00447\ \ \ rmm::mr::device\_memory\_resource*\ mr\ \ \ \ \ \ \ \ \ \ \ \ \ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00448}00448\ }
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00466}\mbox{\hyperlink{group__column__factories_gace1c51569535b5ea5d23805470cfe8b7}{00466}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__column__factories_ga1b4c7323b0728830bccaf9fd8785ce18}{make\_strings\_column}}(\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ num\_strings,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00467}00467\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<column>\ offsets\_column,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00468}00468\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<column>\ chars\_column,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00469}00469\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ null\_count,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00470}00470\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::device\_buffer\&\&\ null\_mask);}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00471}00471\ }
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00487}\mbox{\hyperlink{group__column__factories_ga12fdea6621b2945532151737c740a368}{00487}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__column__factories_ga1b4c7323b0728830bccaf9fd8785ce18}{make\_strings\_column}}(\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ num\_strings,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00488}00488\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::device\_uvector<size\_type>\&\&\ offsets,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00489}00489\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::device\_uvector<char>\&\&\ chars,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00490}00490\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::device\_buffer\&\&\ null\_mask\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00491}00491\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ null\_count\ =\ \mbox{\hyperlink{group__utility__types_ga0eece3f40ff89fe8f1117097d86913b7}{cudf::UNKNOWN\_NULL\_COUNT}});}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00492}00492\ }
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00549}\mbox{\hyperlink{group__column__factories_gaedfbe8e49523fcea96952534c6fa44b2}{00549}}\ std::unique\_ptr<cudf::column>\ \mbox{\hyperlink{group__column__factories_gaedfbe8e49523fcea96952534c6fa44b2}{make\_lists\_column}}(}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00550}00550\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ num\_rows,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00551}00551\ \ \ std::unique\_ptr<column>\ offsets\_column,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00552}00552\ \ \ std::unique\_ptr<column>\ child\_column,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00553}00553\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ null\_count,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00554}00554\ \ \ rmm::device\_buffer\&\&\ null\_mask,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00555}00555\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00556}00556\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00557}00557\ }
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00581}\mbox{\hyperlink{group__column__factories_gaca4580640fa3c0304fe22377b5ef1d3b}{00581}}\ std::unique\_ptr<cudf::column>\ \mbox{\hyperlink{group__column__factories_gaca4580640fa3c0304fe22377b5ef1d3b}{make\_structs\_column}}(}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00582}00582\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ num\_rows,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00583}00583\ \ \ std::vector<std::unique\_ptr<column>>\&\&\ child\_columns,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00584}00584\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ null\_count,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00585}00585\ \ \ rmm::device\_buffer\&\&\ null\_mask,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00586}00586\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00587}00587\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00588}00588\ }
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00603}\mbox{\hyperlink{group__column__factories_gaf402ec1007ea53418b2d5800daae8041}{00603}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__column__factories_gaf402ec1007ea53418b2d5800daae8041}{make\_column\_from\_scalar}}(}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00604}00604\ \ \ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}}\ \textcolor{keyword}{const}\&\ s,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00605}00605\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ size,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00606}00606\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00607}00607\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00608}00608\ }
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00623}\mbox{\hyperlink{group__column__factories_gae4cb6e1340b0b96386142f25a0126fb6}{00623}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__column__factories_gae4cb6e1340b0b96386142f25a0126fb6}{make\_dictionary\_from\_scalar}}(}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00624}00624\ \ \ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}}\ \textcolor{keyword}{const}\&\ s,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00625}00625\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ size,}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00626}00626\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00627}00627\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00628}00628\ \ \ \textcolor{comment}{//\ end\ of\ group}}
+\DoxyCodeLine{\Hypertarget{column__factories_8hpp_source_l00630}00630\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

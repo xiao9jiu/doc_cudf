@@ -1,0 +1,41 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/reduction.hpp 文件参考}
+\hypertarget{reduction_8hpp}{}\label{reduction_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/reduction.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/reduction.hpp}}
+{\ttfamily \#include $<$cudf/aggregation.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/scalar/scalar.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/mr/device/per\+\_\+device\+\_\+resource.\+hpp$>$}\newline
+{\ttfamily \#include $<$optional$>$}\newline
+reduction.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{reduction_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__aggregation__reduction_ga269c5a531bd3bb4da9ebe4590db028af}{cudf\+::scan\+\_\+type}} \+: bool \{ \mbox{\hyperlink{group__aggregation__reduction_gga269c5a531bd3bb4da9ebe4590db028afa572d795e2d044f895cc511e5c05030e5}{cudf\+::scan\+\_\+type\+::\+INCLUSIVE}}
+, \mbox{\hyperlink{group__aggregation__reduction_gga269c5a531bd3bb4da9ebe4590db028afaf45c3a0bb3687ed8e221253b3fd4a2ce}{cudf\+::scan\+\_\+type\+::\+EXCLUSIVE}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enum to describe scan operation type \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ \mbox{\hyperlink{group__aggregation__reduction_ga1b3faf704898312ede74e2eaf9e2c61d}{cudf\+::reduce}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&col, \mbox{\hyperlink{classcudf_1_1reduce__aggregation}{reduce\+\_\+aggregation}} const \&agg, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+dtype, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Computes the reduction of the values in all rows of a column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ \mbox{\hyperlink{group__aggregation__reduction_ga6af30addbb5627dc0b7015b666d23dc5}{cudf\+::reduce}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&col, \mbox{\hyperlink{classcudf_1_1reduce__aggregation}{reduce\+\_\+aggregation}} const \&agg, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+dtype, std\+::optional$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const $>$ $>$ init, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Computes the reduction of the values in all rows of a column with an initial value. Only SUM, PRODUCT, MIN, MAX, ANY, and ALL aggregations are supported. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__aggregation__reduction_ga1d869bccacd9721819dd30c389064fc4}{cudf\+::segmented\+\_\+reduce}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&segmented\+\_\+values, \mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$ offsets, \mbox{\hyperlink{classcudf_1_1segmented__reduce__aggregation}{segmented\+\_\+reduce\+\_\+aggregation}} const \&agg, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+dtype, \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Compute reduction of each segment in the input column \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__aggregation__reduction_gab64811026e57fa60c6b8d633713d30ac}{cudf\+::segmented\+\_\+reduce}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&segmented\+\_\+values, \mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$ offsets, \mbox{\hyperlink{classcudf_1_1segmented__reduce__aggregation}{segmented\+\_\+reduce\+\_\+aggregation}} const \&agg, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+dtype, \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling, std\+::optional$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const $>$ $>$ init, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Compute reduction of each segment in the input column with an initial value. Only SUM, PRODUCT, MIN, MAX, ANY, and ALL aggregations are supported. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__aggregation__reduction_ga6453517d2143254e33391a61a8d683e1}{cudf\+::scan}} (const \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} \&input, \mbox{\hyperlink{classcudf_1_1scan__aggregation}{scan\+\_\+aggregation}} const \&agg, \mbox{\hyperlink{group__aggregation__reduction_ga269c5a531bd3bb4da9ebe4590db028af}{scan\+\_\+type}} \mbox{\hyperlink{group__label__bins_gabadbffbcb403fac1ff712330ea10f2b3}{inclusive}}, \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling=\mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}{null\+\_\+policy\+::\+EXCLUDE}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Computes the scan of a column. \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ $>$ \mbox{\hyperlink{group__aggregation__reduction_ga4647f39dcd6c0e1bd10510ed27ec1b66}{cudf\+::minmax}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&col, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Determines the minimum and maximum values of a column. \end{DoxyCompactList}\end{DoxyCompactItemize}

@@ -1,0 +1,422 @@
+\doxysection{cudf\+::tdigest\+::tdigest\+\_\+column\+\_\+view类 参考}
+\hypertarget{classcudf_1_1tdigest_1_1tdigest__column__view}{}\label{classcudf_1_1tdigest_1_1tdigest__column__view}\index{cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}}
+
+
+Given a \doxylink{classcudf_1_1column__view}{column\+\_\+view} containing tdigest data, an instance of this class provides a wrapper on the compound column for tdigest operations.  
+
+
+
+
+{\ttfamily \#include $<$tdigest\+\_\+column\+\_\+view.\+hpp$>$}
+
+
+
+类 cudf\+::tdigest\+::tdigest\+\_\+column\+\_\+view 继承关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcudf_1_1tdigest_1_1tdigest__column__view__inherit__graph}
+\end{center}
+\end{figure}
+
+
+cudf\+::tdigest\+::tdigest\+\_\+column\+\_\+view 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcudf_1_1tdigest_1_1tdigest__column__view__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 类型}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view_afcc7cb3925ed8d168d60deccb95c85ce}{offset\+\_\+iterator}} = \mbox{\hyperlink{group__utility__types_ga3391e2df0069d3e7a07f0ec96cd2473e}{offset\+\_\+type}} const  \texorpdfstring{$\ast$}{*}
+\begin{DoxyCompactList}\small\item\em Iterator over offsets \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view_ab7c79eb2d945d9f250b1a5af418b2ed5}{tdigest\+\_\+column\+\_\+view}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&)
+\begin{DoxyCompactList}\small\item\em Construct \doxylink{classcudf_1_1tdigest_1_1tdigest__column__view}{tdigest\+\_\+column\+\_\+view} from a \doxylink{classcudf_1_1column__view}{column\+\_\+view} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view_a7d686d0a3c01e95a67a4fd2a991ff0a5}{tdigest\+\_\+column\+\_\+view}} (\mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view}{tdigest\+\_\+column\+\_\+view}} \&\&)=default
+\begin{DoxyCompactList}\small\item\em Move constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view_a3309a7338f70404b04ebcc678972d56c}{tdigest\+\_\+column\+\_\+view}} (const \mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view}{tdigest\+\_\+column\+\_\+view}} \&)=default
+\begin{DoxyCompactList}\small\item\em Copy constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view_af742fc9f2511000f71e5e1d4383b2cf5}{\texorpdfstring{$\sim$}{\string~}tdigest\+\_\+column\+\_\+view}} ()=default
+\item 
+\mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view}{tdigest\+\_\+column\+\_\+view}} \& \mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view_a05d61409bba361f0700dabb49dd5cf4b}{operator=}} (\mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view}{tdigest\+\_\+column\+\_\+view}} const \&)=default
+\begin{DoxyCompactList}\small\item\em Copy assignment operator \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view}{tdigest\+\_\+column\+\_\+view}} \& \mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view_a479ff409203c0eb9ec77ade071acc427}{operator=}} (\mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view}{tdigest\+\_\+column\+\_\+view}} \&\&)=default
+\begin{DoxyCompactList}\small\item\em Move assignment operator \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} \mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view_aa9e0bee5baad363122613a7ff76dbb57}{parent}} () const
+\begin{DoxyCompactList}\small\item\em Returns the parent column. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} \mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view_ae30157024e3b10c5f320fdb5bc26c9ea}{centroids}} () const
+\begin{DoxyCompactList}\small\item\em Returns the column of centroids \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} \mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view_a37652d6f6834a2ff9091546a0f087ff6}{means}} () const
+\begin{DoxyCompactList}\small\item\em Returns the internal column of mean values \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} \mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view_aeefeda936ab59f079c70cf73976c95fc}{weights}} () const
+\begin{DoxyCompactList}\small\item\em Returns the internal column of weight values \end{DoxyCompactList}\item 
+double const \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view_aabc94430fb4def7bab37a0bc0ec9e72b}{min\+\_\+begin}} () const
+\begin{DoxyCompactList}\small\item\em Returns the first min value for the column. Each row corresponds to the minimum value for the accompanying digest. \end{DoxyCompactList}\item 
+double const \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view_a075ad516fea7f320d9bc46406373d23c}{max\+\_\+begin}} () const
+\begin{DoxyCompactList}\small\item\em Returns the first max value for the column. Each row corresponds to the maximum value for the accompanying digest. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{静态 Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view_a590cece1cc1b192f499a9995469cb825}{mean\+\_\+column\+\_\+index}} \{0\}
+\begin{DoxyCompactList}\small\item\em Mean column index \end{DoxyCompactList}\item 
+static constexpr \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view_ac8ecf339ab50b0824ee4900767e736f3}{weight\+\_\+column\+\_\+index}} \{1\}
+\begin{DoxyCompactList}\small\item\em Weight column index \end{DoxyCompactList}\item 
+static constexpr \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view_aaa8731b27c5b78b942e8f20ead0f190f}{centroid\+\_\+column\+\_\+index}} \{0\}
+\begin{DoxyCompactList}\small\item\em Centroid column index \end{DoxyCompactList}\item 
+static constexpr \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view_a8920be8f06ede4a966d724877d0ee7b3}{min\+\_\+column\+\_\+index}} \{1\}
+\begin{DoxyCompactList}\small\item\em Min column index \end{DoxyCompactList}\item 
+static constexpr \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view_a628212a640264700df0dba4d52996e02}{max\+\_\+column\+\_\+index}} \{2\}
+\begin{DoxyCompactList}\small\item\em Max column index \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{额外继承的成员函数}
+\doxysubsection*{Private 成员函数 继承自 \mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1column__view_a9309d241761d5c6b9108432bc31e0cd5}{column\+\_\+view}} ()=default
+\item 
+\mbox{\hyperlink{classcudf_1_1column__view_af746bac18fe17d246a780749f0a58d97}{\texorpdfstring{$\sim$}{\string~}column\+\_\+view}} ()=default
+\item 
+\mbox{\hyperlink{classcudf_1_1column__view_ae1ff4d7eb8b4e16d70ffdd6a861c2b23}{column\+\_\+view}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&)=default
+\begin{DoxyCompactList}\small\item\em Copy constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1column__view_a4de2d91d6af826f5b9f34b6bc95b34a6}{column\+\_\+view}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} \&\&)=default
+\begin{DoxyCompactList}\small\item\em Move constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} \& \mbox{\hyperlink{classcudf_1_1column__view_a9713981dce871c38b66a31320c1f419f}{operator=}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&)=default
+\begin{DoxyCompactList}\small\item\em Copy assignment operator \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} \& \mbox{\hyperlink{classcudf_1_1column__view_a5090b97fd15c5d0d45a757b81afea8b0}{operator=}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} \&\&)=default
+\begin{DoxyCompactList}\small\item\em Move assignment operator \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1column__view_a2336ca736643e783a127c45943d7748b}{column\+\_\+view}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a16452c9fb08f36de42cd13884f0933e1}{type}}, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a754fdc0ebe297a466d1b377638c6920a}{size}}, void const \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a08f3baa04e9b305541034e22028e8e98}{data}}, \mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} const \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a8fc94e5f1403f7f1213efe2f855a9ac6}{null\+\_\+mask}}=nullptr, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a4b3a32978413e9c0246f31b4d083bf30}{null\+\_\+count}}=\mbox{\hyperlink{group__utility__types_ga0eece3f40ff89fe8f1117097d86913b7}{UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT}}, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a8bf33063791c751052a8ef20cf20468c}{offset}}=0, std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} $>$ const \&children=\{\})
+\begin{DoxyCompactList}\small\item\em Construct a {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}} from pointers to device memory for the elements and bitmask of the column. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} \mbox{\hyperlink{classcudf_1_1column__view_aa8234d508bc169e575af82aeb9726e6c}{child}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} child\+\_\+index) const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the specified child \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1column__view_a5066dfaeabbef1d657c7b8e93f71aa1b}{num\+\_\+children}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the number of child columns. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classcudf_1_1column__view_a68dbd1a5bf17246397909a83f14cb7a2}{child\+\_\+begin}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns iterator to the beginning of the ordered sequence of child column-\/views. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classcudf_1_1column__view_aa052d0321ce9a1c7bfb69349caf113ae}{child\+\_\+end}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns iterator to the end of the ordered sequence of child column-\/views. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , \mbox{\hyperlink{group__utility__types_gadf63a9ff3257927585f111143a7c9ae4}{CUDF\+\_\+\+ENABLE\+\_\+\+IF}}(\mbox{\hyperlink{group__utility__types_ga736c39af324b57534639bd3d8af357e4}{cudf\+::is\+\_\+numeric}}$<$ T $>$() or \mbox{\hyperlink{group__utility__types_ga72f2d42d20b254754fd7bc8f4f32a990}{cudf\+::is\+\_\+chrono}}$<$ T $>$()) $>$ }\\\mbox{\hyperlink{classcudf_1_1column__view_af3baa277d7b2d8fe18846753649446dc}{column\+\_\+view}} (\mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ T const $>$ \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a08f3baa04e9b305541034e22028e8e98}{data}})
+\begin{DoxyCompactList}\small\item\em Construct a column view from a device\+\_\+span$<$\+T$>$. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , \mbox{\hyperlink{group__utility__types_gadf63a9ff3257927585f111143a7c9ae4}{CUDF\+\_\+\+ENABLE\+\_\+\+IF}}(\mbox{\hyperlink{group__utility__types_ga736c39af324b57534639bd3d8af357e4}{cudf\+::is\+\_\+numeric}}$<$ T $>$() or \mbox{\hyperlink{group__utility__types_ga72f2d42d20b254754fd7bc8f4f32a990}{cudf\+::is\+\_\+chrono}}$<$ T $>$()) $>$ }\\\mbox{\hyperlink{classcudf_1_1column__view_af9decb60e3977b989bfe5198d7305b2f}{operator device\+\_\+span$<$ T const $>$}} () const
+\begin{DoxyCompactList}\small\item\em Converts a column view into a device span. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private 成员函数 继承自 \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base}{cudf\+::detail\+::column\+\_\+view\+\_\+base}}}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T  = void, \mbox{\hyperlink{group__utility__types_gadf63a9ff3257927585f111143a7c9ae4}{CUDF\+\_\+\+ENABLE\+\_\+\+IF}}(std\+::is\+\_\+same\+\_\+v$<$ T, void $>$ or \mbox{\hyperlink{group__utility__types_ga7c6839d4131493a1277f78a686226e54}{is\+\_\+rep\+\_\+layout\+\_\+compatible}}$<$ T $>$()) $>$ }\\T const \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a9bcf890479e80414d8ee03acb9716483}{head}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns pointer to the base device memory allocation casted to the specified type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , \mbox{\hyperlink{group__utility__types_gadf63a9ff3257927585f111143a7c9ae4}{CUDF\+\_\+\+ENABLE\+\_\+\+IF}}(\mbox{\hyperlink{group__utility__types_ga7c6839d4131493a1277f78a686226e54}{is\+\_\+rep\+\_\+layout\+\_\+compatible}}$<$ T $>$()) $>$ }\\T const \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a08f3baa04e9b305541034e22028e8e98}{data}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the underlying data casted to the specified type, plus the offset. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , \mbox{\hyperlink{group__utility__types_gadf63a9ff3257927585f111143a7c9ae4}{CUDF\+\_\+\+ENABLE\+\_\+\+IF}}(\mbox{\hyperlink{group__utility__types_ga7c6839d4131493a1277f78a686226e54}{is\+\_\+rep\+\_\+layout\+\_\+compatible}}$<$ T $>$()) $>$ }\\T const \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a7235c5bc0b745cd25b8f2e969a832a8e}{begin}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Return first element (accounting for offset) after underlying data is casted to the specified type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , \mbox{\hyperlink{group__utility__types_gadf63a9ff3257927585f111143a7c9ae4}{CUDF\+\_\+\+ENABLE\+\_\+\+IF}}(\mbox{\hyperlink{group__utility__types_ga7c6839d4131493a1277f78a686226e54}{is\+\_\+rep\+\_\+layout\+\_\+compatible}}$<$ T $>$()) $>$ }\\T const \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a0ee63a99b9869163c95fa880bf1417a2}{end}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Return one past the last element after underlying data is casted to the specified type. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a754fdc0ebe297a466d1b377638c6920a}{size}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the number of elements in the column \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_afab51e8ae20f5ae57a07f24fa90dd369}{is\+\_\+empty}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns true if {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base_a754fdc0ebe297a466d1b377638c6920a}{size()}} returns zero, or false otherwise \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a16452c9fb08f36de42cd13884f0933e1}{type}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the element {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_af4654a81e14e2390ea36d3a52d0f08fa}{nullable}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Indicates if the column can contain null elements, i.\+e., if it has an allocated bitmask. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a4b3a32978413e9c0246f31b4d083bf30}{null\+\_\+count}} () const
+\begin{DoxyCompactList}\small\item\em Returns the count of null elements \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a1449e5de056f7c1ac2b58861dd9d40f4}{null\+\_\+count}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a7235c5bc0b745cd25b8f2e969a832a8e}{begin}}, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a0ee63a99b9869163c95fa880bf1417a2}{end}}) const
+\begin{DoxyCompactList}\small\item\em Returns the count of null elements in the range \mbox{[}begin, end) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_ad67d943ff841c3fd4b460db3cc8277f3}{has\+\_\+nulls}} () const
+\begin{DoxyCompactList}\small\item\em Indicates if the column contains null elements, i.\+e., {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base_a4b3a32978413e9c0246f31b4d083bf30}{null\+\_\+count()} \texorpdfstring{$>$}{>} 0} \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_ad0971782b5003a69c3395ba7d2fcd356}{has\+\_\+nulls}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a7235c5bc0b745cd25b8f2e969a832a8e}{begin}}, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a0ee63a99b9869163c95fa880bf1417a2}{end}}) const
+\begin{DoxyCompactList}\small\item\em Indicates if the column contains null elements in the range \mbox{[}begin, end), i.\+e., {\ttfamily null\+\_\+count(begin, end) \texorpdfstring{$>$}{>} 0} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} const \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a8fc94e5f1403f7f1213efe2f855a9ac6}{null\+\_\+mask}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns raw pointer to the underlying bitmask allocation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a8bf33063791c751052a8ef20cf20468c}{offset}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the index of the first element relative to the base memory allocation, i.\+e., what is returned from {\ttfamily head\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}()}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_abeba7ff169f2b3d7afedc96881afba8e}{column\+\_\+view\+\_\+base}} ()=default
+\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a2fa3965e90e37f9b0dc029a6692065e5}{\texorpdfstring{$\sim$}{\string~}column\+\_\+view\+\_\+base}} ()=default
+\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_af8127596f14796c733c2a89cab2e2680}{column\+\_\+view\+\_\+base}} (\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} const \&)=default
+\begin{DoxyCompactList}\small\item\em Copy constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a31ad22fb0ed94aefd4896715d0c6299e}{column\+\_\+view\+\_\+base}} (\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} \&\&)=default
+\begin{DoxyCompactList}\small\item\em Move constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} \& \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_aacc64f424f3cdb545a43aa484bf85121}{operator=}} (\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} const \&)=default
+\begin{DoxyCompactList}\small\item\em Copy assignment operator \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} \& \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a2f2fa64afe53a23e8a44f5a75538a71f}{operator=}} (\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} \&\&)=default
+\begin{DoxyCompactList}\small\item\em Move assignment operator \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a3117094927e2440b88f3a5dace4b9f5a}{column\+\_\+view\+\_\+base}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a16452c9fb08f36de42cd13884f0933e1}{type}}, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a754fdc0ebe297a466d1b377638c6920a}{size}}, void const \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a08f3baa04e9b305541034e22028e8e98}{data}}, \mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} const \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a8fc94e5f1403f7f1213efe2f855a9ac6}{null\+\_\+mask}}=nullptr, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a4b3a32978413e9c0246f31b4d083bf30}{null\+\_\+count}}=\mbox{\hyperlink{group__utility__types_ga0eece3f40ff89fe8f1117097d86913b7}{UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT}}, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a8bf33063791c751052a8ef20cf20468c}{offset}}=0)
+\begin{DoxyCompactList}\small\item\em Construct a {\ttfamily \doxylink{classcudf_1_1detail_1_1column__view__base}{column\+\_\+view\+\_\+base}} from pointers to device memory for the elements and bitmask of the column. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private 属性 继承自 \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base}{cudf\+::detail\+::column\+\_\+view\+\_\+base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_aae4ea5f9998c7c4a991ef9a81111c7b5}{\+\_\+type}} \{\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539aba2b45bdc11e2a4a6e86aab2ac693cbb}{type\+\_\+id\+::\+EMPTY}}\}
+\begin{DoxyCompactList}\small\item\em Element type \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a5df1f27c16c16819d65af2270f42800e}{\+\_\+size}} \{\}
+\begin{DoxyCompactList}\small\item\em Number of elements \end{DoxyCompactList}\item 
+void const  \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_acfe73a38fa04f01be62beb34b2a3f87a}{\+\_\+data}} \{\}
+\begin{DoxyCompactList}\small\item\em Pointer to device memory containing elements \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} const  \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a47cb87ff8d6c42393ad44aa1adb9fa9a}{\+\_\+null\+\_\+mask}} \{\}
+\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_abca5b3f93d8cef425990ed6907f25841}{\+\_\+null\+\_\+count}} \{\}
+\begin{DoxyCompactList}\small\item\em The number of null elements \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a1ac97d1e5a49bb5a297c9041d4191d75}{\+\_\+offset}} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Given a \doxylink{classcudf_1_1column__view}{column\+\_\+view} containing tdigest data, an instance of this class provides a wrapper on the compound column for tdigest operations. 
+
+A tdigest is a \"{}compressed\"{} set of input scalars represented as a sorted set of centroids (\href{https://arxiv.org/pdf/1902.04023.pdf}{\texttt{ https\+://arxiv.\+org/pdf/1902.\+04023.\+pdf}}). This data can be queried for quantile information. Each row in a tdigest column represents an entire tdigest.
+
+The column has the following structure\+:
+
+struct \{ // centroids for the digest list \{ struct \{ double // mean double // weight \} \} // these are from the input stream, not the centroids. they are used // during the percentile\+\_\+approx computation near the beginning or // end of the quantiles double // min double // max \} 
+
+在文件 \mbox{\hyperlink{tdigest__column__view_8hpp_source}{tdigest\+\_\+column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{tdigest__column__view_8hpp_source_l00050}{50}} 行定义.
+
+
+
+\doxysubsection{成员类型定义说明}
+\Hypertarget{classcudf_1_1tdigest_1_1tdigest__column__view_afcc7cb3925ed8d168d60deccb95c85ce}\label{classcudf_1_1tdigest_1_1tdigest__column__view_afcc7cb3925ed8d168d60deccb95c85ce} 
+\index{cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}!offset\_iterator@{offset\_iterator}}
+\index{offset\_iterator@{offset\_iterator}!cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}}
+\doxysubsubsection{\texorpdfstring{offset\_iterator}{offset\_iterator}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view_afcc7cb3925ed8d168d60deccb95c85ce}{cudf\+::tdigest\+::tdigest\+\_\+column\+\_\+view\+::offset\+\_\+iterator}} =  \mbox{\hyperlink{group__utility__types_ga3391e2df0069d3e7a07f0ec96cd2473e}{offset\+\_\+type}} const\texorpdfstring{$\ast$}{*}}
+
+
+
+Iterator over offsets 
+
+
+
+在文件 \mbox{\hyperlink{tdigest__column__view_8hpp_source}{tdigest\+\_\+column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{tdigest__column__view_8hpp_source_l00072}{72}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1tdigest_1_1tdigest__column__view_ab7c79eb2d945d9f250b1a5af418b2ed5}\label{classcudf_1_1tdigest_1_1tdigest__column__view_ab7c79eb2d945d9f250b1a5af418b2ed5} 
+\index{cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}!tdigest\_column\_view@{tdigest\_column\_view}}
+\index{tdigest\_column\_view@{tdigest\_column\_view}!cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}}
+\doxysubsubsection{\texorpdfstring{tdigest\_column\_view()}{tdigest\_column\_view()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily cudf\+::tdigest\+::tdigest\+\_\+column\+\_\+view\+::tdigest\+\_\+column\+\_\+view (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{ }\end{DoxyParamCaption})}
+
+
+
+Construct \doxylink{classcudf_1_1tdigest_1_1tdigest__column__view}{tdigest\+\_\+column\+\_\+view} from a \doxylink{classcudf_1_1column__view}{column\+\_\+view} 
+
+\Hypertarget{classcudf_1_1tdigest_1_1tdigest__column__view_a7d686d0a3c01e95a67a4fd2a991ff0a5}\label{classcudf_1_1tdigest_1_1tdigest__column__view_a7d686d0a3c01e95a67a4fd2a991ff0a5} 
+\index{cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}!tdigest\_column\_view@{tdigest\_column\_view}}
+\index{tdigest\_column\_view@{tdigest\_column\_view}!cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}}
+\doxysubsubsection{\texorpdfstring{tdigest\_column\_view()}{tdigest\_column\_view()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily cudf\+::tdigest\+::tdigest\+\_\+column\+\_\+view\+::tdigest\+\_\+column\+\_\+view (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view}{tdigest\+\_\+column\+\_\+view}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Move constructor 
+
+\Hypertarget{classcudf_1_1tdigest_1_1tdigest__column__view_a3309a7338f70404b04ebcc678972d56c}\label{classcudf_1_1tdigest_1_1tdigest__column__view_a3309a7338f70404b04ebcc678972d56c} 
+\index{cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}!tdigest\_column\_view@{tdigest\_column\_view}}
+\index{tdigest\_column\_view@{tdigest\_column\_view}!cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}}
+\doxysubsubsection{\texorpdfstring{tdigest\_column\_view()}{tdigest\_column\_view()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily cudf\+::tdigest\+::tdigest\+\_\+column\+\_\+view\+::tdigest\+\_\+column\+\_\+view (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view}{tdigest\+\_\+column\+\_\+view}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Copy constructor 
+
+\Hypertarget{classcudf_1_1tdigest_1_1tdigest__column__view_af742fc9f2511000f71e5e1d4383b2cf5}\label{classcudf_1_1tdigest_1_1tdigest__column__view_af742fc9f2511000f71e5e1d4383b2cf5} 
+\index{cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}!````~tdigest\_column\_view@{\texorpdfstring{$\sim$}{\string~}tdigest\_column\_view}}
+\index{````~tdigest\_column\_view@{\texorpdfstring{$\sim$}{\string~}tdigest\_column\_view}!cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}tdigest\_column\_view()}{\string~tdigest\_column\_view()}}
+{\footnotesize\ttfamily cudf\+::tdigest\+::tdigest\+\_\+column\+\_\+view\+::\texorpdfstring{$\sim$}{\string~}tdigest\+\_\+column\+\_\+view (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1tdigest_1_1tdigest__column__view_ae30157024e3b10c5f320fdb5bc26c9ea}\label{classcudf_1_1tdigest_1_1tdigest__column__view_ae30157024e3b10c5f320fdb5bc26c9ea} 
+\index{cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}!centroids@{centroids}}
+\index{centroids@{centroids}!cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}}
+\doxysubsubsection{\texorpdfstring{centroids()}{centroids()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} cudf\+::tdigest\+::tdigest\+\_\+column\+\_\+view\+::centroids (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the column of centroids 
+
+\begin{DoxyReturn}{返回}
+The list column of centroids 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1tdigest_1_1tdigest__column__view_a075ad516fea7f320d9bc46406373d23c}\label{classcudf_1_1tdigest_1_1tdigest__column__view_a075ad516fea7f320d9bc46406373d23c} 
+\index{cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}!max\_begin@{max\_begin}}
+\index{max\_begin@{max\_begin}!cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}}
+\doxysubsubsection{\texorpdfstring{max\_begin()}{max\_begin()}}
+{\footnotesize\ttfamily double const  \texorpdfstring{$\ast$}{*} cudf\+::tdigest\+::tdigest\+\_\+column\+\_\+view\+::max\+\_\+begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the first max value for the column. Each row corresponds to the maximum value for the accompanying digest. 
+
+\begin{DoxyReturn}{返回}
+const pointer to the first max value for the column 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1tdigest_1_1tdigest__column__view_a37652d6f6834a2ff9091546a0f087ff6}\label{classcudf_1_1tdigest_1_1tdigest__column__view_a37652d6f6834a2ff9091546a0f087ff6} 
+\index{cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}!means@{means}}
+\index{means@{means}!cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}}
+\doxysubsubsection{\texorpdfstring{means()}{means()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} cudf\+::tdigest\+::tdigest\+\_\+column\+\_\+view\+::means (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the internal column of mean values 
+
+\begin{DoxyReturn}{返回}
+The internal column of mean values 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1tdigest_1_1tdigest__column__view_aabc94430fb4def7bab37a0bc0ec9e72b}\label{classcudf_1_1tdigest_1_1tdigest__column__view_aabc94430fb4def7bab37a0bc0ec9e72b} 
+\index{cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}!min\_begin@{min\_begin}}
+\index{min\_begin@{min\_begin}!cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}}
+\doxysubsubsection{\texorpdfstring{min\_begin()}{min\_begin()}}
+{\footnotesize\ttfamily double const  \texorpdfstring{$\ast$}{*} cudf\+::tdigest\+::tdigest\+\_\+column\+\_\+view\+::min\+\_\+begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the first min value for the column. Each row corresponds to the minimum value for the accompanying digest. 
+
+\begin{DoxyReturn}{返回}
+const pointer to the first min value for the column 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1tdigest_1_1tdigest__column__view_a479ff409203c0eb9ec77ade071acc427}\label{classcudf_1_1tdigest_1_1tdigest__column__view_a479ff409203c0eb9ec77ade071acc427} 
+\index{cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}!operator=@{operator=}}
+\index{operator=@{operator=}!cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view}{tdigest\+\_\+column\+\_\+view}} \& cudf\+::tdigest\+::tdigest\+\_\+column\+\_\+view\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view}{tdigest\+\_\+column\+\_\+view}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Move assignment operator 
+
+\begin{DoxyReturn}{返回}
+this object after moving the contents of the other object (transfer ownership) 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1tdigest_1_1tdigest__column__view_a05d61409bba361f0700dabb49dd5cf4b}\label{classcudf_1_1tdigest_1_1tdigest__column__view_a05d61409bba361f0700dabb49dd5cf4b} 
+\index{cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}!operator=@{operator=}}
+\index{operator=@{operator=}!cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view}{tdigest\+\_\+column\+\_\+view}} \& cudf\+::tdigest\+::tdigest\+\_\+column\+\_\+view\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view}{tdigest\+\_\+column\+\_\+view}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Copy assignment operator 
+
+\begin{DoxyReturn}{返回}
+this object after copying the contents of the other object (copy) 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1tdigest_1_1tdigest__column__view_aa9e0bee5baad363122613a7ff76dbb57}\label{classcudf_1_1tdigest_1_1tdigest__column__view_aa9e0bee5baad363122613a7ff76dbb57} 
+\index{cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}!parent@{parent}}
+\index{parent@{parent}!cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}}
+\doxysubsubsection{\texorpdfstring{parent()}{parent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} cudf\+::tdigest\+::tdigest\+\_\+column\+\_\+view\+::parent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the parent column. 
+
+\begin{DoxyReturn}{返回}
+The parent column 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1tdigest_1_1tdigest__column__view_aeefeda936ab59f079c70cf73976c95fc}\label{classcudf_1_1tdigest_1_1tdigest__column__view_aeefeda936ab59f079c70cf73976c95fc} 
+\index{cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}!weights@{weights}}
+\index{weights@{weights}!cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}}
+\doxysubsubsection{\texorpdfstring{weights()}{weights()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} cudf\+::tdigest\+::tdigest\+\_\+column\+\_\+view\+::weights (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the internal column of weight values 
+
+\begin{DoxyReturn}{返回}
+The internal column of weight values 
+\end{DoxyReturn}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1tdigest_1_1tdigest__column__view_aaa8731b27c5b78b942e8f20ead0f190f}\label{classcudf_1_1tdigest_1_1tdigest__column__view_aaa8731b27c5b78b942e8f20ead0f190f} 
+\index{cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}!centroid\_column\_index@{centroid\_column\_index}}
+\index{centroid\_column\_index@{centroid\_column\_index}!cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}}
+\doxysubsubsection{\texorpdfstring{centroid\_column\_index}{centroid\_column\_index}}
+{\footnotesize\ttfamily constexpr \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::tdigest\+::tdigest\+\_\+column\+\_\+view\+::centroid\+\_\+column\+\_\+index \{0\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Centroid column index 
+
+
+
+在文件 \mbox{\hyperlink{tdigest__column__view_8hpp_source}{tdigest\+\_\+column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{tdigest__column__view_8hpp_source_l00079}{79}} 行定义.
+
+\Hypertarget{classcudf_1_1tdigest_1_1tdigest__column__view_a628212a640264700df0dba4d52996e02}\label{classcudf_1_1tdigest_1_1tdigest__column__view_a628212a640264700df0dba4d52996e02} 
+\index{cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}!max\_column\_index@{max\_column\_index}}
+\index{max\_column\_index@{max\_column\_index}!cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}}
+\doxysubsubsection{\texorpdfstring{max\_column\_index}{max\_column\_index}}
+{\footnotesize\ttfamily constexpr \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::tdigest\+::tdigest\+\_\+column\+\_\+view\+::max\+\_\+column\+\_\+index \{2\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Max column index 
+
+
+
+在文件 \mbox{\hyperlink{tdigest__column__view_8hpp_source}{tdigest\+\_\+column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{tdigest__column__view_8hpp_source_l00081}{81}} 行定义.
+
+\Hypertarget{classcudf_1_1tdigest_1_1tdigest__column__view_a590cece1cc1b192f499a9995469cb825}\label{classcudf_1_1tdigest_1_1tdigest__column__view_a590cece1cc1b192f499a9995469cb825} 
+\index{cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}!mean\_column\_index@{mean\_column\_index}}
+\index{mean\_column\_index@{mean\_column\_index}!cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}}
+\doxysubsubsection{\texorpdfstring{mean\_column\_index}{mean\_column\_index}}
+{\footnotesize\ttfamily constexpr \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::tdigest\+::tdigest\+\_\+column\+\_\+view\+::mean\+\_\+column\+\_\+index \{0\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Mean column index 
+
+
+
+在文件 \mbox{\hyperlink{tdigest__column__view_8hpp_source}{tdigest\+\_\+column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{tdigest__column__view_8hpp_source_l00075}{75}} 行定义.
+
+\Hypertarget{classcudf_1_1tdigest_1_1tdigest__column__view_a8920be8f06ede4a966d724877d0ee7b3}\label{classcudf_1_1tdigest_1_1tdigest__column__view_a8920be8f06ede4a966d724877d0ee7b3} 
+\index{cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}!min\_column\_index@{min\_column\_index}}
+\index{min\_column\_index@{min\_column\_index}!cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}}
+\doxysubsubsection{\texorpdfstring{min\_column\_index}{min\_column\_index}}
+{\footnotesize\ttfamily constexpr \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::tdigest\+::tdigest\+\_\+column\+\_\+view\+::min\+\_\+column\+\_\+index \{1\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Min column index 
+
+
+
+在文件 \mbox{\hyperlink{tdigest__column__view_8hpp_source}{tdigest\+\_\+column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{tdigest__column__view_8hpp_source_l00080}{80}} 行定义.
+
+\Hypertarget{classcudf_1_1tdigest_1_1tdigest__column__view_ac8ecf339ab50b0824ee4900767e736f3}\label{classcudf_1_1tdigest_1_1tdigest__column__view_ac8ecf339ab50b0824ee4900767e736f3} 
+\index{cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}!weight\_column\_index@{weight\_column\_index}}
+\index{weight\_column\_index@{weight\_column\_index}!cudf::tdigest::tdigest\_column\_view@{cudf::tdigest::tdigest\_column\_view}}
+\doxysubsubsection{\texorpdfstring{weight\_column\_index}{weight\_column\_index}}
+{\footnotesize\ttfamily constexpr \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::tdigest\+::tdigest\+\_\+column\+\_\+view\+::weight\+\_\+column\+\_\+index \{1\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Weight column index 
+
+
+
+在文件 \mbox{\hyperlink{tdigest__column__view_8hpp_source}{tdigest\+\_\+column\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{tdigest__column__view_8hpp_source_l00076}{76}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/tdigest/\mbox{\hyperlink{tdigest__column__view_8hpp}{tdigest\+\_\+column\+\_\+view.\+hpp}}\end{DoxyCompactItemize}

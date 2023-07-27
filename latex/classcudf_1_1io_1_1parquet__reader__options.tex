@@ -1,0 +1,566 @@
+\doxysection{cudf\+::io\+::parquet\+\_\+reader\+\_\+options类 参考}
+\hypertarget{classcudf_1_1io_1_1parquet__reader__options}{}\label{classcudf_1_1io_1_1parquet__reader__options}\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+
+
+Settings for {\ttfamily \doxylink{group__io__readers_ga539a82d720387747800c360ba68d748f}{read\+\_\+parquet()}}.  
+
+
+
+
+{\ttfamily \#include $<$parquet.\+hpp$>$}
+
+
+
+cudf\+::io\+::parquet\+\_\+reader\+\_\+options 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcudf_1_1io_1_1parquet__reader__options__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_a0810bac379be7145cc3b7817f0db23c3}{parquet\+\_\+reader\+\_\+options}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} const \& \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_a93ff2ab8f5a24fd1e74023198dd6dca2}{get\+\_\+source}} () const
+\begin{DoxyCompactList}\small\item\em Returns source info. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_a937a43513eb5beccf24cb8afd79febea}{is\+\_\+enabled\+\_\+convert\+\_\+strings\+\_\+to\+\_\+categories}} () const
+\begin{DoxyCompactList}\small\item\em Returns true/false depending on whether strings should be converted to categories or not. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_ac9aa59b4112b8459f33736bb0b8e7e62}{is\+\_\+enabled\+\_\+use\+\_\+pandas\+\_\+metadata}} () const
+\begin{DoxyCompactList}\small\item\em Returns true/false depending whether to use pandas metadata or not while reading. \end{DoxyCompactList}\item 
+std\+::optional$<$ std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema}{reader\+\_\+column\+\_\+schema}} $>$ $>$ \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_ae1651886624007d5b1bc75fae372c536}{get\+\_\+column\+\_\+schema}} () const
+\begin{DoxyCompactList}\small\item\em Returns optional tree of metadata. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_a5ea8020e09b6f0bf2cdd896659cea68e}{get\+\_\+skip\+\_\+rows}} () const
+\begin{DoxyCompactList}\small\item\em Returns number of rows to skip from the start. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_ad3a5173d708afc5bc9bb30b5b3c931b1}{get\+\_\+num\+\_\+rows}} () const
+\begin{DoxyCompactList}\small\item\em Returns number of rows to read. \end{DoxyCompactList}\item 
+auto const \& \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_adbe6a733b1f9b91680c1bcea58e469e5}{get\+\_\+columns}} () const
+\begin{DoxyCompactList}\small\item\em Returns names of column to be read, if set. \end{DoxyCompactList}\item 
+auto const \& \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_a56897b01d680aa77da182696dfff8e7d}{get\+\_\+row\+\_\+groups}} () const
+\begin{DoxyCompactList}\small\item\em Returns list of individual row groups to be read. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_a01448788af44dc3fb471e894117b1739}{get\+\_\+timestamp\+\_\+type}} () const
+\begin{DoxyCompactList}\small\item\em Returns timestamp type used to cast timestamp columns. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_a196b64fa51b11aca03fa52b5febe7d66}{set\+\_\+columns}} (std\+::vector$<$ std\+::string $>$ col\+\_\+names)
+\begin{DoxyCompactList}\small\item\em Sets names of the columns to be read. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_ad0d51bb4b1b08a2045b26732f4546bbc}{set\+\_\+row\+\_\+groups}} (std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ $>$ row\+\_\+groups)
+\begin{DoxyCompactList}\small\item\em Sets vector of individual row groups to read. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_a28889e6e1be08261a0801485e40f3262}{enable\+\_\+convert\+\_\+strings\+\_\+to\+\_\+categories}} (bool val)
+\begin{DoxyCompactList}\small\item\em Sets to enable/disable conversion of strings to categories. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_aa8abdba80cfb5ad78a201c1a3384c5ce}{enable\+\_\+use\+\_\+pandas\+\_\+metadata}} (bool val)
+\begin{DoxyCompactList}\small\item\em Sets to enable/disable use of pandas metadata to read. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_acb95dd64482dd114752bdd4d71a42e25}{set\+\_\+column\+\_\+schema}} (std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema}{reader\+\_\+column\+\_\+schema}} $>$ val)
+\begin{DoxyCompactList}\small\item\em Sets reader column schema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_a556b3be526ba648aff30f4c715a1d83a}{set\+\_\+skip\+\_\+rows}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} val)
+\begin{DoxyCompactList}\small\item\em Sets number of rows to skip. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_a88dbd58ecb6fdff7b303d32b2624196c}{set\+\_\+num\+\_\+rows}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} val)
+\begin{DoxyCompactList}\small\item\em Sets number of rows to read. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_a8cd65d75a5b68f24522ca2c171f396c2}{set\+\_\+timestamp\+\_\+type}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Sets timestamp\+\_\+type used to cast timestamp columns. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options__builder}{parquet\+\_\+reader\+\_\+options\+\_\+builder}} \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_a47c6c64bfe469253bbafdd17e834e289}{builder}} (\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} const \&src)
+\begin{DoxyCompactList}\small\item\em Creates a \doxylink{classcudf_1_1io_1_1parquet__reader__options__builder}{parquet\+\_\+reader\+\_\+options\+\_\+builder} which will build \doxylink{classcudf_1_1io_1_1parquet__reader__options}{parquet\+\_\+reader\+\_\+options}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_a92ec8911824a212b9818fac77c931658}{parquet\+\_\+reader\+\_\+options}} (\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} const \&src)
+\begin{DoxyCompactList}\small\item\em Constructor from source info. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_af40256bb29dd51bc13e62d487640cd5d}{\+\_\+source}}
+\item 
+std\+::optional$<$ std\+::vector$<$ std\+::string $>$ $>$ \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_ae86c957d8c66527836ca5afc59e45401}{\+\_\+columns}}
+\item 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ $>$ \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_a49594c0cee9e7d2e6cfcb413c554548a}{\+\_\+row\+\_\+groups}}
+\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_a57718640d7e532f32f9d5718b0e36279}{\+\_\+skip\+\_\+rows}} = 0
+\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_abcab9be119b4ed974af70bbeeebaacab}{\+\_\+num\+\_\+rows}} = -\/1
+\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_a4d03896825522785e13ed23bd1d9a2a5}{\+\_\+convert\+\_\+strings\+\_\+to\+\_\+categories}} = false
+\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_a2671062983d1064f5f61e45ae2285ad3}{\+\_\+use\+\_\+pandas\+\_\+metadata}} = true
+\item 
+\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_ad5d3bc4ba4b218bb45fc8229d025394b}{\+\_\+timestamp\+\_\+type}} \{\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539aba2b45bdc11e2a4a6e86aab2ac693cbb}{type\+\_\+id\+::\+EMPTY}}\}
+\item 
+std\+::optional$<$ std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema}{reader\+\_\+column\+\_\+schema}} $>$ $>$ \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_a76dd670cb02f143c1fb8b9805c9942f2}{\+\_\+reader\+\_\+column\+\_\+schema}}
+\item 
+friend \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options_afee0549683eb84b199d4916c15bac358}{parquet\+\_\+reader\+\_\+options\+\_\+builder}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Settings for {\ttfamily \doxylink{group__io__readers_ga539a82d720387747800c360ba68d748f}{read\+\_\+parquet()}}. 
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00051}{51}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_a92ec8911824a212b9818fac77c931658}\label{classcudf_1_1io_1_1parquet__reader__options_a92ec8911824a212b9818fac77c931658} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!parquet\_reader\_options@{parquet\_reader\_options}}
+\index{parquet\_reader\_options@{parquet\_reader\_options}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{parquet\_reader\_options()}{parquet\_reader\_options()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::parquet\+\_\+reader\+\_\+options (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} const \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [private]}}
+
+
+
+Constructor from source info. 
+
+
+\begin{DoxyParams}{参数}
+{\em src} & source information used to read parquet file \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00078}{78}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_a0810bac379be7145cc3b7817f0db23c3}\label{classcudf_1_1io_1_1parquet__reader__options_a0810bac379be7145cc3b7817f0db23c3} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!parquet\_reader\_options@{parquet\_reader\_options}}
+\index{parquet\_reader\_options@{parquet\_reader\_options}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{parquet\_reader\_options()}{parquet\_reader\_options()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::parquet\+\_\+reader\+\_\+options (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [default]}}
+
+
+
+Default constructor. 
+
+This has been added since Cython requires a default constructor to create objects on stack. 
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_a47c6c64bfe469253bbafdd17e834e289}\label{classcudf_1_1io_1_1parquet__reader__options_a47c6c64bfe469253bbafdd17e834e289} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!builder@{builder}}
+\index{builder@{builder}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{builder()}{builder()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options__builder}{parquet\+\_\+reader\+\_\+options\+\_\+builder}} cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::builder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} const \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creates a \doxylink{classcudf_1_1io_1_1parquet__reader__options__builder}{parquet\+\_\+reader\+\_\+options\+\_\+builder} which will build \doxylink{classcudf_1_1io_1_1parquet__reader__options}{parquet\+\_\+reader\+\_\+options}. 
+
+
+\begin{DoxyParams}{参数}
+{\em src} & Source information to read parquet file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Builder to build reader options 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_a28889e6e1be08261a0801485e40f3262}\label{classcudf_1_1io_1_1parquet__reader__options_a28889e6e1be08261a0801485e40f3262} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!enable\_convert\_strings\_to\_categories@{enable\_convert\_strings\_to\_categories}}
+\index{enable\_convert\_strings\_to\_categories@{enable\_convert\_strings\_to\_categories}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{enable\_convert\_strings\_to\_categories()}{enable\_convert\_strings\_to\_categories()}}
+{\footnotesize\ttfamily void cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::enable\+\_\+convert\+\_\+strings\+\_\+to\+\_\+categories (\begin{DoxyParamCaption}\item[{bool}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets to enable/disable conversion of strings to categories. 
+
+
+\begin{DoxyParams}{参数}
+{\em val} & Boolean value to enable/disable conversion of string columns to categories \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00194}{194}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_aa8abdba80cfb5ad78a201c1a3384c5ce}\label{classcudf_1_1io_1_1parquet__reader__options_aa8abdba80cfb5ad78a201c1a3384c5ce} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!enable\_use\_pandas\_metadata@{enable\_use\_pandas\_metadata}}
+\index{enable\_use\_pandas\_metadata@{enable\_use\_pandas\_metadata}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{enable\_use\_pandas\_metadata()}{enable\_use\_pandas\_metadata()}}
+{\footnotesize\ttfamily void cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::enable\+\_\+use\+\_\+pandas\+\_\+metadata (\begin{DoxyParamCaption}\item[{bool}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets to enable/disable use of pandas metadata to read. 
+
+
+\begin{DoxyParams}{参数}
+{\em val} & Boolean value whether to use pandas metadata \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00201}{201}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_ae1651886624007d5b1bc75fae372c536}\label{classcudf_1_1io_1_1parquet__reader__options_ae1651886624007d5b1bc75fae372c536} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!get\_column\_schema@{get\_column\_schema}}
+\index{get\_column\_schema@{get\_column\_schema}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{get\_column\_schema()}{get\_column\_schema()}}
+{\footnotesize\ttfamily std\+::optional$<$ std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema}{reader\+\_\+column\+\_\+schema}} $>$ $>$ cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::get\+\_\+column\+\_\+schema (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns optional tree of metadata. 
+
+\begin{DoxyReturn}{返回}
+vector of \doxylink{classcudf_1_1io_1_1reader__column__schema}{reader\+\_\+column\+\_\+schema} objects. 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00128}{128}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_adbe6a733b1f9b91680c1bcea58e469e5}\label{classcudf_1_1io_1_1parquet__reader__options_adbe6a733b1f9b91680c1bcea58e469e5} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!get\_columns@{get\_columns}}
+\index{get\_columns@{get\_columns}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{get\_columns()}{get\_columns()}}
+{\footnotesize\ttfamily auto const  \& cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::get\+\_\+columns (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns names of column to be read, if set. 
+
+\begin{DoxyReturn}{返回}
+Names of column to be read; {\ttfamily nullopt} if the option is not set 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00152}{152}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_ad3a5173d708afc5bc9bb30b5b3c931b1}\label{classcudf_1_1io_1_1parquet__reader__options_ad3a5173d708afc5bc9bb30b5b3c931b1} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!get\_num\_rows@{get\_num\_rows}}
+\index{get\_num\_rows@{get\_num\_rows}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{get\_num\_rows()}{get\_num\_rows()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::get\+\_\+num\+\_\+rows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns number of rows to read. 
+
+\begin{DoxyReturn}{返回}
+Number of rows to read 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00145}{145}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_a56897b01d680aa77da182696dfff8e7d}\label{classcudf_1_1io_1_1parquet__reader__options_a56897b01d680aa77da182696dfff8e7d} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!get\_row\_groups@{get\_row\_groups}}
+\index{get\_row\_groups@{get\_row\_groups}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{get\_row\_groups()}{get\_row\_groups()}}
+{\footnotesize\ttfamily auto const  \& cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::get\+\_\+row\+\_\+groups (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns list of individual row groups to be read. 
+
+\begin{DoxyReturn}{返回}
+List of individual row groups to be read 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00159}{159}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_a5ea8020e09b6f0bf2cdd896659cea68e}\label{classcudf_1_1io_1_1parquet__reader__options_a5ea8020e09b6f0bf2cdd896659cea68e} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!get\_skip\_rows@{get\_skip\_rows}}
+\index{get\_skip\_rows@{get\_skip\_rows}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{get\_skip\_rows()}{get\_skip\_rows()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::get\+\_\+skip\+\_\+rows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns number of rows to skip from the start. 
+
+\begin{DoxyReturn}{返回}
+Number of rows to skip from the start 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00138}{138}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_a93ff2ab8f5a24fd1e74023198dd6dca2}\label{classcudf_1_1io_1_1parquet__reader__options_a93ff2ab8f5a24fd1e74023198dd6dca2} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!get\_source@{get\_source}}
+\index{get\_source@{get\_source}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{get\_source()}{get\_source()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} const  \& cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::get\+\_\+source (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns source info. 
+
+\begin{DoxyReturn}{返回}
+Source info 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00103}{103}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_a01448788af44dc3fb471e894117b1739}\label{classcudf_1_1io_1_1parquet__reader__options_a01448788af44dc3fb471e894117b1739} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!get\_timestamp\_type@{get\_timestamp\_type}}
+\index{get\_timestamp\_type@{get\_timestamp\_type}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{get\_timestamp\_type()}{get\_timestamp\_type()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::get\+\_\+timestamp\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns timestamp type used to cast timestamp columns. 
+
+\begin{DoxyReturn}{返回}
+Timestamp type used to cast timestamp columns 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00166}{166}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_a937a43513eb5beccf24cb8afd79febea}\label{classcudf_1_1io_1_1parquet__reader__options_a937a43513eb5beccf24cb8afd79febea} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!is\_enabled\_convert\_strings\_to\_categories@{is\_enabled\_convert\_strings\_to\_categories}}
+\index{is\_enabled\_convert\_strings\_to\_categories@{is\_enabled\_convert\_strings\_to\_categories}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{is\_enabled\_convert\_strings\_to\_categories()}{is\_enabled\_convert\_strings\_to\_categories()}}
+{\footnotesize\ttfamily bool cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::is\+\_\+enabled\+\_\+convert\+\_\+strings\+\_\+to\+\_\+categories (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns true/false depending on whether strings should be converted to categories or not. 
+
+\begin{DoxyReturn}{返回}
+{\ttfamily true} if strings should be converted to categories 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00111}{111}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_ac9aa59b4112b8459f33736bb0b8e7e62}\label{classcudf_1_1io_1_1parquet__reader__options_ac9aa59b4112b8459f33736bb0b8e7e62} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!is\_enabled\_use\_pandas\_metadata@{is\_enabled\_use\_pandas\_metadata}}
+\index{is\_enabled\_use\_pandas\_metadata@{is\_enabled\_use\_pandas\_metadata}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{is\_enabled\_use\_pandas\_metadata()}{is\_enabled\_use\_pandas\_metadata()}}
+{\footnotesize\ttfamily bool cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::is\+\_\+enabled\+\_\+use\+\_\+pandas\+\_\+metadata (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns true/false depending whether to use pandas metadata or not while reading. 
+
+\begin{DoxyReturn}{返回}
+{\ttfamily true} if pandas metadata is used while reading 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00121}{121}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_acb95dd64482dd114752bdd4d71a42e25}\label{classcudf_1_1io_1_1parquet__reader__options_acb95dd64482dd114752bdd4d71a42e25} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!set\_column\_schema@{set\_column\_schema}}
+\index{set\_column\_schema@{set\_column\_schema}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{set\_column\_schema()}{set\_column\_schema()}}
+{\footnotesize\ttfamily void cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::set\+\_\+column\+\_\+schema (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema}{reader\+\_\+column\+\_\+schema}} $>$}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets reader column schema. 
+
+
+\begin{DoxyParams}{参数}
+{\em val} & Tree of schema nodes to enable/disable conversion of binary to string columns. Note default is to convert to string columns. \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00209}{209}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_a196b64fa51b11aca03fa52b5febe7d66}\label{classcudf_1_1io_1_1parquet__reader__options_a196b64fa51b11aca03fa52b5febe7d66} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!set\_columns@{set\_columns}}
+\index{set\_columns@{set\_columns}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{set\_columns()}{set\_columns()}}
+{\footnotesize\ttfamily void cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::set\+\_\+columns (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{col\+\_\+names }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets names of the columns to be read. 
+
+
+\begin{DoxyParams}{参数}
+{\em col\+\_\+names} & Vector of column names \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00173}{173}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_a88dbd58ecb6fdff7b303d32b2624196c}\label{classcudf_1_1io_1_1parquet__reader__options_a88dbd58ecb6fdff7b303d32b2624196c} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!set\_num\_rows@{set\_num\_rows}}
+\index{set\_num\_rows@{set\_num\_rows}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{set\_num\_rows()}{set\_num\_rows()}}
+{\footnotesize\ttfamily void cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::set\+\_\+num\+\_\+rows (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets number of rows to read. 
+
+
+\begin{DoxyParams}{参数}
+{\em val} & Number of rows to read after skip \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00233}{233}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_ad0d51bb4b1b08a2045b26732f4546bbc}\label{classcudf_1_1io_1_1parquet__reader__options_ad0d51bb4b1b08a2045b26732f4546bbc} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!set\_row\_groups@{set\_row\_groups}}
+\index{set\_row\_groups@{set\_row\_groups}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{set\_row\_groups()}{set\_row\_groups()}}
+{\footnotesize\ttfamily void cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::set\+\_\+row\+\_\+groups (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ $>$}]{row\+\_\+groups }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets vector of individual row groups to read. 
+
+
+\begin{DoxyParams}{参数}
+{\em row\+\_\+groups} & Vector of row groups to read \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00180}{180}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_a556b3be526ba648aff30f4c715a1d83a}\label{classcudf_1_1io_1_1parquet__reader__options_a556b3be526ba648aff30f4c715a1d83a} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!set\_skip\_rows@{set\_skip\_rows}}
+\index{set\_skip\_rows@{set\_skip\_rows}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{set\_skip\_rows()}{set\_skip\_rows()}}
+{\footnotesize\ttfamily void cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::set\+\_\+skip\+\_\+rows (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets number of rows to skip. 
+
+
+\begin{DoxyParams}{参数}
+{\em val} & Number of rows to skip from start \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00219}{219}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_a8cd65d75a5b68f24522ca2c171f396c2}\label{classcudf_1_1io_1_1parquet__reader__options_a8cd65d75a5b68f24522ca2c171f396c2} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!set\_timestamp\_type@{set\_timestamp\_type}}
+\index{set\_timestamp\_type@{set\_timestamp\_type}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{set\_timestamp\_type()}{set\_timestamp\_type()}}
+{\footnotesize\ttfamily void cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::set\+\_\+timestamp\+\_\+type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets timestamp\+\_\+type used to cast timestamp columns. 
+
+
+\begin{DoxyParams}{参数}
+{\em type} & The timestamp \doxylink{classcudf_1_1data__type}{data\+\_\+type} to which all timestamp columns need to be cast \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00247}{247}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_ae86c957d8c66527836ca5afc59e45401}\label{classcudf_1_1io_1_1parquet__reader__options_ae86c957d8c66527836ca5afc59e45401} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!\_columns@{\_columns}}
+\index{\_columns@{\_columns}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_columns}{\_columns}}
+{\footnotesize\ttfamily std\+::optional$<$std\+::vector$<$std\+::string$>$ $>$ cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::\+\_\+columns\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00055}{55}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_a4d03896825522785e13ed23bd1d9a2a5}\label{classcudf_1_1io_1_1parquet__reader__options_a4d03896825522785e13ed23bd1d9a2a5} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!\_convert\_strings\_to\_categories@{\_convert\_strings\_to\_categories}}
+\index{\_convert\_strings\_to\_categories@{\_convert\_strings\_to\_categories}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_convert\_strings\_to\_categories}{\_convert\_strings\_to\_categories}}
+{\footnotesize\ttfamily bool cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::\+\_\+convert\+\_\+strings\+\_\+to\+\_\+categories = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00065}{65}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_abcab9be119b4ed974af70bbeeebaacab}\label{classcudf_1_1io_1_1parquet__reader__options_abcab9be119b4ed974af70bbeeebaacab} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!\_num\_rows@{\_num\_rows}}
+\index{\_num\_rows@{\_num\_rows}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_num\_rows}{\_num\_rows}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::\+\_\+num\+\_\+rows = -\/1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00062}{62}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_a76dd670cb02f143c1fb8b9805c9942f2}\label{classcudf_1_1io_1_1parquet__reader__options_a76dd670cb02f143c1fb8b9805c9942f2} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!\_reader\_column\_schema@{\_reader\_column\_schema}}
+\index{\_reader\_column\_schema@{\_reader\_column\_schema}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_reader\_column\_schema}{\_reader\_column\_schema}}
+{\footnotesize\ttfamily std\+::optional$<$std\+::vector$<$\mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema}{reader\+\_\+column\+\_\+schema}}$>$ $>$ cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::\+\_\+reader\+\_\+column\+\_\+schema\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00071}{71}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_a49594c0cee9e7d2e6cfcb413c554548a}\label{classcudf_1_1io_1_1parquet__reader__options_a49594c0cee9e7d2e6cfcb413c554548a} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!\_row\_groups@{\_row\_groups}}
+\index{\_row\_groups@{\_row\_groups}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_row\_groups}{\_row\_groups}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}$>$ $>$ cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::\+\_\+row\+\_\+groups\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00058}{58}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_a57718640d7e532f32f9d5718b0e36279}\label{classcudf_1_1io_1_1parquet__reader__options_a57718640d7e532f32f9d5718b0e36279} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!\_skip\_rows@{\_skip\_rows}}
+\index{\_skip\_rows@{\_skip\_rows}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_skip\_rows}{\_skip\_rows}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::\+\_\+skip\+\_\+rows = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00060}{60}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_af40256bb29dd51bc13e62d487640cd5d}\label{classcudf_1_1io_1_1parquet__reader__options_af40256bb29dd51bc13e62d487640cd5d} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!\_source@{\_source}}
+\index{\_source@{\_source}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_source}{\_source}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::\+\_\+source\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00052}{52}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_ad5d3bc4ba4b218bb45fc8229d025394b}\label{classcudf_1_1io_1_1parquet__reader__options_ad5d3bc4ba4b218bb45fc8229d025394b} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!\_timestamp\_type@{\_timestamp\_type}}
+\index{\_timestamp\_type@{\_timestamp\_type}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_timestamp\_type}{\_timestamp\_type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::\+\_\+timestamp\+\_\+type \{\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539aba2b45bdc11e2a4a6e86aab2ac693cbb}{type\+\_\+id\+::\+EMPTY}}\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00069}{69}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_a2671062983d1064f5f61e45ae2285ad3}\label{classcudf_1_1io_1_1parquet__reader__options_a2671062983d1064f5f61e45ae2285ad3} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!\_use\_pandas\_metadata@{\_use\_pandas\_metadata}}
+\index{\_use\_pandas\_metadata@{\_use\_pandas\_metadata}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_use\_pandas\_metadata}{\_use\_pandas\_metadata}}
+{\footnotesize\ttfamily bool cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::\+\_\+use\+\_\+pandas\+\_\+metadata = true\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00067}{67}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__reader__options_afee0549683eb84b199d4916c15bac358}\label{classcudf_1_1io_1_1parquet__reader__options_afee0549683eb84b199d4916c15bac358} 
+\index{cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}!parquet\_reader\_options\_builder@{parquet\_reader\_options\_builder}}
+\index{parquet\_reader\_options\_builder@{parquet\_reader\_options\_builder}!cudf::io::parquet\_reader\_options@{cudf::io::parquet\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{parquet\_reader\_options\_builder}{parquet\_reader\_options\_builder}}
+{\footnotesize\ttfamily friend cudf\+::io\+::parquet\+\_\+reader\+\_\+options\+::parquet\+\_\+reader\+\_\+options\+\_\+builder\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00080}{80}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/\mbox{\hyperlink{parquet_8hpp}{parquet.\+hpp}}\end{DoxyCompactItemize}

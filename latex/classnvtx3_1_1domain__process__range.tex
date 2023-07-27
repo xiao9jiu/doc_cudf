@@ -1,0 +1,216 @@
+\doxysection{nvtx3\+::domain\+\_\+process\+\_\+range\texorpdfstring{$<$}{<} D \texorpdfstring{$>$}{>} 模板类 参考}
+\hypertarget{classnvtx3_1_1domain__process__range}{}\label{classnvtx3_1_1domain__process__range}\index{nvtx3::domain\_process\_range$<$ D $>$@{nvtx3::domain\_process\_range$<$ D $>$}}
+
+
+A RAII object for creating a NVTX range within a domain that can be created and destroyed on different threads.  
+
+
+
+
+{\ttfamily \#include $<$nvtx3.\+hpp$>$}
+
+
+
+nvtx3\+::domain\+\_\+process\+\_\+range\texorpdfstring{$<$}{<} D \texorpdfstring{$>$}{>} 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{classnvtx3_1_1domain__process__range__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnvtx3_1_1domain__process__range_a889d82bd9f51fc1c5851e579ec76704c}{domain\+\_\+process\+\_\+range}} (\mbox{\hyperlink{classnvtx3_1_1event__attributes}{event\+\_\+attributes}} const \&attr) noexcept
+\begin{DoxyCompactList}\small\item\em Construct a new domain process range object \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename First , typename... Args, typename  = typename std\+::enable\+\_\+if$<$              not std\+::is\+\_\+same\+\_\+v$<$event\+\_\+attributes, typename std\+::decay$<$\+First$>$$>$$>$$>$ }\\\mbox{\hyperlink{classnvtx3_1_1domain__process__range_a01dd669989504e0abb3b839a8a862311}{domain\+\_\+process\+\_\+range}} (First const \&first, Args const \&... args) noexcept
+\begin{DoxyCompactList}\small\item\em Construct a new domain process range object \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{classnvtx3_1_1domain__process__range_a327705f8106b979c5dce645a3199d4aa}{domain\+\_\+process\+\_\+range}} () noexcept
+\begin{DoxyCompactList}\small\item\em Construct a new domain process range object \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnvtx3_1_1domain__process__range_a9f9195953f9062f4a6bc20059ac62adf}{\texorpdfstring{$\sim$}{\string~}domain\+\_\+process\+\_\+range}} () noexcept
+\begin{DoxyCompactList}\small\item\em Destroy the {\ttfamily \doxylink{classnvtx3_1_1domain__process__range}{domain\+\_\+process\+\_\+range}} ending the range. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnvtx3_1_1domain__process__range_a6c0937968046bb437c90fb3e2d756447}{domain\+\_\+process\+\_\+range}} (\mbox{\hyperlink{classnvtx3_1_1domain__process__range}{domain\+\_\+process\+\_\+range}} const \&)=delete
+\item 
+\mbox{\hyperlink{classnvtx3_1_1domain__process__range}{domain\+\_\+process\+\_\+range}} \& \mbox{\hyperlink{classnvtx3_1_1domain__process__range_adb4122a5cd773dbe54f0e019f8dc17df}{operator=}} (\mbox{\hyperlink{classnvtx3_1_1domain__process__range}{domain\+\_\+process\+\_\+range}} const \&)=delete
+\item 
+\mbox{\hyperlink{classnvtx3_1_1domain__process__range_a1a36453e4b690f7f0b73579260d0caf7}{domain\+\_\+process\+\_\+range}} (\mbox{\hyperlink{classnvtx3_1_1domain__process__range}{domain\+\_\+process\+\_\+range}} \&\&other) noexcept
+\item 
+\mbox{\hyperlink{classnvtx3_1_1domain__process__range}{domain\+\_\+process\+\_\+range}} \& \mbox{\hyperlink{classnvtx3_1_1domain__process__range_abbf92b9e7df5782c4f248cc487e48034}{operator=}} (\mbox{\hyperlink{classnvtx3_1_1domain__process__range}{domain\+\_\+process\+\_\+range}} \&\&other) noexcept
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+nvtx\+Range\+Id\+\_\+t \mbox{\hyperlink{classnvtx3_1_1domain__process__range_ab86fb4e5c83a4178bf20cfdf4a635647}{range\+\_\+id\+\_\+}}
+\item 
+bool \mbox{\hyperlink{classnvtx3_1_1domain__process__range_a464aa664f8036a23db58e00c2c55047e}{moved\+\_\+from\+\_\+}} \{false\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+\subsubsection*{template$<$typename D = domain\+::global$>$\newline
+class nvtx3\+::domain\+\_\+process\+\_\+range$<$ D $>$}
+A RAII object for creating a NVTX range within a domain that can be created and destroyed on different threads. 
+
+When constructed, begins a NVTX range in the specified domain. Upon destruction, ends the NVTX range.
+
+Similar to {\ttfamily \doxylink{classnvtx3_1_1domain__thread__range}{nvtx3\+::domain\+\_\+thread\+\_\+range}}, the only difference being that {\ttfamily \doxylink{classnvtx3_1_1domain__process__range}{domain\+\_\+process\+\_\+range}} can start and end on different threads.
+
+Use of {\ttfamily \doxylink{classnvtx3_1_1domain__thread__range}{nvtx3\+::domain\+\_\+thread\+\_\+range}} should be preferred unless one needs the ability to start and end a range on different threads.
+
+{\ttfamily \doxylink{classnvtx3_1_1domain__process__range}{domain\+\_\+process\+\_\+range}} is moveable, but not copyable.
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em D} & Type containing {\ttfamily name} member used to identify the {\ttfamily domain} to which the {\ttfamily \doxylink{classnvtx3_1_1domain__process__range}{domain\+\_\+process\+\_\+range}} belongs. Else, {\ttfamily \doxylink{structnvtx3_1_1domain_1_1global}{domain\+::global}} to indicate that the global NVTX domain should be used. \\
+\hline
+\end{DoxyTemplParams}
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01780}{1780}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classnvtx3_1_1domain__process__range_a889d82bd9f51fc1c5851e579ec76704c}\label{classnvtx3_1_1domain__process__range_a889d82bd9f51fc1c5851e579ec76704c} 
+\index{nvtx3::domain\_process\_range$<$ D $>$@{nvtx3::domain\_process\_range$<$ D $>$}!domain\_process\_range@{domain\_process\_range}}
+\index{domain\_process\_range@{domain\_process\_range}!nvtx3::domain\_process\_range$<$ D $>$@{nvtx3::domain\_process\_range$<$ D $>$}}
+\doxysubsubsection{\texorpdfstring{domain\_process\_range()}{domain\_process\_range()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$typename D  = domain\+::global$>$ \\
+\mbox{\hyperlink{classnvtx3_1_1domain__process__range}{nvtx3\+::domain\+\_\+process\+\_\+range}}$<$ D $>$\+::domain\+\_\+process\+\_\+range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnvtx3_1_1event__attributes}{event\+\_\+attributes}} const \&}]{attr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [noexcept]}}
+
+
+
+Construct a new domain process range object 
+
+
+\begin{DoxyParams}{参数}
+{\em attr} & \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01787}{1787}} 行定义.
+
+\Hypertarget{classnvtx3_1_1domain__process__range_a01dd669989504e0abb3b839a8a862311}\label{classnvtx3_1_1domain__process__range_a01dd669989504e0abb3b839a8a862311} 
+\index{nvtx3::domain\_process\_range$<$ D $>$@{nvtx3::domain\_process\_range$<$ D $>$}!domain\_process\_range@{domain\_process\_range}}
+\index{domain\_process\_range@{domain\_process\_range}!nvtx3::domain\_process\_range$<$ D $>$@{nvtx3::domain\_process\_range$<$ D $>$}}
+\doxysubsubsection{\texorpdfstring{domain\_process\_range()}{domain\_process\_range()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily template$<$typename D  = domain\+::global$>$ \\
+template$<$typename First , typename... Args, typename  = typename std\+::enable\+\_\+if$<$              not std\+::is\+\_\+same\+\_\+v$<$event\+\_\+attributes, typename std\+::decay$<$\+First$>$$>$$>$$>$ \\
+\mbox{\hyperlink{classnvtx3_1_1domain__process__range}{nvtx3\+::domain\+\_\+process\+\_\+range}}$<$ D $>$\+::domain\+\_\+process\+\_\+range (\begin{DoxyParamCaption}\item[{First const \&}]{first,  }\item[{Args const \&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [noexcept]}}
+
+
+
+Construct a new domain process range object 
+
+
+\begin{DoxyParams}{参数}
+{\em first} & \\
+\hline
+{\em args} & \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01802}{1802}} 行定义.
+
+\Hypertarget{classnvtx3_1_1domain__process__range_a327705f8106b979c5dce645a3199d4aa}\label{classnvtx3_1_1domain__process__range_a327705f8106b979c5dce645a3199d4aa} 
+\index{nvtx3::domain\_process\_range$<$ D $>$@{nvtx3::domain\_process\_range$<$ D $>$}!domain\_process\_range@{domain\_process\_range}}
+\index{domain\_process\_range@{domain\_process\_range}!nvtx3::domain\_process\_range$<$ D $>$@{nvtx3::domain\_process\_range$<$ D $>$}}
+\doxysubsubsection{\texorpdfstring{domain\_process\_range()}{domain\_process\_range()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily template$<$typename D  = domain\+::global$>$ \\
+constexpr \mbox{\hyperlink{classnvtx3_1_1domain__process__range}{nvtx3\+::domain\+\_\+process\+\_\+range}}$<$ D $>$\+::domain\+\_\+process\+\_\+range (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Construct a new domain process range object 
+
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01811}{1811}} 行定义.
+
+\Hypertarget{classnvtx3_1_1domain__process__range_a9f9195953f9062f4a6bc20059ac62adf}\label{classnvtx3_1_1domain__process__range_a9f9195953f9062f4a6bc20059ac62adf} 
+\index{nvtx3::domain\_process\_range$<$ D $>$@{nvtx3::domain\_process\_range$<$ D $>$}!````~domain\_process\_range@{\texorpdfstring{$\sim$}{\string~}domain\_process\_range}}
+\index{````~domain\_process\_range@{\texorpdfstring{$\sim$}{\string~}domain\_process\_range}!nvtx3::domain\_process\_range$<$ D $>$@{nvtx3::domain\_process\_range$<$ D $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}domain\_process\_range()}{\string~domain\_process\_range()}}
+{\footnotesize\ttfamily template$<$typename D  = domain\+::global$>$ \\
+\mbox{\hyperlink{classnvtx3_1_1domain__process__range}{nvtx3\+::domain\+\_\+process\+\_\+range}}$<$ D $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{classnvtx3_1_1domain__process__range}{domain\+\_\+process\+\_\+range}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Destroy the {\ttfamily \doxylink{classnvtx3_1_1domain__process__range}{domain\+\_\+process\+\_\+range}} ending the range. 
+
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01817}{1817}} 行定义.
+
+\Hypertarget{classnvtx3_1_1domain__process__range_a6c0937968046bb437c90fb3e2d756447}\label{classnvtx3_1_1domain__process__range_a6c0937968046bb437c90fb3e2d756447} 
+\index{nvtx3::domain\_process\_range$<$ D $>$@{nvtx3::domain\_process\_range$<$ D $>$}!domain\_process\_range@{domain\_process\_range}}
+\index{domain\_process\_range@{domain\_process\_range}!nvtx3::domain\_process\_range$<$ D $>$@{nvtx3::domain\_process\_range$<$ D $>$}}
+\doxysubsubsection{\texorpdfstring{domain\_process\_range()}{domain\_process\_range()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily template$<$typename D  = domain\+::global$>$ \\
+\mbox{\hyperlink{classnvtx3_1_1domain__process__range}{nvtx3\+::domain\+\_\+process\+\_\+range}}$<$ D $>$\+::domain\+\_\+process\+\_\+range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnvtx3_1_1domain__process__range}{domain\+\_\+process\+\_\+range}}$<$ D $>$ const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classnvtx3_1_1domain__process__range_a1a36453e4b690f7f0b73579260d0caf7}\label{classnvtx3_1_1domain__process__range_a1a36453e4b690f7f0b73579260d0caf7} 
+\index{nvtx3::domain\_process\_range$<$ D $>$@{nvtx3::domain\_process\_range$<$ D $>$}!domain\_process\_range@{domain\_process\_range}}
+\index{domain\_process\_range@{domain\_process\_range}!nvtx3::domain\_process\_range$<$ D $>$@{nvtx3::domain\_process\_range$<$ D $>$}}
+\doxysubsubsection{\texorpdfstring{domain\_process\_range()}{domain\_process\_range()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$typename D  = domain\+::global$>$ \\
+\mbox{\hyperlink{classnvtx3_1_1domain__process__range}{nvtx3\+::domain\+\_\+process\+\_\+range}}$<$ D $>$\+::domain\+\_\+process\+\_\+range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnvtx3_1_1domain__process__range}{domain\+\_\+process\+\_\+range}}$<$ D $>$ \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01825}{1825}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classnvtx3_1_1domain__process__range_abbf92b9e7df5782c4f248cc487e48034}\label{classnvtx3_1_1domain__process__range_abbf92b9e7df5782c4f248cc487e48034} 
+\index{nvtx3::domain\_process\_range$<$ D $>$@{nvtx3::domain\_process\_range$<$ D $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!nvtx3::domain\_process\_range$<$ D $>$@{nvtx3::domain\_process\_range$<$ D $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename D  = domain\+::global$>$ \\
+\mbox{\hyperlink{classnvtx3_1_1domain__process__range}{domain\+\_\+process\+\_\+range}} \& \mbox{\hyperlink{classnvtx3_1_1domain__process__range}{nvtx3\+::domain\+\_\+process\+\_\+range}}$<$ D $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnvtx3_1_1domain__process__range}{domain\+\_\+process\+\_\+range}}$<$ D $>$ \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01830}{1830}} 行定义.
+
+\Hypertarget{classnvtx3_1_1domain__process__range_adb4122a5cd773dbe54f0e019f8dc17df}\label{classnvtx3_1_1domain__process__range_adb4122a5cd773dbe54f0e019f8dc17df} 
+\index{nvtx3::domain\_process\_range$<$ D $>$@{nvtx3::domain\_process\_range$<$ D $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!nvtx3::domain\_process\_range$<$ D $>$@{nvtx3::domain\_process\_range$<$ D $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename D  = domain\+::global$>$ \\
+\mbox{\hyperlink{classnvtx3_1_1domain__process__range}{domain\+\_\+process\+\_\+range}} \& \mbox{\hyperlink{classnvtx3_1_1domain__process__range}{nvtx3\+::domain\+\_\+process\+\_\+range}}$<$ D $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnvtx3_1_1domain__process__range}{domain\+\_\+process\+\_\+range}}$<$ D $>$ const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classnvtx3_1_1domain__process__range_a464aa664f8036a23db58e00c2c55047e}\label{classnvtx3_1_1domain__process__range_a464aa664f8036a23db58e00c2c55047e} 
+\index{nvtx3::domain\_process\_range$<$ D $>$@{nvtx3::domain\_process\_range$<$ D $>$}!moved\_from\_@{moved\_from\_}}
+\index{moved\_from\_@{moved\_from\_}!nvtx3::domain\_process\_range$<$ D $>$@{nvtx3::domain\_process\_range$<$ D $>$}}
+\doxysubsubsection{\texorpdfstring{moved\_from\_}{moved\_from\_}}
+{\footnotesize\ttfamily template$<$typename D  = domain\+::global$>$ \\
+bool \mbox{\hyperlink{classnvtx3_1_1domain__process__range}{nvtx3\+::domain\+\_\+process\+\_\+range}}$<$ D $>$\+::moved\+\_\+from\+\_\+ \{false\}\hspace{0.3cm}{\ttfamily [private]}}
+
+Indicates if the object has had it\textquotesingle{}s contents moved from it, indicating it should not attempt to end the NVTX range. 
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01839}{1839}} 行定义.
+
+\Hypertarget{classnvtx3_1_1domain__process__range_ab86fb4e5c83a4178bf20cfdf4a635647}\label{classnvtx3_1_1domain__process__range_ab86fb4e5c83a4178bf20cfdf4a635647} 
+\index{nvtx3::domain\_process\_range$<$ D $>$@{nvtx3::domain\_process\_range$<$ D $>$}!range\_id\_@{range\_id\_}}
+\index{range\_id\_@{range\_id\_}!nvtx3::domain\_process\_range$<$ D $>$@{nvtx3::domain\_process\_range$<$ D $>$}}
+\doxysubsubsection{\texorpdfstring{range\_id\_}{range\_id\_}}
+{\footnotesize\ttfamily template$<$typename D  = domain\+::global$>$ \\
+nvtx\+Range\+Id\+\_\+t \mbox{\hyperlink{classnvtx3_1_1domain__process__range}{nvtx3\+::domain\+\_\+process\+\_\+range}}$<$ D $>$\+::range\+\_\+id\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+Range id used to correlate the start/end of the range 
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01837}{1837}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/detail/nvtx/\mbox{\hyperlink{nvtx3_8hpp}{nvtx3.\+hpp}}\end{DoxyCompactItemize}

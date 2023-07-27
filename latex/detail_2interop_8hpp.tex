@@ -1,0 +1,38 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/detail/interop.hpp 文件参考}
+\hypertarget{detail_2interop_8hpp}{}\label{detail_2interop_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/detail/interop.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/detail/interop.hpp}}
+{\ttfamily \#include $<$arrow/api.\+h$>$}\newline
+{\ttfamily \#include $<$cudf/interop.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/utilities/default\+\_\+stream.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/utilities/error.\+hpp$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$rmm/cuda\+\_\+stream\+\_\+view.\+hpp$>$}\newline
+interop.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{detail_2interop_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1detail}{cudf\+::detail}}
+\begin{DoxyCompactList}\small\item\em Inner interfaces and implementations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a94b63d8998a9b7eb5e1d4ae842f95a66}{cudf\+::detail\+::from\+\_\+dlpack}} (DLManaged\+Tensor const \texorpdfstring{$\ast$}{*}managed\+\_\+tensor, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Convert a DLPack DLTensor into a cudf table   \end{DoxyCompactList}\item 
+DLManaged\+Tensor \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacecudf_1_1detail_a93794af21ad050c5390d6ccd97783c52}{cudf\+::detail\+::to\+\_\+dlpack}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Convert a cudf table into a DLPack DLTensor   \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Ts$>$ }\\std\+::shared\+\_\+ptr$<$ arrow\+::\+Array $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a65b402cf23474cf91d987693ebfdeaa9}{cudf\+::detail\+::to\+\_\+arrow\+\_\+array}} (\mbox{\hyperlink{group__utility__types_gadf077607da617d1dadcc5417e2783539}{cudf\+::type\+\_\+id}} id, Ts \&\&... args)
+\item 
+\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \mbox{\hyperlink{namespacecudf_1_1detail_a1b91b19cf5f6210875f2c8066c263092}{cudf\+::detail\+::arrow\+\_\+to\+\_\+cudf\+\_\+type}} (arrow\+::\+Data\+Type const \&arrow\+\_\+type)
+\item 
+std\+::shared\+\_\+ptr$<$ arrow\+::\+Table $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a69fbe0566c564337747a5ba0c30f7813}{cudf\+::detail\+::to\+\_\+arrow}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} input, std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1column__metadata}{column\+\_\+metadata}} $>$ const \&metadata=\{\}, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}(), arrow\+::\+Memory\+Pool \texorpdfstring{$\ast$}{*}ar\+\_\+mr=arrow\+::default\+\_\+memory\+\_\+pool())
+\begin{DoxyCompactList}\small\item\em Create {\ttfamily arrow\+::\+Table} from cudf table {\ttfamily input}   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_ad2d059bf11972e2337fde993dbd2582b}{cudf\+::detail\+::from\+\_\+arrow}} (arrow\+::\+Table const \&input\+\_\+table, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\end{DoxyCompactItemize}

@@ -1,0 +1,415 @@
+\doxysection{cudf\+::ast\+::detail\+::expression\+\_\+parser类 参考}
+\hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser}{}\label{classcudf_1_1ast_1_1detail_1_1expression__parser}\index{cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}}
+
+
+The \doxylink{classcudf_1_1ast_1_1detail_1_1expression__parser}{expression\+\_\+parser} traverses an expression and converts it into a form suitable for execution on the device.  
+
+
+
+
+{\ttfamily \#include $<$expression\+\_\+parser.\+hpp$>$}
+
+
+
+cudf\+::ast\+::detail\+::expression\+\_\+parser 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcudf_1_1ast_1_1detail_1_1expression__parser__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter}{intermediate\+\_\+counter}}
+\begin{DoxyCompactList}\small\item\em Internal class used to track the utilization of intermediate storage locations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_a83ff0f087ee7a1d5e456420739fb41af}{expression\+\_\+parser}} (\mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} const \&expr, \mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&left, std\+::optional$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const $>$ $>$ right, bool \mbox{\hyperlink{namespacecudf_a0b69e95220c2cc259bbf510506b6fff9}{has\+\_\+nulls}}, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classcudf_1_1ast_1_1detail_1_1expression__parser}{expression\+\_\+parser} object \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_a9248539e616770c27e930c095dd504ec}{expression\+\_\+parser}} (\mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} const \&expr, \mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1table}{table}}, bool \mbox{\hyperlink{namespacecudf_a0b69e95220c2cc259bbf510506b6fff9}{has\+\_\+nulls}}, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classcudf_1_1ast_1_1detail_1_1expression__parser}{expression\+\_\+parser} object \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_aae7549b9cda4db2cb17eb624184a57ab}{output\+\_\+type}} () const
+\begin{DoxyCompactList}\small\item\em Get the root data type of the abstract syntax tree. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_a6611e540994f827a888b832c68bd7a04}{visit}} (\mbox{\hyperlink{classcudf_1_1ast_1_1literal}{literal}} const \&expr)
+\begin{DoxyCompactList}\small\item\em Visit a literal expression. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_ad798c4398ad33df2baa24292413f94cf}{visit}} (\mbox{\hyperlink{classcudf_1_1ast_1_1column__reference}{column\+\_\+reference}} const \&expr)
+\begin{DoxyCompactList}\small\item\em Visit a column reference expression. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_af0d26d9afba29c74802ea8358383c5b7}{visit}} (\mbox{\hyperlink{classcudf_1_1ast_1_1operation}{operation}} const \&expr)
+\begin{DoxyCompactList}\small\item\em Visit an expression expression. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1expression__device__view}{expression\+\_\+device\+\_\+view}} \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_adbbd9d618fa7b37a5a0879ac678932a1}{device\+\_\+expression\+\_\+data}}
+\item 
+int \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_a56657088d39596e62a7d8f1a4c80cb32}{shmem\+\_\+per\+\_\+thread}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_a60eabe13b5bbd50e1344d2752e7ea20a}{extract\+\_\+size\+\_\+and\+\_\+pointer}} (std\+::vector$<$ T $>$ const \&v, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} $>$ \&sizes, std\+::vector$<$ void const \texorpdfstring{$\ast$}{*} $>$ \&data\+\_\+pointers)
+\begin{DoxyCompactList}\small\item\em Helper function for adding components (operators, literals, etc) to AST plan \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_a3c2c06a548220922e1be17b151012525}{move\+\_\+to\+\_\+device}} (rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} $>$ \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_ac70b374948fc2f17d8d9505cf3d63d31}{visit\+\_\+operands}} (std\+::vector$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} const $>$ $>$ operands)
+\begin{DoxyCompactList}\small\item\em Helper function for recursive traversal of expressions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_a539ba60f138222777449540db29495a9}{add\+\_\+data\+\_\+reference}} (\mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1device__data__reference}{detail\+::device\+\_\+data\+\_\+reference}} data\+\_\+ref)
+\begin{DoxyCompactList}\small\item\em Add a data reference to the internal list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+rmm\+::device\+\_\+buffer \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_afd81d769959acf4255d13d702980cfad}{\+\_\+device\+\_\+data\+\_\+buffer}}
+\item 
+\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const  \& \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_a5a1b15737176aa6795853b90b5ca6d91}{\+\_\+left}}
+\item 
+std\+::optional$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const  $>$ $>$ \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_a8ba9e468abb9f416e737b063ece51874}{\+\_\+right}}
+\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_a159f9834d7267cef71f6a2c87530c81e}{\+\_\+expression\+\_\+count}}
+\item 
+\mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter}{intermediate\+\_\+counter}} \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_aec88973f6e6eb3b6000b84ae72f6ae4e}{\+\_\+intermediate\+\_\+counter}}
+\item 
+bool \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_a3033e0e59b38393c9dfb256ddefd2615}{\+\_\+has\+\_\+nulls}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1device__data__reference}{detail\+::device\+\_\+data\+\_\+reference}} $>$ \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_a5145ec594b725bf00df87cbfc99aede0}{\+\_\+data\+\_\+references}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}} $>$ \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_a3ed4f3e7f473aae0ad706036c4aa657b}{\+\_\+operators}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} $>$ \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_af669e5f58597ca84b5649fa05ea856d8}{\+\_\+operator\+\_\+source\+\_\+indices}}
+\item 
+std\+::vector$<$ cudf\+::detail\+::fixed\+\_\+width\+\_\+scalar\+\_\+device\+\_\+view\+\_\+base $>$ \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_ab92d6d000c378338ba72628ba234498d}{\+\_\+literals}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+The \doxylink{classcudf_1_1ast_1_1detail_1_1expression__parser}{expression\+\_\+parser} traverses an expression and converts it into a form suitable for execution on the device. 
+
+This class is part of a \"{}visitor\"{} pattern with the {\ttfamily expression} class.
+
+This class does pre-\/processing work on the host, validating operators and operand data types. It traverses downward from a root expression in a depth-\/first fashion, capturing information about the expressions and constructing vectors of information that are later used by the device for evaluating the abstract syntax tree as a \"{}linear\"{} list of operators whose input dependencies are resolved into intermediate data storage in shared memory. 
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00125}{125}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_a83ff0f087ee7a1d5e456420739fb41af}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_a83ff0f087ee7a1d5e456420739fb41af} 
+\index{cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}!expression\_parser@{expression\_parser}}
+\index{expression\_parser@{expression\_parser}!cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}}
+\doxysubsubsection{\texorpdfstring{expression\_parser()}{expression\_parser()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily cudf\+::ast\+::detail\+::expression\+\_\+parser\+::expression\+\_\+parser (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} const \&}]{expr,  }\item[{\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&}]{left,  }\item[{std\+::optional$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const $>$ $>$}]{right,  }\item[{bool}]{has\+\_\+nulls,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \doxylink{classcudf_1_1ast_1_1detail_1_1expression__parser}{expression\+\_\+parser} object 
+
+
+\begin{DoxyParams}{参数}
+{\em expr} & The expression to create an evaluable \doxylink{classcudf_1_1ast_1_1detail_1_1expression__parser}{expression\+\_\+parser} for. \\
+\hline
+{\em left} & The left table used for evaluating the abstract syntax tree. \\
+\hline
+{\em right} & The right table used for evaluating the abstract syntax tree. \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00134}{134}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_a9248539e616770c27e930c095dd504ec}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_a9248539e616770c27e930c095dd504ec} 
+\index{cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}!expression\_parser@{expression\_parser}}
+\index{expression\_parser@{expression\_parser}!cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}}
+\doxysubsubsection{\texorpdfstring{expression\_parser()}{expression\_parser()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily cudf\+::ast\+::detail\+::expression\+\_\+parser\+::expression\+\_\+parser (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} const \&}]{expr,  }\item[{\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&}]{table,  }\item[{bool}]{has\+\_\+nulls,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \doxylink{classcudf_1_1ast_1_1detail_1_1expression__parser}{expression\+\_\+parser} object 
+
+
+\begin{DoxyParams}{参数}
+{\em expr} & The expression to create an evaluable \doxylink{classcudf_1_1ast_1_1detail_1_1expression__parser}{expression\+\_\+parser} for. \\
+\hline
+{\em table} & The table used for evaluating the abstract syntax tree. \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00156}{156}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_a539ba60f138222777449540db29495a9}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_a539ba60f138222777449540db29495a9} 
+\index{cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}!add\_data\_reference@{add\_data\_reference}}
+\index{add\_data\_reference@{add\_data\_reference}!cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}}
+\doxysubsubsection{\texorpdfstring{add\_data\_reference()}{add\_data\_reference()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::ast\+::detail\+::expression\+\_\+parser\+::add\+\_\+data\+\_\+reference (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1device__data__reference}{detail\+::device\+\_\+data\+\_\+reference}}}]{data\+\_\+ref }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Add a data reference to the internal list. 
+
+
+\begin{DoxyParams}{参数}
+{\em data\+\_\+ref} & The data reference to add.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The index of the added data reference in the internal data references list. 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_a60eabe13b5bbd50e1344d2752e7ea20a}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_a60eabe13b5bbd50e1344d2752e7ea20a} 
+\index{cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}!extract\_size\_and\_pointer@{extract\_size\_and\_pointer}}
+\index{extract\_size\_and\_pointer@{extract\_size\_and\_pointer}!cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}}
+\doxysubsubsection{\texorpdfstring{extract\_size\_and\_pointer()}{extract\_size\_and\_pointer()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void cudf\+::ast\+::detail\+::expression\+\_\+parser\+::extract\+\_\+size\+\_\+and\+\_\+pointer (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$ const \&}]{v,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} $>$ \&}]{sizes,  }\item[{std\+::vector$<$ void const \texorpdfstring{$\ast$}{*} $>$ \&}]{data\+\_\+pointers }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Helper function for adding components (operators, literals, etc) to AST plan 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & The underlying type of the input {\ttfamily std\+::vector} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em v} & The {\ttfamily std\+::vector} containing components (operators, literals, etc). \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em sizes} & The {\ttfamily std\+::vector} containing the size of each data buffer. \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em data\+\_\+pointers} & The {\ttfamily std\+::vector} containing pointers to each data buffer. \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00245}{245}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_a3c2c06a548220922e1be17b151012525}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_a3c2c06a548220922e1be17b151012525} 
+\index{cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}!move\_to\_device@{move\_to\_device}}
+\index{move\_to\_device@{move\_to\_device}!cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}}
+\doxysubsubsection{\texorpdfstring{move\_to\_device()}{move\_to\_device()}}
+{\footnotesize\ttfamily void cudf\+::ast\+::detail\+::expression\+\_\+parser\+::move\+\_\+to\+\_\+device (\begin{DoxyParamCaption}\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00254}{254}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_aae7549b9cda4db2cb17eb624184a57ab}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_aae7549b9cda4db2cb17eb624184a57ab} 
+\index{cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}!output\_type@{output\_type}}
+\index{output\_type@{output\_type}!cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}}
+\doxysubsubsection{\texorpdfstring{output\_type()}{output\_type()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} cudf\+::ast\+::detail\+::expression\+\_\+parser\+::output\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the root data type of the abstract syntax tree. 
+
+\begin{DoxyReturn}{返回}
+\doxylink{classcudf_1_1data__type}{cudf\+::data\+\_\+type} 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_ad798c4398ad33df2baa24292413f94cf}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_ad798c4398ad33df2baa24292413f94cf} 
+\index{cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}!visit@{visit}}
+\index{visit@{visit}!cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}}
+\doxysubsubsection{\texorpdfstring{visit()}{visit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::ast\+::detail\+::expression\+\_\+parser\+::visit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1ast_1_1column__reference}{column\+\_\+reference}} const \&}]{expr }\end{DoxyParamCaption})}
+
+
+
+Visit a column reference expression. 
+
+
+\begin{DoxyParams}{参数}
+{\em expr} & Column reference expression. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+\doxylink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type} Index of device data reference for the expression. 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_a6611e540994f827a888b832c68bd7a04}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_a6611e540994f827a888b832c68bd7a04} 
+\index{cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}!visit@{visit}}
+\index{visit@{visit}!cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}}
+\doxysubsubsection{\texorpdfstring{visit()}{visit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::ast\+::detail\+::expression\+\_\+parser\+::visit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1ast_1_1literal}{literal}} const \&}]{expr }\end{DoxyParamCaption})}
+
+
+
+Visit a literal expression. 
+
+
+\begin{DoxyParams}{参数}
+{\em expr} & Literal expression. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+\doxylink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type} Index of device data reference for the expression. 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_af0d26d9afba29c74802ea8358383c5b7}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_af0d26d9afba29c74802ea8358383c5b7} 
+\index{cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}!visit@{visit}}
+\index{visit@{visit}!cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}}
+\doxysubsubsection{\texorpdfstring{visit()}{visit()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::ast\+::detail\+::expression\+\_\+parser\+::visit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1ast_1_1operation}{operation}} const \&}]{expr }\end{DoxyParamCaption})}
+
+
+
+Visit an expression expression. 
+
+
+\begin{DoxyParams}{参数}
+{\em expr} & Expression expression. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+\doxylink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type} Index of device data reference for the expression. 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_ac70b374948fc2f17d8d9505cf3d63d31}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_ac70b374948fc2f17d8d9505cf3d63d31} 
+\index{cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}!visit\_operands@{visit\_operands}}
+\index{visit\_operands@{visit\_operands}!cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}}
+\doxysubsubsection{\texorpdfstring{visit\_operands()}{visit\_operands()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} $>$ cudf\+::ast\+::detail\+::expression\+\_\+parser\+::visit\+\_\+operands (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} const $>$ $>$}]{operands }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Helper function for recursive traversal of expressions. 
+
+When parsing an expression composed of subexpressions, all subexpressions must be evaluated before an operator can be applied to them. This method performs that recursive traversal (in conjunction with the {\ttfamily \doxylink{classcudf_1_1ast_1_1detail_1_1expression__parser_a6611e540994f827a888b832c68bd7a04}{expression\+\_\+parser.\+visit}} and {\ttfamily \doxylink{structcudf_1_1ast_1_1expression_a7f49bf2645bf703e48b2218944aca8ef}{expression.\+accept}} methods if necessary to descend deeper into an expression tree).
+
+
+\begin{DoxyParams}{参数}
+{\em operands} & The operands to visit.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The indices of the operands stored in the data references. 
+\end{DoxyReturn}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_a5145ec594b725bf00df87cbfc99aede0}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_a5145ec594b725bf00df87cbfc99aede0} 
+\index{cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}!\_data\_references@{\_data\_references}}
+\index{\_data\_references@{\_data\_references}!cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}}
+\doxysubsubsection{\texorpdfstring{\_data\_references}{\_data\_references}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1device__data__reference}{detail\+::device\+\_\+data\+\_\+reference}}$>$ cudf\+::ast\+::detail\+::expression\+\_\+parser\+::\+\_\+data\+\_\+references\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00335}{335}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_afd81d769959acf4255d13d702980cfad}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_afd81d769959acf4255d13d702980cfad} 
+\index{cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}!\_device\_data\_buffer@{\_device\_data\_buffer}}
+\index{\_device\_data\_buffer@{\_device\_data\_buffer}!cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}}
+\doxysubsubsection{\texorpdfstring{\_device\_data\_buffer}{\_device\_data\_buffer}}
+{\footnotesize\ttfamily rmm\+::device\+\_\+buffer cudf\+::ast\+::detail\+::expression\+\_\+parser\+::\+\_\+device\+\_\+data\+\_\+buffer\hspace{0.3cm}{\ttfamily [private]}}
+
+The device-\/side data buffer containing the plan information, which is owned by this class and persists until it is destroyed. 
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00327}{327}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_a159f9834d7267cef71f6a2c87530c81e}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_a159f9834d7267cef71f6a2c87530c81e} 
+\index{cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}!\_expression\_count@{\_expression\_count}}
+\index{\_expression\_count@{\_expression\_count}!cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}}
+\doxysubsubsection{\texorpdfstring{\_expression\_count}{\_expression\_count}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::ast\+::detail\+::expression\+\_\+parser\+::\+\_\+expression\+\_\+count\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00332}{332}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_a3033e0e59b38393c9dfb256ddefd2615}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_a3033e0e59b38393c9dfb256ddefd2615} 
+\index{cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}!\_has\_nulls@{\_has\_nulls}}
+\index{\_has\_nulls@{\_has\_nulls}!cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}}
+\doxysubsubsection{\texorpdfstring{\_has\_nulls}{\_has\_nulls}}
+{\footnotesize\ttfamily bool cudf\+::ast\+::detail\+::expression\+\_\+parser\+::\+\_\+has\+\_\+nulls\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00334}{334}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_aec88973f6e6eb3b6000b84ae72f6ae4e}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_aec88973f6e6eb3b6000b84ae72f6ae4e} 
+\index{cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}!\_intermediate\_counter@{\_intermediate\_counter}}
+\index{\_intermediate\_counter@{\_intermediate\_counter}!cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}}
+\doxysubsubsection{\texorpdfstring{\_intermediate\_counter}{\_intermediate\_counter}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter}{intermediate\+\_\+counter}} cudf\+::ast\+::detail\+::expression\+\_\+parser\+::\+\_\+intermediate\+\_\+counter\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00333}{333}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_a5a1b15737176aa6795853b90b5ca6d91}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_a5a1b15737176aa6795853b90b5ca6d91} 
+\index{cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}!\_left@{\_left}}
+\index{\_left@{\_left}!cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}}
+\doxysubsubsection{\texorpdfstring{\_left}{\_left}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const\& cudf\+::ast\+::detail\+::expression\+\_\+parser\+::\+\_\+left\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00330}{330}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_ab92d6d000c378338ba72628ba234498d}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_ab92d6d000c378338ba72628ba234498d} 
+\index{cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}!\_literals@{\_literals}}
+\index{\_literals@{\_literals}!cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}}
+\doxysubsubsection{\texorpdfstring{\_literals}{\_literals}}
+{\footnotesize\ttfamily std\+::vector$<$cudf\+::detail\+::fixed\+\_\+width\+\_\+scalar\+\_\+device\+\_\+view\+\_\+base$>$ cudf\+::ast\+::detail\+::expression\+\_\+parser\+::\+\_\+literals\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00338}{338}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_af669e5f58597ca84b5649fa05ea856d8}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_af669e5f58597ca84b5649fa05ea856d8} 
+\index{cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}!\_operator\_source\_indices@{\_operator\_source\_indices}}
+\index{\_operator\_source\_indices@{\_operator\_source\_indices}!cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}}
+\doxysubsubsection{\texorpdfstring{\_operator\_source\_indices}{\_operator\_source\_indices}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}}$>$ cudf\+::ast\+::detail\+::expression\+\_\+parser\+::\+\_\+operator\+\_\+source\+\_\+indices\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00337}{337}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_a3ed4f3e7f473aae0ad706036c4aa657b}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_a3ed4f3e7f473aae0ad706036c4aa657b} 
+\index{cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}!\_operators@{\_operators}}
+\index{\_operators@{\_operators}!cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}}
+\doxysubsubsection{\texorpdfstring{\_operators}{\_operators}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}}$>$ cudf\+::ast\+::detail\+::expression\+\_\+parser\+::\+\_\+operators\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00336}{336}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_a8ba9e468abb9f416e737b063ece51874}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_a8ba9e468abb9f416e737b063ece51874} 
+\index{cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}!\_right@{\_right}}
+\index{\_right@{\_right}!cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}}
+\doxysubsubsection{\texorpdfstring{\_right}{\_right}}
+{\footnotesize\ttfamily std\+::optional$<$std\+::reference\+\_\+wrapper$<$\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const$>$ $>$ cudf\+::ast\+::detail\+::expression\+\_\+parser\+::\+\_\+right\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00331}{331}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_adbbd9d618fa7b37a5a0879ac678932a1}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_adbbd9d618fa7b37a5a0879ac678932a1} 
+\index{cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}!device\_expression\_data@{device\_expression\_data}}
+\index{device\_expression\_data@{device\_expression\_data}!cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}}
+\doxysubsubsection{\texorpdfstring{device\_expression\_data}{device\_expression\_data}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1expression__device__view}{expression\+\_\+device\+\_\+view}} cudf\+::ast\+::detail\+::expression\+\_\+parser\+::device\+\_\+expression\+\_\+data}
+
+The collection of data required to evaluate the expression on the device. 
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00231}{231}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_a56657088d39596e62a7d8f1a4c80cb32}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_a56657088d39596e62a7d8f1a4c80cb32} 
+\index{cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}!shmem\_per\_thread@{shmem\_per\_thread}}
+\index{shmem\_per\_thread@{shmem\_per\_thread}!cudf::ast::detail::expression\_parser@{cudf::ast::detail::expression\_parser}}
+\doxysubsubsection{\texorpdfstring{shmem\_per\_thread}{shmem\_per\_thread}}
+{\footnotesize\ttfamily int cudf\+::ast\+::detail\+::expression\+\_\+parser\+::shmem\+\_\+per\+\_\+thread}
+
+
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00233}{233}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/ast/detail/\mbox{\hyperlink{expression__parser_8hpp}{expression\+\_\+parser.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,93 @@
+\doxysection{cudf\+::io\+::text\+::data\+\_\+chunk\+\_\+reader类 参考}
+\hypertarget{classcudf_1_1io_1_1text_1_1data__chunk__reader}{}\label{classcudf_1_1io_1_1text_1_1data__chunk__reader}\index{cudf::io::text::data\_chunk\_reader@{cudf::io::text::data\_chunk\_reader}}
+
+
+a reader capable of producing views over device memory.  
+
+
+
+
+{\ttfamily \#include $<$data\+\_\+chunk\+\_\+source.\+hpp$>$}
+
+
+
+cudf\+::io\+::text\+::data\+\_\+chunk\+\_\+reader 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{classcudf_1_1io_1_1text_1_1data__chunk__reader__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__reader_ab1a9da0014ed09070ffcfcb1c326c0c7}{\texorpdfstring{$\sim$}{\string~}data\+\_\+chunk\+\_\+reader}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__reader_aabb5797050e785f37b8cf2a906f37dca}{skip\+\_\+bytes}} (std\+::size\+\_\+t size)=0
+\begin{DoxyCompactList}\small\item\em Skips the specified number of bytes in the data source. \end{DoxyCompactList}\item 
+virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1device__data__chunk}{device\+\_\+data\+\_\+chunk}} $>$ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__reader_adc05cc58e9ed48d5060abb4d4dda67c8}{get\+\_\+next\+\_\+chunk}} (std\+::size\+\_\+t size, rmm\+::cuda\+\_\+stream\+\_\+view stream)=0
+\begin{DoxyCompactList}\small\item\em Get the next chunk of bytes from the data source \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+a reader capable of producing views over device memory. 
+
+The data chunk reader API encapsulates the idea of statefully traversing and loading a data source. A data source may be a file, a region of device memory, or a region of host memory. Reading data from these data sources efficiently requires different strategies depending on the type of data source, type of compression, capabilities of the host and device, the data\textquotesingle{}s destination. Whole-\/file decompression should be hidden behind this interface. 
+
+在文件 \mbox{\hyperlink{data__chunk__source_8hpp_source}{data\+\_\+chunk\+\_\+source.\+hpp}} 第 \mbox{\hyperlink{data__chunk__source_8hpp_source_l00069}{69}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1io_1_1text_1_1data__chunk__reader_ab1a9da0014ed09070ffcfcb1c326c0c7}\label{classcudf_1_1io_1_1text_1_1data__chunk__reader_ab1a9da0014ed09070ffcfcb1c326c0c7} 
+\index{cudf::io::text::data\_chunk\_reader@{cudf::io::text::data\_chunk\_reader}!````~data\_chunk\_reader@{\texorpdfstring{$\sim$}{\string~}data\_chunk\_reader}}
+\index{````~data\_chunk\_reader@{\texorpdfstring{$\sim$}{\string~}data\_chunk\_reader}!cudf::io::text::data\_chunk\_reader@{cudf::io::text::data\_chunk\_reader}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}data\_chunk\_reader()}{\string~data\_chunk\_reader()}}
+{\footnotesize\ttfamily virtual cudf\+::io\+::text\+::data\+\_\+chunk\+\_\+reader\+::\texorpdfstring{$\sim$}{\string~}data\+\_\+chunk\+\_\+reader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1io_1_1text_1_1data__chunk__reader_adc05cc58e9ed48d5060abb4d4dda67c8}\label{classcudf_1_1io_1_1text_1_1data__chunk__reader_adc05cc58e9ed48d5060abb4d4dda67c8} 
+\index{cudf::io::text::data\_chunk\_reader@{cudf::io::text::data\_chunk\_reader}!get\_next\_chunk@{get\_next\_chunk}}
+\index{get\_next\_chunk@{get\_next\_chunk}!cudf::io::text::data\_chunk\_reader@{cudf::io::text::data\_chunk\_reader}}
+\doxysubsubsection{\texorpdfstring{get\_next\_chunk()}{get\_next\_chunk()}}
+{\footnotesize\ttfamily virtual std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1device__data__chunk}{device\+\_\+data\+\_\+chunk}} $>$ cudf\+::io\+::text\+::data\+\_\+chunk\+\_\+reader\+::get\+\_\+next\+\_\+chunk (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{size,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the next chunk of bytes from the data source 
+
+Performs any necessary work to read and prepare the underlying data source for consumption as a view over device memory. Common implementations may read from a file, copy data from host memory, allocate temporary memory, perform iterative decompression, or even launch device kernels.
+
+
+\begin{DoxyParams}{参数}
+{\em size} & number of bytes to read \\
+\hline
+{\em stream} & stream to associate allocations or perform work required to obtain chunk \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+a chunk of data up to {\ttfamily size} bytes. May return less than {\ttfamily size} bytes if reader reaches end of underlying data source. Returned data must be accessed in stream order relative to the specified {\ttfamily stream} 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1io_1_1text_1_1data__chunk__reader_aabb5797050e785f37b8cf2a906f37dca}\label{classcudf_1_1io_1_1text_1_1data__chunk__reader_aabb5797050e785f37b8cf2a906f37dca} 
+\index{cudf::io::text::data\_chunk\_reader@{cudf::io::text::data\_chunk\_reader}!skip\_bytes@{skip\_bytes}}
+\index{skip\_bytes@{skip\_bytes}!cudf::io::text::data\_chunk\_reader@{cudf::io::text::data\_chunk\_reader}}
+\doxysubsubsection{\texorpdfstring{skip\_bytes()}{skip\_bytes()}}
+{\footnotesize\ttfamily virtual void cudf\+::io\+::text\+::data\+\_\+chunk\+\_\+reader\+::skip\+\_\+bytes (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Skips the specified number of bytes in the data source. 
+
+
+\begin{DoxyParams}{参数}
+{\em size} & The number of bytes to skip \\
+\hline
+\end{DoxyParams}
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/text/\mbox{\hyperlink{data__chunk__source_8hpp}{data\+\_\+chunk\+\_\+source.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,38 @@
+\doxysection{cudf\+::groupby\+::detail\+::hash 命名空间参考}
+\hypertarget{namespacecudf_1_1groupby_1_1detail_1_1hash}{}\label{namespacecudf_1_1groupby_1_1detail_1_1hash}\index{cudf::groupby::detail::hash@{cudf::groupby::detail::hash}}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacecudf_1_1groupby_1_1detail_1_1hash_a54f0c844d457f86bb256407dba742481}{can\+\_\+use\+\_\+hash\+\_\+groupby}} (\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1aggregation__request}{aggregation\+\_\+request}} const $>$ requests)
+\begin{DoxyCompactList}\small\item\em Indicates if a set of aggregation requests can be satisfied with a hash-\/based groupby implementation. \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$, std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1aggregation__result}{aggregation\+\_\+result}} $>$ $>$ \mbox{\hyperlink{namespacecudf_1_1groupby_1_1detail_1_1hash_ad22389c0cff6ea94162c9393032fef5a}{groupby}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&keys, \mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1aggregation__request}{aggregation\+\_\+request}} const $>$ requests, \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} include\+\_\+null\+\_\+keys, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{namespacecudf_1_1groupby_1_1detail_1_1hash_a54f0c844d457f86bb256407dba742481}\label{namespacecudf_1_1groupby_1_1detail_1_1hash_a54f0c844d457f86bb256407dba742481} 
+\index{cudf::groupby::detail::hash@{cudf::groupby::detail::hash}!can\_use\_hash\_groupby@{can\_use\_hash\_groupby}}
+\index{can\_use\_hash\_groupby@{can\_use\_hash\_groupby}!cudf::groupby::detail::hash@{cudf::groupby::detail::hash}}
+\doxysubsubsection{\texorpdfstring{can\_use\_hash\_groupby()}{can\_use\_hash\_groupby()}}
+{\footnotesize\ttfamily bool cudf\+::groupby\+::detail\+::hash\+::can\+\_\+use\+\_\+hash\+\_\+groupby (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1aggregation__request}{aggregation\+\_\+request}} const $>$}]{requests }\end{DoxyParamCaption})}
+
+
+
+Indicates if a set of aggregation requests can be satisfied with a hash-\/based groupby implementation. 
+
+
+\begin{DoxyParams}{参数}
+{\em requests} & The set of columns to aggregate and the aggregations to perform \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true A hash-\/based groupby can be used 
+
+false A hash-\/based groupby cannot be used 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1groupby_1_1detail_1_1hash_ad22389c0cff6ea94162c9393032fef5a}\label{namespacecudf_1_1groupby_1_1detail_1_1hash_ad22389c0cff6ea94162c9393032fef5a} 
+\index{cudf::groupby::detail::hash@{cudf::groupby::detail::hash}!groupby@{groupby}}
+\index{groupby@{groupby}!cudf::groupby::detail::hash@{cudf::groupby::detail::hash}}
+\doxysubsubsection{\texorpdfstring{groupby()}{groupby()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$, std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1aggregation__result}{aggregation\+\_\+result}} $>$ $>$ cudf\+::groupby\+::detail\+::hash\+::groupby (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{keys,  }\item[{\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1aggregation__request}{aggregation\+\_\+request}} const $>$}]{requests,  }\item[{\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}}}]{include\+\_\+null\+\_\+keys,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+

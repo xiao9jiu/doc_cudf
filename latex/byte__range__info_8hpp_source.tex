@@ -1,0 +1,64 @@
+\doxysection{byte\+\_\+range\+\_\+info.\+hpp}
+\hypertarget{byte__range__info_8hpp_source}{}\label{byte__range__info_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/io/text/byte\_range\_info.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/io/text/byte\_range\_info.hpp}}
+\mbox{\hyperlink{byte__range__info_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{error_8hpp}{cudf/utilities/error.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00024}00024\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00025}00025\ \textcolor{keyword}{namespace\ }io\ \{}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00026}\mbox{\hyperlink{namespacecudf_1_1io_1_1text}{00026}}\ \textcolor{keyword}{namespace\ }text\ \{}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00031}\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info}{00031}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info}{byte\_range\_info}}\ \{}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00032}00032\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00033}\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_aee640097096ea678fe4c7621e8e5cfb2}{00033}}\ \ \ int64\_t\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_aee640097096ea678fe4c7621e8e5cfb2}{\_offset}};\ \ }
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00034}\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_a20c61e9c94ee03807af58ddb5503ad8d}{00034}}\ \ \ int64\_t\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_a20c61e9c94ee03807af58ddb5503ad8d}{\_size}};\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00036}00036\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00037}\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_a3352051cfab1272cb9d7a85e5f96f997}{00037}}\ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_a3352051cfab1272cb9d7a85e5f96f997}{byte\_range\_info}}()\ noexcept\ :\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_aee640097096ea678fe4c7621e8e5cfb2}{\_offset}}(0),\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_a20c61e9c94ee03807af58ddb5503ad8d}{\_size}}(0)\ \{\}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00044}\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_aa2698cbc1aa44fb2fd4105564b4c11b5}{00044}}\ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_aa2698cbc1aa44fb2fd4105564b4c11b5}{byte\_range\_info}}(int64\_t\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_ad6e2d9f8f360971f9604a2393e7442f6}{offset}},\ int64\_t\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_a62665cfda3ed71564969b563053c6e71}{size}})\ :\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_aee640097096ea678fe4c7621e8e5cfb2}{\_offset}}(\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_ad6e2d9f8f360971f9604a2393e7442f6}{offset}}),\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_a20c61e9c94ee03807af58ddb5503ad8d}{\_size}}(\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_a62665cfda3ed71564969b563053c6e71}{size}})}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00045}00045\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00046}00046\ \ \ \ \ \mbox{\hyperlink{group__utility__error_ga855a389cbf4b44cfd6891cd2f90edf34}{CUDF\_EXPECTS}}(\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_ad6e2d9f8f360971f9604a2393e7442f6}{offset}}\ >=\ 0,\ \textcolor{stringliteral}{"{}offset\ must\ be\ non-\/negative"{}});}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00047}00047\ \ \ \ \ \mbox{\hyperlink{group__utility__error_ga855a389cbf4b44cfd6891cd2f90edf34}{CUDF\_EXPECTS}}(\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_a62665cfda3ed71564969b563053c6e71}{size}}\ >=\ 0,\ \textcolor{stringliteral}{"{}size\ must\ be\ non-\/negative"{}});}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00048}00048\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00055}\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_a1d34f4f75048f1b82efc6d6fae97e7f2}{00055}}\ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_a1d34f4f75048f1b82efc6d6fae97e7f2}{byte\_range\_info}}(\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info}{byte\_range\_info}}\ \textcolor{keyword}{const}\&\ other)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00062}\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_ab402036f740255edbe2193efd39b0536}{00062}}\ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info}{byte\_range\_info}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_ab402036f740255edbe2193efd39b0536}{operator=}}(\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info}{byte\_range\_info}}\ \textcolor{keyword}{const}\&\ other)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00069}\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_ad6e2d9f8f360971f9604a2393e7442f6}{00069}}\ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ int64\_t\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_ad6e2d9f8f360971f9604a2393e7442f6}{offset}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_aee640097096ea678fe4c7621e8e5cfb2}{\_offset}};\ \}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00076}\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_a62665cfda3ed71564969b563053c6e71}{00076}}\ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ int64\_t\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_a62665cfda3ed71564969b563053c6e71}{size}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_a20c61e9c94ee03807af58ddb5503ad8d}{\_size}};\ \}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00083}\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_af4ff25c43eb0249872e08d0c98aa2b82}{00083}}\ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_af4ff25c43eb0249872e08d0c98aa2b82}{empty}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info_a62665cfda3ed71564969b563053c6e71}{size}}()\ ==\ 0;\ \}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00084}00084\ \};}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00096}\mbox{\hyperlink{namespacecudf_1_1io_1_1text_a61eadbadb306fc95d06dd5a6523795f3}{00096}}\ std::vector<byte\_range\_info>\ \mbox{\hyperlink{namespacecudf_1_1io_1_1text_a61eadbadb306fc95d06dd5a6523795f3}{create\_byte\_range\_infos\_consecutive}}(int64\_t\ total\_bytes,}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ int64\_t\ range\_count);}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00105}\mbox{\hyperlink{namespacecudf_1_1io_1_1text_a534362ac41ba4f410486d91262d114d5}{00105}}\ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info}{byte\_range\_info}}\ \mbox{\hyperlink{namespacecudf_1_1io_1_1text_a534362ac41ba4f410486d91262d114d5}{create\_byte\_range\_info\_max}}();}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00107}00107\ \}\ \ \textcolor{comment}{//\ namespace\ text}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00108}00108\ \}\ \ \textcolor{comment}{//\ namespace\ io}}
+\DoxyCodeLine{\Hypertarget{byte__range__info_8hpp_source_l00109}00109\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

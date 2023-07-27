@@ -1,0 +1,136 @@
+\doxysection{cudf\+::io\+::text\+::detail\+::trie\+\_\+device\+\_\+view结构体 参考}
+\hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view}{}\label{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view}\index{cudf::io::text::detail::trie\_device\_view@{cudf::io::text::detail::trie\_device\_view}}
+
+
+{\ttfamily \#include $<$trie.\+hpp$>$}
+
+
+
+cudf\+::io\+::text\+::detail\+::trie\+\_\+device\+\_\+view 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+constexpr \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate}{multistate}} \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a4eaba773750b0572780c49f73ca6dbab}{transition\+\_\+init}} (char c)
+\begin{DoxyCompactList}\small\item\em create a multistate which contains all partial path matches for the given token. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate}{multistate}} \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a2f765d6156091ef0c1c708f2c5a6761b}{transition}} (char c, \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate}{multistate}} const \&states)
+\begin{DoxyCompactList}\small\item\em create a new multistate by transitioning all states in the multistate by the given token \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_abdee05875969a0d23482dc30fd9e60d8}{is\+\_\+match}} (uint16\+\_\+t idx)
+\begin{DoxyCompactList}\small\item\em returns true if the given index is associated with a matching state. \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_adbca1f3b8833ba548186fe397e7af5e6}{get\+\_\+match\+\_\+length}} (uint16\+\_\+t idx)
+\begin{DoxyCompactList}\small\item\em returns the match length if the given index is associated with a matching state, otherwise zero. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__node}{trie\+\_\+node}} const  $>$ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a62ff7ea9515b285ab02a7b03545737f6}{\+\_\+nodes}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+constexpr void \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a8d634c29c9ac3352f9ef5877ffe62f52}{transition\+\_\+enqueue\+\_\+all}} (char c, \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate}{multistate}} \&states, uint8\+\_\+t head, uint8\+\_\+t curr)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+在文件 \mbox{\hyperlink{trie_8hpp_source}{trie.\+hpp}} 第 \mbox{\hyperlink{trie_8hpp_source_l00043}{43}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_adbca1f3b8833ba548186fe397e7af5e6}\label{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_adbca1f3b8833ba548186fe397e7af5e6} 
+\index{cudf::io::text::detail::trie\_device\_view@{cudf::io::text::detail::trie\_device\_view}!get\_match\_length@{get\_match\_length}}
+\index{get\_match\_length@{get\_match\_length}!cudf::io::text::detail::trie\_device\_view@{cudf::io::text::detail::trie\_device\_view}}
+\doxysubsubsection{\texorpdfstring{get\_match\_length()}{get\_match\_length()}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t cudf\+::io\+::text\+::detail\+::trie\+\_\+device\+\_\+view\+::get\+\_\+match\+\_\+length (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{idx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+returns the match length if the given index is associated with a matching state, otherwise zero. 
+
+
+
+在文件 \mbox{\hyperlink{trie_8hpp_source}{trie.\+hpp}} 第 \mbox{\hyperlink{trie_8hpp_source_l00090}{90}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_abdee05875969a0d23482dc30fd9e60d8}\label{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_abdee05875969a0d23482dc30fd9e60d8} 
+\index{cudf::io::text::detail::trie\_device\_view@{cudf::io::text::detail::trie\_device\_view}!is\_match@{is\_match}}
+\index{is\_match@{is\_match}!cudf::io::text::detail::trie\_device\_view@{cudf::io::text::detail::trie\_device\_view}}
+\doxysubsubsection{\texorpdfstring{is\_match()}{is\_match()}}
+{\footnotesize\ttfamily constexpr bool cudf\+::io\+::text\+::detail\+::trie\+\_\+device\+\_\+view\+::is\+\_\+match (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{idx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+returns true if the given index is associated with a matching state. 
+
+
+
+在文件 \mbox{\hyperlink{trie_8hpp_source}{trie.\+hpp}} 第 \mbox{\hyperlink{trie_8hpp_source_l00084}{84}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a2f765d6156091ef0c1c708f2c5a6761b}\label{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a2f765d6156091ef0c1c708f2c5a6761b} 
+\index{cudf::io::text::detail::trie\_device\_view@{cudf::io::text::detail::trie\_device\_view}!transition@{transition}}
+\index{transition@{transition}!cudf::io::text::detail::trie\_device\_view@{cudf::io::text::detail::trie\_device\_view}}
+\doxysubsubsection{\texorpdfstring{transition()}{transition()}}
+{\footnotesize\ttfamily constexpr \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate}{multistate}} cudf\+::io\+::text\+::detail\+::trie\+\_\+device\+\_\+view\+::transition (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate}{multistate}} const \&}]{states }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+create a new multistate by transitioning all states in the multistate by the given token 
+
+Eliminates any partial matches that cannot transition using the given token.
+
+\begin{DoxyNote}{注解}
+always enqueues (0, 0\mbox{]} as the first state of the returned multistate. 
+\end{DoxyNote}
+
+
+在文件 \mbox{\hyperlink{trie_8hpp_source}{trie.\+hpp}} 第 \mbox{\hyperlink{trie_8hpp_source_l00068}{68}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a8d634c29c9ac3352f9ef5877ffe62f52}\label{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a8d634c29c9ac3352f9ef5877ffe62f52} 
+\index{cudf::io::text::detail::trie\_device\_view@{cudf::io::text::detail::trie\_device\_view}!transition\_enqueue\_all@{transition\_enqueue\_all}}
+\index{transition\_enqueue\_all@{transition\_enqueue\_all}!cudf::io::text::detail::trie\_device\_view@{cudf::io::text::detail::trie\_device\_view}}
+\doxysubsubsection{\texorpdfstring{transition\_enqueue\_all()}{transition\_enqueue\_all()}}
+{\footnotesize\ttfamily constexpr void cudf\+::io\+::text\+::detail\+::trie\+\_\+device\+\_\+view\+::transition\+\_\+enqueue\+\_\+all (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate}{multistate}} \&}]{states,  }\item[{uint8\+\_\+t}]{head,  }\item[{uint8\+\_\+t}]{curr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{trie_8hpp_source}{trie.\+hpp}} 第 \mbox{\hyperlink{trie_8hpp_source_l00093}{93}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a4eaba773750b0572780c49f73ca6dbab}\label{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a4eaba773750b0572780c49f73ca6dbab} 
+\index{cudf::io::text::detail::trie\_device\_view@{cudf::io::text::detail::trie\_device\_view}!transition\_init@{transition\_init}}
+\index{transition\_init@{transition\_init}!cudf::io::text::detail::trie\_device\_view@{cudf::io::text::detail::trie\_device\_view}}
+\doxysubsubsection{\texorpdfstring{transition\_init()}{transition\_init()}}
+{\footnotesize\ttfamily constexpr \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate}{multistate}} cudf\+::io\+::text\+::detail\+::trie\+\_\+device\+\_\+view\+::transition\+\_\+init (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+create a multistate which contains all partial path matches for the given token. 
+
+
+
+在文件 \mbox{\hyperlink{trie_8hpp_source}{trie.\+hpp}} 第 \mbox{\hyperlink{trie_8hpp_source_l00049}{49}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a62ff7ea9515b285ab02a7b03545737f6}\label{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view_a62ff7ea9515b285ab02a7b03545737f6} 
+\index{cudf::io::text::detail::trie\_device\_view@{cudf::io::text::detail::trie\_device\_view}!\_nodes@{\_nodes}}
+\index{\_nodes@{\_nodes}!cudf::io::text::detail::trie\_device\_view@{cudf::io::text::detail::trie\_device\_view}}
+\doxysubsubsection{\texorpdfstring{\_nodes}{\_nodes}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__node}{trie\+\_\+node}} const$>$ cudf\+::io\+::text\+::detail\+::trie\+\_\+device\+\_\+view\+::\+\_\+nodes}
+
+
+
+在文件 \mbox{\hyperlink{trie_8hpp_source}{trie.\+hpp}} 第 \mbox{\hyperlink{trie_8hpp_source_l00044}{44}} 行定义.
+
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/text/detail/\mbox{\hyperlink{trie_8hpp}{trie.\+hpp}}\end{DoxyCompactItemize}

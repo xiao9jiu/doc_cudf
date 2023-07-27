@@ -1,0 +1,159 @@
+\doxysection{cudf\+::io\+::parquet\+\_\+chunked\+\_\+writer类 参考}
+\hypertarget{classcudf_1_1io_1_1parquet__chunked__writer}{}\label{classcudf_1_1io_1_1parquet__chunked__writer}\index{cudf::io::parquet\_chunked\_writer@{cudf::io::parquet\_chunked\_writer}}
+
+
+chunked parquet writer class to handle options and write tables in chunks.  
+
+
+
+
+{\ttfamily \#include $<$parquet.\+hpp$>$}
+
+
+
+cudf\+::io\+::parquet\+\_\+chunked\+\_\+writer 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{classcudf_1_1io_1_1parquet__chunked__writer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1parquet__chunked__writer_a068bd33833b06d51895931a28841271f}{parquet\+\_\+chunked\+\_\+writer}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor, this should never be used. This is added just to satisfy cython. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1parquet__chunked__writer_a590296fe6be70e7e92c02787dc8f6784}{parquet\+\_\+chunked\+\_\+writer}} (\mbox{\hyperlink{classcudf_1_1io_1_1chunked__parquet__writer__options}{chunked\+\_\+parquet\+\_\+writer\+\_\+options}} const \&options, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Constructor with chunked writer options \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1parquet__chunked__writer}{parquet\+\_\+chunked\+\_\+writer}} \& \mbox{\hyperlink{classcudf_1_1io_1_1parquet__chunked__writer_a65decfbf71fbe0ff44c380982b97dd34}{write}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1table}{table}}, std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1io_1_1partition__info}{partition\+\_\+info}} $>$ const \&partitions=\{\})
+\begin{DoxyCompactList}\small\item\em Writes table to output. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ std\+::vector$<$ uint8\+\_\+t $>$ $>$ \mbox{\hyperlink{classcudf_1_1io_1_1parquet__chunked__writer_a2228e7cf6882fe1ddbe475d42ab5c1d2}{close}} (std\+::vector$<$ std\+::string $>$ const \&column\+\_\+chunks\+\_\+file\+\_\+paths=\{\})
+\begin{DoxyCompactList}\small\item\em Finishes the chunked/streamed write process. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1parquet_1_1writer}{cudf\+::io\+::detail\+::parquet\+::writer}} $>$ \mbox{\hyperlink{classcudf_1_1io_1_1parquet__chunked__writer_a8ecd584dce01d7d17b08477ab6a35fe5}{writer}}
+\begin{DoxyCompactList}\small\item\em Unique pointer to impl writer class \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+chunked parquet writer class to handle options and write tables in chunks. 
+
+The intent of the \doxylink{classcudf_1_1io_1_1parquet__chunked__writer}{parquet\+\_\+chunked\+\_\+writer} is to allow writing of an arbitrarily large / arbitrary number of rows to a parquet file in multiple passes.
+
+The following code snippet demonstrates how to write a single parquet file containing one logical table by writing a series of individual cudf\+::tables.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ destination\ =\ \mbox{\hyperlink{structcudf_1_1io_1_1sink__info}{cudf::io::sink\_info}}(\textcolor{stringliteral}{"{}dataset.parquet"{}});}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ options\ =\ \mbox{\hyperlink{classcudf_1_1io_1_1chunked__parquet__writer__options_a3b44af004a7bb6c1edee8bf1483d8502}{cudf::io::chunked\_parquet\_writer\_options::builder}}(destination,\ table-\/>view());}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ \mbox{\hyperlink{classcudf_1_1io_1_1parquet__chunked__writer_a8ecd584dce01d7d17b08477ab6a35fe5}{writer}}\ \ =\ \mbox{\hyperlink{classcudf_1_1io_1_1parquet__chunked__writer}{cudf::io::parquet\_chunked\_writer}}(options);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{classcudf_1_1io_1_1parquet__chunked__writer_a8ecd584dce01d7d17b08477ab6a35fe5}{writer}}.write(table0)}
+\DoxyCodeLine{\mbox{\hyperlink{classcudf_1_1io_1_1parquet__chunked__writer_a8ecd584dce01d7d17b08477ab6a35fe5}{writer}}.write(table1)}
+\DoxyCodeLine{\mbox{\hyperlink{classcudf_1_1io_1_1parquet__chunked__writer_a8ecd584dce01d7d17b08477ab6a35fe5}{writer}}.close()}
+
+\end{DoxyCode}
+ 
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l01475}{1475}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1io_1_1parquet__chunked__writer_a068bd33833b06d51895931a28841271f}\label{classcudf_1_1io_1_1parquet__chunked__writer_a068bd33833b06d51895931a28841271f} 
+\index{cudf::io::parquet\_chunked\_writer@{cudf::io::parquet\_chunked\_writer}!parquet\_chunked\_writer@{parquet\_chunked\_writer}}
+\index{parquet\_chunked\_writer@{parquet\_chunked\_writer}!cudf::io::parquet\_chunked\_writer@{cudf::io::parquet\_chunked\_writer}}
+\doxysubsubsection{\texorpdfstring{parquet\_chunked\_writer()}{parquet\_chunked\_writer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily cudf\+::io\+::parquet\+\_\+chunked\+\_\+writer\+::parquet\+\_\+chunked\+\_\+writer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor, this should never be used. This is added just to satisfy cython. 
+
+\Hypertarget{classcudf_1_1io_1_1parquet__chunked__writer_a590296fe6be70e7e92c02787dc8f6784}\label{classcudf_1_1io_1_1parquet__chunked__writer_a590296fe6be70e7e92c02787dc8f6784} 
+\index{cudf::io::parquet\_chunked\_writer@{cudf::io::parquet\_chunked\_writer}!parquet\_chunked\_writer@{parquet\_chunked\_writer}}
+\index{parquet\_chunked\_writer@{parquet\_chunked\_writer}!cudf::io::parquet\_chunked\_writer@{cudf::io::parquet\_chunked\_writer}}
+\doxysubsubsection{\texorpdfstring{parquet\_chunked\_writer()}{parquet\_chunked\_writer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily cudf\+::io\+::parquet\+\_\+chunked\+\_\+writer\+::parquet\+\_\+chunked\+\_\+writer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1io_1_1chunked__parquet__writer__options}{chunked\+\_\+parquet\+\_\+writer\+\_\+options}} const \&}]{options,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Constructor with chunked writer options 
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em options} & options used to write table \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource to use for device memory allocation \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1io_1_1parquet__chunked__writer_a2228e7cf6882fe1ddbe475d42ab5c1d2}\label{classcudf_1_1io_1_1parquet__chunked__writer_a2228e7cf6882fe1ddbe475d42ab5c1d2} 
+\index{cudf::io::parquet\_chunked\_writer@{cudf::io::parquet\_chunked\_writer}!close@{close}}
+\index{close@{close}!cudf::io::parquet\_chunked\_writer@{cudf::io::parquet\_chunked\_writer}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ std\+::vector$<$ uint8\+\_\+t $>$ $>$ cudf\+::io\+::parquet\+\_\+chunked\+\_\+writer\+::close (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ const \&}]{column\+\_\+chunks\+\_\+file\+\_\+paths = {\ttfamily \{\}} }\end{DoxyParamCaption})}
+
+
+
+Finishes the chunked/streamed write process. 
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em column\+\_\+chunks\+\_\+file\+\_\+paths} & Column chunks file path to be set in the raw output metadata \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A parquet-\/compatible blob that contains the data for all rowgroups in the list only if {\ttfamily column\+\_\+chunks\+\_\+file\+\_\+paths} is provided, else null. 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1io_1_1parquet__chunked__writer_a65decfbf71fbe0ff44c380982b97dd34}\label{classcudf_1_1io_1_1parquet__chunked__writer_a65decfbf71fbe0ff44c380982b97dd34} 
+\index{cudf::io::parquet\_chunked\_writer@{cudf::io::parquet\_chunked\_writer}!write@{write}}
+\index{write@{write}!cudf::io::parquet\_chunked\_writer@{cudf::io::parquet\_chunked\_writer}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1io_1_1parquet__chunked__writer}{parquet\+\_\+chunked\+\_\+writer}} \& cudf\+::io\+::parquet\+\_\+chunked\+\_\+writer\+::write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{table,  }\item[{std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1io_1_1partition__info}{partition\+\_\+info}} $>$ const \&}]{partitions = {\ttfamily \{\}} }\end{DoxyParamCaption})}
+
+
+
+Writes table to output. 
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em table} & Table that needs to be written \\
+\hline
+\mbox{\texttt{ in}}  & {\em partitions} & Optional partitions to divide the table into. If specified, must be same size as number of sinks.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & If the number of partitions is not the same as number of sinks \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{返回}
+returns reference of the class object 
+\end{DoxyReturn}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1io_1_1parquet__chunked__writer_a8ecd584dce01d7d17b08477ab6a35fe5}\label{classcudf_1_1io_1_1parquet__chunked__writer_a8ecd584dce01d7d17b08477ab6a35fe5} 
+\index{cudf::io::parquet\_chunked\_writer@{cudf::io::parquet\_chunked\_writer}!writer@{writer}}
+\index{writer@{writer}!cudf::io::parquet\_chunked\_writer@{cudf::io::parquet\_chunked\_writer}}
+\doxysubsubsection{\texorpdfstring{writer}{writer}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1parquet_1_1writer}{cudf\+::io\+::detail\+::parquet\+::writer}}$>$ cudf\+::io\+::parquet\+\_\+chunked\+\_\+writer\+::writer}
+
+
+
+Unique pointer to impl writer class 
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l01518}{1518}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/\mbox{\hyperlink{parquet_8hpp}{parquet.\+hpp}}\end{DoxyCompactItemize}

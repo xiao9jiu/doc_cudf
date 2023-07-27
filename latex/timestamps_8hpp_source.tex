@@ -1,0 +1,53 @@
+\doxysection{timestamps.\+hpp}
+\hypertarget{timestamps_8hpp_source}{}\label{timestamps_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/wrappers/timestamps.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/wrappers/timestamps.hpp}}
+\mbox{\hyperlink{timestamps_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2019-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{durations_8hpp}{cudf/wrappers/durations.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00026}00026\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00027}00027\ \textcolor{keyword}{namespace\ }detail\ \{}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00028}00028\ \textcolor{comment}{//\ TODO:\ Use\ chrono::utc\_clock\ when\ available\ in\ libcu++?}}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00029}00029\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Duration>}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00030}\mbox{\hyperlink{namespacecudf_1_1detail_a2d645cde6078342234d5d6ee2c8cd9f9}{00030}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacecudf_1_1detail_a2d645cde6078342234d5d6ee2c8cd9f9}{time\_point}}\ =\ cuda::std::chrono::sys\_time<Duration>;\ \ }
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00037}00037\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Duration>}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00038}\mbox{\hyperlink{namespacecudf_1_1detail_a3128cb15ed7da5bb5e926bb24a419262}{00038}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacecudf_1_1detail_a3128cb15ed7da5bb5e926bb24a419262}{timestamp}}\ =\ \mbox{\hyperlink{namespacecudf_1_1detail_a2d645cde6078342234d5d6ee2c8cd9f9}{time\_point<Duration>}};}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00039}00039\ \}\ \ \textcolor{comment}{//\ namespace\ detail}}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00050}\mbox{\hyperlink{group__timestamp__classes_ga4658424aa55596e2f3b6b42a9260f736}{00050}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{group__timestamp__classes_ga4658424aa55596e2f3b6b42a9260f736}{timestamp\_D}}\ =\ \mbox{\hyperlink{namespacecudf_1_1detail_a3128cb15ed7da5bb5e926bb24a419262}{detail::timestamp<cudf::duration\_D>}};}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00054}\mbox{\hyperlink{group__timestamp__classes_ga8b55dd23383d1c37b7bdc0274ded9191}{00054}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{group__timestamp__classes_ga8b55dd23383d1c37b7bdc0274ded9191}{timestamp\_h}}\ =\ \mbox{\hyperlink{namespacecudf_1_1detail_a3128cb15ed7da5bb5e926bb24a419262}{detail::timestamp<cudf::duration\_h>}};}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00058}\mbox{\hyperlink{group__timestamp__classes_ga52883e4379d120186e9750158f1458b9}{00058}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{group__timestamp__classes_ga52883e4379d120186e9750158f1458b9}{timestamp\_m}}\ =\ \mbox{\hyperlink{namespacecudf_1_1detail_a3128cb15ed7da5bb5e926bb24a419262}{detail::timestamp<cudf::duration\_m>}};}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00062}\mbox{\hyperlink{group__timestamp__classes_ga44668df4b32894904fb68f13a5f0fdab}{00062}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{group__timestamp__classes_ga44668df4b32894904fb68f13a5f0fdab}{timestamp\_s}}\ =\ \mbox{\hyperlink{namespacecudf_1_1detail_a3128cb15ed7da5bb5e926bb24a419262}{detail::timestamp<cudf::duration\_s>}};}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00066}\mbox{\hyperlink{group__timestamp__classes_ga24fdf63531f7998ef3122a5d0885e949}{00066}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{group__timestamp__classes_ga24fdf63531f7998ef3122a5d0885e949}{timestamp\_ms}}\ =\ \mbox{\hyperlink{namespacecudf_1_1detail_a3128cb15ed7da5bb5e926bb24a419262}{detail::timestamp<cudf::duration\_ms>}};}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00070}\mbox{\hyperlink{group__timestamp__classes_gabc5dd6cc3229f57af772e06f8c0bd828}{00070}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{group__timestamp__classes_gabc5dd6cc3229f57af772e06f8c0bd828}{timestamp\_us}}\ =\ \mbox{\hyperlink{namespacecudf_1_1detail_a3128cb15ed7da5bb5e926bb24a419262}{detail::timestamp<cudf::duration\_us>}};}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00074}\mbox{\hyperlink{group__timestamp__classes_gae2aef2b10c32caf1889ef2a6575b531a}{00074}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{group__timestamp__classes_gae2aef2b10c32caf1889ef2a6575b531a}{timestamp\_ns}}\ =\ \mbox{\hyperlink{namespacecudf_1_1detail_a3128cb15ed7da5bb5e926bb24a419262}{detail::timestamp<cudf::duration\_ns>}};}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00076}00076\ \textcolor{keyword}{static\_assert}(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{group__timestamp__classes_ga4658424aa55596e2f3b6b42a9260f736}{timestamp\_D}})\ ==\ \textcolor{keyword}{sizeof}(\textcolor{keyword}{typename}\ timestamp\_D::rep),\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00077}00077\ \textcolor{keyword}{static\_assert}(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{group__timestamp__classes_ga8b55dd23383d1c37b7bdc0274ded9191}{timestamp\_h}})\ ==\ \textcolor{keyword}{sizeof}(\textcolor{keyword}{typename}\ timestamp\_h::rep),\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00078}00078\ \textcolor{keyword}{static\_assert}(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{group__timestamp__classes_ga52883e4379d120186e9750158f1458b9}{timestamp\_m}})\ ==\ \textcolor{keyword}{sizeof}(\textcolor{keyword}{typename}\ timestamp\_m::rep),\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00079}00079\ \textcolor{keyword}{static\_assert}(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{group__timestamp__classes_ga44668df4b32894904fb68f13a5f0fdab}{timestamp\_s}})\ ==\ \textcolor{keyword}{sizeof}(\textcolor{keyword}{typename}\ timestamp\_s::rep),\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00080}00080\ \textcolor{keyword}{static\_assert}(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{group__timestamp__classes_ga24fdf63531f7998ef3122a5d0885e949}{timestamp\_ms}})\ ==\ \textcolor{keyword}{sizeof}(\textcolor{keyword}{typename}\ timestamp\_ms::rep),\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00081}00081\ \textcolor{keyword}{static\_assert}(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{group__timestamp__classes_gabc5dd6cc3229f57af772e06f8c0bd828}{timestamp\_us}})\ ==\ \textcolor{keyword}{sizeof}(\textcolor{keyword}{typename}\ timestamp\_us::rep),\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00082}00082\ \textcolor{keyword}{static\_assert}(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{group__timestamp__classes_gae2aef2b10c32caf1889ef2a6575b531a}{timestamp\_ns}})\ ==\ \textcolor{keyword}{sizeof}(\textcolor{keyword}{typename}\ timestamp\_ns::rep),\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00083}00083\ \ \ \textcolor{comment}{//\ end\ of\ group}}
+\DoxyCodeLine{\Hypertarget{timestamps_8hpp_source_l00085}00085\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

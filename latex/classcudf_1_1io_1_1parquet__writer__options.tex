@@ -1,0 +1,828 @@
+\doxysection{cudf\+::io\+::parquet\+\_\+writer\+\_\+options类 参考}
+\hypertarget{classcudf_1_1io_1_1parquet__writer__options}{}\label{classcudf_1_1io_1_1parquet__writer__options}\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+
+
+Settings for {\ttfamily \doxylink{group__io__writers_gab7187889151b828e41aa1bc653734bd7}{write\+\_\+parquet()}}.  
+
+
+
+
+{\ttfamily \#include $<$parquet.\+hpp$>$}
+
+
+
+cudf\+::io\+::parquet\+\_\+writer\+\_\+options 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcudf_1_1io_1_1parquet__writer__options__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a28423fb14b88d8cbf06d8efd509e6752}{parquet\+\_\+writer\+\_\+options}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1sink__info}{sink\+\_\+info}} const \& \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a320d0a8951068420a898c85cbd78cdee}{get\+\_\+sink}} () const
+\begin{DoxyCompactList}\small\item\em Returns sink info. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\+\_\+type}} \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a6130083a4ae750f8e024feeef3af5d30}{get\+\_\+compression}} () const
+\begin{DoxyCompactList}\small\item\em Returns compression format used. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacecudf_1_1io_ac52511ff52b01cf3c0d778bfaa5a5089}{statistics\+\_\+freq}} \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a18b9b7ca86c8395b5d2261b9d7e2d8fe}{get\+\_\+stats\+\_\+level}} () const
+\begin{DoxyCompactList}\small\item\em Returns level of statistics requested in output file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_aae44c9ff2daade2a7dc09164676e9fc3}{get\+\_\+table}} () const
+\begin{DoxyCompactList}\small\item\em Returns \doxylink{classcudf_1_1table__view}{table\+\_\+view}. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1io_1_1partition__info}{partition\+\_\+info}} $>$ const \& \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a2a35784253a934255fc464247ad2b159}{get\+\_\+partitions}} () const
+\begin{DoxyCompactList}\small\item\em Returns partitions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1table__input__metadata}{table\+\_\+input\+\_\+metadata}} const \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a1bc58f0639dd141446867601ad206478}{get\+\_\+metadata}} () const
+\begin{DoxyCompactList}\small\item\em Returns associated metadata. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::map$<$ std\+::string, std\+::string $>$ $>$ const \& \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a36b1277a90d0b6b49c28f211e29500d1}{get\+\_\+key\+\_\+value\+\_\+metadata}} () const
+\begin{DoxyCompactList}\small\item\em Returns Key-\/\+Value footer metadata information. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a6de135695ca2ec5f3a5168764174ec49}{is\+\_\+enabled\+\_\+int96\+\_\+timestamps}} () const
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if timestamps will be written as INT96 \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ const \& \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_aa10153527167c4785e968d2a9e7af26c}{get\+\_\+column\+\_\+chunks\+\_\+file\+\_\+paths}} () const
+\begin{DoxyCompactList}\small\item\em Returns Column chunks file paths to be set in the raw output metadata. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a54affa0aec5dc04a31aabd3029a049d5}{get\+\_\+row\+\_\+group\+\_\+size\+\_\+bytes}} () const
+\begin{DoxyCompactList}\small\item\em Returns maximum row group size, in bytes. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_aa9a039ceaa02c48b4bce192641798f99}{get\+\_\+row\+\_\+group\+\_\+size\+\_\+rows}} () const
+\begin{DoxyCompactList}\small\item\em Returns maximum row group size, in rows. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a69fdca03165244e2e14744066eb5524e}{get\+\_\+max\+\_\+page\+\_\+size\+\_\+bytes}} () const
+\begin{DoxyCompactList}\small\item\em Returns the maximum uncompressed page size, in bytes. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_ad7932814cc083249de7d8f487cdf122d}{get\+\_\+max\+\_\+page\+\_\+size\+\_\+rows}} () const
+\begin{DoxyCompactList}\small\item\em Returns maximum page size, in rows. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a75cfe72e25411aec669ac79084a94b68}{get\+\_\+column\+\_\+index\+\_\+truncate\+\_\+length}} () const
+\begin{DoxyCompactList}\small\item\em Returns maximum length of min or max values in column index, in bytes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a09eac901008ce21f1d85824b7d751d0d}{set\+\_\+partitions}} (std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1io_1_1partition__info}{partition\+\_\+info}} $>$ partitions)
+\begin{DoxyCompactList}\small\item\em Sets partitions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a4366cb0049485f01b1be0e0d4fc27c10}{set\+\_\+metadata}} (\mbox{\hyperlink{classcudf_1_1io_1_1table__input__metadata}{table\+\_\+input\+\_\+metadata}} const \texorpdfstring{$\ast$}{*}metadata)
+\begin{DoxyCompactList}\small\item\em Sets metadata. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_ab1fdc9dc34e26817a41fa66e1e04cc57}{set\+\_\+key\+\_\+value\+\_\+metadata}} (std\+::vector$<$ std\+::map$<$ std\+::string, std\+::string $>$ $>$ metadata)
+\begin{DoxyCompactList}\small\item\em Sets metadata. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_aa262dbb06b1e437ec55a37796df97794}{set\+\_\+stats\+\_\+level}} (\mbox{\hyperlink{namespacecudf_1_1io_ac52511ff52b01cf3c0d778bfaa5a5089}{statistics\+\_\+freq}} sf)
+\begin{DoxyCompactList}\small\item\em Sets the level of statistics. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a72cfdaac010235ea1154871ec928a0f3}{set\+\_\+compression}} (\mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\+\_\+type}} compression)
+\begin{DoxyCompactList}\small\item\em Sets compression type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_ac4212707280b517982c8fc4ee561c20d}{enable\+\_\+int96\+\_\+timestamps}} (bool req)
+\begin{DoxyCompactList}\small\item\em Sets timestamp writing preferences. INT96 timestamps will be written if {\ttfamily true} and TIMESTAMP\+\_\+\+MICROS will be written if {\ttfamily false}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_abb24ca7e27d2d3cb46365c3d5fde5842}{set\+\_\+column\+\_\+chunks\+\_\+file\+\_\+paths}} (std\+::vector$<$ std\+::string $>$ file\+\_\+paths)
+\begin{DoxyCompactList}\small\item\em Sets column chunks file path to be set in the raw output metadata. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a9087b9bb682b1c27b7c27dd57bc6f40b}{set\+\_\+row\+\_\+group\+\_\+size\+\_\+bytes}} (size\+\_\+t size\+\_\+bytes)
+\begin{DoxyCompactList}\small\item\em Sets the maximum row group size, in bytes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_acc817a11260e96ecdcd1f4a8726388c2}{set\+\_\+row\+\_\+group\+\_\+size\+\_\+rows}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} size\+\_\+rows)
+\begin{DoxyCompactList}\small\item\em Sets the maximum row group size, in rows. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_aa126710ff5a050bd478254ac1170a8e3}{set\+\_\+max\+\_\+page\+\_\+size\+\_\+bytes}} (size\+\_\+t size\+\_\+bytes)
+\begin{DoxyCompactList}\small\item\em Sets the maximum uncompressed page size, in bytes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a7a7241d2c296adae619f306780be640a}{set\+\_\+max\+\_\+page\+\_\+size\+\_\+rows}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} size\+\_\+rows)
+\begin{DoxyCompactList}\small\item\em Sets the maximum page size, in rows. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a3b4492323be051030ef433c40c86087a}{set\+\_\+column\+\_\+index\+\_\+truncate\+\_\+length}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} size\+\_\+bytes)
+\begin{DoxyCompactList}\small\item\em Sets the maximum length of min or max values in column index, in bytes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options__builder}{parquet\+\_\+writer\+\_\+options\+\_\+builder}} \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a21fa5df8c5cd46f85f09e2d0cb7f7cc2}{builder}} (\mbox{\hyperlink{structcudf_1_1io_1_1sink__info}{sink\+\_\+info}} const \&sink, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1table}{table}})
+\begin{DoxyCompactList}\small\item\em Create builder to create {\ttfamily \doxylink{classcudf_1_1io_1_1parquet__writer__options}{parquet\+\_\+writer\+\_\+options}}. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options__builder}{parquet\+\_\+writer\+\_\+options\+\_\+builder}} \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_ae6dc86308fa167daf64b610dd95d1353}{builder}} ()
+\begin{DoxyCompactList}\small\item\em Create builder to create {\ttfamily \doxylink{classcudf_1_1io_1_1parquet__writer__options}{parquet\+\_\+writer\+\_\+options}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a2d5e8902e8662e9dad09a6c104b225bf}{parquet\+\_\+writer\+\_\+options}} (\mbox{\hyperlink{structcudf_1_1io_1_1sink__info}{sink\+\_\+info}} const \&sink, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1table}{table}})
+\begin{DoxyCompactList}\small\item\em Constructor from sink and table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1sink__info}{sink\+\_\+info}} \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_aa8c2f7ca01536b82b8353147166851e6}{\+\_\+sink}}
+\item 
+\mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\+\_\+type}} \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a3c02cc9fe8c34184d382b501bd181791}{\+\_\+compression}} = \mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8a2069e5c0aea54224dcd6b9b6c78c4902}{compression\+\_\+type\+::\+SNAPPY}}
+\item 
+\mbox{\hyperlink{namespacecudf_1_1io_ac52511ff52b01cf3c0d778bfaa5a5089}{statistics\+\_\+freq}} \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a0b009adb2f0465efc7b38f8142f25eed}{\+\_\+stats\+\_\+level}} = \mbox{\hyperlink{namespacecudf_1_1io_ac52511ff52b01cf3c0d778bfaa5a5089ab6b7fe131d2f70e86e4383b3b5ba6c96}{statistics\+\_\+freq\+::\+STATISTICS\+\_\+\+ROWGROUP}}
+\item 
+\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_ab06a3c098132024b94eefa09e74d3e75}{\+\_\+table}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1io_1_1partition__info}{partition\+\_\+info}} $>$ \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a0c72771cf39dfc82ae127e19c7d68ff6}{\+\_\+partitions}}
+\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1table__input__metadata}{table\+\_\+input\+\_\+metadata}} const  \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a3e9066dec6953127ab7e0e7a209bc8e7}{\+\_\+metadata}} = nullptr
+\item 
+std\+::vector$<$ std\+::map$<$ std\+::string, std\+::string $>$ $>$ \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a6cc6dbabc73eb4097f008d8becf6c4c6}{\+\_\+user\+\_\+data}}
+\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a22edc0d99f4d3c9600497ae9a68de4e3}{\+\_\+write\+\_\+timestamps\+\_\+as\+\_\+int96}} = false
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a972f5ce14b3b0b4e3128b8a9fe384a68}{\+\_\+column\+\_\+chunks\+\_\+file\+\_\+paths}}
+\item 
+size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_aef01366c14e46522df9911d9f5dac239}{\+\_\+row\+\_\+group\+\_\+size\+\_\+bytes}} = \mbox{\hyperlink{group__io__readers_ga3790688c54361edfeb1e13f3e77a6ea0}{default\+\_\+row\+\_\+group\+\_\+size\+\_\+bytes}}
+\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a7cb9fb32695218a27ccc8e443406d0aa}{\+\_\+row\+\_\+group\+\_\+size\+\_\+rows}} = \mbox{\hyperlink{group__io__readers_ga32d2a500ebdabdf9874d734762ecfe52}{default\+\_\+row\+\_\+group\+\_\+size\+\_\+rows}}
+\item 
+size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_ab0b8d9b6f562d883cc802b2b0376e34f}{\+\_\+max\+\_\+page\+\_\+size\+\_\+bytes}} = \mbox{\hyperlink{group__io__readers_gaf1b7fd7f65230f0e982d1a8eea714db0}{default\+\_\+max\+\_\+page\+\_\+size\+\_\+bytes}}
+\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a2fedccb67c1e0782f874f8330cbfb085}{\+\_\+max\+\_\+page\+\_\+size\+\_\+rows}} = \mbox{\hyperlink{group__io__readers_gafbbcfd26df7ebdfc7a72e3977332edc7}{default\+\_\+max\+\_\+page\+\_\+size\+\_\+rows}}
+\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a38c899e602523b5ed40ddfb51915d4ce}{\+\_\+column\+\_\+index\+\_\+truncate\+\_\+length}} = \mbox{\hyperlink{group__io__readers_ga110f54b1f85956173feba8e6f6ae207c}{default\+\_\+column\+\_\+index\+\_\+truncate\+\_\+length}}
+\item 
+friend \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options_a0ddb9d1aa519183522fef42ab7629696}{parquet\+\_\+writer\+\_\+options\+\_\+builder}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Settings for {\ttfamily \doxylink{group__io__writers_gab7187889151b828e41aa1bc653734bd7}{write\+\_\+parquet()}}. 
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00482}{482}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a2d5e8902e8662e9dad09a6c104b225bf}\label{classcudf_1_1io_1_1parquet__writer__options_a2d5e8902e8662e9dad09a6c104b225bf} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!parquet\_writer\_options@{parquet\_writer\_options}}
+\index{parquet\_writer\_options@{parquet\_writer\_options}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{parquet\_writer\_options()}{parquet\_writer\_options()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::parquet\+\_\+writer\+\_\+options (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1io_1_1sink__info}{sink\+\_\+info}} const \&}]{sink,  }\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{table }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [private]}}
+
+
+
+Constructor from sink and table. 
+
+
+\begin{DoxyParams}{参数}
+{\em sink} & The sink used for writer output \\
+\hline
+{\em table} & Table to be written to output \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00519}{519}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a28423fb14b88d8cbf06d8efd509e6752}\label{classcudf_1_1io_1_1parquet__writer__options_a28423fb14b88d8cbf06d8efd509e6752} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!parquet\_writer\_options@{parquet\_writer\_options}}
+\index{parquet\_writer\_options@{parquet\_writer\_options}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{parquet\_writer\_options()}{parquet\_writer\_options()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::parquet\+\_\+writer\+\_\+options (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor. 
+
+This has been added since Cython requires a default constructor to create objects on stack. 
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_ae6dc86308fa167daf64b610dd95d1353}\label{classcudf_1_1io_1_1parquet__writer__options_ae6dc86308fa167daf64b610dd95d1353} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!builder@{builder}}
+\index{builder@{builder}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{builder()}{builder()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options__builder}{parquet\+\_\+writer\+\_\+options\+\_\+builder}} cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::builder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create builder to create {\ttfamily \doxylink{classcudf_1_1io_1_1parquet__writer__options}{parquet\+\_\+writer\+\_\+options}}. 
+
+\begin{DoxyReturn}{返回}
+\doxylink{classcudf_1_1io_1_1parquet__writer__options__builder}{parquet\+\_\+writer\+\_\+options\+\_\+builder} 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a21fa5df8c5cd46f85f09e2d0cb7f7cc2}\label{classcudf_1_1io_1_1parquet__writer__options_a21fa5df8c5cd46f85f09e2d0cb7f7cc2} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!builder@{builder}}
+\index{builder@{builder}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{builder()}{builder()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classcudf_1_1io_1_1parquet__writer__options__builder}{parquet\+\_\+writer\+\_\+options\+\_\+builder}} cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::builder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1io_1_1sink__info}{sink\+\_\+info}} const \&}]{sink,  }\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{table }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create builder to create {\ttfamily \doxylink{classcudf_1_1io_1_1parquet__writer__options}{parquet\+\_\+writer\+\_\+options}}. 
+
+
+\begin{DoxyParams}{参数}
+{\em sink} & The sink used for writer output \\
+\hline
+{\em table} & Table to be written to output\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Builder to build \doxylink{classcudf_1_1io_1_1parquet__writer__options}{parquet\+\_\+writer\+\_\+options} 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_ac4212707280b517982c8fc4ee561c20d}\label{classcudf_1_1io_1_1parquet__writer__options_ac4212707280b517982c8fc4ee561c20d} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!enable\_int96\_timestamps@{enable\_int96\_timestamps}}
+\index{enable\_int96\_timestamps@{enable\_int96\_timestamps}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{enable\_int96\_timestamps()}{enable\_int96\_timestamps()}}
+{\footnotesize\ttfamily void cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::enable\+\_\+int96\+\_\+timestamps (\begin{DoxyParamCaption}\item[{bool}]{req }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets timestamp writing preferences. INT96 timestamps will be written if {\ttfamily true} and TIMESTAMP\+\_\+\+MICROS will be written if {\ttfamily false}. 
+
+
+\begin{DoxyParams}{参数}
+{\em req} & Boolean value to enable/disable writing of INT96 timestamps \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00717}{717}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_aa10153527167c4785e968d2a9e7af26c}\label{classcudf_1_1io_1_1parquet__writer__options_aa10153527167c4785e968d2a9e7af26c} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!get\_column\_chunks\_file\_paths@{get\_column\_chunks\_file\_paths}}
+\index{get\_column\_chunks\_file\_paths@{get\_column\_chunks\_file\_paths}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{get\_column\_chunks\_file\_paths()}{get\_column\_chunks\_file\_paths()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ const  \& cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::get\+\_\+column\+\_\+chunks\+\_\+file\+\_\+paths (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns Column chunks file paths to be set in the raw output metadata. 
+
+\begin{DoxyReturn}{返回}
+Column chunks file paths to be set in the raw output metadata 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00615}{615}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a75cfe72e25411aec669ac79084a94b68}\label{classcudf_1_1io_1_1parquet__writer__options_a75cfe72e25411aec669ac79084a94b68} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!get\_column\_index\_truncate\_length@{get\_column\_index\_truncate\_length}}
+\index{get\_column\_index\_truncate\_length@{get\_column\_index\_truncate\_length}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{get\_column\_index\_truncate\_length()}{get\_column\_index\_truncate\_length()}}
+{\footnotesize\ttfamily auto cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::get\+\_\+column\+\_\+index\+\_\+truncate\+\_\+length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns maximum length of min or max values in column index, in bytes. 
+
+\begin{DoxyReturn}{返回}
+length min/max will be truncated to 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00663}{663}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a6130083a4ae750f8e024feeef3af5d30}\label{classcudf_1_1io_1_1parquet__writer__options_a6130083a4ae750f8e024feeef3af5d30} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!get\_compression@{get\_compression}}
+\index{get\_compression@{get\_compression}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{get\_compression()}{get\_compression()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\+\_\+type}} cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::get\+\_\+compression (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns compression format used. 
+
+\begin{DoxyReturn}{返回}
+Compression format 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00563}{563}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a36b1277a90d0b6b49c28f211e29500d1}\label{classcudf_1_1io_1_1parquet__writer__options_a36b1277a90d0b6b49c28f211e29500d1} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!get\_key\_value\_metadata@{get\_key\_value\_metadata}}
+\index{get\_key\_value\_metadata@{get\_key\_value\_metadata}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{get\_key\_value\_metadata()}{get\_key\_value\_metadata()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::map$<$ std\+::string, std\+::string $>$ $>$ const  \& cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::get\+\_\+key\+\_\+value\+\_\+metadata (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns Key-\/\+Value footer metadata information. 
+
+\begin{DoxyReturn}{返回}
+Key-\/\+Value footer metadata information 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00598}{598}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a69fdca03165244e2e14744066eb5524e}\label{classcudf_1_1io_1_1parquet__writer__options_a69fdca03165244e2e14744066eb5524e} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!get\_max\_page\_size\_bytes@{get\_max\_page\_size\_bytes}}
+\index{get\_max\_page\_size\_bytes@{get\_max\_page\_size\_bytes}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{get\_max\_page\_size\_bytes()}{get\_max\_page\_size\_bytes()}}
+{\footnotesize\ttfamily auto cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::get\+\_\+max\+\_\+page\+\_\+size\+\_\+bytes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the maximum uncompressed page size, in bytes. 
+
+If set larger than the row group size, then this will return the row group size.
+
+\begin{DoxyReturn}{返回}
+Maximum uncompressed page size, in bytes 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00641}{641}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_ad7932814cc083249de7d8f487cdf122d}\label{classcudf_1_1io_1_1parquet__writer__options_ad7932814cc083249de7d8f487cdf122d} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!get\_max\_page\_size\_rows@{get\_max\_page\_size\_rows}}
+\index{get\_max\_page\_size\_rows@{get\_max\_page\_size\_rows}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{get\_max\_page\_size\_rows()}{get\_max\_page\_size\_rows()}}
+{\footnotesize\ttfamily auto cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::get\+\_\+max\+\_\+page\+\_\+size\+\_\+rows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns maximum page size, in rows. 
+
+If set larger than the row group size, then this will return the row group size.
+
+\begin{DoxyReturn}{返回}
+Maximum page size, in rows 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00653}{653}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a1bc58f0639dd141446867601ad206478}\label{classcudf_1_1io_1_1parquet__writer__options_a1bc58f0639dd141446867601ad206478} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!get\_metadata@{get\_metadata}}
+\index{get\_metadata@{get\_metadata}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{get\_metadata()}{get\_metadata()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1io_1_1table__input__metadata}{table\+\_\+input\+\_\+metadata}} const  \texorpdfstring{$\ast$}{*} cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::get\+\_\+metadata (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns associated metadata. 
+
+\begin{DoxyReturn}{返回}
+Associated metadata 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00591}{591}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a2a35784253a934255fc464247ad2b159}\label{classcudf_1_1io_1_1parquet__writer__options_a2a35784253a934255fc464247ad2b159} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!get\_partitions@{get\_partitions}}
+\index{get\_partitions@{get\_partitions}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{get\_partitions()}{get\_partitions()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1io_1_1partition__info}{partition\+\_\+info}} $>$ const  \& cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::get\+\_\+partitions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns partitions. 
+
+\begin{DoxyReturn}{返回}
+Partitions 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00584}{584}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a54affa0aec5dc04a31aabd3029a049d5}\label{classcudf_1_1io_1_1parquet__writer__options_a54affa0aec5dc04a31aabd3029a049d5} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!get\_row\_group\_size\_bytes@{get\_row\_group\_size\_bytes}}
+\index{get\_row\_group\_size\_bytes@{get\_row\_group\_size\_bytes}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{get\_row\_group\_size\_bytes()}{get\_row\_group\_size\_bytes()}}
+{\footnotesize\ttfamily auto cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::get\+\_\+row\+\_\+group\+\_\+size\+\_\+bytes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns maximum row group size, in bytes. 
+
+\begin{DoxyReturn}{返回}
+Maximum row group size, in bytes 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00625}{625}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_aa9a039ceaa02c48b4bce192641798f99}\label{classcudf_1_1io_1_1parquet__writer__options_aa9a039ceaa02c48b4bce192641798f99} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!get\_row\_group\_size\_rows@{get\_row\_group\_size\_rows}}
+\index{get\_row\_group\_size\_rows@{get\_row\_group\_size\_rows}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{get\_row\_group\_size\_rows()}{get\_row\_group\_size\_rows()}}
+{\footnotesize\ttfamily auto cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::get\+\_\+row\+\_\+group\+\_\+size\+\_\+rows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns maximum row group size, in rows. 
+
+\begin{DoxyReturn}{返回}
+Maximum row group size, in rows 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00632}{632}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a320d0a8951068420a898c85cbd78cdee}\label{classcudf_1_1io_1_1parquet__writer__options_a320d0a8951068420a898c85cbd78cdee} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!get\_sink@{get\_sink}}
+\index{get\_sink@{get\_sink}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{get\_sink()}{get\_sink()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1io_1_1sink__info}{sink\+\_\+info}} const  \& cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::get\+\_\+sink (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns sink info. 
+
+\begin{DoxyReturn}{返回}
+Sink info 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00556}{556}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a18b9b7ca86c8395b5d2261b9d7e2d8fe}\label{classcudf_1_1io_1_1parquet__writer__options_a18b9b7ca86c8395b5d2261b9d7e2d8fe} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!get\_stats\_level@{get\_stats\_level}}
+\index{get\_stats\_level@{get\_stats\_level}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{get\_stats\_level()}{get\_stats\_level()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecudf_1_1io_ac52511ff52b01cf3c0d778bfaa5a5089}{statistics\+\_\+freq}} cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::get\+\_\+stats\+\_\+level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns level of statistics requested in output file. 
+
+\begin{DoxyReturn}{返回}
+level of statistics requested in output file 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00570}{570}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_aae44c9ff2daade2a7dc09164676e9fc3}\label{classcudf_1_1io_1_1parquet__writer__options_aae44c9ff2daade2a7dc09164676e9fc3} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!get\_table@{get\_table}}
+\index{get\_table@{get\_table}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{get\_table()}{get\_table()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::get\+\_\+table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns \doxylink{classcudf_1_1table__view}{table\+\_\+view}. 
+
+\begin{DoxyReturn}{返回}
+Table view 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00577}{577}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a6de135695ca2ec5f3a5168764174ec49}\label{classcudf_1_1io_1_1parquet__writer__options_a6de135695ca2ec5f3a5168764174ec49} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!is\_enabled\_int96\_timestamps@{is\_enabled\_int96\_timestamps}}
+\index{is\_enabled\_int96\_timestamps@{is\_enabled\_int96\_timestamps}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{is\_enabled\_int96\_timestamps()}{is\_enabled\_int96\_timestamps()}}
+{\footnotesize\ttfamily bool cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::is\+\_\+enabled\+\_\+int96\+\_\+timestamps (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns {\ttfamily true} if timestamps will be written as INT96 
+
+\begin{DoxyReturn}{返回}
+{\ttfamily true} if timestamps will be written as INT96 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00608}{608}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_abb24ca7e27d2d3cb46365c3d5fde5842}\label{classcudf_1_1io_1_1parquet__writer__options_abb24ca7e27d2d3cb46365c3d5fde5842} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!set\_column\_chunks\_file\_paths@{set\_column\_chunks\_file\_paths}}
+\index{set\_column\_chunks\_file\_paths@{set\_column\_chunks\_file\_paths}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{set\_column\_chunks\_file\_paths()}{set\_column\_chunks\_file\_paths()}}
+{\footnotesize\ttfamily void cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::set\+\_\+column\+\_\+chunks\+\_\+file\+\_\+paths (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{file\+\_\+paths }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets column chunks file path to be set in the raw output metadata. 
+
+
+\begin{DoxyParams}{参数}
+{\em file\+\_\+paths} & Vector of Strings which indicates file path. Must be same size as number of data sinks in sink info \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00725}{725}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a3b4492323be051030ef433c40c86087a}\label{classcudf_1_1io_1_1parquet__writer__options_a3b4492323be051030ef433c40c86087a} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!set\_column\_index\_truncate\_length@{set\_column\_index\_truncate\_length}}
+\index{set\_column\_index\_truncate\_length@{set\_column\_index\_truncate\_length}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{set\_column\_index\_truncate\_length()}{set\_column\_index\_truncate\_length()}}
+{\footnotesize\ttfamily void cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::set\+\_\+column\+\_\+index\+\_\+truncate\+\_\+length (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{size\+\_\+bytes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the maximum length of min or max values in column index, in bytes. 
+
+
+\begin{DoxyParams}{参数}
+{\em size\+\_\+bytes} & length min/max will be truncated to \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00787}{787}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a72cfdaac010235ea1154871ec928a0f3}\label{classcudf_1_1io_1_1parquet__writer__options_a72cfdaac010235ea1154871ec928a0f3} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!set\_compression@{set\_compression}}
+\index{set\_compression@{set\_compression}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{set\_compression()}{set\_compression()}}
+{\footnotesize\ttfamily void cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::set\+\_\+compression (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\+\_\+type}}}]{compression }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets compression type. 
+
+
+\begin{DoxyParams}{参数}
+{\em compression} & The compression type to use \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00709}{709}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_ab1fdc9dc34e26817a41fa66e1e04cc57}\label{classcudf_1_1io_1_1parquet__writer__options_ab1fdc9dc34e26817a41fa66e1e04cc57} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!set\_key\_value\_metadata@{set\_key\_value\_metadata}}
+\index{set\_key\_value\_metadata@{set\_key\_value\_metadata}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{set\_key\_value\_metadata()}{set\_key\_value\_metadata()}}
+{\footnotesize\ttfamily void cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::set\+\_\+key\+\_\+value\+\_\+metadata (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::map$<$ std\+::string, std\+::string $>$ $>$}]{metadata }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets metadata. 
+
+
+\begin{DoxyParams}{参数}
+{\em metadata} & Key-\/\+Value footer metadata \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00690}{690}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_aa126710ff5a050bd478254ac1170a8e3}\label{classcudf_1_1io_1_1parquet__writer__options_aa126710ff5a050bd478254ac1170a8e3} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!set\_max\_page\_size\_bytes@{set\_max\_page\_size\_bytes}}
+\index{set\_max\_page\_size\_bytes@{set\_max\_page\_size\_bytes}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{set\_max\_page\_size\_bytes()}{set\_max\_page\_size\_bytes()}}
+{\footnotesize\ttfamily void cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::set\+\_\+max\+\_\+page\+\_\+size\+\_\+bytes (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size\+\_\+bytes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the maximum uncompressed page size, in bytes. 
+
+
+\begin{DoxyParams}{参数}
+{\em size\+\_\+bytes} & Maximum uncompressed page size, in bytes to set \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00763}{763}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a7a7241d2c296adae619f306780be640a}\label{classcudf_1_1io_1_1parquet__writer__options_a7a7241d2c296adae619f306780be640a} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!set\_max\_page\_size\_rows@{set\_max\_page\_size\_rows}}
+\index{set\_max\_page\_size\_rows@{set\_max\_page\_size\_rows}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{set\_max\_page\_size\_rows()}{set\_max\_page\_size\_rows()}}
+{\footnotesize\ttfamily void cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::set\+\_\+max\+\_\+page\+\_\+size\+\_\+rows (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{size\+\_\+rows }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the maximum page size, in rows. 
+
+
+\begin{DoxyParams}{参数}
+{\em size\+\_\+rows} & Maximum page size, in rows to set \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00774}{774}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a4366cb0049485f01b1be0e0d4fc27c10}\label{classcudf_1_1io_1_1parquet__writer__options_a4366cb0049485f01b1be0e0d4fc27c10} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!set\_metadata@{set\_metadata}}
+\index{set\_metadata@{set\_metadata}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{set\_metadata()}{set\_metadata()}}
+{\footnotesize\ttfamily void cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::set\+\_\+metadata (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1io_1_1table__input__metadata}{table\+\_\+input\+\_\+metadata}} const \texorpdfstring{$\ast$}{*}}]{metadata }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets metadata. 
+
+
+\begin{DoxyParams}{参数}
+{\em metadata} & Associated metadata \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00683}{683}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a09eac901008ce21f1d85824b7d751d0d}\label{classcudf_1_1io_1_1parquet__writer__options_a09eac901008ce21f1d85824b7d751d0d} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!set\_partitions@{set\_partitions}}
+\index{set\_partitions@{set\_partitions}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{set\_partitions()}{set\_partitions()}}
+{\footnotesize\ttfamily void cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::set\+\_\+partitions (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1io_1_1partition__info}{partition\+\_\+info}} $>$}]{partitions }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets partitions. 
+
+
+\begin{DoxyParams}{参数}
+{\em partitions} & Partitions of input table in \{start\+\_\+row, num\+\_\+rows\} pairs. If specified, must be same size as number of sinks in \doxylink{structcudf_1_1io_1_1sink__info}{sink\+\_\+info} \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00671}{671}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a9087b9bb682b1c27b7c27dd57bc6f40b}\label{classcudf_1_1io_1_1parquet__writer__options_a9087b9bb682b1c27b7c27dd57bc6f40b} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!set\_row\_group\_size\_bytes@{set\_row\_group\_size\_bytes}}
+\index{set\_row\_group\_size\_bytes@{set\_row\_group\_size\_bytes}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{set\_row\_group\_size\_bytes()}{set\_row\_group\_size\_bytes()}}
+{\footnotesize\ttfamily void cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::set\+\_\+row\+\_\+group\+\_\+size\+\_\+bytes (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size\+\_\+bytes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the maximum row group size, in bytes. 
+
+
+\begin{DoxyParams}{参数}
+{\em size\+\_\+bytes} & Maximum row group size, in bytes to set \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00737}{737}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_acc817a11260e96ecdcd1f4a8726388c2}\label{classcudf_1_1io_1_1parquet__writer__options_acc817a11260e96ecdcd1f4a8726388c2} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!set\_row\_group\_size\_rows@{set\_row\_group\_size\_rows}}
+\index{set\_row\_group\_size\_rows@{set\_row\_group\_size\_rows}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{set\_row\_group\_size\_rows()}{set\_row\_group\_size\_rows()}}
+{\footnotesize\ttfamily void cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::set\+\_\+row\+\_\+group\+\_\+size\+\_\+rows (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{size\+\_\+rows }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the maximum row group size, in rows. 
+
+
+\begin{DoxyParams}{参数}
+{\em size\+\_\+rows} & Maximum row group size, in rows to set \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00750}{750}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_aa262dbb06b1e437ec55a37796df97794}\label{classcudf_1_1io_1_1parquet__writer__options_aa262dbb06b1e437ec55a37796df97794} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!set\_stats\_level@{set\_stats\_level}}
+\index{set\_stats\_level@{set\_stats\_level}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{set\_stats\_level()}{set\_stats\_level()}}
+{\footnotesize\ttfamily void cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::set\+\_\+stats\+\_\+level (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacecudf_1_1io_ac52511ff52b01cf3c0d778bfaa5a5089}{statistics\+\_\+freq}}}]{sf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the level of statistics. 
+
+
+\begin{DoxyParams}{参数}
+{\em sf} & Level of statistics requested in the output file \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00702}{702}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a972f5ce14b3b0b4e3128b8a9fe384a68}\label{classcudf_1_1io_1_1parquet__writer__options_a972f5ce14b3b0b4e3128b8a9fe384a68} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!\_column\_chunks\_file\_paths@{\_column\_chunks\_file\_paths}}
+\index{\_column\_chunks\_file\_paths@{\_column\_chunks\_file\_paths}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{\_column\_chunks\_file\_paths}{\_column\_chunks\_file\_paths}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::\+\_\+column\+\_\+chunks\+\_\+file\+\_\+paths\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00501}{501}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a38c899e602523b5ed40ddfb51915d4ce}\label{classcudf_1_1io_1_1parquet__writer__options_a38c899e602523b5ed40ddfb51915d4ce} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!\_column\_index\_truncate\_length@{\_column\_index\_truncate\_length}}
+\index{\_column\_index\_truncate\_length@{\_column\_index\_truncate\_length}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{\_column\_index\_truncate\_length}{\_column\_index\_truncate\_length}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::\+\_\+column\+\_\+index\+\_\+truncate\+\_\+length = \mbox{\hyperlink{group__io__readers_ga110f54b1f85956173feba8e6f6ae207c}{default\+\_\+column\+\_\+index\+\_\+truncate\+\_\+length}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00511}{511}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a3c02cc9fe8c34184d382b501bd181791}\label{classcudf_1_1io_1_1parquet__writer__options_a3c02cc9fe8c34184d382b501bd181791} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!\_compression@{\_compression}}
+\index{\_compression@{\_compression}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{\_compression}{\_compression}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\+\_\+type}} cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::\+\_\+compression = \mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8a2069e5c0aea54224dcd6b9b6c78c4902}{compression\+\_\+type\+::\+SNAPPY}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00486}{486}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_ab0b8d9b6f562d883cc802b2b0376e34f}\label{classcudf_1_1io_1_1parquet__writer__options_ab0b8d9b6f562d883cc802b2b0376e34f} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!\_max\_page\_size\_bytes@{\_max\_page\_size\_bytes}}
+\index{\_max\_page\_size\_bytes@{\_max\_page\_size\_bytes}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{\_max\_page\_size\_bytes}{\_max\_page\_size\_bytes}}
+{\footnotesize\ttfamily size\+\_\+t cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::\+\_\+max\+\_\+page\+\_\+size\+\_\+bytes = \mbox{\hyperlink{group__io__readers_gaf1b7fd7f65230f0e982d1a8eea714db0}{default\+\_\+max\+\_\+page\+\_\+size\+\_\+bytes}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00507}{507}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a2fedccb67c1e0782f874f8330cbfb085}\label{classcudf_1_1io_1_1parquet__writer__options_a2fedccb67c1e0782f874f8330cbfb085} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!\_max\_page\_size\_rows@{\_max\_page\_size\_rows}}
+\index{\_max\_page\_size\_rows@{\_max\_page\_size\_rows}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{\_max\_page\_size\_rows}{\_max\_page\_size\_rows}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::\+\_\+max\+\_\+page\+\_\+size\+\_\+rows = \mbox{\hyperlink{group__io__readers_gafbbcfd26df7ebdfc7a72e3977332edc7}{default\+\_\+max\+\_\+page\+\_\+size\+\_\+rows}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00509}{509}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a3e9066dec6953127ab7e0e7a209bc8e7}\label{classcudf_1_1io_1_1parquet__writer__options_a3e9066dec6953127ab7e0e7a209bc8e7} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!\_metadata@{\_metadata}}
+\index{\_metadata@{\_metadata}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{\_metadata}{\_metadata}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1io_1_1table__input__metadata}{table\+\_\+input\+\_\+metadata}} const\texorpdfstring{$\ast$}{*} cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::\+\_\+metadata = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00494}{494}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a0c72771cf39dfc82ae127e19c7d68ff6}\label{classcudf_1_1io_1_1parquet__writer__options_a0c72771cf39dfc82ae127e19c7d68ff6} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!\_partitions@{\_partitions}}
+\index{\_partitions@{\_partitions}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{\_partitions}{\_partitions}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structcudf_1_1io_1_1partition__info}{partition\+\_\+info}}$>$ cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::\+\_\+partitions\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00492}{492}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_aef01366c14e46522df9911d9f5dac239}\label{classcudf_1_1io_1_1parquet__writer__options_aef01366c14e46522df9911d9f5dac239} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!\_row\_group\_size\_bytes@{\_row\_group\_size\_bytes}}
+\index{\_row\_group\_size\_bytes@{\_row\_group\_size\_bytes}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{\_row\_group\_size\_bytes}{\_row\_group\_size\_bytes}}
+{\footnotesize\ttfamily size\+\_\+t cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::\+\_\+row\+\_\+group\+\_\+size\+\_\+bytes = \mbox{\hyperlink{group__io__readers_ga3790688c54361edfeb1e13f3e77a6ea0}{default\+\_\+row\+\_\+group\+\_\+size\+\_\+bytes}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00503}{503}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a7cb9fb32695218a27ccc8e443406d0aa}\label{classcudf_1_1io_1_1parquet__writer__options_a7cb9fb32695218a27ccc8e443406d0aa} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!\_row\_group\_size\_rows@{\_row\_group\_size\_rows}}
+\index{\_row\_group\_size\_rows@{\_row\_group\_size\_rows}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{\_row\_group\_size\_rows}{\_row\_group\_size\_rows}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::\+\_\+row\+\_\+group\+\_\+size\+\_\+rows = \mbox{\hyperlink{group__io__readers_ga32d2a500ebdabdf9874d734762ecfe52}{default\+\_\+row\+\_\+group\+\_\+size\+\_\+rows}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00505}{505}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_aa8c2f7ca01536b82b8353147166851e6}\label{classcudf_1_1io_1_1parquet__writer__options_aa8c2f7ca01536b82b8353147166851e6} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!\_sink@{\_sink}}
+\index{\_sink@{\_sink}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{\_sink}{\_sink}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1io_1_1sink__info}{sink\+\_\+info}} cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::\+\_\+sink\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00484}{484}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a0b009adb2f0465efc7b38f8142f25eed}\label{classcudf_1_1io_1_1parquet__writer__options_a0b009adb2f0465efc7b38f8142f25eed} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!\_stats\_level@{\_stats\_level}}
+\index{\_stats\_level@{\_stats\_level}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{\_stats\_level}{\_stats\_level}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecudf_1_1io_ac52511ff52b01cf3c0d778bfaa5a5089}{statistics\+\_\+freq}} cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::\+\_\+stats\+\_\+level = \mbox{\hyperlink{namespacecudf_1_1io_ac52511ff52b01cf3c0d778bfaa5a5089ab6b7fe131d2f70e86e4383b3b5ba6c96}{statistics\+\_\+freq\+::\+STATISTICS\+\_\+\+ROWGROUP}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00488}{488}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_ab06a3c098132024b94eefa09e74d3e75}\label{classcudf_1_1io_1_1parquet__writer__options_ab06a3c098132024b94eefa09e74d3e75} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!\_table@{\_table}}
+\index{\_table@{\_table}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{\_table}{\_table}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::\+\_\+table\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00490}{490}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a6cc6dbabc73eb4097f008d8becf6c4c6}\label{classcudf_1_1io_1_1parquet__writer__options_a6cc6dbabc73eb4097f008d8becf6c4c6} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!\_user\_data@{\_user\_data}}
+\index{\_user\_data@{\_user\_data}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{\_user\_data}{\_user\_data}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::map$<$std\+::string, std\+::string$>$ $>$ cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::\+\_\+user\+\_\+data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00496}{496}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a22edc0d99f4d3c9600497ae9a68de4e3}\label{classcudf_1_1io_1_1parquet__writer__options_a22edc0d99f4d3c9600497ae9a68de4e3} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!\_write\_timestamps\_as\_int96@{\_write\_timestamps\_as\_int96}}
+\index{\_write\_timestamps\_as\_int96@{\_write\_timestamps\_as\_int96}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{\_write\_timestamps\_as\_int96}{\_write\_timestamps\_as\_int96}}
+{\footnotesize\ttfamily bool cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::\+\_\+write\+\_\+timestamps\+\_\+as\+\_\+int96 = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00499}{499}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1parquet__writer__options_a0ddb9d1aa519183522fef42ab7629696}\label{classcudf_1_1io_1_1parquet__writer__options_a0ddb9d1aa519183522fef42ab7629696} 
+\index{cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}!parquet\_writer\_options\_builder@{parquet\_writer\_options\_builder}}
+\index{parquet\_writer\_options\_builder@{parquet\_writer\_options\_builder}!cudf::io::parquet\_writer\_options@{cudf::io::parquet\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{parquet\_writer\_options\_builder}{parquet\_writer\_options\_builder}}
+{\footnotesize\ttfamily friend cudf\+::io\+::parquet\+\_\+writer\+\_\+options\+::parquet\+\_\+writer\+\_\+options\+\_\+builder\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00524}{524}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/\mbox{\hyperlink{parquet_8hpp}{parquet.\+hpp}}\end{DoxyCompactItemize}

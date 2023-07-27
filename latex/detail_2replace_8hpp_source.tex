@@ -1,0 +1,77 @@
+\doxysection{replace.\+hpp}
+\hypertarget{detail_2replace_8hpp_source}{}\label{detail_2replace_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/detail/replace.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/detail/replace.hpp}}
+\mbox{\hyperlink{detail_2replace_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2018-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00016}00016\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{replace_8hpp}{cudf/replace.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{types_8hpp}{cudf/types.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{utilities_2default__stream_8hpp}{cudf/utilities/default\_stream.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <rmm/cuda\_stream\_view.hpp>}}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00026}00026\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00027}00027\ \textcolor{keyword}{namespace\ }detail\ \{}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00034}\mbox{\hyperlink{namespacecudf_1_1detail_aa2782e7c057de7e1596841c366b471b3}{00034}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{namespacecudf_1_1detail_aa2782e7c057de7e1596841c366b471b3}{replace\_nulls}}(}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00035}00035\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00036}00036\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ replacement,}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00037}00037\ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00038}00038\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00046}\mbox{\hyperlink{namespacecudf_1_1detail_a089e06d35c8fc924a836da9e7fcce84e}{00046}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{namespacecudf_1_1detail_aa2782e7c057de7e1596841c366b471b3}{replace\_nulls}}(}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00047}00047\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00048}00048\ \ \ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}}\ \textcolor{keyword}{const}\&\ replacement,}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00049}00049\ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00050}00050\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00058}\mbox{\hyperlink{namespacecudf_1_1detail_a9c0b4a9cf791df1c239576b67b2d9255}{00058}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{namespacecudf_1_1detail_aa2782e7c057de7e1596841c366b471b3}{replace\_nulls}}(}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00059}00059\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00060}00060\ \ \ \mbox{\hyperlink{group__transformation__replace_ga7cdbc9bc3671930a743c86f36c38abf9}{replace\_policy}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{group__transformation__replace_ga7cdbc9bc3671930a743c86f36c38abf9}{replace\_policy}},}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00061}00061\ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00062}00062\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00070}\mbox{\hyperlink{namespacecudf_1_1detail_ade00a5854797478de85ef4f4735be57d}{00070}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{namespacecudf_1_1detail_ade00a5854797478de85ef4f4735be57d}{replace\_nans}}(}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00071}00071\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00072}00072\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ replacement,}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00073}00073\ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00074}00074\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00082}\mbox{\hyperlink{namespacecudf_1_1detail_ad0298a6133c943e5ef6107630fd267f1}{00082}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{namespacecudf_1_1detail_ade00a5854797478de85ef4f4735be57d}{replace\_nans}}(}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00083}00083\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00084}00084\ \ \ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}}\ \textcolor{keyword}{const}\&\ replacement,}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00085}00085\ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00086}00086\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00093}\mbox{\hyperlink{namespacecudf_1_1detail_adacfa4e22fd6f93938a4d72131d9aff7}{00093}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{namespacecudf_1_1detail_adacfa4e22fd6f93938a4d72131d9aff7}{find\_and\_replace\_all}}(}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00094}00094\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ input\_col,}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00095}00095\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ values\_to\_replace,}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00096}00096\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ replacement\_values,}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00097}00097\ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00098}00098\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00105}\mbox{\hyperlink{namespacecudf_1_1detail_a841c17146b279d123c4d579ddd7e7f14}{00105}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{namespacecudf_1_1detail_a841c17146b279d123c4d579ddd7e7f14}{normalize\_nans\_and\_zeros}}(}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00106}00106\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00107}00107\ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00108}00108\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00110}00110\ \}\ \ \textcolor{comment}{//\ namespace\ detail}}
+\DoxyCodeLine{\Hypertarget{detail_2replace_8hpp_source_l00111}00111\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

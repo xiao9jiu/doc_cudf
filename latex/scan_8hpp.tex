@@ -1,0 +1,33 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/detail/scan.hpp 文件参考}
+\hypertarget{scan_8hpp}{}\label{scan_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/detail/scan.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/detail/scan.hpp}}
+{\ttfamily \#include $<$cudf/column/column\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/detail/aggregation/aggregation.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/cuda\+\_\+stream\+\_\+view.\+hpp$>$}\newline
+scan.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{scan_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1detail}{cudf\+::detail}}
+\begin{DoxyCompactList}\small\item\em Inner interfaces and implementations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_ac9be538c2fe0b9e74c569460ecc65261}{cudf\+::detail\+::scan\+\_\+exclusive}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1scan__aggregation}{scan\+\_\+aggregation}} const \&agg, \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Computes the exclusive scan of a column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_adc391e283f48ecd780dec6ceb2d0a6f9}{cudf\+::detail\+::scan\+\_\+inclusive}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1scan__aggregation}{scan\+\_\+aggregation}} const \&agg, \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Computes the inclusive scan of a column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a2b644db01ab5c564aa3e2e865669b59d}{cudf\+::detail\+::inclusive\+\_\+rank\+\_\+scan}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&order\+\_\+by, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Generate row ranks for a column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_acc8016a38976fc8af9b8a9b3c23a08ae}{cudf\+::detail\+::inclusive\+\_\+dense\+\_\+rank\+\_\+scan}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&order\+\_\+by, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Generate row dense ranks for a column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_ab6f61e90d14f101f0f7da7f140649f80}{cudf\+::detail\+::inclusive\+\_\+one\+\_\+normalized\+\_\+percent\+\_\+rank\+\_\+scan}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&order\+\_\+by, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Generate row ONE\+\_\+\+NORMALIZED percent ranks for a column. Also, knowns as ANSI SQL PERCENT RANK. Calculated by (rank -\/ 1) / (count -\/ 1). \end{DoxyCompactList}\end{DoxyCompactItemize}

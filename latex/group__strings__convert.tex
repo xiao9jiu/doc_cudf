@@ -1,0 +1,1179 @@
+\doxysection{Strings\+\_\+convert}
+\hypertarget{group__strings__convert}{}\label{group__strings__convert}\index{Strings\_convert@{Strings\_convert}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{convert__booleans_8hpp}{convert\+\_\+booleans.\+hpp}}
+\item 
+文件 \mbox{\hyperlink{convert__datetime_8hpp}{convert\+\_\+datetime.\+hpp}}
+\item 
+文件 \mbox{\hyperlink{convert__durations_8hpp}{convert\+\_\+durations.\+hpp}}
+\item 
+文件 \mbox{\hyperlink{convert__fixed__point_8hpp}{convert\+\_\+fixed\+\_\+point.\+hpp}}
+\item 
+文件 \mbox{\hyperlink{convert__floats_8hpp}{convert\+\_\+floats.\+hpp}}
+\item 
+文件 \mbox{\hyperlink{convert__integers_8hpp}{convert\+\_\+integers.\+hpp}}
+\item 
+文件 \mbox{\hyperlink{convert__ipv4_8hpp}{convert\+\_\+ipv4.\+hpp}}
+\item 
+文件 \mbox{\hyperlink{convert__lists_8hpp}{convert\+\_\+lists.\+hpp}}
+\item 
+文件 \mbox{\hyperlink{convert__urls_8hpp}{convert\+\_\+urls.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_ga2c4cebc90897b668acf77db60ffd4b00}{cudf\+::strings\+::to\+\_\+booleans}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&true\+\_\+string=\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}true\"{}), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a new BOOL8 column by parsing boolean values from the strings in the provided strings column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_gab5c05d19cc3c60cbc7106286b10659fd}{cudf\+::strings\+::from\+\_\+booleans}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&booleans, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&true\+\_\+string=\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}true\"{}), \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&false\+\_\+string=\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}false\"{}), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a new strings column converting the boolean values from the provided column into strings. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_gac1b3e9b08df54914309f168e7892a9b3}{cudf\+::strings\+::to\+\_\+timestamps}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} timestamp\+\_\+type, std\+::string\+\_\+view format, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a new timestamp column converting a strings column into timestamps using the provided format pattern. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_ga4edf69c839f5d4cf7e135bcad00a1409}{cudf\+::strings\+::is\+\_\+timestamp}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, std\+::string\+\_\+view format, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Verifies the given strings column can be parsed to timestamps using the provided format pattern. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_gae93a174879bd65baae31e6506049ef2f}{cudf\+::strings\+::from\+\_\+timestamps}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&timestamps, std\+::string\+\_\+view format=\"{}\%Y-\/\%m-\/\%dT\%H\+:\%M\+:\%SZ\"{}, \mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&names=\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}}(\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}}\{ \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}\{\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a63b588d5559f64f89a416e656880b949}{type\+\_\+id\+::\+STRING}}\}, 0, nullptr\}), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a new strings column converting a timestamp column into strings using the provided format pattern. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_ga164923136957d72792b867347c2fa3fb}{cudf\+::strings\+::to\+\_\+durations}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} duration\+\_\+type, std\+::string\+\_\+view format, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a new duration column converting a strings column into durations using the provided format pattern. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_ga550620599415065a06a7f838e4720c91}{cudf\+::strings\+::from\+\_\+durations}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&durations, std\+::string\+\_\+view format=\"{}\%D days \%H\+:\%M\+:\%S\"{}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a new strings column converting a duration column into strings using the provided format pattern. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_ga1764713b9062627bba68afa04dd33760}{cudf\+::strings\+::to\+\_\+fixed\+\_\+point}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+type, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a new fixed-\/point column parsing decimal values from the provided strings column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_gab891a9f288852a9f822af87aea6ffc30}{cudf\+::strings\+::from\+\_\+fixed\+\_\+point}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a new strings column converting the fixed-\/point values into a strings column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_gad8b5d28ad36a8cac873c8c24c180ad88}{cudf\+::strings\+::is\+\_\+fixed\+\_\+point}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} decimal\+\_\+type=\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}\{\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539ad43431506a21dcfd2ada4cd4c28f8f56}{type\+\_\+id\+::\+DECIMAL64}}\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a boolean column identifying strings in which all characters are valid for conversion to fixed-\/point. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_ga2d4b894db661bb540390c3f4e0820e19}{cudf\+::strings\+::to\+\_\+floats}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+type, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a new numeric column by parsing float values from each string in the provided strings column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_ga1b0f56def6819005020848e88c551c12}{cudf\+::strings\+::from\+\_\+floats}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&floats, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a new strings column converting the float values from the provided column into strings. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_ga5544ea96e72940e4b3dd19dad63cc857}{cudf\+::strings\+::is\+\_\+float}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a boolean column identifying strings in which all characters are valid for conversion to floats. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_ga7c8700a96f92c9505b68458392c116a3}{cudf\+::strings\+::to\+\_\+integers}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+type, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a new integer numeric column parsing integer values from the provided strings column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_gaec26298399579eb85eff150baa189683}{cudf\+::strings\+::from\+\_\+integers}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&integers, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a new strings column converting the integer values from the provided column into strings. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_ga524bebc3d94f11ed53fdd3977f038252}{cudf\+::strings\+::is\+\_\+integer}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a boolean column identifying strings in which all characters are valid for conversion to integers. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_gac7dca4066a61ece7179a788a3103ebfb}{cudf\+::strings\+::is\+\_\+integer}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} int\+\_\+type, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a boolean column identifying strings in which all characters are valid for conversion to integers. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_gab8ef01f6071190a7f2196ff418147c98}{cudf\+::strings\+::hex\+\_\+to\+\_\+integers}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+type, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a new integer numeric column parsing hexadecimal values from the provided strings column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_ga387b620deea582d71ae2c696d4d46ffc}{cudf\+::strings\+::is\+\_\+hex}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a boolean column identifying strings in which all characters are valid for conversion to integers from hex. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_gaad13c290ea59b3b282cfb067b8c8c38c}{cudf\+::strings\+::integers\+\_\+to\+\_\+hex}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a new strings column converting integer columns to hexadecimal characters. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_ga8fb015fd7d0a6d51df4ea2fa2b5128c7}{cudf\+::strings\+::ipv4\+\_\+to\+\_\+integers}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Converts IPv4 addresses into integers. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_gafbbabbaf5bb7fc802a308c5a439f0575}{cudf\+::strings\+::integers\+\_\+to\+\_\+ipv4}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&integers, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Converts integers into IPv4 addresses as strings. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_ga054480e448c0507f91c30d7c3ea298e4}{cudf\+::strings\+::is\+\_\+ipv4}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a boolean column identifying strings in which all characters are valid for conversion to integers from IPv4 format. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_ga7ae1bf5dea1de2f7d85c142e66c3ddd2}{cudf\+::strings\+::format\+\_\+list\+\_\+column}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&na\+\_\+rep=\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}NULL\"{}), \mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&separators=\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}}(\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}}\{ \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}\{\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a63b588d5559f64f89a416e656880b949}{type\+\_\+id\+::\+STRING}}\}, 0, nullptr\}), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Convert a list column of strings into a formatted strings column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_ga17f40e3c3fc15a21c524371c799968b4}{cudf\+::strings\+::url\+\_\+encode}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Decodes each string using URL encoding. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__convert_ga0c2883dab61684ed341b2df0391f61d5}{cudf\+::strings\+::url\+\_\+decode}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Encodes each string using URL encoding. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__strings__convert_ga7ae1bf5dea1de2f7d85c142e66c3ddd2}\label{group__strings__convert_ga7ae1bf5dea1de2f7d85c142e66c3ddd2} 
+\index{Strings\_convert@{Strings\_convert}!format\_list\_column@{format\_list\_column}}
+\index{format\_list\_column@{format\_list\_column}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{format\_list\_column()}{format\_list\_column()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::format\+\_\+list\+\_\+column (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{na\+\_\+rep = {\ttfamily \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}NULL\"{})},  }\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{separators = {\ttfamily \mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}}(\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}}\{~\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}\{\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a63b588d5559f64f89a416e656880b949}{type\+\_\+id\+::\+STRING}}\},~0,~nullptr\})},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Convert a list column of strings into a formatted strings column. 
+
+The {\ttfamily separators} column should contain 3 strings elements in the following order\+:
+\begin{DoxyItemize}
+\item element separator (default is comma {\ttfamily ,})
+\item left-\/hand enclosure (default is {\ttfamily \mbox{[}})
+\item right-\/hand enclosure (default is {\ttfamily \mbox{]}})
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{l1\ =\ \{\ [[a,b,c],\ [d,e]],\ [[f,g],\ [h]]\ \}}
+\DoxyCodeLine{s1\ =\ format\_list\_column(l1)}
+\DoxyCodeLine{s1\ is\ now\ ["{}[[a,b,c],[d,e]]"{},\ "{}[[f,g],[h]]"{}]}
+\DoxyCodeLine{}
+\DoxyCodeLine{l2\ =\ \{\ [[a,b,c],\ [d,e]],\ [NULL],\ [[f,g],\ NULL,\ [h]]\ \}}
+\DoxyCodeLine{s2\ =\ format\_list\_column(l1,\ '-\/',\ [':',\ '\{',\ '\}'])}
+\DoxyCodeLine{s2\ is\ now\ ["{}\{\{a:b:c\}:\{d:e\}\}"{},\ "{}\{-\/\}"{},\ "{}\{\{f:g\}:-\/:\{h\}\}"{}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if the input column is not a LIST type with a STRING child.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & Lists column to format. \\
+\hline
+{\em na\+\_\+rep} & Replacement string for null elements. \\
+\hline
+{\em separators} & Strings to use for enclosing list components and separating elements. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_gab5c05d19cc3c60cbc7106286b10659fd}\label{group__strings__convert_gab5c05d19cc3c60cbc7106286b10659fd} 
+\index{Strings\_convert@{Strings\_convert}!from\_booleans@{from\_booleans}}
+\index{from\_booleans@{from\_booleans}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{from\_booleans()}{from\_booleans()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::from\+\_\+booleans (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{booleans,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{true\+\_\+string = {\ttfamily \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}true\"{})},  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{false\+\_\+string = {\ttfamily \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}false\"{})},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a new strings column converting the boolean values from the provided column into strings. 
+
+Any null entries will result in corresponding null entries in the output column.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if the input column is not BOOL8 type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em booleans} & Boolean column to convert. \\
+\hline
+{\em true\+\_\+string} & String to use for true in the output column. \\
+\hline
+{\em false\+\_\+string} & String to use for false in the output column. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_ga550620599415065a06a7f838e4720c91}\label{group__strings__convert_ga550620599415065a06a7f838e4720c91} 
+\index{Strings\_convert@{Strings\_convert}!from\_durations@{from\_durations}}
+\index{from\_durations@{from\_durations}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{from\_durations()}{from\_durations()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::from\+\_\+durations (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{durations,  }\item[{std\+::string\+\_\+view}]{format = {\ttfamily \"{}\%D~days~\%H\+:\%M\+:\%S\"{}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a new strings column converting a duration column into strings using the provided format pattern. 
+
+The format pattern can include the following specifiers\+: \"{}\%\%,\%n,\%t,\%\+D,\%\+H,\%\+I,\%\+M,\%\+S,\%p,\%\+R,\%\+T,\%r,\%\+OH,\%\+OI,\%\+OM,\%\+OS\"{}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Specifier   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Range    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Specifier   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Range    }\\\cline{1-3}
+\endhead
+\PBS\centering \%\%   &A literal \% character   &\%    \\\cline{1-3}
+\PBS\centering \%n   &A newline character   &\textbackslash{}n    \\\cline{1-3}
+\PBS\centering \%t   &A horizontal tab character   &\textbackslash{}t    \\\cline{1-3}
+\PBS\centering \%D   &Days   &-\/2,147,483,648 to 2,147,483,647    \\\cline{1-3}
+\PBS\centering \%H   &24-\/hour of the day   &00 to 23    \\\cline{1-3}
+\PBS\centering \%I   &12-\/hour of the day   &00 to 11    \\\cline{1-3}
+\PBS\centering \%M   &Minute of the hour   &00 to 59    \\\cline{1-3}
+\PBS\centering \%S   &Second of the minute   &00 to 59.\+999999999    \\\cline{1-3}
+\PBS\centering \%OH   &same as H but without sign   &00 to 23    \\\cline{1-3}
+\PBS\centering \%OI   &same as I but without sign   &00 to 11    \\\cline{1-3}
+\PBS\centering \%OM   &same as M but without sign   &00 to 59    \\\cline{1-3}
+\PBS\centering \%OS   &same as S but without sign   &00 to 59    \\\cline{1-3}
+\PBS\centering \%p   &AM/\+PM designations associated with a 12-\/hour clock   &\textquotesingle{}AM\textquotesingle{} or \textquotesingle{}PM\textquotesingle{}    \\\cline{1-3}
+\PBS\centering \%R   &Equivalent to \"{}\%\+H\+:\%\+M\"{}   &\\\cline{1-3}
+\PBS\centering \%T   &Equivalent to \"{}\%\+H\+:\%\+M\+:\%\+S\"{}   &\\\cline{1-3}
+\PBS\centering \%r   &Equivalent to \"{}\%\+OI\+:\%\+OM\+:\%\+OS \%p\"{}   &\\\cline{1-3}
+\end{longtabu}
+
+
+No checking is done for invalid formats or invalid duration values. Formatting sticks to specifications of {\ttfamily std\+::formatter\texorpdfstring{$<$}{<}std\+::chrono\+::duration\texorpdfstring{$>$}{>}} as much as possible.
+
+Any null input entry will result in a corresponding null entry in the output column.
+
+The time units of the input column influence the number of digits in decimal of seconds. It uses 3 digits for milliseconds, 6 digits for microseconds and 9 digits for nanoseconds. If duration value is negative, only one negative sign is written to output string. The specifiers with signs are \"{}\%\+H,\%\+I,\%\+M,\%\+S,\%\+R,\%\+T\"{}.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily durations} column parameter is not a duration type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em durations} & Duration values to convert. \\
+\hline
+{\em format} & The string specifying output format. Default format is \"{}\"{}d days H\+:M\+:S"{}. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column with formatted durations. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_gab891a9f288852a9f822af87aea6ffc30}\label{group__strings__convert_gab891a9f288852a9f822af87aea6ffc30} 
+\index{Strings\_convert@{Strings\_convert}!from\_fixed\_point@{from\_fixed\_point}}
+\index{from\_fixed\_point@{from\_fixed\_point}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{from\_fixed\_point()}{from\_fixed\_point()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::from\+\_\+fixed\+\_\+point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a new strings column converting the fixed-\/point values into a strings column. 
+
+Any null entries result in corresponding null entries in the output column.
+
+For each value, a string is created in base-\/10 decimal. Negative numbers include a \textquotesingle{}-\/\textquotesingle{} prefix in the output string. The column\textquotesingle{}s scale value is used to place the decimal point. A negative scale value may add padded zeros after the decimal point.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{fp\ is\ [110,\ 222,\ 3330,\ -\/440,\ -\/1]\ with\ scale\ =\ -\/2}
+\DoxyCodeLine{s\ =\ from\_fixed\_point(fp)}
+\DoxyCodeLine{s\ is\ now\ ['1.10',\ '2.22',\ '33.30',\ '-\/4.40',\ '-\/0.01']}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if the {\ttfamily input} column is not a fixed-\/point decimal type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & Fixed-\/point column to convert. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_ga1b0f56def6819005020848e88c551c12}\label{group__strings__convert_ga1b0f56def6819005020848e88c551c12} 
+\index{Strings\_convert@{Strings\_convert}!from\_floats@{from\_floats}}
+\index{from\_floats@{from\_floats}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{from\_floats()}{from\_floats()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::from\+\_\+floats (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{floats,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a new strings column converting the float values from the provided column into strings. 
+
+Any null entries will result in corresponding null entries in the output column.
+
+For each float, a string is created in base-\/10 decimal. Negative numbers will include a \textquotesingle{}-\/\textquotesingle{} prefix. Numbers producing more than 10 significant digits will produce a string that includes scientific notation (e.\+g. \"{}-\/1.\+78e+15\"{}).
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if floats column is not float type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em floats} & Numeric column to convert. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column with floats as strings. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_gaec26298399579eb85eff150baa189683}\label{group__strings__convert_gaec26298399579eb85eff150baa189683} 
+\index{Strings\_convert@{Strings\_convert}!from\_integers@{from\_integers}}
+\index{from\_integers@{from\_integers}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{from\_integers()}{from\_integers()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::from\+\_\+integers (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{integers,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a new strings column converting the integer values from the provided column into strings. 
+
+Any null entries will result in corresponding null entries in the output column.
+
+For each integer, a string is created in base-\/10 decimal. Negative numbers will include a \textquotesingle{}-\/\textquotesingle{} prefix.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if integers column is not integral type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em integers} & Numeric column to convert. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column with integers as strings. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_gae93a174879bd65baae31e6506049ef2f}\label{group__strings__convert_gae93a174879bd65baae31e6506049ef2f} 
+\index{Strings\_convert@{Strings\_convert}!from\_timestamps@{from\_timestamps}}
+\index{from\_timestamps@{from\_timestamps}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{from\_timestamps()}{from\_timestamps()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::from\+\_\+timestamps (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{timestamps,  }\item[{std\+::string\+\_\+view}]{format = {\ttfamily \"{}\%Y-\/\%m-\/\%dT\%H\+:\%M\+:\%SZ\"{}},  }\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{names = {\ttfamily \mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}}(\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}}\{~\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}\{\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a63b588d5559f64f89a416e656880b949}{type\+\_\+id\+::\+STRING}}\},~0,~nullptr\})},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a new strings column converting a timestamp column into strings using the provided format pattern. 
+
+The format pattern can include the following specifiers\+: \"{}\%\+Y,\%y,\%m,\%d,\%\+H,\%\+I,\%p,\%\+M,\%\+S,\%f,\%z,\%\+Z\"{}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Specifier   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Specifier   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering \%d   &Day of the month\+: 01-\/31    \\\cline{1-2}
+\PBS\centering \%m   &Month of the year\+: 01-\/12    \\\cline{1-2}
+\PBS\centering \%y   &Year without century\+: 00-\/99    \\\cline{1-2}
+\PBS\centering \%Y   &Year with century\+: 0001-\/9999    \\\cline{1-2}
+\PBS\centering \%H   &24-\/hour of the day\+: 00-\/23    \\\cline{1-2}
+\PBS\centering \%I   &12-\/hour of the day\+: 01-\/12    \\\cline{1-2}
+\PBS\centering \%M   &Minute of the hour\+: 00-\/59    \\\cline{1-2}
+\PBS\centering \%S   &Second of the minute\+: 00-\/59    \\\cline{1-2}
+\PBS\centering \%f   &6-\/digit microsecond\+: 000000-\/999999    \\\cline{1-2}
+\PBS\centering \%z   &Always outputs \"{}+0000\"{}    \\\cline{1-2}
+\PBS\centering \%Z   &Always outputs \"{}\+UTC\"{}    \\\cline{1-2}
+\PBS\centering \%j   &Day of the year\+: 001-\/366    \\\cline{1-2}
+\PBS\centering \%u   &ISO weekday where Monday is 1 and Sunday is 7    \\\cline{1-2}
+\PBS\centering \%w   &Weekday where Sunday is 0 and Saturday is 6    \\\cline{1-2}
+\PBS\centering \%U   &Week of the year with Sunday as the first day\+: 00-\/53    \\\cline{1-2}
+\PBS\centering \%W   &Week of the year with Monday as the first day\+: 00-\/53    \\\cline{1-2}
+\PBS\centering \%V   &Week of the year per ISO-\/8601 format\+: 01-\/53    \\\cline{1-2}
+\PBS\centering \%G   &Year based on the ISO-\/8601 weeks\+: 0000-\/9999    \\\cline{1-2}
+\PBS\centering \%p   &AM/\+PM from {\ttfamily timestamp\+\_\+names\+::am\+\_\+str/pm\+\_\+str}    \\\cline{1-2}
+\PBS\centering \%a   &Weekday abbreviation from the {\ttfamily names} parameter    \\\cline{1-2}
+\PBS\centering \%A   &Weekday from the {\ttfamily names} parameter    \\\cline{1-2}
+\PBS\centering \%b   &Month name abbreviation from the {\ttfamily names} parameter    \\\cline{1-2}
+\PBS\centering \%B   &Month name from the {\ttfamily names} parameter   \\\cline{1-2}
+\end{longtabu}
+
+
+Additional descriptions can be found here\+: \href{https://en.cppreference.com/w/cpp/chrono/system_clock/formatter}{\texttt{ https\+://en.\+cppreference.\+com/w/cpp/chrono/system\+\_\+clock/formatter}}
+
+No checking is done for invalid formats or invalid timestamp values. All timestamps values are formatted to UTC.
+
+Any null input entry will result in a corresponding null entry in the output column.
+
+The time units of the input column do not influence the number of digits written by the \"{}\%f\"{} specifier. The \"{}\%f\"{} supports a precision value to write out numeric digits for the subsecond value. Specify the precision with a single integer value (1-\/9) between the \"{}\%\"{} and the \"{}f\"{} as follows\+: use \"{}\%3f\"{} for milliseconds, use \"{}\%6f\"{} for microseconds and use \"{}\%9f\"{} for nanoseconds. If the precision is higher than the units, then zeroes are padded to the right of the subsecond value. If the precision is lower than the units, the subsecond value may be truncated.
+
+If the \"{}\%a\"{}, \"{}\%\+A\"{}, \"{}\%b\"{}, \"{}\%\+B\"{} specifiers are included in the format, the caller should provide the format names in the {\ttfamily names} strings column using the following as a guide\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{["{}AM"{},\ "{}PM"{},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ specify\ the\ AM/PM\ strings}
+\DoxyCodeLine{\ "{}Sunday"{},\ "{}Monday"{},\ ...,\ "{}Saturday"{},\ \ \ \ //\ Weekday\ full\ names}
+\DoxyCodeLine{\ "{}Sun"{},\ "{}Mon"{},\ ...,\ "{}Sat"{},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ Weekday\ abbreviated\ names}
+\DoxyCodeLine{\ "{}January"{},\ "{}February"{},\ ...,\ "{}December"{},\ //\ Month\ full\ names}
+\DoxyCodeLine{\ "{}Jan"{},\ "{}Feb"{},\ ...,\ "{}Dec"{}]\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ Month\ abbreviated\ names}
+
+\end{DoxyCode}
+
+
+The result is undefined if the format names are not provided for these specifiers.
+
+These format names can be retrieved for specific locales using the {\ttfamily nl\+\_\+langinfo} functions from C++ {\ttfamily clocale} (std) library or the Python {\ttfamily locale} library.
+
+The following code is an example of retrieving these strings from the locale using c++ std functions\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <clocale>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <langinfo.h>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ note:\ install\ language\ pack\ on\ Ubuntu\ using\ 'apt-\/get\ install\ language-\/pack-\/de'}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ set\ to\ a\ German\ language\ locale\ for\ date\ settings}}
+\DoxyCodeLine{\ \ std::setlocale(LC\_TIME,\ \textcolor{stringliteral}{"{}de\_DE.UTF-\/8"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ std::vector<std::string>\ names(\{nl\_langinfo(AM\_STR),\ nl\_langinfo(PM\_STR),}
+\DoxyCodeLine{\ \ \ \ nl\_langinfo(DAY\_1),\ nl\_langinfo(DAY\_2),\ nl\_langinfo(DAY\_3),\ nl\_langinfo(DAY\_4),}
+\DoxyCodeLine{\ \ \ \ \ nl\_langinfo(DAY\_5),\ nl\_langinfo(DAY\_6),\ nl\_langinfo(DAY\_7),}
+\DoxyCodeLine{\ \ \ \ nl\_langinfo(ABDAY\_1),\ nl\_langinfo(ABDAY\_2),\ nl\_langinfo(ABDAY\_3),\ nl\_langinfo(ABDAY\_4),}
+\DoxyCodeLine{\ \ \ \ \ nl\_langinfo(ABDAY\_5),\ nl\_langinfo(ABDAY\_6),\ nl\_langinfo(ABDAY\_7),}
+\DoxyCodeLine{\ \ \ \ nl\_langinfo(MON\_1),\ nl\_langinfo(MON\_2),\ nl\_langinfo(MON\_3),\ nl\_langinfo(MON\_4),}
+\DoxyCodeLine{\ \ \ \ \ nl\_langinfo(MON\_5),\ nl\_langinfo(MON\_6),\ nl\_langinfo(MON\_7),\ nl\_langinfo(MON\_8),}
+\DoxyCodeLine{\ \ \ \ \ nl\_langinfo(MON\_9),\ nl\_langinfo(MON\_10),\ nl\_langinfo(MON\_11),\ nl\_langinfo(MON\_12),}
+\DoxyCodeLine{\ \ \ \ nl\_langinfo(ABMON\_1),\ nl\_langinfo(ABMON\_2),\ nl\_langinfo(ABMON\_3),\ nl\_langinfo(ABMON\_4),}
+\DoxyCodeLine{\ \ \ \ \ nl\_langinfo(ABMON\_5),\ nl\_langinfo(ABMON\_6),\ nl\_langinfo(ABMON\_7),\ nl\_langinfo(ABMON\_8),}
+\DoxyCodeLine{\ \ \ \ \ nl\_langinfo(ABMON\_9),\ nl\_langinfo(ABMON\_10),\ nl\_langinfo(ABMON\_11),\ nl\_langinfo(ABMON\_12)\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ std::setlocale(LC\_TIME,\textcolor{stringliteral}{"{}"{}});\ \textcolor{comment}{//\ reset\ to\ default\ locale}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily timestamps} column parameter is not a timestamp type. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if the {\ttfamily format} string is empty \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily names.\+size()} is an invalid size. Must be 0 or 40 strings.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em timestamps} & Timestamp values to convert. \\
+\hline
+{\em format} & The string specifying output format. Default format is \"{}\%\+Y-\/\%m-\/\%d\+T\%\+H\+:\%\+M\+:\%\+SZ\"{}. \\
+\hline
+{\em names} & The string names to use for weekdays (\"{}\%a\"{}, \"{}\%\+A\"{}) and months (\"{}\%b\"{}, \"{}\%\+B\"{}) Default is an empty {\ttfamily \doxylink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}}. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column with formatted timestamps. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_gab8ef01f6071190a7f2196ff418147c98}\label{group__strings__convert_gab8ef01f6071190a7f2196ff418147c98} 
+\index{Strings\_convert@{Strings\_convert}!hex\_to\_integers@{hex\_to\_integers}}
+\index{hex\_to\_integers@{hex\_to\_integers}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{hex\_to\_integers()}{hex\_to\_integers()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::hex\+\_\+to\+\_\+integers (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{output\+\_\+type,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a new integer numeric column parsing hexadecimal values from the provided strings column. 
+
+Any null entries will result in corresponding null entries in the output column.
+
+Only characters \mbox{[}0-\/9\mbox{]} and \mbox{[}A-\/F\mbox{]} are recognized. When any other character is encountered, the parsing ends for that string. No interpretation is made on the sign of the integer.
+
+Overflow of the resulting integer type is not checked. Each string is converted using an int64 type and then cast to the target integer type before storing it into the output column. If the resulting integer type is too small to hold the value, the stored value will be undefined.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if output\+\_\+type is not integral type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em output\+\_\+type} & Type of integer numeric column to return. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New column with integers converted from strings. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_gaad13c290ea59b3b282cfb067b8c8c38c}\label{group__strings__convert_gaad13c290ea59b3b282cfb067b8c8c38c} 
+\index{Strings\_convert@{Strings\_convert}!integers\_to\_hex@{integers\_to\_hex}}
+\index{integers\_to\_hex@{integers\_to\_hex}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{integers\_to\_hex()}{integers\_to\_hex()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::integers\+\_\+to\+\_\+hex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a new strings column converting integer columns to hexadecimal characters. 
+
+Any null entries will result in corresponding null entries in the output column.
+
+The output character set is \textquotesingle{}0\textquotesingle{}-\/\textquotesingle{}9\textquotesingle{} and \textquotesingle{}A\textquotesingle{}-\/\textquotesingle{}F\textquotesingle{}. The output string width will be a multiple of 2 depending on the size of the integer type. A single leading zero is applied to the first non-\/zero output byte if it less than 0x10.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{input\ =\ [123,\ -\/1,\ 0,\ 27,\ 342718233]\ //\ int32\ type\ input\ column}
+\DoxyCodeLine{s\ =\ integers\_to\_hex(input)}
+\DoxyCodeLine{s\ is\ [\ '04D2',\ 'FFFFFFFF',\ '00',\ '1B',\ '146D7719']}
+
+\end{DoxyCode}
+
+
+The example above shows an {\ttfamily INT32} type column where each integer is 4 bytes. Leading zeros are suppressed unless filling out a complete byte as in `123 -\/\texorpdfstring{$>$}{>} \textquotesingle{}04D2'{\ttfamily instead of}000004D2{\ttfamily or}4D2\`{}.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if the input column is not integral type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & Integer column to convert to hex. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column with hexadecimal characters. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_gafbbabbaf5bb7fc802a308c5a439f0575}\label{group__strings__convert_gafbbabbaf5bb7fc802a308c5a439f0575} 
+\index{Strings\_convert@{Strings\_convert}!integers\_to\_ipv4@{integers\_to\_ipv4}}
+\index{integers\_to\_ipv4@{integers\_to\_ipv4}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{integers\_to\_ipv4()}{integers\_to\_ipv4()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::integers\+\_\+to\+\_\+ipv4 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{integers,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Converts integers into IPv4 addresses as strings. 
+
+The IPv4 format is 1-\/3 character digits \mbox{[}0-\/9\mbox{]} between 3 dots (e.\+g. 123.\+45.\+67.\+890). Each section can have a value between \mbox{[}0-\/255\mbox{]}.
+
+Each input integer is dissected into four integers by dividing the input into 8-\/bit sections. These sub-\/integers are then converted into \mbox{[}0-\/9\mbox{]} characters and placed between \textquotesingle{}.\textquotesingle{} characters.
+
+No checking is done on the input integer value. Only the lower 32-\/bits are used.
+
+Any null entries will result in corresponding null entries in the output column.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if the input column is not INT64 type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em integers} & Integer (INT64) column to convert. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_ga8fb015fd7d0a6d51df4ea2fa2b5128c7}\label{group__strings__convert_ga8fb015fd7d0a6d51df4ea2fa2b5128c7} 
+\index{Strings\_convert@{Strings\_convert}!ipv4\_to\_integers@{ipv4\_to\_integers}}
+\index{ipv4\_to\_integers@{ipv4\_to\_integers}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{ipv4\_to\_integers()}{ipv4\_to\_integers()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::ipv4\+\_\+to\+\_\+integers (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Converts IPv4 addresses into integers. 
+
+The IPv4 format is 1-\/3 character digits \mbox{[}0-\/9\mbox{]} between 3 dots (e.\+g. 123.\+45.\+67.\+890). Each section can have a value between \mbox{[}0-\/255\mbox{]}.
+
+The four sets of digits are converted to integers and placed in 8-\/bit fields inside the resulting integer. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{i0.i1.i2.i3\ -\/>\ (i0\ <<\ 24)\ |\ (i1\ <<\ 16)\ |\ (i2\ <<\ 8)\ |\ (i3)}
+
+\end{DoxyCode}
+
+
+No checking is done on the format. If a string is not in IPv4 format, the resulting integer is undefined.
+
+The resulting 32-\/bit integer is placed in an int64\+\_\+t to avoid setting the sign-\/bit in an int32\+\_\+t type. This could be changed if cudf supported a UINT32 type in the future.
+
+Any null entries will result in corresponding null entries in the output column.
+
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New INT64 column converted from strings. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_gad8b5d28ad36a8cac873c8c24c180ad88}\label{group__strings__convert_gad8b5d28ad36a8cac873c8c24c180ad88} 
+\index{Strings\_convert@{Strings\_convert}!is\_fixed\_point@{is\_fixed\_point}}
+\index{is\_fixed\_point@{is\_fixed\_point}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{is\_fixed\_point()}{is\_fixed\_point()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::is\+\_\+fixed\+\_\+point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{decimal\+\_\+type = {\ttfamily \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}\{\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539ad43431506a21dcfd2ada4cd4c28f8f56}{type\+\_\+id\+::\+DECIMAL64}}\}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a boolean column identifying strings in which all characters are valid for conversion to fixed-\/point. 
+
+The sign and the exponent is optional. The decimal point may only appear once. Also, the integer component must fit within the size limits of the underlying fixed-\/point storage type. The value of the integer component is based on the scale of the {\ttfamily decimal\+\_\+type} provided.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{s\ =\ ['123',\ '-\/456',\ '',\ '1.2.3',\ '+17E30',\ '12.34',\ '.789',\ '-\/0.005]}
+\DoxyCodeLine{b\ =\ is\_fixed\_point(s)}
+\DoxyCodeLine{b\ is\ [true,\ true,\ false,\ false,\ true,\ true,\ true,\ true]}
+
+\end{DoxyCode}
+
+
+Any null entries result in corresponding null entries in the output column.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if the {\ttfamily decimal\+\_\+type} is not a fixed-\/point decimal type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & Strings instance for this operation. \\
+\hline
+{\em decimal\+\_\+type} & Fixed-\/point type (with scale) used only for checking overflow. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New column of boolean results for each string. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_ga5544ea96e72940e4b3dd19dad63cc857}\label{group__strings__convert_ga5544ea96e72940e4b3dd19dad63cc857} 
+\index{Strings\_convert@{Strings\_convert}!is\_float@{is\_float}}
+\index{is\_float@{is\_float}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{is\_float()}{is\_float()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::is\+\_\+float (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a boolean column identifying strings in which all characters are valid for conversion to floats. 
+
+The output row entry will be set to {\ttfamily true} if the corresponding string element has at least one character in \mbox{[}-\/+0-\/9eE.\mbox{]}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{s\ =\ ['123',\ '-\/456',\ '',\ 'A',\ '+7',\ '8.9'\ '3.7e+5']}
+\DoxyCodeLine{b\ =\ s.is\_float(s)}
+\DoxyCodeLine{b\ is\ [true,\ true,\ false,\ false,\ true,\ true,\ true]}
+
+\end{DoxyCode}
+
+
+Any null row results in a null entry for that row in the output column.
+
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New column of boolean results for each string. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_ga387b620deea582d71ae2c696d4d46ffc}\label{group__strings__convert_ga387b620deea582d71ae2c696d4d46ffc} 
+\index{Strings\_convert@{Strings\_convert}!is\_hex@{is\_hex}}
+\index{is\_hex@{is\_hex}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{is\_hex()}{is\_hex()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::is\+\_\+hex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a boolean column identifying strings in which all characters are valid for conversion to integers from hex. 
+
+The output row entry will be set to {\ttfamily true} if the corresponding string element has at least one character in \mbox{[}0-\/9A-\/\+Za-\/z\mbox{]}. Also, the string may start with \textquotesingle{}0x\textquotesingle{}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{s\ =\ ['123',\ '-\/456',\ '',\ 'AGE',\ '+17EA',\ '0x9EF'\ '123ABC']}
+\DoxyCodeLine{b\ =\ is\_hex(s)}
+\DoxyCodeLine{b\ is\ [true,\ false,\ false,\ false,\ false,\ true,\ true]}
+
+\end{DoxyCode}
+
+
+Any null row results in a null entry for that row in the output column.
+
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New column of boolean results for each string. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_gac7dca4066a61ece7179a788a3103ebfb}\label{group__strings__convert_gac7dca4066a61ece7179a788a3103ebfb} 
+\index{Strings\_convert@{Strings\_convert}!is\_integer@{is\_integer}}
+\index{is\_integer@{is\_integer}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{is\_integer()}{is\_integer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::is\+\_\+integer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{int\+\_\+type,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a boolean column identifying strings in which all characters are valid for conversion to integers. 
+
+The output row entry will be set to {\ttfamily true} if the corresponding string element has all characters in \mbox{[}-\/+0-\/9\mbox{]}. The optional sign character must only be in the first position. Also, the integer component must fit within the size limits of the underlying storage type, which is provided by the int\+\_\+type parameter.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{s\ =\ ['123456',\ '-\/456',\ '',\ 'A',\ '+7']}
+\DoxyCodeLine{}
+\DoxyCodeLine{output1\ =\ s.is\_integer(s,\ data\_type\{type\_id::INT32\})}
+\DoxyCodeLine{output1\ is\ [true,\ true,\ false,\ false,\ true]}
+\DoxyCodeLine{}
+\DoxyCodeLine{output2\ =\ s.is\_integer(s,\ data\_type\{type\_id::INT8\})}
+\DoxyCodeLine{output2\ is\ [false,\ false,\ false,\ false,\ true]}
+
+\end{DoxyCode}
+
+
+Any null row results in a null entry for that row in the output column.
+
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em int\+\_\+type} & Integer type used for checking underflow and overflow. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New column of boolean results for each string. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_ga524bebc3d94f11ed53fdd3977f038252}\label{group__strings__convert_ga524bebc3d94f11ed53fdd3977f038252} 
+\index{Strings\_convert@{Strings\_convert}!is\_integer@{is\_integer}}
+\index{is\_integer@{is\_integer}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{is\_integer()}{is\_integer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::is\+\_\+integer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a boolean column identifying strings in which all characters are valid for conversion to integers. 
+
+The output row entry will be set to {\ttfamily true} if the corresponding string element have all characters in \mbox{[}-\/+0-\/9\mbox{]}. The optional sign character must only be in the first position. Notice that the the integer value is not checked to be within its storage limits. For strict integer type check, use the other {\ttfamily \doxylink{group__strings__convert_ga524bebc3d94f11ed53fdd3977f038252}{is\+\_\+integer()}} API which accepts {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} argument.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{s\ =\ ['123',\ '-\/456',\ '',\ 'A',\ '+7']}
+\DoxyCodeLine{b\ =\ s.is\_integer(s)}
+\DoxyCodeLine{b\ is\ [true,\ true,\ false,\ false,\ true]}
+
+\end{DoxyCode}
+
+
+Any null row results in a null entry for that row in the output column.
+
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New column of boolean results for each string. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_ga054480e448c0507f91c30d7c3ea298e4}\label{group__strings__convert_ga054480e448c0507f91c30d7c3ea298e4} 
+\index{Strings\_convert@{Strings\_convert}!is\_ipv4@{is\_ipv4}}
+\index{is\_ipv4@{is\_ipv4}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{is\_ipv4()}{is\_ipv4()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::is\+\_\+ipv4 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a boolean column identifying strings in which all characters are valid for conversion to integers from IPv4 format. 
+
+The output row entry will be set to {\ttfamily true} if the corresponding string element has the following format {\ttfamily xxx.\+xxx.\+xxx.\+xxx} where {\ttfamily xxx} is integer digits between 0-\/255.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{s\ =\ ['123.255.0.7',\ '127.0.0.1',\ '',\ '1.2.34'\ '123.456.789.10']}
+\DoxyCodeLine{b\ =\ s.is\_ipv4(s)}
+\DoxyCodeLine{b\ is\ [true,\ true,\ false,\ false,\ true]}
+
+\end{DoxyCode}
+
+
+Any null row results in a null entry for that row in the output column.
+
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New column of boolean results for each string. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_ga4edf69c839f5d4cf7e135bcad00a1409}\label{group__strings__convert_ga4edf69c839f5d4cf7e135bcad00a1409} 
+\index{Strings\_convert@{Strings\_convert}!is\_timestamp@{is\_timestamp}}
+\index{is\_timestamp@{is\_timestamp}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{is\_timestamp()}{is\_timestamp()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::is\+\_\+timestamp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{std\+::string\+\_\+view}]{format,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Verifies the given strings column can be parsed to timestamps using the provided format pattern. 
+
+The format pattern can include the following specifiers\+: \"{}\%\+Y,\%y,\%m,\%d,\%\+H,\%\+I,\%p,\%\+M,\%\+S,\%f,\%z\"{}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Specifier   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Specifier   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering \%d   &Day of the month\+: 01-\/31    \\\cline{1-2}
+\PBS\centering \%m   &Month of the year\+: 01-\/12    \\\cline{1-2}
+\PBS\centering \%y   &Year without century\+: 00-\/99. \mbox{[}0,68\mbox{]} maps to \mbox{[}2000,2068\mbox{]} and \mbox{[}69,99\mbox{]} maps to \mbox{[}1969,1999\mbox{]}    \\\cline{1-2}
+\PBS\centering \%Y   &Year with century\+: 0001-\/9999    \\\cline{1-2}
+\PBS\centering \%H   &24-\/hour of the day\+: 00-\/23    \\\cline{1-2}
+\PBS\centering \%I   &12-\/hour of the day\+: 01-\/12    \\\cline{1-2}
+\PBS\centering \%M   &Minute of the hour\+: 00-\/59    \\\cline{1-2}
+\PBS\centering \%S   &Second of the minute\+: 00-\/59. Leap second is not supported.    \\\cline{1-2}
+\PBS\centering \%f   &6-\/digit microsecond\+: 000000-\/999999    \\\cline{1-2}
+\PBS\centering \%z   &UTC offset with format ±\+HHMM Example +0500    \\\cline{1-2}
+\PBS\centering \%j   &Day of the year\+: 001-\/366    \\\cline{1-2}
+\PBS\centering \%p   &Only \textquotesingle{}AM\textquotesingle{}, \textquotesingle{}PM\textquotesingle{} or \textquotesingle{}am\textquotesingle{}, \textquotesingle{}pm\textquotesingle{} are recognized   \\\cline{1-2}
+\end{longtabu}
+
+
+Other specifiers are not currently supported. The \"{}\%f\"{} supports a precision value to read the numeric digits. Specify the precision with a single integer value (1-\/9) as follows\+: use \"{}\%3f\"{} for milliseconds, \"{}\%6f\"{} for microseconds and \"{}\%9f\"{} for nanoseconds.
+
+Any null string entry will result in a corresponding null row in the output column.
+
+This will return a column of type BOOL8 where a {\ttfamily true} row indicates the corresponding input string can be parsed correctly with the given format.
+
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em format} & String specifying the timestamp format in strings. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New BOOL8 column. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_ga2c4cebc90897b668acf77db60ffd4b00}\label{group__strings__convert_ga2c4cebc90897b668acf77db60ffd4b00} 
+\index{Strings\_convert@{Strings\_convert}!to\_booleans@{to\_booleans}}
+\index{to\_booleans@{to\_booleans}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{to\_booleans()}{to\_booleans()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::to\+\_\+booleans (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{true\+\_\+string = {\ttfamily \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}true\"{})},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a new BOOL8 column by parsing boolean values from the strings in the provided strings column. 
+
+Any null entries will result in corresponding null entries in the output column.
+
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em true\+\_\+string} & String to expect for true. Non-\/matching strings are false. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New BOOL8 column converted from strings. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_ga164923136957d72792b867347c2fa3fb}\label{group__strings__convert_ga164923136957d72792b867347c2fa3fb} 
+\index{Strings\_convert@{Strings\_convert}!to\_durations@{to\_durations}}
+\index{to\_durations@{to\_durations}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{to\_durations()}{to\_durations()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::to\+\_\+durations (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{duration\+\_\+type,  }\item[{std\+::string\+\_\+view}]{format,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a new duration column converting a strings column into durations using the provided format pattern. 
+
+The format pattern can include the following specifiers\+: \"{}\%\%,\%n,\%t,\%\+D,\%\+H,\%\+I,\%\+M,\%\+S,\%p,\%\+R,\%\+T,\%r,\%\+OH,\%\+OI,\%\+OM,\%\+OS\"{}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Specifier   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Range    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Specifier   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Range    }\\\cline{1-3}
+\endhead
+\PBS\centering \%\%   &A literal \% character   &\%    \\\cline{1-3}
+\PBS\centering \%n   &A newline character   &\textbackslash{}n    \\\cline{1-3}
+\PBS\centering \%t   &A horizontal tab character   &\textbackslash{}t    \\\cline{1-3}
+\PBS\centering \%D   &Days   &-\/2,147,483,648 to 2,147,483,647    \\\cline{1-3}
+\PBS\centering \%H   &24-\/hour of the day   &00 to 23    \\\cline{1-3}
+\PBS\centering \%I   &12-\/hour of the day   &00 to 11    \\\cline{1-3}
+\PBS\centering \%M   &Minute of the hour   &00 to 59    \\\cline{1-3}
+\PBS\centering \%S   &Second of the minute   &00 to 59.\+999999999    \\\cline{1-3}
+\PBS\centering \%OH   &same as H but without sign   &00 to 23    \\\cline{1-3}
+\PBS\centering \%OI   &same as I but without sign   &00 to 11    \\\cline{1-3}
+\PBS\centering \%OM   &same as M but without sign   &00 to 59    \\\cline{1-3}
+\PBS\centering \%OS   &same as S but without sign   &00 to 59    \\\cline{1-3}
+\PBS\centering \%p   &AM/\+PM designations associated with a 12-\/hour clock   &\textquotesingle{}AM\textquotesingle{} or \textquotesingle{}PM\textquotesingle{}    \\\cline{1-3}
+\PBS\centering \%R   &Equivalent to \"{}\%\+H\+:\%\+M\"{}   &\\\cline{1-3}
+\PBS\centering \%T   &Equivalent to \"{}\%\+H\+:\%\+M\+:\%\+S\"{}   &\\\cline{1-3}
+\PBS\centering \%r   &Equivalent to \"{}\%\+OI\+:\%\+OM\+:\%\+OS \%p\"{}   &\\\cline{1-3}
+\end{longtabu}
+
+
+Other specifiers are not currently supported.
+
+Invalid formats are not checked. If the string contains unexpected or insufficient characters, that output row entry\textquotesingle{}s duration value is undefined.
+
+Any null string entry will result in a corresponding null row in the output column.
+
+The resulting time units are specified by the {\ttfamily duration\+\_\+type} parameter.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if duration\+\_\+type is not a duration type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em duration\+\_\+type} & The duration type used for creating the output column. \\
+\hline
+{\em format} & String specifying the duration format in strings. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New duration column. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_ga1764713b9062627bba68afa04dd33760}\label{group__strings__convert_ga1764713b9062627bba68afa04dd33760} 
+\index{Strings\_convert@{Strings\_convert}!to\_fixed\_point@{to\_fixed\_point}}
+\index{to\_fixed\_point@{to\_fixed\_point}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{to\_fixed\_point()}{to\_fixed\_point()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::to\+\_\+fixed\+\_\+point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{output\+\_\+type,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a new fixed-\/point column parsing decimal values from the provided strings column. 
+
+Any null entries result in corresponding null entries in the output column.
+
+The expected format is {\ttfamily \mbox{[}sign\mbox{]}\mbox{[}integer\mbox{]}\mbox{[}.\mbox{]}\mbox{[}fraction\mbox{]}}, where the sign is either not present, {\ttfamily -\/} or {\ttfamily +}, The decimal point {\ttfamily \mbox{[}.\mbox{]}} may or may not be present, and {\ttfamily integer} and {\ttfamily fraction} are comprised of zero or more digits in \mbox{[}0-\/9\mbox{]}. An invalid data format results in undefined behavior in the corresponding output row result.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{s\ =\ ['123',\ '-\/876',\ '543.2',\ '-\/0.12']}
+\DoxyCodeLine{datatype\ =\ \{DECIMAL32,\ scale=-\/2\}}
+\DoxyCodeLine{fp\ =\ to\_fixed\_point(s,\ datatype)}
+\DoxyCodeLine{fp\ is\ [123400,\ -\/87600,\ 54320,\ -\/12]}
+
+\end{DoxyCode}
+
+
+Overflow of the resulting value type is not checked. The scale in the {\ttfamily output\+\_\+type} is used for setting the integer component.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily output\+\_\+type} is not a fixed-\/point decimal type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & Strings instance for this operation. \\
+\hline
+{\em output\+\_\+type} & Type of fixed-\/point column to return including the scale value. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New column of {\ttfamily output\+\_\+type}. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_ga2d4b894db661bb540390c3f4e0820e19}\label{group__strings__convert_ga2d4b894db661bb540390c3f4e0820e19} 
+\index{Strings\_convert@{Strings\_convert}!to\_floats@{to\_floats}}
+\index{to\_floats@{to\_floats}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{to\_floats()}{to\_floats()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::to\+\_\+floats (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{output\+\_\+type,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a new numeric column by parsing float values from each string in the provided strings column. 
+
+Any null entries will result in corresponding null entries in the output column.
+
+Only characters \mbox{[}0-\/9\mbox{]} plus a prefix \textquotesingle{}-\/\textquotesingle{} and \textquotesingle{}+\textquotesingle{} and decimal \textquotesingle{}.\textquotesingle{} are recognized. Additionally, scientific notation is also supported (e.\+g. \"{}-\/1.\+78e+5\"{}).
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if output\+\_\+type is not float type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em output\+\_\+type} & Type of float numeric column to return. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New column with floats converted from strings. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_ga7c8700a96f92c9505b68458392c116a3}\label{group__strings__convert_ga7c8700a96f92c9505b68458392c116a3} 
+\index{Strings\_convert@{Strings\_convert}!to\_integers@{to\_integers}}
+\index{to\_integers@{to\_integers}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{to\_integers()}{to\_integers()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::to\+\_\+integers (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{output\+\_\+type,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a new integer numeric column parsing integer values from the provided strings column. 
+
+Any null entries will result in corresponding null entries in the output column.
+
+Only characters \mbox{[}0-\/9\mbox{]} plus a prefix \textquotesingle{}-\/\textquotesingle{} and \textquotesingle{}+\textquotesingle{} are recognized. When any other character is encountered, the parsing ends for that string and the current digits are converted into an integer.
+
+Overflow of the resulting integer type is not checked. Each string is converted using an int64 type and then cast to the target integer type before storing it into the output column. If the resulting integer type is too small to hold the value, the stored value will be undefined.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if output\+\_\+type is not integral type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em output\+\_\+type} & Type of integer numeric column to return. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New column with integers converted from strings. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_gac1b3e9b08df54914309f168e7892a9b3}\label{group__strings__convert_gac1b3e9b08df54914309f168e7892a9b3} 
+\index{Strings\_convert@{Strings\_convert}!to\_timestamps@{to\_timestamps}}
+\index{to\_timestamps@{to\_timestamps}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{to\_timestamps()}{to\_timestamps()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::to\+\_\+timestamps (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{timestamp\+\_\+type,  }\item[{std\+::string\+\_\+view}]{format,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a new timestamp column converting a strings column into timestamps using the provided format pattern. 
+
+The format pattern can include the following specifiers\+: \"{}\%\+Y,\%y,\%m,\%d,\%\+H,\%\+I,\%p,\%\+M,\%\+S,\%f,\%z\"{}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Specifier   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Specifier   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering \%d   &Day of the month\+: 01-\/31    \\\cline{1-2}
+\PBS\centering \%m   &Month of the year\+: 01-\/12    \\\cline{1-2}
+\PBS\centering \%y   &Year without century\+: 00-\/99. \mbox{[}0,68\mbox{]} maps to \mbox{[}2000,2068\mbox{]} and \mbox{[}69,99\mbox{]} maps to \mbox{[}1969,1999\mbox{]}    \\\cline{1-2}
+\PBS\centering \%Y   &Year with century\+: 0001-\/9999    \\\cline{1-2}
+\PBS\centering \%H   &24-\/hour of the day\+: 00-\/23    \\\cline{1-2}
+\PBS\centering \%I   &12-\/hour of the day\+: 01-\/12    \\\cline{1-2}
+\PBS\centering \%M   &Minute of the hour\+: 00-\/59    \\\cline{1-2}
+\PBS\centering \%S   &Second of the minute\+: 00-\/59. Leap second is not supported.    \\\cline{1-2}
+\PBS\centering \%f   &6-\/digit microsecond\+: 000000-\/999999    \\\cline{1-2}
+\PBS\centering \%z   &UTC offset with format ±\+HHMM Example +0500    \\\cline{1-2}
+\PBS\centering \%j   &Day of the year\+: 001-\/366    \\\cline{1-2}
+\PBS\centering \%p   &Only \textquotesingle{}AM\textquotesingle{}, \textquotesingle{}PM\textquotesingle{} or \textquotesingle{}am\textquotesingle{}, \textquotesingle{}pm\textquotesingle{} are recognized   \\\cline{1-2}
+\end{longtabu}
+
+
+Other specifiers are not currently supported.
+
+Invalid formats are not checked. If the string contains unexpected or insufficient characters, that output row entry\textquotesingle{}s timestamp value is undefined.
+
+Any null string entry will result in a corresponding null row in the output column.
+
+The resulting time units are specified by the {\ttfamily timestamp\+\_\+type} parameter. The time units are independent of the number of digits parsed by the \"{}\%f\"{} specifier. The \"{}\%f\"{} supports a precision value to read the numeric digits. Specify the precision with a single integer value (1-\/9) as follows\+: use \"{}\%3f\"{} for milliseconds, \"{}\%6f\"{} for microseconds and \"{}\%9f\"{} for nanoseconds.
+
+Although leap second is not supported for \"{}\%\+S\"{}, no checking is performed on the value. The \doxylink{group__strings__convert_ga4edf69c839f5d4cf7e135bcad00a1409}{cudf\+::strings\+::is\+\_\+timestamp} can be used to verify the valid range of values.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if timestamp\+\_\+type is not a timestamp type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em timestamp\+\_\+type} & The timestamp type used for creating the output column. \\
+\hline
+{\em format} & String specifying the timestamp format in strings. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New datetime column. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_ga0c2883dab61684ed341b2df0391f61d5}\label{group__strings__convert_ga0c2883dab61684ed341b2df0391f61d5} 
+\index{Strings\_convert@{Strings\_convert}!url\_decode@{url\_decode}}
+\index{url\_decode@{url\_decode}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{url\_decode()}{url\_decode()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::url\+\_\+decode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Encodes each string using URL encoding. 
+
+Converts all character sequences starting with \textquotesingle{}\textquotesingle{} into character code-\/points interpreting the 2 following characters as hex values to create the code-\/point. For example, the sequence \textquotesingle{}\%20\textquotesingle{} is converted into byte (0x20) which is a single space character. Another example converts \textquotesingle{}C3A9\textquotesingle{} into 2 sequential bytes (0xc3 and 0xa9 respectively) which is the é character. Overall, 3 characters are converted into one char byte whenever a \textquotesingle{}\%\textquotesingle{} (single percent) character is encountered in the string.
+
+Any null entries will result in corresponding null entries in the output column.
+
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__convert_ga17f40e3c3fc15a21c524371c799968b4}\label{group__strings__convert_ga17f40e3c3fc15a21c524371c799968b4} 
+\index{Strings\_convert@{Strings\_convert}!url\_encode@{url\_encode}}
+\index{url\_encode@{url\_encode}!Strings\_convert@{Strings\_convert}}
+\doxysubsubsection{\texorpdfstring{url\_encode()}{url\_encode()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::url\+\_\+encode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Decodes each string using URL encoding. 
+
+Converts mostly non-\/ascii characters and control characters into UTF-\/8 hex code-\/points prefixed with \textquotesingle{}\textquotesingle{}. For example, the space character must be converted to characters \textquotesingle{}\%20\textquotesingle{} where the \textquotesingle{}20\textquotesingle{} indicates the hex value for space in UTF-\/8. Likewise, multi-\/byte characters are converted to multiple hex characters. For example, the é character is converted to characters \textquotesingle{}C3A9\textquotesingle{} where \textquotesingle{}C3\+A9\textquotesingle{} is the UTF-\/8 bytes 0x\+C3\+A9 for this character.
+
+Any null entries will result in corresponding null entries in the output column.
+
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column. 
+\end{DoxyReturn}

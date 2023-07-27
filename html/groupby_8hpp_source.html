@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: D:/gitLibrary/cudf/cpp/include/cudf/groupby.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('groupby_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">groupby.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="groupby_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright (c) 2019-2022, NVIDIA CORPORATION.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;<a class="code" href="aggregation_8hpp.html">cudf/aggregation.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;<a class="code" href="column__view_8hpp.html">cudf/column/column_view.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;<a class="code" href="replace_8hpp.html">cudf/replace.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;<a class="code" href="table__view_8hpp.html">cudf/table/table_view.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;<a class="code" href="types_8hpp.html">cudf/types.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;<a class="code" href="span_8hpp.html">cudf/utilities/span.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;rmm/cuda_stream_view.hpp&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;rmm/mr/device/per_device_resource.hpp&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecudf.html">cudf</a> {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">namespace </span><a class="code hl_function" href="namespacecudf_1_1groupby_1_1detail_1_1hash.html#ad22389c0cff6ea94162c9393032fef5a">groupby</a> {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">namespace </span>detail {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">namespace </span><a class="code hl_function" href="namespacecudf_1_1detail.html#a6ecb769bcadd1469d96dab94bc9fb92c">sort</a> {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">class </span>sort_groupby_helper;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}  <span class="comment">// namespace sort</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}  <span class="comment">// namespace detail</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="structcudf_1_1groupby_1_1aggregation__request.html">   59</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structcudf_1_1groupby_1_1aggregation__request.html">aggregation_request</a> {</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="structcudf_1_1groupby_1_1aggregation__request.html#abe1f7fdbefc846b52fc73e3ef7919d0c">   60</a></span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <a class="code hl_variable" href="structcudf_1_1groupby_1_1aggregation__request.html#abe1f7fdbefc846b52fc73e3ef7919d0c">values</a>;                                              </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="structcudf_1_1groupby_1_1aggregation__request.html#a24de18bb4904e7cc0b22b76fe6e877ca">   61</a></span>  std::vector&lt;std::unique_ptr&lt;groupby_aggregation&gt;&gt; <a class="code hl_variable" href="structcudf_1_1groupby_1_1aggregation__request.html#a24de18bb4904e7cc0b22b76fe6e877ca">aggregations</a>;  </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>};</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="structcudf_1_1groupby_1_1scan__request.html">   74</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structcudf_1_1groupby_1_1scan__request.html">scan_request</a> {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="structcudf_1_1groupby_1_1scan__request.html#a1954c5a8e5bf4e9e084c9af78977e1c6">   75</a></span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <a class="code hl_variable" href="structcudf_1_1groupby_1_1scan__request.html#a1954c5a8e5bf4e9e084c9af78977e1c6">values</a>;  </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="structcudf_1_1groupby_1_1scan__request.html#a9bc151ffba86e31feb32667890a197f9">   76</a></span>  std::vector&lt;std::unique_ptr&lt;groupby_scan_aggregation&gt;&gt; <a class="code hl_variable" href="structcudf_1_1groupby_1_1scan__request.html#a9bc151ffba86e31feb32667890a197f9">aggregations</a>;  </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>};</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="structcudf_1_1groupby_1_1aggregation__result.html">   86</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structcudf_1_1groupby_1_1aggregation__result.html">aggregation_result</a> {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="structcudf_1_1groupby_1_1aggregation__result.html#a1d0e11864ac37b44b2b19051fca616fe">   88</a></span>  std::vector&lt;std::unique_ptr&lt;column&gt;&gt; <a class="code hl_variable" href="structcudf_1_1groupby_1_1aggregation__result.html#a1d0e11864ac37b44b2b19051fca616fe">results</a>{};</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>};</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="classcudf_1_1groupby_1_1groupby.html">   94</a></span><span class="keyword">class </span><a class="code hl_class" href="classcudf_1_1groupby_1_1groupby.html">groupby</a> {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classcudf_1_1groupby_1_1groupby.html#a5d36dfa2cc4d663e6fd964934358df99">   96</a></span>  <a class="code hl_function" href="classcudf_1_1groupby_1_1groupby.html#a5d36dfa2cc4d663e6fd964934358df99">groupby</a>() = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classcudf_1_1groupby_1_1groupby.html#aad32b5c633aab5a3f87b3cc672e9cceb">   97</a></span>  <a class="code hl_function" href="classcudf_1_1groupby_1_1groupby.html#aad32b5c633aab5a3f87b3cc672e9cceb">~groupby</a>();</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="classcudf_1_1groupby_1_1groupby.html#a5fbfa82fba31afd62619dfd8abf63e5d">   98</a></span>  <a class="code hl_function" href="classcudf_1_1groupby_1_1groupby.html#a5fbfa82fba31afd62619dfd8abf63e5d">groupby</a>(<a class="code hl_class" href="classcudf_1_1groupby_1_1groupby.html">groupby</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="classcudf_1_1groupby_1_1groupby.html#a84ef08aad5426af97ebe2c91c30029a4">   99</a></span>  <a class="code hl_function" href="classcudf_1_1groupby_1_1groupby.html#a84ef08aad5426af97ebe2c91c30029a4">groupby</a>(<a class="code hl_class" href="classcudf_1_1groupby_1_1groupby.html">groupby</a>&amp;&amp;)      = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="classcudf_1_1groupby_1_1groupby.html#aab4222391da271de790efb56826ae5e7">  100</a></span>  <a class="code hl_class" href="classcudf_1_1groupby_1_1groupby.html">groupby</a>&amp; <a class="code hl_function" href="classcudf_1_1groupby_1_1groupby.html#aab4222391da271de790efb56826ae5e7">operator=</a>(<a class="code hl_class" href="classcudf_1_1groupby_1_1groupby.html">groupby</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="classcudf_1_1groupby_1_1groupby.html#a8fb2fb339f1261cf8cdb35000b332e66">  101</a></span>  <a class="code hl_class" href="classcudf_1_1groupby_1_1groupby.html">groupby</a>&amp; <a class="code hl_function" href="classcudf_1_1groupby_1_1groupby.html#a8fb2fb339f1261cf8cdb35000b332e66">operator=</a>(<a class="code hl_class" href="classcudf_1_1groupby_1_1groupby.html">groupby</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="classcudf_1_1groupby_1_1groupby.html#a8669aaeac7be4da5828ac13bed7cfab2">  126</a></span>  <span class="keyword">explicit</span> <a class="code hl_function" href="classcudf_1_1groupby_1_1groupby.html#a8669aaeac7be4da5828ac13bed7cfab2">groupby</a>(<a class="code hl_class" href="classcudf_1_1table__view.html">table_view</a> <span class="keyword">const</span>&amp; keys,</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>                   <a class="code hl_enumeration" href="group__utility__types.html#ga1b8cda4afb95a7c42c4679b4fae61009">null_policy</a> null_handling                      = <a class="code hl_enumvalue" href="group__utility__types.html#gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8">null_policy::EXCLUDE</a>,</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                   <a class="code hl_enumeration" href="group__utility__types.html#gab283c517931abd4152ffa62fec62425d">sorted</a> keys_are_sorted                         = <a class="code hl_enumvalue" href="group__utility__types.html#ggab283c517931abd4152ffa62fec62425dac2f3f489a00553e7a01d369c103c7251">sorted::NO</a>,</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>                   std::vector&lt;order&gt; <span class="keyword">const</span>&amp; column_order         = {},</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>                   std::vector&lt;null_order&gt; <span class="keyword">const</span>&amp; null_precedence = {});</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="classcudf_1_1groupby_1_1groupby.html#a221be714878787abea34232da4c56e23">  185</a></span>  std::pair&lt;std::unique_ptr&lt;table&gt;, std::vector&lt;aggregation_result&gt;&gt; <a class="code hl_function" href="classcudf_1_1groupby_1_1groupby.html#a221be714878787abea34232da4c56e23">aggregate</a>(</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <a class="code hl_struct" href="structcudf_1_1host__span.html">host_span&lt;aggregation_request const&gt;</a> requests,</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno"><a class="line" href="classcudf_1_1groupby_1_1groupby.html#a695b525d3874c8190f9d3d9ad03c8900">  240</a></span>  std::pair&lt;std::unique_ptr&lt;table&gt;, std::vector&lt;aggregation_result&gt;&gt; <a class="code hl_function" href="classcudf_1_1groupby_1_1groupby.html#a695b525d3874c8190f9d3d9ad03c8900">scan</a>(</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    <a class="code hl_struct" href="structcudf_1_1host__span.html">host_span&lt;scan_request const&gt;</a> requests,</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno"><a class="line" href="classcudf_1_1groupby_1_1groupby.html#aad664c9dee97886fd5085fc989e9665c">  294</a></span>  std::pair&lt;std::unique_ptr&lt;table&gt;, std::unique_ptr&lt;table&gt;&gt; <a class="code hl_function" href="classcudf_1_1groupby_1_1groupby.html#aad664c9dee97886fd5085fc989e9665c">shift</a>(</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    <a class="code hl_class" href="classcudf_1_1table__view.html">table_view</a> <span class="keyword">const</span>&amp; values,</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    <a class="code hl_struct" href="structcudf_1_1host__span.html">host_span&lt;size_type const&gt;</a> offsets,</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    std::vector&lt;std::reference_wrapper&lt;const scalar&gt;&gt; <span class="keyword">const</span>&amp; fill_values,</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span> </div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno"><a class="line" href="structcudf_1_1groupby_1_1groupby_1_1groups.html">  308</a></span>  <span class="keyword">struct </span><a class="code hl_struct" href="structcudf_1_1groupby_1_1groupby_1_1groups.html">groups</a> {</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno"><a class="line" href="structcudf_1_1groupby_1_1groupby_1_1groups.html#a1e2bd7b5cda63cbde54172c7b9e373ef">  309</a></span>    std::unique_ptr&lt;table&gt; <a class="code hl_variable" href="structcudf_1_1groupby_1_1groupby_1_1groups.html#a1e2bd7b5cda63cbde54172c7b9e373ef">keys</a>;     </div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno"><a class="line" href="structcudf_1_1groupby_1_1groupby_1_1groups.html#a89b091d7d8766f08ac2b9585dacea117">  310</a></span>    std::vector&lt;size_type&gt; <a class="code hl_variable" href="structcudf_1_1groupby_1_1groupby_1_1groups.html#a89b091d7d8766f08ac2b9585dacea117">offsets</a>;  </div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno"><a class="line" href="structcudf_1_1groupby_1_1groupby_1_1groups.html#af912615a2358c732db88297a9b0e49c7">  311</a></span>    std::unique_ptr&lt;table&gt; <a class="code hl_variable" href="structcudf_1_1groupby_1_1groupby_1_1groups.html#af912615a2358c732db88297a9b0e49c7">values</a>;   </div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>  };</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span> </div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno"><a class="line" href="classcudf_1_1groupby_1_1groupby.html#a6a066cd4dcb8ee089f5147c4db8b39a9">  326</a></span>  <a class="code hl_struct" href="structcudf_1_1groupby_1_1groupby_1_1groups.html">groups</a> <a class="code hl_function" href="classcudf_1_1groupby_1_1groupby.html#a6a066cd4dcb8ee089f5147c4db8b39a9">get_groups</a>(<a class="code hl_class" href="classcudf_1_1table__view.html">cudf::table_view</a> values             = {},</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>                    rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span> </div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno"><a class="line" href="classcudf_1_1groupby_1_1groupby.html#aabbd604f82a5c1402e19e87a7239c1d6">  364</a></span>  std::pair&lt;std::unique_ptr&lt;table&gt;, std::unique_ptr&lt;table&gt;&gt; <a class="code hl_function" href="classcudf_1_1groupby_1_1groupby.html#aabbd604f82a5c1402e19e87a7239c1d6">replace_nulls</a>(</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>    <a class="code hl_class" href="classcudf_1_1table__view.html">table_view</a> <span class="keyword">const</span>&amp; values,</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>    <a class="code hl_struct" href="structcudf_1_1host__span.html">host_span&lt;cudf::replace_policy const&gt;</a> replace_policies,</div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>    rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span> </div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span> <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno"><a class="line" href="classcudf_1_1groupby_1_1groupby.html#a2beb090f2bcf3e3e72f949068f67bdc7">  370</a></span>  <a class="code hl_class" href="classcudf_1_1table__view.html">table_view</a> <a class="code hl_variable" href="classcudf_1_1groupby_1_1groupby.html#a2beb090f2bcf3e3e72f949068f67bdc7">_keys</a>;                                      </div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno"><a class="line" href="classcudf_1_1groupby_1_1groupby.html#a166284d95b101e5c4cac4f1627bd2924">  371</a></span>  <a class="code hl_enumeration" href="group__utility__types.html#ga1b8cda4afb95a7c42c4679b4fae61009">null_policy</a> <a class="code hl_variable" href="classcudf_1_1groupby_1_1groupby.html#a166284d95b101e5c4cac4f1627bd2924">_include_null_keys</a>{<a class="code hl_enumvalue" href="group__utility__types.html#gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8">null_policy::EXCLUDE</a>};  </div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno"><a class="line" href="classcudf_1_1groupby_1_1groupby.html#a8678f4f886329339b236c59950b104ac">  373</a></span>  <a class="code hl_enumeration" href="group__utility__types.html#gab283c517931abd4152ffa62fec62425d">sorted</a> <a class="code hl_variable" href="classcudf_1_1groupby_1_1groupby.html#a8678f4f886329339b236c59950b104ac">_keys_are_sorted</a>{<a class="code hl_enumvalue" href="group__utility__types.html#ggab283c517931abd4152ffa62fec62425dac2f3f489a00553e7a01d369c103c7251">sorted::NO</a>};                   </div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno"><a class="line" href="classcudf_1_1groupby_1_1groupby.html#ae4bfa0e55c29a2a20b7fb9dc86892997">  374</a></span>  std::vector&lt;order&gt; <a class="code hl_variable" href="classcudf_1_1groupby_1_1groupby.html#ae4bfa0e55c29a2a20b7fb9dc86892997">_column_order</a>{};                    </div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno"><a class="line" href="classcudf_1_1groupby_1_1groupby.html#ac2da103feacf00783c21058ce9b44c3c">  376</a></span>  std::vector&lt;null_order&gt; <a class="code hl_variable" href="classcudf_1_1groupby_1_1groupby.html#ac2da103feacf00783c21058ce9b44c3c">_null_precedence</a>{};            </div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>  std::unique_ptr&lt;detail::sort::sort_groupby_helper&gt;</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno"><a class="line" href="classcudf_1_1groupby_1_1groupby.html#affd0eb1070d5097bb6c3482a947fbf9a">  380</a></span>    <a class="code hl_variable" href="classcudf_1_1groupby_1_1groupby.html#affd0eb1070d5097bb6c3482a947fbf9a">_helper</a>;  </div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span> </div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno"><a class="line" href="classcudf_1_1groupby_1_1groupby.html#af02ad28832f56935b4d04f846ff3e9ff">  389</a></span>  <a class="code hl_struct" href="structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper.html">detail::sort::sort_groupby_helper</a>&amp; <a class="code hl_function" href="classcudf_1_1groupby_1_1groupby.html#af02ad28832f56935b4d04f846ff3e9ff">helper</a>();</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span> </div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno"><a class="line" href="classcudf_1_1groupby_1_1groupby.html#ae81b6eae9814934deff8b127687b0bf8">  395</a></span>  std::pair&lt;std::unique_ptr&lt;table&gt;, std::vector&lt;aggregation_result&gt;&gt; <a class="code hl_function" href="classcudf_1_1groupby_1_1groupby.html#ae81b6eae9814934deff8b127687b0bf8">dispatch_aggregation</a>(</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>    <a class="code hl_struct" href="structcudf_1_1host__span.html">host_span&lt;aggregation_request const&gt;</a> requests,</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>    rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>    rmm::mr::device_memory_resource* mr);</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span> </div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>  <span class="comment">// Sort-based groupby</span></div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno"><a class="line" href="classcudf_1_1groupby_1_1groupby.html#ade046c72ed77b62ca93fced6d1436077">  401</a></span>  std::pair&lt;std::unique_ptr&lt;table&gt;, std::vector&lt;aggregation_result&gt;&gt; <a class="code hl_function" href="classcudf_1_1groupby_1_1groupby.html#ade046c72ed77b62ca93fced6d1436077">sort_aggregate</a>(</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>    <a class="code hl_struct" href="structcudf_1_1host__span.html">host_span&lt;aggregation_request const&gt;</a> requests,</div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>    rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>    rmm::mr::device_memory_resource* mr);</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span> </div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno"><a class="line" href="classcudf_1_1groupby_1_1groupby.html#a67d07f5c56b12d901488bb4c991216d4">  406</a></span>  std::pair&lt;std::unique_ptr&lt;table&gt;, std::vector&lt;aggregation_result&gt;&gt; <a class="code hl_function" href="classcudf_1_1groupby_1_1groupby.html#a67d07f5c56b12d901488bb4c991216d4">sort_scan</a>(</div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>    <a class="code hl_struct" href="structcudf_1_1host__span.html">host_span&lt;scan_request const&gt;</a> requests,</div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>    rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>    rmm::mr::device_memory_resource* mr);</div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>};</div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>}  <span class="comment">// namespace groupby</span></div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>}  <span class="comment">// namespace cudf</span></div>
+<div class="ttc" id="aaggregation_8hpp_html"><div class="ttname"><a href="aggregation_8hpp.html">aggregation.hpp</a></div><div class="ttdoc">Representation for specifying desired aggregations from aggregation-based APIs, e....</div></div>
+<div class="ttc" id="aclasscudf_1_1column__view_html"><div class="ttname"><a href="classcudf_1_1column__view.html">cudf::column_view</a></div><div class="ttdoc">A non-owning, immutable view of device data as a column of elements, some of which may be null as ind...</div><div class="ttdef"><b>Definition</b> <a href="column__view_8hpp_source.html#l00322">column_view.hpp:322</a></div></div>
+<div class="ttc" id="aclasscudf_1_1groupby_1_1groupby_html"><div class="ttname"><a href="classcudf_1_1groupby_1_1groupby.html">cudf::groupby::groupby</a></div><div class="ttdoc">Groups values by keys and computes aggregations on those groups.</div><div class="ttdef"><b>Definition</b> <a href="groupby_8hpp_source.html#l00094">groupby.hpp:94</a></div></div>
+<div class="ttc" id="aclasscudf_1_1groupby_1_1groupby_html_a166284d95b101e5c4cac4f1627bd2924"><div class="ttname"><a href="classcudf_1_1groupby_1_1groupby.html#a166284d95b101e5c4cac4f1627bd2924">cudf::groupby::groupby::_include_null_keys</a></div><div class="ttdeci">null_policy _include_null_keys</div><div class="ttdef"><b>Definition</b> <a href="groupby_8hpp_source.html#l00371">groupby.hpp:371</a></div></div>
+<div class="ttc" id="aclasscudf_1_1groupby_1_1groupby_html_a221be714878787abea34232da4c56e23"><div class="ttname"><a href="classcudf_1_1groupby_1_1groupby.html#a221be714878787abea34232da4c56e23">cudf::groupby::groupby::aggregate</a></div><div class="ttdeci">std::pair&lt; std::unique_ptr&lt; table &gt;, std::vector&lt; aggregation_result &gt; &gt; aggregate(host_span&lt; aggregation_request const &gt; requests, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Performs grouped aggregations on the specified values.</div></div>
+<div class="ttc" id="aclasscudf_1_1groupby_1_1groupby_html_a2beb090f2bcf3e3e72f949068f67bdc7"><div class="ttname"><a href="classcudf_1_1groupby_1_1groupby.html#a2beb090f2bcf3e3e72f949068f67bdc7">cudf::groupby::groupby::_keys</a></div><div class="ttdeci">table_view _keys</div><div class="ttdoc">Keys that determine grouping</div><div class="ttdef"><b>Definition</b> <a href="groupby_8hpp_source.html#l00370">groupby.hpp:370</a></div></div>
+<div class="ttc" id="aclasscudf_1_1groupby_1_1groupby_html_a5d36dfa2cc4d663e6fd964934358df99"><div class="ttname"><a href="classcudf_1_1groupby_1_1groupby.html#a5d36dfa2cc4d663e6fd964934358df99">cudf::groupby::groupby::groupby</a></div><div class="ttdeci">groupby()=delete</div></div>
+<div class="ttc" id="aclasscudf_1_1groupby_1_1groupby_html_a5fbfa82fba31afd62619dfd8abf63e5d"><div class="ttname"><a href="classcudf_1_1groupby_1_1groupby.html#a5fbfa82fba31afd62619dfd8abf63e5d">cudf::groupby::groupby::groupby</a></div><div class="ttdeci">groupby(groupby const &amp;)=delete</div></div>
+<div class="ttc" id="aclasscudf_1_1groupby_1_1groupby_html_a67d07f5c56b12d901488bb4c991216d4"><div class="ttname"><a href="classcudf_1_1groupby_1_1groupby.html#a67d07f5c56b12d901488bb4c991216d4">cudf::groupby::groupby::sort_scan</a></div><div class="ttdeci">std::pair&lt; std::unique_ptr&lt; table &gt;, std::vector&lt; aggregation_result &gt; &gt; sort_scan(host_span&lt; scan_request const &gt; requests, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr)</div></div>
+<div class="ttc" id="aclasscudf_1_1groupby_1_1groupby_html_a695b525d3874c8190f9d3d9ad03c8900"><div class="ttname"><a href="classcudf_1_1groupby_1_1groupby.html#a695b525d3874c8190f9d3d9ad03c8900">cudf::groupby::groupby::scan</a></div><div class="ttdeci">std::pair&lt; std::unique_ptr&lt; table &gt;, std::vector&lt; aggregation_result &gt; &gt; scan(host_span&lt; scan_request const &gt; requests, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Performs grouped scans on the specified values.</div></div>
+<div class="ttc" id="aclasscudf_1_1groupby_1_1groupby_html_a6a066cd4dcb8ee089f5147c4db8b39a9"><div class="ttname"><a href="classcudf_1_1groupby_1_1groupby.html#a6a066cd4dcb8ee089f5147c4db8b39a9">cudf::groupby::groupby::get_groups</a></div><div class="ttdeci">groups get_groups(cudf::table_view values={}, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Get the grouped keys and values corresponding to a groupby operation on a set of values</div></div>
+<div class="ttc" id="aclasscudf_1_1groupby_1_1groupby_html_a84ef08aad5426af97ebe2c91c30029a4"><div class="ttname"><a href="classcudf_1_1groupby_1_1groupby.html#a84ef08aad5426af97ebe2c91c30029a4">cudf::groupby::groupby::groupby</a></div><div class="ttdeci">groupby(groupby &amp;&amp;)=delete</div></div>
+<div class="ttc" id="aclasscudf_1_1groupby_1_1groupby_html_a8669aaeac7be4da5828ac13bed7cfab2"><div class="ttname"><a href="classcudf_1_1groupby_1_1groupby.html#a8669aaeac7be4da5828ac13bed7cfab2">cudf::groupby::groupby::groupby</a></div><div class="ttdeci">groupby(table_view const &amp;keys, null_policy null_handling=null_policy::EXCLUDE, sorted keys_are_sorted=sorted::NO, std::vector&lt; order &gt; const &amp;column_order={}, std::vector&lt; null_order &gt; const &amp;null_precedence={})</div><div class="ttdoc">Construct a groupby object with the specified keys</div></div>
+<div class="ttc" id="aclasscudf_1_1groupby_1_1groupby_html_a8678f4f886329339b236c59950b104ac"><div class="ttname"><a href="classcudf_1_1groupby_1_1groupby.html#a8678f4f886329339b236c59950b104ac">cudf::groupby::groupby::_keys_are_sorted</a></div><div class="ttdeci">sorted _keys_are_sorted</div><div class="ttdoc">Whether or not the keys are sorted</div><div class="ttdef"><b>Definition</b> <a href="groupby_8hpp_source.html#l00373">groupby.hpp:373</a></div></div>
+<div class="ttc" id="aclasscudf_1_1groupby_1_1groupby_html_a8fb2fb339f1261cf8cdb35000b332e66"><div class="ttname"><a href="classcudf_1_1groupby_1_1groupby.html#a8fb2fb339f1261cf8cdb35000b332e66">cudf::groupby::groupby::operator=</a></div><div class="ttdeci">groupby &amp; operator=(groupby &amp;&amp;)=delete</div></div>
+<div class="ttc" id="aclasscudf_1_1groupby_1_1groupby_html_aab4222391da271de790efb56826ae5e7"><div class="ttname"><a href="classcudf_1_1groupby_1_1groupby.html#aab4222391da271de790efb56826ae5e7">cudf::groupby::groupby::operator=</a></div><div class="ttdeci">groupby &amp; operator=(groupby const &amp;)=delete</div></div>
+<div class="ttc" id="aclasscudf_1_1groupby_1_1groupby_html_aabbd604f82a5c1402e19e87a7239c1d6"><div class="ttname"><a href="classcudf_1_1groupby_1_1groupby.html#aabbd604f82a5c1402e19e87a7239c1d6">cudf::groupby::groupby::replace_nulls</a></div><div class="ttdeci">std::pair&lt; std::unique_ptr&lt; table &gt;, std::unique_ptr&lt; table &gt; &gt; replace_nulls(table_view const &amp;values, host_span&lt; cudf::replace_policy const &gt; replace_policies, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Performs grouped replace nulls on value</div></div>
+<div class="ttc" id="aclasscudf_1_1groupby_1_1groupby_html_aad32b5c633aab5a3f87b3cc672e9cceb"><div class="ttname"><a href="classcudf_1_1groupby_1_1groupby.html#aad32b5c633aab5a3f87b3cc672e9cceb">cudf::groupby::groupby::~groupby</a></div><div class="ttdeci">~groupby()</div></div>
+<div class="ttc" id="aclasscudf_1_1groupby_1_1groupby_html_aad664c9dee97886fd5085fc989e9665c"><div class="ttname"><a href="classcudf_1_1groupby_1_1groupby.html#aad664c9dee97886fd5085fc989e9665c">cudf::groupby::groupby::shift</a></div><div class="ttdeci">std::pair&lt; std::unique_ptr&lt; table &gt;, std::unique_ptr&lt; table &gt; &gt; shift(table_view const &amp;values, host_span&lt; size_type const &gt; offsets, std::vector&lt; std::reference_wrapper&lt; const scalar &gt; &gt; const &amp;fill_values, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Performs grouped shifts for specified values.</div></div>
+<div class="ttc" id="aclasscudf_1_1groupby_1_1groupby_html_ac2da103feacf00783c21058ce9b44c3c"><div class="ttname"><a href="classcudf_1_1groupby_1_1groupby.html#ac2da103feacf00783c21058ce9b44c3c">cudf::groupby::groupby::_null_precedence</a></div><div class="ttdeci">std::vector&lt; null_order &gt; _null_precedence</div><div class="ttdef"><b>Definition</b> <a href="groupby_8hpp_source.html#l00376">groupby.hpp:376</a></div></div>
+<div class="ttc" id="aclasscudf_1_1groupby_1_1groupby_html_ade046c72ed77b62ca93fced6d1436077"><div class="ttname"><a href="classcudf_1_1groupby_1_1groupby.html#ade046c72ed77b62ca93fced6d1436077">cudf::groupby::groupby::sort_aggregate</a></div><div class="ttdeci">std::pair&lt; std::unique_ptr&lt; table &gt;, std::vector&lt; aggregation_result &gt; &gt; sort_aggregate(host_span&lt; aggregation_request const &gt; requests, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr)</div></div>
+<div class="ttc" id="aclasscudf_1_1groupby_1_1groupby_html_ae4bfa0e55c29a2a20b7fb9dc86892997"><div class="ttname"><a href="classcudf_1_1groupby_1_1groupby.html#ae4bfa0e55c29a2a20b7fb9dc86892997">cudf::groupby::groupby::_column_order</a></div><div class="ttdeci">std::vector&lt; order &gt; _column_order</div><div class="ttdef"><b>Definition</b> <a href="groupby_8hpp_source.html#l00374">groupby.hpp:374</a></div></div>
+<div class="ttc" id="aclasscudf_1_1groupby_1_1groupby_html_ae81b6eae9814934deff8b127687b0bf8"><div class="ttname"><a href="classcudf_1_1groupby_1_1groupby.html#ae81b6eae9814934deff8b127687b0bf8">cudf::groupby::groupby::dispatch_aggregation</a></div><div class="ttdeci">std::pair&lt; std::unique_ptr&lt; table &gt;, std::vector&lt; aggregation_result &gt; &gt; dispatch_aggregation(host_span&lt; aggregation_request const &gt; requests, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr)</div><div class="ttdoc">Dispatches to the appropriate implementation to satisfy the aggregation requests.</div></div>
+<div class="ttc" id="aclasscudf_1_1groupby_1_1groupby_html_af02ad28832f56935b4d04f846ff3e9ff"><div class="ttname"><a href="classcudf_1_1groupby_1_1groupby.html#af02ad28832f56935b4d04f846ff3e9ff">cudf::groupby::groupby::helper</a></div><div class="ttdeci">detail::sort::sort_groupby_helper &amp; helper()</div><div class="ttdoc">Get the sort helper object</div></div>
+<div class="ttc" id="aclasscudf_1_1groupby_1_1groupby_html_affd0eb1070d5097bb6c3482a947fbf9a"><div class="ttname"><a href="classcudf_1_1groupby_1_1groupby.html#affd0eb1070d5097bb6c3482a947fbf9a">cudf::groupby::groupby::_helper</a></div><div class="ttdeci">std::unique_ptr&lt; detail::sort::sort_groupby_helper &gt; _helper</div><div class="ttdef"><b>Definition</b> <a href="groupby_8hpp_source.html#l00380">groupby.hpp:380</a></div></div>
+<div class="ttc" id="aclasscudf_1_1table__view_html"><div class="ttname"><a href="classcudf_1_1table__view.html">cudf::table_view</a></div><div class="ttdoc">A set of cudf::column_view's of the same size.</div><div class="ttdef"><b>Definition</b> <a href="table__view_8hpp_source.html#l00187">table_view.hpp:187</a></div></div>
+<div class="ttc" id="acolumn__view_8hpp_html"><div class="ttname"><a href="column__view_8hpp.html">column_view.hpp</a></div><div class="ttdoc">column view class definitions</div></div>
+<div class="ttc" id="agroup__utility__types_html_ga1b8cda4afb95a7c42c4679b4fae61009"><div class="ttname"><a href="group__utility__types.html#ga1b8cda4afb95a7c42c4679b4fae61009">cudf::null_policy</a></div><div class="ttdeci">null_policy</div><div class="ttdoc">Enum to specify whether to include nulls or exclude nulls</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00119">types.hpp:119</a></div></div>
+<div class="ttc" id="agroup__utility__types_html_gab283c517931abd4152ffa62fec62425d"><div class="ttname"><a href="group__utility__types.html#gab283c517931abd4152ffa62fec62425d">cudf::sorted</a></div><div class="ttdeci">sorted</div><div class="ttdoc">Indicates whether a collection of values is known to be sorted.</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00160">types.hpp:160</a></div></div>
+<div class="ttc" id="agroup__utility__types_html_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8"><div class="ttname"><a href="group__utility__types.html#gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8">cudf::null_policy::EXCLUDE</a></div><div class="ttdeci">@ EXCLUDE</div><div class="ttdoc">exclude null elements</div></div>
+<div class="ttc" id="agroup__utility__types_html_ggab283c517931abd4152ffa62fec62425dac2f3f489a00553e7a01d369c103c7251"><div class="ttname"><a href="group__utility__types.html#ggab283c517931abd4152ffa62fec62425dac2f3f489a00553e7a01d369c103c7251">cudf::sorted::NO</a></div><div class="ttdeci">@ NO</div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_a6ecb769bcadd1469d96dab94bc9fb92c"><div class="ttname"><a href="namespacecudf_1_1detail.html#a6ecb769bcadd1469d96dab94bc9fb92c">cudf::detail::sort</a></div><div class="ttdeci">std::unique_ptr&lt; table &gt; sort(table_view const &amp;values, std::vector&lt; order &gt; const &amp;column_order={}, std::vector&lt; null_order &gt; const &amp;null_precedence={}, rmm::cuda_stream_view stream=cudf::get_default_stream(), rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Performs a lexicographic sort of the rows of a table</div></div>
+<div class="ttc" id="anamespacecudf_1_1groupby_1_1detail_1_1hash_html_ad22389c0cff6ea94162c9393032fef5a"><div class="ttname"><a href="namespacecudf_1_1groupby_1_1detail_1_1hash.html#ad22389c0cff6ea94162c9393032fef5a">cudf::groupby::detail::hash::groupby</a></div><div class="ttdeci">std::pair&lt; std::unique_ptr&lt; table &gt;, std::vector&lt; aggregation_result &gt; &gt; groupby(table_view const &amp;keys, host_span&lt; aggregation_request const &gt; requests, null_policy include_null_keys, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr)</div></div>
+<div class="ttc" id="anamespacecudf_html"><div class="ttname"><a href="namespacecudf.html">cudf</a></div><div class="ttdoc">cuDF interfaces</div><div class="ttdef"><b>Definition</b> <a href="aggregation_8hpp_source.html#l00034">aggregation.hpp:34</a></div></div>
+<div class="ttc" id="areplace_8hpp_html"><div class="ttname"><a href="replace_8hpp.html">replace.hpp</a></div></div>
+<div class="ttc" id="aspan_8hpp_html"><div class="ttname"><a href="span_8hpp.html">span.hpp</a></div></div>
+<div class="ttc" id="astructcudf_1_1groupby_1_1aggregation__request_html"><div class="ttname"><a href="structcudf_1_1groupby_1_1aggregation__request.html">cudf::groupby::aggregation_request</a></div><div class="ttdoc">Request for groupby aggregation(s) to perform on a column.</div><div class="ttdef"><b>Definition</b> <a href="groupby_8hpp_source.html#l00059">groupby.hpp:59</a></div></div>
+<div class="ttc" id="astructcudf_1_1groupby_1_1aggregation__request_html_a24de18bb4904e7cc0b22b76fe6e877ca"><div class="ttname"><a href="structcudf_1_1groupby_1_1aggregation__request.html#a24de18bb4904e7cc0b22b76fe6e877ca">cudf::groupby::aggregation_request::aggregations</a></div><div class="ttdeci">std::vector&lt; std::unique_ptr&lt; groupby_aggregation &gt; &gt; aggregations</div><div class="ttdoc">Desired aggregations</div><div class="ttdef"><b>Definition</b> <a href="groupby_8hpp_source.html#l00061">groupby.hpp:61</a></div></div>
+<div class="ttc" id="astructcudf_1_1groupby_1_1aggregation__request_html_abe1f7fdbefc846b52fc73e3ef7919d0c"><div class="ttname"><a href="structcudf_1_1groupby_1_1aggregation__request.html#abe1f7fdbefc846b52fc73e3ef7919d0c">cudf::groupby::aggregation_request::values</a></div><div class="ttdeci">column_view values</div><div class="ttdoc">The elements to aggregate</div><div class="ttdef"><b>Definition</b> <a href="groupby_8hpp_source.html#l00060">groupby.hpp:60</a></div></div>
+<div class="ttc" id="astructcudf_1_1groupby_1_1aggregation__result_html"><div class="ttname"><a href="structcudf_1_1groupby_1_1aggregation__result.html">cudf::groupby::aggregation_result</a></div><div class="ttdoc">The result(s) of an aggregation_request</div><div class="ttdef"><b>Definition</b> <a href="groupby_8hpp_source.html#l00086">groupby.hpp:86</a></div></div>
+<div class="ttc" id="astructcudf_1_1groupby_1_1aggregation__result_html_a1d0e11864ac37b44b2b19051fca616fe"><div class="ttname"><a href="structcudf_1_1groupby_1_1aggregation__result.html#a1d0e11864ac37b44b2b19051fca616fe">cudf::groupby::aggregation_result::results</a></div><div class="ttdeci">std::vector&lt; std::unique_ptr&lt; column &gt; &gt; results</div><div class="ttdoc">Columns of results from an aggregation_request</div><div class="ttdef"><b>Definition</b> <a href="groupby_8hpp_source.html#l00088">groupby.hpp:88</a></div></div>
+<div class="ttc" id="astructcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper_html"><div class="ttname"><a href="structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper.html">cudf::groupby::detail::sort::sort_groupby_helper</a></div><div class="ttdoc">Helper class for computing sort-based groupby</div><div class="ttdef"><b>Definition</b> <a href="sort__helper_8hpp_source.html#l00043">sort_helper.hpp:43</a></div></div>
+<div class="ttc" id="astructcudf_1_1groupby_1_1groupby_1_1groups_html"><div class="ttname"><a href="structcudf_1_1groupby_1_1groupby_1_1groups.html">cudf::groupby::groupby::groups</a></div><div class="ttdoc">The grouped data corresponding to a groupby operation on a set of values.</div><div class="ttdef"><b>Definition</b> <a href="groupby_8hpp_source.html#l00308">groupby.hpp:308</a></div></div>
+<div class="ttc" id="astructcudf_1_1groupby_1_1groupby_1_1groups_html_a1e2bd7b5cda63cbde54172c7b9e373ef"><div class="ttname"><a href="structcudf_1_1groupby_1_1groupby_1_1groups.html#a1e2bd7b5cda63cbde54172c7b9e373ef">cudf::groupby::groupby::groups::keys</a></div><div class="ttdeci">std::unique_ptr&lt; table &gt; keys</div><div class="ttdoc">Table of grouped keys</div><div class="ttdef"><b>Definition</b> <a href="groupby_8hpp_source.html#l00309">groupby.hpp:309</a></div></div>
+<div class="ttc" id="astructcudf_1_1groupby_1_1groupby_1_1groups_html_a89b091d7d8766f08ac2b9585dacea117"><div class="ttname"><a href="structcudf_1_1groupby_1_1groupby_1_1groups.html#a89b091d7d8766f08ac2b9585dacea117">cudf::groupby::groupby::groups::offsets</a></div><div class="ttdeci">std::vector&lt; size_type &gt; offsets</div><div class="ttdoc">Group Offsets</div><div class="ttdef"><b>Definition</b> <a href="groupby_8hpp_source.html#l00310">groupby.hpp:310</a></div></div>
+<div class="ttc" id="astructcudf_1_1groupby_1_1groupby_1_1groups_html_af912615a2358c732db88297a9b0e49c7"><div class="ttname"><a href="structcudf_1_1groupby_1_1groupby_1_1groups.html#af912615a2358c732db88297a9b0e49c7">cudf::groupby::groupby::groups::values</a></div><div class="ttdeci">std::unique_ptr&lt; table &gt; values</div><div class="ttdoc">Table of grouped values</div><div class="ttdef"><b>Definition</b> <a href="groupby_8hpp_source.html#l00311">groupby.hpp:311</a></div></div>
+<div class="ttc" id="astructcudf_1_1groupby_1_1scan__request_html"><div class="ttname"><a href="structcudf_1_1groupby_1_1scan__request.html">cudf::groupby::scan_request</a></div><div class="ttdoc">Request for groupby aggregation(s) for scanning a column.</div><div class="ttdef"><b>Definition</b> <a href="groupby_8hpp_source.html#l00074">groupby.hpp:74</a></div></div>
+<div class="ttc" id="astructcudf_1_1groupby_1_1scan__request_html_a1954c5a8e5bf4e9e084c9af78977e1c6"><div class="ttname"><a href="structcudf_1_1groupby_1_1scan__request.html#a1954c5a8e5bf4e9e084c9af78977e1c6">cudf::groupby::scan_request::values</a></div><div class="ttdeci">column_view values</div><div class="ttdoc">The elements to aggregate</div><div class="ttdef"><b>Definition</b> <a href="groupby_8hpp_source.html#l00075">groupby.hpp:75</a></div></div>
+<div class="ttc" id="astructcudf_1_1groupby_1_1scan__request_html_a9bc151ffba86e31feb32667890a197f9"><div class="ttname"><a href="structcudf_1_1groupby_1_1scan__request.html#a9bc151ffba86e31feb32667890a197f9">cudf::groupby::scan_request::aggregations</a></div><div class="ttdeci">std::vector&lt; std::unique_ptr&lt; groupby_scan_aggregation &gt; &gt; aggregations</div><div class="ttdoc">Desired aggregations</div><div class="ttdef"><b>Definition</b> <a href="groupby_8hpp_source.html#l00076">groupby.hpp:76</a></div></div>
+<div class="ttc" id="astructcudf_1_1host__span_html"><div class="ttname"><a href="structcudf_1_1host__span.html">cudf::host_span</a></div><div class="ttdoc">C++20 std::span with reduced feature set.</div><div class="ttdef"><b>Definition</b> <a href="span_8hpp_source.html#l00214">span.hpp:214</a></div></div>
+<div class="ttc" id="atable__view_8hpp_html"><div class="ttname"><a href="table__view_8hpp.html">table_view.hpp</a></div><div class="ttdoc">Class definitions for (mutable)_table_view</div></div>
+<div class="ttc" id="atypes_8hpp_html"><div class="ttname"><a href="types_8hpp.html">types.hpp</a></div><div class="ttdoc">Type declarations for libcudf.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_d998dea0bd4559303135358082015ac8.html">gitLibrary</a></li><li class="navelem"><a class="el" href="dir_b6486b3d9bd1f4b89c884933ed658179.html">cudf</a></li><li class="navelem"><a class="el" href="dir_318a4414914f49dc0e7605c41de9d4af.html">cpp</a></li><li class="navelem"><a class="el" href="dir_7fbf5ee8ae486656ea40e5ca1dd304f9.html">include</a></li><li class="navelem"><a class="el" href="dir_87e6427d1ef099fd52d9d0724c66b062.html">cudf</a></li><li class="navelem"><a class="el" href="groupby_8hpp.html">groupby.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

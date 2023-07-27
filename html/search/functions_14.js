@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['udf_5faggregation_0',['udf_aggregation',['../classcudf_1_1detail_1_1udf__aggregation.html#af101694b03eae06651cde6bab426f958',1,'cudf::detail::udf_aggregation']]],
+  ['unary_5foperation_1',['unary_operation',['../namespacecudf_1_1detail.html#acc1d1df6733679d2f522bd838eae342a',1,'cudf::detail::unary_operation()'],['../group__transformation__unaryops.html#gaa9ccb7f148feeb38dc70f3dbd242cf77',1,'cudf::unary_operation()']]],
+  ['unary_5foperator_5fdispatcher_2',['unary_operator_dispatcher',['../namespacecudf_1_1ast_1_1detail.html#acfde50d7ac41dc5d674a917644f193f8',1,'cudf::ast::detail']]],
+  ['unbounded_3',['unbounded',['../structcudf_1_1window__bounds.html#a2e188fd2bd683e913dd86f082ee1ffa0',1,'cudf::window_bounds::unbounded()'],['../structcudf_1_1range__window__bounds.html#aca75ce25de9d32e213554b5e20afce44',1,'cudf::range_window_bounds::unbounded()']]],
+  ['union_5fdistinct_4',['union_distinct',['../namespacecudf_1_1lists_1_1detail.html#abd168cb12f17f89ae76476a28923df65',1,'cudf::lists::detail::union_distinct()'],['../group__set__operations.html#gab41df12620352a94de35ed81c0a256fc',1,'cudf::lists::union_distinct()']]],
+  ['unique_5',['unique',['../namespacecudf_1_1detail.html#a641f75ce86d28e459d73c6afe246f43c',1,'cudf::detail::unique()'],['../group__reorder__compact.html#ga87352ad4f282dd17365d4c9929d5c644',1,'cudf::unique()']]],
+  ['unique_5fcount_6',['unique_count',['../namespacecudf_1_1detail.html#a98e8b391af43f65454777fb93ac1810b',1,'cudf::detail::unique_count(column_view const &amp;input, null_policy null_handling, nan_policy nan_handling, rmm::cuda_stream_view stream)'],['../namespacecudf_1_1detail.html#a310da6da06499f366f5df272a540182e',1,'cudf::detail::unique_count(table_view const &amp;input, null_equality nulls_equal=null_equality::EQUAL, rmm::cuda_stream_view stream=cudf::get_default_stream())'],['../group__reorder__compact.html#ga63e5defd9560fcd397ff6aa79022a56c',1,'cudf::unique_count(column_view const &amp;input, null_policy null_handling, nan_policy nan_handling)'],['../group__reorder__compact.html#gad947e78a65b8c7eca69337c6bd3ad749',1,'cudf::unique_count(table_view const &amp;input, null_equality nulls_equal=null_equality::EQUAL)']]],
+  ['unique_5fkeys_7',['unique_keys',['../structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper.html#a342160b5582643beda13449124647a44',1,'cudf::groupby::detail::sort::sort_groupby_helper']]],
+  ['unpack_8',['unpack',['../group__column__copy.html#ga1d62a18c2e6f087a92289c63693762cc',1,'cudf::unpack(packed_columns const &amp;input)'],['../group__column__copy.html#gaaaebfb6742c09cccda8fb8a78e19fbd6',1,'cudf::unpack(uint8_t const *metadata, uint8_t const *gpu_data)']]],
+  ['unsorted_5fkeys_5flabels_9',['unsorted_keys_labels',['../structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper.html#af061d9557c186442b8168dfe3ba52a52',1,'cudf::groupby::detail::sort::sort_groupby_helper']]],
+  ['update_5fmagic_5fnumbers_10',['update_magic_numbers',['../classint__fastdiv.html#a457ab8cc216ffe71f3ddcf40796516c2',1,'int_fastdiv']]],
+  ['upper_5fbound_11',['upper_bound',['../namespacecudf_1_1detail.html#ad5c2375ffd17459ecf1ef510fe8c2ea2',1,'cudf::detail::upper_bound()'],['../group__column__search.html#gad59489c94927ed191ef9720e0026008a',1,'cudf::upper_bound()']]],
+  ['url_5fdecode_12',['url_decode',['../group__strings__convert.html#ga0c2883dab61684ed341b2df0391f61d5',1,'cudf::strings']]],
+  ['url_5fencode_13',['url_encode',['../group__strings__convert.html#ga17f40e3c3fc15a21c524371c799968b4',1,'cudf::strings']]],
+  ['use_5fcols_5findexes_14',['use_cols_indexes',['../classcudf_1_1io_1_1csv__reader__options__builder.html#a4da87305c2fe5b06accd50170342d2bd',1,'cudf::io::csv_reader_options_builder']]],
+  ['use_5fcols_5fnames_15',['use_cols_names',['../classcudf_1_1io_1_1csv__reader__options__builder.html#a0b995a5ab86330b17537ccfec7f36f05',1,'cudf::io::csv_reader_options_builder']]],
+  ['use_5findex_16',['use_index',['../classcudf_1_1io_1_1orc__reader__options__builder.html#a54d317127872dcd82d6f91428a688e77',1,'cudf::io::orc_reader_options_builder']]],
+  ['use_5fnp_5fdtypes_17',['use_np_dtypes',['../classcudf_1_1io_1_1orc__reader__options__builder.html#ab20f973491ddbd523e3f80a29539ee5a',1,'cudf::io::orc_reader_options_builder']]],
+  ['use_5fpandas_5fmetadata_18',['use_pandas_metadata',['../classcudf_1_1io_1_1parquet__reader__options__builder.html#a7ea46bafb24f5b66caaf19bff35799eb',1,'cudf::io::parquet_reader_options_builder']]],
+  ['user_5fsinks_19',['user_sinks',['../structcudf_1_1io_1_1sink__info.html#ad933d90647a9a11763f3fdfd9e5e6f15',1,'cudf::io::sink_info']]],
+  ['user_5fsources_20',['user_sources',['../structcudf_1_1io_1_1source__info.html#a5aea5d681048d0300700c439591e5bc6',1,'cudf::io::source_info']]],
+  ['utf8_5fto_5fcodepoint_21',['utf8_to_codepoint',['../namespacecudf_1_1strings_1_1detail.html#a1e06c92ed6f860d3e2009fa0f986b0e1',1,'cudf::strings::detail']]]
+];

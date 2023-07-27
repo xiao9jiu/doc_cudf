@@ -1,0 +1,1345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: cudf::detail::simple_aggregations_collector类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classcudf_1_1detail_1_1simple__aggregations__collector.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classcudf_1_1detail_1_1simple__aggregations__collector-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">cudf::detail::simple_aggregations_collector类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="detail_2aggregation_2aggregation_8hpp_source.html">aggregation.hpp</a>&gt;</code></p>
+<div class="dynheader">
+cudf::detail::simple_aggregations_collector 的协作图:</div>
+<div class="dyncontent">
+<div class="center"><img src="classcudf_1_1detail_1_1simple__aggregations__collector__coll__graph.png" border="0" usemap="#acudf_1_1detail_1_1simple__aggregations__collector_coll__map" alt="Collaboration graph"/></div>
+<map name="acudf_1_1detail_1_1simple__aggregations__collector_coll__map" id="acudf_1_1detail_1_1simple__aggregations__collector_coll__map">
+<area shape="rect" title=" " alt="" coords="5,5,155,304"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:ae06b37381c368b4cd3ba5e88ecf290ba"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#ae06b37381c368b4cd3ba5e88ecf290ba">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:ae06b37381c368b4cd3ba5e88ecf290ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a805337d61392010a323d103e81b5e319"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a805337d61392010a323d103e81b5e319">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1sum__aggregation.html">sum_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a805337d61392010a323d103e81b5e319"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f0a1809d587adbdce70b50d366b9f3d"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a7f0a1809d587adbdce70b50d366b9f3d">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1product__aggregation.html">product_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a7f0a1809d587adbdce70b50d366b9f3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55ff6d61c0161c676d88be30b15fe218"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a55ff6d61c0161c676d88be30b15fe218">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1min__aggregation.html">min_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a55ff6d61c0161c676d88be30b15fe218"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae8a75e94043f89317a7ef1a02f3acd1"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#aae8a75e94043f89317a7ef1a02f3acd1">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1max__aggregation.html">max_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:aae8a75e94043f89317a7ef1a02f3acd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a904f9393bdd4f9fa387d5bfe82e765fb"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a904f9393bdd4f9fa387d5bfe82e765fb">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1count__aggregation.html">count_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a904f9393bdd4f9fa387d5bfe82e765fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c8a311cf6322a486b77e18d52976744"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a7c8a311cf6322a486b77e18d52976744">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1any__aggregation.html">any_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a7c8a311cf6322a486b77e18d52976744"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c968b6d311b5a5b8a675a1551f83031"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a3c968b6d311b5a5b8a675a1551f83031">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1all__aggregation.html">all_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a3c968b6d311b5a5b8a675a1551f83031"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17ce478b264a7b873c291cf26b94f49c"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a17ce478b264a7b873c291cf26b94f49c">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1sum__of__squares__aggregation.html">sum_of_squares_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a17ce478b264a7b873c291cf26b94f49c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb4b1b7ab18de7f3cbb13e4251a4a1cb"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#acb4b1b7ab18de7f3cbb13e4251a4a1cb">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1mean__aggregation.html">mean_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:acb4b1b7ab18de7f3cbb13e4251a4a1cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dc4c4e4fc18532ef95b884caaedbfb3"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a0dc4c4e4fc18532ef95b884caaedbfb3">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1m2__aggregation.html">m2_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a0dc4c4e4fc18532ef95b884caaedbfb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36b92d09b740a43c6a859b04b6289d3f"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a36b92d09b740a43c6a859b04b6289d3f">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1var__aggregation.html">var_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a36b92d09b740a43c6a859b04b6289d3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e6ea109e2042c9c6a1297b59dece9f6"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a9e6ea109e2042c9c6a1297b59dece9f6">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1std__aggregation.html">std_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a9e6ea109e2042c9c6a1297b59dece9f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ceb571a22acb1e3dd29e3065fbfc48a"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a7ceb571a22acb1e3dd29e3065fbfc48a">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1median__aggregation.html">median_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a7ceb571a22acb1e3dd29e3065fbfc48a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a183d2e62da95325a23340580470be444"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a183d2e62da95325a23340580470be444">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1quantile__aggregation.html">quantile_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a183d2e62da95325a23340580470be444"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33da9d8a26536ac86907587beed82b6f"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a33da9d8a26536ac86907587beed82b6f">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1argmax__aggregation.html">argmax_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a33da9d8a26536ac86907587beed82b6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cc9dec408d7bba048fbaa62fee34b65"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a7cc9dec408d7bba048fbaa62fee34b65">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1argmin__aggregation.html">argmin_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a7cc9dec408d7bba048fbaa62fee34b65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7d2af9ef82b964ab64d647cf148dea4"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#aa7d2af9ef82b964ab64d647cf148dea4">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1nunique__aggregation.html">nunique_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:aa7d2af9ef82b964ab64d647cf148dea4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae094e2f6f95eeb97db6f7c0604915506"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#ae094e2f6f95eeb97db6f7c0604915506">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1nth__element__aggregation.html">nth_element_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:ae094e2f6f95eeb97db6f7c0604915506"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b00f1b8273029ae77921b88f4875a0c"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a1b00f1b8273029ae77921b88f4875a0c">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1row__number__aggregation.html">row_number_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a1b00f1b8273029ae77921b88f4875a0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b016849aff13b5535cdabf3a9fc0d86"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a7b016849aff13b5535cdabf3a9fc0d86">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1rank__aggregation.html">rank_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a7b016849aff13b5535cdabf3a9fc0d86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2352d57ce2e0f78458bd66000a53da9"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#ac2352d57ce2e0f78458bd66000a53da9">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1collect__list__aggregation.html">collect_list_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:ac2352d57ce2e0f78458bd66000a53da9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a688034f67e089b1e49b499cb569e053d"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a688034f67e089b1e49b499cb569e053d">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1collect__set__aggregation.html">collect_set_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a688034f67e089b1e49b499cb569e053d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e9b6de0b273dcf631581e3d0674736f"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a9e9b6de0b273dcf631581e3d0674736f">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1lead__lag__aggregation.html">lead_lag_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a9e9b6de0b273dcf631581e3d0674736f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c3f0e0771ab403ce086d2a88022c0ec"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a8c3f0e0771ab403ce086d2a88022c0ec">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1udf__aggregation.html">udf_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a8c3f0e0771ab403ce086d2a88022c0ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92ed88d1a3275f3d04751bc3afb57a6c"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a92ed88d1a3275f3d04751bc3afb57a6c">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1merge__lists__aggregation.html">merge_lists_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a92ed88d1a3275f3d04751bc3afb57a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06a978bc7ea3c2f76d15a86c876ea8e5"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a06a978bc7ea3c2f76d15a86c876ea8e5">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1merge__sets__aggregation.html">merge_sets_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a06a978bc7ea3c2f76d15a86c876ea8e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77830217493b9bee0e29fb39b2e711dc"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a77830217493b9bee0e29fb39b2e711dc">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1merge__m2__aggregation.html">merge_m2_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a77830217493b9bee0e29fb39b2e711dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d6428fa806cb179b95ae337cd7e748c"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a7d6428fa806cb179b95ae337cd7e748c">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1covariance__aggregation.html">covariance_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a7d6428fa806cb179b95ae337cd7e748c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af91a77c3089f953dd8f0cc36d217ecbd"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#af91a77c3089f953dd8f0cc36d217ecbd">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1correlation__aggregation.html">correlation_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:af91a77c3089f953dd8f0cc36d217ecbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8338809087eca25b674d43d0098ca701"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a8338809087eca25b674d43d0098ca701">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1tdigest__aggregation.html">tdigest_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a8338809087eca25b674d43d0098ca701"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c426e20d9dc194cee42df4372f62bd9"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html#a1c426e20d9dc194cee42df4372f62bd9">visit</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> col_type, class <a class="el" href="classcudf_1_1detail_1_1merge__tdigest__aggregation.html">merge_tdigest_aggregation</a> const &amp;agg)</td></tr>
+<tr class="separator:a1c426e20d9dc194cee42df4372f62bd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock">
+<p class="definition">在文件 <a class="el" href="detail_2aggregation_2aggregation_8hpp_source.html">aggregation.hpp</a> 第 <a class="el" href="detail_2aggregation_2aggregation_8hpp_source.html#l00032">32</a> 行定义.</p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="ae06b37381c368b4cd3ba5e88ecf290ba" name="ae06b37381c368b4cd3ba5e88ecf290ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae06b37381c368b4cd3ba5e88ecf290ba">&#9670;&#160;</a></span>visit() <span class="overload">[1/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1aggregation.html">aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3c968b6d311b5a5b8a675a1551f83031" name="a3c968b6d311b5a5b8a675a1551f83031"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c968b6d311b5a5b8a675a1551f83031">&#9670;&#160;</a></span>visit() <span class="overload">[2/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1all__aggregation.html">all_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7c8a311cf6322a486b77e18d52976744" name="a7c8a311cf6322a486b77e18d52976744"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c8a311cf6322a486b77e18d52976744">&#9670;&#160;</a></span>visit() <span class="overload">[3/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1any__aggregation.html">any_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a33da9d8a26536ac86907587beed82b6f" name="a33da9d8a26536ac86907587beed82b6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33da9d8a26536ac86907587beed82b6f">&#9670;&#160;</a></span>visit() <span class="overload">[4/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1argmax__aggregation.html">argmax_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7cc9dec408d7bba048fbaa62fee34b65" name="a7cc9dec408d7bba048fbaa62fee34b65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cc9dec408d7bba048fbaa62fee34b65">&#9670;&#160;</a></span>visit() <span class="overload">[5/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1argmin__aggregation.html">argmin_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac2352d57ce2e0f78458bd66000a53da9" name="ac2352d57ce2e0f78458bd66000a53da9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2352d57ce2e0f78458bd66000a53da9">&#9670;&#160;</a></span>visit() <span class="overload">[6/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1collect__list__aggregation.html">collect_list_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a688034f67e089b1e49b499cb569e053d" name="a688034f67e089b1e49b499cb569e053d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a688034f67e089b1e49b499cb569e053d">&#9670;&#160;</a></span>visit() <span class="overload">[7/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1collect__set__aggregation.html">collect_set_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af91a77c3089f953dd8f0cc36d217ecbd" name="af91a77c3089f953dd8f0cc36d217ecbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af91a77c3089f953dd8f0cc36d217ecbd">&#9670;&#160;</a></span>visit() <span class="overload">[8/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1correlation__aggregation.html">correlation_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a904f9393bdd4f9fa387d5bfe82e765fb" name="a904f9393bdd4f9fa387d5bfe82e765fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a904f9393bdd4f9fa387d5bfe82e765fb">&#9670;&#160;</a></span>visit() <span class="overload">[9/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1count__aggregation.html">count_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7d6428fa806cb179b95ae337cd7e748c" name="a7d6428fa806cb179b95ae337cd7e748c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d6428fa806cb179b95ae337cd7e748c">&#9670;&#160;</a></span>visit() <span class="overload">[10/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1covariance__aggregation.html">covariance_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9e9b6de0b273dcf631581e3d0674736f" name="a9e9b6de0b273dcf631581e3d0674736f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e9b6de0b273dcf631581e3d0674736f">&#9670;&#160;</a></span>visit() <span class="overload">[11/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1lead__lag__aggregation.html">lead_lag_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0dc4c4e4fc18532ef95b884caaedbfb3" name="a0dc4c4e4fc18532ef95b884caaedbfb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dc4c4e4fc18532ef95b884caaedbfb3">&#9670;&#160;</a></span>visit() <span class="overload">[12/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1m2__aggregation.html">m2_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aae8a75e94043f89317a7ef1a02f3acd1" name="aae8a75e94043f89317a7ef1a02f3acd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae8a75e94043f89317a7ef1a02f3acd1">&#9670;&#160;</a></span>visit() <span class="overload">[13/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1max__aggregation.html">max_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acb4b1b7ab18de7f3cbb13e4251a4a1cb" name="acb4b1b7ab18de7f3cbb13e4251a4a1cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb4b1b7ab18de7f3cbb13e4251a4a1cb">&#9670;&#160;</a></span>visit() <span class="overload">[14/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1mean__aggregation.html">mean_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ceb571a22acb1e3dd29e3065fbfc48a" name="a7ceb571a22acb1e3dd29e3065fbfc48a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ceb571a22acb1e3dd29e3065fbfc48a">&#9670;&#160;</a></span>visit() <span class="overload">[15/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1median__aggregation.html">median_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a92ed88d1a3275f3d04751bc3afb57a6c" name="a92ed88d1a3275f3d04751bc3afb57a6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92ed88d1a3275f3d04751bc3afb57a6c">&#9670;&#160;</a></span>visit() <span class="overload">[16/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1merge__lists__aggregation.html">merge_lists_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a77830217493b9bee0e29fb39b2e711dc" name="a77830217493b9bee0e29fb39b2e711dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77830217493b9bee0e29fb39b2e711dc">&#9670;&#160;</a></span>visit() <span class="overload">[17/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1merge__m2__aggregation.html">merge_m2_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a06a978bc7ea3c2f76d15a86c876ea8e5" name="a06a978bc7ea3c2f76d15a86c876ea8e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06a978bc7ea3c2f76d15a86c876ea8e5">&#9670;&#160;</a></span>visit() <span class="overload">[18/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1merge__sets__aggregation.html">merge_sets_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1c426e20d9dc194cee42df4372f62bd9" name="a1c426e20d9dc194cee42df4372f62bd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c426e20d9dc194cee42df4372f62bd9">&#9670;&#160;</a></span>visit() <span class="overload">[19/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1merge__tdigest__aggregation.html">merge_tdigest_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a55ff6d61c0161c676d88be30b15fe218" name="a55ff6d61c0161c676d88be30b15fe218"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55ff6d61c0161c676d88be30b15fe218">&#9670;&#160;</a></span>visit() <span class="overload">[20/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1min__aggregation.html">min_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae094e2f6f95eeb97db6f7c0604915506" name="ae094e2f6f95eeb97db6f7c0604915506"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae094e2f6f95eeb97db6f7c0604915506">&#9670;&#160;</a></span>visit() <span class="overload">[21/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1nth__element__aggregation.html">nth_element_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa7d2af9ef82b964ab64d647cf148dea4" name="aa7d2af9ef82b964ab64d647cf148dea4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7d2af9ef82b964ab64d647cf148dea4">&#9670;&#160;</a></span>visit() <span class="overload">[22/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1nunique__aggregation.html">nunique_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7f0a1809d587adbdce70b50d366b9f3d" name="a7f0a1809d587adbdce70b50d366b9f3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f0a1809d587adbdce70b50d366b9f3d">&#9670;&#160;</a></span>visit() <span class="overload">[23/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1product__aggregation.html">product_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a183d2e62da95325a23340580470be444" name="a183d2e62da95325a23340580470be444"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a183d2e62da95325a23340580470be444">&#9670;&#160;</a></span>visit() <span class="overload">[24/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1quantile__aggregation.html">quantile_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7b016849aff13b5535cdabf3a9fc0d86" name="a7b016849aff13b5535cdabf3a9fc0d86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b016849aff13b5535cdabf3a9fc0d86">&#9670;&#160;</a></span>visit() <span class="overload">[25/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1rank__aggregation.html">rank_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b00f1b8273029ae77921b88f4875a0c" name="a1b00f1b8273029ae77921b88f4875a0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b00f1b8273029ae77921b88f4875a0c">&#9670;&#160;</a></span>visit() <span class="overload">[26/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1row__number__aggregation.html">row_number_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9e6ea109e2042c9c6a1297b59dece9f6" name="a9e6ea109e2042c9c6a1297b59dece9f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e6ea109e2042c9c6a1297b59dece9f6">&#9670;&#160;</a></span>visit() <span class="overload">[27/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1std__aggregation.html">std_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a805337d61392010a323d103e81b5e319" name="a805337d61392010a323d103e81b5e319"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a805337d61392010a323d103e81b5e319">&#9670;&#160;</a></span>visit() <span class="overload">[28/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1sum__aggregation.html">sum_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a17ce478b264a7b873c291cf26b94f49c" name="a17ce478b264a7b873c291cf26b94f49c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17ce478b264a7b873c291cf26b94f49c">&#9670;&#160;</a></span>visit() <span class="overload">[29/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1sum__of__squares__aggregation.html">sum_of_squares_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8338809087eca25b674d43d0098ca701" name="a8338809087eca25b674d43d0098ca701"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8338809087eca25b674d43d0098ca701">&#9670;&#160;</a></span>visit() <span class="overload">[30/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1tdigest__aggregation.html">tdigest_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8c3f0e0771ab403ce086d2a88022c0ec" name="a8c3f0e0771ab403ce086d2a88022c0ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c3f0e0771ab403ce086d2a88022c0ec">&#9670;&#160;</a></span>visit() <span class="overload">[31/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1udf__aggregation.html">udf_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a36b92d09b740a43c6a859b04b6289d3f" name="a36b92d09b740a43c6a859b04b6289d3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36b92d09b740a43c6a859b04b6289d3f">&#9670;&#160;</a></span>visit() <span class="overload">[32/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1aggregation.html">aggregation</a> &gt; &gt; cudf::detail::simple_aggregations_collector::visit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1data__type.html">data_type</a>&#160;</td>
+          <td class="paramname"><em>col_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classcudf_1_1detail_1_1var__aggregation.html">var_aggregation</a> const &amp;&#160;</td>
+          <td class="paramname"><em>agg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>D:/gitLibrary/cudf/cpp/include/cudf/detail/aggregation/<a class="el" href="detail_2aggregation_2aggregation_8hpp_source.html">aggregation.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacecudf.html">cudf</a></li><li class="navelem"><a class="el" href="namespacecudf_1_1detail.html">detail</a></li><li class="navelem"><a class="el" href="classcudf_1_1detail_1_1simple__aggregations__collector.html">simple_aggregations_collector</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+\doxysection{replace.\+hpp}
+\hypertarget{replace_8hpp_source}{}\label{replace_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/replace.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/replace.hpp}}
+\mbox{\hyperlink{replace_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2018-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{types_8hpp}{cudf/types.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <rmm/mr/device/per\_device\_resource.hpp>}}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00025}00025\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00038}\mbox{\hyperlink{group__transformation__replace_ga7cdbc9bc3671930a743c86f36c38abf9}{00038}}\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{group__transformation__replace_ga7cdbc9bc3671930a743c86f36c38abf9}{replace\_policy}}\ :\ \textcolor{keywordtype}{bool}\ \{\ \mbox{\hyperlink{group__transformation__replace_gga7cdbc9bc3671930a743c86f36c38abf9ab807500d0d02793339457f52b1914b90}{PRECEDING}},\ \mbox{\hyperlink{group__transformation__replace_gga7cdbc9bc3671930a743c86f36c38abf9ac172d52647d4fd6f81a2c3110d150c6a}{FOLLOWING}}\ \};}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00053}\mbox{\hyperlink{group__transformation__replace_gaebc49ddd15a8081dd2f99656de6f9d65}{00053}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__transformation__replace_gaebc49ddd15a8081dd2f99656de6f9d65}{replace\_nulls}}(}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00054}00054\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00055}00055\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ replacement,}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00056}00056\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00070}\mbox{\hyperlink{group__transformation__replace_gae7795cfacadd6c1f100661afcfa0b63a}{00070}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__transformation__replace_gaebc49ddd15a8081dd2f99656de6f9d65}{replace\_nulls}}(}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00071}00071\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00072}00072\ \ \ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}}\ \textcolor{keyword}{const}\&\ replacement,}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00073}00073\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00087}\mbox{\hyperlink{group__transformation__replace_ga6240f27d9015ee38e957231c075ccb94}{00087}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__transformation__replace_gaebc49ddd15a8081dd2f99656de6f9d65}{replace\_nulls}}(}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00088}00088\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00089}00089\ \ \ \mbox{\hyperlink{group__transformation__replace_ga7cdbc9bc3671930a743c86f36c38abf9}{replace\_policy}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{group__transformation__replace_ga7cdbc9bc3671930a743c86f36c38abf9}{replace\_policy}},}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00090}00090\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00113}\mbox{\hyperlink{group__transformation__replace_ga63c76ec5fe77cb120d7100885bcddc5a}{00113}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__transformation__replace_ga63c76ec5fe77cb120d7100885bcddc5a}{replace\_nans}}(}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00114}00114\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00115}00115\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ replacement,}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00116}00116\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00138}\mbox{\hyperlink{group__transformation__replace_ga1276ab849fe5b0bef1024d0bcb4fc650}{00138}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__transformation__replace_ga63c76ec5fe77cb120d7100885bcddc5a}{replace\_nans}}(}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00139}00139\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00140}00140\ \ \ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}}\ \textcolor{keyword}{const}\&\ replacement,}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00141}00141\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00154}\mbox{\hyperlink{group__transformation__replace_ga651a5fd9cf77f0ecaa9113715003fb7b}{00154}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__transformation__replace_ga651a5fd9cf77f0ecaa9113715003fb7b}{find\_and\_replace\_all}}(}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00155}00155\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ input\_col,}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00156}00156\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ values\_to\_replace,}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00157}00157\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ replacement\_values,}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00158}00158\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00205}\mbox{\hyperlink{group__transformation__replace_gad6469ac807630034caf052c9e424712c}{00205}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__transformation__replace_gad6469ac807630034caf052c9e424712c}{clamp}}(}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00206}00206\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00207}00207\ \ \ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}}\ \textcolor{keyword}{const}\&\ lo,}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00208}00208\ \ \ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}}\ \textcolor{keyword}{const}\&\ lo\_replace,}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00209}00209\ \ \ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}}\ \textcolor{keyword}{const}\&\ hi,}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00210}00210\ \ \ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}}\ \textcolor{keyword}{const}\&\ hi\_replace,}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00211}00211\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00251}\mbox{\hyperlink{group__transformation__replace_ga66a4270774c8c677a191d3aae79bb918}{00251}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__transformation__replace_gad6469ac807630034caf052c9e424712c}{clamp}}(}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00252}00252\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00253}00253\ \ \ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}}\ \textcolor{keyword}{const}\&\ lo,}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00254}00254\ \ \ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}}\ \textcolor{keyword}{const}\&\ hi,}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00255}00255\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00256}00256\ }
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00271}\mbox{\hyperlink{group__transformation__replace_ga476eec13cde16b1ab30950a56317e5f6}{00271}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__transformation__replace_ga476eec13cde16b1ab30950a56317e5f6}{normalize\_nans\_and\_zeros}}(}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00272}00272\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00273}00273\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00274}00274\ }
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00286}\mbox{\hyperlink{group__transformation__replace_gab2e8dd1b37b4175001b89219ab8ac96f}{00286}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__transformation__replace_ga476eec13cde16b1ab30950a56317e5f6}{normalize\_nans\_and\_zeros}}(\mbox{\hyperlink{classcudf_1_1mutable__column__view}{mutable\_column\_view}}\&\ in\_out);}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00287}00287\ \ \ \textcolor{comment}{//\ end\ of\ group}}
+\DoxyCodeLine{\Hypertarget{replace_8hpp_source_l00289}00289\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

@@ -1,0 +1,199 @@
+\doxysection{cudf\+::io\+::text\+::detail\+::multistate结构体 参考}
+\hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1multistate}{}\label{structcudf_1_1io_1_1text_1_1detail_1_1multistate}\index{cudf::io::text::detail::multistate@{cudf::io::text::detail::multistate}}
+
+
+Represents up to 7 segments  
+
+
+
+
+{\ttfamily \#include $<$multistate.\+hpp$>$}
+
+
+
+cudf\+::io\+::text\+::detail\+::multistate 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{structcudf_1_1io_1_1text_1_1detail_1_1multistate__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+constexpr void \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a2dd9ff9590d65922c249ea02b78a241c}{enqueue}} (uint8\+\_\+t head, uint8\+\_\+t tail)
+\begin{DoxyCompactList}\small\item\em Enqueues a (head, tail\mbox{]} segment to this multistate \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a9f3b0753045f1259d62781a65c7587fc}{size}} () const
+\begin{DoxyCompactList}\small\item\em get\textquotesingle{}s the number of segments this multistate represents \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a97075292d9a04b777acbbc8d36aa8bcf}{max\+\_\+tail}} () const
+\begin{DoxyCompactList}\small\item\em get\textquotesingle{}s the highest (\+\_\+\+\_\+\+\_\+\+\_\+, tail\mbox{]} value this multistate represents \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_aebce6d9e6b904c11aae3d1a0673f0aea}{get\+\_\+head}} (uint8\+\_\+t idx) const
+\begin{DoxyCompactList}\small\item\em get\textquotesingle{}s the Nth (head, \+\_\+\+\_\+\+\_\+\+\_\+\mbox{]} value state this multistate represents \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a193b76e025bf9fa3369dd9ba971a041f}{get\+\_\+tail}} (uint8\+\_\+t idx) const
+\begin{DoxyCompactList}\small\item\em get\textquotesingle{}s the Nth (\+\_\+\+\_\+\+\_\+\+\_\+, tail\mbox{]} value state this multistate represents \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{静态 Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+static auto constexpr \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_acd8e4f4cbea157ac5e98650b77c5187c}{max\+\_\+segment\+\_\+value}} = 15
+\begin{DoxyCompactList}\small\item\em The maximum state (head or tail) this multistate can represent \end{DoxyCompactList}\item 
+static auto constexpr \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a99b53668254844205a68487143e773de}{max\+\_\+segment\+\_\+count}} = 7
+\begin{DoxyCompactList}\small\item\em The maximum number of segments this multistate can represent \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_aac65cac16835bc40eec850a2021b8ba5}{\+\_\+size}} = 0
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_add005c679e7156bd8580b0eed5194a9a}{\+\_\+heads}} \{\}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a90c5c6ce4d78e831d8340f104d5d69c8}{\+\_\+tails}} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Represents up to 7 segments 
+
+在文件 \mbox{\hyperlink{multistate_8hpp_source}{multistate.\+hpp}} 第 \mbox{\hyperlink{multistate_8hpp_source_l00029}{29}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a2dd9ff9590d65922c249ea02b78a241c}\label{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a2dd9ff9590d65922c249ea02b78a241c} 
+\index{cudf::io::text::detail::multistate@{cudf::io::text::detail::multistate}!enqueue@{enqueue}}
+\index{enqueue@{enqueue}!cudf::io::text::detail::multistate@{cudf::io::text::detail::multistate}}
+\doxysubsubsection{\texorpdfstring{enqueue()}{enqueue()}}
+{\footnotesize\ttfamily constexpr void cudf\+::io\+::text\+::detail\+::multistate\+::enqueue (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{head,  }\item[{uint8\+\_\+t}]{tail }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Enqueues a (head, tail\mbox{]} segment to this multistate 
+
+\begin{DoxyNote}{注解}
+\+: The behavior of this function is undefined if \doxylink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a9f3b0753045f1259d62781a65c7587fc}{size()} =\texorpdfstring{$>$}{>} max\+\_\+segment\+\_\+count 
+\end{DoxyNote}
+
+
+在文件 \mbox{\hyperlink{multistate_8hpp_source}{multistate.\+hpp}} 第 \mbox{\hyperlink{multistate_8hpp_source_l00046}{46}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1multistate_aebce6d9e6b904c11aae3d1a0673f0aea}\label{structcudf_1_1io_1_1text_1_1detail_1_1multistate_aebce6d9e6b904c11aae3d1a0673f0aea} 
+\index{cudf::io::text::detail::multistate@{cudf::io::text::detail::multistate}!get\_head@{get\_head}}
+\index{get\_head@{get\_head}!cudf::io::text::detail::multistate@{cudf::io::text::detail::multistate}}
+\doxysubsubsection{\texorpdfstring{get\_head()}{get\_head()}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t cudf\+::io\+::text\+::detail\+::multistate\+::get\+\_\+head (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{idx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+get\textquotesingle{}s the Nth (head, \+\_\+\+\_\+\+\_\+\+\_\+\mbox{]} value state this multistate represents 
+
+
+
+在文件 \mbox{\hyperlink{multistate_8hpp_source}{multistate.\+hpp}} 第 \mbox{\hyperlink{multistate_8hpp_source_l00075}{75}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a193b76e025bf9fa3369dd9ba971a041f}\label{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a193b76e025bf9fa3369dd9ba971a041f} 
+\index{cudf::io::text::detail::multistate@{cudf::io::text::detail::multistate}!get\_tail@{get\_tail}}
+\index{get\_tail@{get\_tail}!cudf::io::text::detail::multistate@{cudf::io::text::detail::multistate}}
+\doxysubsubsection{\texorpdfstring{get\_tail()}{get\_tail()}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t cudf\+::io\+::text\+::detail\+::multistate\+::get\+\_\+tail (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{idx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+get\textquotesingle{}s the Nth (\+\_\+\+\_\+\+\_\+\+\_\+, tail\mbox{]} value state this multistate represents 
+
+
+
+在文件 \mbox{\hyperlink{multistate_8hpp_source}{multistate.\+hpp}} 第 \mbox{\hyperlink{multistate_8hpp_source_l00083}{83}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a97075292d9a04b777acbbc8d36aa8bcf}\label{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a97075292d9a04b777acbbc8d36aa8bcf} 
+\index{cudf::io::text::detail::multistate@{cudf::io::text::detail::multistate}!max\_tail@{max\_tail}}
+\index{max\_tail@{max\_tail}!cudf::io::text::detail::multistate@{cudf::io::text::detail::multistate}}
+\doxysubsubsection{\texorpdfstring{max\_tail()}{max\_tail()}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t cudf\+::io\+::text\+::detail\+::multistate\+::max\+\_\+tail (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+get\textquotesingle{}s the highest (\+\_\+\+\_\+\+\_\+\+\_\+, tail\mbox{]} value this multistate represents 
+
+
+
+在文件 \mbox{\hyperlink{multistate_8hpp_source}{multistate.\+hpp}} 第 \mbox{\hyperlink{multistate_8hpp_source_l00061}{61}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a9f3b0753045f1259d62781a65c7587fc}\label{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a9f3b0753045f1259d62781a65c7587fc} 
+\index{cudf::io::text::detail::multistate@{cudf::io::text::detail::multistate}!size@{size}}
+\index{size@{size}!cudf::io::text::detail::multistate@{cudf::io::text::detail::multistate}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t cudf\+::io\+::text\+::detail\+::multistate\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+get\textquotesingle{}s the number of segments this multistate represents 
+
+
+
+在文件 \mbox{\hyperlink{multistate_8hpp_source}{multistate.\+hpp}} 第 \mbox{\hyperlink{multistate_8hpp_source_l00056}{56}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1multistate_add005c679e7156bd8580b0eed5194a9a}\label{structcudf_1_1io_1_1text_1_1detail_1_1multistate_add005c679e7156bd8580b0eed5194a9a} 
+\index{cudf::io::text::detail::multistate@{cudf::io::text::detail::multistate}!\_heads@{\_heads}}
+\index{\_heads@{\_heads}!cudf::io::text::detail::multistate@{cudf::io::text::detail::multistate}}
+\doxysubsubsection{\texorpdfstring{\_heads}{\_heads}}
+{\footnotesize\ttfamily uint32\+\_\+t cudf\+::io\+::text\+::detail\+::multistate\+::\+\_\+heads \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{multistate_8hpp_source}{multistate.\+hpp}} 第 \mbox{\hyperlink{multistate_8hpp_source_l00090}{90}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1multistate_aac65cac16835bc40eec850a2021b8ba5}\label{structcudf_1_1io_1_1text_1_1detail_1_1multistate_aac65cac16835bc40eec850a2021b8ba5} 
+\index{cudf::io::text::detail::multistate@{cudf::io::text::detail::multistate}!\_size@{\_size}}
+\index{\_size@{\_size}!cudf::io::text::detail::multistate@{cudf::io::text::detail::multistate}}
+\doxysubsubsection{\texorpdfstring{\_size}{\_size}}
+{\footnotesize\ttfamily uint8\+\_\+t cudf\+::io\+::text\+::detail\+::multistate\+::\+\_\+size = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{multistate_8hpp_source}{multistate.\+hpp}} 第 \mbox{\hyperlink{multistate_8hpp_source_l00089}{89}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a90c5c6ce4d78e831d8340f104d5d69c8}\label{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a90c5c6ce4d78e831d8340f104d5d69c8} 
+\index{cudf::io::text::detail::multistate@{cudf::io::text::detail::multistate}!\_tails@{\_tails}}
+\index{\_tails@{\_tails}!cudf::io::text::detail::multistate@{cudf::io::text::detail::multistate}}
+\doxysubsubsection{\texorpdfstring{\_tails}{\_tails}}
+{\footnotesize\ttfamily uint32\+\_\+t cudf\+::io\+::text\+::detail\+::multistate\+::\+\_\+tails \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{multistate_8hpp_source}{multistate.\+hpp}} 第 \mbox{\hyperlink{multistate_8hpp_source_l00091}{91}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a99b53668254844205a68487143e773de}\label{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a99b53668254844205a68487143e773de} 
+\index{cudf::io::text::detail::multistate@{cudf::io::text::detail::multistate}!max\_segment\_count@{max\_segment\_count}}
+\index{max\_segment\_count@{max\_segment\_count}!cudf::io::text::detail::multistate@{cudf::io::text::detail::multistate}}
+\doxysubsubsection{\texorpdfstring{max\_segment\_count}{max\_segment\_count}}
+{\footnotesize\ttfamily auto constexpr cudf\+::io\+::text\+::detail\+::multistate\+::max\+\_\+segment\+\_\+count = 7\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+The maximum number of segments this multistate can represent 
+
+
+
+在文件 \mbox{\hyperlink{multistate_8hpp_source}{multistate.\+hpp}} 第 \mbox{\hyperlink{multistate_8hpp_source_l00039}{39}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1multistate_acd8e4f4cbea157ac5e98650b77c5187c}\label{structcudf_1_1io_1_1text_1_1detail_1_1multistate_acd8e4f4cbea157ac5e98650b77c5187c} 
+\index{cudf::io::text::detail::multistate@{cudf::io::text::detail::multistate}!max\_segment\_value@{max\_segment\_value}}
+\index{max\_segment\_value@{max\_segment\_value}!cudf::io::text::detail::multistate@{cudf::io::text::detail::multistate}}
+\doxysubsubsection{\texorpdfstring{max\_segment\_value}{max\_segment\_value}}
+{\footnotesize\ttfamily auto constexpr cudf\+::io\+::text\+::detail\+::multistate\+::max\+\_\+segment\+\_\+value = 15\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+The maximum state (head or tail) this multistate can represent 
+
+
+
+在文件 \mbox{\hyperlink{multistate_8hpp_source}{multistate.\+hpp}} 第 \mbox{\hyperlink{multistate_8hpp_source_l00035}{35}} 行定义.
+
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/text/detail/\mbox{\hyperlink{multistate_8hpp}{multistate.\+hpp}}\end{DoxyCompactItemize}

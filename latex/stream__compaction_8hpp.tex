@@ -1,0 +1,75 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/stream\+\_\+compaction.hpp 文件参考}
+\hypertarget{stream__compaction_8hpp}{}\label{stream__compaction_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/stream\_compaction.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/stream\_compaction.hpp}}
+
+
+Column APIs for filtering rows  
+
+
+{\ttfamily \#include $<$cudf/types.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/mr/device/per\+\_\+device\+\_\+resource.\+hpp$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+stream\+\_\+compaction.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stream__compaction_8hpp__incl}
+\end{center}
+\end{figure}
+此图展示该文件直接或间接的被哪些文件引用了\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{stream__compaction_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__reorder__compact_ga69091647ea1f9c9d4cdcf7c8876bea3a}{cudf\+::duplicate\+\_\+keep\+\_\+option}} \{ \mbox{\hyperlink{group__reorder__compact_gga69091647ea1f9c9d4cdcf7c8876bea3aa0546025abe5830d9334bb82102420394}{cudf\+::duplicate\+\_\+keep\+\_\+option\+::\+KEEP\+\_\+\+ANY}} = 0
+, \mbox{\hyperlink{group__reorder__compact_gga69091647ea1f9c9d4cdcf7c8876bea3aa5968b12bf2e72e702a998c7fa6c83b1e}{cudf\+::duplicate\+\_\+keep\+\_\+option\+::\+KEEP\+\_\+\+FIRST}}
+, \mbox{\hyperlink{group__reorder__compact_gga69091647ea1f9c9d4cdcf7c8876bea3aa4583fc151efe5098dd96eeec8cf74699}{cudf\+::duplicate\+\_\+keep\+\_\+option\+::\+KEEP\+\_\+\+LAST}}
+, \mbox{\hyperlink{group__reorder__compact_gga69091647ea1f9c9d4cdcf7c8876bea3aa40c4abe57c2fda3e580eee916b9e0558}{cudf\+::duplicate\+\_\+keep\+\_\+option\+::\+KEEP\+\_\+\+NONE}}
+ \}
+\begin{DoxyCompactList}\small\item\em Choices for drop\+\_\+duplicates API for retainment of duplicate rows \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__reorder__compact_gaccf9b4b9eea838d724facc174df875a5}{cudf\+::drop\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&keys, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} keep\+\_\+threshold, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Filters a table to remove null elements with threshold count. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__reorder__compact_ga4213141aad40c18cf819324c0657fb13}{cudf\+::drop\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&keys, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Filters a table to remove null elements. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__reorder__compact_gacfbe51626a833f0f4364b20fcb4b92db}{cudf\+::drop\+\_\+nans}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&keys, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} keep\+\_\+threshold, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Filters a table to remove NANs with threshold count. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__reorder__compact_gac176247015532251d153376e64bc80a6}{cudf\+::drop\+\_\+nans}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&keys, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Filters a table to remove NANs. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__reorder__compact_ga6fe0c9d15a7c744a87c8334453798b8d}{cudf\+::apply\+\_\+boolean\+\_\+mask}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&boolean\+\_\+mask, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Filters {\ttfamily input} using {\ttfamily boolean\+\_\+mask} of boolean values as a mask. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__reorder__compact_ga87352ad4f282dd17365d4c9929d5c644}{cudf\+::unique}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&keys, \mbox{\hyperlink{group__reorder__compact_ga69091647ea1f9c9d4cdcf7c8876bea3a}{duplicate\+\_\+keep\+\_\+option}} keep, \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}} nulls\+\_\+equal=\mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\+\_\+equality\+::\+EQUAL}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a new table with consecutive duplicate rows removed. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__reorder__compact_ga201195610929658c5d383fa99434ef9c}{cudf\+::distinct}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&keys, \mbox{\hyperlink{group__reorder__compact_ga69091647ea1f9c9d4cdcf7c8876bea3a}{duplicate\+\_\+keep\+\_\+option}} keep=\mbox{\hyperlink{group__reorder__compact_gga69091647ea1f9c9d4cdcf7c8876bea3aa0546025abe5830d9334bb82102420394}{duplicate\+\_\+keep\+\_\+option\+::\+KEEP\+\_\+\+ANY}}, \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}} nulls\+\_\+equal=\mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\+\_\+equality\+::\+EQUAL}}, \mbox{\hyperlink{group__utility__types_gae9d1055c69c3089452794783c7c82f83}{nan\+\_\+equality}} nans\+\_\+equal=\mbox{\hyperlink{group__utility__types_ggae9d1055c69c3089452794783c7c82f83acd6d9f766e6e2753da429d26078711d7}{nan\+\_\+equality\+::\+ALL\+\_\+\+EQUAL}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a new table without duplicate rows. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{group__reorder__compact_ga63e5defd9560fcd397ff6aa79022a56c}{cudf\+::unique\+\_\+count}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling, \mbox{\hyperlink{group__utility__types_ga74641d3dfd6d96d0939b492ecf9b9cc8}{nan\+\_\+policy}} nan\+\_\+handling)
+\begin{DoxyCompactList}\small\item\em Count the number of consecutive groups of equivalent rows in a column. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{group__reorder__compact_gad947e78a65b8c7eca69337c6bd3ad749}{cudf\+::unique\+\_\+count}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}} nulls\+\_\+equal=\mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\+\_\+equality\+::\+EQUAL}})
+\begin{DoxyCompactList}\small\item\em Count the number of consecutive groups of equivalent rows in a table. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{group__reorder__compact_gab6e12738145f070878194502d8d5a1c9}{cudf\+::distinct\+\_\+count}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling, \mbox{\hyperlink{group__utility__types_ga74641d3dfd6d96d0939b492ecf9b9cc8}{nan\+\_\+policy}} nan\+\_\+handling)
+\begin{DoxyCompactList}\small\item\em Count the distinct elements in the \doxylink{classcudf_1_1column__view}{column\+\_\+view}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{group__reorder__compact_gad861920389b600bb3310ecb22e307316}{cudf\+::distinct\+\_\+count}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}} nulls\+\_\+equal=\mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\+\_\+equality\+::\+EQUAL}})
+\begin{DoxyCompactList}\small\item\em Count the distinct rows in a table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Column APIs for filtering rows 
+
+
+
+在文件 \mbox{\hyperlink{stream__compaction_8hpp_source}{stream\+\_\+compaction.\+hpp}} 中定义.
+

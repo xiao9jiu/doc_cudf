@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: D:/gitLibrary/cudf/cpp/include/cudf/unary.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('unary_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">unary.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="unary_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright (c) 2018-2022, NVIDIA CORPORATION.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;<a class="code" href="types_8hpp.html">cudf/types.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;rmm/mr/device/per_device_resource.hpp&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecudf.html">cudf</a> {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="group__transformation__unaryops.html#ga030e62f30b296602f398e70d1ca657c4">   36</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="group__transformation__unaryops.html#ga030e62f30b296602f398e70d1ca657c4">unary_operator</a> : int32_t {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <a class="code hl_enumvalue" href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a5b001d63db54e7383587771eeb2018a1">SIN</a>,         </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  <a class="code hl_enumvalue" href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4aef23ef1d426ae1a73a7eed399cef707d">COS</a>,         </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <a class="code hl_enumvalue" href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a71211c96ad35b40178446956e22be10e">TAN</a>,         </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <a class="code hl_enumvalue" href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a607033bf57b9868026629e1fa23de7bf">ARCSIN</a>,      </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  <a class="code hl_enumvalue" href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a7358c3fa47a9b546fe7ecbc961e82338">ARCCOS</a>,      </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <a class="code hl_enumvalue" href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a5a616b9bee92b5cd20f9940febeb3006">ARCTAN</a>,      </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  <a class="code hl_enumvalue" href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4ab387e847a769f9ef3794a3f559afcf69">SINH</a>,        </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  <a class="code hl_enumvalue" href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4ac8766c03013c3464d6bfd8e3c11b867d">COSH</a>,        </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  <a class="code hl_enumvalue" href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a143c8c6f51b9bb893ce71e38702e3cc1">TANH</a>,        </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <a class="code hl_enumvalue" href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a3552954f5164c200a2c5f5a272294c90">ARCSINH</a>,     </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  <a class="code hl_enumvalue" href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4ad3242488948e86c0277590cd15cad984">ARCCOSH</a>,     </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  <a class="code hl_enumvalue" href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a846a1dd5ab0418346548bb9f0f423a52">ARCTANH</a>,     </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  <a class="code hl_enumvalue" href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a8c670f8c37b95e1ed14a0ce414b049c7">EXP</a>,         </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <a class="code hl_enumvalue" href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a4b5ffcdaf38ce4d463171f5c977c5ab3">LOG</a>,         </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  <a class="code hl_enumvalue" href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a36875f2500a09ee35d0bb7eb8c0b91b0">SQRT</a>,        </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  <a class="code hl_enumvalue" href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a2bda33a56a02768cfc002866aa4fb63a">CBRT</a>,        </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  <a class="code hl_enumvalue" href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a5bdce8e6d9dc3efbbd31e90a8a181dff">CEIL</a>,        </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  <a class="code hl_enumvalue" href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a56c1e354d36beb85b0d881c5b2e24cbe">FLOOR</a>,       </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  <a class="code hl_enumvalue" href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a7d8a220d2262f9d6c658d549ee12cf2c">ABS</a>,         </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  <a class="code hl_enumvalue" href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a6229a93c327259c59cd09415090f5c00">RINT</a>,        </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  <a class="code hl_enumvalue" href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a66827fa9f30435250f1e887f466b3c40">BIT_INVERT</a>,  </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  <a class="code hl_enumvalue" href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a10df3d67626099df882920ba6552f16d">NOT</a>,         </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>};</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="group__transformation__unaryops.html#gaa9ccb7f148feeb38dc70f3dbd242cf77">   72</a></span>std::unique_ptr&lt;cudf::column&gt; <a class="code hl_function" href="group__transformation__unaryops.html#gaa9ccb7f148feeb38dc70f3dbd242cf77">unary_operation</a>(</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">cudf::column_view</a> <span class="keyword">const</span>&amp; input,</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>  <a class="code hl_enumeration" href="group__transformation__unaryops.html#ga030e62f30b296602f398e70d1ca657c4">cudf::unary_operator</a> op,</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="group__transformation__unaryops.html#ga46e28ccfd5e3d08b618ff50c27669d1c">   87</a></span>std::unique_ptr&lt;cudf::column&gt; <a class="code hl_function" href="group__transformation__unaryops.html#ga46e28ccfd5e3d08b618ff50c27669d1c">is_null</a>(</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">cudf::column_view</a> <span class="keyword">const</span>&amp; input,</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="group__transformation__unaryops.html#ga6add319b999ddaa1ccf3477599fdc0bc">  101</a></span>std::unique_ptr&lt;cudf::column&gt; <a class="code hl_function" href="group__transformation__unaryops.html#ga6add319b999ddaa1ccf3477599fdc0bc">is_valid</a>(</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">cudf::column_view</a> <span class="keyword">const</span>&amp; input,</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="group__transformation__unaryops.html#ga4687e7ed2576032200e400077f82dbf0">  117</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__transformation__unaryops.html#ga4687e7ed2576032200e400077f82dbf0">cast</a>(</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; input,</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>  <a class="code hl_class" href="classcudf_1_1data__type.html">data_type</a> out_type,</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="group__transformation__unaryops.html#ga59578e8513f1c33d8c03b7b3efeb6cab">  134</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__transformation__unaryops.html#ga59578e8513f1c33d8c03b7b3efeb6cab">is_nan</a>(</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">cudf::column_view</a> <span class="keyword">const</span>&amp; input,</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="group__transformation__unaryops.html#ga99e856d9abf718ded7668b33f03effa2">  151</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__transformation__unaryops.html#ga99e856d9abf718ded7668b33f03effa2">is_not_nan</a>(</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">cudf::column_view</a> <span class="keyword">const</span>&amp; input,</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>  <span class="comment">// end of group</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>}  <span class="comment">// namespace cudf</span></div>
+<div class="ttc" id="aclasscudf_1_1column__view_html"><div class="ttname"><a href="classcudf_1_1column__view.html">cudf::column_view</a></div><div class="ttdoc">A non-owning, immutable view of device data as a column of elements, some of which may be null as ind...</div><div class="ttdef"><b>Definition</b> <a href="column__view_8hpp_source.html#l00322">column_view.hpp:322</a></div></div>
+<div class="ttc" id="aclasscudf_1_1data__type_html"><div class="ttname"><a href="classcudf_1_1data__type.html">cudf::data_type</a></div><div class="ttdoc">Indicator for the logical data type of an element in a column.</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00236">types.hpp:236</a></div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_ga030e62f30b296602f398e70d1ca657c4"><div class="ttname"><a href="group__transformation__unaryops.html#ga030e62f30b296602f398e70d1ca657c4">cudf::unary_operator</a></div><div class="ttdeci">unary_operator</div><div class="ttdoc">Types of unary operations that can be performed on data.</div><div class="ttdef"><b>Definition</b> <a href="unary_8hpp_source.html#l00036">unary.hpp:36</a></div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_ga4687e7ed2576032200e400077f82dbf0"><div class="ttname"><a href="group__transformation__unaryops.html#ga4687e7ed2576032200e400077f82dbf0">cudf::cast</a></div><div class="ttdeci">std::unique_ptr&lt; column &gt; cast(column_view const &amp;input, data_type out_type, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Casts data from dtype specified in input to dtype specified in output.</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_ga46e28ccfd5e3d08b618ff50c27669d1c"><div class="ttname"><a href="group__transformation__unaryops.html#ga46e28ccfd5e3d08b618ff50c27669d1c">cudf::is_null</a></div><div class="ttdeci">std::unique_ptr&lt; cudf::column &gt; is_null(cudf::column_view const &amp;input, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Creates a column of type_id::BOOL8 elements where for every element in input true indicates the value...</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_ga59578e8513f1c33d8c03b7b3efeb6cab"><div class="ttname"><a href="group__transformation__unaryops.html#ga59578e8513f1c33d8c03b7b3efeb6cab">cudf::is_nan</a></div><div class="ttdeci">std::unique_ptr&lt; column &gt; is_nan(cudf::column_view const &amp;input, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Creates a column of type_id::BOOL8 elements indicating the presence of NaN values in a column of floa...</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_ga6add319b999ddaa1ccf3477599fdc0bc"><div class="ttname"><a href="group__transformation__unaryops.html#ga6add319b999ddaa1ccf3477599fdc0bc">cudf::is_valid</a></div><div class="ttdeci">std::unique_ptr&lt; cudf::column &gt; is_valid(cudf::column_view const &amp;input, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Creates a column of type_id::BOOL8 elements where for every element in input true indicates the value...</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_ga99e856d9abf718ded7668b33f03effa2"><div class="ttname"><a href="group__transformation__unaryops.html#ga99e856d9abf718ded7668b33f03effa2">cudf::is_not_nan</a></div><div class="ttdeci">std::unique_ptr&lt; column &gt; is_not_nan(cudf::column_view const &amp;input, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Creates a column of type_id::BOOL8 elements indicating the absence of NaN values in a column of float...</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_gaa9ccb7f148feeb38dc70f3dbd242cf77"><div class="ttname"><a href="group__transformation__unaryops.html#gaa9ccb7f148feeb38dc70f3dbd242cf77">cudf::unary_operation</a></div><div class="ttdeci">std::unique_ptr&lt; cudf::column &gt; unary_operation(cudf::column_view const &amp;input, cudf::unary_operator op, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Performs unary op on all values in column</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_gga030e62f30b296602f398e70d1ca657c4a10df3d67626099df882920ba6552f16d"><div class="ttname"><a href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a10df3d67626099df882920ba6552f16d">cudf::unary_operator::NOT</a></div><div class="ttdeci">@ NOT</div><div class="ttdoc">Logical Not (!)</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_gga030e62f30b296602f398e70d1ca657c4a143c8c6f51b9bb893ce71e38702e3cc1"><div class="ttname"><a href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a143c8c6f51b9bb893ce71e38702e3cc1">cudf::unary_operator::TANH</a></div><div class="ttdeci">@ TANH</div><div class="ttdoc">Hyperbolic tangent</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_gga030e62f30b296602f398e70d1ca657c4a2bda33a56a02768cfc002866aa4fb63a"><div class="ttname"><a href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a2bda33a56a02768cfc002866aa4fb63a">cudf::unary_operator::CBRT</a></div><div class="ttdeci">@ CBRT</div><div class="ttdoc">Cube-root (x^(1.0/3))</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_gga030e62f30b296602f398e70d1ca657c4a3552954f5164c200a2c5f5a272294c90"><div class="ttname"><a href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a3552954f5164c200a2c5f5a272294c90">cudf::unary_operator::ARCSINH</a></div><div class="ttdeci">@ ARCSINH</div><div class="ttdoc">Hyperbolic sine inverse</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_gga030e62f30b296602f398e70d1ca657c4a36875f2500a09ee35d0bb7eb8c0b91b0"><div class="ttname"><a href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a36875f2500a09ee35d0bb7eb8c0b91b0">cudf::unary_operator::SQRT</a></div><div class="ttdeci">@ SQRT</div><div class="ttdoc">Square-root (x^0.5)</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_gga030e62f30b296602f398e70d1ca657c4a4b5ffcdaf38ce4d463171f5c977c5ab3"><div class="ttname"><a href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a4b5ffcdaf38ce4d463171f5c977c5ab3">cudf::unary_operator::LOG</a></div><div class="ttdeci">@ LOG</div><div class="ttdoc">Natural Logarithm (base e)</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_gga030e62f30b296602f398e70d1ca657c4a56c1e354d36beb85b0d881c5b2e24cbe"><div class="ttname"><a href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a56c1e354d36beb85b0d881c5b2e24cbe">cudf::unary_operator::FLOOR</a></div><div class="ttdeci">@ FLOOR</div><div class="ttdoc">largest integer value not greater than arg</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_gga030e62f30b296602f398e70d1ca657c4a5a616b9bee92b5cd20f9940febeb3006"><div class="ttname"><a href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a5a616b9bee92b5cd20f9940febeb3006">cudf::unary_operator::ARCTAN</a></div><div class="ttdeci">@ ARCTAN</div><div class="ttdoc">Trigonometric tangent inverse</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_gga030e62f30b296602f398e70d1ca657c4a5b001d63db54e7383587771eeb2018a1"><div class="ttname"><a href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a5b001d63db54e7383587771eeb2018a1">cudf::unary_operator::SIN</a></div><div class="ttdeci">@ SIN</div><div class="ttdoc">Trigonometric sine</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_gga030e62f30b296602f398e70d1ca657c4a5bdce8e6d9dc3efbbd31e90a8a181dff"><div class="ttname"><a href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a5bdce8e6d9dc3efbbd31e90a8a181dff">cudf::unary_operator::CEIL</a></div><div class="ttdeci">@ CEIL</div><div class="ttdoc">Smallest integer value not less than arg</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_gga030e62f30b296602f398e70d1ca657c4a607033bf57b9868026629e1fa23de7bf"><div class="ttname"><a href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a607033bf57b9868026629e1fa23de7bf">cudf::unary_operator::ARCSIN</a></div><div class="ttdeci">@ ARCSIN</div><div class="ttdoc">Trigonometric sine inverse</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_gga030e62f30b296602f398e70d1ca657c4a6229a93c327259c59cd09415090f5c00"><div class="ttname"><a href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a6229a93c327259c59cd09415090f5c00">cudf::unary_operator::RINT</a></div><div class="ttdeci">@ RINT</div><div class="ttdoc">Rounds the floating-point argument arg to an integer value</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_gga030e62f30b296602f398e70d1ca657c4a66827fa9f30435250f1e887f466b3c40"><div class="ttname"><a href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a66827fa9f30435250f1e887f466b3c40">cudf::unary_operator::BIT_INVERT</a></div><div class="ttdeci">@ BIT_INVERT</div><div class="ttdoc">Bitwise Not (~)</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_gga030e62f30b296602f398e70d1ca657c4a71211c96ad35b40178446956e22be10e"><div class="ttname"><a href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a71211c96ad35b40178446956e22be10e">cudf::unary_operator::TAN</a></div><div class="ttdeci">@ TAN</div><div class="ttdoc">Trigonometric tangent</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_gga030e62f30b296602f398e70d1ca657c4a7358c3fa47a9b546fe7ecbc961e82338"><div class="ttname"><a href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a7358c3fa47a9b546fe7ecbc961e82338">cudf::unary_operator::ARCCOS</a></div><div class="ttdeci">@ ARCCOS</div><div class="ttdoc">Trigonometric cosine inverse</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_gga030e62f30b296602f398e70d1ca657c4a7d8a220d2262f9d6c658d549ee12cf2c"><div class="ttname"><a href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a7d8a220d2262f9d6c658d549ee12cf2c">cudf::unary_operator::ABS</a></div><div class="ttdeci">@ ABS</div><div class="ttdoc">Absolute value</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_gga030e62f30b296602f398e70d1ca657c4a846a1dd5ab0418346548bb9f0f423a52"><div class="ttname"><a href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a846a1dd5ab0418346548bb9f0f423a52">cudf::unary_operator::ARCTANH</a></div><div class="ttdeci">@ ARCTANH</div><div class="ttdoc">Hyperbolic tangent inverse</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_gga030e62f30b296602f398e70d1ca657c4a8c670f8c37b95e1ed14a0ce414b049c7"><div class="ttname"><a href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a8c670f8c37b95e1ed14a0ce414b049c7">cudf::unary_operator::EXP</a></div><div class="ttdeci">@ EXP</div><div class="ttdoc">Exponential (base e, Euler number)</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_gga030e62f30b296602f398e70d1ca657c4ab387e847a769f9ef3794a3f559afcf69"><div class="ttname"><a href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4ab387e847a769f9ef3794a3f559afcf69">cudf::unary_operator::SINH</a></div><div class="ttdeci">@ SINH</div><div class="ttdoc">Hyperbolic sine</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_gga030e62f30b296602f398e70d1ca657c4ac8766c03013c3464d6bfd8e3c11b867d"><div class="ttname"><a href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4ac8766c03013c3464d6bfd8e3c11b867d">cudf::unary_operator::COSH</a></div><div class="ttdeci">@ COSH</div><div class="ttdoc">Hyperbolic cosine</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_gga030e62f30b296602f398e70d1ca657c4ad3242488948e86c0277590cd15cad984"><div class="ttname"><a href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4ad3242488948e86c0277590cd15cad984">cudf::unary_operator::ARCCOSH</a></div><div class="ttdeci">@ ARCCOSH</div><div class="ttdoc">Hyperbolic cosine inverse</div></div>
+<div class="ttc" id="agroup__transformation__unaryops_html_gga030e62f30b296602f398e70d1ca657c4aef23ef1d426ae1a73a7eed399cef707d"><div class="ttname"><a href="group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4aef23ef1d426ae1a73a7eed399cef707d">cudf::unary_operator::COS</a></div><div class="ttdeci">@ COS</div><div class="ttdoc">Trigonometric cosine</div></div>
+<div class="ttc" id="anamespacecudf_html"><div class="ttname"><a href="namespacecudf.html">cudf</a></div><div class="ttdoc">cuDF interfaces</div><div class="ttdef"><b>Definition</b> <a href="aggregation_8hpp_source.html#l00034">aggregation.hpp:34</a></div></div>
+<div class="ttc" id="atypes_8hpp_html"><div class="ttname"><a href="types_8hpp.html">types.hpp</a></div><div class="ttdoc">Type declarations for libcudf.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_d998dea0bd4559303135358082015ac8.html">gitLibrary</a></li><li class="navelem"><a class="el" href="dir_b6486b3d9bd1f4b89c884933ed658179.html">cudf</a></li><li class="navelem"><a class="el" href="dir_318a4414914f49dc0e7605c41de9d4af.html">cpp</a></li><li class="navelem"><a class="el" href="dir_7fbf5ee8ae486656ea40e5ca1dd304f9.html">include</a></li><li class="navelem"><a class="el" href="dir_87e6427d1ef099fd52d9d0724c66b062.html">cudf</a></li><li class="navelem"><a class="el" href="unary_8hpp.html">unary.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

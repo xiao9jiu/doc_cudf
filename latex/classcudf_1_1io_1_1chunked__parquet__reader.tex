@@ -1,0 +1,143 @@
+\doxysection{cudf\+::io\+::chunked\+\_\+parquet\+\_\+reader类 参考}
+\hypertarget{classcudf_1_1io_1_1chunked__parquet__reader}{}\label{classcudf_1_1io_1_1chunked__parquet__reader}\index{cudf::io::chunked\_parquet\_reader@{cudf::io::chunked\_parquet\_reader}}
+
+
+The chunked parquet reader class to read Parquet file iteratively in to a series of tables, chunk by chunk.  
+
+
+
+
+{\ttfamily \#include $<$parquet.\+hpp$>$}
+
+
+
+cudf\+::io\+::chunked\+\_\+parquet\+\_\+reader 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{classcudf_1_1io_1_1chunked__parquet__reader__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1chunked__parquet__reader_a24c0714fcbd2690fd89c1d1e8b6a7bab}{chunked\+\_\+parquet\+\_\+reader}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor, this should never be used. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1chunked__parquet__reader_a2ffda66174fcecc68613f5cf8845e4ce}{chunked\+\_\+parquet\+\_\+reader}} (std\+::size\+\_\+t chunk\+\_\+read\+\_\+limit, \mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options}{parquet\+\_\+reader\+\_\+options}} const \&options, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Constructor for chunked reader. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1chunked__parquet__reader_ac0411749d57041070648b7440792a992}{\texorpdfstring{$\sim$}{\string~}chunked\+\_\+parquet\+\_\+reader}} ()
+\begin{DoxyCompactList}\small\item\em Destructor, destroying the internal reader instance. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1chunked__parquet__reader_a093b46238fc2a2e2bd44515fd44379cf}{has\+\_\+next}} () const
+\begin{DoxyCompactList}\small\item\em Check if there is any data in the given file has not yet read. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1table__with__metadata}{table\+\_\+with\+\_\+metadata}} \mbox{\hyperlink{classcudf_1_1io_1_1chunked__parquet__reader_a05ead3f31db21bcd4b73588f29ecfa06}{read\+\_\+chunk}} () const
+\begin{DoxyCompactList}\small\item\em Read a chunk of rows in the given Parquet file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1parquet_1_1chunked__reader}{cudf\+::io\+::detail\+::parquet\+::chunked\+\_\+reader}} $>$ \mbox{\hyperlink{classcudf_1_1io_1_1chunked__parquet__reader_a2e70d2b391e3967b5ededf2f1ece79d9}{reader}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+The chunked parquet reader class to read Parquet file iteratively in to a series of tables, chunk by chunk. 
+
+This class is designed to address the reading issue when reading very large Parquet files such that the sizes of their column exceed the limit that can be stored in cudf column. By reading the file content by chunks using this class, each chunk is guaranteed to have its sizes stay within the given limit. 
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00411}{411}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1io_1_1chunked__parquet__reader_a24c0714fcbd2690fd89c1d1e8b6a7bab}\label{classcudf_1_1io_1_1chunked__parquet__reader_a24c0714fcbd2690fd89c1d1e8b6a7bab} 
+\index{cudf::io::chunked\_parquet\_reader@{cudf::io::chunked\_parquet\_reader}!chunked\_parquet\_reader@{chunked\_parquet\_reader}}
+\index{chunked\_parquet\_reader@{chunked\_parquet\_reader}!cudf::io::chunked\_parquet\_reader@{cudf::io::chunked\_parquet\_reader}}
+\doxysubsubsection{\texorpdfstring{chunked\_parquet\_reader()}{chunked\_parquet\_reader()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily cudf\+::io\+::chunked\+\_\+parquet\+\_\+reader\+::chunked\+\_\+parquet\+\_\+reader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor, this should never be used. 
+
+This is added just to satisfy cython. \Hypertarget{classcudf_1_1io_1_1chunked__parquet__reader_a2ffda66174fcecc68613f5cf8845e4ce}\label{classcudf_1_1io_1_1chunked__parquet__reader_a2ffda66174fcecc68613f5cf8845e4ce} 
+\index{cudf::io::chunked\_parquet\_reader@{cudf::io::chunked\_parquet\_reader}!chunked\_parquet\_reader@{chunked\_parquet\_reader}}
+\index{chunked\_parquet\_reader@{chunked\_parquet\_reader}!cudf::io::chunked\_parquet\_reader@{cudf::io::chunked\_parquet\_reader}}
+\doxysubsubsection{\texorpdfstring{chunked\_parquet\_reader()}{chunked\_parquet\_reader()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily cudf\+::io\+::chunked\+\_\+parquet\+\_\+reader\+::chunked\+\_\+parquet\+\_\+reader (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{chunk\+\_\+read\+\_\+limit,  }\item[{\mbox{\hyperlink{classcudf_1_1io_1_1parquet__reader__options}{parquet\+\_\+reader\+\_\+options}} const \&}]{options,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Constructor for chunked reader. 
+
+This constructor requires the same {\ttfamily parquet\+\_\+reader\+\_\+option} parameter as in {\ttfamily cudf\+::read\+\_\+parquet()}, and an additional parameter to specify the size byte limit of the output table for each reading.
+
+
+\begin{DoxyParams}{参数}
+{\em chunk\+\_\+read\+\_\+limit} & Limit on total number of bytes to be returned per read, or {\ttfamily 0} if there is no limit \\
+\hline
+{\em options} & The options used to read Parquet file \\
+\hline
+{\em mr} & Device memory resource to use for device memory allocation \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcudf_1_1io_1_1chunked__parquet__reader_ac0411749d57041070648b7440792a992}\label{classcudf_1_1io_1_1chunked__parquet__reader_ac0411749d57041070648b7440792a992} 
+\index{cudf::io::chunked\_parquet\_reader@{cudf::io::chunked\_parquet\_reader}!````~chunked\_parquet\_reader@{\texorpdfstring{$\sim$}{\string~}chunked\_parquet\_reader}}
+\index{````~chunked\_parquet\_reader@{\texorpdfstring{$\sim$}{\string~}chunked\_parquet\_reader}!cudf::io::chunked\_parquet\_reader@{cudf::io::chunked\_parquet\_reader}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}chunked\_parquet\_reader()}{\string~chunked\_parquet\_reader()}}
+{\footnotesize\ttfamily cudf\+::io\+::chunked\+\_\+parquet\+\_\+reader\+::\texorpdfstring{$\sim$}{\string~}chunked\+\_\+parquet\+\_\+reader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor, destroying the internal reader instance. 
+
+Since the declaration of the internal {\ttfamily reader} object does not exist in this header, this destructor needs to be defined in a separate source file which can access to that object\textquotesingle{}s declaration. 
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1io_1_1chunked__parquet__reader_a093b46238fc2a2e2bd44515fd44379cf}\label{classcudf_1_1io_1_1chunked__parquet__reader_a093b46238fc2a2e2bd44515fd44379cf} 
+\index{cudf::io::chunked\_parquet\_reader@{cudf::io::chunked\_parquet\_reader}!has\_next@{has\_next}}
+\index{has\_next@{has\_next}!cudf::io::chunked\_parquet\_reader@{cudf::io::chunked\_parquet\_reader}}
+\doxysubsubsection{\texorpdfstring{has\_next()}{has\_next()}}
+{\footnotesize\ttfamily bool cudf\+::io\+::chunked\+\_\+parquet\+\_\+reader\+::has\+\_\+next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Check if there is any data in the given file has not yet read. 
+
+\begin{DoxyReturn}{返回}
+A boolean value indicating if there is any data left to read 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1io_1_1chunked__parquet__reader_a05ead3f31db21bcd4b73588f29ecfa06}\label{classcudf_1_1io_1_1chunked__parquet__reader_a05ead3f31db21bcd4b73588f29ecfa06} 
+\index{cudf::io::chunked\_parquet\_reader@{cudf::io::chunked\_parquet\_reader}!read\_chunk@{read\_chunk}}
+\index{read\_chunk@{read\_chunk}!cudf::io::chunked\_parquet\_reader@{cudf::io::chunked\_parquet\_reader}}
+\doxysubsubsection{\texorpdfstring{read\_chunk()}{read\_chunk()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1io_1_1table__with__metadata}{table\+\_\+with\+\_\+metadata}} cudf\+::io\+::chunked\+\_\+parquet\+\_\+reader\+::read\+\_\+chunk (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Read a chunk of rows in the given Parquet file. 
+
+The sequence of returned tables, if concatenated by their order, guarantees to form a complete dataset as reading the entire given file at once.
+
+An empty table will be returned if the given file is empty, or all the data in the file has been read and returned by the previous calls.
+
+\begin{DoxyReturn}{返回}
+An output {\ttfamily \doxylink{classcudf_1_1table}{cudf\+::table}} along with its metadata 
+\end{DoxyReturn}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1io_1_1chunked__parquet__reader_a2e70d2b391e3967b5ededf2f1ece79d9}\label{classcudf_1_1io_1_1chunked__parquet__reader_a2e70d2b391e3967b5ededf2f1ece79d9} 
+\index{cudf::io::chunked\_parquet\_reader@{cudf::io::chunked\_parquet\_reader}!reader@{reader}}
+\index{reader@{reader}!cudf::io::chunked\_parquet\_reader@{cudf::io::chunked\_parquet\_reader}}
+\doxysubsubsection{\texorpdfstring{reader}{reader}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1parquet_1_1chunked__reader}{cudf\+::io\+::detail\+::parquet\+::chunked\+\_\+reader}}$>$ cudf\+::io\+::chunked\+\_\+parquet\+\_\+reader\+::reader\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{parquet_8hpp_source}{parquet.\+hpp}} 第 \mbox{\hyperlink{parquet_8hpp_source_l00467}{467}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/\mbox{\hyperlink{parquet_8hpp}{parquet.\+hpp}}\end{DoxyCompactItemize}

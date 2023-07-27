@@ -1,0 +1,57 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/filling.hpp 文件参考}
+\hypertarget{filling_8hpp}{}\label{filling_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/filling.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/filling.hpp}}
+
+
+Column APIs for fill, repeat, and sequence  
+
+
+{\ttfamily \#include $<$cudf/types.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/mr/device/per\+\_\+device\+\_\+resource.\+hpp$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+filling.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{filling_8hpp__incl}
+\end{center}
+\end{figure}
+此图展示该文件直接或间接的被哪些文件引用了\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{filling_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__transformation__fill_ga53223e7585a8a507802815201a4eb5ba}{cudf\+::fill\+\_\+in\+\_\+place}} (\mbox{\hyperlink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view}} \&destination, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} begin, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} end, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&value)
+\begin{DoxyCompactList}\small\item\em Fills a range of elements in-\/place in a column with a scalar value. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__fill_ga06c5a274e53d68a38151ab402492ebe8}{cudf\+::fill}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} begin, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} end, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&value, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Fills a range of elements in a column out-\/of-\/place with a scalar value. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__transformation__fill_ga0ae5112e1a07cb1cadfcdb3d3a03f096}{cudf\+::repeat}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input\+\_\+table, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&count, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Repeat rows of a Table. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__transformation__fill_ga3a7108024c5faef011b8a4cbf411e196}{cudf\+::repeat}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input\+\_\+table, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} count, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Repeat rows of a Table. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__fill_gac846399ac2ee0729e1bdfaedbf3b7735}{cudf\+::sequence}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} size, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&init, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&step, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Fills a column with a sequence of value specified by an initial value and a step. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__fill_ga08b5167ef67be7ad7fe9a07adc3de31b}{cudf\+::sequence}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} size, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&init, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Fills a column with a sequence of value specified by an initial value and a step of 1. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__transformation__fill_ga0691c762ba0a3efb1b432b423e6fe60a}{cudf\+::calendrical\+\_\+month\+\_\+sequence}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} size, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&init, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} months, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Generate a sequence of timestamps beginning at {\ttfamily init} and incrementing by {\ttfamily months} for each successive element, i.\+e., {\ttfamily output\mbox{[}i\mbox{]} = init + i \texorpdfstring{$\ast$}{*} months} for {\ttfamily i} in {\ttfamily \mbox{[}0, size)}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Column APIs for fill, repeat, and sequence 
+
+
+
+在文件 \mbox{\hyperlink{filling_8hpp_source}{filling.\+hpp}} 中定义.
+

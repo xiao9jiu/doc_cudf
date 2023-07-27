@@ -1,0 +1,59 @@
+\doxysection{dremel.\+hpp}
+\hypertarget{dremel_8hpp_source}{}\label{dremel_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/lists/detail/dremel.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/lists/detail/dremel.hpp}}
+\mbox{\hyperlink{dremel_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{column_8hpp}{cudf/column/column.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <rmm/device\_uvector.hpp>}}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00023}00023\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf_1_1detail}{cudf::detail}}\ \{}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00030}\mbox{\hyperlink{structcudf_1_1detail_1_1dremel__device__view}{00030}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1detail_1_1dremel__device__view}{dremel\_device\_view}}\ \{}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00031}\mbox{\hyperlink{structcudf_1_1detail_1_1dremel__device__view_a10618eb25fe582cb414a41f3aebfd9be}{00031}}\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \textcolor{keyword}{const}*\ \mbox{\hyperlink{structcudf_1_1detail_1_1dremel__device__view_a10618eb25fe582cb414a41f3aebfd9be}{offsets}};}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00032}\mbox{\hyperlink{structcudf_1_1detail_1_1dremel__device__view_a65959c1d368f230ee9bddaf890a51ec6}{00032}}\ \ \ uint8\_t\ \textcolor{keyword}{const}*\ \mbox{\hyperlink{structcudf_1_1detail_1_1dremel__device__view_a65959c1d368f230ee9bddaf890a51ec6}{rep\_levels}};}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00033}\mbox{\hyperlink{structcudf_1_1detail_1_1dremel__device__view_aa5d79699b037fc0efbce693ece1a3cb4}{00033}}\ \ \ uint8\_t\ \textcolor{keyword}{const}*\ \mbox{\hyperlink{structcudf_1_1detail_1_1dremel__device__view_aa5d79699b037fc0efbce693ece1a3cb4}{def\_levels}};}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00034}\mbox{\hyperlink{structcudf_1_1detail_1_1dremel__device__view_afe96b1fab1e45af2b519cd324f4bddc6}{00034}}\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structcudf_1_1detail_1_1dremel__device__view_afe96b1fab1e45af2b519cd324f4bddc6}{leaf\_data\_size}};}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00035}\mbox{\hyperlink{structcudf_1_1detail_1_1dremel__device__view_a1208df2c18793ed09f170cef0ef87f3e}{00035}}\ \ \ uint8\_t\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structcudf_1_1detail_1_1dremel__device__view_a1208df2c18793ed09f170cef0ef87f3e}{max\_def\_level}};}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00036}00036\ \};}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00043}\mbox{\hyperlink{structcudf_1_1detail_1_1dremel__data}{00043}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1detail_1_1dremel__data}{dremel\_data}}\ \{}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00044}\mbox{\hyperlink{structcudf_1_1detail_1_1dremel__data_a6a53e06cf611cb7f99579c4e3727f103}{00044}}\ \ \ rmm::device\_uvector<size\_type>\ \mbox{\hyperlink{structcudf_1_1detail_1_1dremel__data_a6a53e06cf611cb7f99579c4e3727f103}{dremel\_offsets}};}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00045}\mbox{\hyperlink{structcudf_1_1detail_1_1dremel__data_a5dae7b6e0ed23fa56d3bab9764760f0d}{00045}}\ \ \ rmm::device\_uvector<uint8\_t>\ \mbox{\hyperlink{structcudf_1_1detail_1_1dremel__data_a5dae7b6e0ed23fa56d3bab9764760f0d}{rep\_level}};}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00046}\mbox{\hyperlink{structcudf_1_1detail_1_1dremel__data_ae22cf9d6399e376b26e6e713c1c27cb7}{00046}}\ \ \ rmm::device\_uvector<uint8\_t>\ \mbox{\hyperlink{structcudf_1_1detail_1_1dremel__data_ae22cf9d6399e376b26e6e713c1c27cb7}{def\_level}};}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00048}\mbox{\hyperlink{structcudf_1_1detail_1_1dremel__data_a2d6094c32e1e7d0aacbc2b3afab117b7}{00048}}\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structcudf_1_1detail_1_1dremel__data_a2d6094c32e1e7d0aacbc2b3afab117b7}{leaf\_data\_size}};}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00049}\mbox{\hyperlink{structcudf_1_1detail_1_1dremel__data_a5cb4974bae181fa4a22a59050a6b4502}{00049}}\ \ \ uint8\_t\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structcudf_1_1detail_1_1dremel__data_a5cb4974bae181fa4a22a59050a6b4502}{max\_def\_level}};}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00051}\mbox{\hyperlink{structcudf_1_1detail_1_1dremel__data_af37002fb86f93eab901e9afc357ecc32}{00051}}\ \ \ \textcolor{keyword}{operator}\ \mbox{\hyperlink{structcudf_1_1detail_1_1dremel__device__view}{dremel\_device\_view}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00052}00052\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structcudf_1_1detail_1_1dremel__device__view}{dremel\_device\_view}}\{}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00054}00054\ \ \ \ \ \ \ \mbox{\hyperlink{structcudf_1_1detail_1_1dremel__data_a6a53e06cf611cb7f99579c4e3727f103}{dremel\_offsets}}.data(),\ \mbox{\hyperlink{structcudf_1_1detail_1_1dremel__data_a5dae7b6e0ed23fa56d3bab9764760f0d}{rep\_level}}.data(),\ \mbox{\hyperlink{structcudf_1_1detail_1_1dremel__data_ae22cf9d6399e376b26e6e713c1c27cb7}{def\_level}}.data(),\ \mbox{\hyperlink{structcudf_1_1detail_1_1dremel__data_a2d6094c32e1e7d0aacbc2b3afab117b7}{leaf\_data\_size}},\ \mbox{\hyperlink{structcudf_1_1detail_1_1dremel__data_a5cb4974bae181fa4a22a59050a6b4502}{max\_def\_level}}\};}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00055}00055\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00056}00056\ \};}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00193}\mbox{\hyperlink{namespacecudf_1_1detail_a6ca203cd4504a08ef2fd489410d6db95}{00193}}\ \mbox{\hyperlink{structcudf_1_1detail_1_1dremel__data}{dremel\_data}}\ \mbox{\hyperlink{namespacecudf_1_1detail_a6ca203cd4504a08ef2fd489410d6db95}{get\_dremel\_data}}(\mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ h\_col,}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<uint8\_t>\ nullability,}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ output\_as\_byte\_array,}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::cuda\_stream\_view\ stream);}
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{dremel_8hpp_source_l00198}00198\ \}\ \ \textcolor{comment}{//\ namespace\ cudf::detail}}
+
+\end{DoxyCode}

@@ -1,0 +1,541 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: D:/gitLibrary/cudf/cpp/include/cudf/utilities/traits.hpp 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('traits_8hpp.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#define-members">宏定义</a> &#124;
+<a href="#typedef-members">类型定义</a> &#124;
+<a href="#func-members">函数</a> &#124;
+<a href="#var-members">变量</a>  </div>
+  <div class="headertitle"><div class="title">traits.hpp 文件参考<div class="ingroups"><a class="el" href="group__utility__types.html">Utility_types</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;<a class="el" href="fixed__point_8hpp_source.html">cudf/fixed_point/fixed_point.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="types_8hpp_source.html">cudf/types.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="dictionary_8hpp_source.html">cudf/wrappers/dictionary.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="durations_8hpp_source.html">cudf/wrappers/durations.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="timestamps_8hpp_source.html">cudf/wrappers/timestamps.hpp</a>&gt;</code><br />
+<code>#include &lt;cuda/std/type_traits&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+traits.hpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="traits_8hpp__incl.png" border="0" usemap="#a_d_1_2git_library_2cudf_2cpp_2include_2cudf_2utilities_2traits_8hpp" alt=""/></div>
+<map name="a_d_1_2git_library_2cudf_2cpp_2include_2cudf_2utilities_2traits_8hpp" id="a_d_1_2git_library_2cudf_2cpp_2include_2cudf_2utilities_2traits_8hpp">
+<area shape="rect" title=" " alt="" coords="850,5,1015,64"/>
+<area shape="rect" href="fixed__point_8hpp.html" title="Class definition for fixed point data type" alt="" coords="643,112,785,155"/>
+<area shape="poly" title=" " alt="" coords="869,67,775,108,773,103,866,62"/>
+<area shape="rect" href="types_8hpp.html" title="Type declarations for libcudf." alt="" coords="270,293,376,320"/>
+<area shape="poly" title=" " alt="" coords="851,50,717,72,562,106,488,127,422,150,370,176,336,204,326,221,321,241,321,279,316,279,316,240,321,219,332,201,367,172,420,145,486,122,560,101,716,67,850,45"/>
+<area shape="rect" title=" " alt="" coords="958,293,1094,320"/>
+<area shape="poly" title=" " alt="" coords="988,62,1025,87,1065,119,1101,157,1128,202,1135,224,1128,247,1107,271,1080,289,1077,284,1103,267,1123,244,1130,224,1123,204,1096,160,1061,123,1022,91,985,67"/>
+<area shape="rect" href="dictionary_8hpp.html" title="Concrete type definition for dictionary columns." alt="" coords="69,120,255,147"/>
+<area shape="poly" title=" " alt="" coords="850,47,593,74,274,115,243,120,242,114,273,109,592,69,850,41"/>
+<area shape="rect" href="durations_8hpp.html" title="Concrete type definitions for int32_t and int64_t durations in varying resolutions." alt="" coords="1218,211,1402,237"/>
+<area shape="poly" title=" " alt="" coords="1016,52,1093,76,1171,110,1285,199,1282,203,1168,114,1091,81,1014,57"/>
+<area shape="rect" href="timestamps_8hpp.html" title="Concrete type definitions for int32_t and int64_t timestamps in varying resolutions as durations sinc..." alt="" coords="1239,120,1437,147"/>
+<area shape="poly" title=" " alt="" coords="1016,53,1271,113,1270,119,1014,58"/>
+<area shape="rect" title=" " alt="" coords="989,203,1114,245"/>
+<area shape="poly" title=" " alt="" coords="786,151,975,200,974,205,785,156"/>
+<area shape="rect" href="temporary_8hpp.html" title=" " alt="" coords="615,211,813,237"/>
+<area shape="poly" title=" " alt="" coords="717,155,717,196,711,196,711,155"/>
+<area shape="poly" title=" " alt="" coords="643,144,568,152,488,165,417,183,390,193,370,205,355,221,344,240,330,280,325,278,339,238,351,218,367,201,387,188,416,178,487,160,568,147,642,138"/>
+<area shape="rect" title=" " alt="" coords="444,368,509,395"/>
+<area shape="poly" title=" " alt="" coords="647,158,603,177,562,205,532,239,509,280,494,320,484,354,479,353,489,318,505,277,528,236,559,201,600,173,645,153"/>
+<area shape="rect" title=" " alt="" coords="592,293,705,320"/>
+<area shape="poly" title=" " alt="" coords="659,157,629,177,606,204,601,223,605,244,615,263,628,281,624,284,611,266,600,245,595,223,601,201,625,173,656,153"/>
+<area shape="rect" title=" " alt="" coords="729,293,835,320"/>
+<area shape="poly" title=" " alt="" coords="772,153,802,173,827,201,832,223,828,245,818,266,805,284,801,281,814,263,823,243,827,223,822,204,799,177,769,157"/>
+<area shape="poly" title=" " alt="" coords="774,153,826,174,880,200,946,242,1000,282,997,286,943,246,878,205,824,179,772,158"/>
+<area shape="rect" title=" " alt="" coords="859,293,934,320"/>
+<area shape="poly" title=" " alt="" coords="774,153,812,173,848,201,875,239,891,278,886,280,870,242,844,205,809,178,771,158"/>
+<area shape="rect" title=" " alt="" coords="514,293,567,320"/>
+<area shape="poly" title=" " alt="" coords="665,158,629,178,596,204,569,242,552,280,547,278,565,239,592,201,626,173,662,153"/>
+<area shape="rect" title=" " alt="" coords="381,211,439,237"/>
+<area shape="poly" title=" " alt="" coords="643,153,554,176,459,205,453,207,451,202,457,200,553,171,642,148"/>
+<area shape="poly" title=" " alt="" coords="653,241,391,294,390,289,652,235"/>
+<area shape="poly" title=" " alt="" coords="706,240,670,284,665,280,702,236"/>
+<area shape="poly" title=" " alt="" coords="726,236,764,280,760,284,722,240"/>
+<area shape="poly" title=" " alt="" coords="764,235,963,287,962,292,762,241"/>
+<area shape="poly" title=" " alt="" coords="743,235,856,285,854,290,741,240"/>
+<area shape="poly" title=" " alt="" coords="688,240,582,289,579,284,686,235"/>
+<area shape="poly" title=" " alt="" coords="351,318,438,359,435,364,349,323"/>
+<area shape="rect" title=" " alt="" coords="273,368,336,395"/>
+<area shape="poly" title=" " alt="" coords="322,321,314,354,309,353,317,320"/>
+<area shape="rect" title=" " alt="" coords="360,368,420,395"/>
+<area shape="poly" title=" " alt="" coords="337,319,370,355,367,359,333,322"/>
+<area shape="rect" title=" " alt="" coords="187,368,249,395"/>
+<area shape="poly" title=" " alt="" coords="306,323,250,361,247,357,303,318"/>
+<area shape="poly" title=" " alt="" coords="175,145,303,280,299,284,171,149"/>
+<area shape="rect" title=" " alt="" coords="5,211,116,237"/>
+<area shape="poly" title=" " alt="" coords="149,149,88,202,84,198,146,145"/>
+<area shape="rect" title=" " alt="" coords="140,211,192,237"/>
+<area shape="poly" title=" " alt="" coords="165,147,167,195,162,196,160,147"/>
+<area shape="rect" title=" " alt="" coords="1253,293,1367,320"/>
+<area shape="poly" title=" " alt="" coords="1313,238,1313,279,1307,279,1307,238"/>
+<area shape="poly" title=" " alt="" coords="1336,148,1321,197,1316,196,1331,146"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+此图展示该文件直接或间接的被哪些文件引用了:</div>
+<div class="dyncontent">
+<div class="center"><img src="traits_8hpp__dep__incl.png" border="0" usemap="#a_d_1_2git_library_2cudf_2cpp_2include_2cudf_2utilities_2traits_8hppdep" alt=""/></div>
+<map name="a_d_1_2git_library_2cudf_2cpp_2include_2cudf_2utilities_2traits_8hppdep" id="a_d_1_2git_library_2cudf_2cpp_2include_2cudf_2utilities_2traits_8hppdep">
+<area shape="rect" title=" " alt="" coords="1708,5,1873,64"/>
+<area shape="rect" href="column__factories_8hpp.html" title="Column factory APIs" alt="" coords="120,341,285,400"/>
+<area shape="poly" title=" " alt="" coords="1693,41,1388,53,1191,65,983,82,777,106,588,136,504,154,429,174,365,196,315,221,282,247,254,279,232,312,217,342,212,340,228,310,250,276,278,243,312,216,363,191,427,169,503,149,587,131,777,100,983,77,1191,60,1388,48,1693,35"/>
+<area shape="rect" href="column__view_8hpp.html" title="column view class definitions" alt="" coords="3748,112,3913,171"/>
+<area shape="poly" title=" " alt="" coords="1888,38,3748,133,3747,138,1887,44"/>
+<area shape="rect" href="copy_8hpp.html" title=" " alt="" coords="5,571,160,629"/>
+<area shape="poly" title=" " alt="" coords="1694,41,1418,48,1056,62,699,84,551,98,439,115,367,124,296,126,227,126,165,128,112,138,90,147,71,159,55,175,44,196,37,222,34,255,34,372,39,427,49,482,74,569,69,571,44,483,33,428,29,372,29,255,32,221,39,194,51,172,67,155,87,142,110,133,164,123,227,120,296,120,367,118,438,109,550,93,698,78,1056,57,1418,43,1694,35"/>
+<area shape="rect" href="scalar_8hpp.html" title="Class definitions for cudf::scalar" alt="" coords="1878,341,2036,400"/>
+<area shape="poly" title=" " alt="" coords="1813,76,1945,340,1941,342,1809,78"/>
+<area shape="rect" href="detail_2aggregation_2aggregation_8hpp.html" title=" " alt="" coords="4752,112,4941,171"/>
+<area shape="poly" title=" " alt="" coords="1888,37,4752,134,4752,139,1887,42"/>
+<area shape="rect" href="detail_2unary_8hpp.html" title=" " alt="" coords="120,456,274,515"/>
+<area shape="poly" title=" " alt="" coords="203,415,201,455,196,455,198,415"/>
+<area shape="rect" href="column_8hpp.html" title="Class definition for cudf::column" alt="" coords="2688,227,2853,285"/>
+<area shape="poly" title=" " alt="" coords="3733,155,3097,221,2854,248,2853,243,3097,216,3733,150"/>
+<area shape="rect" href="sort__helper_8hpp.html" title=" " alt="" coords="3742,341,3906,400"/>
+<area shape="poly" title=" " alt="" coords="3804,184,3789,219,3783,256,3789,293,3797,317,3808,340,3804,342,3792,319,3784,294,3778,256,3784,218,3799,182"/>
+<area shape="rect" href="detail_2label__bins_8hpp.html" title="Internal APIs for labeling values by bin." alt="" coords="4427,456,4581,515"/>
+<area shape="poly" title=" " alt="" coords="3914,175,3947,194,3978,217,3996,237,4006,256,4016,274,4035,291,4065,307,4093,316,4145,321,4198,323,4229,328,4263,339,4321,365,4376,395,4466,453,4463,458,4374,400,4319,369,4262,344,4228,333,4198,328,4144,327,4092,322,4063,312,4032,296,4012,278,4001,259,3991,240,3974,221,3944,199,3911,180"/>
+<area shape="rect" href="detail_2encode_8hpp.html" title=" " alt="" coords="4224,456,4403,515"/>
+<area shape="poly" title=" " alt="" coords="3865,181,3890,217,3907,256,3914,273,3927,292,3944,308,3959,317,3996,339,4033,370,4072,398,4109,415,4140,425,4211,445,4233,453,4231,458,4210,451,4138,430,4107,420,4069,402,4030,375,3993,344,3956,322,3940,312,3923,295,3909,276,3902,258,3886,220,3860,184"/>
+<area shape="rect" href="dictionary__column__view_8hpp.html" title="Class definition for cudf::dictionary_column_view" alt="" coords="2856,341,3042,400"/>
+<area shape="poly" title=" " alt="" coords="3733,151,3639,159,3528,173,3408,193,3291,221,3210,248,3131,281,3002,343,3000,338,3129,276,3209,243,3290,216,3407,188,3527,168,3639,154,3733,146"/>
+<area shape="rect" href="encode_8hpp.html" title="Dictionary column encode and decode APIs" alt="" coords="4020,456,4199,515"/>
+<area shape="poly" title=" " alt="" coords="3843,184,3861,238,3890,292,4078,453,4074,458,3886,295,3856,240,3838,186"/>
+<area shape="rect" href="dictionary__factories_8hpp.html" title=" " alt="" coords="3168,341,3347,400"/>
+<area shape="poly" title=" " alt="" coords="3733,152,3635,162,3528,177,3432,196,3394,208,3367,221,3335,247,3308,279,3287,312,3272,342,3267,340,3282,310,3304,276,3331,243,3364,216,3392,203,3431,191,3527,171,3634,157,3733,147"/>
+<area shape="rect" href="labeling_2label__bins_8hpp.html" title="APIs for labeling values by bin." alt="" coords="4083,341,4250,400"/>
+<area shape="poly" title=" " alt="" coords="3882,178,3927,217,3946,238,3958,256,3971,273,3991,291,4036,319,4084,340,4081,345,4033,323,3988,295,3967,277,3954,259,3941,241,3923,221,3879,182"/>
+<area shape="rect" href="lists_2extract_8hpp.html" title=" " alt="" coords="3317,456,3464,515"/>
+<area shape="poly" title=" " alt="" coords="3735,178,3669,206,3596,242,3525,288,3462,343,3440,370,3423,400,3401,457,3396,455,3419,398,3436,367,3458,339,3522,284,3594,238,3666,201,3733,173"/>
+<area shape="rect" href="lists_2gather_8hpp.html" title=" " alt="" coords="1500,571,1647,629"/>
+<area shape="poly" title=" " alt="" coords="3733,148,3060,170,2597,192,2124,221,1785,242,1521,256,1394,267,1259,284,1106,309,926,344,874,357,835,371,745,403,714,409,687,411,638,410,616,412,596,417,576,429,557,450,545,468,541,486,545,503,556,521,574,532,605,543,698,561,823,574,967,584,1266,594,1499,596,1499,601,1266,599,967,589,822,580,697,566,604,548,572,537,553,525,540,505,536,486,540,466,552,446,573,425,594,413,615,406,638,405,686,405,714,404,743,397,833,366,873,352,925,339,1105,303,1258,279,1394,262,1521,251,1785,236,2124,216,2596,187,3060,165,3733,142"/>
+<area shape="rect" href="lists__column__view_8hpp.html" title="Class definition for cudf::lists_column_view" alt="" coords="2576,341,2730,400"/>
+<area shape="poly" title=" " alt="" coords="3733,145,3467,147,3134,156,2975,166,2837,179,2733,198,2699,209,2678,221,2659,247,2650,279,2648,312,2651,341,2645,341,2643,312,2645,278,2654,245,2674,217,2696,204,2732,192,2836,174,2974,161,3134,151,3467,141,3733,140"/>
+<area shape="rect" href="copying_8hpp.html" title="Column APIs for gather, scatter, split, slice, etc." alt="" coords="298,464,491,507"/>
+<area shape="poly" title=" " alt="" coords="3733,146,3033,153,1997,167,1479,177,1030,189,700,204,596,212,540,221,479,241,432,261,412,274,394,292,360,343,354,358,352,373,356,406,368,437,383,462,378,465,364,439,351,407,347,373,349,356,355,340,390,288,409,270,430,256,478,236,539,216,595,207,700,199,1030,184,1479,172,1996,161,3033,147,3733,141"/>
+<area shape="poly" title=" " alt="" coords="3733,145,3034,147,1987,155,1453,165,976,178,605,197,474,208,387,221,299,237,228,252,197,264,168,282,139,308,110,343,94,370,83,400,73,463,74,523,79,570,74,571,68,523,68,462,78,398,89,368,106,340,135,304,165,278,195,260,227,247,298,232,386,216,473,203,604,191,976,173,1453,159,1987,150,3034,141,3733,140"/>
+<area shape="rect" href="detail_2gather_8hpp.html" title=" " alt="" coords="4631,571,4785,629"/>
+<area shape="poly" title=" " alt="" coords="3928,143,4652,171,5013,193,5133,204,5192,216,5231,246,5261,282,5280,323,5289,365,5287,409,5274,451,5250,491,5215,525,5182,542,5137,557,5022,578,4896,592,4785,599,4785,593,4895,586,5021,573,5135,552,5180,537,5212,521,5246,487,5269,449,5282,408,5284,366,5275,324,5256,285,5228,250,5189,221,5133,209,5013,198,4652,177,3928,148"/>
+<area shape="rect" href="reduction__functions_8hpp.html" title=" " alt="" coords="1343,456,1505,515"/>
+<area shape="poly" title=" " alt="" coords="3733,147,3418,157,3201,169,2955,186,2690,212,2414,245,2137,289,1867,344,1767,369,1691,391,1518,451,1497,458,1496,453,1516,445,1689,386,1766,363,1866,339,2136,284,2414,240,2689,206,2955,181,3201,163,3418,152,3733,141"/>
+<area shape="rect" href="lists_2sorting_8hpp.html" title=" " alt="" coords="3489,456,3636,515"/>
+<area shape="poly" title=" " alt="" coords="3802,184,3777,220,3750,271,3733,314,3714,355,3681,402,3648,433,3613,458,3610,453,3645,428,3676,398,3710,352,3728,311,3745,269,3772,217,3797,181"/>
+<area shape="rect" href="tdigest__column__view_8hpp.html" title=" " alt="" coords="3826,456,3995,515"/>
+<area shape="poly" title=" " alt="" coords="3825,185,3823,239,3829,267,3839,292,3848,302,3857,308,3879,315,3901,321,3912,328,3921,340,3931,369,3933,400,3930,430,3923,456,3918,455,3924,429,3928,400,3926,370,3916,343,3908,332,3899,326,3877,320,3855,313,3844,306,3835,295,3823,268,3818,239,3819,185"/>
+<area shape="rect" href="structs__column__view_8hpp.html" title="Class definition for cudf::structs_column_view." alt="" coords="369,341,540,400"/>
+<area shape="poly" title=" " alt="" coords="3733,146,3059,153,2068,168,1574,178,1145,190,830,205,731,213,678,221,621,245,568,278,522,312,486,343,483,339,519,308,565,273,619,241,676,216,730,207,830,199,1145,185,1573,172,2067,162,3059,148,3733,141"/>
+<area shape="rect" href="concatenate_8hpp.html" title="Concatenate columns APIs" alt="" coords="5014,349,5234,392"/>
+<area shape="poly" title=" " alt="" coords="3928,143,4221,153,4591,170,4916,191,5023,203,5057,210,5075,216,5100,246,5116,282,5124,318,5126,348,5121,349,5118,319,5111,284,5096,249,5072,221,5055,215,5022,209,4915,197,4591,175,4221,159,3928,148"/>
+<area shape="rect" href="detail_2concatenate_8hpp.html" title=" " alt="" coords="5047,456,5201,515"/>
+<area shape="poly" title=" " alt="" coords="3928,142,4217,150,4585,164,4921,186,5042,200,5113,216,5179,249,5208,268,5232,289,5250,313,5259,339,5259,369,5247,401,5222,434,5189,458,5186,454,5218,430,5243,399,5254,368,5254,340,5245,315,5228,293,5205,272,5177,253,5111,221,5041,205,4921,191,4585,170,4216,155,3928,147"/>
+<area shape="rect" href="group__replace__nulls_8hpp.html" title=" " alt="" coords="4046,219,4202,293"/>
+<area shape="poly" title=" " alt="" coords="3920,174,4046,222,4044,227,3918,179"/>
+<area shape="rect" href="is__element__valid_8hpp.html" title=" " alt="" coords="4227,227,4381,285"/>
+<area shape="poly" title=" " alt="" coords="3928,154,4065,179,4215,216,4238,224,4236,229,4214,221,4064,184,3927,159"/>
+<area shape="rect" href="scan_8hpp.html" title=" " alt="" coords="5359,227,5513,285"/>
+<area shape="poly" title=" " alt="" coords="3928,143,4700,173,5105,194,5253,205,5340,216,5368,224,5367,229,5339,221,5252,210,5105,199,4699,178,3928,148"/>
+<area shape="rect" href="scatter_8hpp.html" title=" " alt="" coords="4415,341,4569,400"/>
+<area shape="poly" title=" " alt="" coords="3928,141,4149,145,4414,156,4540,166,4648,179,4728,195,4755,205,4772,217,4785,236,4789,255,4785,275,4773,295,4753,316,4733,328,4712,334,4690,337,4643,336,4617,338,4588,344,4570,349,4569,344,4587,339,4616,333,4643,331,4690,331,4711,329,4731,323,4750,311,4768,292,4780,273,4784,255,4780,238,4769,221,4753,210,4727,201,4647,184,4539,171,4414,162,4148,150,3928,146"/>
+<area shape="rect" href="detail_2stream__compaction_8hpp.html" title=" " alt="" coords="4406,227,4570,285"/>
+<area shape="poly" title=" " alt="" coords="3928,146,4143,169,4269,189,4394,216,4419,224,4417,229,4393,221,4268,194,4143,175,3928,152"/>
+<area shape="rect" href="groupby_8hpp.html" title=" " alt="" coords="4796,349,4990,392"/>
+<area shape="poly" title=" " alt="" coords="3928,142,4217,151,4580,167,4897,188,5001,202,5033,209,5050,217,5062,236,5066,255,5061,274,5050,295,5035,313,5017,329,4976,351,4973,346,5014,324,5031,310,5046,292,5056,272,5060,254,5057,238,5046,221,5031,214,5000,207,4896,194,4579,172,4217,157,3928,148"/>
+<area shape="rect" href="strings__column__view_8hpp.html" title="Class definition for cudf::strings_column_view" alt="" coords="563,341,733,400"/>
+<area shape="poly" title=" " alt="" coords="3733,145,3071,147,2102,156,1620,165,1203,179,898,197,802,208,753,221,721,246,694,278,674,312,660,342,656,340,670,309,690,275,717,242,751,216,801,203,897,192,1202,174,1620,160,2101,151,3071,142,3733,140"/>
+<area shape="rect" href="table__view_8hpp.html" title="Class definitions for (mutable)_table_view" alt="" coords="4884,227,5036,285"/>
+<area shape="poly" title=" " alt="" coords="3928,142,4096,149,4317,162,4565,183,4815,216,4884,231,4883,236,4814,221,4565,189,4317,167,4096,154,3928,148"/>
+<area shape="rect" href="type__checks_8hpp.html" title=" " alt="" coords="4594,227,4758,285"/>
+<area shape="poly" title=" " alt="" coords="3928,142,4059,147,4223,160,4404,182,4495,197,4583,216,4609,224,4607,229,4582,221,4494,202,4403,187,4223,165,4059,153,3928,147"/>
+<area shape="poly" title=" " alt="" coords="2673,262,2210,270,1541,287,858,311,573,327,357,344,286,355,285,349,357,339,573,321,858,306,1540,281,2210,265,2673,256"/>
+<area shape="rect" href="binaryop_8hpp.html" title="Column APIs for binary ops" alt="" coords="2205,464,2403,507"/>
+<area shape="poly" title=" " alt="" coords="2674,272,2564,298,2507,318,2453,344,2412,372,2375,405,2321,465,2317,462,2371,401,2409,367,2451,339,2505,313,2563,293,2673,267"/>
+<area shape="rect" href="result__cache_8hpp.html" title=" " alt="" coords="3472,341,3667,400"/>
+<area shape="poly" title=" " alt="" coords="2868,263,3133,291,3293,313,3454,339,3472,342,3471,347,3453,344,3293,318,3132,297,2868,268"/>
+<area shape="poly" title=" " alt="" coords="2868,261,3226,288,3452,310,3679,339,3742,349,3741,355,3678,344,3451,316,3225,293,2868,266"/>
+<area shape="poly" title=" " alt="" coords="2868,257,2972,264,3096,279,3229,303,3295,319,3359,339,3389,353,3410,369,3431,385,3461,397,3534,417,3601,430,3664,439,3723,443,3831,441,3934,432,4037,422,4148,416,4271,422,4340,431,4415,445,4441,453,4439,458,4414,451,4339,436,4271,427,4148,422,4038,427,3935,438,3832,447,3722,448,3663,444,3600,436,3533,422,3459,403,3429,389,3407,374,3387,358,3358,344,3294,324,3228,308,3095,284,2971,270,2868,263"/>
+<area shape="rect" href="detail_2search_8hpp.html" title=" " alt="" coords="2427,456,2581,515"/>
+<area shape="poly" title=" " alt="" coords="2674,274,2612,286,2552,302,2502,321,2483,332,2471,343,2464,356,2461,369,2463,399,2473,428,2487,454,2482,457,2468,430,2458,400,2455,369,2459,354,2467,340,2480,327,2499,316,2550,297,2611,281,2673,269"/>
+<area shape="poly" title=" " alt="" coords="2868,265,2924,275,2984,290,3045,311,3103,339,3120,354,3130,370,3140,385,3157,398,3201,414,3253,426,3378,440,3522,444,3677,442,3978,433,4108,435,4211,445,4241,453,4239,458,4210,451,4108,440,3979,438,3677,447,3522,449,3378,445,3252,431,3199,419,3155,402,3136,389,3126,373,3116,358,3100,344,3043,316,2983,295,2923,280,2867,270"/>
+<area shape="rect" href="dictionary_2detail_2replace_8hpp.html" title=" " alt="" coords="2656,456,2835,515"/>
+<area shape="poly" title=" " alt="" coords="2674,275,2644,285,2614,300,2587,319,2566,343,2558,357,2556,371,2558,384,2566,398,2580,412,2603,426,2663,453,2661,458,2600,431,2577,416,2562,402,2553,385,2550,371,2553,356,2562,340,2584,315,2611,295,2642,280,2673,270"/>
+<area shape="poly" title=" " alt="" coords="2830,291,2905,339,2902,343,2827,296"/>
+<area shape="poly" title=" " alt="" coords="2868,271,2962,297,3010,315,3056,339,3074,355,3085,371,3095,385,3113,398,3150,411,3195,421,3301,434,3424,438,3555,438,3811,433,3921,435,4008,445,4037,453,4036,458,4007,451,3920,441,3811,438,3555,443,3424,444,3301,439,3194,427,3149,416,3111,402,3091,389,3080,374,3070,358,3053,344,3008,320,2960,302,2867,276"/>
+<area shape="poly" title=" " alt="" coords="2868,275,3150,339,3168,343,3166,348,3149,344,2867,281"/>
+<area shape="poly" title=" " alt="" coords="2868,261,3322,291,3919,339,4083,356,4082,362,3918,344,3322,296,2868,266"/>
+<area shape="poly" title=" " alt="" coords="2770,300,2771,326,2776,352,2785,377,2802,398,2819,410,2842,420,2899,433,2967,438,3042,439,3191,437,3254,439,3304,445,3329,453,3327,458,3303,451,3254,444,3191,442,3042,445,2967,444,2898,438,2840,425,2817,415,2798,402,2781,380,2770,354,2765,326,2764,300"/>
+<area shape="poly" title=" " alt="" coords="2674,271,2639,281,2604,296,2574,316,2549,343,2541,357,2540,369,2549,399,2559,413,2571,422,2585,431,2596,447,2609,487,2607,506,2595,525,2576,537,2544,548,2450,566,2325,580,2180,589,1880,599,1647,601,1647,596,1880,594,2180,584,2324,574,2449,561,2543,543,2573,532,2591,521,2602,504,2604,488,2591,449,2581,435,2568,426,2555,417,2544,401,2535,370,2536,355,2544,340,2570,312,2602,291,2637,276,2672,266"/>
+<area shape="rect" href="lists__column__factories_8hpp.html" title=" " alt="" coords="753,456,932,515"/>
+<area shape="poly" title=" " alt="" coords="2673,268,2318,300,1867,344,1405,393,1116,426,944,451,918,458,916,453,943,445,1116,420,1404,387,1866,339,2317,295,2673,263"/>
+<area shape="poly" title=" " alt="" coords="2732,297,2685,343,2681,339,2729,294"/>
+<area shape="poly" title=" " alt="" coords="2789,298,2816,358,2831,383,2845,398,2870,411,2900,420,2973,433,3059,438,3152,438,3336,435,3414,437,3476,445,3501,453,3500,458,3475,451,3414,442,3336,440,3152,444,3059,443,2973,438,2898,426,2868,415,2842,402,2827,386,2812,360,2784,300"/>
+<area shape="poly" title=" " alt="" coords="2673,273,2037,361,2036,356,2673,268"/>
+<area shape="rect" href="search_8hpp.html" title="Column APIs for lower_bound, upper_bound, and contains" alt="" coords="1994,464,2182,507"/>
+<area shape="poly" title=" " alt="" coords="2673,273,2529,300,2449,320,2371,344,2300,372,2231,406,2123,466,2120,461,2229,401,2298,368,2370,339,2448,315,2528,295,2672,268"/>
+<area shape="rect" href="capitalize_8hpp.html" title=" " alt="" coords="567,456,729,515"/>
+<area shape="poly" title=" " alt="" coords="2673,262,2435,268,2102,282,1717,306,1520,323,1327,344,1160,364,1031,382,904,408,742,451,718,458,717,453,740,445,902,403,1030,377,1160,359,1326,339,1519,318,1717,301,2101,277,2435,263,2673,256"/>
+<area shape="poly" title=" " alt="" coords="2673,261,2243,265,1629,278,1308,288,1006,303,747,321,551,344,541,346,540,341,550,339,746,316,1006,297,1307,283,1629,272,2243,260,2673,255"/>
+<area shape="poly" title=" " alt="" coords="3057,390,3112,397,3279,411,3421,414,3663,406,3780,403,3905,406,4046,419,4211,445,4241,453,4239,458,4210,451,4045,424,3905,411,3780,409,3664,412,3421,419,3279,416,3112,403,3057,395"/>
+<area shape="poly" title=" " alt="" coords="2886,410,2798,458,2796,453,2883,405"/>
+<area shape="rect" href="dictionary_2detail_2search_8hpp.html" title=" " alt="" coords="3113,456,3292,515"/>
+<area shape="poly" title=" " alt="" coords="3028,404,3139,453,3137,458,3026,409"/>
+<area shape="poly" title=" " alt="" coords="3057,397,3062,397,3205,414,3327,419,3435,418,3536,414,3637,410,3744,412,3866,422,4008,445,4037,453,4036,458,4007,451,3865,428,3744,417,3637,416,3536,419,3435,423,3327,425,3204,419,3061,403,3056,402"/>
+<area shape="rect" href="dictionary_2search_8hpp.html" title=" " alt="" coords="2860,456,3039,515"/>
+<area shape="poly" title=" " alt="" coords="2952,415,2952,455,2947,455,2947,415"/>
+<area shape="poly" title=" " alt="" coords="4265,397,4415,445,4436,453,4434,458,4414,451,4263,402"/>
+<area shape="poly" title=" " alt="" coords="2746,397,2750,397,2833,410,2905,416,3028,416,3150,419,3221,428,3304,445,3329,453,3327,458,3303,451,3221,434,3150,425,3028,422,2905,421,2833,415,2749,403,2745,402"/>
+<area shape="poly" title=" " alt="" coords="2745,393,2766,397,2831,403,2916,408,2998,419,3030,430,3052,446,3065,466,3070,486,3066,505,3052,525,3031,534,2989,543,2852,558,2662,570,2440,580,1983,594,1647,600,1647,595,1983,589,2440,575,2662,565,2852,553,2988,538,3029,529,3049,521,3061,503,3064,486,3060,468,3049,450,3028,435,2997,424,2916,413,2830,409,2765,403,2744,398"/>
+<area shape="poly" title=" " alt="" coords="2562,379,2048,403,1820,409,1627,409,1299,405,1142,405,973,411,781,426,555,451,473,466,472,461,554,445,780,420,972,406,1141,400,1299,400,1627,404,1820,403,2048,397,2561,374"/>
+<area shape="poly" title=" " alt="" coords="2561,379,1982,411,1687,432,1581,442,1518,451,1492,458,1490,453,1517,445,1580,436,1687,427,1982,406,2561,374"/>
+<area shape="poly" title=" " alt="" coords="2746,389,2800,397,2903,408,2990,412,3140,410,3212,410,3289,414,3375,425,3476,445,3501,453,3500,458,3475,451,3374,430,3288,419,3212,415,3140,415,2990,417,2902,413,2799,403,2745,394"/>
+<area shape="poly" title=" " alt="" coords="2745,385,2844,397,2992,408,3117,410,3331,405,3434,403,3544,407,3668,420,3814,445,3842,453,3840,458,3813,451,3667,425,3544,413,3434,409,3331,410,3117,416,2991,413,2844,403,2745,390"/>
+<area shape="poly" title=" " alt="" coords="466,509,511,520,651,543,795,561,1077,584,1323,594,1499,597,1499,602,1322,600,1077,589,795,566,651,548,510,525,465,514"/>
+<area shape="poly" title=" " alt="" coords="325,514,161,573,159,568,323,509"/>
+<area shape="poly" title=" " alt="" coords="486,508,555,520,652,528,798,535,1204,545,2288,557,3372,562,4023,568,4362,580,4630,592,4630,597,4361,585,4022,573,3372,568,2288,562,1204,550,797,540,652,533,554,525,485,513"/>
+<area shape="rect" href="quantiles_8hpp.html" title=" " alt="" coords="3810,579,4011,621"/>
+<area shape="poly" title=" " alt="" coords="3913,529,3913,578,3908,578,3908,529"/>
+<area shape="poly" title=" " alt="" coords="2051,400,2194,445,2241,461,2240,466,2192,451,2050,405"/>
+<area shape="poly" title=" " alt="" coords="2052,379,2222,403,2319,422,2415,445,2438,453,2437,458,2414,451,2318,427,2221,409,2051,384"/>
+<area shape="poly" title=" " alt="" coords="2051,377,2298,403,2446,422,2594,445,2656,458,2655,463,2593,451,2445,427,2297,408,2051,383"/>
+<area shape="poly" title=" " alt="" coords="2051,374,2565,403,2846,423,3051,445,3113,458,3112,463,3050,451,2845,429,2564,408,2051,379"/>
+<area shape="poly" title=" " alt="" coords="2051,370,2204,374,2403,385,2625,408,2738,425,2847,445,2875,453,2874,458,2846,451,2737,430,2624,413,2403,391,2204,379,2051,375"/>
+<area shape="poly" title=" " alt="" coords="1863,382,944,451,916,458,915,453,943,445,1863,376"/>
+<area shape="poly" title=" " alt="" coords="1863,374,1632,377,1308,387,934,410,742,428,555,451,474,466,473,461,554,445,742,423,933,405,1307,382,1632,372,1863,369"/>
+<area shape="poly" title=" " alt="" coords="1864,402,1860,403,1764,418,1688,424,1613,431,1518,451,1493,458,1492,453,1517,445,1612,426,1688,419,1763,413,1859,397,1863,397"/>
+<area shape="poly" title=" " alt="" coords="1954,415,1954,442,1957,471,1967,498,1984,521,2011,531,2065,541,2243,557,2490,570,2778,580,3372,591,3810,596,3810,601,3372,597,2777,585,2489,575,2243,562,2065,546,2009,536,1981,525,1962,501,1952,472,1948,443,1949,415"/>
+<area shape="rect" href="expressions_8hpp.html" title=" " alt="" coords="3660,456,3801,515"/>
+<area shape="poly" title=" " alt="" coords="2051,374,2564,397,2802,402,3108,405,3265,409,3413,416,3544,428,3648,445,3673,453,3671,458,3647,451,3543,433,3413,422,3265,414,3108,410,2802,407,2564,403,2051,379"/>
+<area shape="rect" href="data__chunk__source__factories_8hpp.html" title=" " alt="" coords="1530,448,1694,523"/>
+<area shape="poly" title=" " alt="" coords="1864,402,1706,451,1696,454,1694,449,1704,445,1863,397"/>
+<area shape="rect" href="reduction_8hpp.html" title=" " alt="" coords="1718,464,1919,507"/>
+<area shape="poly" title=" " alt="" coords="1912,412,1845,466,1842,462,1909,408"/>
+<area shape="rect" href="range__window__bounds_8hpp.html" title=" " alt="" coords="956,456,1137,515"/>
+<area shape="poly" title=" " alt="" coords="1863,382,1458,417,1262,436,1150,451,1122,458,1121,453,1149,445,1261,431,1457,412,1863,377"/>
+<area shape="rect" href="scalar__factories_8hpp.html" title="Scalar factory APIs" alt="" coords="1161,456,1319,515"/>
+<area shape="poly" title=" " alt="" coords="1863,379,1754,386,1620,399,1475,420,1331,451,1307,458,1305,453,1330,445,1474,415,1620,394,1754,381,1863,373"/>
+<area shape="poly" title=" " alt="" coords="2003,408,2066,462,2062,466,1999,412"/>
+<area shape="poly" title=" " alt="" coords="1863,379,1243,410,925,431,810,441,742,451,716,458,714,453,741,445,809,436,925,426,1243,405,1863,374"/>
+<area shape="poly" title=" " alt="" coords="435,414,408,465,403,462,430,412"/>
+<area shape="poly" title=" " alt="" coords="5127,407,5127,456,5121,456,5121,407"/>
+<area shape="poly" title=" " alt="" coords="571,409,442,466,440,461,569,404"/>
+<area shape="poly" title=" " alt="" coords="651,415,651,455,645,455,645,415"/>
+<area shape="poly" title=" " alt="" coords="4879,293,4866,296,4747,318,4645,331,4555,336,4470,336,4295,334,4192,336,4071,344,3907,361,3906,356,4070,339,4192,331,4295,329,4470,331,4555,330,4644,325,4746,313,4865,291,4877,288"/>
+<area shape="poly" title=" " alt="" coords="4871,280,4815,305,4790,322,4769,343,4750,370,4736,399,4718,462,4710,522,4709,570,4704,570,4705,522,4713,461,4731,397,4746,367,4764,340,4787,318,4813,300,4869,275"/>
+<area shape="poly" title=" " alt="" coords="4871,279,4799,305,4763,322,4729,343,4704,366,4687,389,4665,437,4642,483,4622,505,4594,525,4548,544,4485,560,4410,572,4328,582,4158,594,4011,600,4011,595,4158,589,4327,577,4410,567,4484,555,4546,539,4592,520,4619,501,4637,480,4661,435,4683,387,4701,362,4726,339,4760,318,4796,300,4869,274"/>
+<area shape="poly" title=" " alt="" coords="4875,293,4866,296,4801,309,4749,312,4699,320,4671,329,4640,344,4623,358,4612,373,4602,389,4582,402,4550,414,4511,423,4419,435,4314,439,4202,439,3983,436,3889,440,3815,451,3791,458,3789,453,3814,445,3889,435,3982,431,4202,433,4314,433,4419,429,4510,418,4548,409,4580,398,4598,385,4608,370,4619,354,4637,339,4669,324,4697,314,4748,307,4800,303,4865,291,4874,288"/>
+<area shape="poly" title=" " alt="" coords="5015,292,5096,347,5092,351,5012,296"/>
+<area shape="poly" title=" " alt="" coords="4879,294,4818,322,4786,343,4778,358,4775,371,4778,384,4786,398,4802,412,4827,425,4894,446,4972,462,5046,473,5046,478,4971,468,4892,452,4825,430,4799,417,4782,402,4773,386,4770,371,4773,356,4782,340,4816,318,4877,289"/>
+<area shape="poly" title=" " alt="" coords="4876,293,4866,296,4789,313,4727,322,4666,329,4588,344,4570,349,4569,343,4587,339,4665,324,4727,316,4788,308,4864,291,4874,288"/>
+<area shape="poly" title=" " alt="" coords="4938,299,4908,350,4903,347,4933,296"/>
+<area shape="poly" title=" " alt="" coords="4840,186,4831,214,4817,245,4797,273,4772,296,4745,307,4703,316,4583,328,4429,336,4257,339,3927,340,3729,344,3668,353,3667,347,3729,339,3927,335,4257,334,4429,330,4583,323,4702,310,4743,302,4769,291,4793,269,4812,242,4826,213,4835,184"/>
+<area shape="poly" title=" " alt="" coords="4956,150,5137,175,5240,193,5341,216,5365,224,5364,229,5339,221,5239,198,5136,180,4955,156"/>
+</map>
+</div>
+</div>
+<p><a href="traits_8hpp_source.html">浏览源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcudf_1_1detail_1_1is__relationally__comparable__impl.html">cudf::detail::is_relationally_comparable_impl&lt; L, R, typename &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcudf_1_1detail_1_1is__relationally__comparable__impl_3_01_l_00_01_r_00_01void__t_3_01less_58b6dd73ceb6a464bcab762425ace104.html">cudf::detail::is_relationally_comparable_impl&lt; L, R, void_t&lt; less_comparable&lt; L, R &gt;, greater_comparable&lt; L, R &gt; &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcudf_1_1detail_1_1is__equality__comparable__impl.html">cudf::detail::is_equality_comparable_impl&lt; L, R, typename &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcudf_1_1detail_1_1is__equality__comparable__impl_3_01_l_00_01_r_00_01void__t_3_01equality_2f83d168aaedf92541e7f7f4a1af5cfa.html">cudf::detail::is_equality_comparable_impl&lt; L, R, void_t&lt; equality_comparable&lt; L, R &gt; &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcudf_1_1detail_1_1has__common__type__impl.html">cudf::detail::has_common_type_impl&lt; AlwaysVoid, Ts &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcudf_1_1detail_1_1has__common__type__impl_3_01void__t_3_01std_1_1common__type__t_3_01_ts_8e2d33eab3ad4b77e8506b3fe056aacf5.html">cudf::detail::has_common_type_impl&lt; void_t&lt; std::common_type_t&lt; Ts... &gt; &gt;, Ts... &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcudf_1_1is__convertible.html">cudf::is_convertible&lt; From, To &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcudf_1_1is__convertible_3_01cudf_1_1detail_1_1timestamp_3_01_duration1_01_4_00_01cudf_1_1daa0b9b43387383cde2e3c74f3ffafc24.html">cudf::is_convertible&lt; cudf::detail::timestamp&lt; Duration1 &gt;, cudf::detail::timestamp&lt; Duration2 &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:namespacecudf"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecudf.html">cudf</a></td></tr>
+<tr class="memdesc:namespacecudf"><td class="mdescLeft">&#160;</td><td class="mdescRight">cuDF interfaces <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacecudf_1_1detail"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecudf_1_1detail.html">cudf::detail</a></td></tr>
+<tr class="memdesc:namespacecudf_1_1detail"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inner interfaces and implementations <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:gadf63a9ff3257927585f111143a7c9ae4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__utility__types.html#gadf63a9ff3257927585f111143a7c9ae4">CUDF_ENABLE_IF</a>(...)&#160;&#160;&#160;std::enable_if_t&lt;(__VA_ARGS__)&gt;* = nullptr</td></tr>
+<tr class="memdesc:gadf63a9ff3257927585f111143a7c9ae4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience macro for SFINAE as an unnamed template parameter.  <br /></td></tr>
+<tr class="separator:gadf63a9ff3257927585f111143a7c9ae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:ga9130d674f5ef432c1405fadd304a8c26"><td class="memTemplParams" colspan="2">template&lt;typename... &gt; </td></tr>
+<tr class="memitem:ga9130d674f5ef432c1405fadd304a8c26"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga9130d674f5ef432c1405fadd304a8c26">cudf::void_t</a> = void</td></tr>
+<tr class="memdesc:ga9130d674f5ef432c1405fadd304a8c26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility metafunction that maps a sequence of any types to the type void.  <br /></td></tr>
+<tr class="separator:ga9130d674f5ef432c1405fadd304a8c26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6cc1c1fe68e5031f9865b4d9114a2491"><td class="memTemplParams" colspan="2">template&lt;typename L , typename R &gt; </td></tr>
+<tr class="memitem:ga6cc1c1fe68e5031f9865b4d9114a2491"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga6cc1c1fe68e5031f9865b4d9114a2491">cudf::less_comparable</a> = decltype(std::declval&lt; L &gt;()&lt; std::declval&lt; R &gt;())</td></tr>
+<tr class="memdesc:ga6cc1c1fe68e5031f9865b4d9114a2491"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if two types are comparable using less operator (i.e. &lt;).  <br /></td></tr>
+<tr class="separator:ga6cc1c1fe68e5031f9865b4d9114a2491"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga19a5866cc4b46bbff21bf863130d2f81"><td class="memTemplParams" colspan="2">template&lt;typename L , typename R &gt; </td></tr>
+<tr class="memitem:ga19a5866cc4b46bbff21bf863130d2f81"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga19a5866cc4b46bbff21bf863130d2f81">cudf::greater_comparable</a> = decltype(std::declval&lt; L &gt;() &gt; std::declval&lt; R &gt;())</td></tr>
+<tr class="memdesc:ga19a5866cc4b46bbff21bf863130d2f81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if two types are comparable using greater operator (i.e. &gt;).  <br /></td></tr>
+<tr class="separator:ga19a5866cc4b46bbff21bf863130d2f81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga33f2db79a6c26d5d69a3c05cd057cee0"><td class="memTemplParams" colspan="2">template&lt;typename L , typename R &gt; </td></tr>
+<tr class="memitem:ga33f2db79a6c26d5d69a3c05cd057cee0"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga33f2db79a6c26d5d69a3c05cd057cee0">cudf::equality_comparable</a> = decltype(std::declval&lt; L &gt;()==std::declval&lt; R &gt;())</td></tr>
+<tr class="memdesc:ga33f2db79a6c26d5d69a3c05cd057cee0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if two types are comparable using equality operator (i.e. ==).  <br /></td></tr>
+<tr class="separator:ga33f2db79a6c26d5d69a3c05cd057cee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3d6f7d2e962d0063973334a901bd5381"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
+<tr class="memitem:ga3d6f7d2e962d0063973334a901bd5381"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga3d6f7d2e962d0063973334a901bd5381">cudf::has_common_type</a> = typename <a class="el" href="structcudf_1_1detail_1_1has__common__type__impl.html">detail::has_common_type_impl</a>&lt; void, Ts... &gt;::type</td></tr>
+<tr class="memdesc:ga3d6f7d2e962d0063973334a901bd5381"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if types have a common type  <br /></td></tr>
+<tr class="separator:ga3d6f7d2e962d0063973334a901bd5381"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafab27b9e2451d4b930739368788b79c8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gafab27b9e2451d4b930739368788b79c8"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#gafab27b9e2451d4b930739368788b79c8">cudf::is_timestamp_t</a> = cuda::std::disjunction&lt; std::is_same&lt; <a class="el" href="group__timestamp__classes.html#ga4658424aa55596e2f3b6b42a9260f736">cudf::timestamp_D</a>, T &gt;, std::is_same&lt; <a class="el" href="group__timestamp__classes.html#ga44668df4b32894904fb68f13a5f0fdab">cudf::timestamp_s</a>, T &gt;, std::is_same&lt; <a class="el" href="group__timestamp__classes.html#ga24fdf63531f7998ef3122a5d0885e949">cudf::timestamp_ms</a>, T &gt;, std::is_same&lt; <a class="el" href="group__timestamp__classes.html#gabc5dd6cc3229f57af772e06f8c0bd828">cudf::timestamp_us</a>, T &gt;, std::is_same&lt; <a class="el" href="group__timestamp__classes.html#gae2aef2b10c32caf1889ef2a6575b531a">cudf::timestamp_ns</a>, T &gt; &gt;</td></tr>
+<tr class="memdesc:gafab27b9e2451d4b930739368788b79c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a type is a timestamp type.  <br /></td></tr>
+<tr class="separator:gafab27b9e2451d4b930739368788b79c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafb8bb6a0673998a47423aca482d5b5ee"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gafb8bb6a0673998a47423aca482d5b5ee"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#gafb8bb6a0673998a47423aca482d5b5ee">cudf::is_duration_t</a> = cuda::std::disjunction&lt; std::is_same&lt; <a class="el" href="group__timestamp__classes.html#ga6a45112033b50dfa4988d71a0817131c">cudf::duration_D</a>, T &gt;, std::is_same&lt; <a class="el" href="group__timestamp__classes.html#gae344db373c1568bd20e914cb74426519">cudf::duration_s</a>, T &gt;, std::is_same&lt; <a class="el" href="group__timestamp__classes.html#ga70b6b95d45de41529211d95531fa3f86">cudf::duration_ms</a>, T &gt;, std::is_same&lt; <a class="el" href="group__timestamp__classes.html#gab8e261e3e2a11e8464efb2a251c107d7">cudf::duration_us</a>, T &gt;, std::is_same&lt; <a class="el" href="group__timestamp__classes.html#ga4efdb8225ec7e415ab3c660c066aa3ee">cudf::duration_ns</a>, T &gt; &gt;</td></tr>
+<tr class="memdesc:gafb8bb6a0673998a47423aca482d5b5ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a type is a duration type.  <br /></td></tr>
+<tr class="separator:gafb8bb6a0673998a47423aca482d5b5ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:gaef9b08b206b1340c5ac3893d17943309"><td class="memTemplParams" colspan="2">template&lt;typename L , typename R &gt; </td></tr>
+<tr class="memitem:gaef9b08b206b1340c5ac3893d17943309"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#gaef9b08b206b1340c5ac3893d17943309">cudf::is_relationally_comparable</a> ()</td></tr>
+<tr class="memdesc:gaef9b08b206b1340c5ac3893d17943309"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether objects of types <code>L</code> and <code>R</code> can be relationally compared.  <br /></td></tr>
+<tr class="separator:gaef9b08b206b1340c5ac3893d17943309"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga645a96d47abea35f5da669ecf10ceae7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga645a96d47abea35f5da669ecf10ceae7">cudf::is_relationally_comparable</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type)</td></tr>
+<tr class="memdesc:ga645a96d47abea35f5da669ecf10ceae7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether <code><a class="el" href="classcudf_1_1data__type.html" title="Indicator for the logical data type of an element in a column.">data_type</a></code> <code>type</code> supports relational comparisons.  <br /></td></tr>
+<tr class="separator:ga645a96d47abea35f5da669ecf10ceae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga82f7470f89e1e2b53077246712787120"><td class="memTemplParams" colspan="2">template&lt;typename L , typename R &gt; </td></tr>
+<tr class="memitem:ga82f7470f89e1e2b53077246712787120"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga82f7470f89e1e2b53077246712787120">cudf::is_equality_comparable</a> ()</td></tr>
+<tr class="memdesc:ga82f7470f89e1e2b53077246712787120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether objects of types <code>L</code> and <code>R</code> can be compared for equality.  <br /></td></tr>
+<tr class="separator:ga82f7470f89e1e2b53077246712787120"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga40162d35408ca1e9cc9b02af29b7149d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga40162d35408ca1e9cc9b02af29b7149d">cudf::is_equality_comparable</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type)</td></tr>
+<tr class="memdesc:ga40162d35408ca1e9cc9b02af29b7149d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether <code><a class="el" href="classcudf_1_1data__type.html" title="Indicator for the logical data type of an element in a column.">data_type</a></code> <code>type</code> supports equality comparisons.  <br /></td></tr>
+<tr class="separator:ga40162d35408ca1e9cc9b02af29b7149d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga736c39af324b57534639bd3d8af357e4"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga736c39af324b57534639bd3d8af357e4"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga736c39af324b57534639bd3d8af357e4">cudf::is_numeric</a> ()</td></tr>
+<tr class="memdesc:ga736c39af324b57534639bd3d8af357e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the type <code>T</code> is a numeric type.  <br /></td></tr>
+<tr class="separator:ga736c39af324b57534639bd3d8af357e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2eaf2d3443dd8aa17724e78190b537ba"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga2eaf2d3443dd8aa17724e78190b537ba">cudf::is_numeric</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type)</td></tr>
+<tr class="memdesc:ga2eaf2d3443dd8aa17724e78190b537ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether <code>type</code> is a numeric <code><a class="el" href="classcudf_1_1data__type.html" title="Indicator for the logical data type of an element in a column.">data_type</a></code>.  <br /></td></tr>
+<tr class="separator:ga2eaf2d3443dd8aa17724e78190b537ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga79a73ff286550b2f4fc764a6dbc2d782"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga79a73ff286550b2f4fc764a6dbc2d782"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga79a73ff286550b2f4fc764a6dbc2d782">cudf::is_index_type</a> ()</td></tr>
+<tr class="memdesc:ga79a73ff286550b2f4fc764a6dbc2d782"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the type <code>T</code> is a index type.  <br /></td></tr>
+<tr class="separator:ga79a73ff286550b2f4fc764a6dbc2d782"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4c4225b65c8d89fc680fc705676ff6f1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga4c4225b65c8d89fc680fc705676ff6f1">cudf::is_index_type</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type)</td></tr>
+<tr class="memdesc:ga4c4225b65c8d89fc680fc705676ff6f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the type <code>type</code> is a index type.  <br /></td></tr>
+<tr class="separator:ga4c4225b65c8d89fc680fc705676ff6f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf186010866f2f5eb497467963eaf3d54"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gaf186010866f2f5eb497467963eaf3d54"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#gaf186010866f2f5eb497467963eaf3d54">cudf::is_unsigned</a> ()</td></tr>
+<tr class="memdesc:gaf186010866f2f5eb497467963eaf3d54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the type <code>T</code> is a unsigned numeric type.  <br /></td></tr>
+<tr class="separator:gaf186010866f2f5eb497467963eaf3d54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga95969e57d58b6b7468b1cba9f435d95e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga95969e57d58b6b7468b1cba9f435d95e">cudf::is_unsigned</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type)</td></tr>
+<tr class="memdesc:ga95969e57d58b6b7468b1cba9f435d95e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether <code>type</code> is a unsigned numeric <code><a class="el" href="classcudf_1_1data__type.html" title="Indicator for the logical data type of an element in a column.">data_type</a></code>.  <br /></td></tr>
+<tr class="separator:ga95969e57d58b6b7468b1cba9f435d95e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga960cec36c56cd253a84fcd2cec3933f9"><td class="memTemplParams" colspan="2">template&lt;typename Iterator &gt; </td></tr>
+<tr class="memitem:ga960cec36c56cd253a84fcd2cec3933f9"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga960cec36c56cd253a84fcd2cec3933f9">cudf::is_signed_iterator</a> ()</td></tr>
+<tr class="memdesc:ga960cec36c56cd253a84fcd2cec3933f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the <code>Iterator</code> value type is unsigned.  <br /></td></tr>
+<tr class="separator:ga960cec36c56cd253a84fcd2cec3933f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa964d11859bcec770945cf53d964371c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gaa964d11859bcec770945cf53d964371c"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#gaa964d11859bcec770945cf53d964371c">cudf::is_integral</a> ()</td></tr>
+<tr class="memdesc:gaa964d11859bcec770945cf53d964371c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the type <code>T</code> is an integral type.  <br /></td></tr>
+<tr class="separator:gaa964d11859bcec770945cf53d964371c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga31c663c44b3af8ae957a1d514052c923"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga31c663c44b3af8ae957a1d514052c923">cudf::is_integral</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type)</td></tr>
+<tr class="memdesc:ga31c663c44b3af8ae957a1d514052c923"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether <code>type</code> is a integral <code><a class="el" href="classcudf_1_1data__type.html" title="Indicator for the logical data type of an element in a column.">data_type</a></code>.  <br /></td></tr>
+<tr class="separator:ga31c663c44b3af8ae957a1d514052c923"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaac36fa8429a279de79c2afec53c02ee8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gaac36fa8429a279de79c2afec53c02ee8"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#gaac36fa8429a279de79c2afec53c02ee8">cudf::is_floating_point</a> ()</td></tr>
+<tr class="memdesc:gaac36fa8429a279de79c2afec53c02ee8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the type <code>T</code> is a floating point type.  <br /></td></tr>
+<tr class="separator:gaac36fa8429a279de79c2afec53c02ee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga947bd07e5edd70d8d56b38aeb856e9c6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga947bd07e5edd70d8d56b38aeb856e9c6">cudf::is_floating_point</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type)</td></tr>
+<tr class="memdesc:ga947bd07e5edd70d8d56b38aeb856e9c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether <code>type</code> is a floating point <code><a class="el" href="classcudf_1_1data__type.html" title="Indicator for the logical data type of an element in a column.">data_type</a></code>.  <br /></td></tr>
+<tr class="separator:ga947bd07e5edd70d8d56b38aeb856e9c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga27d4363f72ef43feeb12c06d90ff44c8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga27d4363f72ef43feeb12c06d90ff44c8"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga27d4363f72ef43feeb12c06d90ff44c8">cudf::is_byte</a> ()</td></tr>
+<tr class="memdesc:ga27d4363f72ef43feeb12c06d90ff44c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether <code>T</code> is a std::byte type.  <br /></td></tr>
+<tr class="separator:ga27d4363f72ef43feeb12c06d90ff44c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa1b9dd3a6ee95fa52224a53869cd164e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gaa1b9dd3a6ee95fa52224a53869cd164e"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#gaa1b9dd3a6ee95fa52224a53869cd164e">cudf::is_boolean</a> ()</td></tr>
+<tr class="memdesc:gaa1b9dd3a6ee95fa52224a53869cd164e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether <code>T</code> is a Boolean type.  <br /></td></tr>
+<tr class="separator:gaa1b9dd3a6ee95fa52224a53869cd164e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga73bcdf0744b62b98f4aef5fccea5840c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga73bcdf0744b62b98f4aef5fccea5840c">cudf::is_boolean</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type)</td></tr>
+<tr class="memdesc:ga73bcdf0744b62b98f4aef5fccea5840c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether <code>type</code> is a Boolean <code><a class="el" href="classcudf_1_1data__type.html" title="Indicator for the logical data type of an element in a column.">data_type</a></code>.  <br /></td></tr>
+<tr class="separator:ga73bcdf0744b62b98f4aef5fccea5840c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga90ebb90931abfed637396889b7829173"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga90ebb90931abfed637396889b7829173"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga90ebb90931abfed637396889b7829173">cudf::is_timestamp</a> ()</td></tr>
+<tr class="memdesc:ga90ebb90931abfed637396889b7829173"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the type <code>T</code> is a timestamp type.  <br /></td></tr>
+<tr class="separator:ga90ebb90931abfed637396889b7829173"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga92ea03fd93fa19ae17c3190cb439e5b3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga92ea03fd93fa19ae17c3190cb439e5b3">cudf::is_timestamp</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type)</td></tr>
+<tr class="memdesc:ga92ea03fd93fa19ae17c3190cb439e5b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether <code>type</code> is a timestamp <code><a class="el" href="classcudf_1_1data__type.html" title="Indicator for the logical data type of an element in a column.">data_type</a></code>.  <br /></td></tr>
+<tr class="separator:ga92ea03fd93fa19ae17c3190cb439e5b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga02880fc9d2470aa36761dfe41c5309ee"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga02880fc9d2470aa36761dfe41c5309ee"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga02880fc9d2470aa36761dfe41c5309ee">cudf::is_fixed_point</a> ()</td></tr>
+<tr class="memdesc:ga02880fc9d2470aa36761dfe41c5309ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the type <code>T</code> is a fixed-point type.  <br /></td></tr>
+<tr class="separator:ga02880fc9d2470aa36761dfe41c5309ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad339e701fa8a26d7630aa28f846399fb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__utility__types.html#gad339e701fa8a26d7630aa28f846399fb">cudf::is_fixed_point</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type)</td></tr>
+<tr class="memdesc:gad339e701fa8a26d7630aa28f846399fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether <code>type</code> is a fixed point <code><a class="el" href="classcudf_1_1data__type.html" title="Indicator for the logical data type of an element in a column.">data_type</a></code>.  <br /></td></tr>
+<tr class="separator:gad339e701fa8a26d7630aa28f846399fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5196242442d99904c755da4920f1043f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga5196242442d99904c755da4920f1043f"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga5196242442d99904c755da4920f1043f">cudf::is_duration</a> ()</td></tr>
+<tr class="memdesc:ga5196242442d99904c755da4920f1043f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the type <code>T</code> is a duration type.  <br /></td></tr>
+<tr class="separator:ga5196242442d99904c755da4920f1043f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga285e3a7963fa18d913c1c9ff389d58ba"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga285e3a7963fa18d913c1c9ff389d58ba">cudf::is_duration</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type)</td></tr>
+<tr class="memdesc:ga285e3a7963fa18d913c1c9ff389d58ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether <code>type</code> is a duration <code><a class="el" href="classcudf_1_1data__type.html" title="Indicator for the logical data type of an element in a column.">data_type</a></code>.  <br /></td></tr>
+<tr class="separator:ga285e3a7963fa18d913c1c9ff389d58ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga72f2d42d20b254754fd7bc8f4f32a990"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga72f2d42d20b254754fd7bc8f4f32a990"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga72f2d42d20b254754fd7bc8f4f32a990">cudf::is_chrono</a> ()</td></tr>
+<tr class="memdesc:ga72f2d42d20b254754fd7bc8f4f32a990"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the type <code>T</code> is a chrono type.  <br /></td></tr>
+<tr class="separator:ga72f2d42d20b254754fd7bc8f4f32a990"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad2846c31e90421f0cbe7834334822e6a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__utility__types.html#gad2846c31e90421f0cbe7834334822e6a">cudf::is_chrono</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type)</td></tr>
+<tr class="memdesc:gad2846c31e90421f0cbe7834334822e6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether <code>type</code> is a chrono <code><a class="el" href="classcudf_1_1data__type.html" title="Indicator for the logical data type of an element in a column.">data_type</a></code>.  <br /></td></tr>
+<tr class="separator:gad2846c31e90421f0cbe7834334822e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7c6839d4131493a1277f78a686226e54"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga7c6839d4131493a1277f78a686226e54"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga7c6839d4131493a1277f78a686226e54">cudf::is_rep_layout_compatible</a> ()</td></tr>
+<tr class="memdesc:ga7c6839d4131493a1277f78a686226e54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether <code>T</code> is layout compatible with its "representation" type.  <br /></td></tr>
+<tr class="separator:ga7c6839d4131493a1277f78a686226e54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1f0657d191e4b383da031cd506c5196f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga1f0657d191e4b383da031cd506c5196f"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga1f0657d191e4b383da031cd506c5196f">cudf::is_dictionary</a> ()</td></tr>
+<tr class="memdesc:ga1f0657d191e4b383da031cd506c5196f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the type <code>T</code> is a dictionary type.  <br /></td></tr>
+<tr class="separator:ga1f0657d191e4b383da031cd506c5196f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0e213a7906791cb36453a966a16bf326"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga0e213a7906791cb36453a966a16bf326">cudf::is_dictionary</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type)</td></tr>
+<tr class="memdesc:ga0e213a7906791cb36453a966a16bf326"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether <code>type</code> is a dictionary <code><a class="el" href="classcudf_1_1data__type.html" title="Indicator for the logical data type of an element in a column.">data_type</a></code>.  <br /></td></tr>
+<tr class="separator:ga0e213a7906791cb36453a966a16bf326"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaa937abead085ea9420b15c6473f08a7"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gaaa937abead085ea9420b15c6473f08a7"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#gaaa937abead085ea9420b15c6473f08a7">cudf::is_fixed_width</a> ()</td></tr>
+<tr class="memdesc:gaaa937abead085ea9420b15c6473f08a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether elements of type <code>T</code> are fixed-width.  <br /></td></tr>
+<tr class="separator:gaaa937abead085ea9420b15c6473f08a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad588b3f9ca419e5a32f1ce42031994a5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__utility__types.html#gad588b3f9ca419e5a32f1ce42031994a5">cudf::is_fixed_width</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type)</td></tr>
+<tr class="memdesc:gad588b3f9ca419e5a32f1ce42031994a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether elements of <code>type</code> are fixed-width.  <br /></td></tr>
+<tr class="separator:gad588b3f9ca419e5a32f1ce42031994a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga14e1cea4200d1d92d7f38d596333d28a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga14e1cea4200d1d92d7f38d596333d28a"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga14e1cea4200d1d92d7f38d596333d28a">cudf::is_compound</a> ()</td></tr>
+<tr class="memdesc:ga14e1cea4200d1d92d7f38d596333d28a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the type <code>T</code> is a compound type.  <br /></td></tr>
+<tr class="separator:ga14e1cea4200d1d92d7f38d596333d28a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7b9445eeead457a3d5e18a2a675eb8dd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga7b9445eeead457a3d5e18a2a675eb8dd">cudf::is_compound</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type)</td></tr>
+<tr class="memdesc:ga7b9445eeead457a3d5e18a2a675eb8dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether elements of <code>type</code> are compound.  <br /></td></tr>
+<tr class="separator:ga7b9445eeead457a3d5e18a2a675eb8dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacaa242e2e068ab62bdaae071ed748357"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gacaa242e2e068ab62bdaae071ed748357"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#gacaa242e2e068ab62bdaae071ed748357">cudf::is_nested</a> ()</td></tr>
+<tr class="memdesc:gacaa242e2e068ab62bdaae071ed748357"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether <code>T</code> is a nested type.  <br /></td></tr>
+<tr class="separator:gacaa242e2e068ab62bdaae071ed748357"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8bfcb79b22de847a085d106dbf813c03"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga8bfcb79b22de847a085d106dbf813c03">cudf::is_nested</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type)</td></tr>
+<tr class="memdesc:ga8bfcb79b22de847a085d106dbf813c03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether <code>type</code> is a nested type  <br /></td></tr>
+<tr class="separator:ga8bfcb79b22de847a085d106dbf813c03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga73dd2d74b0eafb1543eb1cd27accd38e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga73dd2d74b0eafb1543eb1cd27accd38e">cudf::is_bit_castable</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> from, <a class="el" href="classcudf_1_1data__type.html">data_type</a> to)</td></tr>
+<tr class="memdesc:ga73dd2d74b0eafb1543eb1cd27accd38e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether <code>from</code> is bit-castable to <code>to</code>.  <br /></td></tr>
+<tr class="separator:ga73dd2d74b0eafb1543eb1cd27accd38e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+变量</h2></td></tr>
+<tr class="memitem:ga96e9ce4d30dc9a948112d814ee4cba79"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
+<tr class="memitem:ga96e9ce4d30dc9a948112d814ee4cba79"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__utility__types.html#ga96e9ce4d30dc9a948112d814ee4cba79">cudf::has_common_type_v</a> = <a class="el" href="structcudf_1_1detail_1_1has__common__type__impl.html">detail::has_common_type_impl</a>&lt;void, Ts...&gt;::value</td></tr>
+<tr class="memdesc:ga96e9ce4d30dc9a948112d814ee4cba79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper variable template for has_common_type&lt;&gt;::value  <br /></td></tr>
+<tr class="separator:ga96e9ce4d30dc9a948112d814ee4cba79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_d998dea0bd4559303135358082015ac8.html">gitLibrary</a></li><li class="navelem"><a class="el" href="dir_b6486b3d9bd1f4b89c884933ed658179.html">cudf</a></li><li class="navelem"><a class="el" href="dir_318a4414914f49dc0e7605c41de9d4af.html">cpp</a></li><li class="navelem"><a class="el" href="dir_7fbf5ee8ae486656ea40e5ca1dd304f9.html">include</a></li><li class="navelem"><a class="el" href="dir_87e6427d1ef099fd52d9d0724c66b062.html">cudf</a></li><li class="navelem"><a class="el" href="dir_8262fc92296c7dd0bcaa745c9549f750.html">utilities</a></li><li class="navelem"><a class="el" href="traits_8hpp.html">traits.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

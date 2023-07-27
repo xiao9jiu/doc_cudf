@@ -1,0 +1,40 @@
+\doxysection{cudf\+::groupby\+::detail 命名空间参考}
+\hypertarget{namespacecudf_1_1groupby_1_1detail}{}\label{namespacecudf_1_1groupby_1_1detail}\index{cudf::groupby::detail@{cudf::groupby::detail}}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1groupby_1_1detail_1_1hash}{hash}}
+\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1groupby_1_1detail_1_1sort}{sort}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1groupby_1_1detail_aeb49a1f813d20cc8fff844bb70758223}{group\+\_\+replace\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&grouped\+\_\+value, \mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$ group\+\_\+labels, \mbox{\hyperlink{group__transformation__replace_ga7cdbc9bc3671930a743c86f36c38abf9}{cudf\+::replace\+\_\+policy}} \mbox{\hyperlink{group__transformation__replace_ga7cdbc9bc3671930a743c86f36c38abf9}{replace\+\_\+policy}}, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Internal API to replace nulls with preceding/following non-\/null values in {\ttfamily value} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{namespacecudf_1_1groupby_1_1detail_aeb49a1f813d20cc8fff844bb70758223}\label{namespacecudf_1_1groupby_1_1detail_aeb49a1f813d20cc8fff844bb70758223} 
+\index{cudf::groupby::detail@{cudf::groupby::detail}!group\_replace\_nulls@{group\_replace\_nulls}}
+\index{group\_replace\_nulls@{group\_replace\_nulls}!cudf::groupby::detail@{cudf::groupby::detail}}
+\doxysubsubsection{\texorpdfstring{group\_replace\_nulls()}{group\_replace\_nulls()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::groupby\+::detail\+::group\+\_\+replace\+\_\+nulls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&}]{grouped\+\_\+value,  }\item[{\mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$}]{group\+\_\+labels,  }\item[{\mbox{\hyperlink{group__transformation__replace_ga7cdbc9bc3671930a743c86f36c38abf9}{cudf\+::replace\+\_\+policy}}}]{replace\+\_\+policy,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Internal API to replace nulls with preceding/following non-\/null values in {\ttfamily value} 
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em grouped\+\_\+value} & A column whose null values will be replaced. \\
+\hline
+\mbox{\texttt{ in}}  & {\em group\+\_\+labels} & Group labels for {\ttfamily grouped\+\_\+value}, corresponding to group keys. \\
+\hline
+\mbox{\texttt{ in}}  & {\em replace\+\_\+policy} & Specify the position of replacement values relative to null values. \\
+\hline
+ & {\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate device memory of the returned column. \\
+\hline
+\end{DoxyParams}

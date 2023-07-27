@@ -1,0 +1,219 @@
+\doxysection{cudf\+::io\+::datasource\+::owning\+\_\+buffer\texorpdfstring{$<$}{<} Container \texorpdfstring{$>$}{>} 模板类 参考}
+\hypertarget{classcudf_1_1io_1_1datasource_1_1owning__buffer}{}\label{classcudf_1_1io_1_1datasource_1_1owning__buffer}\index{cudf::io::datasource::owning\_buffer$<$ Container $>$@{cudf::io::datasource::owning\_buffer$<$ Container $>$}}
+
+
+Derived implementation of {\ttfamily buffer} that owns the data.  
+
+
+
+
+{\ttfamily \#include $<$datasource.\+hpp$>$}
+
+
+
+类 cudf\+::io\+::datasource\+::owning\+\_\+buffer\texorpdfstring{$<$}{<} Container \texorpdfstring{$>$}{>} 继承关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=213pt]{classcudf_1_1io_1_1datasource_1_1owning__buffer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+cudf\+::io\+::datasource\+::owning\+\_\+buffer\texorpdfstring{$<$}{<} Container \texorpdfstring{$>$}{>} 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=213pt]{classcudf_1_1io_1_1datasource_1_1owning__buffer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1owning__buffer_aa19e08218af5f282ee74ace3d958da7e}{owning\+\_\+buffer}} (Container \&\&data\+\_\+owner)
+\begin{DoxyCompactList}\small\item\em Moves the input container into the newly created object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1owning__buffer_aac6ff8ef4b1a857082f64e4c8f66051b}{owning\+\_\+buffer}} (Container \&\&data\+\_\+owner, uint8\+\_\+t const \texorpdfstring{$\ast$}{*}data\+\_\+ptr, size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1owning__buffer_a9d499908697f3c593a8ff5de2d210b4d}{size}})
+\begin{DoxyCompactList}\small\item\em Moves the input container into the newly created object, and exposes a subspan of the buffer. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1owning__buffer_a9d499908697f3c593a8ff5de2d210b4d}{size}} () const override
+\begin{DoxyCompactList}\small\item\em Returns the size of the buffer. \end{DoxyCompactList}\item 
+uint8\+\_\+t const \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1owning__buffer_aa803c3fb4762d199db6b85a4f8797eae}{data}} () const override
+\begin{DoxyCompactList}\small\item\em Returns the pointer to the data in the buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public 成员函数 继承自 \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1buffer}{cudf\+::io\+::datasource\+::buffer}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1buffer_ac359a49899b0c2c64d2f2eae79e1e519}{size}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the buffer size in bytes. \end{DoxyCompactList}\item 
+virtual uint8\+\_\+t const \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1buffer_a45919a17b521e3a3ddd54c7b1a598935}{data}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the address of the data in the buffer. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1buffer_a733c8294af2a75c527c14e942be39935}{\texorpdfstring{$\sim$}{\string~}buffer}} ()
+\begin{DoxyCompactList}\small\item\em Base class destructor \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+Container \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1owning__buffer_a30556afb36bb4b2802bfd861cfa2c509}{\+\_\+data}}
+\item 
+void const  \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1owning__buffer_aacddf4f1859b804ec7725785af716cb1}{\+\_\+data\+\_\+ptr}}
+\item 
+size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1owning__buffer_ac1f86082dbba3a7ded06b91391dccb36}{\+\_\+size}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{额外继承的成员函数}
+\doxysubsection*{静态 Public 成员函数 继承自 \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1buffer}{cudf\+::io\+::datasource\+::buffer}}}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Container $>$ }\\static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1buffer}{buffer}} $>$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1buffer_a19c1c829f5177d40ccc8616b59135866}{create}} (Container \&\&data\+\_\+owner)
+\begin{DoxyCompactList}\small\item\em Factory to construct a datasource buffer object from a container. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+\subsubsection*{template$<$typename Container$>$\newline
+class cudf\+::io\+::datasource\+::owning\+\_\+buffer$<$ Container $>$}
+Derived implementation of {\ttfamily buffer} that owns the data. 
+
+Can use different container types to hold the data buffer.
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em Container} & Type of the container object that owns the data \\
+\hline
+\end{DoxyTemplParams}
+
+
+在文件 \mbox{\hyperlink{datasource_8hpp_source}{datasource.\+hpp}} 第 \mbox{\hyperlink{datasource_8hpp_source_l00328}{328}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1io_1_1datasource_1_1owning__buffer_aa19e08218af5f282ee74ace3d958da7e}\label{classcudf_1_1io_1_1datasource_1_1owning__buffer_aa19e08218af5f282ee74ace3d958da7e} 
+\index{cudf::io::datasource::owning\_buffer$<$ Container $>$@{cudf::io::datasource::owning\_buffer$<$ Container $>$}!owning\_buffer@{owning\_buffer}}
+\index{owning\_buffer@{owning\_buffer}!cudf::io::datasource::owning\_buffer$<$ Container $>$@{cudf::io::datasource::owning\_buffer$<$ Container $>$}}
+\doxysubsubsection{\texorpdfstring{owning\_buffer()}{owning\_buffer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Container $>$ \\
+\mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1owning__buffer}{cudf\+::io\+::datasource\+::owning\+\_\+buffer}}$<$ Container $>$\+::owning\+\_\+buffer (\begin{DoxyParamCaption}\item[{Container \&\&}]{data\+\_\+owner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moves the input container into the newly created object. 
+
+
+\begin{DoxyParams}{参数}
+{\em data\+\_\+owner} & The container to construct the buffer from (ownership is transferred) \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{datasource_8hpp_source}{datasource.\+hpp}} 第 \mbox{\hyperlink{datasource_8hpp_source_l00335}{335}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1datasource_1_1owning__buffer_aac6ff8ef4b1a857082f64e4c8f66051b}\label{classcudf_1_1io_1_1datasource_1_1owning__buffer_aac6ff8ef4b1a857082f64e4c8f66051b} 
+\index{cudf::io::datasource::owning\_buffer$<$ Container $>$@{cudf::io::datasource::owning\_buffer$<$ Container $>$}!owning\_buffer@{owning\_buffer}}
+\index{owning\_buffer@{owning\_buffer}!cudf::io::datasource::owning\_buffer$<$ Container $>$@{cudf::io::datasource::owning\_buffer$<$ Container $>$}}
+\doxysubsubsection{\texorpdfstring{owning\_buffer()}{owning\_buffer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Container $>$ \\
+\mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1owning__buffer}{cudf\+::io\+::datasource\+::owning\+\_\+buffer}}$<$ Container $>$\+::owning\+\_\+buffer (\begin{DoxyParamCaption}\item[{Container \&\&}]{data\+\_\+owner,  }\item[{uint8\+\_\+t const \texorpdfstring{$\ast$}{*}}]{data\+\_\+ptr,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Moves the input container into the newly created object, and exposes a subspan of the buffer. 
+
+
+\begin{DoxyParams}{参数}
+{\em data\+\_\+owner} & The container to construct the buffer from (ownership is transferred) \\
+\hline
+{\em data\+\_\+ptr} & Pointer to the start of the subspan \\
+\hline
+{\em size} & The size of the subspan \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{datasource_8hpp_source}{datasource.\+hpp}} 第 \mbox{\hyperlink{datasource_8hpp_source_l00348}{348}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1io_1_1datasource_1_1owning__buffer_aa803c3fb4762d199db6b85a4f8797eae}\label{classcudf_1_1io_1_1datasource_1_1owning__buffer_aa803c3fb4762d199db6b85a4f8797eae} 
+\index{cudf::io::datasource::owning\_buffer$<$ Container $>$@{cudf::io::datasource::owning\_buffer$<$ Container $>$}!data@{data}}
+\index{data@{data}!cudf::io::datasource::owning\_buffer$<$ Container $>$@{cudf::io::datasource::owning\_buffer$<$ Container $>$}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}}
+{\footnotesize\ttfamily template$<$typename Container $>$ \\
+uint8\+\_\+t const  \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1owning__buffer}{cudf\+::io\+::datasource\+::owning\+\_\+buffer}}$<$ Container $>$\+::data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the pointer to the data in the buffer. 
+
+\begin{DoxyReturn}{返回}
+Pointer to the data in the buffer 
+\end{DoxyReturn}
+
+
+实现了 \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1buffer_a45919a17b521e3a3ddd54c7b1a598935}{cudf\+::io\+::datasource\+::buffer}}.
+
+
+
+在文件 \mbox{\hyperlink{datasource_8hpp_source}{datasource.\+hpp}} 第 \mbox{\hyperlink{datasource_8hpp_source_l00365}{365}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1datasource_1_1owning__buffer_a9d499908697f3c593a8ff5de2d210b4d}\label{classcudf_1_1io_1_1datasource_1_1owning__buffer_a9d499908697f3c593a8ff5de2d210b4d} 
+\index{cudf::io::datasource::owning\_buffer$<$ Container $>$@{cudf::io::datasource::owning\_buffer$<$ Container $>$}!size@{size}}
+\index{size@{size}!cudf::io::datasource::owning\_buffer$<$ Container $>$@{cudf::io::datasource::owning\_buffer$<$ Container $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename Container $>$ \\
+size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1owning__buffer}{cudf\+::io\+::datasource\+::owning\+\_\+buffer}}$<$ Container $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the size of the buffer. 
+
+\begin{DoxyReturn}{返回}
+The size of the buffer in bytes 
+\end{DoxyReturn}
+
+
+实现了 \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1buffer_ac359a49899b0c2c64d2f2eae79e1e519}{cudf\+::io\+::datasource\+::buffer}}.
+
+
+
+在文件 \mbox{\hyperlink{datasource_8hpp_source}{datasource.\+hpp}} 第 \mbox{\hyperlink{datasource_8hpp_source_l00358}{358}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1io_1_1datasource_1_1owning__buffer_a30556afb36bb4b2802bfd861cfa2c509}\label{classcudf_1_1io_1_1datasource_1_1owning__buffer_a30556afb36bb4b2802bfd861cfa2c509} 
+\index{cudf::io::datasource::owning\_buffer$<$ Container $>$@{cudf::io::datasource::owning\_buffer$<$ Container $>$}!\_data@{\_data}}
+\index{\_data@{\_data}!cudf::io::datasource::owning\_buffer$<$ Container $>$@{cudf::io::datasource::owning\_buffer$<$ Container $>$}}
+\doxysubsubsection{\texorpdfstring{\_data}{\_data}}
+{\footnotesize\ttfamily template$<$typename Container $>$ \\
+Container \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1owning__buffer}{cudf\+::io\+::datasource\+::owning\+\_\+buffer}}$<$ Container $>$\+::\+\_\+data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{datasource_8hpp_source}{datasource.\+hpp}} 第 \mbox{\hyperlink{datasource_8hpp_source_l00371}{371}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1datasource_1_1owning__buffer_aacddf4f1859b804ec7725785af716cb1}\label{classcudf_1_1io_1_1datasource_1_1owning__buffer_aacddf4f1859b804ec7725785af716cb1} 
+\index{cudf::io::datasource::owning\_buffer$<$ Container $>$@{cudf::io::datasource::owning\_buffer$<$ Container $>$}!\_data\_ptr@{\_data\_ptr}}
+\index{\_data\_ptr@{\_data\_ptr}!cudf::io::datasource::owning\_buffer$<$ Container $>$@{cudf::io::datasource::owning\_buffer$<$ Container $>$}}
+\doxysubsubsection{\texorpdfstring{\_data\_ptr}{\_data\_ptr}}
+{\footnotesize\ttfamily template$<$typename Container $>$ \\
+void const\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1owning__buffer}{cudf\+::io\+::datasource\+::owning\+\_\+buffer}}$<$ Container $>$\+::\+\_\+data\+\_\+ptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{datasource_8hpp_source}{datasource.\+hpp}} 第 \mbox{\hyperlink{datasource_8hpp_source_l00372}{372}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1datasource_1_1owning__buffer_ac1f86082dbba3a7ded06b91391dccb36}\label{classcudf_1_1io_1_1datasource_1_1owning__buffer_ac1f86082dbba3a7ded06b91391dccb36} 
+\index{cudf::io::datasource::owning\_buffer$<$ Container $>$@{cudf::io::datasource::owning\_buffer$<$ Container $>$}!\_size@{\_size}}
+\index{\_size@{\_size}!cudf::io::datasource::owning\_buffer$<$ Container $>$@{cudf::io::datasource::owning\_buffer$<$ Container $>$}}
+\doxysubsubsection{\texorpdfstring{\_size}{\_size}}
+{\footnotesize\ttfamily template$<$typename Container $>$ \\
+size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1owning__buffer}{cudf\+::io\+::datasource\+::owning\+\_\+buffer}}$<$ Container $>$\+::\+\_\+size\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{datasource_8hpp_source}{datasource.\+hpp}} 第 \mbox{\hyperlink{datasource_8hpp_source_l00373}{373}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/\mbox{\hyperlink{datasource_8hpp}{datasource.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,116 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/ast/expressions.hpp 文件参考}
+\hypertarget{expressions_8hpp}{}\label{expressions_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/ast/expressions.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/ast/expressions.hpp}}
+{\ttfamily \#include $<$cudf/scalar/scalar.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/scalar/scalar\+\_\+device\+\_\+view.\+cuh$>$}\newline
+{\ttfamily \#include $<$cudf/table/table\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/types.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/utilities/error.\+hpp$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+expressions.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{expressions_8hpp__incl}
+\end{center}
+\end{figure}
+此图展示该文件直接或间接的被哪些文件引用了\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{expressions_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{cudf\+::ast\+::expression}}
+\begin{DoxyCompactList}\small\item\em A generic expression that can be evaluated to return a value. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcudf_1_1ast_1_1literal}{cudf\+::ast\+::literal}}
+\begin{DoxyCompactList}\small\item\em A literal value used in an abstract syntax tree. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcudf_1_1ast_1_1column__reference}{cudf\+::ast\+::column\+\_\+reference}}
+\begin{DoxyCompactList}\small\item\em A expression referring to data from a column in a table. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcudf_1_1ast_1_1operation}{cudf\+::ast\+::operation}}
+\begin{DoxyCompactList}\small\item\em An operation expression holds an operator and zero or more operands. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1ast}{cudf\+::ast}}
+\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1ast_1_1detail}{cudf\+::ast\+::detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{cudf\+::ast\+::ast\+\_\+operator}} \+: int32\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a9eeb52badb613229884838847294b90d}{cudf\+::ast\+::\+ADD}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a241dd841abade20fcb27b8a9f494e1eb}{cudf\+::ast\+::\+SUB}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a2cdf52a55876063ec93b7d18bc741f6c}{cudf\+::ast\+::\+MUL}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a29bbf66f7f8529ec47e394fb5a36c646}{cudf\+::ast\+::\+DIV}}
+, \newline
+\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7aa14fdfc1aa76e925151b566a67c99406}{cudf\+::ast\+::\+TRUE\+\_\+\+DIV}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a77811fd0ec3d3ed2711a923332e8e69f}{cudf\+::ast\+::\+FLOOR\+\_\+\+DIV}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7ac5a28f4b35a2884fa3277150ac5d0967}{cudf\+::ast\+::\+MOD}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a36aaf571a1008bd43f47509344cd13ad}{cudf\+::ast\+::\+PYMOD}}
+, \newline
+\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a17faf4e999b8cee4c36915c1f54ccffe}{cudf\+::ast\+::\+POW}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a969f331a87d8c958473c32b4d0e61a44}{cudf\+::ast\+::\+EQUAL}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a291e4905a067d686f41c7780c85aed59}{cudf\+::ast\+::\+NULL\+\_\+\+EQUAL}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a4ea2d378cdec20f59330f113297bc1ce}{cudf\+::ast\+::\+NOT\+\_\+\+EQUAL}}
+, \newline
+\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a1798e8c3621ca53d9e3a80d257306000}{cudf\+::ast\+::\+LESS}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7ae7e72355289e404b762d4cf88824d23b}{cudf\+::ast\+::\+GREATER}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a8b4a5cd69b217bf93b054ada7f49abd4}{cudf\+::ast\+::\+LESS\+\_\+\+EQUAL}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a87e6b203bf40967d37a33f9a4438561a}{cudf\+::ast\+::\+GREATER\+\_\+\+EQUAL}}
+, \newline
+\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7aaa5f2eafabf8fa18cbb708c657f37245}{cudf\+::ast\+::\+BITWISE\+\_\+\+AND}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a0d89cfe1f2f7f0c2deb3d35455783ab9}{cudf\+::ast\+::\+BITWISE\+\_\+\+OR}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a6d7cca7c0f0f278c56131a25e77c4a5c}{cudf\+::ast\+::\+BITWISE\+\_\+\+XOR}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7aa770916377f618641eccd6783b13503a}{cudf\+::ast\+::\+LOGICAL\+\_\+\+AND}}
+, \newline
+\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a0b0eecbb7754f87b05d19490f50ddd4f}{cudf\+::ast\+::\+NULL\+\_\+\+LOGICAL\+\_\+\+AND}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a0d0389dd347e259ac16a47fc9db81c18}{cudf\+::ast\+::\+LOGICAL\+\_\+\+OR}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a009adecefebadfcd26e7fad3b046104b}{cudf\+::ast\+::\+NULL\+\_\+\+LOGICAL\+\_\+\+OR}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7ad8156d3c6735d75d8a1b8dedd0e79c8b}{cudf\+::ast\+::\+IDENTITY}}
+, \newline
+\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a5b001d63db54e7383587771eeb2018a1}{cudf\+::ast\+::\+SIN}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7aef23ef1d426ae1a73a7eed399cef707d}{cudf\+::ast\+::\+COS}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a71211c96ad35b40178446956e22be10e}{cudf\+::ast\+::\+TAN}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a607033bf57b9868026629e1fa23de7bf}{cudf\+::ast\+::\+ARCSIN}}
+, \newline
+\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a7358c3fa47a9b546fe7ecbc961e82338}{cudf\+::ast\+::\+ARCCOS}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a5a616b9bee92b5cd20f9940febeb3006}{cudf\+::ast\+::\+ARCTAN}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7ab387e847a769f9ef3794a3f559afcf69}{cudf\+::ast\+::\+SINH}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7ac8766c03013c3464d6bfd8e3c11b867d}{cudf\+::ast\+::\+COSH}}
+, \newline
+\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a143c8c6f51b9bb893ce71e38702e3cc1}{cudf\+::ast\+::\+TANH}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a3552954f5164c200a2c5f5a272294c90}{cudf\+::ast\+::\+ARCSINH}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7ad3242488948e86c0277590cd15cad984}{cudf\+::ast\+::\+ARCCOSH}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a846a1dd5ab0418346548bb9f0f423a52}{cudf\+::ast\+::\+ARCTANH}}
+, \newline
+\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a8c670f8c37b95e1ed14a0ce414b049c7}{cudf\+::ast\+::\+EXP}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a4b5ffcdaf38ce4d463171f5c977c5ab3}{cudf\+::ast\+::\+LOG}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a36875f2500a09ee35d0bb7eb8c0b91b0}{cudf\+::ast\+::\+SQRT}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a2bda33a56a02768cfc002866aa4fb63a}{cudf\+::ast\+::\+CBRT}}
+, \newline
+\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a5bdce8e6d9dc3efbbd31e90a8a181dff}{cudf\+::ast\+::\+CEIL}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a56c1e354d36beb85b0d881c5b2e24cbe}{cudf\+::ast\+::\+FLOOR}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a7d8a220d2262f9d6c658d549ee12cf2c}{cudf\+::ast\+::\+ABS}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a6229a93c327259c59cd09415090f5c00}{cudf\+::ast\+::\+RINT}}
+, \newline
+\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a66827fa9f30435250f1e887f466b3c40}{cudf\+::ast\+::\+BIT\+\_\+\+INVERT}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a10df3d67626099df882920ba6552f16d}{cudf\+::ast\+::\+NOT}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7ae24529b2acf416ddf8076c9246e3af9f}{cudf\+::ast\+::\+CAST\+\_\+\+TO\+\_\+\+INT64}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7ab88151e737cc3be5d1c5256e5eb6207a}{cudf\+::ast\+::\+CAST\+\_\+\+TO\+\_\+\+UINT64}}
+, \newline
+\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7a9036ef372694d366fc24b1283fc76628}{cudf\+::ast\+::\+CAST\+\_\+\+TO\+\_\+\+FLOAT64}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enum of supported operators. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{namespacecudf_1_1ast_a9149f52cd6d38266d8bf98de98b89577}{cudf\+::ast\+::table\+\_\+reference}} \{ \mbox{\hyperlink{namespacecudf_1_1ast_a9149f52cd6d38266d8bf98de98b89577a684d325a7303f52e64011467ff5c5758}{cudf\+::ast\+::\+LEFT}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_a9149f52cd6d38266d8bf98de98b89577a21507b40c80068eda19865706fdc2403}{cudf\+::ast\+::\+RIGHT}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_a9149f52cd6d38266d8bf98de98b89577a50a87f0d71f7221582dad4bf507a0f34}{cudf\+::ast\+::\+OUTPUT}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enum of table references. \end{DoxyCompactList}\end{DoxyCompactItemize}

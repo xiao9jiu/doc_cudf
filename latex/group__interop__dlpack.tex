@@ -1,0 +1,88 @@
+\doxysection{Interop\+\_\+dlpack}
+\hypertarget{group__interop__dlpack}{}\label{group__interop__dlpack}\index{Interop\_dlpack@{Interop\_dlpack}}
+Interop\+\_\+dlpack 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{group__interop__dlpack}
+\end{center}
+\end{figure}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{interop_8hpp}{interop.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__interop__dlpack_gabca779a75e0007c9310f8cefd3b481ff}{cudf\+::from\+\_\+dlpack}} (DLManaged\+Tensor const \texorpdfstring{$\ast$}{*}managed\+\_\+tensor, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Convert a DLPack DLTensor into a cudf table \end{DoxyCompactList}\item 
+DLManaged\+Tensor \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group__interop__dlpack_ga303da0732ac5aade6bd2f1dcccdcd118}{cudf\+::to\+\_\+dlpack}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Convert a cudf table into a DLPack DLTensor \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__interop__dlpack_gabca779a75e0007c9310f8cefd3b481ff}\label{group__interop__dlpack_gabca779a75e0007c9310f8cefd3b481ff} 
+\index{Interop\_dlpack@{Interop\_dlpack}!from\_dlpack@{from\_dlpack}}
+\index{from\_dlpack@{from\_dlpack}!Interop\_dlpack@{Interop\_dlpack}}
+\doxysubsubsection{\texorpdfstring{from\_dlpack()}{from\_dlpack()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::from\+\_\+dlpack (\begin{DoxyParamCaption}\item[{DLManaged\+Tensor const \texorpdfstring{$\ast$}{*}}]{managed\+\_\+tensor,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Convert a DLPack DLTensor into a cudf table 
+
+The {\ttfamily device\+\_\+type} of the DLTensor must be {\ttfamily k\+DLCPU}, {\ttfamily k\+DLCuda}, or {\ttfamily k\+DLCUDAHost}, and {\ttfamily device\+\_\+id} must match the current device. The {\ttfamily ndim} must be set to 1 or 2. The {\ttfamily dtype} must have 1 lane and the bitsize must match a supported {\ttfamily \doxylink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}}.
+
+\begin{DoxyNote}{注解}
+The managed tensor is not deleted by this function.
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if the any of the DLTensor fields are unsupported\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em managed\+\_\+tensor} & a 1D or 2D column-\/major (Fortran order) tensor \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Table with a copy of the tensor data 
+\end{DoxyReturn}
+\Hypertarget{group__interop__dlpack_ga303da0732ac5aade6bd2f1dcccdcd118}\label{group__interop__dlpack_ga303da0732ac5aade6bd2f1dcccdcd118} 
+\index{Interop\_dlpack@{Interop\_dlpack}!to\_dlpack@{to\_dlpack}}
+\index{to\_dlpack@{to\_dlpack}!Interop\_dlpack@{Interop\_dlpack}}
+\doxysubsubsection{\texorpdfstring{to\_dlpack()}{to\_dlpack()}}
+{\footnotesize\ttfamily DLManaged\+Tensor \texorpdfstring{$\ast$}{*} cudf\+::to\+\_\+dlpack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Convert a cudf table into a DLPack DLTensor 
+
+All columns must have the same data type and this type must be numeric. The columns may be nullable, but the null count must be zero. If the input table is empty or has zero rows, the result will be nullptr.
+
+\begin{DoxyNote}{注解}
+The {\ttfamily deleter} method of the returned {\ttfamily DLManaged\+Tensor} must be used to free the memory allocated for the tensor.
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if the data types are not equal or not numeric, or if any of columns have non-\/zero null count\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & Table to convert to DLPack \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned DLPack tensor\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+1D or 2D DLPack tensor with a copy of the table data, or nullptr 
+\end{DoxyReturn}

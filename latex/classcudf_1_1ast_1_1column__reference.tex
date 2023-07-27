@@ -1,0 +1,260 @@
+\doxysection{cudf\+::ast\+::column\+\_\+reference类 参考}
+\hypertarget{classcudf_1_1ast_1_1column__reference}{}\label{classcudf_1_1ast_1_1column__reference}\index{cudf::ast::column\_reference@{cudf::ast::column\_reference}}
+
+
+A expression referring to data from a column in a table.  
+
+
+
+
+{\ttfamily \#include $<$expressions.\+hpp$>$}
+
+
+
+类 cudf\+::ast\+::column\+\_\+reference 继承关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{classcudf_1_1ast_1_1column__reference__inherit__graph}
+\end{center}
+\end{figure}
+
+
+cudf\+::ast\+::column\+\_\+reference 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{classcudf_1_1ast_1_1column__reference__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1ast_1_1column__reference_ac2511ddb91fc2808cbbf8a4f24ec9d99}{column\+\_\+reference}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1ast_1_1column__reference_afad238e48b35d659912b6ba942fe5688}{column\+\_\+index}}, \mbox{\hyperlink{namespacecudf_1_1ast_a9149f52cd6d38266d8bf98de98b89577}{table\+\_\+reference}} \mbox{\hyperlink{classcudf_1_1ast_1_1column__reference_a3ccfe18734260890891ec1e6b6b21d7b}{table\+\_\+source}}=\mbox{\hyperlink{namespacecudf_1_1ast_a9149f52cd6d38266d8bf98de98b89577a684d325a7303f52e64011467ff5c5758}{table\+\_\+reference\+::\+LEFT}})
+\begin{DoxyCompactList}\small\item\em Construct a new column reference object \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1ast_1_1column__reference_ac5f30d058ef482e613f4dcb2474bcab0}{get\+\_\+column\+\_\+index}} () const
+\begin{DoxyCompactList}\small\item\em Get the column index. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacecudf_1_1ast_a9149f52cd6d38266d8bf98de98b89577}{table\+\_\+reference}} \mbox{\hyperlink{classcudf_1_1ast_1_1column__reference_a918f7278846b62ad8b52207db6d08e77}{get\+\_\+table\+\_\+source}} () const
+\begin{DoxyCompactList}\small\item\em Get the table source. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} \mbox{\hyperlink{classcudf_1_1ast_1_1column__reference_a25d27b21ec1cbdaf37883b8a28c193fd}{get\+\_\+data\+\_\+type}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1table}{table}}) const
+\begin{DoxyCompactList}\small\item\em Get the data type. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} \mbox{\hyperlink{classcudf_1_1ast_1_1column__reference_a179a3492bee5b70de9fee3924ea1ad18}{get\+\_\+data\+\_\+type}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&left\+\_\+table, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&right\+\_\+table) const
+\begin{DoxyCompactList}\small\item\em Get the data type. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1ast_1_1column__reference_a1dda4e01dc610710d8fb85579bf49d62}{accept}} (\mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser}{detail\+::expression\+\_\+parser}} \&visitor) const override
+\begin{DoxyCompactList}\small\item\em Accepts a visitor class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1ast_1_1column__reference_a02b427f444325e02003283a00f5c6d66}{may\+\_\+evaluate\+\_\+null}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&left, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&right, rmm\+::cuda\+\_\+stream\+\_\+view stream) const override
+\begin{DoxyCompactList}\small\item\em Returns true if the expression may evaluate to null. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public 成员函数 继承自 \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{cudf\+::ast\+::expression}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{structcudf_1_1ast_1_1expression_a7f49bf2645bf703e48b2218944aca8ef}{accept}} (\mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser}{detail\+::expression\+\_\+parser}} \&visitor) const =0
+\begin{DoxyCompactList}\small\item\em Accepts a visitor class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structcudf_1_1ast_1_1expression_a58bbcca679ee9e1447a43387e5684b0e}{may\+\_\+evaluate\+\_\+null}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&left, rmm\+::cuda\+\_\+stream\+\_\+view stream) const
+\begin{DoxyCompactList}\small\item\em Returns true if the expression may evaluate to null. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{structcudf_1_1ast_1_1expression_ae0e50e0d105d9c261c98cb7cd828f76b}{may\+\_\+evaluate\+\_\+null}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&left, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&right, rmm\+::cuda\+\_\+stream\+\_\+view stream) const =0
+\begin{DoxyCompactList}\small\item\em Returns true if the expression may evaluate to null. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{structcudf_1_1ast_1_1expression_a0d427dac4d82c624c68139c841913705}{\texorpdfstring{$\sim$}{\string~}expression}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1ast_1_1column__reference_afad238e48b35d659912b6ba942fe5688}{column\+\_\+index}}
+\item 
+\mbox{\hyperlink{namespacecudf_1_1ast_a9149f52cd6d38266d8bf98de98b89577}{table\+\_\+reference}} \mbox{\hyperlink{classcudf_1_1ast_1_1column__reference_a3ccfe18734260890891ec1e6b6b21d7b}{table\+\_\+source}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+A expression referring to data from a column in a table. 
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00245}{245}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1ast_1_1column__reference_ac2511ddb91fc2808cbbf8a4f24ec9d99}\label{classcudf_1_1ast_1_1column__reference_ac2511ddb91fc2808cbbf8a4f24ec9d99} 
+\index{cudf::ast::column\_reference@{cudf::ast::column\_reference}!column\_reference@{column\_reference}}
+\index{column\_reference@{column\_reference}!cudf::ast::column\_reference@{cudf::ast::column\_reference}}
+\doxysubsubsection{\texorpdfstring{column\_reference()}{column\_reference()}}
+{\footnotesize\ttfamily cudf\+::ast\+::column\+\_\+reference\+::column\+\_\+reference (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}}}]{column\+\_\+index,  }\item[{\mbox{\hyperlink{namespacecudf_1_1ast_a9149f52cd6d38266d8bf98de98b89577}{table\+\_\+reference}}}]{table\+\_\+source = {\ttfamily \mbox{\hyperlink{namespacecudf_1_1ast_a9149f52cd6d38266d8bf98de98b89577a684d325a7303f52e64011467ff5c5758}{table\+\_\+reference\+::\+LEFT}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new column reference object 
+
+
+\begin{DoxyParams}{参数}
+{\em column\+\_\+index} & Index of this column in the table (provided when the expression is evaluated). \\
+\hline
+{\em table\+\_\+source} & Which table to use in cases with two tables (e.\+g. joins) \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00254}{254}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1ast_1_1column__reference_a1dda4e01dc610710d8fb85579bf49d62}\label{classcudf_1_1ast_1_1column__reference_a1dda4e01dc610710d8fb85579bf49d62} 
+\index{cudf::ast::column\_reference@{cudf::ast::column\_reference}!accept@{accept}}
+\index{accept@{accept}!cudf::ast::column\_reference@{cudf::ast::column\_reference}}
+\doxysubsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::ast\+::column\+\_\+reference\+::accept (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser}{detail\+::expression\+\_\+parser}} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Accepts a visitor class. 
+
+
+\begin{DoxyParams}{参数}
+{\em visitor} & The {\ttfamily expression\+\_\+parser} parsing this expression tree \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Index of device data reference for this instance 
+\end{DoxyReturn}
+
+
+实现了 \mbox{\hyperlink{structcudf_1_1ast_1_1expression_a7f49bf2645bf703e48b2218944aca8ef}{cudf\+::ast\+::expression}}.
+
+\Hypertarget{classcudf_1_1ast_1_1column__reference_ac5f30d058ef482e613f4dcb2474bcab0}\label{classcudf_1_1ast_1_1column__reference_ac5f30d058ef482e613f4dcb2474bcab0} 
+\index{cudf::ast::column\_reference@{cudf::ast::column\_reference}!get\_column\_index@{get\_column\_index}}
+\index{get\_column\_index@{get\_column\_index}!cudf::ast::column\_reference@{cudf::ast::column\_reference}}
+\doxysubsubsection{\texorpdfstring{get\_column\_index()}{get\_column\_index()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::ast\+::column\+\_\+reference\+::get\+\_\+column\+\_\+index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the column index. 
+
+\begin{DoxyReturn}{返回}
+The column index of the column reference 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00265}{265}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1column__reference_a179a3492bee5b70de9fee3924ea1ad18}\label{classcudf_1_1ast_1_1column__reference_a179a3492bee5b70de9fee3924ea1ad18} 
+\index{cudf::ast::column\_reference@{cudf::ast::column\_reference}!get\_data\_type@{get\_data\_type}}
+\index{get\_data\_type@{get\_data\_type}!cudf::ast::column\_reference@{cudf::ast::column\_reference}}
+\doxysubsubsection{\texorpdfstring{get\_data\_type()}{get\_data\_type()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} cudf\+::ast\+::column\+\_\+reference\+::get\+\_\+data\+\_\+type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{left\+\_\+table,  }\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{right\+\_\+table }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the data type. 
+
+
+\begin{DoxyParams}{参数}
+{\em left\+\_\+table} & Left table used to determine types \\
+\hline
+{\em right\+\_\+table} & Right table used to determine types \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The data type of the column 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00292}{292}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1column__reference_a25d27b21ec1cbdaf37883b8a28c193fd}\label{classcudf_1_1ast_1_1column__reference_a25d27b21ec1cbdaf37883b8a28c193fd} 
+\index{cudf::ast::column\_reference@{cudf::ast::column\_reference}!get\_data\_type@{get\_data\_type}}
+\index{get\_data\_type@{get\_data\_type}!cudf::ast::column\_reference@{cudf::ast::column\_reference}}
+\doxysubsubsection{\texorpdfstring{get\_data\_type()}{get\_data\_type()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} cudf\+::ast\+::column\+\_\+reference\+::get\+\_\+data\+\_\+type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{table }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the data type. 
+
+
+\begin{DoxyParams}{参数}
+{\em table} & Table used to determine types \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The data type of the column 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00280}{280}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1column__reference_a918f7278846b62ad8b52207db6d08e77}\label{classcudf_1_1ast_1_1column__reference_a918f7278846b62ad8b52207db6d08e77} 
+\index{cudf::ast::column\_reference@{cudf::ast::column\_reference}!get\_table\_source@{get\_table\_source}}
+\index{get\_table\_source@{get\_table\_source}!cudf::ast::column\_reference@{cudf::ast::column\_reference}}
+\doxysubsubsection{\texorpdfstring{get\_table\_source()}{get\_table\_source()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecudf_1_1ast_a9149f52cd6d38266d8bf98de98b89577}{table\+\_\+reference}} cudf\+::ast\+::column\+\_\+reference\+::get\+\_\+table\+\_\+source (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the table source. 
+
+\begin{DoxyReturn}{返回}
+table\+\_\+reference The reference to the table containing this column 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00272}{272}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1column__reference_a02b427f444325e02003283a00f5c6d66}\label{classcudf_1_1ast_1_1column__reference_a02b427f444325e02003283a00f5c6d66} 
+\index{cudf::ast::column\_reference@{cudf::ast::column\_reference}!may\_evaluate\_null@{may\_evaluate\_null}}
+\index{may\_evaluate\_null@{may\_evaluate\_null}!cudf::ast::column\_reference@{cudf::ast::column\_reference}}
+\doxysubsubsection{\texorpdfstring{may\_evaluate\_null()}{may\_evaluate\_null()}}
+{\footnotesize\ttfamily bool cudf\+::ast\+::column\+\_\+reference\+::may\+\_\+evaluate\+\_\+null (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{left,  }\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{right,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns true if the expression may evaluate to null. 
+
+
+\begin{DoxyParams}{参数}
+{\em left} & The left operand of the expression \\
+\hline
+{\em right} & The right operand of the expression \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+{\ttfamily true} if the expression may evaluate to null, otherwise false 
+\end{DoxyReturn}
+
+
+实现了 \mbox{\hyperlink{structcudf_1_1ast_1_1expression_ae0e50e0d105d9c261c98cb7cd828f76b}{cudf\+::ast\+::expression}}.
+
+
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00315}{315}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1ast_1_1column__reference_afad238e48b35d659912b6ba942fe5688}\label{classcudf_1_1ast_1_1column__reference_afad238e48b35d659912b6ba942fe5688} 
+\index{cudf::ast::column\_reference@{cudf::ast::column\_reference}!column\_index@{column\_index}}
+\index{column\_index@{column\_index}!cudf::ast::column\_reference@{cudf::ast::column\_reference}}
+\doxysubsubsection{\texorpdfstring{column\_index}{column\_index}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::ast\+::column\+\_\+reference\+::column\+\_\+index\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00323}{323}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1column__reference_a3ccfe18734260890891ec1e6b6b21d7b}\label{classcudf_1_1ast_1_1column__reference_a3ccfe18734260890891ec1e6b6b21d7b} 
+\index{cudf::ast::column\_reference@{cudf::ast::column\_reference}!table\_source@{table\_source}}
+\index{table\_source@{table\_source}!cudf::ast::column\_reference@{cudf::ast::column\_reference}}
+\doxysubsubsection{\texorpdfstring{table\_source}{table\_source}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecudf_1_1ast_a9149f52cd6d38266d8bf98de98b89577}{table\+\_\+reference}} cudf\+::ast\+::column\+\_\+reference\+::table\+\_\+source\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00324}{324}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/ast/\mbox{\hyperlink{expressions_8hpp}{expressions.\+hpp}}\end{DoxyCompactItemize}

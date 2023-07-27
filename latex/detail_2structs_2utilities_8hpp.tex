@@ -1,0 +1,63 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/detail/structs/utilities.hpp 文件参考}
+\hypertarget{detail_2structs_2utilities_8hpp}{}\label{detail_2structs_2utilities_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/detail/structs/utilities.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/detail/structs/utilities.hpp}}
+{\ttfamily \#include $<$cudf/structs/structs\+\_\+column\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/table/table\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/types.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/utilities/default\+\_\+stream.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/utilities/span.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/cuda\+\_\+stream\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/device\+\_\+buffer.\+hpp$>$}\newline
+utilities.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{detail_2structs_2utilities_8hpp__incl}
+\end{center}
+\end{figure}
+此图展示该文件直接或间接的被哪些文件引用了\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{detail_2structs_2utilities_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcudf_1_1structs_1_1detail_1_1flattened__table}{cudf\+::structs\+::detail\+::flattened\+\_\+table}}
+\begin{DoxyCompactList}\small\item\em Result of {\ttfamily \doxylink{namespacecudf_1_1structs_1_1detail_a09c8725783cc2d0c3ce2f537a5ef92fb}{flatten\+\_\+nested\+\_\+columns()}}, where all {\ttfamily STRUCT} columns are replaced with their non-\/nested member columns, and {\ttfamily BOOL8} columns for their null masks. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1structs}{cudf\+::structs}}
+\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1structs_1_1detail}{cudf\+::structs\+::detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacecudf_1_1structs_1_1detail_ab73bf6a8b89a8f9657b54c7f1eb78ec4}{cudf\+::structs\+::detail\+::column\+\_\+nullability}} \{ \mbox{\hyperlink{namespacecudf_1_1structs_1_1detail_ab73bf6a8b89a8f9657b54c7f1eb78ec4afdccb3c8672ceb2b38f71482bd31a9b0}{cudf\+::structs\+::detail\+::\+MATCH\+\_\+\+INCOMING}}
+, \mbox{\hyperlink{namespacecudf_1_1structs_1_1detail_ab73bf6a8b89a8f9657b54c7f1eb78ec4a2884c991e71a112e70c186a5c4458a24}{cudf\+::structs\+::detail\+::\+FORCE}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} $>$ $>$ \mbox{\hyperlink{namespacecudf_1_1structs_1_1detail_a8f076723895da5f42e5360ba997810e9}{cudf\+::structs\+::detail\+::extract\+\_\+ordered\+\_\+struct\+\_\+children}} (\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const $>$ struct\+\_\+cols)
+\begin{DoxyCompactList}\small\item\em Flatten the children of the input columns into a vector where the i\textquotesingle{}th element is a vector of column\+\_\+views representing the i\textquotesingle{}th child from each input \doxylink{classcudf_1_1column__view}{column\+\_\+view}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacecudf_1_1structs_1_1detail_a09709870ca81ac5c5050733328c4e81f}{cudf\+::structs\+::detail\+::is\+\_\+or\+\_\+has\+\_\+nested\+\_\+lists}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&col)
+\begin{DoxyCompactList}\small\item\em Check whether the specified column is of type LIST, or any LISTs in its descendent columns. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1structs_1_1detail_1_1flattened__table}{flattened\+\_\+table}} \mbox{\hyperlink{namespacecudf_1_1structs_1_1detail_a09c8725783cc2d0c3ce2f537a5ef92fb}{cudf\+::structs\+::detail\+::flatten\+\_\+nested\+\_\+columns}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence, \mbox{\hyperlink{namespacecudf_1_1structs_1_1detail_ab73bf6a8b89a8f9657b54c7f1eb78ec4}{column\+\_\+nullability}} nullability=\mbox{\hyperlink{namespacecudf_1_1structs_1_1detail_ab73bf6a8b89a8f9657b54c7f1eb78ec4afdccb3c8672ceb2b38f71482bd31a9b0}{column\+\_\+nullability\+::\+MATCH\+\_\+\+INCOMING}})
+\begin{DoxyCompactList}\small\item\em Flatten table with struct columns to table with constituent columns of struct columns. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacecudf_1_1structs_1_1detail_a97bc81c116e162c4267216e346ec8220}{cudf\+::structs\+::detail\+::superimpose\+\_\+parent\+\_\+nulls}} (\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} const \texorpdfstring{$\ast$}{*}parent\+\_\+null\+\_\+mask, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} parent\+\_\+null\+\_\+count, \mbox{\hyperlink{classcudf_1_1column}{column}} \&child, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Push down nulls from a parent mask into a child column, using bitwise AND. \end{DoxyCompactList}\item 
+std\+::tuple$<$ \mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}}, std\+::vector$<$ rmm\+::device\+\_\+buffer $>$ $>$ \mbox{\hyperlink{namespacecudf_1_1structs_1_1detail_a02e9b20d79f041ec54ba0ff80d85c5a7}{cudf\+::structs\+::detail\+::superimpose\+\_\+parent\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&parent, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Push down nulls from a parent mask into a child column, using bitwise AND. \end{DoxyCompactList}\item 
+std\+::tuple$<$ \mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}}, std\+::vector$<$ rmm\+::device\+\_\+buffer $>$ $>$ \mbox{\hyperlink{namespacecudf_1_1structs_1_1detail_aed97b3eee12b72910e0fdae5915af790}{cudf\+::structs\+::detail\+::superimpose\+\_\+parent\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1table}{table}}, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Push down nulls from a parent mask into child columns, using bitwise AND, for all columns in the specified table. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacecudf_1_1structs_1_1detail_aa17b22d73473e56fa3b6a96105bdb188}{cudf\+::structs\+::detail\+::contains\+\_\+null\+\_\+structs}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&col)
+\begin{DoxyCompactList}\small\item\em Checks if a column or any of its children is a struct column with structs that are null. \end{DoxyCompactList}\end{DoxyCompactItemize}

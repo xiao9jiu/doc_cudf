@@ -1,0 +1,34 @@
+\doxysection{cudf\+::io\+::detail\+::json 命名空间参考}
+\hypertarget{namespacecudf_1_1io_1_1detail_1_1json}{}\label{namespacecudf_1_1io_1_1detail_1_1json}\index{cudf::io::detail::json@{cudf::io::detail::json}}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1table__with__metadata}{table\+\_\+with\+\_\+metadata}} \mbox{\hyperlink{namespacecudf_1_1io_1_1detail_1_1json_a67146ac823a533b7d1b3e4bdd11afea8}{read\+\_\+json}} (std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource}{cudf\+::io\+::datasource}} $>$ $>$ \&sources, \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options}{json\+\_\+reader\+\_\+options}} const \&options, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Reads and returns the entire data set. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{namespacecudf_1_1io_1_1detail_1_1json_a67146ac823a533b7d1b3e4bdd11afea8}\label{namespacecudf_1_1io_1_1detail_1_1json_a67146ac823a533b7d1b3e4bdd11afea8} 
+\index{cudf::io::detail::json@{cudf::io::detail::json}!read\_json@{read\_json}}
+\index{read\_json@{read\_json}!cudf::io::detail::json@{cudf::io::detail::json}}
+\doxysubsubsection{\texorpdfstring{read\_json()}{read\_json()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1io_1_1table__with__metadata}{table\+\_\+with\+\_\+metadata}} cudf\+::io\+::detail\+::json\+::read\+\_\+json (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource}{cudf\+::io\+::datasource}} $>$ $>$ \&}]{sources,  }\item[{\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options}{json\+\_\+reader\+\_\+options}} const \&}]{options,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Reads and returns the entire data set. 
+
+
+\begin{DoxyParams}{参数}
+{\em sources} & Input {\ttfamily datasource} objects to read the dataset from \\
+\hline
+{\em options} & Settings for controlling reading behavior \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches \\
+\hline
+{\em mr} & Device memory resource to use for device memory allocation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+\doxylink{classcudf_1_1table}{cudf\+::table} object that contains the array of \doxylink{classcudf_1_1column}{cudf\+::column}. 
+\end{DoxyReturn}

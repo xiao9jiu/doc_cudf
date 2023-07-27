@@ -1,0 +1,108 @@
+\doxysection{Copy\+\_\+concatenate}
+\hypertarget{group__copy__concatenate}{}\label{group__copy__concatenate}\index{Copy\_concatenate@{Copy\_concatenate}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{concatenate_8hpp}{concatenate.\+hpp}}
+\begin{DoxyCompactList}\small\item\em Concatenate columns APIs \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+rmm\+::device\+\_\+buffer \mbox{\hyperlink{group__copy__concatenate_ga91c9bef36c0e9ae6499f8a7076fe23b2}{cudf\+::concatenate\+\_\+masks}} (\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const $>$ views, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Concatenates {\ttfamily views\mbox{[}i\mbox{]}}\textquotesingle{}s bitmask from the bits {\ttfamily \mbox{[}views\mbox{[}i\mbox{]}.offset(), views\mbox{[}i\mbox{]}.offset() + views\mbox{[}i\mbox{]}.size())} for all elements views\mbox{[}i\mbox{]} in views into a {\ttfamily device\+\_\+buffer} \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__copy__concatenate_gaae7c224600919f3760c0edf1b17d0320}{cudf\+::concatenate}} (\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const $>$ columns\+\_\+to\+\_\+concat, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Concatenates multiple columns into a single column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__copy__concatenate_ga72494daf53a1677fe373ce6d4d7470a1}{cudf\+::concatenate}} (\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const $>$ tables\+\_\+to\+\_\+concat, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Columns of {\ttfamily tables\+\_\+to\+\_\+concat} are concatenated vertically to return a single table \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__copy__concatenate_gaae7c224600919f3760c0edf1b17d0320}\label{group__copy__concatenate_gaae7c224600919f3760c0edf1b17d0320} 
+\index{Copy\_concatenate@{Copy\_concatenate}!concatenate@{concatenate}}
+\index{concatenate@{concatenate}!Copy\_concatenate@{Copy\_concatenate}}
+\doxysubsubsection{\texorpdfstring{concatenate()}{concatenate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::concatenate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const $>$}]{columns\+\_\+to\+\_\+concat,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Concatenates multiple columns into a single column. 
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & If types of the input columns mismatch\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em columns\+\_\+to\+\_\+concat} & \doxylink{structcudf_1_1host__span}{host\+\_\+span} of column views to be concatenated into a single column \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A single column having all the rows from the elements of {\ttfamily columns\+\_\+to\+\_\+concat} respectively in the same order. 
+\end{DoxyReturn}
+\Hypertarget{group__copy__concatenate_ga72494daf53a1677fe373ce6d4d7470a1}\label{group__copy__concatenate_ga72494daf53a1677fe373ce6d4d7470a1} 
+\index{Copy\_concatenate@{Copy\_concatenate}!concatenate@{concatenate}}
+\index{concatenate@{concatenate}!Copy\_concatenate@{Copy\_concatenate}}
+\doxysubsubsection{\texorpdfstring{concatenate()}{concatenate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::concatenate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const $>$}]{tables\+\_\+to\+\_\+concat,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Columns of {\ttfamily tables\+\_\+to\+\_\+concat} are concatenated vertically to return a single table 
+
+example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ c0;\ \textcolor{comment}{//Contains\ \{0,1,2,3\}}}
+\DoxyCodeLine{\mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ c1;\ \textcolor{comment}{//Contains\ \{4,5,6,7\}}}
+\DoxyCodeLine{\mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ t0\{\{c0,\ c0\}\};}
+\DoxyCodeLine{table\_view\ t1\{\{c1,\ c1\}\};}
+\DoxyCodeLine{...}
+\DoxyCodeLine{auto\ t\ =\ \mbox{\hyperlink{group__copy__concatenate_gaae7c224600919f3760c0edf1b17d0320}{concatenate}}(\{t0.view(),\ t1.view()\});}
+\DoxyCodeLine{column\_view\ tc0\ =\ (t-\/>view()).column(0);\ \textcolor{comment}{//Contains\ \{0,1,2,3,4,5,6,7\}}}
+\DoxyCodeLine{column\_view\ tc1\ =\ (t-\/>view()).column(1);\ \textcolor{comment}{//Contains\ \{0,1,2,3,4,5,6,7\}}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & If number of columns mismatch\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em tables\+\_\+to\+\_\+concat} & \doxylink{structcudf_1_1host__span}{host\+\_\+span} of table views to be concatenated into a single table \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A single table having all the rows from the elements of {\ttfamily tables\+\_\+to\+\_\+concat} respectively in the same order. 
+\end{DoxyReturn}
+\Hypertarget{group__copy__concatenate_ga91c9bef36c0e9ae6499f8a7076fe23b2}\label{group__copy__concatenate_ga91c9bef36c0e9ae6499f8a7076fe23b2} 
+\index{Copy\_concatenate@{Copy\_concatenate}!concatenate\_masks@{concatenate\_masks}}
+\index{concatenate\_masks@{concatenate\_masks}!Copy\_concatenate@{Copy\_concatenate}}
+\doxysubsubsection{\texorpdfstring{concatenate\_masks()}{concatenate\_masks()}}
+{\footnotesize\ttfamily rmm\+::device\+\_\+buffer cudf\+::concatenate\+\_\+masks (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const $>$}]{views,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Concatenates {\ttfamily views\mbox{[}i\mbox{]}}\textquotesingle{}s bitmask from the bits {\ttfamily \mbox{[}views\mbox{[}i\mbox{]}.offset(), views\mbox{[}i\mbox{]}.offset() + views\mbox{[}i\mbox{]}.size())} for all elements views\mbox{[}i\mbox{]} in views into a {\ttfamily device\+\_\+buffer} 
+
+Returns empty {\ttfamily device\+\_\+buffer} if the column is not nullable
+
+
+\begin{DoxyParams}{参数}
+{\em views} & \doxylink{structcudf_1_1host__span}{host\+\_\+span} of column views whose bitmasks will be concatenated \\
+\hline
+{\em mr} & Device memory resource used for allocating the new device\+\_\+buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+rmm\+::device\+\_\+buffer A {\ttfamily device\+\_\+buffer} containing the bitmasks of all the column views in the views vector 
+\end{DoxyReturn}

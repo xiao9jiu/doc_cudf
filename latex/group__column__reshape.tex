@@ -1,0 +1,373 @@
+\doxysection{Column\+\_\+reshape}
+\hypertarget{group__column__reshape}{}\label{group__column__reshape}\index{Column\_reshape@{Column\_reshape}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{explode_8hpp}{explode.\+hpp}}
+\begin{DoxyCompactList}\small\item\em Column APIs for explore list columns \end{DoxyCompactList}\item 
+文件 \mbox{\hyperlink{reshape_8hpp}{reshape.\+hpp}}
+\begin{DoxyCompactList}\small\item\em Column APIs for interleave and tile \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__column__reshape_ga1fd286bca11d008f7945aaa6ecbab2e0}{cudf\+::flip\+\_\+endianness}} \+: bool \{ \mbox{\hyperlink{group__column__reshape_gga1fd286bca11d008f7945aaa6ecbab2e0ac2f3f489a00553e7a01d369c103c7251}{cudf\+::flip\+\_\+endianness\+::\+NO}}
+, \mbox{\hyperlink{group__column__reshape_gga1fd286bca11d008f7945aaa6ecbab2e0a7469a286259799e5b37e5db9296f00b3}{cudf\+::flip\+\_\+endianness\+::\+YES}}
+ \}
+\begin{DoxyCompactList}\small\item\em Configures whether byte casting flips endianness \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__reshape_ga410a1a061880e0c23f8b5363b8848b77}{cudf\+::explode}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input\+\_\+table, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} explode\+\_\+column\+\_\+idx, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Explodes a list column\textquotesingle{}s elements. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__reshape_gabaf540f670a5b6d194472b8b0bf07dc7}{cudf\+::explode\+\_\+position}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input\+\_\+table, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} explode\+\_\+column\+\_\+idx, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Explodes a list column\textquotesingle{}s elements and includes a position column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__reshape_ga8553ff28b4712105c603673767f82efd}{cudf\+::explode\+\_\+outer}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input\+\_\+table, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} explode\+\_\+column\+\_\+idx, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Explodes a list column\textquotesingle{}s elements retaining any null entries or empty lists inside. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__reshape_ga00d434c2efba8113e6e92c3b0b448968}{cudf\+::explode\+\_\+outer\+\_\+position}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input\+\_\+table, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} explode\+\_\+column\+\_\+idx, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Explodes a list column\textquotesingle{}s elements retaining any null entries or empty lists and includes a position column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__reshape_ga3e7d0d4fe81ad51f337a538cd019df2f}{cudf\+::interleave\+\_\+columns}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Interleave columns of a table into a single column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__reshape_ga81245f60b1755f56e59c86291aebd7a0}{cudf\+::tile}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} count, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Repeats the rows from {\ttfamily input} table {\ttfamily count} times to form a new table. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__reshape_gaa9912553b8cede8a16c86293e2c5a58d}{cudf\+::byte\+\_\+cast}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input\+\_\+column, \mbox{\hyperlink{group__column__reshape_ga1fd286bca11d008f7945aaa6ecbab2e0}{flip\+\_\+endianness}} endian\+\_\+configuration, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Converts a column\textquotesingle{}s elements to lists of bytes \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{枚举类型说明}
+\Hypertarget{group__column__reshape_ga1fd286bca11d008f7945aaa6ecbab2e0}\label{group__column__reshape_ga1fd286bca11d008f7945aaa6ecbab2e0} 
+\index{Column\_reshape@{Column\_reshape}!flip\_endianness@{flip\_endianness}}
+\index{flip\_endianness@{flip\_endianness}!Column\_reshape@{Column\_reshape}}
+\doxysubsubsection{\texorpdfstring{flip\_endianness}{flip\_endianness}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__column__reshape_ga1fd286bca11d008f7945aaa6ecbab2e0}{cudf\+::flip\+\_\+endianness}} \+: bool\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Configures whether byte casting flips endianness 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NO@{NO}!Column\_reshape@{Column\_reshape}}\index{Column\_reshape@{Column\_reshape}!NO@{NO}}}\Hypertarget{group__column__reshape_gga1fd286bca11d008f7945aaa6ecbab2e0ac2f3f489a00553e7a01d369c103c7251}\label{group__column__reshape_gga1fd286bca11d008f7945aaa6ecbab2e0ac2f3f489a00553e7a01d369c103c7251} 
+NO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{YES@{YES}!Column\_reshape@{Column\_reshape}}\index{Column\_reshape@{Column\_reshape}!YES@{YES}}}\Hypertarget{group__column__reshape_gga1fd286bca11d008f7945aaa6ecbab2e0a7469a286259799e5b37e5db9296f00b3}\label{group__column__reshape_gga1fd286bca11d008f7945aaa6ecbab2e0a7469a286259799e5b37e5db9296f00b3} 
+YES&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{reshape_8hpp_source}{reshape.\+hpp}} 第 \mbox{\hyperlink{reshape_8hpp_source_l00083}{83}} 行定义.
+
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__column__reshape_gaa9912553b8cede8a16c86293e2c5a58d}\label{group__column__reshape_gaa9912553b8cede8a16c86293e2c5a58d} 
+\index{Column\_reshape@{Column\_reshape}!byte\_cast@{byte\_cast}}
+\index{byte\_cast@{byte\_cast}!Column\_reshape@{Column\_reshape}}
+\doxysubsubsection{\texorpdfstring{byte\_cast()}{byte\_cast()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::byte\+\_\+cast (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input\+\_\+column,  }\item[{\mbox{\hyperlink{group__column__reshape_ga1fd286bca11d008f7945aaa6ecbab2e0}{flip\+\_\+endianness}}}]{endian\+\_\+configuration,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Converts a column\textquotesingle{}s elements to lists of bytes 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{input<int32>\ \ =\ [8675,\ 309]}
+\DoxyCodeLine{configuration\ =\ \mbox{\hyperlink{group__column__reshape_gga1fd286bca11d008f7945aaa6ecbab2e0a7469a286259799e5b37e5db9296f00b3}{flip\_endianness::YES}}}
+\DoxyCodeLine{\textcolor{keywordflow}{return}\ \ \ \ \ \ \ \ =\ [[0x00,\ 0x00,\ 0x21,\ 0xe3],\ [0x00,\ 0x00,\ 0x01,\ 0x35]]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em input\+\_\+column} & Column to be converted to lists of bytes \\
+\hline
+{\em endian\+\_\+configuration} & Whether to retain or flip the endianness of the elements \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The column containing the lists of bytes 
+\end{DoxyReturn}
+\Hypertarget{group__column__reshape_ga410a1a061880e0c23f8b5363b8848b77}\label{group__column__reshape_ga410a1a061880e0c23f8b5363b8848b77} 
+\index{Column\_reshape@{Column\_reshape}!explode@{explode}}
+\index{explode@{explode}!Column\_reshape@{Column\_reshape}}
+\doxysubsubsection{\texorpdfstring{explode()}{explode()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::explode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input\+\_\+table,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{explode\+\_\+column\+\_\+idx,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Explodes a list column\textquotesingle{}s elements. 
+
+Any list is exploded, which means the elements of the list in each row are expanded into new rows in the output. The corresponding rows for other columns in the input are duplicated. Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[[5,10,15],\ 100],}
+\DoxyCodeLine{[[20,25],\ \ \ 200],}
+\DoxyCodeLine{[[30],\ \ \ \ \ \ 300],}
+\DoxyCodeLine{returns}
+\DoxyCodeLine{[5,\ \ \ \ \ \ \ \ \ 100],}
+\DoxyCodeLine{[10,\ \ \ \ \ \ \ \ 100],}
+\DoxyCodeLine{[15,\ \ \ \ \ \ \ \ 100],}
+\DoxyCodeLine{[20,\ \ \ \ \ \ \ \ 200],}
+\DoxyCodeLine{[25,\ \ \ \ \ \ \ \ 200],}
+\DoxyCodeLine{[30,\ \ \ \ \ \ \ \ 300],}
+
+\end{DoxyCode}
+
+
+Nulls and empty lists propagate in different ways depending on what is null or empty. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[[5,null,15],\ 100],}
+\DoxyCodeLine{[null,\ \ \ \ \ \ \ \ 200],}
+\DoxyCodeLine{[[],\ \ \ \ \ \ \ \ \ \ 300],}
+\DoxyCodeLine{returns}
+\DoxyCodeLine{[5,\ \ \ \ \ \ \ \ \ \ \ 100],}
+\DoxyCodeLine{[null,\ \ \ \ \ \ \ \ 100],}
+\DoxyCodeLine{[15,\ \ \ \ \ \ \ \ \ \ 100],}
+
+\end{DoxyCode}
+ Note that null lists are not included in the resulting table, but nulls inside lists and empty lists will be represented with a null entry for that column in that row.
+
+
+\begin{DoxyParams}{参数}
+{\em input\+\_\+table} & Table to explode. \\
+\hline
+{\em explode\+\_\+column\+\_\+idx} & Column index to explode inside the table. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A new table with explode\+\_\+col exploded. 
+\end{DoxyReturn}
+\Hypertarget{group__column__reshape_ga8553ff28b4712105c603673767f82efd}\label{group__column__reshape_ga8553ff28b4712105c603673767f82efd} 
+\index{Column\_reshape@{Column\_reshape}!explode\_outer@{explode\_outer}}
+\index{explode\_outer@{explode\_outer}!Column\_reshape@{Column\_reshape}}
+\doxysubsubsection{\texorpdfstring{explode\_outer()}{explode\_outer()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::explode\+\_\+outer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input\+\_\+table,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{explode\+\_\+column\+\_\+idx,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Explodes a list column\textquotesingle{}s elements retaining any null entries or empty lists inside. 
+
+Any list is exploded, which means the elements of the list in each row are expanded into new rows in the output. The corresponding rows for other columns in the input are duplicated. Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[[5,10,15],\ 100],}
+\DoxyCodeLine{[[20,25],\ \ \ 200],}
+\DoxyCodeLine{[[30],\ \ \ \ \ \ 300],}
+\DoxyCodeLine{returns}
+\DoxyCodeLine{[5,\ \ \ \ \ \ \ \ \ 100],}
+\DoxyCodeLine{[10,\ \ \ \ \ \ \ \ 100],}
+\DoxyCodeLine{[15,\ \ \ \ \ \ \ \ 100],}
+\DoxyCodeLine{[20,\ \ \ \ \ \ \ \ 200],}
+\DoxyCodeLine{[25,\ \ \ \ \ \ \ \ 200],}
+\DoxyCodeLine{[30,\ \ \ \ \ \ \ \ 300],}
+
+\end{DoxyCode}
+
+
+Nulls and empty lists propagate as null entries in the result. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[[5,null,15],\ 100],}
+\DoxyCodeLine{[null,\ \ \ \ \ \ \ \ 200],}
+\DoxyCodeLine{[[],\ \ \ \ \ \ \ \ \ \ 300],}
+\DoxyCodeLine{returns}
+\DoxyCodeLine{[5,\ \ \ \ \ \ \ \ \ \ \ 100],}
+\DoxyCodeLine{[null,\ \ \ \ \ \ \ \ 100],}
+\DoxyCodeLine{[15,\ \ \ \ \ \ \ \ \ \ 100],}
+\DoxyCodeLine{[null,\ \ \ \ \ \ \ \ 200],}
+\DoxyCodeLine{[null,\ \ \ \ \ \ \ \ 300],}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em input\+\_\+table} & Table to explode. \\
+\hline
+{\em explode\+\_\+column\+\_\+idx} & Column index to explode inside the table. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A new table with explode\+\_\+col exploded. 
+\end{DoxyReturn}
+\Hypertarget{group__column__reshape_ga00d434c2efba8113e6e92c3b0b448968}\label{group__column__reshape_ga00d434c2efba8113e6e92c3b0b448968} 
+\index{Column\_reshape@{Column\_reshape}!explode\_outer\_position@{explode\_outer\_position}}
+\index{explode\_outer\_position@{explode\_outer\_position}!Column\_reshape@{Column\_reshape}}
+\doxysubsubsection{\texorpdfstring{explode\_outer\_position()}{explode\_outer\_position()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::explode\+\_\+outer\+\_\+position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input\+\_\+table,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{explode\+\_\+column\+\_\+idx,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Explodes a list column\textquotesingle{}s elements retaining any null entries or empty lists and includes a position column. 
+
+Any list is exploded, which means the elements of the list in each row are expanded into new rows in the output. The corresponding rows for other columns in the input are duplicated. A position column is added that has the index inside the original list for each row. Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[[5,10,15],\ 100],}
+\DoxyCodeLine{[[20,25],\ \ \ 200],}
+\DoxyCodeLine{[[30],\ \ \ \ \ \ 300],}
+\DoxyCodeLine{returns}
+\DoxyCodeLine{[0,\ \ \ 5,\ \ \ \ 100],}
+\DoxyCodeLine{[1,\ \ 10,\ \ \ \ 100],}
+\DoxyCodeLine{[2,\ \ 15,\ \ \ \ 100],}
+\DoxyCodeLine{[0,\ \ 20,\ \ \ \ 200],}
+\DoxyCodeLine{[1,\ \ 25,\ \ \ \ 200],}
+\DoxyCodeLine{[0,\ \ 30,\ \ \ \ 300],}
+
+\end{DoxyCode}
+
+
+Nulls and empty lists propagate as null entries in the result. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[[5,null,15],\ 100],}
+\DoxyCodeLine{[null,\ \ \ \ \ \ \ \ 200],}
+\DoxyCodeLine{[[],\ \ \ \ \ \ \ \ \ \ 300],}
+\DoxyCodeLine{returns}
+\DoxyCodeLine{[0,\ \ \ \ \ 5,\ \ \ \ 100],}
+\DoxyCodeLine{[1,\ \ null,\ \ \ \ 100],}
+\DoxyCodeLine{[2,\ \ \ \ 15,\ \ \ \ 100],}
+\DoxyCodeLine{[0,\ \ null,\ \ \ \ 200],}
+\DoxyCodeLine{[0,\ \ null,\ \ \ \ 300],}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em input\+\_\+table} & Table to explode. \\
+\hline
+{\em explode\+\_\+column\+\_\+idx} & Column index to explode inside the table. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A new table with explode\+\_\+col exploded. 
+\end{DoxyReturn}
+\Hypertarget{group__column__reshape_gabaf540f670a5b6d194472b8b0bf07dc7}\label{group__column__reshape_gabaf540f670a5b6d194472b8b0bf07dc7} 
+\index{Column\_reshape@{Column\_reshape}!explode\_position@{explode\_position}}
+\index{explode\_position@{explode\_position}!Column\_reshape@{Column\_reshape}}
+\doxysubsubsection{\texorpdfstring{explode\_position()}{explode\_position()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::explode\+\_\+position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input\+\_\+table,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{explode\+\_\+column\+\_\+idx,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Explodes a list column\textquotesingle{}s elements and includes a position column. 
+
+Any list is exploded, which means the elements of the list in each row are expanded into new rows in the output. The corresponding rows for other columns in the input are duplicated. A position column is added that has the index inside the original list for each row. Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[[5,10,15],\ 100],}
+\DoxyCodeLine{[[20,25],\ \ \ 200],}
+\DoxyCodeLine{[[30],\ \ \ \ \ \ 300],}
+\DoxyCodeLine{returns}
+\DoxyCodeLine{[0,\ \ \ 5,\ \ \ \ \ 100],}
+\DoxyCodeLine{[1,\ \ \ 10,\ \ \ \ 100],}
+\DoxyCodeLine{[2,\ \ \ 15,\ \ \ \ 100],}
+\DoxyCodeLine{[0,\ \ \ 20,\ \ \ \ 200],}
+\DoxyCodeLine{[1,\ \ \ 25,\ \ \ \ 200],}
+\DoxyCodeLine{[0,\ \ \ 30,\ \ \ \ 300],}
+
+\end{DoxyCode}
+
+
+Nulls and empty lists propagate in different ways depending on what is null or empty. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[[5,null,15],\ 100],}
+\DoxyCodeLine{[null,\ \ \ \ \ \ \ \ 200],}
+\DoxyCodeLine{[[],\ \ \ \ \ \ \ \ \ \ 300],}
+\DoxyCodeLine{returns}
+\DoxyCodeLine{[0,\ \ \ \ \ 5,\ \ \ \ 100],}
+\DoxyCodeLine{[1,\ \ null,\ \ \ \ 100],}
+\DoxyCodeLine{[2,\ \ \ \ 15,\ \ \ \ 100],}
+
+\end{DoxyCode}
+ Note that null lists are not included in the resulting table, but nulls inside lists and empty lists will be represented with a null entry for that column in that row.
+
+
+\begin{DoxyParams}{参数}
+{\em input\+\_\+table} & Table to explode. \\
+\hline
+{\em explode\+\_\+column\+\_\+idx} & Column index to explode inside the table. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A new table with exploded value and position. The column order of return table is \mbox{[}cols before explode\+\_\+input, explode\+\_\+position, explode\+\_\+value, cols after explode\+\_\+input\mbox{]}. 
+\end{DoxyReturn}
+\Hypertarget{group__column__reshape_ga3e7d0d4fe81ad51f337a538cd019df2f}\label{group__column__reshape_ga3e7d0d4fe81ad51f337a538cd019df2f} 
+\index{Column\_reshape@{Column\_reshape}!interleave\_columns@{interleave\_columns}}
+\index{interleave\_columns@{interleave\_columns}!Column\_reshape@{Column\_reshape}}
+\doxysubsubsection{\texorpdfstring{interleave\_columns()}{interleave\_columns()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::interleave\+\_\+columns (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Interleave columns of a table into a single column. 
+
+Converts the column major table {\ttfamily input} into a row major column. Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{in\ \ \ \ \ =\ [[A1,\ A2,\ A3],\ [B1,\ B2,\ B3]]}
+\DoxyCodeLine{\textcolor{keywordflow}{return}\ =\ [A1,\ B1,\ A2,\ B2,\ A3,\ B3]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if input contains no columns. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if input columns dtypes are not identical.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & Table containing columns to interleave \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The interleaved columns as a single column 
+\end{DoxyReturn}
+\Hypertarget{group__column__reshape_ga81245f60b1755f56e59c86291aebd7a0}\label{group__column__reshape_ga81245f60b1755f56e59c86291aebd7a0} 
+\index{Column\_reshape@{Column\_reshape}!tile@{tile}}
+\index{tile@{tile}!Column\_reshape@{Column\_reshape}}
+\doxysubsubsection{\texorpdfstring{tile()}{tile()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::tile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{count,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Repeats the rows from {\ttfamily input} table {\ttfamily count} times to form a new table. 
+
+{\ttfamily output.\+num\+\_\+columns() == input.\+num\+\_\+columns()} {\ttfamily output.\+num\+\_\+rows() == input.\+num\+\_\+rows() \texorpdfstring{$\ast$}{*} count}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{input\ \ =\ [[8,\ 4,\ 7],\ [5,\ 2,\ 3]]}
+\DoxyCodeLine{count\ \ =\ 2}
+\DoxyCodeLine{\textcolor{keywordflow}{return}\ =\ [[8,\ 4,\ 7,\ 8,\ 4,\ 7],\ [5,\ 2,\ 3,\ 5,\ 2,\ 3]]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & Table containing rows to be repeated \\
+\hline
+\mbox{\texttt{ in}}  & {\em count} & Number of times to tile \"{}rows\"{}. Must be non-\/negative \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The table containing the tiled \"{}rows\"{} 
+\end{DoxyReturn}

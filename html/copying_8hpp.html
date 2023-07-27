@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: D:/gitLibrary/cudf/cpp/include/cudf/copying.hpp 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('copying_8hpp.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#enum-members">枚举</a> &#124;
+<a href="#func-members">函数</a>  </div>
+  <div class="headertitle"><div class="title">copying.hpp 文件参考<div class="ingroups"><a class="el" href="group__column__copy.html">Column_copy</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Column APIs for gather, scatter, split, slice, etc.  
+<a href="#details">更多...</a></p>
+<div class="textblock"><code>#include &lt;<a class="el" href="column__view_8hpp_source.html">cudf/column/column_view.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="lists__column__view_8hpp_source.html">cudf/lists/lists_column_view.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="scalar_8hpp_source.html">cudf/scalar/scalar.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="strings__column__view_8hpp_source.html">cudf/strings/strings_column_view.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="structs__column__view_8hpp_source.html">cudf/structs/structs_column_view.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="table_8hpp_source.html">cudf/table/table.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="types_8hpp_source.html">cudf/types.hpp</a>&gt;</code><br />
+<code>#include &lt;rmm/mr/device/per_device_resource.hpp&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+copying.hpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="copying_8hpp__incl.png" border="0" usemap="#a_d_1_2git_library_2cudf_2cpp_2include_2cudf_2copying_8hpp" alt=""/></div>
+<map name="a_d_1_2git_library_2cudf_2cpp_2include_2cudf_2copying_8hpp" id="a_d_1_2git_library_2cudf_2cpp_2include_2cudf_2copying_8hpp">
+<area shape="rect" title="Column APIs for gather, scatter, split, slice, etc." alt="" coords="1230,5,1423,48"/>
+<area shape="rect" href="column__view_8hpp.html" title="column view class definitions" alt="" coords="1905,352,2042,395"/>
+<area shape="poly" title=" " alt="" coords="1424,44,1509,65,1596,93,1695,131,1773,163,1809,182,1844,206,1882,236,1923,276,1946,305,1963,337,1958,339,1942,308,1919,279,1878,240,1841,210,1806,187,1771,168,1693,136,1594,99,1507,70,1423,49"/>
+<area shape="rect" href="types_8hpp.html" title="Type declarations for libcudf." alt="" coords="1986,715,2092,741"/>
+<area shape="poly" title=" " alt="" coords="1230,34,759,56,505,75,401,86,322,99,266,106,211,108,109,109,68,117,36,133,24,145,15,161,10,182,8,207,8,556,13,594,26,622,50,644,84,664,115,672,175,680,366,692,629,702,933,710,1546,720,1971,724,1971,729,1546,725,932,716,629,708,366,698,174,685,114,677,82,669,47,648,22,625,7,595,3,556,3,207,5,181,10,159,20,142,33,129,66,112,108,104,210,102,266,101,321,93,400,81,505,69,758,51,1229,29"/>
+<area shape="rect" title=" " alt="" coords="1523,451,1578,477"/>
+<area shape="poly" title=" " alt="" coords="1407,46,1464,69,1520,103,1543,124,1562,148,1574,176,1579,206,1579,292,1572,371,1560,437,1554,436,1567,371,1573,292,1573,207,1569,177,1557,151,1539,127,1517,107,1462,74,1405,51"/>
+<area shape="rect" href="lists__column__view_8hpp.html" title="Class definition for cudf::lists_column_view" alt="" coords="1130,187,1281,229"/>
+<area shape="poly" title=" " alt="" coords="1315,50,1229,176,1225,173,1311,47"/>
+<area shape="rect" title=" " alt="" coords="322,443,494,485"/>
+<area shape="poly" title=" " alt="" coords="1230,36,950,54,778,70,604,89,443,112,309,140,258,155,219,172,195,189,189,198,187,207,187,292,190,318,199,341,214,362,232,380,277,412,326,435,324,439,275,416,229,385,210,365,195,343,185,319,181,292,181,206,184,196,191,186,216,167,256,150,308,135,442,107,603,83,777,64,950,49,1230,30"/>
+<area shape="rect" title=" " alt="" coords="1419,360,1488,387"/>
+<area shape="poly" title=" " alt="" coords="1335,47,1396,228,1444,345,1439,347,1391,230,1330,49"/>
+<area shape="rect" href="scalar_8hpp.html" title="Class definitions for cudf::scalar" alt="" coords="565,104,713,131"/>
+<area shape="poly" title=" " alt="" coords="1230,43,728,107,727,102,1229,38"/>
+<area shape="rect" href="table_8hpp.html" title="Class definition for cudf::table" alt="" coords="972,195,1106,221"/>
+<area shape="poly" title=" " alt="" coords="1295,51,1072,189,1070,184,1292,46"/>
+<area shape="rect" href="strings__column__view_8hpp.html" title="Class definition for cudf::strings_column_view" alt="" coords="2005,96,2136,139"/>
+<area shape="poly" title=" " alt="" coords="1424,31,1680,53,1834,71,1987,93,1991,94,1990,99,1986,99,1833,76,1679,58,1424,37"/>
+<area shape="rect" href="structs__column__view_8hpp.html" title="Class definition for cudf::structs_column_view." alt="" coords="1405,187,1539,229"/>
+<area shape="poly" title=" " alt="" coords="1347,47,1389,94,1450,173,1446,176,1385,98,1343,50"/>
+<area shape="poly" title=" " alt="" coords="2043,378,2193,394,2377,424,2466,444,2545,469,2608,498,2632,514,2650,532,2657,543,2659,554,2650,577,2622,605,2579,632,2494,669,2391,697,2285,715,2187,725,2107,729,2107,723,2187,719,2284,710,2390,692,2492,664,2576,627,2619,601,2646,575,2653,554,2652,545,2646,535,2629,518,2606,502,2543,474,2464,449,2376,429,2192,399,2042,383"/>
+<area shape="rect" href="error_8hpp.html" title=" " alt="" coords="3495,541,3641,568"/>
+<area shape="poly" title=" " alt="" coords="2043,376,2388,398,2616,417,2847,440,3202,489,3484,536,3483,541,3201,494,2846,445,2616,422,2388,403,2042,381"/>
+<area shape="rect" href="span_8hpp.html" title=" " alt="" coords="1218,451,1366,477"/>
+<area shape="poly" title=" " alt="" coords="1905,386,1381,454,1380,449,1904,381"/>
+<area shape="rect" title=" " alt="" coords="2386,632,2438,659"/>
+<area shape="poly" title=" " alt="" coords="2043,379,2141,399,2195,417,2245,440,2273,458,2298,480,2343,528,2378,577,2401,617,2397,620,2373,580,2339,532,2295,484,2270,463,2243,445,2193,422,2140,405,2042,384"/>
+<area shape="rect" title=" " alt="" coords="1868,541,1951,568"/>
+<area shape="poly" title=" " alt="" coords="1969,396,1921,529,1916,527,1963,394"/>
+<area shape="rect" href="traits_8hpp.html" title=" " alt="" coords="2083,451,2232,477"/>
+<area shape="poly" title=" " alt="" coords="2018,393,2119,442,2117,446,2015,398"/>
+<area shape="rect" href="type__dispatcher_8hpp.html" title="Defines the mapping between cudf::type_id runtime type information and concrete C++ types." alt="" coords="2715,443,2834,485"/>
+<area shape="poly" title=" " alt="" coords="2043,375,2327,395,2509,414,2692,440,2701,442,2700,447,2692,445,2509,419,2327,401,2042,381"/>
+<area shape="poly" title=" " alt="" coords="1905,392,1593,456,1592,451,1903,386"/>
+<area shape="rect" title=" " alt="" coords="2460,789,2524,816"/>
+<area shape="poly" title=" " alt="" coords="2093,735,2446,791,2445,797,2092,741"/>
+<area shape="rect" title=" " alt="" coords="1351,789,1414,816"/>
+<area shape="poly" title=" " alt="" coords="1985,738,1429,799,1429,794,1985,733"/>
+<area shape="rect" title=" " alt="" coords="1966,789,2026,816"/>
+<area shape="poly" title=" " alt="" coords="2034,743,2013,778,2008,775,2029,741"/>
+<area shape="rect" title=" " alt="" coords="2051,789,2112,816"/>
+<area shape="poly" title=" " alt="" coords="2048,741,2069,775,2064,778,2044,743"/>
+<area shape="rect" title=" " alt="" coords="3639,632,3700,659"/>
+<area shape="poly" title=" " alt="" coords="3584,567,3646,620,3642,624,3581,571"/>
+<area shape="rect" title=" " alt="" coords="3724,632,3858,659"/>
+<area shape="poly" title=" " alt="" coords="3601,566,3747,624,3745,629,3599,571"/>
+<area shape="rect" title=" " alt="" coords="3537,632,3615,659"/>
+<area shape="poly" title=" " alt="" coords="3572,568,3576,617,3571,617,3566,569"/>
+<area shape="rect" title=" " alt="" coords="3291,715,3344,741"/>
+<area shape="poly" title=" " alt="" coords="3562,570,3525,617,3499,644,3469,669,3413,699,3359,718,3357,713,3411,694,3467,664,3495,641,3521,614,3558,567"/>
+<area shape="poly" title=" " alt="" coords="1218,477,1039,503,963,519,938,527,925,535,919,545,917,554,925,575,965,626,1015,669,1070,704,1129,733,1188,755,1245,772,1337,792,1336,797,1243,777,1187,760,1127,738,1068,709,1011,673,961,629,920,577,912,554,914,543,921,531,935,522,962,514,1038,497,1217,471"/>
+<area shape="rect" title=" " alt="" coords="525,541,675,568"/>
+<area shape="poly" title=" " alt="" coords="1239,481,1199,488,1056,505,943,511,831,518,688,536,665,540,664,535,688,531,831,513,943,506,1055,500,1198,483,1238,475"/>
+<area shape="rect" title=" " alt="" coords="700,541,860,568"/>
+<area shape="poly" title=" " alt="" coords="1236,481,1199,488,1039,512,879,536,854,541,853,535,878,531,1038,507,1198,483,1235,475"/>
+<area shape="rect" title=" " alt="" coords="1075,541,1229,568"/>
+<area shape="poly" title=" " alt="" coords="1273,480,1186,535,1183,531,1271,476"/>
+<area shape="rect" title=" " alt="" coords="1252,533,1412,576"/>
+<area shape="poly" title=" " alt="" coords="1300,477,1319,519,1314,521,1295,479"/>
+<area shape="rect" title=" " alt="" coords="1436,541,1583,568"/>
+<area shape="poly" title=" " alt="" coords="1324,475,1466,533,1464,538,1322,480"/>
+<area shape="rect" title=" " alt="" coords="1607,541,1742,568"/>
+<area shape="poly" title=" " alt="" coords="1351,475,1595,531,1612,535,1611,540,1594,536,1350,481"/>
+<area shape="rect" title=" " alt="" coords="935,541,1052,568"/>
+<area shape="poly" title=" " alt="" coords="1250,480,1051,539,1049,534,1248,475"/>
+<area shape="poly" title=" " alt="" coords="1366,471,1576,498,1680,515,1755,531,1785,541,1806,553,1828,564,1857,573,1927,589,1987,598,2091,604,2196,606,2258,611,2330,621,2372,630,2371,636,2329,627,2257,617,2196,611,2091,609,1987,603,1926,594,1855,579,1826,569,1804,557,1783,546,1754,536,1679,520,1575,504,1366,477"/>
+<area shape="poly" title=" " alt="" coords="1366,472,1562,497,1799,531,1854,540,1853,545,1798,536,1561,502,1366,477"/>
+<area shape="poly" title=" " alt="" coords="2147,480,2127,504,2106,535,2086,579,2069,624,2047,701,2042,699,2064,622,2081,577,2102,532,2122,501,2143,476"/>
+<area shape="rect" href="fixed__point_8hpp.html" title="Class definition for fixed point data type" alt="" coords="2812,533,2954,576"/>
+<area shape="poly" title=" " alt="" coords="2232,471,2743,531,2797,538,2797,543,2742,536,2231,476"/>
+<area shape="rect" title=" " alt="" coords="2803,715,2939,741"/>
+<area shape="poly" title=" " alt="" coords="2232,468,2457,490,2570,508,2615,519,2649,531,2714,569,2772,616,2820,663,2854,702,2850,705,2816,667,2769,620,2711,573,2647,536,2613,524,2568,513,2457,496,2232,473"/>
+<area shape="rect" href="dictionary_8hpp.html" title="Concrete type definition for dictionary columns." alt="" coords="2450,541,2636,568"/>
+<area shape="poly" title=" " alt="" coords="2213,475,2474,535,2473,540,2212,481"/>
+<area shape="rect" href="durations_8hpp.html" title="Concrete type definitions for int32_t and int64_t durations in varying resolutions." alt="" coords="2134,632,2317,659"/>
+<area shape="poly" title=" " alt="" coords="2148,479,2133,499,2119,523,2112,550,2112,562,2117,575,2128,590,2142,603,2175,623,2172,628,2139,608,2124,594,2112,577,2107,564,2106,549,2114,521,2128,496,2144,476"/>
+<area shape="rect" href="timestamps_8hpp.html" title="Concrete type definitions for int32_t and int64_t timestamps in varying resolutions as durations sinc..." alt="" coords="2126,541,2325,568"/>
+<area shape="poly" title=" " alt="" coords="2169,476,2209,528,2205,531,2165,480"/>
+<area shape="poly" title=" " alt="" coords="2849,579,2757,626,2701,650,2642,669,2569,687,2494,700,2346,718,2211,727,2107,730,2107,724,2211,722,2345,713,2494,695,2568,681,2641,664,2699,645,2755,621,2846,574"/>
+<area shape="poly" title=" " alt="" coords="2854,579,2715,669,2527,784,2524,779,2712,664,2851,574"/>
+<area shape="poly" title=" " alt="" coords="2955,565,3050,587,3152,622,3287,704,3284,709,3150,626,3048,592,2953,571"/>
+<area shape="rect" title=" " alt="" coords="3236,624,3361,667"/>
+<area shape="poly" title=" " alt="" coords="2955,567,3218,621,3222,622,3221,628,3217,627,2953,572"/>
+<area shape="rect" href="temporary_8hpp.html" title=" " alt="" coords="2913,632,3111,659"/>
+<area shape="poly" title=" " alt="" coords="2914,574,2983,621,2980,626,2911,579"/>
+<area shape="rect" title=" " alt="" coords="2963,715,3077,741"/>
+<area shape="poly" title=" " alt="" coords="2884,576,2886,620,2892,644,2903,665,2929,689,2961,707,2958,711,2926,694,2899,668,2887,646,2881,621,2878,577"/>
+<area shape="poly" title=" " alt="" coords="2875,577,2860,624,2859,664,2866,700,2860,701,2854,664,2855,624,2870,575"/>
+<area shape="rect" title=" " alt="" coords="3111,715,3185,741"/>
+<area shape="poly" title=" " alt="" coords="2955,555,2998,561,3043,573,3087,593,3125,622,3137,640,3145,660,3151,699,3146,700,3140,661,3132,642,3121,626,3084,598,3041,578,2997,567,2954,560"/>
+<area shape="poly" title=" " alt="" coords="2913,658,2107,724,2107,718,2912,652"/>
+<area shape="poly" title=" " alt="" coords="3061,657,3277,713,3275,718,3059,662"/>
+<area shape="poly" title=" " alt="" coords="3016,659,3020,700,3015,701,3011,659"/>
+<area shape="poly" title=" " alt="" coords="2991,661,2906,710,2904,705,2989,657"/>
+<area shape="poly" title=" " alt="" coords="3035,657,3116,705,3113,709,3032,661"/>
+<area shape="poly" title=" " alt="" coords="2539,570,2507,619,2482,647,2452,669,2424,681,2388,691,2296,707,2107,725,2107,720,2295,701,2386,685,2423,676,2449,664,2478,643,2502,616,2534,567"/>
+<area shape="poly" title=" " alt="" coords="2525,571,2444,626,2441,621,2522,566"/>
+<area shape="poly" title=" " alt="" coords="2228,569,2228,617,2223,617,2223,569"/>
+<area shape="poly" title=" " alt="" coords="2763,487,2733,530,2694,578,2592,669,2551,682,2498,694,2365,711,2225,721,2107,727,2107,722,2224,716,2365,705,2497,688,2550,677,2589,664,2690,574,2729,527,2759,484"/>
+<area shape="poly" title=" " alt="" coords="2835,469,3418,531,3481,539,3480,544,3417,536,2835,474"/>
+<area shape="poly" title=" " alt="" coords="2835,469,2968,488,3132,519,3211,540,3282,564,3338,591,3360,606,3376,623,3383,644,3377,667,3363,688,3346,707,3342,703,3359,685,3372,665,3377,645,3371,625,3356,610,3336,596,3280,568,3210,545,3131,524,2968,493,2834,475"/>
+<area shape="poly" title=" " alt="" coords="2801,484,2848,522,2845,526,2798,488"/>
+<area shape="poly" title=" " alt="" coords="2836,483,3226,616,3224,621,2834,488"/>
+<area shape="poly" title=" " alt="" coords="2721,488,2591,538,2589,533,2719,483"/>
+<area shape="poly" title=" " alt="" coords="2715,475,2586,496,2511,514,2438,536,2388,556,2339,580,2259,626,2256,621,2336,576,2385,552,2436,531,2510,508,2585,491,2714,470"/>
+<area shape="poly" title=" " alt="" coords="2715,477,2343,536,2313,541,2312,536,2342,531,2714,472"/>
+<area shape="poly" title=" " alt="" coords="1281,215,1584,248,1791,275,1867,306,1931,342,1929,346,1865,311,1790,280,1584,253,1281,220"/>
+<area shape="rect" href="column_8hpp.html" title="Class definition for cudf::column" alt="" coords="1014,277,1176,304"/>
+<area shape="poly" title=" " alt="" coords="1178,232,1125,271,1122,266,1175,228"/>
+<area shape="rect" title=" " alt="" coords="144,541,326,568"/>
+<area shape="poly" title=" " alt="" coords="1130,231,956,281,853,316,753,354,683,389,631,422,578,455,506,488,418,514,306,540,305,535,417,508,504,483,575,450,628,418,680,385,751,350,852,311,954,276,1129,226"/>
+<area shape="poly" title=" " alt="" coords="1176,297,1890,362,1890,367,1176,302"/>
+<area shape="poly" title=" " alt="" coords="1013,301,889,320,820,335,753,354,698,381,630,421,562,462,506,488,438,502,362,507,214,506,157,509,135,513,120,519,112,527,111,538,118,554,134,574,149,586,171,598,235,619,322,638,428,655,684,681,978,700,1280,712,1565,719,1971,724,1971,729,1565,725,1280,718,977,705,684,687,427,660,321,644,234,625,169,603,146,591,130,578,113,556,105,539,107,524,117,514,134,507,156,503,214,501,362,501,438,496,504,483,559,457,627,417,696,376,751,350,819,330,888,314,1012,296"/>
+<area shape="poly" title=" " alt="" coords="1077,307,1049,327,1022,354,999,390,988,424,974,456,962,472,944,487,911,508,880,520,851,526,822,528,762,528,728,530,688,536,668,540,667,535,688,531,727,525,762,523,822,523,850,521,878,515,908,503,941,483,958,469,970,454,983,422,995,388,1018,350,1046,323,1074,302"/>
+<area shape="poly" title=" " alt="" coords="1101,304,1107,345,1106,371,1100,396,1085,428,1067,450,1045,468,1015,488,985,501,944,515,850,540,849,535,942,510,983,496,1012,483,1042,464,1063,446,1080,425,1095,394,1101,370,1101,346,1095,305"/>
+<area shape="poly" title=" " alt="" coords="1173,302,1240,320,1307,350,1321,360,1330,371,1351,393,1377,408,1400,417,1451,440,1481,464,1494,474,1512,483,1560,499,1603,509,1678,514,1754,516,1798,521,1850,531,1862,534,1861,539,1849,536,1798,526,1754,522,1677,520,1602,514,1559,504,1510,488,1491,478,1478,468,1448,445,1397,422,1375,413,1348,397,1326,374,1317,364,1304,354,1238,325,1172,307"/>
+<area shape="poly" title=" " alt="" coords="1177,300,1262,318,1307,332,1351,350,1368,360,1380,370,1408,392,1461,421,1511,443,1509,448,1458,425,1405,397,1377,374,1365,364,1348,354,1305,337,1261,323,1175,305"/>
+<area shape="rect" href="null__mask_8hpp.html" title="APIs for managing validity bitmasks" alt="" coords="1160,360,1293,387"/>
+<area shape="poly" title=" " alt="" coords="1117,302,1195,350,1192,354,1114,307"/>
+<area shape="poly" title=" " alt="" coords="1013,303,873,322,715,355,583,396,470,439,468,434,581,391,714,349,872,317,1013,298"/>
+<area shape="rect" href="utilities_2default__stream_8hpp.html" title=" " alt="" coords="823,352,956,395"/>
+<area shape="poly" title=" " alt="" coords="1064,307,957,349,955,344,1062,302"/>
+<area shape="poly" title=" " alt="" coords="1013,301,914,319,862,334,812,354,787,371,756,397,703,445,679,468,668,478,652,488,607,506,568,517,498,525,427,526,338,536,311,541,310,536,337,531,427,521,498,519,567,511,605,501,650,483,665,474,676,465,699,441,753,393,783,367,809,350,860,329,913,314,1012,296"/>
+<area shape="poly" title=" " alt="" coords="1176,302,1284,321,1401,349,1410,352,1408,357,1399,355,1283,327,1175,307"/>
+<area shape="rect" title=" " alt="" coords="1033,360,1085,387"/>
+<area shape="poly" title=" " alt="" coords="1091,306,1073,348,1068,345,1087,303"/>
+<area shape="poly" title=" " alt="" coords="1258,385,1379,440,1414,463,1429,473,1450,483,1495,496,1534,503,1603,505,1672,508,1711,516,1756,531,1811,561,1882,608,2012,703,2009,707,1879,613,1808,565,1754,536,1710,521,1671,514,1602,510,1533,508,1494,501,1448,488,1427,478,1411,468,1376,445,1256,390"/>
+<area shape="poly" title=" " alt="" coords="1238,386,1276,437,1272,440,1234,389"/>
+<area shape="poly" title=" " alt="" coords="1210,389,1127,438,1072,465,1014,488,925,511,853,519,780,523,688,536,667,540,666,535,688,531,780,518,852,513,924,505,1013,483,1070,460,1125,433,1207,385"/>
+<area shape="poly" title=" " alt="" coords="1274,385,1509,449,1508,454,1272,390"/>
+<area shape="poly" title=" " alt="" coords="1160,388,1098,397,775,433,509,457,508,452,775,428,1097,392,1159,383"/>
+<area shape="rect" href="detail_2utilities_2default__stream_8hpp.html" title=" " alt="" coords="771,443,906,485"/>
+<area shape="poly" title=" " alt="" coords="880,396,860,431,855,429,875,394"/>
+<area shape="rect" title=" " alt="" coords="350,541,501,568"/>
+<area shape="poly" title=" " alt="" coords="907,394,919,415,929,439,931,464,921,487,907,499,889,509,843,522,788,529,727,532,606,532,554,532,514,536,492,540,491,535,513,531,554,527,606,526,727,526,787,524,842,517,887,504,904,495,917,484,926,464,924,441,914,417,902,397"/>
+<area shape="poly" title=" " alt="" coords="847,397,760,445,733,468,720,478,702,488,650,506,604,518,523,525,441,526,393,529,338,536,311,541,310,535,337,531,393,524,441,521,523,520,603,512,648,501,700,483,717,474,729,464,757,440,845,393"/>
+<area shape="poly" title=" " alt="" coords="771,484,753,488,514,536,495,540,493,535,513,531,751,483,770,479"/>
+<area shape="poly" title=" " alt="" coords="771,484,752,488,636,505,545,513,454,521,338,536,310,541,309,536,337,531,453,516,545,508,636,500,752,483,770,479"/>
+<area shape="poly" title=" " alt="" coords="565,127,419,145,335,158,252,176,176,198,115,224,91,239,73,255,62,271,59,290,59,556,63,586,74,608,92,624,115,635,174,649,242,664,285,673,352,681,539,694,781,704,1054,712,1594,721,1971,724,1971,729,1594,726,1054,717,781,710,539,699,351,686,285,678,241,669,173,654,113,640,89,628,70,612,58,588,53,556,53,289,58,269,69,251,88,234,112,219,175,193,251,171,334,153,418,139,564,122"/>
+<area shape="poly" title=" " alt="" coords="565,125,477,138,431,150,387,166,348,187,316,215,296,248,290,268,288,289,288,375,287,435,294,459,312,483,532,535,531,540,309,488,289,461,282,436,283,375,283,289,285,267,291,246,312,211,345,183,385,161,430,145,476,133,564,120"/>
+<area shape="poly" title=" " alt="" coords="714,117,827,121,972,132,1133,152,1214,166,1293,184,1322,194,1344,205,1365,217,1394,227,1454,238,1506,242,1597,236,1641,235,1687,238,1736,251,1792,275,1812,288,1826,303,1844,333,1862,364,1875,379,1893,392,1936,414,1981,431,2069,451,2068,456,1979,436,1933,419,1891,397,1872,382,1858,367,1840,336,1822,306,1808,292,1789,280,1735,256,1686,244,1641,240,1598,242,1506,247,1453,244,1393,232,1363,222,1341,210,1320,199,1291,189,1213,171,1132,157,972,137,827,126,713,122"/>
+<area shape="poly" title=" " alt="" coords="673,129,1049,269,1047,274,671,134"/>
+<area shape="poly" title=" " alt="" coords="630,133,556,222,509,286,464,353,424,430,420,428,459,351,504,283,552,219,626,129"/>
+<area shape="poly" title=" " alt="" coords="631,133,618,152,607,177,602,203,609,228,627,253,649,275,701,310,756,336,810,353,808,358,754,341,698,315,646,279,623,256,604,230,597,204,602,175,614,150,627,130"/>
+<area shape="poly" title=" " alt="" coords="564,121,464,129,409,139,357,155,309,176,272,205,257,223,246,243,240,265,237,289,237,375,237,526,232,526,232,375,232,289,234,264,242,240,253,220,268,202,307,172,355,150,408,134,463,124,564,116"/>
+<area shape="poly" title=" " alt="" coords="697,129,968,188,967,194,695,134"/>
+<area shape="rect" title=" " alt="" coords="619,195,773,221"/>
+<area shape="poly" title=" " alt="" coords="649,130,682,181,678,184,645,133"/>
+<area shape="poly" title=" " alt="" coords="1088,219,1325,285,1439,321,1479,337,1502,350,1519,369,1532,392,1547,435,1542,437,1527,394,1514,372,1498,354,1477,342,1437,326,1323,290,1087,225"/>
+<area shape="poly" title=" " alt="" coords="1050,220,1080,264,1076,267,1045,223"/>
+<area shape="poly" title=" " alt="" coords="971,218,777,242,681,259,614,280,559,313,509,354,467,396,434,433,430,430,463,393,505,350,556,309,612,275,680,254,776,236,971,213"/>
+<area shape="poly" title=" " alt="" coords="1029,223,920,343,916,339,1025,220"/>
+<area shape="poly" title=" " alt="" coords="1014,224,753,354,684,393,632,426,579,456,506,488,418,514,306,540,305,535,417,508,504,483,576,451,629,421,682,388,751,350,1012,219"/>
+<area shape="poly" title=" " alt="" coords="1072,219,1409,352,1407,357,1070,224"/>
+<area shape="rect" href="table__view_8hpp.html" title="Class definitions for (mutable)_table_view" alt="" coords="1613,277,1779,304"/>
+<area shape="poly" title=" " alt="" coords="1085,219,1119,227,1340,254,1599,278,1598,284,1340,259,1118,232,1084,225"/>
+<area shape="poly" title=" " alt="" coords="1740,302,1891,346,1890,351,1739,307"/>
+<area shape="poly" title=" " alt="" coords="1717,302,1766,337,1831,390,1902,456,1935,493,1965,532,1990,575,2010,621,2035,700,2030,701,2005,623,1985,578,1960,535,1931,496,1898,460,1828,394,1762,341,1714,307"/>
+<area shape="poly" title=" " alt="" coords="1779,289,2186,291,2460,297,2745,310,3013,331,3132,345,3238,361,3326,381,3393,404,3418,417,3436,431,3448,446,3452,462,3452,556,3445,596,3424,630,3395,657,3358,679,3317,696,3276,708,3200,724,3199,718,3274,703,3316,691,3356,674,3391,653,3420,626,3440,594,3447,556,3447,463,3443,448,3433,435,3415,421,3391,409,3324,386,3237,366,3132,350,3012,336,2744,315,2460,302,2186,296,1779,294"/>
+<area shape="poly" title=" " alt="" coords="1688,306,1573,441,1569,437,1684,303"/>
+<area shape="poly" title=" " alt="" coords="2065,140,1989,339,1984,337,2060,138"/>
+<area shape="poly" title=" " alt="" coords="1539,212,1728,235,1821,253,1859,263,1887,275,1925,304,1954,338,1950,342,1921,308,1884,280,1857,269,1820,258,1728,241,1539,218"/>
+<area shape="poly" title=" " alt="" coords="1406,226,1169,276,1168,271,1404,221"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+此图展示该文件直接或间接的被哪些文件引用了:</div>
+<div class="dyncontent">
+<div class="center"><img src="copying_8hpp__dep__incl.png" border="0" usemap="#a_d_1_2git_library_2cudf_2cpp_2include_2cudf_2copying_8hppdep" alt=""/></div>
+<map name="a_d_1_2git_library_2cudf_2cpp_2include_2cudf_2copying_8hppdep" id="a_d_1_2git_library_2cudf_2cpp_2include_2cudf_2copying_8hppdep">
+<area shape="rect" title="Column APIs for gather, scatter, split, slice, etc." alt="" coords="165,5,358,48"/>
+<area shape="rect" href="copy_8hpp.html" title=" " alt="" coords="5,96,160,155"/>
+<area shape="poly" title=" " alt="" coords="212,58,137,98,134,93,209,53"/>
+<area shape="rect" href="detail_2gather_8hpp.html" title=" " alt="" coords="184,96,338,155"/>
+<area shape="poly" title=" " alt="" coords="264,63,264,96,259,96,259,63"/>
+<area shape="rect" href="lists_2gather_8hpp.html" title=" " alt="" coords="362,96,510,155"/>
+<area shape="poly" title=" " alt="" coords="313,53,385,93,383,98,310,58"/>
+</map>
+</div>
+</div>
+<p><a href="copying_8hpp_source.html">浏览源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcudf_1_1packed__columns.html">cudf::packed_columns</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Column data in a serialized format  <a href="structcudf_1_1packed__columns.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcudf_1_1packed__columns_1_1metadata.html">cudf::packed_columns::metadata</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Host-side metadata buffer used for reconstructing columns via unpack.  <a href="structcudf_1_1packed__columns_1_1metadata.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcudf_1_1packed__table.html">cudf::packed_table</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The result(s) of a <a class="el" href="group__column__copy.html#gab171e877b57253d521eb8f6d3c7d7c4a" title="Performs a deep-copy split of a table_view into a set of table_views into a single contiguous block o...">cudf::contiguous_split</a>  <a href="structcudf_1_1packed__table.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:namespacecudf"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecudf.html">cudf</a></td></tr>
+<tr class="memdesc:namespacecudf"><td class="mdescLeft">&#160;</td><td class="mdescRight">cuDF interfaces <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:gae3ba74951558bc7966aae86abc6af5df"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#gae3ba74951558bc7966aae86abc6af5df">cudf::out_of_bounds_policy</a> : bool { <a class="el" href="group__column__copy.html#ggae3ba74951558bc7966aae86abc6af5dfacac2cdaff9b4ab3bcda3b538a86f9edb">cudf::out_of_bounds_policy::NULLIFY</a>
+, <a class="el" href="group__column__copy.html#ggae3ba74951558bc7966aae86abc6af5dfa12c1109487cf9a6a336b1dfe462bfd2d">cudf::out_of_bounds_policy::DONT_CHECK</a>
+ }</td></tr>
+<tr class="memdesc:gae3ba74951558bc7966aae86abc6af5df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Policy to account for possible out-of-bounds indices  <a href="group__column__copy.html#gae3ba74951558bc7966aae86abc6af5df">更多...</a><br /></td></tr>
+<tr class="separator:gae3ba74951558bc7966aae86abc6af5df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga267e03474dcfd85242d2fdc6e5846ec6"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga267e03474dcfd85242d2fdc6e5846ec6">cudf::mask_allocation_policy</a> { <a class="el" href="group__column__copy.html#gga267e03474dcfd85242d2fdc6e5846ec6a443475558f0168dff92ecde26b98ae5a">cudf::mask_allocation_policy::NEVER</a>
+, <a class="el" href="group__column__copy.html#gga267e03474dcfd85242d2fdc6e5846ec6a47e9136fa770199f6a8a9727b6173eb4">cudf::mask_allocation_policy::RETAIN</a>
+, <a class="el" href="group__column__copy.html#gga267e03474dcfd85242d2fdc6e5846ec6af3fc827ade4b968e50406496907ef962">cudf::mask_allocation_policy::ALWAYS</a>
+ }</td></tr>
+<tr class="memdesc:ga267e03474dcfd85242d2fdc6e5846ec6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates when to allocate a mask, based on an existing mask.  <a href="group__column__copy.html#ga267e03474dcfd85242d2fdc6e5846ec6">更多...</a><br /></td></tr>
+<tr class="separator:ga267e03474dcfd85242d2fdc6e5846ec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae7607cde56cb602ab1b198b5bebf7cba"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#gae7607cde56cb602ab1b198b5bebf7cba">cudf::sample_with_replacement</a> : bool { <a class="el" href="group__column__copy.html#ggae7607cde56cb602ab1b198b5bebf7cbaa946003f97ccc52d5d3b54ac0ec31bbfc">cudf::sample_with_replacement::FALSE</a>
+, <a class="el" href="group__column__copy.html#ggae7607cde56cb602ab1b198b5bebf7cbaac0d83f0b82a6b30de8811e69e6d95c61">cudf::sample_with_replacement::TRUE</a>
+ }</td></tr>
+<tr class="memdesc:gae7607cde56cb602ab1b198b5bebf7cba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether a row can be sampled more than once.  <a href="group__column__copy.html#gae7607cde56cb602ab1b198b5bebf7cba">更多...</a><br /></td></tr>
+<tr class="separator:gae7607cde56cb602ab1b198b5bebf7cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:ga19ea162e7794e6cbbc2faba70fbd91aa"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1table.html">table</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga19ea162e7794e6cbbc2faba70fbd91aa">cudf::gather</a> (<a class="el" href="classcudf_1_1table__view.html">table_view</a> const &amp;source_table, <a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;gather_map, <a class="el" href="group__column__copy.html#gae3ba74951558bc7966aae86abc6af5df">out_of_bounds_policy</a> bounds_policy=<a class="el" href="group__column__copy.html#ggae3ba74951558bc7966aae86abc6af5dfa12c1109487cf9a6a336b1dfe462bfd2d">out_of_bounds_policy::DONT_CHECK</a>, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:ga19ea162e7794e6cbbc2faba70fbd91aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gathers the specified rows (including null values) of a set of columns.  <br /></td></tr>
+<tr class="separator:ga19ea162e7794e6cbbc2faba70fbd91aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafbbf4a02a5108cbcd9368ce31efc7f2a"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1table.html">table</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#gafbbf4a02a5108cbcd9368ce31efc7f2a">cudf::reverse</a> (<a class="el" href="classcudf_1_1table__view.html">table_view</a> const &amp;source_table, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:gafbbf4a02a5108cbcd9368ce31efc7f2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverses the rows within a table.  <br /></td></tr>
+<tr class="separator:gafbbf4a02a5108cbcd9368ce31efc7f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6f6bd5517ff6f32a20b20d66a22616a7"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga6f6bd5517ff6f32a20b20d66a22616a7">cudf::reverse</a> (<a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;source_column, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:ga6f6bd5517ff6f32a20b20d66a22616a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverses the elements of a column  <br /></td></tr>
+<tr class="separator:ga6f6bd5517ff6f32a20b20d66a22616a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabd90ba38ea2655ce3b435d2a4f199358"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1table.html">table</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#gabd90ba38ea2655ce3b435d2a4f199358">cudf::scatter</a> (<a class="el" href="classcudf_1_1table__view.html">table_view</a> const &amp;source, <a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;scatter_map, <a class="el" href="classcudf_1_1table__view.html">table_view</a> const &amp;target, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:gabd90ba38ea2655ce3b435d2a4f199358"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scatters the rows of the source table into a copy of the target table according to a scatter map.  <br /></td></tr>
+<tr class="separator:gabd90ba38ea2655ce3b435d2a4f199358"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga474f55905324aea8ed00ff8e3e3fecea"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1table.html">table</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga474f55905324aea8ed00ff8e3e3fecea">cudf::scatter</a> (std::vector&lt; std::reference_wrapper&lt; const <a class="el" href="classcudf_1_1scalar.html">scalar</a> &gt; &gt; const &amp;source, <a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;indices, <a class="el" href="classcudf_1_1table__view.html">table_view</a> const &amp;target, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:ga474f55905324aea8ed00ff8e3e3fecea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scatters a row of scalar values into a copy of the target table according to a scatter map.  <br /></td></tr>
+<tr class="separator:ga474f55905324aea8ed00ff8e3e3fecea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga62eff2fcac7ff377df316c7ef37ee4fd"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga62eff2fcac7ff377df316c7ef37ee4fd">cudf::empty_like</a> (<a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;input)</td></tr>
+<tr class="memdesc:ga62eff2fcac7ff377df316c7ef37ee4fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes and returns an empty column of the same type as the <code>input</code>.  <br /></td></tr>
+<tr class="separator:ga62eff2fcac7ff377df316c7ef37ee4fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadf190ab1fe40049bc95bf7aebad93450"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#gadf190ab1fe40049bc95bf7aebad93450">cudf::empty_like</a> (<a class="el" href="classcudf_1_1scalar.html">scalar</a> const &amp;input)</td></tr>
+<tr class="memdesc:gadf190ab1fe40049bc95bf7aebad93450"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes and returns an empty column of the same type as the <code>input</code>.  <br /></td></tr>
+<tr class="separator:gadf190ab1fe40049bc95bf7aebad93450"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab5aa629d9ff2157990e7187b9e1552df"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#gab5aa629d9ff2157990e7187b9e1552df">cudf::allocate_like</a> (<a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;input, <a class="el" href="group__column__copy.html#ga267e03474dcfd85242d2fdc6e5846ec6">mask_allocation_policy</a> mask_alloc=<a class="el" href="group__column__copy.html#gga267e03474dcfd85242d2fdc6e5846ec6a47e9136fa770199f6a8a9727b6173eb4">mask_allocation_policy::RETAIN</a>, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:gab5aa629d9ff2157990e7187b9e1552df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an uninitialized new column of the same size and type as the <code>input</code>.  <br /></td></tr>
+<tr class="separator:gab5aa629d9ff2157990e7187b9e1552df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9c1552cc6c2d49d1a74b907bd4bb2baa"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga9c1552cc6c2d49d1a74b907bd4bb2baa">cudf::allocate_like</a> (<a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;input, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> size, <a class="el" href="group__column__copy.html#ga267e03474dcfd85242d2fdc6e5846ec6">mask_allocation_policy</a> mask_alloc=<a class="el" href="group__column__copy.html#gga267e03474dcfd85242d2fdc6e5846ec6a47e9136fa770199f6a8a9727b6173eb4">mask_allocation_policy::RETAIN</a>, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:ga9c1552cc6c2d49d1a74b907bd4bb2baa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an uninitialized new column of the specified size and same type as the <code>input</code>.  <br /></td></tr>
+<tr class="separator:ga9c1552cc6c2d49d1a74b907bd4bb2baa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf51eaa0bed9085f857e8edbcb4141d76"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1table.html">table</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#gaf51eaa0bed9085f857e8edbcb4141d76">cudf::empty_like</a> (<a class="el" href="classcudf_1_1table__view.html">table_view</a> const &amp;input_table)</td></tr>
+<tr class="memdesc:gaf51eaa0bed9085f857e8edbcb4141d76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a table of empty columns with the same types as the <code>input_table</code>  <br /></td></tr>
+<tr class="separator:gaf51eaa0bed9085f857e8edbcb4141d76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf7453a32aa49fd9a55287a776f2b4b2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#gaf7453a32aa49fd9a55287a776f2b4b2f">cudf::copy_range_in_place</a> (<a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;source, <a class="el" href="classcudf_1_1mutable__column__view.html">mutable_column_view</a> &amp;target, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> source_begin, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> source_end, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> target_begin)</td></tr>
+<tr class="memdesc:gaf7453a32aa49fd9a55287a776f2b4b2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies a range of elements in-place from one column to another.  <br /></td></tr>
+<tr class="separator:gaf7453a32aa49fd9a55287a776f2b4b2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9358e7f2ed4d47e3ee03f24ef711e402"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga9358e7f2ed4d47e3ee03f24ef711e402">cudf::copy_range</a> (<a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;source, <a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;target, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> source_begin, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> source_end, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> target_begin, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:ga9358e7f2ed4d47e3ee03f24ef711e402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies a range of elements out-of-place from one column to another.  <br /></td></tr>
+<tr class="separator:ga9358e7f2ed4d47e3ee03f24ef711e402"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga80b6ccd43dbb2359d520a3f3ea100e8e"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga80b6ccd43dbb2359d520a3f3ea100e8e">cudf::shift</a> (<a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;input, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> offset, <a class="el" href="classcudf_1_1scalar.html">scalar</a> const &amp;fill_value, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:ga80b6ccd43dbb2359d520a3f3ea100e8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new column by shifting all values by an offset.  <br /></td></tr>
+<tr class="separator:ga80b6ccd43dbb2359d520a3f3ea100e8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga52223b0ef6807f9a2454f7395b5425d4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classcudf_1_1column__view.html">column_view</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga52223b0ef6807f9a2454f7395b5425d4">cudf::slice</a> (<a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;input, <a class="el" href="structcudf_1_1host__span.html">host_span</a>&lt; <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> const &gt; indices)</td></tr>
+<tr class="memdesc:ga52223b0ef6807f9a2454f7395b5425d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slices a <code><a class="el" href="classcudf_1_1column__view.html" title="A non-owning, immutable view of device data as a column of elements, some of which may be null as ind...">column_view</a></code> into a set of <code><a class="el" href="classcudf_1_1column__view.html" title="A non-owning, immutable view of device data as a column of elements, some of which may be null as ind...">column_view</a></code>s according to a set of indices.  <br /></td></tr>
+<tr class="separator:ga52223b0ef6807f9a2454f7395b5425d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga77b1d2c6579fa0ad8da690c8cd4c3192"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classcudf_1_1column__view.html">column_view</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga77b1d2c6579fa0ad8da690c8cd4c3192">cudf::slice</a> (<a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;input, std::initializer_list&lt; <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> &gt; indices)</td></tr>
+<tr class="separator:ga77b1d2c6579fa0ad8da690c8cd4c3192"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga61a6785244331834b458545e084b7017"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classcudf_1_1table__view.html">table_view</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga61a6785244331834b458545e084b7017">cudf::slice</a> (<a class="el" href="classcudf_1_1table__view.html">table_view</a> const &amp;input, <a class="el" href="structcudf_1_1host__span.html">host_span</a>&lt; <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> const &gt; indices)</td></tr>
+<tr class="memdesc:ga61a6785244331834b458545e084b7017"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slices a <code><a class="el" href="classcudf_1_1table__view.html" title="A set of cudf::column_view&#39;s of the same size.">table_view</a></code> into a set of <code><a class="el" href="classcudf_1_1table__view.html" title="A set of cudf::column_view&#39;s of the same size.">table_view</a></code>s according to a set of indices.  <br /></td></tr>
+<tr class="separator:ga61a6785244331834b458545e084b7017"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaadc72fabae41e8187065211ebe7d6cce"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classcudf_1_1table__view.html">table_view</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#gaadc72fabae41e8187065211ebe7d6cce">cudf::slice</a> (<a class="el" href="classcudf_1_1table__view.html">table_view</a> const &amp;input, std::initializer_list&lt; <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> &gt; indices)</td></tr>
+<tr class="separator:gaadc72fabae41e8187065211ebe7d6cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga95ac220988903ef24d698ff49c683bfc"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classcudf_1_1column__view.html">column_view</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga95ac220988903ef24d698ff49c683bfc">cudf::split</a> (<a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;input, <a class="el" href="structcudf_1_1host__span.html">host_span</a>&lt; <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> const &gt; splits)</td></tr>
+<tr class="memdesc:ga95ac220988903ef24d698ff49c683bfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits a <code><a class="el" href="classcudf_1_1column__view.html" title="A non-owning, immutable view of device data as a column of elements, some of which may be null as ind...">column_view</a></code> into a set of <code><a class="el" href="classcudf_1_1column__view.html" title="A non-owning, immutable view of device data as a column of elements, some of which may be null as ind...">column_view</a></code>s according to a set of indices derived from expected splits.  <br /></td></tr>
+<tr class="separator:ga95ac220988903ef24d698ff49c683bfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5fb87b85cb2fedb682a6f4103414f97f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classcudf_1_1column__view.html">column_view</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga5fb87b85cb2fedb682a6f4103414f97f">cudf::split</a> (<a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;input, std::initializer_list&lt; <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> &gt; splits)</td></tr>
+<tr class="separator:ga5fb87b85cb2fedb682a6f4103414f97f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga72d5748fbf4bd848295769dce8a80979"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classcudf_1_1table__view.html">table_view</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga72d5748fbf4bd848295769dce8a80979">cudf::split</a> (<a class="el" href="classcudf_1_1table__view.html">table_view</a> const &amp;input, <a class="el" href="structcudf_1_1host__span.html">host_span</a>&lt; <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> const &gt; splits)</td></tr>
+<tr class="memdesc:ga72d5748fbf4bd848295769dce8a80979"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits a <code><a class="el" href="classcudf_1_1table__view.html" title="A set of cudf::column_view&#39;s of the same size.">table_view</a></code> into a set of <code><a class="el" href="classcudf_1_1table__view.html" title="A set of cudf::column_view&#39;s of the same size.">table_view</a></code>s according to a set of indices derived from expected splits.  <br /></td></tr>
+<tr class="separator:ga72d5748fbf4bd848295769dce8a80979"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga94277c977c86ac93ebb279f562906aa0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classcudf_1_1table__view.html">table_view</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga94277c977c86ac93ebb279f562906aa0">cudf::split</a> (<a class="el" href="classcudf_1_1table__view.html">table_view</a> const &amp;input, std::initializer_list&lt; <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> &gt; splits)</td></tr>
+<tr class="separator:ga94277c977c86ac93ebb279f562906aa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab171e877b57253d521eb8f6d3c7d7c4a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structcudf_1_1packed__table.html">packed_table</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#gab171e877b57253d521eb8f6d3c7d7c4a">cudf::contiguous_split</a> (<a class="el" href="classcudf_1_1table__view.html">cudf::table_view</a> const &amp;input, std::vector&lt; <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> &gt; const &amp;splits, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:gab171e877b57253d521eb8f6d3c7d7c4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a deep-copy split of a <code><a class="el" href="classcudf_1_1table__view.html" title="A set of cudf::column_view&#39;s of the same size.">table_view</a></code> into a set of <code><a class="el" href="classcudf_1_1table__view.html" title="A set of cudf::column_view&#39;s of the same size.">table_view</a></code>s into a single contiguous block of memory.  <br /></td></tr>
+<tr class="separator:gab171e877b57253d521eb8f6d3c7d7c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeb39dd8301fb76bfec9e777820bda3f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcudf_1_1packed__columns.html">packed_columns</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#gaeb39dd8301fb76bfec9e777820bda3f2">cudf::pack</a> (<a class="el" href="classcudf_1_1table__view.html">cudf::table_view</a> const &amp;input, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:gaeb39dd8301fb76bfec9e777820bda3f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deep-copy a <code><a class="el" href="classcudf_1_1table__view.html" title="A set of cudf::column_view&#39;s of the same size.">table_view</a></code> into a serialized contiguous memory format  <br /></td></tr>
+<tr class="separator:gaeb39dd8301fb76bfec9e777820bda3f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab28fc2d2294f2840df37814e7a4aa582"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcudf_1_1packed__columns_1_1metadata.html">packed_columns::metadata</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#gab28fc2d2294f2840df37814e7a4aa582">cudf::pack_metadata</a> (<a class="el" href="classcudf_1_1table__view.html">table_view</a> const &amp;<a class="el" href="classcudf_1_1table.html">table</a>, uint8_t const *contiguous_buffer, size_t buffer_size)</td></tr>
+<tr class="memdesc:gab28fc2d2294f2840df37814e7a4aa582"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce the metadata used for packing a table stored in a contiguous buffer.  <br /></td></tr>
+<tr class="separator:gab28fc2d2294f2840df37814e7a4aa582"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1d62a18c2e6f087a92289c63693762cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcudf_1_1table__view.html">table_view</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga1d62a18c2e6f087a92289c63693762cc">cudf::unpack</a> (<a class="el" href="structcudf_1_1packed__columns.html">packed_columns</a> const &amp;input)</td></tr>
+<tr class="memdesc:ga1d62a18c2e6f087a92289c63693762cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserialize the result of <code><a class="el" href="group__column__copy.html#gaeb39dd8301fb76bfec9e777820bda3f2" title="Deep-copy a table_view into a serialized contiguous memory format">cudf::pack</a></code>  <br /></td></tr>
+<tr class="separator:ga1d62a18c2e6f087a92289c63693762cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaaebfb6742c09cccda8fb8a78e19fbd6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcudf_1_1table__view.html">table_view</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#gaaaebfb6742c09cccda8fb8a78e19fbd6">cudf::unpack</a> (uint8_t const *metadata, uint8_t const *gpu_data)</td></tr>
+<tr class="memdesc:gaaaebfb6742c09cccda8fb8a78e19fbd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserialize the result of <code><a class="el" href="group__column__copy.html#gaeb39dd8301fb76bfec9e777820bda3f2" title="Deep-copy a table_view into a serialized contiguous memory format">cudf::pack</a></code>  <br /></td></tr>
+<tr class="separator:gaaaebfb6742c09cccda8fb8a78e19fbd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga20a8a274e5efd32f012ada60ed20fbf1"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga20a8a274e5efd32f012ada60ed20fbf1">cudf::copy_if_else</a> (<a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;lhs, <a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;rhs, <a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;boolean_mask, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:ga20a8a274e5efd32f012ada60ed20fbf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new column, where each element is selected from either <code>lhs</code> or <code>rhs</code> based on the value of the corresponding element in <code>boolean_mask</code>  <br /></td></tr>
+<tr class="separator:ga20a8a274e5efd32f012ada60ed20fbf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9419155faa6145c567bc10f4a9022b2f"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga9419155faa6145c567bc10f4a9022b2f">cudf::copy_if_else</a> (<a class="el" href="classcudf_1_1scalar.html">scalar</a> const &amp;lhs, <a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;rhs, <a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;boolean_mask, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:ga9419155faa6145c567bc10f4a9022b2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new column, where each element is selected from either <code>lhs</code> or <code>rhs</code> based on the value of the corresponding element in <code>boolean_mask</code>  <br /></td></tr>
+<tr class="separator:ga9419155faa6145c567bc10f4a9022b2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0ef360d8b66500f7da10f9cb8298e079"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga0ef360d8b66500f7da10f9cb8298e079">cudf::copy_if_else</a> (<a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;lhs, <a class="el" href="classcudf_1_1scalar.html">scalar</a> const &amp;rhs, <a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;boolean_mask, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:ga0ef360d8b66500f7da10f9cb8298e079"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new column, where each element is selected from either <code>lhs</code> or <code>rhs</code> based on the value of the corresponding element in <code>boolean_mask</code>  <br /></td></tr>
+<tr class="separator:ga0ef360d8b66500f7da10f9cb8298e079"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5f5e9508f27672af7450bbfc7a4acdb4"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga5f5e9508f27672af7450bbfc7a4acdb4">cudf::copy_if_else</a> (<a class="el" href="classcudf_1_1scalar.html">scalar</a> const &amp;lhs, <a class="el" href="classcudf_1_1scalar.html">scalar</a> const &amp;rhs, <a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;boolean_mask, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:ga5f5e9508f27672af7450bbfc7a4acdb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new column, where each element is selected from either <code>lhs</code> or <code>rhs</code> based on the value of the corresponding element in <code>boolean_mask</code>  <br /></td></tr>
+<tr class="separator:ga5f5e9508f27672af7450bbfc7a4acdb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae5cc9b107359c2666847a4586d07ef70"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1table.html">table</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#gae5cc9b107359c2666847a4586d07ef70">cudf::boolean_mask_scatter</a> (<a class="el" href="classcudf_1_1table__view.html">table_view</a> const &amp;input, <a class="el" href="classcudf_1_1table__view.html">table_view</a> const &amp;target, <a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;boolean_mask, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:gae5cc9b107359c2666847a4586d07ef70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scatters rows from the input table to rows of the output corresponding to true values in a boolean mask.  <br /></td></tr>
+<tr class="separator:gae5cc9b107359c2666847a4586d07ef70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7945f25673f72c65e1bf60821fa579e7"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1table.html">table</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga7945f25673f72c65e1bf60821fa579e7">cudf::boolean_mask_scatter</a> (std::vector&lt; std::reference_wrapper&lt; const <a class="el" href="classcudf_1_1scalar.html">scalar</a> &gt; &gt; const &amp;input, <a class="el" href="classcudf_1_1table__view.html">table_view</a> const &amp;target, <a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;boolean_mask, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:ga7945f25673f72c65e1bf60821fa579e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scatters scalar values to rows of the output corresponding to true values in a boolean mask.  <br /></td></tr>
+<tr class="separator:ga7945f25673f72c65e1bf60821fa579e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3c310958af4e031737d80ba8015452b6"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1scalar.html">scalar</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga3c310958af4e031737d80ba8015452b6">cudf::get_element</a> (<a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;input, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> index, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:ga3c310958af4e031737d80ba8015452b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the element at specified index from a column  <br /></td></tr>
+<tr class="separator:ga3c310958af4e031737d80ba8015452b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga29e76351f1ae5bd91dc922ad24243b1f"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1table.html">table</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga29e76351f1ae5bd91dc922ad24243b1f">cudf::sample</a> (<a class="el" href="classcudf_1_1table__view.html">table_view</a> const &amp;input, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> const n, <a class="el" href="group__column__copy.html#gae7607cde56cb602ab1b198b5bebf7cba">sample_with_replacement</a> replacement=<a class="el" href="group__column__copy.html#ggae7607cde56cb602ab1b198b5bebf7cbaa946003f97ccc52d5d3b54ac0ec31bbfc">sample_with_replacement::FALSE</a>, int64_t const seed=0, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:ga29e76351f1ae5bd91dc922ad24243b1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gather <code>n</code> samples from given <code>input</code> randomly  <br /></td></tr>
+<tr class="separator:ga29e76351f1ae5bd91dc922ad24243b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0c61528cb588874f9c07c6f766f232db"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga0c61528cb588874f9c07c6f766f232db">cudf::has_nonempty_nulls</a> (<a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;input)</td></tr>
+<tr class="memdesc:ga0c61528cb588874f9c07c6f766f232db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a column or its descendants have non-empty null rows  <br /></td></tr>
+<tr class="separator:ga0c61528cb588874f9c07c6f766f232db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9a9c46582ed07509d4bfe24e50d59bf2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga9a9c46582ed07509d4bfe24e50d59bf2">cudf::may_have_nonempty_nulls</a> (<a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;input)</td></tr>
+<tr class="memdesc:ga9a9c46582ed07509d4bfe24e50d59bf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximates if a column or its descendants <em>may</em> have non-empty null elements  <br /></td></tr>
+<tr class="separator:ga9a9c46582ed07509d4bfe24e50d59bf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga387d2221ad89e737e89270bf8c56dfa5"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__copy.html#ga387d2221ad89e737e89270bf8c56dfa5">cudf::purge_nonempty_nulls</a> (<a class="el" href="classcudf_1_1column__view.html">column_view</a> const &amp;input, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:ga387d2221ad89e737e89270bf8c56dfa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy <code>input</code> into output while purging any non-empty null rows in the column or its descendants.  <br /></td></tr>
+<tr class="separator:ga387d2221ad89e737e89270bf8c56dfa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>Column APIs for gather, scatter, split, slice, etc. </p>
+
+<p class="definition">在文件 <a class="el" href="copying_8hpp_source.html">copying.hpp</a> 中定义.</p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_d998dea0bd4559303135358082015ac8.html">gitLibrary</a></li><li class="navelem"><a class="el" href="dir_b6486b3d9bd1f4b89c884933ed658179.html">cudf</a></li><li class="navelem"><a class="el" href="dir_318a4414914f49dc0e7605c41de9d4af.html">cpp</a></li><li class="navelem"><a class="el" href="dir_7fbf5ee8ae486656ea40e5ca1dd304f9.html">include</a></li><li class="navelem"><a class="el" href="dir_87e6427d1ef099fd52d9d0724c66b062.html">cudf</a></li><li class="navelem"><a class="el" href="copying_8hpp.html">copying.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

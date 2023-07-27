@@ -1,0 +1,103 @@
+\doxysection{cudf\+::io\+::table\+\_\+metadata结构体 参考}
+\hypertarget{structcudf_1_1io_1_1table__metadata}{}\label{structcudf_1_1io_1_1table__metadata}\index{cudf::io::table\_metadata@{cudf::io::table\_metadata}}
+
+
+Table metadata for io readers/writers (primarily column names)  
+
+
+
+
+{\ttfamily \#include $<$types.\+hpp$>$}
+
+
+
+cudf\+::io\+::table\+\_\+metadata 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{structcudf_1_1io_1_1table__metadata__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{structcudf_1_1io_1_1table__metadata_a5003a7438f310eae6125c55ce7b0160c}{column\+\_\+names}}
+\begin{DoxyCompactList}\small\item\em Names of columns contained in the table \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1io_1_1column__name__info}{column\+\_\+name\+\_\+info}} $>$ \mbox{\hyperlink{structcudf_1_1io_1_1table__metadata_aca88d41ea923a24e060dbd4165d7bccb}{schema\+\_\+info}}
+\begin{DoxyCompactList}\small\item\em Detailed name information for the entire output hierarchy \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{structcudf_1_1io_1_1table__metadata_aeb297cb3944fe8f8ca1950d985fe3f53}{user\+\_\+data}}
+\item 
+std\+::vector$<$ std\+::unordered\+\_\+map$<$ std\+::string, std\+::string $>$ $>$ \mbox{\hyperlink{structcudf_1_1io_1_1table__metadata_a0cded90e8fe468cf2837a46451a98787}{per\+\_\+file\+\_\+user\+\_\+data}}
+\begin{DoxyCompactList}\small\item\em Per file format-\/dependent metadata as key-\/values pairs \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Table metadata for io readers/writers (primarily column names) 
+
+For nested types (structs, maps, unions), the ordering of names in the column\+\_\+names vector corresponds to a pre-\/order traversal of the column tree. In the example below (2 top-\/level columns\+: struct column \"{}col1\"{} and string column \"{}col2\"{}), column\+\_\+names = \{\"{}col1\"{}, \"{}s3\"{}, \"{}f5\"{}, \"{}f6\"{}, \"{}f4\"{}, \"{}col2\"{}\}.
+
+col1 col2 / \textbackslash{} / \textbackslash{} s3 f4 / \textbackslash{} / \textbackslash{} f5 f6 
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00136}{136}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{structcudf_1_1io_1_1table__metadata_a5003a7438f310eae6125c55ce7b0160c}\label{structcudf_1_1io_1_1table__metadata_a5003a7438f310eae6125c55ce7b0160c} 
+\index{cudf::io::table\_metadata@{cudf::io::table\_metadata}!column\_names@{column\_names}}
+\index{column\_names@{column\_names}!cudf::io::table\_metadata@{cudf::io::table\_metadata}}
+\doxysubsubsection{\texorpdfstring{column\_names}{column\_names}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ cudf\+::io\+::table\+\_\+metadata\+::column\+\_\+names}
+
+
+
+Names of columns contained in the table 
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00137}{137}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1table__metadata_a0cded90e8fe468cf2837a46451a98787}\label{structcudf_1_1io_1_1table__metadata_a0cded90e8fe468cf2837a46451a98787} 
+\index{cudf::io::table\_metadata@{cudf::io::table\_metadata}!per\_file\_user\_data@{per\_file\_user\_data}}
+\index{per\_file\_user\_data@{per\_file\_user\_data}!cudf::io::table\_metadata@{cudf::io::table\_metadata}}
+\doxysubsubsection{\texorpdfstring{per\_file\_user\_data}{per\_file\_user\_data}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::unordered\+\_\+map$<$std\+::string, std\+::string$>$ $>$ cudf\+::io\+::table\+\_\+metadata\+::per\+\_\+file\+\_\+user\+\_\+data}
+
+
+
+Per file format-\/dependent metadata as key-\/values pairs 
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00143}{143}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1table__metadata_aca88d41ea923a24e060dbd4165d7bccb}\label{structcudf_1_1io_1_1table__metadata_aca88d41ea923a24e060dbd4165d7bccb} 
+\index{cudf::io::table\_metadata@{cudf::io::table\_metadata}!schema\_info@{schema\_info}}
+\index{schema\_info@{schema\_info}!cudf::io::table\_metadata@{cudf::io::table\_metadata}}
+\doxysubsubsection{\texorpdfstring{schema\_info}{schema\_info}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structcudf_1_1io_1_1column__name__info}{column\+\_\+name\+\_\+info}}$>$ cudf\+::io\+::table\+\_\+metadata\+::schema\+\_\+info}
+
+
+
+Detailed name information for the entire output hierarchy 
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00139}{139}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1table__metadata_aeb297cb3944fe8f8ca1950d985fe3f53}\label{structcudf_1_1io_1_1table__metadata_aeb297cb3944fe8f8ca1950d985fe3f53} 
+\index{cudf::io::table\_metadata@{cudf::io::table\_metadata}!user\_data@{user\_data}}
+\index{user\_data@{user\_data}!cudf::io::table\_metadata@{cudf::io::table\_metadata}}
+\doxysubsubsection{\texorpdfstring{user\_data}{user\_data}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, std\+::string$>$ cudf\+::io\+::table\+\_\+metadata\+::user\+\_\+data}
+
+Format-\/dependent metadata of the first input file as key-\/values pairs (deprecated) 
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00140}{140}} 行定义.
+
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/\mbox{\hyperlink{io_2types_8hpp}{types.\+hpp}}\end{DoxyCompactItemize}

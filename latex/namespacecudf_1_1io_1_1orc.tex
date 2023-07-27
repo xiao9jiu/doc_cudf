@@ -1,0 +1,332 @@
+\doxysection{cudf\+::io\+::orc 命名空间参考}
+\hypertarget{namespacecudf_1_1io_1_1orc}{}\label{namespacecudf_1_1io_1_1orc}\index{cudf::io::orc@{cudf::io::orc}}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_a3d95f9b8d8e679d2a94d4b7689a7f653}{Compression\+Kind}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacecudf_1_1io_1_1orc_a3d95f9b8d8e679d2a94d4b7689a7f653aad1fd4e938af02f7b500df23e50f157d}{NONE}} = 0
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_a3d95f9b8d8e679d2a94d4b7689a7f653a9393bd1b0b75937a8daaffc2409f7347}{ZLIB}} = 1
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_a3d95f9b8d8e679d2a94d4b7689a7f653a733e3372d2f69d75b52e589a8e13df74}{SNAPPY}} = 2
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_a3d95f9b8d8e679d2a94d4b7689a7f653a4fd2dea340ac26c5e6a9d222281c9cb4}{LZO}} = 3
+, \newline
+\mbox{\hyperlink{namespacecudf_1_1io_1_1orc_a3d95f9b8d8e679d2a94d4b7689a7f653a2860773a2d42aa56b39769534507db39}{LZ4}} = 4
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_a3d95f9b8d8e679d2a94d4b7689a7f653a0b86bfb59b89727e6075305658230db9}{ZSTD}} = 5
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203}{Type\+Kind}} \+: int8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a41fe9593c0271964a394485f3cbc077d}{INVALID\+\_\+\+TYPE\+\_\+\+KIND}} = -\/1
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203af1b89e8e33f9db5131bb7515e62aa8f2}{BOOLEAN}} = 0
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203abf8dda3c24af037ef7a800f6bfa3fc7f}{BYTE}} = 1
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a43f65c0a6ab65f9b434e8c5b11f75a14}{SHORT}} = 2
+, \newline
+\mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203ab912b2b5641c6c2244436654a8c85091}{INT}} = 3
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a74667bc79b3a46070e6d0cec835abf56}{LONG}} = 4
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203acb2fb784641682de05939139600c713b}{FLOAT}} = 5
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203af52d040e467c99166bb6f51c5e2832a9}{DOUBLE}} = 6
+, \newline
+\mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203ad1a0475a80db6c12c16262c5a7da84e4}{STRING}} = 7
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203af872ff96d3e513dc17a4449b78e1a15f}{BINARY}} = 8
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a258c30bc38d4615d2f313cdd26198b47}{TIMESTAMP}} = 9
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a64074a680c6d5f7726b468c222497a09}{LIST}} = 10
+, \newline
+\mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a4db50701428789860ed44149d022dc91}{MAP}} = 11
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a754477914cd7a00cda8b7f8ab7cb814f}{STRUCT}} = 12
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203aaf3a918ced52e915ed0aa99716561a23}{UNION}} = 13
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a1252214be6506c817072f9747eec05e6}{DECIMAL}} = 14
+, \newline
+\mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a41b14186c7edd167046f8fff4fdf4d5e}{DATE}} = 15
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a43c7afb6aa37e40e20d4a1826b559211}{VARCHAR}} = 16
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203aa35262cb0f1eeb3951b473ac02e93db8}{CHAR}} = 17
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbb}{Stream\+Kind}} \+: int8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbba5f8592c5dccddb5d838ec5a9164ef10a}{INVALID\+\_\+\+STREAM\+\_\+\+KIND}} = -\/1
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbba09277f429ee1e27aa6ff1aac38f394a3}{PRESENT}} = 0
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbba39f79e62dc0c842ef5c464cf905a6fac}{DATA}} = 1
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbbac4c96e678cdbf290c8fc6d89a19845df}{LENGTH}} = 2
+, \newline
+\mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbba5b0514a494504701e00e187daf0099f0}{DICTIONARY\+\_\+\+DATA}} = 3
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbba53a5fad901bbe67ea3950643b3224ee2}{DICTIONARY\+\_\+\+COUNT}} = 4
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbbaf720bbf624ecd3471da7831944dc931a}{SECONDARY}} = 5
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbba820c0fcbec30b32aadb0a0e983ffbbf0}{ROW\+\_\+\+INDEX}} = 6
+, \newline
+\mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbba6b312acfdd001863778286c2b224e42d}{BLOOM\+\_\+\+FILTER}} = 7
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbba5d237e25d6be613471b721856b7aceef}{BLOOM\+\_\+\+FILTER\+\_\+\+UTF8}} = 8
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_a74ec40d0188335dff297e67645b6957b}{Column\+Encoding\+Kind}} \+: int8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacecudf_1_1io_1_1orc_a74ec40d0188335dff297e67645b6957ba060e45b87c78f70fc0f71d907b419a91}{INVALID\+\_\+\+ENCODING\+\_\+\+KIND}} = -\/1
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_a74ec40d0188335dff297e67645b6957ba351effae453e1d36b232b774a4e9abb1}{DIRECT}} = 0
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_a74ec40d0188335dff297e67645b6957ba132253b87664bdf25f1537a5dbea5d60}{DICTIONARY}} = 1
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_a74ec40d0188335dff297e67645b6957bab6b68ab53412084aeb9f94c37f3277b6}{DIRECT\+\_\+\+V2}} = 2
+, \newline
+\mbox{\hyperlink{namespacecudf_1_1io_1_1orc_a74ec40d0188335dff297e67645b6957baf18a0383ed6a31a69f2012d2d7e937c7}{DICTIONARY\+\_\+\+V2}} = 3
+ \}
+\item 
+enum \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2c}{Protof\+Type}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2ca727b3543b3bb5e10411b187cf7f4d29f}{VARINT}} = 0
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2ca29ca89844eed51eda9601de6348649a8}{FIXED64}} = 1
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2ca38b34eb528f14ada58ed295b87448582}{FIXEDLEN}} = 2
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2ca807e4bb9599bca027005913ffe84ca12}{START\+\_\+\+GROUP}} = 3
+, \newline
+\mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2ca5c666756f098a002c4cd4c5e2e28fc95}{END\+\_\+\+GROUP}} = 4
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2ca9dae316148b7c82259aa319e07541b69}{FIXED32}} = 5
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2caedd39cd0c4429bb62d0f7ee4579cbfa7}{INVALID\+\_\+6}} = 6
+, \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2ca92831ce0824bdb5a112ed7efde4e3b39}{INVALID\+\_\+7}} = 7
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{枚举类型说明}
+\Hypertarget{namespacecudf_1_1io_1_1orc_a74ec40d0188335dff297e67645b6957b}\label{namespacecudf_1_1io_1_1orc_a74ec40d0188335dff297e67645b6957b} 
+\index{cudf::io::orc@{cudf::io::orc}!ColumnEncodingKind@{ColumnEncodingKind}}
+\index{ColumnEncodingKind@{ColumnEncodingKind}!cudf::io::orc@{cudf::io::orc}}
+\doxysubsubsection{\texorpdfstring{ColumnEncodingKind}{ColumnEncodingKind}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_a74ec40d0188335dff297e67645b6957b}{cudf\+::io\+::orc\+::\+Column\+Encoding\+Kind}} \+: int8\+\_\+t}
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INVALID\_ENCODING\_KIND@{INVALID\_ENCODING\_KIND}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!INVALID\_ENCODING\_KIND@{INVALID\_ENCODING\_KIND}}}\Hypertarget{namespacecudf_1_1io_1_1orc_a74ec40d0188335dff297e67645b6957ba060e45b87c78f70fc0f71d907b419a91}\label{namespacecudf_1_1io_1_1orc_a74ec40d0188335dff297e67645b6957ba060e45b87c78f70fc0f71d907b419a91} 
+INVALID\+\_\+\+ENCODING\+\_\+\+KIND&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DIRECT@{DIRECT}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!DIRECT@{DIRECT}}}\Hypertarget{namespacecudf_1_1io_1_1orc_a74ec40d0188335dff297e67645b6957ba351effae453e1d36b232b774a4e9abb1}\label{namespacecudf_1_1io_1_1orc_a74ec40d0188335dff297e67645b6957ba351effae453e1d36b232b774a4e9abb1} 
+DIRECT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DICTIONARY@{DICTIONARY}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!DICTIONARY@{DICTIONARY}}}\Hypertarget{namespacecudf_1_1io_1_1orc_a74ec40d0188335dff297e67645b6957ba132253b87664bdf25f1537a5dbea5d60}\label{namespacecudf_1_1io_1_1orc_a74ec40d0188335dff297e67645b6957ba132253b87664bdf25f1537a5dbea5d60} 
+DICTIONARY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DIRECT\_V2@{DIRECT\_V2}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!DIRECT\_V2@{DIRECT\_V2}}}\Hypertarget{namespacecudf_1_1io_1_1orc_a74ec40d0188335dff297e67645b6957bab6b68ab53412084aeb9f94c37f3277b6}\label{namespacecudf_1_1io_1_1orc_a74ec40d0188335dff297e67645b6957bab6b68ab53412084aeb9f94c37f3277b6} 
+DIRECT\+\_\+\+V2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DICTIONARY\_V2@{DICTIONARY\_V2}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!DICTIONARY\_V2@{DICTIONARY\_V2}}}\Hypertarget{namespacecudf_1_1io_1_1orc_a74ec40d0188335dff297e67645b6957baf18a0383ed6a31a69f2012d2d7e937c7}\label{namespacecudf_1_1io_1_1orc_a74ec40d0188335dff297e67645b6957baf18a0383ed6a31a69f2012d2d7e937c7} 
+DICTIONARY\+\_\+\+V2&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{orc__types_8hpp_source}{orc\+\_\+types.\+hpp}} 第 \mbox{\hyperlink{orc__types_8hpp_source_l00067}{67}} 行定义.
+
+\Hypertarget{namespacecudf_1_1io_1_1orc_a3d95f9b8d8e679d2a94d4b7689a7f653}\label{namespacecudf_1_1io_1_1orc_a3d95f9b8d8e679d2a94d4b7689a7f653} 
+\index{cudf::io::orc@{cudf::io::orc}!CompressionKind@{CompressionKind}}
+\index{CompressionKind@{CompressionKind}!cudf::io::orc@{cudf::io::orc}}
+\doxysubsubsection{\texorpdfstring{CompressionKind}{CompressionKind}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_a3d95f9b8d8e679d2a94d4b7689a7f653}{cudf\+::io\+::orc\+::\+Compression\+Kind}} \+: uint8\+\_\+t}
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NONE@{NONE}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!NONE@{NONE}}}\Hypertarget{namespacecudf_1_1io_1_1orc_a3d95f9b8d8e679d2a94d4b7689a7f653aad1fd4e938af02f7b500df23e50f157d}\label{namespacecudf_1_1io_1_1orc_a3d95f9b8d8e679d2a94d4b7689a7f653aad1fd4e938af02f7b500df23e50f157d} 
+NONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ZLIB@{ZLIB}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!ZLIB@{ZLIB}}}\Hypertarget{namespacecudf_1_1io_1_1orc_a3d95f9b8d8e679d2a94d4b7689a7f653a9393bd1b0b75937a8daaffc2409f7347}\label{namespacecudf_1_1io_1_1orc_a3d95f9b8d8e679d2a94d4b7689a7f653a9393bd1b0b75937a8daaffc2409f7347} 
+ZLIB&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SNAPPY@{SNAPPY}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!SNAPPY@{SNAPPY}}}\Hypertarget{namespacecudf_1_1io_1_1orc_a3d95f9b8d8e679d2a94d4b7689a7f653a733e3372d2f69d75b52e589a8e13df74}\label{namespacecudf_1_1io_1_1orc_a3d95f9b8d8e679d2a94d4b7689a7f653a733e3372d2f69d75b52e589a8e13df74} 
+SNAPPY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LZO@{LZO}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!LZO@{LZO}}}\Hypertarget{namespacecudf_1_1io_1_1orc_a3d95f9b8d8e679d2a94d4b7689a7f653a4fd2dea340ac26c5e6a9d222281c9cb4}\label{namespacecudf_1_1io_1_1orc_a3d95f9b8d8e679d2a94d4b7689a7f653a4fd2dea340ac26c5e6a9d222281c9cb4} 
+LZO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LZ4@{LZ4}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!LZ4@{LZ4}}}\Hypertarget{namespacecudf_1_1io_1_1orc_a3d95f9b8d8e679d2a94d4b7689a7f653a2860773a2d42aa56b39769534507db39}\label{namespacecudf_1_1io_1_1orc_a3d95f9b8d8e679d2a94d4b7689a7f653a2860773a2d42aa56b39769534507db39} 
+LZ4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ZSTD@{ZSTD}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!ZSTD@{ZSTD}}}\Hypertarget{namespacecudf_1_1io_1_1orc_a3d95f9b8d8e679d2a94d4b7689a7f653a0b86bfb59b89727e6075305658230db9}\label{namespacecudf_1_1io_1_1orc_a3d95f9b8d8e679d2a94d4b7689a7f653a0b86bfb59b89727e6075305658230db9} 
+ZSTD&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{orc__types_8hpp_source}{orc\+\_\+types.\+hpp}} 第 \mbox{\hyperlink{orc__types_8hpp_source_l00023}{23}} 行定义.
+
+\Hypertarget{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2c}\label{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2c} 
+\index{cudf::io::orc@{cudf::io::orc}!ProtofType@{ProtofType}}
+\index{ProtofType@{ProtofType}!cudf::io::orc@{cudf::io::orc}}
+\doxysubsubsection{\texorpdfstring{ProtofType}{ProtofType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2c}{cudf\+::io\+::orc\+::\+Protof\+Type}} \+: uint8\+\_\+t}
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VARINT@{VARINT}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!VARINT@{VARINT}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2ca727b3543b3bb5e10411b187cf7f4d29f}\label{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2ca727b3543b3bb5e10411b187cf7f4d29f} 
+VARINT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FIXED64@{FIXED64}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!FIXED64@{FIXED64}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2ca29ca89844eed51eda9601de6348649a8}\label{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2ca29ca89844eed51eda9601de6348649a8} 
+FIXED64&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FIXEDLEN@{FIXEDLEN}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!FIXEDLEN@{FIXEDLEN}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2ca38b34eb528f14ada58ed295b87448582}\label{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2ca38b34eb528f14ada58ed295b87448582} 
+FIXEDLEN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{START\_GROUP@{START\_GROUP}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!START\_GROUP@{START\_GROUP}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2ca807e4bb9599bca027005913ffe84ca12}\label{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2ca807e4bb9599bca027005913ffe84ca12} 
+START\+\_\+\+GROUP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{END\_GROUP@{END\_GROUP}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!END\_GROUP@{END\_GROUP}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2ca5c666756f098a002c4cd4c5e2e28fc95}\label{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2ca5c666756f098a002c4cd4c5e2e28fc95} 
+END\+\_\+\+GROUP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FIXED32@{FIXED32}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!FIXED32@{FIXED32}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2ca9dae316148b7c82259aa319e07541b69}\label{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2ca9dae316148b7c82259aa319e07541b69} 
+FIXED32&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INVALID\_6@{INVALID\_6}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!INVALID\_6@{INVALID\_6}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2caedd39cd0c4429bb62d0f7ee4579cbfa7}\label{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2caedd39cd0c4429bb62d0f7ee4579cbfa7} 
+INVALID\+\_\+6&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INVALID\_7@{INVALID\_7}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!INVALID\_7@{INVALID\_7}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2ca92831ce0824bdb5a112ed7efde4e3b39}\label{namespacecudf_1_1io_1_1orc_ad6daf6a367f02a6bc828e6ddd4889b2ca92831ce0824bdb5a112ed7efde4e3b39} 
+INVALID\+\_\+7&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{orc__types_8hpp_source}{orc\+\_\+types.\+hpp}} 第 \mbox{\hyperlink{orc__types_8hpp_source_l00075}{75}} 行定义.
+
+\Hypertarget{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbb}\label{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbb} 
+\index{cudf::io::orc@{cudf::io::orc}!StreamKind@{StreamKind}}
+\index{StreamKind@{StreamKind}!cudf::io::orc@{cudf::io::orc}}
+\doxysubsubsection{\texorpdfstring{StreamKind}{StreamKind}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbb}{cudf\+::io\+::orc\+::\+Stream\+Kind}} \+: int8\+\_\+t}
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INVALID\_STREAM\_KIND@{INVALID\_STREAM\_KIND}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!INVALID\_STREAM\_KIND@{INVALID\_STREAM\_KIND}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbba5f8592c5dccddb5d838ec5a9164ef10a}\label{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbba5f8592c5dccddb5d838ec5a9164ef10a} 
+INVALID\+\_\+\+STREAM\+\_\+\+KIND&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PRESENT@{PRESENT}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!PRESENT@{PRESENT}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbba09277f429ee1e27aa6ff1aac38f394a3}\label{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbba09277f429ee1e27aa6ff1aac38f394a3} 
+PRESENT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DATA@{DATA}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!DATA@{DATA}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbba39f79e62dc0c842ef5c464cf905a6fac}\label{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbba39f79e62dc0c842ef5c464cf905a6fac} 
+DATA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LENGTH@{LENGTH}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!LENGTH@{LENGTH}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbbac4c96e678cdbf290c8fc6d89a19845df}\label{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbbac4c96e678cdbf290c8fc6d89a19845df} 
+LENGTH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DICTIONARY\_DATA@{DICTIONARY\_DATA}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!DICTIONARY\_DATA@{DICTIONARY\_DATA}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbba5b0514a494504701e00e187daf0099f0}\label{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbba5b0514a494504701e00e187daf0099f0} 
+DICTIONARY\+\_\+\+DATA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DICTIONARY\_COUNT@{DICTIONARY\_COUNT}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!DICTIONARY\_COUNT@{DICTIONARY\_COUNT}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbba53a5fad901bbe67ea3950643b3224ee2}\label{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbba53a5fad901bbe67ea3950643b3224ee2} 
+DICTIONARY\+\_\+\+COUNT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SECONDARY@{SECONDARY}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!SECONDARY@{SECONDARY}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbbaf720bbf624ecd3471da7831944dc931a}\label{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbbaf720bbf624ecd3471da7831944dc931a} 
+SECONDARY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROW\_INDEX@{ROW\_INDEX}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!ROW\_INDEX@{ROW\_INDEX}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbba820c0fcbec30b32aadb0a0e983ffbbf0}\label{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbba820c0fcbec30b32aadb0a0e983ffbbf0} 
+ROW\+\_\+\+INDEX&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLOOM\_FILTER@{BLOOM\_FILTER}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!BLOOM\_FILTER@{BLOOM\_FILTER}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbba6b312acfdd001863778286c2b224e42d}\label{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbba6b312acfdd001863778286c2b224e42d} 
+BLOOM\+\_\+\+FILTER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLOOM\_FILTER\_UTF8@{BLOOM\_FILTER\_UTF8}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!BLOOM\_FILTER\_UTF8@{BLOOM\_FILTER\_UTF8}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbba5d237e25d6be613471b721856b7aceef}\label{namespacecudf_1_1io_1_1orc_ac5218b6f3b64304924dfe48c90be5bbba5d237e25d6be613471b721856b7aceef} 
+BLOOM\+\_\+\+FILTER\+\_\+\+UTF8&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{orc__types_8hpp_source}{orc\+\_\+types.\+hpp}} 第 \mbox{\hyperlink{orc__types_8hpp_source_l00054}{54}} 行定义.
+
+\Hypertarget{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203}\label{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203} 
+\index{cudf::io::orc@{cudf::io::orc}!TypeKind@{TypeKind}}
+\index{TypeKind@{TypeKind}!cudf::io::orc@{cudf::io::orc}}
+\doxysubsubsection{\texorpdfstring{TypeKind}{TypeKind}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203}{cudf\+::io\+::orc\+::\+Type\+Kind}} \+: int8\+\_\+t}
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INVALID\_TYPE\_KIND@{INVALID\_TYPE\_KIND}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!INVALID\_TYPE\_KIND@{INVALID\_TYPE\_KIND}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a41fe9593c0271964a394485f3cbc077d}\label{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a41fe9593c0271964a394485f3cbc077d} 
+INVALID\+\_\+\+TYPE\+\_\+\+KIND&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BOOLEAN@{BOOLEAN}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!BOOLEAN@{BOOLEAN}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203af1b89e8e33f9db5131bb7515e62aa8f2}\label{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203af1b89e8e33f9db5131bb7515e62aa8f2} 
+BOOLEAN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BYTE@{BYTE}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!BYTE@{BYTE}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203abf8dda3c24af037ef7a800f6bfa3fc7f}\label{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203abf8dda3c24af037ef7a800f6bfa3fc7f} 
+BYTE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SHORT@{SHORT}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!SHORT@{SHORT}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a43f65c0a6ab65f9b434e8c5b11f75a14}\label{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a43f65c0a6ab65f9b434e8c5b11f75a14} 
+SHORT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INT@{INT}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!INT@{INT}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203ab912b2b5641c6c2244436654a8c85091}\label{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203ab912b2b5641c6c2244436654a8c85091} 
+INT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LONG@{LONG}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!LONG@{LONG}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a74667bc79b3a46070e6d0cec835abf56}\label{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a74667bc79b3a46070e6d0cec835abf56} 
+LONG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FLOAT@{FLOAT}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!FLOAT@{FLOAT}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203acb2fb784641682de05939139600c713b}\label{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203acb2fb784641682de05939139600c713b} 
+FLOAT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DOUBLE@{DOUBLE}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!DOUBLE@{DOUBLE}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203af52d040e467c99166bb6f51c5e2832a9}\label{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203af52d040e467c99166bb6f51c5e2832a9} 
+DOUBLE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STRING@{STRING}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!STRING@{STRING}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203ad1a0475a80db6c12c16262c5a7da84e4}\label{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203ad1a0475a80db6c12c16262c5a7da84e4} 
+STRING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BINARY@{BINARY}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!BINARY@{BINARY}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203af872ff96d3e513dc17a4449b78e1a15f}\label{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203af872ff96d3e513dc17a4449b78e1a15f} 
+BINARY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TIMESTAMP@{TIMESTAMP}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!TIMESTAMP@{TIMESTAMP}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a258c30bc38d4615d2f313cdd26198b47}\label{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a258c30bc38d4615d2f313cdd26198b47} 
+TIMESTAMP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LIST@{LIST}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!LIST@{LIST}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a64074a680c6d5f7726b468c222497a09}\label{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a64074a680c6d5f7726b468c222497a09} 
+LIST&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MAP@{MAP}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!MAP@{MAP}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a4db50701428789860ed44149d022dc91}\label{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a4db50701428789860ed44149d022dc91} 
+MAP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STRUCT@{STRUCT}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!STRUCT@{STRUCT}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a754477914cd7a00cda8b7f8ab7cb814f}\label{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a754477914cd7a00cda8b7f8ab7cb814f} 
+STRUCT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UNION@{UNION}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!UNION@{UNION}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203aaf3a918ced52e915ed0aa99716561a23}\label{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203aaf3a918ced52e915ed0aa99716561a23} 
+UNION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DECIMAL@{DECIMAL}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!DECIMAL@{DECIMAL}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a1252214be6506c817072f9747eec05e6}\label{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a1252214be6506c817072f9747eec05e6} 
+DECIMAL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DATE@{DATE}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!DATE@{DATE}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a41b14186c7edd167046f8fff4fdf4d5e}\label{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a41b14186c7edd167046f8fff4fdf4d5e} 
+DATE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VARCHAR@{VARCHAR}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!VARCHAR@{VARCHAR}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a43c7afb6aa37e40e20d4a1826b559211}\label{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203a43c7afb6aa37e40e20d4a1826b559211} 
+VARCHAR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CHAR@{CHAR}!cudf::io::orc@{cudf::io::orc}}\index{cudf::io::orc@{cudf::io::orc}!CHAR@{CHAR}}}\Hypertarget{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203aa35262cb0f1eeb3951b473ac02e93db8}\label{namespacecudf_1_1io_1_1orc_ae05e5ef15beac13262d33de5f0350203aa35262cb0f1eeb3951b473ac02e93db8} 
+CHAR&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{orc__types_8hpp_source}{orc\+\_\+types.\+hpp}} 第 \mbox{\hyperlink{orc__types_8hpp_source_l00032}{32}} 行定义.
+

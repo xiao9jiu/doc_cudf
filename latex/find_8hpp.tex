@@ -1,0 +1,40 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/strings/find.hpp 文件参考}
+\hypertarget{find_8hpp}{}\label{find_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/strings/find.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/strings/find.hpp}}
+{\ttfamily \#include $<$cudf/column/column.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/scalar/scalar.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/strings/strings\+\_\+column\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/mr/device/per\+\_\+device\+\_\+resource.\+hpp$>$}\newline
+find.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{find_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1strings}{cudf\+::strings}}
+\begin{DoxyCompactList}\small\item\em Strings column APIs \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__find_ga25be74f1bd037930e54a545e5c19686a}{cudf\+::strings\+::find}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&target, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} start=0, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} stop=-\/1, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a column of character position values where the target string is first found in each string of the provided column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__find_gae8a5404ef4422cc48cb935b84fb25fcc}{cudf\+::strings\+::rfind}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&target, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} start=0, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} stop=-\/1, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a column of character position values where the target string is first found searching from the end of each string. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__find_ga208ad7f9d27e9b1d2b8224bd4fc32f5c}{cudf\+::strings\+::contains}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&target, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a column of boolean values for each string where true indicates the target string was found within that string in the provided column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__find_ga3392734ce7134e38ff84efcae4dc2c4d}{cudf\+::strings\+::contains}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&targets, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a column of boolean values for each string where true indicates the corresponding target string was found within that string in the provided column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__find_ga7d83775446f5c67cb6179a3ff5ff9c10}{cudf\+::strings\+::starts\+\_\+with}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&target, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a column of boolean values for each string where true indicates the target string was found at the beginning of that string in the provided column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__find_ga2d974574dfc7f881c974abf5b2b47b22}{cudf\+::strings\+::starts\+\_\+with}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&targets, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a column of boolean values for each string where true indicates corresponding string in target column was found at the beginning of that string in the provided column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__find_ga97d6f1e90f942e6ee832f8559523b72a}{cudf\+::strings\+::ends\+\_\+with}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&target, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a column of boolean values for each string where true indicates the target string was found at the end of that string in the provided column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__find_gaa8a00664ad806da7b599ffbc015ca11c}{cudf\+::strings\+::ends\+\_\+with}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&targets, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a column of boolean values for each string where true indicates corresponding string in target column was found at the end of that string in the provided column. \end{DoxyCompactList}\end{DoxyCompactItemize}

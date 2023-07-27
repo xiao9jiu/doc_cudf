@@ -1,0 +1,47 @@
+\doxysection{Reshape\+\_\+transpose}
+\hypertarget{group__reshape__transpose}{}\label{group__reshape__transpose}\index{Reshape\_transpose@{Reshape\_transpose}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{transpose_8hpp}{transpose.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} $>$ \mbox{\hyperlink{group__reshape__transpose_ga7cde57d2207336e62ddc74c8b23db832}{cudf\+::transpose}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Transposes a table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__reshape__transpose_ga7cde57d2207336e62ddc74c8b23db832}\label{group__reshape__transpose_ga7cde57d2207336e62ddc74c8b23db832} 
+\index{Reshape\_transpose@{Reshape\_transpose}!transpose@{transpose}}
+\index{transpose@{transpose}!Reshape\_transpose@{Reshape\_transpose}}
+\doxysubsubsection{\texorpdfstring{transpose()}{transpose()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} $>$ cudf\+::transpose (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Transposes a table. 
+
+Stores output in a contiguous column, exposing the transposed table as a {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}}.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if column types are non-\/homogeneous \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if column types are non-\/fixed-\/width\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & A table (M cols x N rows) to be transposed \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the device memory of returned value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The transposed input (N cols x M rows) as a {\ttfamily column} and {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}}, representing the owner and transposed table, respectively. 
+\end{DoxyReturn}

@@ -1,0 +1,508 @@
+\doxysection{cudf\+::groupby\+::groupby类 参考}
+\hypertarget{classcudf_1_1groupby_1_1groupby}{}\label{classcudf_1_1groupby_1_1groupby}\index{cudf::groupby::groupby@{cudf::groupby::groupby}}
+
+
+Groups values by keys and computes aggregations on those groups.  
+
+
+
+
+{\ttfamily \#include $<$groupby.\+hpp$>$}
+
+
+
+cudf\+::groupby\+::groupby 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcudf_1_1groupby_1_1groupby__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1groupby_1_1groupby_1_1groups}{groups}}
+\begin{DoxyCompactList}\small\item\em The grouped data corresponding to a groupby operation on a set of values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1groupby_1_1groupby_a5d36dfa2cc4d663e6fd964934358df99}{groupby}} ()=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1groupby_1_1groupby_aad32b5c633aab5a3f87b3cc672e9cceb}{\texorpdfstring{$\sim$}{\string~}groupby}} ()
+\item 
+\mbox{\hyperlink{classcudf_1_1groupby_1_1groupby_a5fbfa82fba31afd62619dfd8abf63e5d}{groupby}} (\mbox{\hyperlink{classcudf_1_1groupby_1_1groupby}{groupby}} const \&)=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1groupby_1_1groupby_a84ef08aad5426af97ebe2c91c30029a4}{groupby}} (\mbox{\hyperlink{classcudf_1_1groupby_1_1groupby}{groupby}} \&\&)=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1groupby_1_1groupby}{groupby}} \& \mbox{\hyperlink{classcudf_1_1groupby_1_1groupby_aab4222391da271de790efb56826ae5e7}{operator=}} (\mbox{\hyperlink{classcudf_1_1groupby_1_1groupby}{groupby}} const \&)=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1groupby_1_1groupby}{groupby}} \& \mbox{\hyperlink{classcudf_1_1groupby_1_1groupby_a8fb2fb339f1261cf8cdb35000b332e66}{operator=}} (\mbox{\hyperlink{classcudf_1_1groupby_1_1groupby}{groupby}} \&\&)=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1groupby_1_1groupby_a8669aaeac7be4da5828ac13bed7cfab2}{groupby}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&keys, \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling=\mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}{null\+\_\+policy\+::\+EXCLUDE}}, \mbox{\hyperlink{group__utility__types_gab283c517931abd4152ffa62fec62425d}{sorted}} keys\+\_\+are\+\_\+sorted=\mbox{\hyperlink{group__utility__types_ggab283c517931abd4152ffa62fec62425dac2f3f489a00553e7a01d369c103c7251}{sorted\+::\+NO}}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order=\{\}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence=\{\})
+\begin{DoxyCompactList}\small\item\em Construct a groupby object with the specified {\ttfamily keys} \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$, std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1aggregation__result}{aggregation\+\_\+result}} $>$ $>$ \mbox{\hyperlink{classcudf_1_1groupby_1_1groupby_a221be714878787abea34232da4c56e23}{aggregate}} (\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1aggregation__request}{aggregation\+\_\+request}} const $>$ requests, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs grouped aggregations on the specified values. \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$, std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1aggregation__result}{aggregation\+\_\+result}} $>$ $>$ \mbox{\hyperlink{classcudf_1_1groupby_1_1groupby_a695b525d3874c8190f9d3d9ad03c8900}{scan}} (\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1scan__request}{scan\+\_\+request}} const $>$ requests, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs grouped scans on the specified values. \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ $>$ \mbox{\hyperlink{classcudf_1_1groupby_1_1groupby_aad664c9dee97886fd5085fc989e9665c}{shift}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&values, \mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$ offsets, std\+::vector$<$ std\+::reference\+\_\+wrapper$<$ const \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ $>$ const \&fill\+\_\+values, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs grouped shifts for specified values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1groupby_1_1groupby_1_1groups}{groups}} \mbox{\hyperlink{classcudf_1_1groupby_1_1groupby_a6a066cd4dcb8ee089f5147c4db8b39a9}{get\+\_\+groups}} (\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} values=\{\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Get the grouped keys and values corresponding to a groupby operation on a set of values \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ $>$ \mbox{\hyperlink{classcudf_1_1groupby_1_1groupby_aabbd604f82a5c1402e19e87a7239c1d6}{replace\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&values, \mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{group__transformation__replace_ga7cdbc9bc3671930a743c86f36c38abf9}{cudf\+::replace\+\_\+policy}} const $>$ replace\+\_\+policies, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs grouped replace nulls on {\ttfamily value} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper}{detail\+::sort\+::sort\+\_\+groupby\+\_\+helper}} \& \mbox{\hyperlink{classcudf_1_1groupby_1_1groupby_af02ad28832f56935b4d04f846ff3e9ff}{helper}} ()
+\begin{DoxyCompactList}\small\item\em Get the sort helper object \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$, std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1aggregation__result}{aggregation\+\_\+result}} $>$ $>$ \mbox{\hyperlink{classcudf_1_1groupby_1_1groupby_ae81b6eae9814934deff8b127687b0bf8}{dispatch\+\_\+aggregation}} (\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1aggregation__request}{aggregation\+\_\+request}} const $>$ requests, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Dispatches to the appropriate implementation to satisfy the aggregation requests. \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$, std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1aggregation__result}{aggregation\+\_\+result}} $>$ $>$ \mbox{\hyperlink{classcudf_1_1groupby_1_1groupby_ade046c72ed77b62ca93fced6d1436077}{sort\+\_\+aggregate}} (\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1aggregation__request}{aggregation\+\_\+request}} const $>$ requests, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$, std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1aggregation__result}{aggregation\+\_\+result}} $>$ $>$ \mbox{\hyperlink{classcudf_1_1groupby_1_1groupby_a67d07f5c56b12d901488bb4c991216d4}{sort\+\_\+scan}} (\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1scan__request}{scan\+\_\+request}} const $>$ requests, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} \mbox{\hyperlink{classcudf_1_1groupby_1_1groupby_a2beb090f2bcf3e3e72f949068f67bdc7}{\+\_\+keys}}
+\begin{DoxyCompactList}\small\item\em Keys that determine grouping \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} \mbox{\hyperlink{classcudf_1_1groupby_1_1groupby_a166284d95b101e5c4cac4f1627bd2924}{\+\_\+include\+\_\+null\+\_\+keys}} \{\mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}{null\+\_\+policy\+::\+EXCLUDE}}\}
+\item 
+\mbox{\hyperlink{group__utility__types_gab283c517931abd4152ffa62fec62425d}{sorted}} \mbox{\hyperlink{classcudf_1_1groupby_1_1groupby_a8678f4f886329339b236c59950b104ac}{\+\_\+keys\+\_\+are\+\_\+sorted}} \{\mbox{\hyperlink{group__utility__types_ggab283c517931abd4152ffa62fec62425dac2f3f489a00553e7a01d369c103c7251}{sorted\+::\+NO}}\}
+\begin{DoxyCompactList}\small\item\em Whether or not the keys are sorted \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ \mbox{\hyperlink{classcudf_1_1groupby_1_1groupby_ae4bfa0e55c29a2a20b7fb9dc86892997}{\+\_\+column\+\_\+order}} \{\}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ \mbox{\hyperlink{classcudf_1_1groupby_1_1groupby_ac2da103feacf00783c21058ce9b44c3c}{\+\_\+null\+\_\+precedence}} \{\}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper}{detail\+::sort\+::sort\+\_\+groupby\+\_\+helper}} $>$ \mbox{\hyperlink{classcudf_1_1groupby_1_1groupby_affd0eb1070d5097bb6c3482a947fbf9a}{\+\_\+helper}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Groups values by keys and computes aggregations on those groups. 
+
+在文件 \mbox{\hyperlink{groupby_8hpp_source}{groupby.\+hpp}} 第 \mbox{\hyperlink{groupby_8hpp_source_l00094}{94}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1groupby_1_1groupby_a5d36dfa2cc4d663e6fd964934358df99}\label{classcudf_1_1groupby_1_1groupby_a5d36dfa2cc4d663e6fd964934358df99} 
+\index{cudf::groupby::groupby@{cudf::groupby::groupby}!groupby@{groupby}}
+\index{groupby@{groupby}!cudf::groupby::groupby@{cudf::groupby::groupby}}
+\doxysubsubsection{\texorpdfstring{groupby()}{groupby()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily cudf\+::groupby\+::groupby\+::groupby (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classcudf_1_1groupby_1_1groupby_aad32b5c633aab5a3f87b3cc672e9cceb}\label{classcudf_1_1groupby_1_1groupby_aad32b5c633aab5a3f87b3cc672e9cceb} 
+\index{cudf::groupby::groupby@{cudf::groupby::groupby}!````~groupby@{\texorpdfstring{$\sim$}{\string~}groupby}}
+\index{````~groupby@{\texorpdfstring{$\sim$}{\string~}groupby}!cudf::groupby::groupby@{cudf::groupby::groupby}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}groupby()}{\string~groupby()}}
+{\footnotesize\ttfamily cudf\+::groupby\+::groupby\+::\texorpdfstring{$\sim$}{\string~}groupby (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classcudf_1_1groupby_1_1groupby_a5fbfa82fba31afd62619dfd8abf63e5d}\label{classcudf_1_1groupby_1_1groupby_a5fbfa82fba31afd62619dfd8abf63e5d} 
+\index{cudf::groupby::groupby@{cudf::groupby::groupby}!groupby@{groupby}}
+\index{groupby@{groupby}!cudf::groupby::groupby@{cudf::groupby::groupby}}
+\doxysubsubsection{\texorpdfstring{groupby()}{groupby()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily cudf\+::groupby\+::groupby\+::groupby (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1groupby_1_1groupby}{groupby}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classcudf_1_1groupby_1_1groupby_a84ef08aad5426af97ebe2c91c30029a4}\label{classcudf_1_1groupby_1_1groupby_a84ef08aad5426af97ebe2c91c30029a4} 
+\index{cudf::groupby::groupby@{cudf::groupby::groupby}!groupby@{groupby}}
+\index{groupby@{groupby}!cudf::groupby::groupby@{cudf::groupby::groupby}}
+\doxysubsubsection{\texorpdfstring{groupby()}{groupby()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily cudf\+::groupby\+::groupby\+::groupby (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1groupby_1_1groupby}{groupby}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classcudf_1_1groupby_1_1groupby_a8669aaeac7be4da5828ac13bed7cfab2}\label{classcudf_1_1groupby_1_1groupby_a8669aaeac7be4da5828ac13bed7cfab2} 
+\index{cudf::groupby::groupby@{cudf::groupby::groupby}!groupby@{groupby}}
+\index{groupby@{groupby}!cudf::groupby::groupby@{cudf::groupby::groupby}}
+\doxysubsubsection{\texorpdfstring{groupby()}{groupby()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily cudf\+::groupby\+::groupby\+::groupby (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{keys,  }\item[{\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}}}]{null\+\_\+handling = {\ttfamily \mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}{null\+\_\+policy\+::\+EXCLUDE}}},  }\item[{\mbox{\hyperlink{group__utility__types_gab283c517931abd4152ffa62fec62425d}{sorted}}}]{keys\+\_\+are\+\_\+sorted = {\ttfamily \mbox{\hyperlink{group__utility__types_ggab283c517931abd4152ffa62fec62425dac2f3f489a00553e7a01d369c103c7251}{sorted\+::\+NO}}},  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&}]{column\+\_\+order = {\ttfamily \{\}},  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&}]{null\+\_\+precedence = {\ttfamily \{\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct a groupby object with the specified {\ttfamily keys} 
+
+If the {\ttfamily keys} are already sorted, better performance may be achieved by passing {\ttfamily keys\+\_\+are\+\_\+sorted == true} and indicating the ascending/descending order of each column and null order in {\ttfamily column\+\_\+order} and {\ttfamily null\+\_\+precedence}, respectively.
+
+\begin{DoxyNote}{注解}
+This object does {\itshape not} maintain the lifetime of {\ttfamily keys}. It is the user\textquotesingle{}s responsibility to ensure the {\ttfamily groupby} object does not outlive the data viewed by the {\ttfamily keys} {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}}.
+\end{DoxyNote}
+
+\begin{DoxyParams}{参数}
+{\em keys} & Table whose rows act as the groupby keys \\
+\hline
+{\em null\+\_\+handling} & Indicates whether rows in {\ttfamily keys} that contain NULL values should be included \\
+\hline
+{\em keys\+\_\+are\+\_\+sorted} & Indicates whether rows in {\ttfamily keys} are already sorted \\
+\hline
+{\em column\+\_\+order} & If {\ttfamily keys\+\_\+are\+\_\+sorted == YES}, indicates whether each column is ascending/descending. If empty, assumes all columns are ascending. Ignored if {\ttfamily keys\+\_\+are\+\_\+sorted == false}. \\
+\hline
+{\em null\+\_\+precedence} & If {\ttfamily keys\+\_\+are\+\_\+sorted == YES}, indicates the ordering of null values in each column. Else, ignored. If empty, assumes all columns use {\ttfamily \doxylink{group__utility__types_gga058e6d6e8a21583ce0e85ee73e5abb31a3525317285c6126ce3b62a8df8c00b07}{null\+\_\+order\+::\+BEFORE}}. Ignored if {\ttfamily keys\+\_\+are\+\_\+sorted == false}. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1groupby_1_1groupby_a221be714878787abea34232da4c56e23}\label{classcudf_1_1groupby_1_1groupby_a221be714878787abea34232da4c56e23} 
+\index{cudf::groupby::groupby@{cudf::groupby::groupby}!aggregate@{aggregate}}
+\index{aggregate@{aggregate}!cudf::groupby::groupby@{cudf::groupby::groupby}}
+\doxysubsubsection{\texorpdfstring{aggregate()}{aggregate()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$, std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1aggregation__result}{aggregation\+\_\+result}} $>$ $>$ cudf\+::groupby\+::groupby\+::aggregate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1aggregation__request}{aggregation\+\_\+request}} const $>$}]{requests,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Performs grouped aggregations on the specified values. 
+
+The values to aggregate and the aggregations to perform are specified in an {\ttfamily \doxylink{structcudf_1_1groupby_1_1aggregation__request}{aggregation\+\_\+request}}. Each request contains a {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}} of values to aggregate and a set of {\ttfamily aggregation}s to perform on those elements.
+
+For each {\ttfamily aggregation} in a request, {\ttfamily values\mbox{[}i\mbox{]}} is aggregated with all other {\ttfamily values\mbox{[}j\mbox{]}} where rows {\ttfamily i} and {\ttfamily j} in {\ttfamily keys} are equivalent.
+
+The {\ttfamily size()} of the request column must equal {\ttfamily keys.\+num\+\_\+rows()}.
+
+For every {\ttfamily \doxylink{structcudf_1_1groupby_1_1aggregation__request}{aggregation\+\_\+request}} an {\ttfamily \doxylink{structcudf_1_1groupby_1_1aggregation__result}{aggregation\+\_\+result}} will be returned. The {\ttfamily \doxylink{structcudf_1_1groupby_1_1aggregation__result}{aggregation\+\_\+result}} holds the resulting column(s) for each requested aggregation on the {\ttfamily request}s values. The order of the columns in each result is the same order as was specified in the request.
+
+The returned {\ttfamily table} contains the group labels for each group, i.\+e., the unique rows from {\ttfamily keys}. Element {\ttfamily i} across all aggregation results belongs to the group at row {\ttfamily i} in the group labels table.
+
+The order of the rows in the group labels is arbitrary. Furthermore, successive {\ttfamily \doxylink{classcudf_1_1groupby_1_1groupby_a221be714878787abea34232da4c56e23}{groupby\+::aggregate}} calls may return results in different orders.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & If {\ttfamily requests\mbox{[}i\mbox{]}.values.\+size() != keys.\+num\+\_\+rows()}.\\
+\hline
+\end{DoxyExceptions}
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Input:}
+\DoxyCodeLine{keys:\ \ \ \ \ \{1\ 2\ 1\ 3\ 1\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{1\ 2\ 1\ 4\ 1\}}
+\DoxyCodeLine{request:}
+\DoxyCodeLine{\ \ values:\ \{3\ 1\ 4\ 9\ 2\}}
+\DoxyCodeLine{\ \ aggregations:\ \{\{SUM\},\ \{\mbox{\hyperlink{group__column__sort_ggac8975ec1273372f6ccae83a85bee71ceace31e2a082d17e038fcc6e3006166653}{MIN}}\}\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{result:}
+\DoxyCodeLine{}
+\DoxyCodeLine{keys:\ \ \{3\ 1\ 2\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \{4\ 1\ 2\}}
+\DoxyCodeLine{values:}
+\DoxyCodeLine{\ \ SUM:\ \{9\ 9\ 1\}}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{group__column__sort_ggac8975ec1273372f6ccae83a85bee71ceace31e2a082d17e038fcc6e3006166653}{MIN}}:\ \{9\ 2\ 1\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em requests} & The set of columns to aggregate and the aggregations to perform \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned table and columns\textquotesingle{} device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Pair containing the table with each group\textquotesingle{}s unique key and a vector of aggregation\+\_\+results for each request in the same order as specified in {\ttfamily requests}. 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1groupby_1_1groupby_ae81b6eae9814934deff8b127687b0bf8}\label{classcudf_1_1groupby_1_1groupby_ae81b6eae9814934deff8b127687b0bf8} 
+\index{cudf::groupby::groupby@{cudf::groupby::groupby}!dispatch\_aggregation@{dispatch\_aggregation}}
+\index{dispatch\_aggregation@{dispatch\_aggregation}!cudf::groupby::groupby@{cudf::groupby::groupby}}
+\doxysubsubsection{\texorpdfstring{dispatch\_aggregation()}{dispatch\_aggregation()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$, std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1aggregation__result}{aggregation\+\_\+result}} $>$ $>$ cudf\+::groupby\+::groupby\+::dispatch\+\_\+aggregation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1aggregation__request}{aggregation\+\_\+request}} const $>$}]{requests,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Dispatches to the appropriate implementation to satisfy the aggregation requests. 
+
+\Hypertarget{classcudf_1_1groupby_1_1groupby_a6a066cd4dcb8ee089f5147c4db8b39a9}\label{classcudf_1_1groupby_1_1groupby_a6a066cd4dcb8ee089f5147c4db8b39a9} 
+\index{cudf::groupby::groupby@{cudf::groupby::groupby}!get\_groups@{get\_groups}}
+\index{get\_groups@{get\_groups}!cudf::groupby::groupby@{cudf::groupby::groupby}}
+\doxysubsubsection{\texorpdfstring{get\_groups()}{get\_groups()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1groupby_1_1groupby_1_1groups}{groups}} cudf\+::groupby\+::groupby\+::get\+\_\+groups (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}}}]{values = {\ttfamily \{\}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Get the grouped keys and values corresponding to a groupby operation on a set of values 
+
+Returns a {\ttfamily groups} object representing the grouped keys and values. If values is not provided, only a grouping of the keys is performed, and the {\ttfamily values} of the {\ttfamily groups} object will be {\ttfamily nullptr}.
+
+
+\begin{DoxyParams}{参数}
+{\em values} & Table representing values on which a groupby operation is to be performed \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned tables\textquotesingle{}s device memory in the returned groups \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A {\ttfamily groups} object representing grouped keys and values 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1groupby_1_1groupby_af02ad28832f56935b4d04f846ff3e9ff}\label{classcudf_1_1groupby_1_1groupby_af02ad28832f56935b4d04f846ff3e9ff} 
+\index{cudf::groupby::groupby@{cudf::groupby::groupby}!helper@{helper}}
+\index{helper@{helper}!cudf::groupby::groupby@{cudf::groupby::groupby}}
+\doxysubsubsection{\texorpdfstring{helper()}{helper()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper}{detail\+::sort\+::sort\+\_\+groupby\+\_\+helper}} \& cudf\+::groupby\+::groupby\+::helper (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get the sort helper object 
+
+The object is constructed on first invocation and subsequent invocations of this function return the memoized object. \Hypertarget{classcudf_1_1groupby_1_1groupby_a8fb2fb339f1261cf8cdb35000b332e66}\label{classcudf_1_1groupby_1_1groupby_a8fb2fb339f1261cf8cdb35000b332e66} 
+\index{cudf::groupby::groupby@{cudf::groupby::groupby}!operator=@{operator=}}
+\index{operator=@{operator=}!cudf::groupby::groupby@{cudf::groupby::groupby}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1groupby_1_1groupby}{groupby}} \& cudf\+::groupby\+::groupby\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1groupby_1_1groupby}{groupby}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classcudf_1_1groupby_1_1groupby_aab4222391da271de790efb56826ae5e7}\label{classcudf_1_1groupby_1_1groupby_aab4222391da271de790efb56826ae5e7} 
+\index{cudf::groupby::groupby@{cudf::groupby::groupby}!operator=@{operator=}}
+\index{operator=@{operator=}!cudf::groupby::groupby@{cudf::groupby::groupby}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1groupby_1_1groupby}{groupby}} \& cudf\+::groupby\+::groupby\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1groupby_1_1groupby}{groupby}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classcudf_1_1groupby_1_1groupby_aabbd604f82a5c1402e19e87a7239c1d6}\label{classcudf_1_1groupby_1_1groupby_aabbd604f82a5c1402e19e87a7239c1d6} 
+\index{cudf::groupby::groupby@{cudf::groupby::groupby}!replace\_nulls@{replace\_nulls}}
+\index{replace\_nulls@{replace\_nulls}!cudf::groupby::groupby@{cudf::groupby::groupby}}
+\doxysubsubsection{\texorpdfstring{replace\_nulls()}{replace\_nulls()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ $>$ cudf\+::groupby\+::groupby\+::replace\+\_\+nulls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{values,  }\item[{\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{group__transformation__replace_ga7cdbc9bc3671930a743c86f36c38abf9}{cudf\+::replace\+\_\+policy}} const $>$}]{replace\+\_\+policies,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Performs grouped replace nulls on {\ttfamily value} 
+
+For each {\ttfamily value\mbox{[}i\mbox{]} == NULL} in group {\ttfamily j}, {\ttfamily value\mbox{[}i\mbox{]}} is replaced with the first non-\/null value in group {\ttfamily j} that precedes or follows {\ttfamily value\mbox{[}i\mbox{]}}. If a non-\/null value is not found in the specified direction, {\ttfamily value\mbox{[}i\mbox{]}} is left NULL.
+
+The returned pair contains a column of the sorted keys and the result column. In result column, values of the same group are in contiguous memory. In each group, the order of values maintain their original order. The order of groups are not guaranteed.
+
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{//Inputs:}
+\DoxyCodeLine{keys:\ \ \ \ \{3\ 3\ 1\ 3\ 1\ 3\ 4\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \{2\ 2\ 1\ 2\ 1\ 2\ 5\}}
+\DoxyCodeLine{values:\ \ \{3\ 4\ 7\ @\ @\ @\ @\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \{@\ @\ @\ "{}x"{}\ "{}tt"{}\ @\ @\}}
+\DoxyCodeLine{replace\_policies:\ \ \ \ \{FORWARD,\ BACKWARD\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{//Outputs\ (group\ orders\ may\ be\ different):}
+\DoxyCodeLine{keys:\ \ \ \ \{3\ 3\ 3\ 3\ 1\ 1\ 4\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \{2\ 2\ 2\ 2\ 1\ 1\ 5\}}
+\DoxyCodeLine{result:\ \ \{3\ 4\ 4\ 4\ 7\ 7\ @\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \{"{}x"{}\ "{}x"{}\ "{}x"{}\ @\ "{}tt"{}\ "{}tt"{}\ @\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em values} & A table whose column null values will be replaced \\
+\hline
+\mbox{\texttt{ in}}  & {\em replace\+\_\+policies} & Specify the position of replacement values relative to null values, one for each column \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate device memory of the returned column\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Pair that contains a table with the sorted keys and the result column 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1groupby_1_1groupby_a695b525d3874c8190f9d3d9ad03c8900}\label{classcudf_1_1groupby_1_1groupby_a695b525d3874c8190f9d3d9ad03c8900} 
+\index{cudf::groupby::groupby@{cudf::groupby::groupby}!scan@{scan}}
+\index{scan@{scan}!cudf::groupby::groupby@{cudf::groupby::groupby}}
+\doxysubsubsection{\texorpdfstring{scan()}{scan()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$, std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1aggregation__result}{aggregation\+\_\+result}} $>$ $>$ cudf\+::groupby\+::groupby\+::scan (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1scan__request}{scan\+\_\+request}} const $>$}]{requests,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Performs grouped scans on the specified values. 
+
+The values to aggregate and the aggregations to perform are specified in an {\ttfamily \doxylink{structcudf_1_1groupby_1_1aggregation__request}{aggregation\+\_\+request}}. Each request contains a {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}} of values to aggregate and a set of {\ttfamily aggregation}s to perform on those elements.
+
+For each {\ttfamily aggregation} in a request, {\ttfamily values\mbox{[}i\mbox{]}} is scan aggregated with all previous {\ttfamily values\mbox{[}j\mbox{]}} where rows {\ttfamily i} and {\ttfamily j} in {\ttfamily keys} are equivalent.
+
+The {\ttfamily size()} of the request column must equal {\ttfamily keys.\+num\+\_\+rows()}.
+
+For every {\ttfamily \doxylink{structcudf_1_1groupby_1_1aggregation__request}{aggregation\+\_\+request}} an {\ttfamily \doxylink{structcudf_1_1groupby_1_1aggregation__result}{aggregation\+\_\+result}} will be returned. The {\ttfamily \doxylink{structcudf_1_1groupby_1_1aggregation__result}{aggregation\+\_\+result}} holds the resulting column(s) for each requested aggregation on the {\ttfamily request}s values. The order of the columns in each result is the same order as was specified in the request.
+
+The returned {\ttfamily table} contains the group labels for each row, i.\+e., the {\ttfamily keys} given to groupby object. Element {\ttfamily i} across all aggregation results belongs to the group at row {\ttfamily i} in the group labels table.
+
+The order of the rows in the group labels is arbitrary. Furthermore, successive {\ttfamily \doxylink{classcudf_1_1groupby_1_1groupby_a695b525d3874c8190f9d3d9ad03c8900}{groupby\+::scan}} calls may return results in different orders.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & If {\ttfamily requests\mbox{[}i\mbox{]}.values.\+size() != keys.\+num\+\_\+rows()}.\\
+\hline
+\end{DoxyExceptions}
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Input:}
+\DoxyCodeLine{keys:\ \ \ \ \ \{1\ 2\ 1\ 3\ 1\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{1\ 2\ 1\ 4\ 1\}}
+\DoxyCodeLine{request:}
+\DoxyCodeLine{\ \ values:\ \{3\ 1\ 4\ 9\ 2\}}
+\DoxyCodeLine{\ \ aggregations:\ \{\{SUM\},\ \{\mbox{\hyperlink{group__column__sort_ggac8975ec1273372f6ccae83a85bee71ceace31e2a082d17e038fcc6e3006166653}{MIN}}\}\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{result:}
+\DoxyCodeLine{}
+\DoxyCodeLine{keys:\ \ \{3\ 1\ 1\ 1\ 2\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \{4\ 1\ 1\ 1\ 2\}}
+\DoxyCodeLine{values:}
+\DoxyCodeLine{\ \ SUM:\ \{9\ 3\ 7\ 9\ 1\}}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{group__column__sort_ggac8975ec1273372f6ccae83a85bee71ceace31e2a082d17e038fcc6e3006166653}{MIN}}:\ \{9\ 3\ 3\ 2\ 1\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em requests} & The set of columns to scan and the scans to perform \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned table and columns\textquotesingle{} device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Pair containing the table with each group\textquotesingle{}s key and a vector of aggregation\+\_\+results for each request in the same order as specified in {\ttfamily requests}. 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1groupby_1_1groupby_aad664c9dee97886fd5085fc989e9665c}\label{classcudf_1_1groupby_1_1groupby_aad664c9dee97886fd5085fc989e9665c} 
+\index{cudf::groupby::groupby@{cudf::groupby::groupby}!shift@{shift}}
+\index{shift@{shift}!cudf::groupby::groupby@{cudf::groupby::groupby}}
+\doxysubsubsection{\texorpdfstring{shift()}{shift()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ $>$ cudf\+::groupby\+::groupby\+::shift (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{values,  }\item[{\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$}]{offsets,  }\item[{std\+::vector$<$ std\+::reference\+\_\+wrapper$<$ const \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ $>$ const \&}]{fill\+\_\+values,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Performs grouped shifts for specified values. 
+
+In {\ttfamily j}th column, for each group, {\ttfamily i}th element is determined by the {\ttfamily i -\/ offsets\mbox{[}j\mbox{]}}th element of the group. If {\ttfamily i -\/ offsets\mbox{[}j\mbox{]} \texorpdfstring{$<$}{<} 0 or \texorpdfstring{$>$}{>}= group\+\_\+size}, the value is determined by {\ttfamily fill\+\_\+values}\mbox{[}j\mbox{]}.
+
+\begin{DoxyNote}{注解}
+The first returned table stores the keys passed to the groupby object. Row {\ttfamily i} of the key table corresponds to the group labels of row {\ttfamily i} in the shifted columns. The key order in each group matches the input order. The order of each group is arbitrary. The group order in successive calls to {\ttfamily groupby\+::shifts} may be different.
+\end{DoxyNote}
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{keys:\ \ \ \ \{1\ 4\ 1\ 3\ 4\ 4\ 1\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \{1\ 2\ 1\ 3\ 2\ 2\ 1\}}
+\DoxyCodeLine{values:\ \ \{3\ 9\ 1\ 4\ 2\ 5\ 7\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \{"{}a"{}\ "{}c"{}\ "{}bb"{}\ "{}ee"{}\ "{}z"{}\ "{}x"{}\ "{}d"{}\}}
+\DoxyCodeLine{offset:\ \ \{2,\ -\/1\}}
+\DoxyCodeLine{fill\_value:\ \{@,\ @\}}
+\DoxyCodeLine{result\ (group\ order\ maybe\ different):}
+\DoxyCodeLine{\ \ \ keys:\ \ \ \{3\ 1\ 1\ 1\ 4\ 4\ 4\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \{3\ 1\ 1\ 1\ 2\ 2\ 2\}}
+\DoxyCodeLine{\ \ \ values:\ \{@\ @\ @\ 3\ @\ @\ 9\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \{@\ "{}bb"{}\ "{}d"{}\ @\ "{}z"{}\ "{}x"{}\ @\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{keys:\ \ \ \ \{1\ 4\ 1\ 3\ 4\ 4\ 1\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \{1\ 2\ 1\ 3\ 2\ 2\ 1\}}
+\DoxyCodeLine{values:\ \ \{3\ 9\ 1\ 4\ 2\ 5\ 7\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \{"{}a"{}\ "{}c"{}\ "{}bb"{}\ "{}ee"{}\ "{}z"{}\ "{}x"{}\ "{}d"{}\}}
+\DoxyCodeLine{offset:\ \ \{-\/2,\ 1\}}
+\DoxyCodeLine{fill\_value:\ \{-\/1,\ "{}42"{}\}}
+\DoxyCodeLine{result\ (group\ order\ maybe\ different):}
+\DoxyCodeLine{\ \ \ keys:\ \ \ \{3\ 1\ 1\ 1\ 4\ 4\ 4\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \{3\ 1\ 1\ 1\ 2\ 2\ 2\}}
+\DoxyCodeLine{\ \ \ values:\ \{-\/1\ 7\ -\/1\ -\/1\ 5\ -\/1\ -\/1\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \{"{}42"{}\ "{}42"{}\ "{}a"{}\ "{}bb"{}\ "{}42"{}\ "{}c"{}\ "{}z"{}\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em values} & Table whose columns to be shifted \\
+\hline
+{\em offsets} & The offsets by which to shift the input \\
+\hline
+{\em fill\+\_\+values} & Fill values for indeterminable outputs \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned table and columns\textquotesingle{} device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Pair containing the tables with each group\textquotesingle{}s key and the columns shifted
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily fill\+\_\+value}\mbox{[}i\mbox{]} dtype does not match {\ttfamily values}\mbox{[}i\mbox{]} dtype for {\ttfamily i}th column \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classcudf_1_1groupby_1_1groupby_ade046c72ed77b62ca93fced6d1436077}\label{classcudf_1_1groupby_1_1groupby_ade046c72ed77b62ca93fced6d1436077} 
+\index{cudf::groupby::groupby@{cudf::groupby::groupby}!sort\_aggregate@{sort\_aggregate}}
+\index{sort\_aggregate@{sort\_aggregate}!cudf::groupby::groupby@{cudf::groupby::groupby}}
+\doxysubsubsection{\texorpdfstring{sort\_aggregate()}{sort\_aggregate()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$, std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1aggregation__result}{aggregation\+\_\+result}} $>$ $>$ cudf\+::groupby\+::groupby\+::sort\+\_\+aggregate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1aggregation__request}{aggregation\+\_\+request}} const $>$}]{requests,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classcudf_1_1groupby_1_1groupby_a67d07f5c56b12d901488bb4c991216d4}\label{classcudf_1_1groupby_1_1groupby_a67d07f5c56b12d901488bb4c991216d4} 
+\index{cudf::groupby::groupby@{cudf::groupby::groupby}!sort\_scan@{sort\_scan}}
+\index{sort\_scan@{sort\_scan}!cudf::groupby::groupby@{cudf::groupby::groupby}}
+\doxysubsubsection{\texorpdfstring{sort\_scan()}{sort\_scan()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$, std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1aggregation__result}{aggregation\+\_\+result}} $>$ $>$ cudf\+::groupby\+::groupby\+::sort\+\_\+scan (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{structcudf_1_1groupby_1_1scan__request}{scan\+\_\+request}} const $>$}]{requests,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1groupby_1_1groupby_ae4bfa0e55c29a2a20b7fb9dc86892997}\label{classcudf_1_1groupby_1_1groupby_ae4bfa0e55c29a2a20b7fb9dc86892997} 
+\index{cudf::groupby::groupby@{cudf::groupby::groupby}!\_column\_order@{\_column\_order}}
+\index{\_column\_order@{\_column\_order}!cudf::groupby::groupby@{cudf::groupby::groupby}}
+\doxysubsubsection{\texorpdfstring{\_column\_order}{\_column\_order}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}}$>$ cudf\+::groupby\+::groupby\+::\+\_\+column\+\_\+order \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+If keys are sorted, indicates the order of each column 
+
+在文件 \mbox{\hyperlink{groupby_8hpp_source}{groupby.\+hpp}} 第 \mbox{\hyperlink{groupby_8hpp_source_l00374}{374}} 行定义.
+
+\Hypertarget{classcudf_1_1groupby_1_1groupby_affd0eb1070d5097bb6c3482a947fbf9a}\label{classcudf_1_1groupby_1_1groupby_affd0eb1070d5097bb6c3482a947fbf9a} 
+\index{cudf::groupby::groupby@{cudf::groupby::groupby}!\_helper@{\_helper}}
+\index{\_helper@{\_helper}!cudf::groupby::groupby@{cudf::groupby::groupby}}
+\doxysubsubsection{\texorpdfstring{\_helper}{\_helper}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{structcudf_1_1groupby_1_1detail_1_1sort_1_1sort__groupby__helper}{detail\+::sort\+::sort\+\_\+groupby\+\_\+helper}}$>$ cudf\+::groupby\+::groupby\+::\+\_\+helper\hspace{0.3cm}{\ttfamily [private]}}
+
+Helper object used by sort based implementation 
+
+在文件 \mbox{\hyperlink{groupby_8hpp_source}{groupby.\+hpp}} 第 \mbox{\hyperlink{groupby_8hpp_source_l00380}{380}} 行定义.
+
+\Hypertarget{classcudf_1_1groupby_1_1groupby_a166284d95b101e5c4cac4f1627bd2924}\label{classcudf_1_1groupby_1_1groupby_a166284d95b101e5c4cac4f1627bd2924} 
+\index{cudf::groupby::groupby@{cudf::groupby::groupby}!\_include\_null\_keys@{\_include\_null\_keys}}
+\index{\_include\_null\_keys@{\_include\_null\_keys}!cudf::groupby::groupby@{cudf::groupby::groupby}}
+\doxysubsubsection{\texorpdfstring{\_include\_null\_keys}{\_include\_null\_keys}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} cudf\+::groupby\+::groupby\+::\+\_\+include\+\_\+null\+\_\+keys \{\mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}{null\+\_\+policy\+::\+EXCLUDE}}\}\hspace{0.3cm}{\ttfamily [private]}}
+
+Include rows in keys with NULLs 
+
+在文件 \mbox{\hyperlink{groupby_8hpp_source}{groupby.\+hpp}} 第 \mbox{\hyperlink{groupby_8hpp_source_l00371}{371}} 行定义.
+
+\Hypertarget{classcudf_1_1groupby_1_1groupby_a2beb090f2bcf3e3e72f949068f67bdc7}\label{classcudf_1_1groupby_1_1groupby_a2beb090f2bcf3e3e72f949068f67bdc7} 
+\index{cudf::groupby::groupby@{cudf::groupby::groupby}!\_keys@{\_keys}}
+\index{\_keys@{\_keys}!cudf::groupby::groupby@{cudf::groupby::groupby}}
+\doxysubsubsection{\texorpdfstring{\_keys}{\_keys}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} cudf\+::groupby\+::groupby\+::\+\_\+keys\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Keys that determine grouping 
+
+
+
+在文件 \mbox{\hyperlink{groupby_8hpp_source}{groupby.\+hpp}} 第 \mbox{\hyperlink{groupby_8hpp_source_l00370}{370}} 行定义.
+
+\Hypertarget{classcudf_1_1groupby_1_1groupby_a8678f4f886329339b236c59950b104ac}\label{classcudf_1_1groupby_1_1groupby_a8678f4f886329339b236c59950b104ac} 
+\index{cudf::groupby::groupby@{cudf::groupby::groupby}!\_keys\_are\_sorted@{\_keys\_are\_sorted}}
+\index{\_keys\_are\_sorted@{\_keys\_are\_sorted}!cudf::groupby::groupby@{cudf::groupby::groupby}}
+\doxysubsubsection{\texorpdfstring{\_keys\_are\_sorted}{\_keys\_are\_sorted}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_gab283c517931abd4152ffa62fec62425d}{sorted}} cudf\+::groupby\+::groupby\+::\+\_\+keys\+\_\+are\+\_\+sorted \{\mbox{\hyperlink{group__utility__types_ggab283c517931abd4152ffa62fec62425dac2f3f489a00553e7a01d369c103c7251}{sorted\+::\+NO}}\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Whether or not the keys are sorted 
+
+
+
+在文件 \mbox{\hyperlink{groupby_8hpp_source}{groupby.\+hpp}} 第 \mbox{\hyperlink{groupby_8hpp_source_l00373}{373}} 行定义.
+
+\Hypertarget{classcudf_1_1groupby_1_1groupby_ac2da103feacf00783c21058ce9b44c3c}\label{classcudf_1_1groupby_1_1groupby_ac2da103feacf00783c21058ce9b44c3c} 
+\index{cudf::groupby::groupby@{cudf::groupby::groupby}!\_null\_precedence@{\_null\_precedence}}
+\index{\_null\_precedence@{\_null\_precedence}!cudf::groupby::groupby@{cudf::groupby::groupby}}
+\doxysubsubsection{\texorpdfstring{\_null\_precedence}{\_null\_precedence}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}}$>$ cudf\+::groupby\+::groupby\+::\+\_\+null\+\_\+precedence \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+If keys are sorted, indicates null order of each column 
+
+在文件 \mbox{\hyperlink{groupby_8hpp_source}{groupby.\+hpp}} 第 \mbox{\hyperlink{groupby_8hpp_source_l00376}{376}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/\mbox{\hyperlink{groupby_8hpp}{groupby.\+hpp}}\end{DoxyCompactItemize}

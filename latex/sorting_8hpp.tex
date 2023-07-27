@@ -1,0 +1,59 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/sorting.hpp 文件参考}
+\hypertarget{sorting_8hpp}{}\label{sorting_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/sorting.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/sorting.hpp}}
+
+
+Column APIs for sort and rank  
+
+
+{\ttfamily \#include $<$cudf/aggregation.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/types.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/mr/device/per\+\_\+device\+\_\+resource.\+hpp$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+sorting.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sorting_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__sort_ga141398c354cc1607bcfe9590d93e63f5}{cudf\+::sorted\+\_\+order}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order=\{\}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence=\{\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Computes the row indices that would produce {\ttfamily input} in a lexicographical sorted order. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__sort_ga2db61bdd446ede1bdad2cf13ec4ab65d}{cudf\+::stable\+\_\+sorted\+\_\+order}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order=\{\}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence=\{\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Computes the row indices that would produce {\ttfamily input} in a stable lexicographical sorted order. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__column__sort_ga77f7f552aca16f21830817ccd088670e}{cudf\+::is\+\_\+sorted}} (\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1table}{table}}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence)
+\begin{DoxyCompactList}\small\item\em Checks whether the rows of a {\ttfamily table} are sorted in a lexicographical order. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__sort_ga921f48f195936eb38dc205e8dfd2ae54}{cudf\+::sort}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order=\{\}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence=\{\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs a lexicographic sort of the rows of a table \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__sort_gafb4d13cd3f1b4e9077011923422735a3}{cudf\+::sort\+\_\+by\+\_\+key}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&values, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&keys, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order=\{\}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence=\{\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs a key-\/value sort. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__sort_ga18ef8338c288288adfea62c9e12cbd9c}{cudf\+::stable\+\_\+sort\+\_\+by\+\_\+key}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&values, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&keys, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order=\{\}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence=\{\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs a key-\/value stable sort. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__sort_ga5209c095d2b7cb1a8c69b33a2e3956f2}{cudf\+::rank}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{group__column__sort_gac8975ec1273372f6ccae83a85bee71ce}{rank\+\_\+method}} method, \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} column\+\_\+order, \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling, \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} null\+\_\+precedence, bool percentage, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Computes the ranks of input column in sorted order. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__sort_gabe92e762f1eabd11c66eddf1cbc01eb7}{cudf\+::segmented\+\_\+sorted\+\_\+order}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&keys, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&segment\+\_\+offsets, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order=\{\}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence=\{\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns sorted order after sorting each segment in the table. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__sort_gab2a305a2004c722983cb8a863067dbd0}{cudf\+::stable\+\_\+segmented\+\_\+sorted\+\_\+order}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&keys, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&segment\+\_\+offsets, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order=\{\}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence=\{\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns sorted order after stably sorting each segment in the table. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__sort_ga362ef2bb477363f2314bf86e9fc52893}{cudf\+::segmented\+\_\+sort\+\_\+by\+\_\+key}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&values, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&keys, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&segment\+\_\+offsets, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order=\{\}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence=\{\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs a lexicographic segmented sort of a table \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__sort_ga1ddc75a2acfc4996bfc34c57050b1cfd}{cudf\+::stable\+\_\+segmented\+\_\+sort\+\_\+by\+\_\+key}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&values, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&keys, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&segment\+\_\+offsets, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order=\{\}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence=\{\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs a stably lexicographic segmented sort of a table \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Column APIs for sort and rank 
+
+
+
+在文件 \mbox{\hyperlink{sorting_8hpp_source}{sorting.\+hpp}} 中定义.
+

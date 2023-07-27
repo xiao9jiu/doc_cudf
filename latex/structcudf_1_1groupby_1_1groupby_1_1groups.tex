@@ -1,0 +1,89 @@
+\doxysection{cudf\+::groupby\+::groupby\+::groups结构体 参考}
+\hypertarget{structcudf_1_1groupby_1_1groupby_1_1groups}{}\label{structcudf_1_1groupby_1_1groupby_1_1groups}\index{cudf::groupby::groupby::groups@{cudf::groupby::groupby::groups}}
+
+
+The grouped data corresponding to a groupby operation on a set of values.  
+
+
+
+
+{\ttfamily \#include $<$groupby.\+hpp$>$}
+
+
+
+cudf\+::groupby\+::groupby\+::groups 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=189pt]{structcudf_1_1groupby_1_1groupby_1_1groups__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{structcudf_1_1groupby_1_1groupby_1_1groups_a1e2bd7b5cda63cbde54172c7b9e373ef}{keys}}
+\begin{DoxyCompactList}\small\item\em Table of grouped keys \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ \mbox{\hyperlink{structcudf_1_1groupby_1_1groupby_1_1groups_a89b091d7d8766f08ac2b9585dacea117}{offsets}}
+\begin{DoxyCompactList}\small\item\em Group Offsets \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{structcudf_1_1groupby_1_1groupby_1_1groups_af912615a2358c732db88297a9b0e49c7}{values}}
+\begin{DoxyCompactList}\small\item\em Table of grouped values \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+The grouped data corresponding to a groupby operation on a set of values. 
+
+A {\ttfamily groups} object holds two tables of identical number of rows\+: a table of grouped keys and a table of grouped values. In addition, it holds a vector of integer offsets into the rows of the tables, such that {\ttfamily offsets\mbox{[}i+1\mbox{]} -\/ offsets\mbox{[}i\mbox{]}} gives the size of group {\ttfamily i}. 
+
+在文件 \mbox{\hyperlink{groupby_8hpp_source}{groupby.\+hpp}} 第 \mbox{\hyperlink{groupby_8hpp_source_l00308}{308}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{structcudf_1_1groupby_1_1groupby_1_1groups_a1e2bd7b5cda63cbde54172c7b9e373ef}\label{structcudf_1_1groupby_1_1groupby_1_1groups_a1e2bd7b5cda63cbde54172c7b9e373ef} 
+\index{cudf::groupby::groupby::groups@{cudf::groupby::groupby::groups}!keys@{keys}}
+\index{keys@{keys}!cudf::groupby::groupby::groups@{cudf::groupby::groupby::groups}}
+\doxysubsubsection{\texorpdfstring{keys}{keys}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classcudf_1_1table}{table}}$>$ cudf\+::groupby\+::groupby\+::groups\+::keys}
+
+
+
+Table of grouped keys 
+
+
+
+在文件 \mbox{\hyperlink{groupby_8hpp_source}{groupby.\+hpp}} 第 \mbox{\hyperlink{groupby_8hpp_source_l00309}{309}} 行定义.
+
+\Hypertarget{structcudf_1_1groupby_1_1groupby_1_1groups_a89b091d7d8766f08ac2b9585dacea117}\label{structcudf_1_1groupby_1_1groupby_1_1groups_a89b091d7d8766f08ac2b9585dacea117} 
+\index{cudf::groupby::groupby::groups@{cudf::groupby::groupby::groups}!offsets@{offsets}}
+\index{offsets@{offsets}!cudf::groupby::groupby::groups@{cudf::groupby::groupby::groups}}
+\doxysubsubsection{\texorpdfstring{offsets}{offsets}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}$>$ cudf\+::groupby\+::groupby\+::groups\+::offsets}
+
+
+
+Group Offsets 
+
+
+
+在文件 \mbox{\hyperlink{groupby_8hpp_source}{groupby.\+hpp}} 第 \mbox{\hyperlink{groupby_8hpp_source_l00310}{310}} 行定义.
+
+\Hypertarget{structcudf_1_1groupby_1_1groupby_1_1groups_af912615a2358c732db88297a9b0e49c7}\label{structcudf_1_1groupby_1_1groupby_1_1groups_af912615a2358c732db88297a9b0e49c7} 
+\index{cudf::groupby::groupby::groups@{cudf::groupby::groupby::groups}!values@{values}}
+\index{values@{values}!cudf::groupby::groupby::groups@{cudf::groupby::groupby::groups}}
+\doxysubsubsection{\texorpdfstring{values}{values}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classcudf_1_1table}{table}}$>$ cudf\+::groupby\+::groupby\+::groups\+::values}
+
+
+
+Table of grouped values 
+
+
+
+在文件 \mbox{\hyperlink{groupby_8hpp_source}{groupby.\+hpp}} 第 \mbox{\hyperlink{groupby_8hpp_source_l00311}{311}} 行定义.
+
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/\mbox{\hyperlink{groupby_8hpp}{groupby.\+hpp}}\end{DoxyCompactItemize}

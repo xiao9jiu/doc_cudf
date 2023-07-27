@@ -1,0 +1,73 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/table/table\+\_\+view.hpp 文件参考}
+\hypertarget{table__view_8hpp}{}\label{table__view_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/table/table\_view.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/table/table\_view.hpp}}
+
+
+Class definitions for {\ttfamily (mutable)\+\_\+table\+\_\+view}  
+
+
+{\ttfamily \#include $<$cudf/column/column\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/types.\+hpp$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+table\+\_\+view.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table__view_8hpp__incl}
+\end{center}
+\end{figure}
+此图展示该文件直接或间接的被哪些文件引用了\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{table__view_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base}{cudf\+::detail\+::table\+\_\+view\+\_\+base$<$ Column\+View $>$}}
+\begin{DoxyCompactList}\small\item\em Base class for a table of {\ttfamily Column\+View}s \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}}
+\begin{DoxyCompactList}\small\item\em A set of \doxylink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}\textquotesingle{}s of the same size. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcudf_1_1mutable__table__view}{cudf\+::mutable\+\_\+table\+\_\+view}}
+\begin{DoxyCompactList}\small\item\em A set of {\ttfamily \doxylink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view}}s of the same size. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1detail}{cudf\+::detail}}
+\begin{DoxyCompactList}\small\item\em Inner interfaces and implementations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacecudf_1_1detail_aee63ff93909aab1cf205625ee996236a}{cudf\+::detail\+::has\+\_\+nested\+\_\+columns}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1table}{table}})
+\begin{DoxyCompactList}\small\item\em Determine if any nested columns exist in a given table. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacecudf_a025670a619591e80fdf972c36e625005}{cudf\+::nullable}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&view)
+\begin{DoxyCompactList}\small\item\em Returns True if any of the columns in the table is nullable. (not entire hierarchy) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacecudf_a0b69e95220c2cc259bbf510506b6fff9}{cudf\+::has\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&view)
+\begin{DoxyCompactList}\small\item\em Returns True if the table has nulls in any of its columns. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacecudf_a6e88bcc8b11230b602d828b692636c55}{cudf\+::has\+\_\+nested\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input)
+\begin{DoxyCompactList}\small\item\em Returns True if the table has nulls in any of its columns hierarchy \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} $>$ \mbox{\hyperlink{namespacecudf_a1263279c1224a4c7634455ca08ae7ae3}{cudf\+::get\+\_\+nullable\+\_\+columns}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1table}{table}})
+\begin{DoxyCompactList}\small\item\em The function to collect all nullable columns at all nested levels in a given table. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacecudf_a2f79c6fbeb12b15851bee1aa09f76c92}{cudf\+::have\+\_\+same\+\_\+types}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&lhs, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&rhs)
+\begin{DoxyCompactList}\small\item\em Checks if two {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}}s have columns of same types \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} \mbox{\hyperlink{namespacecudf_ab3eece7be385b3be2bda53b24a48dbdc}{cudf\+::scatter\+\_\+columns}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&source, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&map, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&target)
+\begin{DoxyCompactList}\small\item\em Copy column\+\_\+views from a \doxylink{classcudf_1_1table__view}{table\+\_\+view} into another \doxylink{classcudf_1_1table__view}{table\+\_\+view} according to a column indices map. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Table\+View $>$ }\\bool \mbox{\hyperlink{namespacecudf_1_1detail_a3723537389c05b4a90958589c304f2fb}{cudf\+::detail\+::is\+\_\+relationally\+\_\+comparable}} (Table\+View const \&lhs, Table\+View const \&rhs)
+\begin{DoxyCompactList}\small\item\em Indicates whether respective columns in input tables are relationally comparable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Class definitions for {\ttfamily (mutable)\+\_\+table\+\_\+view} 
+
+A {\ttfamily (mutable\+\_\+)table\+\_\+view} is a set of {\ttfamily (mutable\+\_\+)column\+\_\+view}s of equal size.
+
+A {\ttfamily (mutable\+\_\+)table\+\_\+view} is non-\/owning and trivially copyable and should be passed by value. 
+
+在文件 \mbox{\hyperlink{table__view_8hpp_source}{table\+\_\+view.\+hpp}} 中定义.
+

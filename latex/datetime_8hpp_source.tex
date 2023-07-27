@@ -1,0 +1,130 @@
+\doxysection{datetime.\+hpp}
+\hypertarget{datetime_8hpp_source}{}\label{datetime_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/datetime.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/datetime.hpp}}
+\mbox{\hyperlink{datetime_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2019-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{types_8hpp}{cudf/types.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <rmm/mr/device/per\_device\_resource.hpp>}}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00030}00030\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00031}\mbox{\hyperlink{namespacecudf_1_1datetime}{00031}}\ \textcolor{keyword}{namespace\ }datetime\ \{}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00048}\mbox{\hyperlink{group__datetime__extract_gaa3ddafc36e5a55193cd9d57328cbf9b4}{00048}}\ std::unique\_ptr<cudf::column>\ \mbox{\hyperlink{group__datetime__extract_gaa3ddafc36e5a55193cd9d57328cbf9b4}{extract\_year}}(}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00049}00049\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1column}{column}},}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00050}00050\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00062}\mbox{\hyperlink{group__datetime__extract_gaced04c6370e65d0e6b3046d22dbe183d}{00062}}\ std::unique\_ptr<cudf::column>\ \mbox{\hyperlink{group__datetime__extract_gaced04c6370e65d0e6b3046d22dbe183d}{extract\_month}}(}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00063}00063\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1column}{column}},}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00064}00064\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00076}\mbox{\hyperlink{group__datetime__extract_gae71a2bd0b899a317134e0991da2ea01b}{00076}}\ std::unique\_ptr<cudf::column>\ \mbox{\hyperlink{group__datetime__extract_gae71a2bd0b899a317134e0991da2ea01b}{extract\_day}}(}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00077}00077\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1column}{column}},}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00078}00078\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00090}\mbox{\hyperlink{group__datetime__extract_gab72553f073cfcf21ef8f89ebfef9d539}{00090}}\ std::unique\_ptr<cudf::column>\ \mbox{\hyperlink{group__datetime__extract_gab72553f073cfcf21ef8f89ebfef9d539}{extract\_weekday}}(}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00091}00091\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1column}{column}},}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00092}00092\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00104}\mbox{\hyperlink{group__datetime__extract_ga4e7b0f614e14cc5a8db5dfbedd9d268b}{00104}}\ std::unique\_ptr<cudf::column>\ \mbox{\hyperlink{group__datetime__extract_ga4e7b0f614e14cc5a8db5dfbedd9d268b}{extract\_hour}}(}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00105}00105\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1column}{column}},}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00106}00106\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00118}\mbox{\hyperlink{group__datetime__extract_gadf3771cfb4833cf0634cff0d32979058}{00118}}\ std::unique\_ptr<cudf::column>\ \mbox{\hyperlink{group__datetime__extract_gadf3771cfb4833cf0634cff0d32979058}{extract\_minute}}(}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00119}00119\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1column}{column}},}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00120}00120\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00132}\mbox{\hyperlink{group__datetime__extract_ga746c6f6bc0729dd3697fcdffe4975942}{00132}}\ std::unique\_ptr<cudf::column>\ \mbox{\hyperlink{group__datetime__extract_ga746c6f6bc0729dd3697fcdffe4975942}{extract\_second}}(}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00133}00133\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1column}{column}},}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00134}00134\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00149}\mbox{\hyperlink{group__datetime__extract_ga1507e741ce05cdab68fe6cf7a5fddbae}{00149}}\ std::unique\_ptr<cudf::column>\ \mbox{\hyperlink{group__datetime__extract_ga1507e741ce05cdab68fe6cf7a5fddbae}{extract\_millisecond\_fraction}}(}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00150}00150\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1column}{column}},}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00151}00151\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00166}\mbox{\hyperlink{group__datetime__extract_ga004730274c5005049812958ffc892d52}{00166}}\ std::unique\_ptr<cudf::column>\ \mbox{\hyperlink{group__datetime__extract_ga004730274c5005049812958ffc892d52}{extract\_microsecond\_fraction}}(}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00167}00167\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1column}{column}},}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00168}00168\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00183}\mbox{\hyperlink{group__datetime__extract_ga29ffa8f055ed7f963c02ba904cc7d411}{00183}}\ std::unique\_ptr<cudf::column>\ \mbox{\hyperlink{group__datetime__extract_ga29ffa8f055ed7f963c02ba904cc7d411}{extract\_nanosecond\_fraction}}(}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00184}00184\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1column}{column}},}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00185}00185\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00186}00186\ \ \ \textcolor{comment}{//\ end\ of\ group}}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00204}\mbox{\hyperlink{group__datetime__compute_ga53b4a3c8e588d84bdb88a06487ed1c00}{00204}}\ \textcolor{comment}{}std::unique\_ptr<cudf::column>\ \mbox{\hyperlink{group__datetime__compute_ga53b4a3c8e588d84bdb88a06487ed1c00}{last\_day\_of\_month}}(}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00205}00205\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1column}{column}},}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00206}00206\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00207}00207\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00218}\mbox{\hyperlink{group__datetime__compute_ga7fc1f768573a03ac6a03351f35af2517}{00218}}\ std::unique\_ptr<cudf::column>\ \mbox{\hyperlink{group__datetime__compute_ga7fc1f768573a03ac6a03351f35af2517}{day\_of\_year}}(}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00219}00219\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1column}{column}},}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00220}00220\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00221}00221\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00252}\mbox{\hyperlink{group__datetime__compute_ga297d69fb9e7f257500458c3d1e5ed1f0}{00252}}\ std::unique\_ptr<cudf::column>\ \mbox{\hyperlink{group__datetime__compute_ga297d69fb9e7f257500458c3d1e5ed1f0}{add\_calendrical\_months}}(}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00253}00253\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ timestamps,}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00254}00254\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ months,}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00255}00255\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00256}00256\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00287}\mbox{\hyperlink{group__datetime__compute_gaa339bd351bd3d48779a9ca1261515e36}{00287}}\ std::unique\_ptr<cudf::column>\ \mbox{\hyperlink{group__datetime__compute_ga297d69fb9e7f257500458c3d1e5ed1f0}{add\_calendrical\_months}}(}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00288}00288\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ timestamps,}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00289}00289\ \ \ \mbox{\hyperlink{classcudf_1_1scalar}{cudf::scalar}}\ \textcolor{keyword}{const}\&\ months,}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00290}00290\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00291}00291\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00305}\mbox{\hyperlink{group__datetime__compute_ga1d4d2721577faab676dcd8df1748de04}{00305}}\ std::unique\_ptr<cudf::column>\ \mbox{\hyperlink{group__datetime__compute_ga1d4d2721577faab676dcd8df1748de04}{is\_leap\_year}}(}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00306}00306\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1column}{column}},}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00307}00307\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00308}00308\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00321}\mbox{\hyperlink{group__datetime__compute_ga26305295987c9f5e25a5fcb8da95f571}{00321}}\ std::unique\_ptr<cudf::column>\ \mbox{\hyperlink{group__datetime__compute_ga26305295987c9f5e25a5fcb8da95f571}{days\_in\_month}}(}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00322}00322\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1column}{column}},}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00323}00323\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00324}00324\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00337}\mbox{\hyperlink{group__datetime__compute_ga2f94182ad9c59b07de255770849a8a07}{00337}}\ std::unique\_ptr<cudf::column>\ \mbox{\hyperlink{group__datetime__compute_ga2f94182ad9c59b07de255770849a8a07}{extract\_quarter}}(}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00338}00338\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1column}{column}},}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00339}00339\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00340}00340\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00345}\mbox{\hyperlink{group__datetime__compute_gaf04facbc9720e8f048637c9726233e7a}{00345}}\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{group__datetime__compute_gaf04facbc9720e8f048637c9726233e7a}{rounding\_frequency}}\ :\ int32\_t\ \{}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00346}00346\ \ \ \mbox{\hyperlink{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa5b1d59b5451c06afb65ab1bc2713cfb4}{DAY}},}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00347}00347\ \ \ \mbox{\hyperlink{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aadd3f965174e8bb2f64523981626ced1a}{HOUR}},}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00348}00348\ \ \ \mbox{\hyperlink{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa46bda4cde2f10bdb9e51e3bbefa4a2bf}{MINUTE}},}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00349}00349\ \ \ \mbox{\hyperlink{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa2200becb80f0019c4a2ccecec350d0db}{SECOND}},}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00350}00350\ \ \ \mbox{\hyperlink{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa241d7907de05ad50c011812e927cd671}{MILLISECOND}},}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00351}00351\ \ \ \mbox{\hyperlink{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa52a3ae8e5d772e28d4e2105fefd2eed1}{MICROSECOND}},}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00352}00352\ \ \ \mbox{\hyperlink{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aaeb8c6d69310ffef899148b680e672652}{NANOSECOND}}}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00353}00353\ \};}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00354}00354\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00365}\mbox{\hyperlink{group__datetime__compute_ga0a988cff7bc684f098188e6e11e9f145}{00365}}\ std::unique\_ptr<cudf::column>\ \mbox{\hyperlink{group__datetime__compute_ga0a988cff7bc684f098188e6e11e9f145}{ceil\_datetimes}}(}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00366}00366\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1column}{column}},}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00367}00367\ \ \ \mbox{\hyperlink{group__datetime__compute_gaf04facbc9720e8f048637c9726233e7a}{rounding\_frequency}}\ freq,}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00368}00368\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00369}00369\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00380}\mbox{\hyperlink{group__datetime__compute_ga4636bf1c0681d1c42e72022e7b2a8cc7}{00380}}\ std::unique\_ptr<cudf::column>\ \mbox{\hyperlink{group__datetime__compute_ga4636bf1c0681d1c42e72022e7b2a8cc7}{floor\_datetimes}}(}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00381}00381\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1column}{column}},}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00382}00382\ \ \ \mbox{\hyperlink{group__datetime__compute_gaf04facbc9720e8f048637c9726233e7a}{rounding\_frequency}}\ freq,}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00383}00383\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00384}00384\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00395}\mbox{\hyperlink{group__datetime__compute_ga6b9612e4fd08172bec84c600cb7292db}{00395}}\ std::unique\_ptr<cudf::column>\ \mbox{\hyperlink{group__datetime__compute_ga6b9612e4fd08172bec84c600cb7292db}{round\_datetimes}}(}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00396}00396\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1column}{column}},}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00397}00397\ \ \ \mbox{\hyperlink{group__datetime__compute_gaf04facbc9720e8f048637c9726233e7a}{rounding\_frequency}}\ freq,}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00398}00398\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00399}00399\ \ \ \textcolor{comment}{//\ end\ of\ group}}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00401}00401\ }
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00402}00402\ \}\ \ \textcolor{comment}{//\ namespace\ datetime}}
+\DoxyCodeLine{\Hypertarget{datetime_8hpp_source_l00403}00403\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

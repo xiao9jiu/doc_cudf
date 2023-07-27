@@ -1,0 +1,68 @@
+\doxysection{interop.\+hpp}
+\hypertarget{interop_8hpp_source}{}\label{interop_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/interop.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/interop.hpp}}
+\mbox{\hyperlink{interop_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2020-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00019}00019\ \textcolor{comment}{//\ We\ disable\ warning\ 611\ because\ the\ \`{}arrow::TableBatchReader`\ only\ partially}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00020}00020\ \textcolor{comment}{//\ override\ the\ \`{}ReadNext`\ method\ of\ \`{}arrow::RecordBatchReader::ReadNext`}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00021}00021\ \textcolor{comment}{//\ triggering\ warning\ 611-\/D\ from\ nvcc.}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#pragma\ nv\_diag\_suppress\ 611}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <arrow/api.h>}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#pragma\ nv\_diag\_default\ 611}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{column_8hpp}{cudf/column/column.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{detail_2transform_8hpp}{cudf/detail/transform.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{table_8hpp}{cudf/table/table.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{table__view_8hpp}{cudf/table/table\_view.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{types_8hpp}{cudf/types.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00032}00032\ \textcolor{preprocessor}{\#include\ <rmm/mr/device/per\_device\_resource.hpp>}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00034}00034\ \textcolor{keyword}{struct\ }DLManagedTensor;}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00036}00036\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00060}\mbox{\hyperlink{group__interop__dlpack_gabca779a75e0007c9310f8cefd3b481ff}{00060}}\ std::unique\_ptr<table>\ \mbox{\hyperlink{group__interop__dlpack_gabca779a75e0007c9310f8cefd3b481ff}{from\_dlpack}}(}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00061}00061\ \ \ DLManagedTensor\ \textcolor{keyword}{const}*\ managed\_tensor,}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00062}00062\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00082}\mbox{\hyperlink{group__interop__dlpack_ga303da0732ac5aade6bd2f1dcccdcd118}{00082}}\ DLManagedTensor*\ \mbox{\hyperlink{group__interop__dlpack_ga303da0732ac5aade6bd2f1dcccdcd118}{to\_dlpack}}(}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00083}00083\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00084}00084\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00085}00085\ \ \ \textcolor{comment}{//\ end\ of\ group}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00100}\mbox{\hyperlink{structcudf_1_1column__metadata}{00100}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1column__metadata}{column\_metadata}}\ \{}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00101}\mbox{\hyperlink{structcudf_1_1column__metadata_ad49551d6d1c6bc9a62a4f81d1198fd47}{00101}}\ \ \ std::string\ \mbox{\hyperlink{structcudf_1_1column__metadata_ad49551d6d1c6bc9a62a4f81d1198fd47}{name}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00102}\mbox{\hyperlink{structcudf_1_1column__metadata_aa25731565ef53295675b6604cb09bed0}{00102}}\ \ \ std::vector<column\_metadata>\ \mbox{\hyperlink{structcudf_1_1column__metadata_aa25731565ef53295675b6604cb09bed0}{children\_meta}};\ \ }
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00109}\mbox{\hyperlink{structcudf_1_1column__metadata_ad745760c70201a00c0aca7c1144191b2}{00109}}\ \ \ \mbox{\hyperlink{structcudf_1_1column__metadata_ad745760c70201a00c0aca7c1144191b2}{column\_metadata}}(std::string\ \textcolor{keyword}{const}\&\ \_name)\ :\ \mbox{\hyperlink{structcudf_1_1column__metadata_ad49551d6d1c6bc9a62a4f81d1198fd47}{name}}(\_name)\ \{\}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00110}\mbox{\hyperlink{structcudf_1_1column__metadata_a5b79bd6a3cc048d712e5a62f0fff3cf8}{00110}}\ \ \ \mbox{\hyperlink{structcudf_1_1column__metadata_a5b79bd6a3cc048d712e5a62f0fff3cf8}{column\_metadata}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00111}00111\ \};}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00126}\mbox{\hyperlink{group__interop__arrow_ga72feccc6e06f2d73d91f8dca5cb01501}{00126}}\ std::shared\_ptr<arrow::Table>\ \mbox{\hyperlink{group__interop__arrow_ga72feccc6e06f2d73d91f8dca5cb01501}{to\_arrow}}(\mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ input,}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<column\_metadata>\ \textcolor{keyword}{const}\&\ metadata\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arrow::MemoryPool*\ ar\_mr\ =\ arrow::default\_memory\_pool());}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00138}\mbox{\hyperlink{group__interop__arrow_gae29f5c6a2d2158b6bfd89fd7a5284383}{00138}}\ std::unique\_ptr<table>\ \mbox{\hyperlink{group__interop__arrow_gae29f5c6a2d2158b6bfd89fd7a5284383}{from\_arrow}}(}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00139}00139\ \ \ arrow::Table\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00140}00140\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00141}00141\ \ \ \textcolor{comment}{//\ end\ of\ group}}
+\DoxyCodeLine{\Hypertarget{interop_8hpp_source_l00143}00143\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

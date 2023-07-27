@@ -1,0 +1,135 @@
+\doxysection{Lists\+\_\+combine}
+\hypertarget{group__lists__combine}{}\label{group__lists__combine}\index{Lists\_combine@{Lists\_combine}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{lists_2combine_8hpp}{combine.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__lists__combine_gabb916eaef8a82d11855f551d2e9b91eb}{cudf\+::lists\+::concatenate\+\_\+null\+\_\+policy}} \{ \mbox{\hyperlink{group__lists__combine_ggabb916eaef8a82d11855f551d2e9b91ebaa2e843feab94ef623fea888f07c28696}{cudf\+::lists\+::concatenate\+\_\+null\+\_\+policy\+::\+IGNORE}}
+, \mbox{\hyperlink{group__lists__combine_ggabb916eaef8a82d11855f551d2e9b91ebad583c5e620ba4dc0af98a1eb440cc9a9}{cudf\+::lists\+::concatenate\+\_\+null\+\_\+policy\+::\+NULLIFY\+\_\+\+OUTPUT\+\_\+\+ROW}}
+ \}
+\begin{DoxyCompactList}\small\item\em Flag to specify whether a null list element will be ignored from concatenation, or the entire concatenation result involving null list elements will be a null element. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__lists__combine_ga803b1de721e03f96df7d90d044073ee6}{cudf\+::lists\+::concatenate\+\_\+rows}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, \mbox{\hyperlink{group__lists__combine_gabb916eaef8a82d11855f551d2e9b91eb}{concatenate\+\_\+null\+\_\+policy}} \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}}=\mbox{\hyperlink{group__lists__combine_ggabb916eaef8a82d11855f551d2e9b91ebaa2e843feab94ef623fea888f07c28696}{concatenate\+\_\+null\+\_\+policy\+::\+IGNORE}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Row-\/wise concatenating multiple lists columns into a single lists column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__lists__combine_ga5065d029d107647b8147d308b020ff75}{cudf\+::lists\+::concatenate\+\_\+list\+\_\+elements}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{group__lists__combine_gabb916eaef8a82d11855f551d2e9b91eb}{concatenate\+\_\+null\+\_\+policy}} \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}}=\mbox{\hyperlink{group__lists__combine_ggabb916eaef8a82d11855f551d2e9b91ebaa2e843feab94ef623fea888f07c28696}{concatenate\+\_\+null\+\_\+policy\+::\+IGNORE}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Concatenating multiple lists on the same row of a lists column into a single list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{枚举类型说明}
+\Hypertarget{group__lists__combine_gabb916eaef8a82d11855f551d2e9b91eb}\label{group__lists__combine_gabb916eaef8a82d11855f551d2e9b91eb} 
+\index{Lists\_combine@{Lists\_combine}!concatenate\_null\_policy@{concatenate\_null\_policy}}
+\index{concatenate\_null\_policy@{concatenate\_null\_policy}!Lists\_combine@{Lists\_combine}}
+\doxysubsubsection{\texorpdfstring{concatenate\_null\_policy}{concatenate\_null\_policy}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__lists__combine_gabb916eaef8a82d11855f551d2e9b91eb}{cudf\+::lists\+::concatenate\+\_\+null\+\_\+policy}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Flag to specify whether a null list element will be ignored from concatenation, or the entire concatenation result involving null list elements will be a null element. 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IGNORE@{IGNORE}!Lists\_combine@{Lists\_combine}}\index{Lists\_combine@{Lists\_combine}!IGNORE@{IGNORE}}}\Hypertarget{group__lists__combine_ggabb916eaef8a82d11855f551d2e9b91ebaa2e843feab94ef623fea888f07c28696}\label{group__lists__combine_ggabb916eaef8a82d11855f551d2e9b91ebaa2e843feab94ef623fea888f07c28696} 
+IGNORE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NULLIFY\_OUTPUT\_ROW@{NULLIFY\_OUTPUT\_ROW}!Lists\_combine@{Lists\_combine}}\index{Lists\_combine@{Lists\_combine}!NULLIFY\_OUTPUT\_ROW@{NULLIFY\_OUTPUT\_ROW}}}\Hypertarget{group__lists__combine_ggabb916eaef8a82d11855f551d2e9b91ebad583c5e620ba4dc0af98a1eb440cc9a9}\label{group__lists__combine_ggabb916eaef8a82d11855f551d2e9b91ebad583c5e620ba4dc0af98a1eb440cc9a9} 
+NULLIFY\+\_\+\+OUTPUT\+\_\+\+ROW&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{lists_2combine_8hpp_source}{combine.\+hpp}} 第 \mbox{\hyperlink{lists_2combine_8hpp_source_l00037}{37}} 行定义.
+
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__lists__combine_ga5065d029d107647b8147d308b020ff75}\label{group__lists__combine_ga5065d029d107647b8147d308b020ff75} 
+\index{Lists\_combine@{Lists\_combine}!concatenate\_list\_elements@{concatenate\_list\_elements}}
+\index{concatenate\_list\_elements@{concatenate\_list\_elements}!Lists\_combine@{Lists\_combine}}
+\doxysubsubsection{\texorpdfstring{concatenate\_list\_elements()}{concatenate\_list\_elements()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::concatenate\+\_\+list\+\_\+elements (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__lists__combine_gabb916eaef8a82d11855f551d2e9b91eb}{concatenate\+\_\+null\+\_\+policy}}}]{null\+\_\+policy = {\ttfamily \mbox{\hyperlink{group__lists__combine_ggabb916eaef8a82d11855f551d2e9b91ebaa2e843feab94ef623fea888f07c28696}{concatenate\+\_\+null\+\_\+policy\+::\+IGNORE}}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Concatenating multiple lists on the same row of a lists column into a single list. 
+
+Given a lists column where each row in the column is a list of lists of entries, an output lists column is generated by concatenating all the list elements at the same row together. If any row contains null list elements, the concatenation process will either ignore those null elements, or will simply set the entire resulting row to be a null element.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{l\ =\ [\ [\{1,\ 2\},\ \{3,\ 4\},\ \{5\}],\ [\{6\},\ \{\},\ \{7,\ 8,\ 9\}]\ ]}
+\DoxyCodeLine{r\ =\ lists::concatenate\_list\_elements(l);}
+\DoxyCodeLine{r\ is\ [\ \{1,\ 2,\ 3,\ 4,\ 5\},\ \{6,\ 7,\ 8,\ 9\}\ ]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if the input column is not at least two-\/level depth lists column (i.\+e., each row must be a list of list). \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if the input lists column contains nested typed entries that are not lists.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & The lists column containing lists of list elements to concatenate. \\
+\hline
+{\em null\+\_\+policy} & The parameter to specify whether a null list element will be ignored from concatenation, or any concatenation involving a null element will result in a null list. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A new column in which each row is a list resulted from concatenating all list elements in the corresponding row of the input lists column. 
+\end{DoxyReturn}
+\Hypertarget{group__lists__combine_ga803b1de721e03f96df7d90d044073ee6}\label{group__lists__combine_ga803b1de721e03f96df7d90d044073ee6} 
+\index{Lists\_combine@{Lists\_combine}!concatenate\_rows@{concatenate\_rows}}
+\index{concatenate\_rows@{concatenate\_rows}!Lists\_combine@{Lists\_combine}}
+\doxysubsubsection{\texorpdfstring{concatenate\_rows()}{concatenate\_rows()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::concatenate\+\_\+rows (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__lists__combine_gabb916eaef8a82d11855f551d2e9b91eb}{concatenate\+\_\+null\+\_\+policy}}}]{null\+\_\+policy = {\ttfamily \mbox{\hyperlink{group__lists__combine_ggabb916eaef8a82d11855f551d2e9b91ebaa2e843feab94ef623fea888f07c28696}{concatenate\+\_\+null\+\_\+policy\+::\+IGNORE}}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Row-\/wise concatenating multiple lists columns into a single lists column. 
+
+The output column is generated by concatenating the elements within each row of the input table. If any row of the input table contains null elements, the concatenation process will either ignore those null elements, or will simply set the entire resulting row to be a null element.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{s1\ =\ [\{0,\ 1\},\ \{2,\ 3,\ 4\},\ \{5\},\ \{\},\ \{6,\ 7\}]}
+\DoxyCodeLine{s2\ =\ [\{8\},\ \{9\},\ \{\},\ \{10,\ 11,\ 12\},\ \{13,\ 14,\ 15,\ 16\}]}
+\DoxyCodeLine{r\ =\ lists::concatenate\_rows(s1,\ s2)}
+\DoxyCodeLine{r\ is\ now\ [\{0,\ 1,\ 8\},\ \{2,\ 3,\ 4,\ 9\},\ \{5\},\ \{10,\ 11,\ 12\},\ \{6,\ 7,\ 13,\ 14,\ 15,\ 16\}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if any column of the input table is not a lists column. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if all lists columns do not have the same type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & Table of lists to be concatenated. \\
+\hline
+{\em null\+\_\+policy} & The parameter to specify whether a null list element will be ignored from concatenation, or any concatenation involving a null element will result in a null list. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A new column in which each row is a list resulted from concatenating all list elements in the corresponding row of the input table. 
+\end{DoxyReturn}

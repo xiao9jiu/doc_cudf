@@ -1,0 +1,328 @@
+\doxysection{nvtx3\+::domain类 参考}
+\hypertarget{classnvtx3_1_1domain}{}\label{classnvtx3_1_1domain}\index{nvtx3::domain@{nvtx3::domain}}
+
+
+{\ttfamily domain}s allow for grouping NVTX events into a single scope to differentiate them from events in other {\ttfamily domain}s.  
+
+
+
+
+{\ttfamily \#include $<$nvtx3.\+hpp$>$}
+
+
+
+nvtx3\+::domain 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{classnvtx3_1_1domain__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structnvtx3_1_1domain_1_1global}{global}}
+\begin{DoxyCompactList}\small\item\em Tag type for the \"{}global\"{} NVTX domain. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnvtx3_1_1domain_a1df6ffd79ac3d87014dcd9ca8982a897}{domain}} (\mbox{\hyperlink{classnvtx3_1_1domain}{domain}} const \&)=delete
+\item 
+\mbox{\hyperlink{classnvtx3_1_1domain}{domain}} \& \mbox{\hyperlink{classnvtx3_1_1domain_a76d054531df08ee1281503cb98dc6f32}{operator=}} (\mbox{\hyperlink{classnvtx3_1_1domain}{domain}} const \&)=delete
+\item 
+\mbox{\hyperlink{classnvtx3_1_1domain_a8e619e896a42681bdc0a010252d05d30}{domain}} (\mbox{\hyperlink{classnvtx3_1_1domain}{domain}} \&\&)=delete
+\item 
+\mbox{\hyperlink{classnvtx3_1_1domain}{domain}} \& \mbox{\hyperlink{classnvtx3_1_1domain_a913a842e4127be56cf5c41101f61e7a1}{operator=}} (\mbox{\hyperlink{classnvtx3_1_1domain}{domain}} \&\&)=delete
+\item 
+\mbox{\hyperlink{classnvtx3_1_1domain_a4774fa866bc9060eb8c6802630a1e7d7}{operator nvtx\+Domain\+Handle\+\_\+t}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Conversion operator to {\ttfamily nvtx\+Domain\+Handle\+\_\+t}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Domain\+Name $>$ }\\static \mbox{\hyperlink{classnvtx3_1_1domain}{domain}} const \& \mbox{\hyperlink{classnvtx3_1_1domain_a2a452b895ec4192cf09c5ac98d35b591}{get}} ()
+\begin{DoxyCompactList}\small\item\em Returns reference to an instance of a function local static {\ttfamily domain} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnvtx3_1_1domain_aa948b3b374d51720a7de014d6ad323c7}{domain}} (char const \texorpdfstring{$\ast$}{*}name) noexcept
+\begin{DoxyCompactList}\small\item\em Construct a new domain with the specified {\ttfamily name}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnvtx3_1_1domain_a345a02b886974037218f8ce726cb524b}{domain}} (wchar\+\_\+t const \texorpdfstring{$\ast$}{*}name) noexcept
+\begin{DoxyCompactList}\small\item\em Construct a new domain with the specified {\ttfamily name}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnvtx3_1_1domain_a5b7d34ecec8e71ea4bc605b4391912c2}{domain}} (std\+::string const \&name) noexcept
+\begin{DoxyCompactList}\small\item\em Construct a new domain with the specified {\ttfamily name}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnvtx3_1_1domain_a4daad923b9fad4c70cbd7a6adf755c6a}{domain}} (std\+::wstring const \&name) noexcept
+\begin{DoxyCompactList}\small\item\em Construct a new domain with the specified {\ttfamily name}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnvtx3_1_1domain_a063ec43aabc5815ad4205448963cfe8c}{domain}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor creates a {\ttfamily domain} representing the \"{}global\"{} NVTX domain. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnvtx3_1_1domain_ad7ad651c4c88d07b4c7db47c4b7a0295}{\texorpdfstring{$\sim$}{\string~}domain}} () noexcept
+\begin{DoxyCompactList}\small\item\em Destroy the domain object, unregistering and freeing all domain specific resources. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+nvtx\+Domain\+Handle\+\_\+t const \mbox{\hyperlink{classnvtx3_1_1domain_ab69a8c0c13337aa608bcc6d741c67d99}{\+\_\+domain}} \{\}
+\begin{DoxyCompactList}\small\item\em The {\ttfamily domain}s NVTX handle \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+{\ttfamily domain}s allow for grouping NVTX events into a single scope to differentiate them from events in other {\ttfamily domain}s. 
+
+By default, all NVTX constructs are placed in the \"{}global\"{} NVTX domain.
+
+A custom {\ttfamily domain} may be used in order to differentiate a library\textquotesingle{}s or application\textquotesingle{}s NVTX events from other events.
+
+{\ttfamily domain}s are expected to be long-\/lived and unique to a library or application. As such, it is assumed a domain\textquotesingle{}s name is known at compile time. Therefore, all NVTX constructs that can be associated with a domain require the domain to be specified via a {\itshape type} {\ttfamily Domain\+Name} passed as an explicit template parameter.
+
+The type {\ttfamily \doxylink{structnvtx3_1_1domain_1_1global}{domain\+::global}} may be used to indicate that the global NVTX domain should be used.
+
+None of the C++ NVTX constructs require the user to manually construct a {\ttfamily domain} object. Instead, if a custom domain is desired, the user is expected to define a type {\ttfamily Domain\+Name} that contains a member {\ttfamily Domain\+Name\+::name} which resolves to either a {\ttfamily char const\texorpdfstring{$\ast$}{*}} or {\ttfamily wchar\+\_\+t const\texorpdfstring{$\ast$}{*}}. The value of {\ttfamily Domain\+Name\+::name} is used to name and uniquely identify the custom domain.
+
+Upon the first use of an NVTX construct associated with the type {\ttfamily Domain\+Name}, the \"{}construct on first use\"{} pattern is used to construct a function local static {\ttfamily domain} object. All future NVTX constructs associated with {\ttfamily Domain\+Type} will use a reference to the previously constructed {\ttfamily domain} object. See {\ttfamily \doxylink{classnvtx3_1_1domain_a2a452b895ec4192cf09c5ac98d35b591}{domain\+::get}}.
+
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ The\ type\ \`{}my\_domain`\ defines\ a\ \`{}name`\ member\ used\ to\ name\ and\ identify}}
+\DoxyCodeLine{the}
+\DoxyCodeLine{\textcolor{comment}{//\ \`{}domain`\ object\ identified\ by\ \`{}my\_domain`.}}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }my\_domain\{\ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ name\{\textcolor{stringliteral}{"{}my\_domain"{}}\};\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ The\ NVTX\ range\ \`{}r`\ will\ be\ grouped\ with\ all\ other\ NVTX\ constructs}}
+\DoxyCodeLine{\textcolor{comment}{//\ associated\ with\ \ \`{}my\_domain`.}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::domain\_thread\_range<my\_domain>}}\ r\{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ An\ alias\ can\ be\ created\ for\ a\ \`{}domain\_thread\_range`\ in\ the\ custom\ domain}}
+\DoxyCodeLine{\textcolor{keyword}{using\ }my\_thread\_range\ =\ \mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::domain\_thread\_range<my\_domain>}};}
+\DoxyCodeLine{my\_thread\_range\ my\_range\{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ \`{}domain::global`\ indicates\ that\ the\ global\ NVTX\ domain\ is\ used}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::domain\_thread\_range<domain::global>}}\ r2\{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ For\ convenience,\ \`{}nvtx3::thread\_range`\ is\ an\ alias\ for\ a\ range\ in\ the}}
+\DoxyCodeLine{\textcolor{comment}{//\ global\ domain}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::thread\_range}}\ r3\{\};}
+
+\end{DoxyCode}
+ 
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l00586}{586}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classnvtx3_1_1domain_a1df6ffd79ac3d87014dcd9ca8982a897}\label{classnvtx3_1_1domain_a1df6ffd79ac3d87014dcd9ca8982a897} 
+\index{nvtx3::domain@{nvtx3::domain}!domain@{domain}}
+\index{domain@{domain}!nvtx3::domain@{nvtx3::domain}}
+\doxysubsubsection{\texorpdfstring{domain()}{domain()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily nvtx3\+::domain\+::domain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnvtx3_1_1domain}{domain}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classnvtx3_1_1domain_a8e619e896a42681bdc0a010252d05d30}\label{classnvtx3_1_1domain_a8e619e896a42681bdc0a010252d05d30} 
+\index{nvtx3::domain@{nvtx3::domain}!domain@{domain}}
+\index{domain@{domain}!nvtx3::domain@{nvtx3::domain}}
+\doxysubsubsection{\texorpdfstring{domain()}{domain()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily nvtx3\+::domain\+::domain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnvtx3_1_1domain}{domain}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classnvtx3_1_1domain_aa948b3b374d51720a7de014d6ad323c7}\label{classnvtx3_1_1domain_aa948b3b374d51720a7de014d6ad323c7} 
+\index{nvtx3::domain@{nvtx3::domain}!domain@{domain}}
+\index{domain@{domain}!nvtx3::domain@{nvtx3::domain}}
+\doxysubsubsection{\texorpdfstring{domain()}{domain()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily nvtx3\+::domain\+::domain (\begin{DoxyParamCaption}\item[{char const \texorpdfstring{$\ast$}{*}}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [private]}, {\ttfamily [noexcept]}}
+
+
+
+Construct a new domain with the specified {\ttfamily name}. 
+
+This constructor is private as it is intended that {\ttfamily domain} objects only be created through the {\ttfamily \doxylink{classnvtx3_1_1domain_a2a452b895ec4192cf09c5ac98d35b591}{domain\+::get}} function.
+
+
+\begin{DoxyParams}{参数}
+{\em name} & A unique name identifying the domain \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l00678}{678}} 行定义.
+
+\Hypertarget{classnvtx3_1_1domain_a345a02b886974037218f8ce726cb524b}\label{classnvtx3_1_1domain_a345a02b886974037218f8ce726cb524b} 
+\index{nvtx3::domain@{nvtx3::domain}!domain@{domain}}
+\index{domain@{domain}!nvtx3::domain@{nvtx3::domain}}
+\doxysubsubsection{\texorpdfstring{domain()}{domain()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily nvtx3\+::domain\+::domain (\begin{DoxyParamCaption}\item[{wchar\+\_\+t const \texorpdfstring{$\ast$}{*}}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [private]}, {\ttfamily [noexcept]}}
+
+
+
+Construct a new domain with the specified {\ttfamily name}. 
+
+This constructor is private as it is intended that {\ttfamily domain} objects only be created through the {\ttfamily \doxylink{classnvtx3_1_1domain_a2a452b895ec4192cf09c5ac98d35b591}{domain\+::get}} function.
+
+
+\begin{DoxyParams}{参数}
+{\em name} & A unique name identifying the domain \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l00688}{688}} 行定义.
+
+\Hypertarget{classnvtx3_1_1domain_a5b7d34ecec8e71ea4bc605b4391912c2}\label{classnvtx3_1_1domain_a5b7d34ecec8e71ea4bc605b4391912c2} 
+\index{nvtx3::domain@{nvtx3::domain}!domain@{domain}}
+\index{domain@{domain}!nvtx3::domain@{nvtx3::domain}}
+\doxysubsubsection{\texorpdfstring{domain()}{domain()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily nvtx3\+::domain\+::domain (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [private]}, {\ttfamily [noexcept]}}
+
+
+
+Construct a new domain with the specified {\ttfamily name}. 
+
+This constructor is private as it is intended that {\ttfamily domain} objects only be created through the {\ttfamily \doxylink{classnvtx3_1_1domain_a2a452b895ec4192cf09c5ac98d35b591}{domain\+::get}} function.
+
+
+\begin{DoxyParams}{参数}
+{\em name} & A unique name identifying the domain \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l00698}{698}} 行定义.
+
+\Hypertarget{classnvtx3_1_1domain_a4daad923b9fad4c70cbd7a6adf755c6a}\label{classnvtx3_1_1domain_a4daad923b9fad4c70cbd7a6adf755c6a} 
+\index{nvtx3::domain@{nvtx3::domain}!domain@{domain}}
+\index{domain@{domain}!nvtx3::domain@{nvtx3::domain}}
+\doxysubsubsection{\texorpdfstring{domain()}{domain()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily nvtx3\+::domain\+::domain (\begin{DoxyParamCaption}\item[{std\+::wstring const \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [private]}, {\ttfamily [noexcept]}}
+
+
+
+Construct a new domain with the specified {\ttfamily name}. 
+
+This constructor is private as it is intended that {\ttfamily domain} objects only be created through the {\ttfamily \doxylink{classnvtx3_1_1domain_a2a452b895ec4192cf09c5ac98d35b591}{domain\+::get}} function.
+
+
+\begin{DoxyParams}{参数}
+{\em name} & A unique name identifying the domain \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l00708}{708}} 行定义.
+
+\Hypertarget{classnvtx3_1_1domain_a063ec43aabc5815ad4205448963cfe8c}\label{classnvtx3_1_1domain_a063ec43aabc5815ad4205448963cfe8c} 
+\index{nvtx3::domain@{nvtx3::domain}!domain@{domain}}
+\index{domain@{domain}!nvtx3::domain@{nvtx3::domain}}
+\doxysubsubsection{\texorpdfstring{domain()}{domain()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily nvtx3\+::domain\+::domain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [default]}}
+
+
+
+Default constructor creates a {\ttfamily domain} representing the \"{}global\"{} NVTX domain. 
+
+All events not associated with a custom {\ttfamily domain} are grouped in the \"{}global\"{} NVTX domain. \Hypertarget{classnvtx3_1_1domain_ad7ad651c4c88d07b4c7db47c4b7a0295}\label{classnvtx3_1_1domain_ad7ad651c4c88d07b4c7db47c4b7a0295} 
+\index{nvtx3::domain@{nvtx3::domain}!````~domain@{\texorpdfstring{$\sim$}{\string~}domain}}
+\index{````~domain@{\texorpdfstring{$\sim$}{\string~}domain}!nvtx3::domain@{nvtx3::domain}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}domain()}{\string~domain()}}
+{\footnotesize\ttfamily nvtx3\+::domain\+::\texorpdfstring{$\sim$}{\string~}domain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}, {\ttfamily [noexcept]}}
+
+
+
+Destroy the domain object, unregistering and freeing all domain specific resources. 
+
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l00724}{724}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classnvtx3_1_1domain_a2a452b895ec4192cf09c5ac98d35b591}\label{classnvtx3_1_1domain_a2a452b895ec4192cf09c5ac98d35b591} 
+\index{nvtx3::domain@{nvtx3::domain}!get@{get}}
+\index{get@{get}!nvtx3::domain@{nvtx3::domain}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily template$<$typename Domain\+Name $>$ \\
+static \mbox{\hyperlink{classnvtx3_1_1domain}{domain}} const  \& nvtx3\+::domain\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Returns reference to an instance of a function local static {\ttfamily domain} object. 
+
+Uses the \"{}construct on first use\"{} idiom to safely ensure the {\ttfamily domain} object is initialized exactly once upon first invocation of {\ttfamily \doxylink{classnvtx3_1_1domain_a2a452b895ec4192cf09c5ac98d35b591}{domain\+::get}\texorpdfstring{$<$}{<}Domain\+Name\texorpdfstring{$>$}{>}()}. All following invocations will return a reference to the previously constructed {\ttfamily domain} object. See \href{https://isocpp.org/wiki/faq/ctors\#static-init-order-on-first-use}{\texttt{ https\+://isocpp.\+org/wiki/faq/ctors\#static-\/init-\/order-\/on-\/first-\/use}}
+
+None of the constructs in this header require the user to directly invoke {\ttfamily \doxylink{classnvtx3_1_1domain_a2a452b895ec4192cf09c5ac98d35b591}{domain\+::get}}. It is automatically invoked when constructing objects like a {\ttfamily \doxylink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}} or {\ttfamily category}. Advanced users may wish to use {\ttfamily \doxylink{classnvtx3_1_1domain_a2a452b895ec4192cf09c5ac98d35b591}{domain\+::get}} for the convenience of the \"{}construct on first use\"{} idiom when using domains with their own use of the NVTX C API.
+
+This function is threadsafe as of C++11. If two or more threads call {\ttfamily \doxylink{classnvtx3_1_1domain_a2a452b895ec4192cf09c5ac98d35b591}{domain\+::get}\texorpdfstring{$<$}{<}Domain\+Name\texorpdfstring{$>$}{>}} concurrently, exactly one of them is guaranteed to construct the {\ttfamily domain} object and the other(s) will receive a reference to the object after it is fully constructed.
+
+The domain\textquotesingle{}s name is specified via the type {\ttfamily Domain\+Name} pass as an explicit template parameter. {\ttfamily Domain\+Name} is required to contain a member {\ttfamily Domain\+Name\+::name} that resolves to either a {\ttfamily char const\texorpdfstring{$\ast$}{*}} or {\ttfamily wchar\+\_\+t const\texorpdfstring{$\ast$}{*}}. The value of {\ttfamily Domain\+Name\+::name} is used to name and uniquely identify the {\ttfamily domain}.
+
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ The\ type\ \`{}my\_domain`\ defines\ a\ \`{}name`\ member\ used\ to\ name\ and\ identify}}
+\DoxyCodeLine{\textcolor{comment}{//\ the\ \`{}domain`\ object\ identified\ by\ \`{}my\_domain`.}}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }my\_domain\{\ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ name\{\textcolor{stringliteral}{"{}my\ domain"{}}\};\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ D\ =\ domain::get<my\_domain>();\ \textcolor{comment}{//\ First\ invocation\ constructs\ a}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \`{}domain`\ with\ the\ name\ "{}my\ domain"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ D1\ =\ domain::get<my\_domain>();\ \textcolor{comment}{//\ Simply\ returns\ reference\ to}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ previously\ constructed\ \`{}domain`.}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em Domain\+Name} & Type that contains a {\ttfamily Domain\+Name\+::name} member used to name the {\ttfamily domain} object. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+Reference to the {\ttfamily domain} corresponding to the type {\ttfamily Domain\+Name}. 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l00638}{638}} 行定义.
+
+\Hypertarget{classnvtx3_1_1domain_a4774fa866bc9060eb8c6802630a1e7d7}\label{classnvtx3_1_1domain_a4774fa866bc9060eb8c6802630a1e7d7} 
+\index{nvtx3::domain@{nvtx3::domain}!operator nvtxDomainHandle\_t@{operator nvtxDomainHandle\_t}}
+\index{operator nvtxDomainHandle\_t@{operator nvtxDomainHandle\_t}!nvtx3::domain@{nvtx3::domain}}
+\doxysubsubsection{\texorpdfstring{operator nvtxDomainHandle\_t()}{operator nvtxDomainHandle\_t()}}
+{\footnotesize\ttfamily nvtx3\+::domain\+::operator nvtx\+Domain\+Handle\+\_\+t (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Conversion operator to {\ttfamily nvtx\+Domain\+Handle\+\_\+t}. 
+
+Allows transparently passing a domain object into an API expecting a native {\ttfamily nvtx\+Domain\+Handle\+\_\+t} object. 
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l00653}{653}} 行定义.
+
+\Hypertarget{classnvtx3_1_1domain_a913a842e4127be56cf5c41101f61e7a1}\label{classnvtx3_1_1domain_a913a842e4127be56cf5c41101f61e7a1} 
+\index{nvtx3::domain@{nvtx3::domain}!operator=@{operator=}}
+\index{operator=@{operator=}!nvtx3::domain@{nvtx3::domain}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnvtx3_1_1domain}{domain}} \& nvtx3\+::domain\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnvtx3_1_1domain}{domain}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classnvtx3_1_1domain_a76d054531df08ee1281503cb98dc6f32}\label{classnvtx3_1_1domain_a76d054531df08ee1281503cb98dc6f32} 
+\index{nvtx3::domain@{nvtx3::domain}!operator=@{operator=}}
+\index{operator=@{operator=}!nvtx3::domain@{nvtx3::domain}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnvtx3_1_1domain}{domain}} \& nvtx3\+::domain\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnvtx3_1_1domain}{domain}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classnvtx3_1_1domain_ab69a8c0c13337aa608bcc6d741c67d99}\label{classnvtx3_1_1domain_ab69a8c0c13337aa608bcc6d741c67d99} 
+\index{nvtx3::domain@{nvtx3::domain}!\_domain@{\_domain}}
+\index{\_domain@{\_domain}!nvtx3::domain@{nvtx3::domain}}
+\doxysubsubsection{\texorpdfstring{\_domain}{\_domain}}
+{\footnotesize\ttfamily nvtx\+Domain\+Handle\+\_\+t const nvtx3\+::domain\+::\+\_\+domain \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The {\ttfamily domain}s NVTX handle 
+
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l00727}{727}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/detail/nvtx/\mbox{\hyperlink{nvtx3_8hpp}{nvtx3.\+hpp}}\end{DoxyCompactItemize}

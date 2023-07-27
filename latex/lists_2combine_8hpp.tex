@@ -1,0 +1,42 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/lists/combine.hpp 文件参考}
+\hypertarget{lists_2combine_8hpp}{}\label{lists_2combine_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/lists/combine.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/lists/combine.hpp}}
+{\ttfamily \#include $<$cudf/column/column.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/lists/lists\+\_\+column\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/mr/device/per\+\_\+device\+\_\+resource.\+hpp$>$}\newline
+combine.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lists_2combine_8hpp__incl}
+\end{center}
+\end{figure}
+此图展示该文件直接或间接的被哪些文件引用了\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{lists_2combine_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1lists}{cudf\+::lists}}
+\begin{DoxyCompactList}\small\item\em Lists column APIs \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__lists__combine_gabb916eaef8a82d11855f551d2e9b91eb}{cudf\+::lists\+::concatenate\+\_\+null\+\_\+policy}} \{ \mbox{\hyperlink{group__lists__combine_ggabb916eaef8a82d11855f551d2e9b91ebaa2e843feab94ef623fea888f07c28696}{cudf\+::lists\+::concatenate\+\_\+null\+\_\+policy\+::\+IGNORE}}
+, \mbox{\hyperlink{group__lists__combine_ggabb916eaef8a82d11855f551d2e9b91ebad583c5e620ba4dc0af98a1eb440cc9a9}{cudf\+::lists\+::concatenate\+\_\+null\+\_\+policy\+::\+NULLIFY\+\_\+\+OUTPUT\+\_\+\+ROW}}
+ \}
+\begin{DoxyCompactList}\small\item\em Flag to specify whether a null list element will be ignored from concatenation, or the entire concatenation result involving null list elements will be a null element. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__lists__combine_ga803b1de721e03f96df7d90d044073ee6}{cudf\+::lists\+::concatenate\+\_\+rows}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, \mbox{\hyperlink{group__lists__combine_gabb916eaef8a82d11855f551d2e9b91eb}{concatenate\+\_\+null\+\_\+policy}} \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}}=\mbox{\hyperlink{group__lists__combine_ggabb916eaef8a82d11855f551d2e9b91ebaa2e843feab94ef623fea888f07c28696}{concatenate\+\_\+null\+\_\+policy\+::\+IGNORE}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Row-\/wise concatenating multiple lists columns into a single lists column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__lists__combine_ga5065d029d107647b8147d308b020ff75}{cudf\+::lists\+::concatenate\+\_\+list\+\_\+elements}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{group__lists__combine_gabb916eaef8a82d11855f551d2e9b91eb}{concatenate\+\_\+null\+\_\+policy}} \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}}=\mbox{\hyperlink{group__lists__combine_ggabb916eaef8a82d11855f551d2e9b91ebaa2e843feab94ef623fea888f07c28696}{concatenate\+\_\+null\+\_\+policy\+::\+IGNORE}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Concatenating multiple lists on the same row of a lists column into a single list. \end{DoxyCompactList}\end{DoxyCompactItemize}

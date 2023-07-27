@@ -1,0 +1,600 @@
+\doxysection{cudf\+::io\+::orc\+\_\+writer\+\_\+options类 参考}
+\hypertarget{classcudf_1_1io_1_1orc__writer__options}{}\label{classcudf_1_1io_1_1orc__writer__options}\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+
+
+Settings to use for {\ttfamily \doxylink{group__io__writers_ga47050c9fd5f25909eee80415303df39f}{write\+\_\+orc()}}.  
+
+
+
+
+{\ttfamily \#include $<$orc.\+hpp$>$}
+
+
+
+cudf\+::io\+::orc\+\_\+writer\+\_\+options 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcudf_1_1io_1_1orc__writer__options__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_a99bee6fd63fe0208cd4b3c3056028243}{orc\+\_\+writer\+\_\+options}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1sink__info}{sink\+\_\+info}} const \& \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_a5c13f69ff1a43c288e80423a7ccfad03}{get\+\_\+sink}} () const
+\begin{DoxyCompactList}\small\item\em Returns sink info. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\+\_\+type}} \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_adbd6c690a080fb1b97993e543aacbdb6}{get\+\_\+compression}} () const
+\begin{DoxyCompactList}\small\item\em Returns compression type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_a31f641ea9b518cacf6cdd3c175a41d6b}{is\+\_\+enabled\+\_\+statistics}} () const
+\begin{DoxyCompactList}\small\item\em Whether writing column statistics is enabled/disabled. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacecudf_1_1io_ac52511ff52b01cf3c0d778bfaa5a5089}{statistics\+\_\+freq}} \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_a675fd69d4682f073b33ea8e9216f8801}{get\+\_\+statistics\+\_\+freq}} () const
+\begin{DoxyCompactList}\small\item\em Returns frequency of statistics collection. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_a4014a457f3c115ff164c5be9ee91a89c}{get\+\_\+stripe\+\_\+size\+\_\+bytes}} () const
+\begin{DoxyCompactList}\small\item\em Returns maximum stripe size, in bytes. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_a491080986ec99aa2756d1d04887d04cb}{get\+\_\+stripe\+\_\+size\+\_\+rows}} () const
+\begin{DoxyCompactList}\small\item\em Returns maximum stripe size, in rows. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_a869ed5c8a6235107e3fb7116e81d8fad}{get\+\_\+row\+\_\+index\+\_\+stride}} () const
+\begin{DoxyCompactList}\small\item\em Returns the row index stride. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_a569bf5202dc7fac67ac3203127a4129f}{get\+\_\+table}} () const
+\begin{DoxyCompactList}\small\item\em Returns table to be written to output. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1table__input__metadata}{table\+\_\+input\+\_\+metadata}} const \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_a77e2be2609c5837f580a6084ff17c4b7}{get\+\_\+metadata}} () const
+\begin{DoxyCompactList}\small\item\em Returns associated metadata. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, std\+::string $>$ const \& \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_ae9736929117a683cb915daf415be89f4}{get\+\_\+key\+\_\+value\+\_\+metadata}} () const
+\begin{DoxyCompactList}\small\item\em Returns Key-\/\+Value footer metadata information. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_abe7ca791d2292f1c1d9b4d61d3abd7e3}{set\+\_\+compression}} (\mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\+\_\+type}} comp)
+\begin{DoxyCompactList}\small\item\em Sets compression type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_a1120059013379d049d9a7a2ed1722520}{enable\+\_\+statistics}} (\mbox{\hyperlink{namespacecudf_1_1io_ac52511ff52b01cf3c0d778bfaa5a5089}{statistics\+\_\+freq}} val)
+\begin{DoxyCompactList}\small\item\em Choose granularity of statistics collection. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_aeec9a3ed1892d7fc99e49c82e3ae1631}{set\+\_\+stripe\+\_\+size\+\_\+bytes}} (size\+\_\+t size\+\_\+bytes)
+\begin{DoxyCompactList}\small\item\em Sets the maximum stripe size, in bytes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_a4722933015d6654c44e822c58588e75c}{set\+\_\+stripe\+\_\+size\+\_\+rows}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} size\+\_\+rows)
+\begin{DoxyCompactList}\small\item\em Sets the maximum stripe size, in rows. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_ac7c8427e7d912a1a44cc9369acd16299}{set\+\_\+row\+\_\+index\+\_\+stride}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} stride)
+\begin{DoxyCompactList}\small\item\em Sets the row index stride. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_a9712ec4fabb19cc03ae08cc9f5a6ec95}{set\+\_\+table}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} tbl)
+\begin{DoxyCompactList}\small\item\em Sets table to be written to output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_a86f8fd939e624f421ac12cb5d630b12b}{set\+\_\+metadata}} (\mbox{\hyperlink{classcudf_1_1io_1_1table__input__metadata}{table\+\_\+input\+\_\+metadata}} const \texorpdfstring{$\ast$}{*}meta)
+\begin{DoxyCompactList}\small\item\em Sets associated metadata \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_a48ecb9f60dabe23e7100a719e5f0c708}{set\+\_\+key\+\_\+value\+\_\+metadata}} (std\+::map$<$ std\+::string, std\+::string $>$ metadata)
+\begin{DoxyCompactList}\small\item\em Sets metadata. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options__builder}{orc\+\_\+writer\+\_\+options\+\_\+builder}} \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_ade94194f12f7ffc9b88c9b2b49c1ead2}{builder}} (\mbox{\hyperlink{structcudf_1_1io_1_1sink__info}{sink\+\_\+info}} const \&sink, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1table}{table}})
+\begin{DoxyCompactList}\small\item\em Create builder to create {\ttfamily \doxylink{classcudf_1_1io_1_1orc__writer__options}{orc\+\_\+writer\+\_\+options}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_a954806cc48c49c0616119a5b7bb1bb0d}{orc\+\_\+writer\+\_\+options}} (\mbox{\hyperlink{structcudf_1_1io_1_1sink__info}{sink\+\_\+info}} const \&sink, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1table}{table}})
+\begin{DoxyCompactList}\small\item\em Constructor from sink and table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1sink__info}{sink\+\_\+info}} \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_ac46c53fc581ce4728f54a20f443330bc}{\+\_\+sink}}
+\item 
+\mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\+\_\+type}} \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_ad4eace5294813315bb8cc9ad1c05d25d}{\+\_\+compression}} = \mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8ae1f2d5134ed2543d38a0de9751cf75d9}{compression\+\_\+type\+::\+AUTO}}
+\item 
+\mbox{\hyperlink{namespacecudf_1_1io_ac52511ff52b01cf3c0d778bfaa5a5089}{statistics\+\_\+freq}} \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_a293fc465823331c23f025aebbad3e120}{\+\_\+stats\+\_\+freq}} = \mbox{\hyperlink{group__io__writers_ga9eb5de600eca5f9d5266a885554614b4}{ORC\+\_\+\+STATISTICS\+\_\+\+ROW\+\_\+\+GROUP}}
+\item 
+size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_af2490a3c7f07cb0d54bb16af06f7448e}{\+\_\+stripe\+\_\+size\+\_\+bytes}} = \mbox{\hyperlink{group__io__readers_gaa57ec7859f94e4071b42a97a4daf88bb}{default\+\_\+stripe\+\_\+size\+\_\+bytes}}
+\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_afde6bc59d6dc298c5a01f4047c597bd8}{\+\_\+stripe\+\_\+size\+\_\+rows}} = \mbox{\hyperlink{group__io__readers_ga4b3b57c6284891019b2a4ca86a79ef78}{default\+\_\+stripe\+\_\+size\+\_\+rows}}
+\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_a426f830d3ba4818864f3b60ed768db2f}{\+\_\+row\+\_\+index\+\_\+stride}} = \mbox{\hyperlink{group__io__readers_ga7a4eda642a7507cc9febfdbf81beabde}{default\+\_\+row\+\_\+index\+\_\+stride}}
+\item 
+\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_aa00da08a7cba1fc0eead36351a7ac582}{\+\_\+table}}
+\item 
+const \mbox{\hyperlink{classcudf_1_1io_1_1table__input__metadata}{table\+\_\+input\+\_\+metadata}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_adf69ff9a5ff776d41fdafc62582d73e7}{\+\_\+metadata}} = nullptr
+\item 
+std\+::map$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_a107411de2b09432b3eef4c88f4fffc45}{\+\_\+user\+\_\+data}}
+\item 
+friend \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options_abbc31902f4c48d6c929cfd422de66e90}{orc\+\_\+writer\+\_\+options\+\_\+builder}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Settings to use for {\ttfamily \doxylink{group__io__writers_ga47050c9fd5f25909eee80415303df39f}{write\+\_\+orc()}}. 
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00418}{418}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_a954806cc48c49c0616119a5b7bb1bb0d}\label{classcudf_1_1io_1_1orc__writer__options_a954806cc48c49c0616119a5b7bb1bb0d} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!orc\_writer\_options@{orc\_writer\_options}}
+\index{orc\_writer\_options@{orc\_writer\_options}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{orc\_writer\_options()}{orc\_writer\_options()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::orc\+\_\+writer\+\_\+options (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1io_1_1sink__info}{sink\+\_\+info}} const \&}]{sink,  }\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{table }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [private]}}
+
+
+
+Constructor from sink and table. 
+
+
+\begin{DoxyParams}{参数}
+{\em sink} & The sink used for writer output \\
+\hline
+{\em table} & Table to be written to output \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00446}{446}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_a99bee6fd63fe0208cd4b3c3056028243}\label{classcudf_1_1io_1_1orc__writer__options_a99bee6fd63fe0208cd4b3c3056028243} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!orc\_writer\_options@{orc\_writer\_options}}
+\index{orc\_writer\_options@{orc\_writer\_options}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{orc\_writer\_options()}{orc\_writer\_options()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::orc\+\_\+writer\+\_\+options (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [default]}}
+
+
+
+Default constructor. 
+
+This has been added since Cython requires a default constructor to create objects on stack. 
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_ade94194f12f7ffc9b88c9b2b49c1ead2}\label{classcudf_1_1io_1_1orc__writer__options_ade94194f12f7ffc9b88c9b2b49c1ead2} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!builder@{builder}}
+\index{builder@{builder}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{builder()}{builder()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options__builder}{orc\+\_\+writer\+\_\+options\+\_\+builder}} cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::builder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1io_1_1sink__info}{sink\+\_\+info}} const \&}]{sink,  }\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{table }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create builder to create {\ttfamily \doxylink{classcudf_1_1io_1_1orc__writer__options}{orc\+\_\+writer\+\_\+options}}. 
+
+
+\begin{DoxyParams}{参数}
+{\em sink} & The sink used for writer output \\
+\hline
+{\em table} & Table to be written to output\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Builder to build {\ttfamily \doxylink{classcudf_1_1io_1_1orc__writer__options}{orc\+\_\+writer\+\_\+options}} 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_a1120059013379d049d9a7a2ed1722520}\label{classcudf_1_1io_1_1orc__writer__options_a1120059013379d049d9a7a2ed1722520} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!enable\_statistics@{enable\_statistics}}
+\index{enable\_statistics@{enable\_statistics}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{enable\_statistics()}{enable\_statistics()}}
+{\footnotesize\ttfamily void cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::enable\+\_\+statistics (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacecudf_1_1io_ac52511ff52b01cf3c0d778bfaa5a5089}{statistics\+\_\+freq}}}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Choose granularity of statistics collection. 
+
+The granularity can be set to\+:
+\begin{DoxyItemize}
+\item \doxylink{namespacecudf_1_1io_ac52511ff52b01cf3c0d778bfaa5a5089ab6e16f2e30db88778d22b3af11e0a833}{cudf\+::io\+::\+STATISTICS\+\_\+\+NONE}\+: No statistics are collected.
+\item \doxylink{group__io__writers_ga855c1987e645f9cd0f211bdae095c3b4}{cudf\+::io\+::\+ORC\+\_\+\+STATISTICS\+\_\+\+STRIPE}\+: Statistics are collected for each ORC stripe.
+\item cudf\+::io\+::\+ORC\+\_\+\+STATISTICS\+\_\+\+ROWGROUP\+: Statistics are collected for each ORC row group.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{参数}
+{\em val} & Frequency of statistics collection \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00568}{568}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_adbd6c690a080fb1b97993e543aacbdb6}\label{classcudf_1_1io_1_1orc__writer__options_adbd6c690a080fb1b97993e543aacbdb6} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!get\_compression@{get\_compression}}
+\index{get\_compression@{get\_compression}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{get\_compression()}{get\_compression()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\+\_\+type}} cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::get\+\_\+compression (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns compression type. 
+
+\begin{DoxyReturn}{返回}
+Compression type 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00481}{481}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_ae9736929117a683cb915daf415be89f4}\label{classcudf_1_1io_1_1orc__writer__options_ae9736929117a683cb915daf415be89f4} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!get\_key\_value\_metadata@{get\_key\_value\_metadata}}
+\index{get\_key\_value\_metadata@{get\_key\_value\_metadata}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{get\_key\_value\_metadata()}{get\_key\_value\_metadata()}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, std\+::string $>$ const  \& cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::get\+\_\+key\+\_\+value\+\_\+metadata (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns Key-\/\+Value footer metadata information. 
+
+\begin{DoxyReturn}{返回}
+Key-\/\+Value footer metadata information 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00544}{544}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_a77e2be2609c5837f580a6084ff17c4b7}\label{classcudf_1_1io_1_1orc__writer__options_a77e2be2609c5837f580a6084ff17c4b7} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!get\_metadata@{get\_metadata}}
+\index{get\_metadata@{get\_metadata}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{get\_metadata()}{get\_metadata()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1io_1_1table__input__metadata}{table\+\_\+input\+\_\+metadata}} const  \texorpdfstring{$\ast$}{*} cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::get\+\_\+metadata (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns associated metadata. 
+
+\begin{DoxyReturn}{返回}
+Associated metadata 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00537}{537}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_a869ed5c8a6235107e3fb7116e81d8fad}\label{classcudf_1_1io_1_1orc__writer__options_a869ed5c8a6235107e3fb7116e81d8fad} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!get\_row\_index\_stride@{get\_row\_index\_stride}}
+\index{get\_row\_index\_stride@{get\_row\_index\_stride}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{get\_row\_index\_stride()}{get\_row\_index\_stride()}}
+{\footnotesize\ttfamily auto cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::get\+\_\+row\+\_\+index\+\_\+stride (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the row index stride. 
+
+\begin{DoxyReturn}{返回}
+Row index stride 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00519}{519}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_a5c13f69ff1a43c288e80423a7ccfad03}\label{classcudf_1_1io_1_1orc__writer__options_a5c13f69ff1a43c288e80423a7ccfad03} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!get\_sink@{get\_sink}}
+\index{get\_sink@{get\_sink}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{get\_sink()}{get\_sink()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1io_1_1sink__info}{sink\+\_\+info}} const  \& cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::get\+\_\+sink (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns sink info. 
+
+\begin{DoxyReturn}{返回}
+Sink info 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00474}{474}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_a675fd69d4682f073b33ea8e9216f8801}\label{classcudf_1_1io_1_1orc__writer__options_a675fd69d4682f073b33ea8e9216f8801} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!get\_statistics\_freq@{get\_statistics\_freq}}
+\index{get\_statistics\_freq@{get\_statistics\_freq}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{get\_statistics\_freq()}{get\_statistics\_freq()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecudf_1_1io_ac52511ff52b01cf3c0d778bfaa5a5089}{statistics\+\_\+freq}} cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::get\+\_\+statistics\+\_\+freq (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns frequency of statistics collection. 
+
+\begin{DoxyReturn}{返回}
+Frequency of statistics collection 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00498}{498}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_a4014a457f3c115ff164c5be9ee91a89c}\label{classcudf_1_1io_1_1orc__writer__options_a4014a457f3c115ff164c5be9ee91a89c} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!get\_stripe\_size\_bytes@{get\_stripe\_size\_bytes}}
+\index{get\_stripe\_size\_bytes@{get\_stripe\_size\_bytes}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{get\_stripe\_size\_bytes()}{get\_stripe\_size\_bytes()}}
+{\footnotesize\ttfamily auto cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::get\+\_\+stripe\+\_\+size\+\_\+bytes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns maximum stripe size, in bytes. 
+
+\begin{DoxyReturn}{返回}
+Maximum stripe size, in bytes 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00505}{505}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_a491080986ec99aa2756d1d04887d04cb}\label{classcudf_1_1io_1_1orc__writer__options_a491080986ec99aa2756d1d04887d04cb} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!get\_stripe\_size\_rows@{get\_stripe\_size\_rows}}
+\index{get\_stripe\_size\_rows@{get\_stripe\_size\_rows}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{get\_stripe\_size\_rows()}{get\_stripe\_size\_rows()}}
+{\footnotesize\ttfamily auto cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::get\+\_\+stripe\+\_\+size\+\_\+rows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns maximum stripe size, in rows. 
+
+\begin{DoxyReturn}{返回}
+Maximum stripe size, in rows 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00512}{512}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_a569bf5202dc7fac67ac3203127a4129f}\label{classcudf_1_1io_1_1orc__writer__options_a569bf5202dc7fac67ac3203127a4129f} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!get\_table@{get\_table}}
+\index{get\_table@{get\_table}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{get\_table()}{get\_table()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::get\+\_\+table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns table to be written to output. 
+
+\begin{DoxyReturn}{返回}
+Table to be written to output 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00530}{530}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_a31f641ea9b518cacf6cdd3c175a41d6b}\label{classcudf_1_1io_1_1orc__writer__options_a31f641ea9b518cacf6cdd3c175a41d6b} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!is\_enabled\_statistics@{is\_enabled\_statistics}}
+\index{is\_enabled\_statistics@{is\_enabled\_statistics}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{is\_enabled\_statistics()}{is\_enabled\_statistics()}}
+{\footnotesize\ttfamily bool cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::is\+\_\+enabled\+\_\+statistics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Whether writing column statistics is enabled/disabled. 
+
+\begin{DoxyReturn}{返回}
+{\ttfamily true} if writing column statistics is enabled 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00488}{488}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_abe7ca791d2292f1c1d9b4d61d3abd7e3}\label{classcudf_1_1io_1_1orc__writer__options_abe7ca791d2292f1c1d9b4d61d3abd7e3} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!set\_compression@{set\_compression}}
+\index{set\_compression@{set\_compression}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{set\_compression()}{set\_compression()}}
+{\footnotesize\ttfamily void cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::set\+\_\+compression (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\+\_\+type}}}]{comp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets compression type. 
+
+
+\begin{DoxyParams}{参数}
+{\em comp} & Compression type \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00556}{556}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_a48ecb9f60dabe23e7100a719e5f0c708}\label{classcudf_1_1io_1_1orc__writer__options_a48ecb9f60dabe23e7100a719e5f0c708} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!set\_key\_value\_metadata@{set\_key\_value\_metadata}}
+\index{set\_key\_value\_metadata@{set\_key\_value\_metadata}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{set\_key\_value\_metadata()}{set\_key\_value\_metadata()}}
+{\footnotesize\ttfamily void cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::set\+\_\+key\+\_\+value\+\_\+metadata (\begin{DoxyParamCaption}\item[{std\+::map$<$ std\+::string, std\+::string $>$}]{metadata }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets metadata. 
+
+
+\begin{DoxyParams}{参数}
+{\em metadata} & Key-\/\+Value footer metadata \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00627}{627}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_a86f8fd939e624f421ac12cb5d630b12b}\label{classcudf_1_1io_1_1orc__writer__options_a86f8fd939e624f421ac12cb5d630b12b} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!set\_metadata@{set\_metadata}}
+\index{set\_metadata@{set\_metadata}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{set\_metadata()}{set\_metadata()}}
+{\footnotesize\ttfamily void cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::set\+\_\+metadata (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1io_1_1table__input__metadata}{table\+\_\+input\+\_\+metadata}} const \texorpdfstring{$\ast$}{*}}]{meta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets associated metadata 
+
+
+\begin{DoxyParams}{参数}
+{\em meta} & Associated metadata \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00620}{620}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_ac7c8427e7d912a1a44cc9369acd16299}\label{classcudf_1_1io_1_1orc__writer__options_ac7c8427e7d912a1a44cc9369acd16299} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!set\_row\_index\_stride@{set\_row\_index\_stride}}
+\index{set\_row\_index\_stride@{set\_row\_index\_stride}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{set\_row\_index\_stride()}{set\_row\_index\_stride()}}
+{\footnotesize\ttfamily void cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::set\+\_\+row\+\_\+index\+\_\+stride (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{stride }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the row index stride. 
+
+Rounded down to a multiple of 8.
+
+
+\begin{DoxyParams}{参数}
+{\em stride} & Row index stride to be set \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00602}{602}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_aeec9a3ed1892d7fc99e49c82e3ae1631}\label{classcudf_1_1io_1_1orc__writer__options_aeec9a3ed1892d7fc99e49c82e3ae1631} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!set\_stripe\_size\_bytes@{set\_stripe\_size\_bytes}}
+\index{set\_stripe\_size\_bytes@{set\_stripe\_size\_bytes}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{set\_stripe\_size\_bytes()}{set\_stripe\_size\_bytes()}}
+{\footnotesize\ttfamily void cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::set\+\_\+stripe\+\_\+size\+\_\+bytes (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size\+\_\+bytes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the maximum stripe size, in bytes. 
+
+
+\begin{DoxyParams}{参数}
+{\em size\+\_\+bytes} & Maximum stripe size, in bytes to be set \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00575}{575}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_a4722933015d6654c44e822c58588e75c}\label{classcudf_1_1io_1_1orc__writer__options_a4722933015d6654c44e822c58588e75c} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!set\_stripe\_size\_rows@{set\_stripe\_size\_rows}}
+\index{set\_stripe\_size\_rows@{set\_stripe\_size\_rows}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{set\_stripe\_size\_rows()}{set\_stripe\_size\_rows()}}
+{\footnotesize\ttfamily void cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::set\+\_\+stripe\+\_\+size\+\_\+rows (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{size\+\_\+rows }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the maximum stripe size, in rows. 
+
+If the stripe size is smaller that the row group size, row group size will be reduced to math the stripe size.
+
+
+\begin{DoxyParams}{参数}
+{\em size\+\_\+rows} & Maximum stripe size, in rows to be set \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00589}{589}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_a9712ec4fabb19cc03ae08cc9f5a6ec95}\label{classcudf_1_1io_1_1orc__writer__options_a9712ec4fabb19cc03ae08cc9f5a6ec95} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!set\_table@{set\_table}}
+\index{set\_table@{set\_table}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{set\_table()}{set\_table()}}
+{\footnotesize\ttfamily void cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::set\+\_\+table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}}}]{tbl }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets table to be written to output. 
+
+
+\begin{DoxyParams}{参数}
+{\em tbl} & Table for the output \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00613}{613}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_ad4eace5294813315bb8cc9ad1c05d25d}\label{classcudf_1_1io_1_1orc__writer__options_ad4eace5294813315bb8cc9ad1c05d25d} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!\_compression@{\_compression}}
+\index{\_compression@{\_compression}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{\_compression}{\_compression}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\+\_\+type}} cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::\+\_\+compression = \mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8ae1f2d5134ed2543d38a0de9751cf75d9}{compression\+\_\+type\+::\+AUTO}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00422}{422}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_adf69ff9a5ff776d41fdafc62582d73e7}\label{classcudf_1_1io_1_1orc__writer__options_adf69ff9a5ff776d41fdafc62582d73e7} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!\_metadata@{\_metadata}}
+\index{\_metadata@{\_metadata}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{\_metadata}{\_metadata}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classcudf_1_1io_1_1table__input__metadata}{table\+\_\+input\+\_\+metadata}}\texorpdfstring{$\ast$}{*} cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::\+\_\+metadata = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00434}{434}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_a426f830d3ba4818864f3b60ed768db2f}\label{classcudf_1_1io_1_1orc__writer__options_a426f830d3ba4818864f3b60ed768db2f} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!\_row\_index\_stride@{\_row\_index\_stride}}
+\index{\_row\_index\_stride@{\_row\_index\_stride}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{\_row\_index\_stride}{\_row\_index\_stride}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::\+\_\+row\+\_\+index\+\_\+stride = \mbox{\hyperlink{group__io__readers_ga7a4eda642a7507cc9febfdbf81beabde}{default\+\_\+row\+\_\+index\+\_\+stride}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00430}{430}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_ac46c53fc581ce4728f54a20f443330bc}\label{classcudf_1_1io_1_1orc__writer__options_ac46c53fc581ce4728f54a20f443330bc} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!\_sink@{\_sink}}
+\index{\_sink@{\_sink}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{\_sink}{\_sink}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1io_1_1sink__info}{sink\+\_\+info}} cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::\+\_\+sink\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00420}{420}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_a293fc465823331c23f025aebbad3e120}\label{classcudf_1_1io_1_1orc__writer__options_a293fc465823331c23f025aebbad3e120} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!\_stats\_freq@{\_stats\_freq}}
+\index{\_stats\_freq@{\_stats\_freq}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{\_stats\_freq}{\_stats\_freq}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecudf_1_1io_ac52511ff52b01cf3c0d778bfaa5a5089}{statistics\+\_\+freq}} cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::\+\_\+stats\+\_\+freq = \mbox{\hyperlink{group__io__writers_ga9eb5de600eca5f9d5266a885554614b4}{ORC\+\_\+\+STATISTICS\+\_\+\+ROW\+\_\+\+GROUP}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00424}{424}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_af2490a3c7f07cb0d54bb16af06f7448e}\label{classcudf_1_1io_1_1orc__writer__options_af2490a3c7f07cb0d54bb16af06f7448e} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!\_stripe\_size\_bytes@{\_stripe\_size\_bytes}}
+\index{\_stripe\_size\_bytes@{\_stripe\_size\_bytes}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{\_stripe\_size\_bytes}{\_stripe\_size\_bytes}}
+{\footnotesize\ttfamily size\+\_\+t cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::\+\_\+stripe\+\_\+size\+\_\+bytes = \mbox{\hyperlink{group__io__readers_gaa57ec7859f94e4071b42a97a4daf88bb}{default\+\_\+stripe\+\_\+size\+\_\+bytes}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00426}{426}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_afde6bc59d6dc298c5a01f4047c597bd8}\label{classcudf_1_1io_1_1orc__writer__options_afde6bc59d6dc298c5a01f4047c597bd8} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!\_stripe\_size\_rows@{\_stripe\_size\_rows}}
+\index{\_stripe\_size\_rows@{\_stripe\_size\_rows}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{\_stripe\_size\_rows}{\_stripe\_size\_rows}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::\+\_\+stripe\+\_\+size\+\_\+rows = \mbox{\hyperlink{group__io__readers_ga4b3b57c6284891019b2a4ca86a79ef78}{default\+\_\+stripe\+\_\+size\+\_\+rows}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00428}{428}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_aa00da08a7cba1fc0eead36351a7ac582}\label{classcudf_1_1io_1_1orc__writer__options_aa00da08a7cba1fc0eead36351a7ac582} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!\_table@{\_table}}
+\index{\_table@{\_table}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{\_table}{\_table}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::\+\_\+table\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00432}{432}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_a107411de2b09432b3eef4c88f4fffc45}\label{classcudf_1_1io_1_1orc__writer__options_a107411de2b09432b3eef4c88f4fffc45} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!\_user\_data@{\_user\_data}}
+\index{\_user\_data@{\_user\_data}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{\_user\_data}{\_user\_data}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, std\+::string$>$ cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::\+\_\+user\+\_\+data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00436}{436}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1orc__writer__options_abbc31902f4c48d6c929cfd422de66e90}\label{classcudf_1_1io_1_1orc__writer__options_abbc31902f4c48d6c929cfd422de66e90} 
+\index{cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}!orc\_writer\_options\_builder@{orc\_writer\_options\_builder}}
+\index{orc\_writer\_options\_builder@{orc\_writer\_options\_builder}!cudf::io::orc\_writer\_options@{cudf::io::orc\_writer\_options}}
+\doxysubsubsection{\texorpdfstring{orc\_writer\_options\_builder}{orc\_writer\_options\_builder}}
+{\footnotesize\ttfamily friend cudf\+::io\+::orc\+\_\+writer\+\_\+options\+::orc\+\_\+writer\+\_\+options\+\_\+builder\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l00438}{438}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/\mbox{\hyperlink{orc_8hpp}{orc.\+hpp}}\end{DoxyCompactItemize}

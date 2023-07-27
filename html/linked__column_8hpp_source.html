@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: D:/gitLibrary/cudf/cpp/include/cudf/detail/utilities/linked_column.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('linked__column_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">linked_column.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="linked__column_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright (c) 2022, NVIDIA CORPORATION.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;<a class="code" href="table__view_8hpp.html">cudf/table/table_view.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;thrust/iterator/transform_iterator.h&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecudf_1_1detail.html">cudf::detail</a> {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">struct </span>linked_column_view;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#a8bef759d42ac528d33f331de080d5584">   27</a></span><span class="keyword">using </span><a class="code hl_typedef" href="namespacecudf_1_1detail.html#a8bef759d42ac528d33f331de080d5584">LinkedColPtr</a>    = std::shared_ptr&lt;linked_column_view&gt;;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#a627e116400c1bed3d5f2b3ab78661fe8">   28</a></span><span class="keyword">using </span><a class="code hl_typedef" href="namespacecudf_1_1detail.html#a627e116400c1bed3d5f2b3ab78661fe8">LinkedColVector</a> = std::vector&lt;LinkedColPtr&gt;;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="structcudf_1_1detail_1_1linked__column__view.html">   34</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structcudf_1_1detail_1_1linked__column__view.html">linked_column_view</a> : <span class="keyword">public</span> <a class="code hl_class" href="classcudf_1_1detail_1_1column__view__base.html">column_view_base</a> {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="structcudf_1_1detail_1_1linked__column__view.html#a10c90afa331c6eda2d792095e276ff62">   35</a></span>  <a class="code hl_function" href="structcudf_1_1detail_1_1linked__column__view.html#a10c90afa331c6eda2d792095e276ff62">linked_column_view</a>(<a class="code hl_struct" href="structcudf_1_1detail_1_1linked__column__view.html">linked_column_view</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structcudf_1_1detail_1_1linked__column__view.html#acfaa15f174e6179f3b2c7cf9838278d0">   36</a></span>  <a class="code hl_struct" href="structcudf_1_1detail_1_1linked__column__view.html">linked_column_view</a>&amp; <a class="code hl_function" href="structcudf_1_1detail_1_1linked__column__view.html#acfaa15f174e6179f3b2c7cf9838278d0">operator=</a>(<a class="code hl_struct" href="structcudf_1_1detail_1_1linked__column__view.html">linked_column_view</a> <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="structcudf_1_1detail_1_1linked__column__view.html#a2f1dcd61ed82f45aee92ee28a7703d45">   38</a></span>  <a class="code hl_function" href="structcudf_1_1detail_1_1linked__column__view.html#a2f1dcd61ed82f45aee92ee28a7703d45">linked_column_view</a>(<a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; col) : <a class="code hl_struct" href="structcudf_1_1detail_1_1linked__column__view.html">linked_column_view</a>(nullptr, col) {}</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="structcudf_1_1detail_1_1linked__column__view.html#a5500bef8d155050103217c988f709bfa">   40</a></span>  <a class="code hl_function" href="structcudf_1_1detail_1_1linked__column__view.html#a5500bef8d155050103217c988f709bfa">linked_column_view</a>(<a class="code hl_struct" href="structcudf_1_1detail_1_1linked__column__view.html">linked_column_view</a>* <a class="code hl_variable" href="structcudf_1_1detail_1_1linked__column__view.html#aad49c6ea77837de943262846a3fce5d6">parent</a>, <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; col)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    : <a class="code hl_class" href="classcudf_1_1detail_1_1column__view__base.html">column_view_base</a>(col), <a class="code hl_variable" href="structcudf_1_1detail_1_1linked__column__view.html#aad49c6ea77837de943262846a3fce5d6">parent</a>(<a class="code hl_variable" href="structcudf_1_1detail_1_1linked__column__view.html#aad49c6ea77837de943262846a3fce5d6">parent</a>)</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_variable" href="structcudf_1_1detail_1_1linked__column__view.html#a22262b90bd1ebcfeb7cb87be8c1342f8">children</a>.reserve(col.<a class="code hl_function" href="classcudf_1_1column__view.html#a5066dfaeabbef1d657c7b8e93f71aa1b">num_children</a>());</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    std::transform(</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>      col.<a class="code hl_function" href="classcudf_1_1column__view.html#a68dbd1a5bf17246397909a83f14cb7a2">child_begin</a>(), col.<a class="code hl_function" href="classcudf_1_1column__view.html#aa052d0321ce9a1c7bfb69349caf113ae">child_end</a>(), std::back_inserter(<a class="code hl_variable" href="structcudf_1_1detail_1_1linked__column__view.html#a22262b90bd1ebcfeb7cb87be8c1342f8">children</a>), [&amp;](<a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; c) {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        return std::make_shared&lt;linked_column_view&gt;(this, c);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>      });</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="structcudf_1_1detail_1_1linked__column__view.html#a9bb4b6f64edde41f292d805b060f23f9">   50</a></span>  <span class="keyword">operator</span> <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">auto</span> child_it = thrust::make_transform_iterator(</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>      <a class="code hl_variable" href="structcudf_1_1detail_1_1linked__column__view.html#a22262b90bd1ebcfeb7cb87be8c1342f8">children</a>.begin(), [](<span class="keyword">auto</span> <span class="keyword">const</span>&amp; c) { return static_cast&lt;column_view&gt;(*c); });</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a>(this-&gt;<a class="code hl_function" href="classcudf_1_1detail_1_1column__view__base.html#a16452c9fb08f36de42cd13884f0933e1">type</a>(),</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                       this-&gt;<a class="code hl_function" href="classcudf_1_1detail_1_1column__view__base.html#a754fdc0ebe297a466d1b377638c6920a">size</a>(),</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                       this-&gt;<a class="code hl_function" href="classcudf_1_1detail_1_1column__view__base.html#a9bcf890479e80414d8ee03acb9716483">head</a>(),</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                       this-&gt;<a class="code hl_function" href="classcudf_1_1detail_1_1column__view__base.html#a8fc94e5f1403f7f1213efe2f855a9ac6">null_mask</a>(),</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                       <a class="code hl_variable" href="group__utility__types.html#ga0eece3f40ff89fe8f1117097d86913b7">UNKNOWN_NULL_COUNT</a>,</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                       this-&gt;<a class="code hl_function" href="classcudf_1_1detail_1_1column__view__base.html#a8bf33063791c751052a8ef20cf20468c">offset</a>(),</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                       std::vector&lt;column_view&gt;(child_it, child_it + <a class="code hl_variable" href="structcudf_1_1detail_1_1linked__column__view.html#a22262b90bd1ebcfeb7cb87be8c1342f8">children</a>.size()));</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="structcudf_1_1detail_1_1linked__column__view.html#aad49c6ea77837de943262846a3fce5d6">   63</a></span>  <a class="code hl_struct" href="structcudf_1_1detail_1_1linked__column__view.html">linked_column_view</a>* <a class="code hl_variable" href="structcudf_1_1detail_1_1linked__column__view.html#aad49c6ea77837de943262846a3fce5d6">parent</a>;  </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="structcudf_1_1detail_1_1linked__column__view.html#a22262b90bd1ebcfeb7cb87be8c1342f8">   64</a></span>  <a class="code hl_typedef" href="namespacecudf_1_1detail.html#a627e116400c1bed3d5f2b3ab78661fe8">LinkedColVector</a> <a class="code hl_variable" href="structcudf_1_1detail_1_1linked__column__view.html#a22262b90bd1ebcfeb7cb87be8c1342f8">children</a>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>};</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#ab6afca7c4d88ca63b0e0903ac5c09ae0">   73</a></span><span class="keyword">inline</span> <a class="code hl_typedef" href="namespacecudf_1_1detail.html#a627e116400c1bed3d5f2b3ab78661fe8">LinkedColVector</a> <a class="code hl_function" href="namespacecudf_1_1detail.html#ab6afca7c4d88ca63b0e0903ac5c09ae0">table_to_linked_columns</a>(<a class="code hl_class" href="classcudf_1_1table__view.html">table_view</a> <span class="keyword">const</span>&amp; <a class="code hl_class" href="classcudf_1_1table.html">table</a>)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>{</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  <span class="keyword">auto</span> linked_it = thrust::make_transform_iterator(</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <a class="code hl_class" href="classcudf_1_1table.html">table</a>.begin(), [](<span class="keyword">auto</span> <span class="keyword">const</span>&amp; c) { return std::make_shared&lt;linked_column_view&gt;(c); });</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  <span class="keywordflow">return</span> <a class="code hl_typedef" href="namespacecudf_1_1detail.html#a627e116400c1bed3d5f2b3ab78661fe8">LinkedColVector</a>(linked_it, linked_it + <a class="code hl_class" href="classcudf_1_1table.html">table</a>.<a class="code hl_function" href="classcudf_1_1table.html#aaf0e0f19ad8e72384944d40798a65c14">num_columns</a>());</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>}</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>}  <span class="comment">// namespace cudf::detail</span></div>
+<div class="ttc" id="aclasscudf_1_1column__view_html"><div class="ttname"><a href="classcudf_1_1column__view.html">cudf::column_view</a></div><div class="ttdoc">A non-owning, immutable view of device data as a column of elements, some of which may be null as ind...</div><div class="ttdef"><b>Definition</b> <a href="column__view_8hpp_source.html#l00322">column_view.hpp:322</a></div></div>
+<div class="ttc" id="aclasscudf_1_1column__view_html_a5066dfaeabbef1d657c7b8e93f71aa1b"><div class="ttname"><a href="classcudf_1_1column__view.html#a5066dfaeabbef1d657c7b8e93f71aa1b">cudf::column_view::num_children</a></div><div class="ttdeci">size_type num_children() const noexcept</div><div class="ttdoc">Returns the number of child columns.</div><div class="ttdef"><b>Definition</b> <a href="column__view_8hpp_source.html#l00404">column_view.hpp:404</a></div></div>
+<div class="ttc" id="aclasscudf_1_1column__view_html_a68dbd1a5bf17246397909a83f14cb7a2"><div class="ttname"><a href="classcudf_1_1column__view.html#a68dbd1a5bf17246397909a83f14cb7a2">cudf::column_view::child_begin</a></div><div class="ttdeci">auto child_begin() const noexcept</div><div class="ttdoc">Returns iterator to the beginning of the ordered sequence of child column-views.</div><div class="ttdef"><b>Definition</b> <a href="column__view_8hpp_source.html#l00411">column_view.hpp:411</a></div></div>
+<div class="ttc" id="aclasscudf_1_1column__view_html_aa052d0321ce9a1c7bfb69349caf113ae"><div class="ttname"><a href="classcudf_1_1column__view.html#aa052d0321ce9a1c7bfb69349caf113ae">cudf::column_view::child_end</a></div><div class="ttdeci">auto child_end() const noexcept</div><div class="ttdoc">Returns iterator to the end of the ordered sequence of child column-views.</div><div class="ttdef"><b>Definition</b> <a href="column__view_8hpp_source.html#l00418">column_view.hpp:418</a></div></div>
+<div class="ttc" id="aclasscudf_1_1detail_1_1column__view__base_html"><div class="ttname"><a href="classcudf_1_1detail_1_1column__view__base.html">cudf::detail::column_view_base</a></div><div class="ttdoc">A non-owning, immutable view of device data as a column of elements, some of which may be null as ind...</div><div class="ttdef"><b>Definition</b> <a href="column__view_8hpp_source.html#l00053">column_view.hpp:53</a></div></div>
+<div class="ttc" id="aclasscudf_1_1detail_1_1column__view__base_html_a16452c9fb08f36de42cd13884f0933e1"><div class="ttname"><a href="classcudf_1_1detail_1_1column__view__base.html#a16452c9fb08f36de42cd13884f0933e1">cudf::detail::column_view_base::type</a></div><div class="ttdeci">data_type type() const noexcept</div><div class="ttdoc">Returns the element data_type</div><div class="ttdef"><b>Definition</b> <a href="column__view_8hpp_source.html#l00147">column_view.hpp:147</a></div></div>
+<div class="ttc" id="aclasscudf_1_1detail_1_1column__view__base_html_a754fdc0ebe297a466d1b377638c6920a"><div class="ttname"><a href="classcudf_1_1detail_1_1column__view__base.html#a754fdc0ebe297a466d1b377638c6920a">cudf::detail::column_view_base::size</a></div><div class="ttdeci">size_type size() const noexcept</div><div class="ttdoc">Returns the number of elements in the column</div><div class="ttdef"><b>Definition</b> <a href="column__view_8hpp_source.html#l00133">column_view.hpp:133</a></div></div>
+<div class="ttc" id="aclasscudf_1_1detail_1_1column__view__base_html_a8bf33063791c751052a8ef20cf20468c"><div class="ttname"><a href="classcudf_1_1detail_1_1column__view__base.html#a8bf33063791c751052a8ef20cf20468c">cudf::detail::column_view_base::offset</a></div><div class="ttdeci">size_type offset() const noexcept</div><div class="ttdoc">Returns the index of the first element relative to the base memory allocation, i.e....</div><div class="ttdef"><b>Definition</b> <a href="column__view_8hpp_source.html#l00230">column_view.hpp:230</a></div></div>
+<div class="ttc" id="aclasscudf_1_1detail_1_1column__view__base_html_a8fc94e5f1403f7f1213efe2f855a9ac6"><div class="ttname"><a href="classcudf_1_1detail_1_1column__view__base.html#a8fc94e5f1403f7f1213efe2f855a9ac6">cudf::detail::column_view_base::null_mask</a></div><div class="ttdeci">bitmask_type const * null_mask() const noexcept</div><div class="ttdoc">Returns raw pointer to the underlying bitmask allocation.</div><div class="ttdef"><b>Definition</b> <a href="column__view_8hpp_source.html#l00222">column_view.hpp:222</a></div></div>
+<div class="ttc" id="aclasscudf_1_1detail_1_1column__view__base_html_a9bcf890479e80414d8ee03acb9716483"><div class="ttname"><a href="classcudf_1_1detail_1_1column__view__base.html#a9bcf890479e80414d8ee03acb9716483">cudf::detail::column_view_base::head</a></div><div class="ttdeci">T const * head() const noexcept</div><div class="ttdoc">Returns pointer to the base device memory allocation casted to the specified type.</div><div class="ttdef"><b>Definition</b> <a href="column__view_8hpp_source.html#l00073">column_view.hpp:73</a></div></div>
+<div class="ttc" id="aclasscudf_1_1table__view_html"><div class="ttname"><a href="classcudf_1_1table__view.html">cudf::table_view</a></div><div class="ttdoc">A set of cudf::column_view's of the same size.</div><div class="ttdef"><b>Definition</b> <a href="table__view_8hpp_source.html#l00187">table_view.hpp:187</a></div></div>
+<div class="ttc" id="aclasscudf_1_1table_html"><div class="ttname"><a href="classcudf_1_1table.html">cudf::table</a></div><div class="ttdoc">A set of cudf::column's of the same size.</div><div class="ttdef"><b>Definition</b> <a href="table_8hpp_source.html#l00040">table.hpp:40</a></div></div>
+<div class="ttc" id="aclasscudf_1_1table_html_aaf0e0f19ad8e72384944d40798a65c14"><div class="ttname"><a href="classcudf_1_1table.html#aaf0e0f19ad8e72384944d40798a65c14">cudf::table::num_columns</a></div><div class="ttdeci">size_type num_columns() const noexcept</div><div class="ttdoc">Returns the number of columns in the table</div><div class="ttdef"><b>Definition</b> <a href="table_8hpp_source.html#l00080">table.hpp:80</a></div></div>
+<div class="ttc" id="agroup__utility__types_html_ga0eece3f40ff89fe8f1117097d86913b7"><div class="ttname"><a href="group__utility__types.html#ga0eece3f40ff89fe8f1117097d86913b7">cudf::UNKNOWN_NULL_COUNT</a></div><div class="ttdeci">static constexpr size_type UNKNOWN_NULL_COUNT</div><div class="ttdoc">Indicates an unknown null count.</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00106">types.hpp:106</a></div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html"><div class="ttname"><a href="namespacecudf_1_1detail.html">cudf::detail</a></div><div class="ttdoc">Inner interfaces and implementations</div><div class="ttdef"><b>Definition</b> <a href="aggregation_8hpp_source.html#l00042">aggregation.hpp:42</a></div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_a627e116400c1bed3d5f2b3ab78661fe8"><div class="ttname"><a href="namespacecudf_1_1detail.html#a627e116400c1bed3d5f2b3ab78661fe8">cudf::detail::LinkedColVector</a></div><div class="ttdeci">std::vector&lt; LinkedColPtr &gt; LinkedColVector</div><div class="ttdef"><b>Definition</b> <a href="linked__column_8hpp_source.html#l00028">linked_column.hpp:28</a></div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_a8bef759d42ac528d33f331de080d5584"><div class="ttname"><a href="namespacecudf_1_1detail.html#a8bef759d42ac528d33f331de080d5584">cudf::detail::LinkedColPtr</a></div><div class="ttdeci">std::shared_ptr&lt; linked_column_view &gt; LinkedColPtr</div><div class="ttdef"><b>Definition</b> <a href="linked__column_8hpp_source.html#l00027">linked_column.hpp:27</a></div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_ab6afca7c4d88ca63b0e0903ac5c09ae0"><div class="ttname"><a href="namespacecudf_1_1detail.html#ab6afca7c4d88ca63b0e0903ac5c09ae0">cudf::detail::table_to_linked_columns</a></div><div class="ttdeci">LinkedColVector table_to_linked_columns(table_view const &amp;table)</div><div class="ttdoc">Converts all column_views of a table into linked_column_views</div><div class="ttdef"><b>Definition</b> <a href="linked__column_8hpp_source.html#l00073">linked_column.hpp:73</a></div></div>
+<div class="ttc" id="astructcudf_1_1detail_1_1linked__column__view_html"><div class="ttname"><a href="structcudf_1_1detail_1_1linked__column__view.html">cudf::detail::linked_column_view</a></div><div class="ttdoc">column_view with the added member pointer to the parent of this column.</div><div class="ttdef"><b>Definition</b> <a href="linked__column_8hpp_source.html#l00034">linked_column.hpp:34</a></div></div>
+<div class="ttc" id="astructcudf_1_1detail_1_1linked__column__view_html_a10c90afa331c6eda2d792095e276ff62"><div class="ttname"><a href="structcudf_1_1detail_1_1linked__column__view.html#a10c90afa331c6eda2d792095e276ff62">cudf::detail::linked_column_view::linked_column_view</a></div><div class="ttdeci">linked_column_view(linked_column_view const &amp;)=delete</div></div>
+<div class="ttc" id="astructcudf_1_1detail_1_1linked__column__view_html_a22262b90bd1ebcfeb7cb87be8c1342f8"><div class="ttname"><a href="structcudf_1_1detail_1_1linked__column__view.html#a22262b90bd1ebcfeb7cb87be8c1342f8">cudf::detail::linked_column_view::children</a></div><div class="ttdeci">LinkedColVector children</div><div class="ttdef"><b>Definition</b> <a href="linked__column_8hpp_source.html#l00064">linked_column.hpp:64</a></div></div>
+<div class="ttc" id="astructcudf_1_1detail_1_1linked__column__view_html_a2f1dcd61ed82f45aee92ee28a7703d45"><div class="ttname"><a href="structcudf_1_1detail_1_1linked__column__view.html#a2f1dcd61ed82f45aee92ee28a7703d45">cudf::detail::linked_column_view::linked_column_view</a></div><div class="ttdeci">linked_column_view(column_view const &amp;col)</div><div class="ttdef"><b>Definition</b> <a href="linked__column_8hpp_source.html#l00038">linked_column.hpp:38</a></div></div>
+<div class="ttc" id="astructcudf_1_1detail_1_1linked__column__view_html_a5500bef8d155050103217c988f709bfa"><div class="ttname"><a href="structcudf_1_1detail_1_1linked__column__view.html#a5500bef8d155050103217c988f709bfa">cudf::detail::linked_column_view::linked_column_view</a></div><div class="ttdeci">linked_column_view(linked_column_view *parent, column_view const &amp;col)</div><div class="ttdef"><b>Definition</b> <a href="linked__column_8hpp_source.html#l00040">linked_column.hpp:40</a></div></div>
+<div class="ttc" id="astructcudf_1_1detail_1_1linked__column__view_html_aad49c6ea77837de943262846a3fce5d6"><div class="ttname"><a href="structcudf_1_1detail_1_1linked__column__view.html#aad49c6ea77837de943262846a3fce5d6">cudf::detail::linked_column_view::parent</a></div><div class="ttdeci">linked_column_view * parent</div><div class="ttdoc">Pointer to parent of this column. Nullptr if root</div><div class="ttdef"><b>Definition</b> <a href="linked__column_8hpp_source.html#l00063">linked_column.hpp:63</a></div></div>
+<div class="ttc" id="astructcudf_1_1detail_1_1linked__column__view_html_acfaa15f174e6179f3b2c7cf9838278d0"><div class="ttname"><a href="structcudf_1_1detail_1_1linked__column__view.html#acfaa15f174e6179f3b2c7cf9838278d0">cudf::detail::linked_column_view::operator=</a></div><div class="ttdeci">linked_column_view &amp; operator=(linked_column_view const &amp;)=delete</div></div>
+<div class="ttc" id="atable__view_8hpp_html"><div class="ttname"><a href="table__view_8hpp.html">table_view.hpp</a></div><div class="ttdoc">Class definitions for (mutable)_table_view</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_d998dea0bd4559303135358082015ac8.html">gitLibrary</a></li><li class="navelem"><a class="el" href="dir_b6486b3d9bd1f4b89c884933ed658179.html">cudf</a></li><li class="navelem"><a class="el" href="dir_318a4414914f49dc0e7605c41de9d4af.html">cpp</a></li><li class="navelem"><a class="el" href="dir_7fbf5ee8ae486656ea40e5ca1dd304f9.html">include</a></li><li class="navelem"><a class="el" href="dir_87e6427d1ef099fd52d9d0724c66b062.html">cudf</a></li><li class="navelem"><a class="el" href="dir_a82d85c89be6cfc9cc0f5c38ca1aa1ac.html">detail</a></li><li class="navelem"><a class="el" href="dir_607482f2dbb1f21ca0d4221640aca179.html">utilities</a></li><li class="navelem"><a class="el" href="linked__column_8hpp.html">linked_column.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

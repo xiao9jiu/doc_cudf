@@ -1,0 +1,40 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/detail/tdigest/tdigest.hpp 文件参考}
+\hypertarget{tdigest_8hpp}{}\label{tdigest_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/detail/tdigest/tdigest.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/detail/tdigest/tdigest.hpp}}
+{\ttfamily \#include $<$cudf/types.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/utilities/default\+\_\+stream.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/utilities/span.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/cuda\+\_\+stream\+\_\+view.\+hpp$>$}\newline
+tdigest.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tdigest_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1tdigest}{cudf\+::tdigest}}
+\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1tdigest_1_1detail}{cudf\+::tdigest\+::detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1tdigest_1_1detail_ac82f74e9f3cc4feb0808fa740c2af4be}{cudf\+::tdigest\+::detail\+::group\+\_\+tdigest}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&values, \mbox{\hyperlink{structcudf_1_1device__span}{cudf\+::device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$ group\+\_\+offsets, \mbox{\hyperlink{structcudf_1_1device__span}{cudf\+::device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$ group\+\_\+labels, \mbox{\hyperlink{structcudf_1_1device__span}{cudf\+::device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$ group\+\_\+valid\+\_\+counts, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} num\+\_\+groups, int max\+\_\+centroids, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Generate a tdigest column from a grouped set of numeric input values. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1tdigest_1_1detail_acd3da6e55ed3c7d5c26cbf347d9e151a}{cudf\+::tdigest\+::detail\+::group\+\_\+merge\+\_\+tdigest}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&values, \mbox{\hyperlink{structcudf_1_1device__span}{cudf\+::device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$ group\+\_\+offsets, \mbox{\hyperlink{structcudf_1_1device__span}{cudf\+::device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$ group\+\_\+labels, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} num\+\_\+groups, int max\+\_\+centroids, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Merges tdigests within the same group to generate a new tdigest. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1tdigest_1_1detail_a39bb8f02bc02add206d9c84fedc4d100}{cudf\+::tdigest\+::detail\+::make\+\_\+tdigest\+\_\+column}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} num\+\_\+rows, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \&\&centroid\+\_\+means, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \&\&centroid\+\_\+weights, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \&\&tdigest\+\_\+offsets, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \&\&min\+\_\+values, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \&\&max\+\_\+values, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a tdigest column from its constituent components. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1tdigest_1_1detail_aace10d450f09be4bc9f9b67101d6ea80}{cudf\+::tdigest\+::detail\+::make\+\_\+empty\+\_\+tdigest\+\_\+column}} (rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create an empty tdigest column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ \mbox{\hyperlink{namespacecudf_1_1tdigest_1_1detail_ae199018115ab7b8fca72df8f22cec436}{cudf\+::tdigest\+::detail\+::make\+\_\+empty\+\_\+tdigest\+\_\+scalar}} (rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create an empty tdigest scalar. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ \mbox{\hyperlink{namespacecudf_1_1tdigest_1_1detail_a65e033319c1e35eb0f4ad4280ca6c558}{cudf\+::tdigest\+::detail\+::reduce\+\_\+tdigest}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&values, int max\+\_\+centroids, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Generate a tdigest scalar from a set of numeric input values. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ \mbox{\hyperlink{namespacecudf_1_1tdigest_1_1detail_aefdfdc286a6ec109d60e8bd7f4714171}{cudf\+::tdigest\+::detail\+::reduce\+\_\+merge\+\_\+tdigest}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, int max\+\_\+centroids, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Merges multiple tdigest columns to generate a new tdigest scalar. \end{DoxyCompactList}\end{DoxyCompactItemize}

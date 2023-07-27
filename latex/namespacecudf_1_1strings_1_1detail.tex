@@ -1,0 +1,1392 @@
+\doxysection{cudf\+::strings\+::detail 命名空间参考}
+\hypertarget{namespacecudf_1_1strings_1_1detail}{}\label{namespacecudf_1_1strings_1_1detail}\index{cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1strings_1_1detail_1_1special__case__mapping}{special\+\_\+case\+\_\+mapping}}
+\begin{DoxyCompactList}\small\item\em Case mapping structure for special characters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{类型定义}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_aa3e28807e386429e2589a280f21db124}{character\+\_\+flags\+\_\+table\+\_\+type}} = std\+::uint8\+\_\+t
+\item 
+using \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a1754364b3624ead1177c92000bf133d7}{character\+\_\+cases\+\_\+table\+\_\+type}} = uint16\+\_\+t
+\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_aa88c652b77640bc318560887f507a3c5}{replace\+\_\+algorithm}} \{ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_aa88c652b77640bc318560887f507a3c5ae1f2d5134ed2543d38a0de9751cf75d9}{AUTO}}
+, \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_aa88c652b77640bc318560887f507a3c5a722b4bbb21829643dafc990c98af22ca}{ROW\+\_\+\+PARALLEL}}
+, \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_aa88c652b77640bc318560887f507a3c5a89c28620085fb52b148fb7109b132170}{CHAR\+\_\+\+PARALLEL}}
+ \}
+\begin{DoxyCompactList}\small\item\em The type of algorithm to use for a replace operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a74cdd6b057adb51a22c70e46e9c17a85}{generate\+\_\+special\+\_\+mapping\+\_\+hash\+\_\+table}} ()
+\begin{DoxyCompactList}\small\item\em Regenerates the special case mapping tables used to handle non-\/trivial unicode character case conversions. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_aa3e28807e386429e2589a280f21db124}{character\+\_\+flags\+\_\+table\+\_\+type}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a8b5fde789ab36e11993e5627085d0f23}{get\+\_\+character\+\_\+flags\+\_\+table}} ()
+\begin{DoxyCompactList}\small\item\em Returns pointer to device memory that contains the static characters flags table. On first call, this will copy the table into device memory and is guaranteed to be thread-\/safe. \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ab5b9527e53d156f316ba39f56da1744a}{IS\+\_\+\+DECIMAL}} (uint8\+\_\+t x)
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ae0eb07f8c45fd780eef62071f158a6a7}{IS\+\_\+\+NUMERIC}} (uint8\+\_\+t x)
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a2d49ae3ab525b5e11e7d76a4abd9c319}{IS\+\_\+\+DIGIT}} (uint8\+\_\+t x)
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a459e3f8d1ed89a62bec62ec1ef0b1e5c}{IS\+\_\+\+ALPHA}} (uint8\+\_\+t x)
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ae4252a01db93d6015e75f6efa2a9a95b}{IS\+\_\+\+SPACE}} (uint8\+\_\+t x)
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a403235c4ef1582a8c8e4ff77fb4ed9e2}{IS\+\_\+\+UPPER}} (uint8\+\_\+t x)
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a96b30f602d723da0e552f30d4c7f6e87}{IS\+\_\+\+LOWER}} (uint8\+\_\+t x)
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a0bb2110e6146a501687fdefb7c8217d1}{IS\+\_\+\+SPECIAL}} (uint8\+\_\+t x)
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a4ad21735b7fd9352c93a040d2de67356}{IS\+\_\+\+ALPHANUM}} (uint8\+\_\+t x)
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a4565cab7f14504825bb74c7ad70015f3}{IS\+\_\+\+UPPER\+\_\+\+OR\+\_\+\+LOWER}} (uint8\+\_\+t x)
+\item 
+const \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a1754364b3624ead1177c92000bf133d7}{character\+\_\+cases\+\_\+table\+\_\+type}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a9c09ebfde12af2f9f3df558134a8cc67}{get\+\_\+character\+\_\+cases\+\_\+table}} ()
+\begin{DoxyCompactList}\small\item\em Returns pointer to device memory that contains the static characters case table. On first call, this will copy the table into device memory and is guaranteed to be thread-\/safe. \end{DoxyCompactList}\item 
+const struct \mbox{\hyperlink{structcudf_1_1strings_1_1detail_1_1special__case__mapping}{special\+\_\+case\+\_\+mapping}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ab802022423cd65cadd6165cebc2de89f}{get\+\_\+special\+\_\+case\+\_\+mapping\+\_\+table}} ()
+\begin{DoxyCompactList}\small\item\em Returns pointer to device memory that contains the special case mapping table. On first call, this will copy the table into device memory and is guaranteed to be thread-\/safe. \end{DoxyCompactList}\item 
+constexpr uint16\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ae3d2f737d44317bd9b64aca509c5f591}{get\+\_\+special\+\_\+case\+\_\+hash\+\_\+index}} (uint32\+\_\+t code\+\_\+point)
+\begin{DoxyCompactList}\small\item\em Get the special mapping table index for a given code-\/point. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a73f15e76a2315431740c03674eef6220}{concatenate}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&strings\+\_\+columns, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&separator, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&narep, \mbox{\hyperlink{group__strings__combine_gaa57d4c778ab4df08467dfaab3dc7ec6d}{separator\+\_\+on\+\_\+nulls}} separate\+\_\+nulls, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ae23d49761309d3a450f7bfa388634476}{join\+\_\+strings}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&separator, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&narep, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a9261073b68d8c966443f0d65e24227f5}{join\+\_\+list\+\_\+elements}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&lists\+\_\+strings\+\_\+column, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&separator, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&narep, \mbox{\hyperlink{group__strings__combine_gaa57d4c778ab4df08467dfaab3dc7ec6d}{separator\+\_\+on\+\_\+nulls}} separate\+\_\+nulls, \mbox{\hyperlink{group__strings__combine_ga7c7d6d8dfa7a6f67a794d6c868960855}{output\+\_\+if\+\_\+empty\+\_\+list}} empty\+\_\+list\+\_\+policy, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a95f631e28112f8384c18082f0d19554a}{concatenate}} (\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const $>$ columns, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Returns a single column by vertically concatenating the given vector of strings columns. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_aa0826c42ce4b8a0da9c6159c100c326a}{to\+\_\+integers}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+type, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Returns a new integer numeric column parsing integer values from the provided strings column.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ad20a1f72035f45c3aa909998320e0172}{from\+\_\+integers}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&integers, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a7c7b12cf229b9e3a4bf6fba1e682ec84}{to\+\_\+floats}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+type, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Returns a new numeric column by parsing float values from each string in the provided strings column.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a6d260003e0b7503d23d315a61af64d14}{from\+\_\+floats}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&floats, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a4bc69f3cb103d377a4dbb3d06783a2f0}{to\+\_\+booleans}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&true\+\_\+string, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ab90a7e7586fbbabb4fe8a0075a1a334f}{from\+\_\+booleans}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&booleans, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&true\+\_\+string, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&false\+\_\+string, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_adb1baf6dc284ce8c9ddbbd5fc0505929}{to\+\_\+timestamps}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} timestamp\+\_\+type, std\+::string\+\_\+view format, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Returns a new timestamp column converting a strings column into timestamps using the provided format pattern.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a7b39f903e9d254abff46402ec483766a}{from\+\_\+timestamps}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&timestamps, std\+::string\+\_\+view format, \mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&names, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a9a1d3dd1ee9a847b6f15dd9a0ef7b91e}{to\+\_\+durations}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} duration\+\_\+type, std\+::string\+\_\+view format, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Returns a new duration column converting a strings column into durations using the provided format pattern.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a60eebd1c99814640f75595b3953105fe}{from\+\_\+durations}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&durations, std\+::string\+\_\+view format, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a5753e57985423ac2c8d8a24bc5a80493}{to\+\_\+fixed\+\_\+point}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+type, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Returns a new fixed-\/point column parsing decimal values from the provided strings column.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a882aac910b9ef97e161e8360b5fbf659}{from\+\_\+fixed\+\_\+point}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&integers, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a3dd8fa2d64e4715c605c89a914699fcf}{copy\+\_\+slice}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} start, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} end, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Returns a new strings column created from a subset of of the strings column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ac1f9fc6a6cf9aa3f1fb7dadb4f980b1d}{shift}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} offset, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&fill\+\_\+value, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Returns a new strings column created by shifting the rows by a specified offset. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ab5402c3c7ab6f6efb5e22a53311dd6e4}{fill}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} begin, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} end, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&value, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Returns a strings column replacing a range of rows with the specified string. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a1a4e8afbd6a9da17a42179b22571c447}{get\+\_\+json\+\_\+object}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{cudf\+::strings\+\_\+column\+\_\+view}} const \&col, \mbox{\hyperlink{classcudf_1_1string__scalar}{cudf\+::string\+\_\+scalar}} const \&json\+\_\+path, \mbox{\hyperlink{classcudf_1_1strings_1_1get__json__object__options}{cudf\+::strings\+::get\+\_\+json\+\_\+object\+\_\+options}} options, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Apply a JSONPath string to all rows in an input strings column.   \end{DoxyCompactList}\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_aa88c652b77640bc318560887f507a3c5}{replace\+\_\+algorithm}} alg = replace\+\_\+algorithm\+::\+AUTO$>$ }\\std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ab30196845a63941228874d76186e9db8}{replace}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&target, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&repl, int32\+\_\+t maxrepl, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Replaces target string within each string with the specified replacement string.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a3f02e4e04bb853b692dec05ce13056cb}{replace\+\_\+slice}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&repl, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} start, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} stop, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ab0f3895e0bc6dbe1282c3e75370183e2}{replace}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&targets, \mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&repls, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Replaces substrings matching a list of targets with the corresponding replacement strings.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a443c16ccfbad0c22ecd929d57bdfb401}{replace\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&repl, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Replaces any null string entries with the given string. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a97882ae2ec7e0fbd7095aa6fe2be2bc1}{is\+\_\+utf8\+\_\+continuation\+\_\+char}} (unsigned char chr)
+\begin{DoxyCompactList}\small\item\em This will return true if passed a continuation byte of a UTF-\/8 character. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a47f61f43b790c0fd73c7c20d08e71858}{is\+\_\+begin\+\_\+utf8\+\_\+char}} (unsigned char chr)
+\begin{DoxyCompactList}\small\item\em This will return true if passed the first byte of a UTF-\/8 character. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_afb2de37c34a18957755e610fb13ca7db}{is\+\_\+valid\+\_\+begin\+\_\+utf8\+\_\+char}} (uint8\+\_\+t byte)
+\begin{DoxyCompactList}\small\item\em This will return true if the passed in byte could be the start of a valid UTF-\/8 character. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_aedd35aa84a624d2d86e9843267a0f702}{bytes\+\_\+in\+\_\+char\+\_\+utf8}} (\mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{char\+\_\+utf8}} character)
+\begin{DoxyCompactList}\small\item\em Returns the number of bytes in the specified character. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a84fc81ed8c5309e773228f5c7cca5acf}{bytes\+\_\+in\+\_\+utf8\+\_\+byte}} (uint8\+\_\+t byte)
+\begin{DoxyCompactList}\small\item\em Returns the number of bytes used to represent the provided byte. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a4859c71d3da9bd19a9a213411a91ac1a}{to\+\_\+char\+\_\+utf8}} (const char \texorpdfstring{$\ast$}{*}str, \mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{char\+\_\+utf8}} \&character)
+\begin{DoxyCompactList}\small\item\em Convert a char array into a char\+\_\+utf8 value. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a1116f22b0a7433ae97db9be910aa8ccd}{from\+\_\+char\+\_\+utf8}} (\mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{char\+\_\+utf8}} character, char \texorpdfstring{$\ast$}{*}str)
+\begin{DoxyCompactList}\small\item\em Place a char\+\_\+utf8 value into a char array. \end{DoxyCompactList}\item 
+constexpr uint32\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a1e06c92ed6f860d3e2009fa0f986b0e1}{utf8\+\_\+to\+\_\+codepoint}} (\mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{cudf\+::char\+\_\+utf8}} utf8\+\_\+char)
+\begin{DoxyCompactList}\small\item\em Converts a single UTF-\/8 character into a code-\/point value that can be used for lookup in the character flags or the character case tables. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{cudf\+::char\+\_\+utf8}} \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a1c65ee80af8fe6f7842c495d878c22a8}{codepoint\+\_\+to\+\_\+utf8}} (uint32\+\_\+t unchr)
+\begin{DoxyCompactList}\small\item\em Converts a character code-\/point value into a UTF-\/8 character. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ab61a53d3e72e6990eeddd5e02a856373}{create\+\_\+chars\+\_\+child\+\_\+column}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} bytes, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Create a chars column to be a child of a strings column. \end{DoxyCompactList}\item 
+rmm\+::device\+\_\+uvector$<$ \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a26dd010d5b4a20519bc2b80828a4976e}{create\+\_\+string\+\_\+vector\+\_\+from\+\_\+column}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{cudf\+::strings\+\_\+column\+\_\+view}} const strings, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Creates a \doxylink{classcudf_1_1string__view}{string\+\_\+view} vector from a strings column. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{变量}
+\begin{DoxyCompactItemize}
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ac53c1e98d2f3a5d4c69590173645d0df}{ALL\+\_\+\+FLAGS}} = 0x\+FF
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{类型定义说明}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a1754364b3624ead1177c92000bf133d7}\label{namespacecudf_1_1strings_1_1detail_a1754364b3624ead1177c92000bf133d7} 
+\index{cudf::strings::detail@{cudf::strings::detail}!character\_cases\_table\_type@{character\_cases\_table\_type}}
+\index{character\_cases\_table\_type@{character\_cases\_table\_type}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{character\_cases\_table\_type}{character\_cases\_table\_type}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a1754364b3624ead1177c92000bf133d7}{cudf\+::strings\+::detail\+::character\+\_\+cases\+\_\+table\+\_\+type}} = typedef uint16\+\_\+t}
+
+
+
+在文件 \mbox{\hyperlink{char__tables_8hpp_source}{char\+\_\+tables.\+hpp}} 第 \mbox{\hyperlink{char__tables_8hpp_source_l00052}{52}} 行定义.
+
+\Hypertarget{namespacecudf_1_1strings_1_1detail_aa3e28807e386429e2589a280f21db124}\label{namespacecudf_1_1strings_1_1detail_aa3e28807e386429e2589a280f21db124} 
+\index{cudf::strings::detail@{cudf::strings::detail}!character\_flags\_table\_type@{character\_flags\_table\_type}}
+\index{character\_flags\_table\_type@{character\_flags\_table\_type}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{character\_flags\_table\_type}{character\_flags\_table\_type}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_aa3e28807e386429e2589a280f21db124}{cudf\+::strings\+::detail\+::character\+\_\+flags\+\_\+table\+\_\+type}} = typedef std\+::uint8\+\_\+t}
+
+
+
+在文件 \mbox{\hyperlink{char__tables_8hpp_source}{char\+\_\+tables.\+hpp}} 第 \mbox{\hyperlink{char__tables_8hpp_source_l00024}{24}} 行定义.
+
+
+
+\doxysubsection{枚举类型说明}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_aa88c652b77640bc318560887f507a3c5}\label{namespacecudf_1_1strings_1_1detail_aa88c652b77640bc318560887f507a3c5} 
+\index{cudf::strings::detail@{cudf::strings::detail}!replace\_algorithm@{replace\_algorithm}}
+\index{replace\_algorithm@{replace\_algorithm}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{replace\_algorithm}{replace\_algorithm}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_aa88c652b77640bc318560887f507a3c5}{cudf\+::strings\+::detail\+::replace\+\_\+algorithm}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+The type of algorithm to use for a replace operation. 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AUTO@{AUTO}!cudf::strings::detail@{cudf::strings::detail}}\index{cudf::strings::detail@{cudf::strings::detail}!AUTO@{AUTO}}}\Hypertarget{namespacecudf_1_1strings_1_1detail_aa88c652b77640bc318560887f507a3c5ae1f2d5134ed2543d38a0de9751cf75d9}\label{namespacecudf_1_1strings_1_1detail_aa88c652b77640bc318560887f507a3c5ae1f2d5134ed2543d38a0de9751cf75d9} 
+AUTO&Automatically choose the algorithm based on heuristics \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROW\_PARALLEL@{ROW\_PARALLEL}!cudf::strings::detail@{cudf::strings::detail}}\index{cudf::strings::detail@{cudf::strings::detail}!ROW\_PARALLEL@{ROW\_PARALLEL}}}\Hypertarget{namespacecudf_1_1strings_1_1detail_aa88c652b77640bc318560887f507a3c5a722b4bbb21829643dafc990c98af22ca}\label{namespacecudf_1_1strings_1_1detail_aa88c652b77640bc318560887f507a3c5a722b4bbb21829643dafc990c98af22ca} 
+ROW\+\_\+\+PARALLEL&Row-\/level parallelism \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CHAR\_PARALLEL@{CHAR\_PARALLEL}!cudf::strings::detail@{cudf::strings::detail}}\index{cudf::strings::detail@{cudf::strings::detail}!CHAR\_PARALLEL@{CHAR\_PARALLEL}}}\Hypertarget{namespacecudf_1_1strings_1_1detail_aa88c652b77640bc318560887f507a3c5a89c28620085fb52b148fb7109b132170}\label{namespacecudf_1_1strings_1_1detail_aa88c652b77640bc318560887f507a3c5a89c28620085fb52b148fb7109b132170} 
+CHAR\+\_\+\+PARALLEL&Character-\/level parallelism \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{strings_2detail_2replace_8hpp_source}{replace.\+hpp}} 第 \mbox{\hyperlink{strings_2detail_2replace_8hpp_source_l00032}{32}} 行定义.
+
+
+
+\doxysubsection{函数说明}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_aedd35aa84a624d2d86e9843267a0f702}\label{namespacecudf_1_1strings_1_1detail_aedd35aa84a624d2d86e9843267a0f702} 
+\index{cudf::strings::detail@{cudf::strings::detail}!bytes\_in\_char\_utf8@{bytes\_in\_char\_utf8}}
+\index{bytes\_in\_char\_utf8@{bytes\_in\_char\_utf8}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{bytes\_in\_char\_utf8()}{bytes\_in\_char\_utf8()}}
+{\footnotesize\ttfamily constexpr \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::strings\+::detail\+::bytes\+\_\+in\+\_\+char\+\_\+utf8 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{char\+\_\+utf8}}}]{character }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Returns the number of bytes in the specified character. 
+
+
+\begin{DoxyParams}{参数}
+{\em character} & Single character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Number of bytes 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{utf8_8hpp_source}{utf8.\+hpp}} 第 \mbox{\hyperlink{utf8_8hpp_source_l00079}{79}} 行定义.
+
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a84fc81ed8c5309e773228f5c7cca5acf}\label{namespacecudf_1_1strings_1_1detail_a84fc81ed8c5309e773228f5c7cca5acf} 
+\index{cudf::strings::detail@{cudf::strings::detail}!bytes\_in\_utf8\_byte@{bytes\_in\_utf8\_byte}}
+\index{bytes\_in\_utf8\_byte@{bytes\_in\_utf8\_byte}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{bytes\_in\_utf8\_byte()}{bytes\_in\_utf8\_byte()}}
+{\footnotesize\ttfamily constexpr \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::strings\+::detail\+::bytes\+\_\+in\+\_\+utf8\+\_\+byte (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{byte }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Returns the number of bytes used to represent the provided byte. 
+
+This could be 0 to 4 bytes. 0 is returned for intermediate bytes within a single character. For example, for the two-\/byte 0x\+C3\+A8 single character, the first byte would return 2 and the second byte would return 0.
+
+
+\begin{DoxyParams}{参数}
+{\em byte} & Byte from an encoded character. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Number of bytes. 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{utf8_8hpp_source}{utf8.\+hpp}} 第 \mbox{\hyperlink{utf8_8hpp_source_l00096}{96}} 行定义.
+
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a1c65ee80af8fe6f7842c495d878c22a8}\label{namespacecudf_1_1strings_1_1detail_a1c65ee80af8fe6f7842c495d878c22a8} 
+\index{cudf::strings::detail@{cudf::strings::detail}!codepoint\_to\_utf8@{codepoint\_to\_utf8}}
+\index{codepoint\_to\_utf8@{codepoint\_to\_utf8}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{codepoint\_to\_utf8()}{codepoint\_to\_utf8()}}
+{\footnotesize\ttfamily constexpr \mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{cudf\+::char\+\_\+utf8}} cudf\+::strings\+::detail\+::codepoint\+\_\+to\+\_\+utf8 (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{unchr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Converts a character code-\/point value into a UTF-\/8 character. 
+
+
+\begin{DoxyParams}{参数}
+{\em unchr} & Character code-\/point to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Single UTF-\/8 character. 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{utf8_8hpp_source}{utf8.\+hpp}} 第 \mbox{\hyperlink{utf8_8hpp_source_l00185}{185}} 行定义.
+
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a95f631e28112f8384c18082f0d19554a}\label{namespacecudf_1_1strings_1_1detail_a95f631e28112f8384c18082f0d19554a} 
+\index{cudf::strings::detail@{cudf::strings::detail}!concatenate@{concatenate}}
+\index{concatenate@{concatenate}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{concatenate()}{concatenate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::detail\+::concatenate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const $>$}]{columns,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Returns a single column by vertically concatenating the given vector of strings columns. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{s1\ =\ [\textcolor{stringliteral}{'aa'},\ \textcolor{stringliteral}{'bb'},\ \textcolor{stringliteral}{'cc'}]}
+\DoxyCodeLine{s2\ =\ [\textcolor{stringliteral}{'dd'},\ \textcolor{stringliteral}{'ee'}]}
+\DoxyCodeLine{r\ =\ concatenate\_vertically([s1,s2])}
+\DoxyCodeLine{r\ is\ now\ [\textcolor{stringliteral}{'aa'},\ \textcolor{stringliteral}{'bb'},\ \textcolor{stringliteral}{'cc'},\ \textcolor{stringliteral}{'dd'},\ \textcolor{stringliteral}{'ee'}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em columns} & List of string columns to concatenate. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New column with concatenated results. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a73f15e76a2315431740c03674eef6220}\label{namespacecudf_1_1strings_1_1detail_a73f15e76a2315431740c03674eef6220} 
+\index{cudf::strings::detail@{cudf::strings::detail}!concatenate@{concatenate}}
+\index{concatenate@{concatenate}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{concatenate()}{concatenate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::detail\+::concatenate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{strings\+\_\+columns,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{separator,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{narep,  }\item[{\mbox{\hyperlink{group__strings__combine_gaa57d4c778ab4df08467dfaab3dc7ec6d}{separator\+\_\+on\+\_\+nulls}}}]{separate\+\_\+nulls,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a3dd8fa2d64e4715c605c89a914699fcf}\label{namespacecudf_1_1strings_1_1detail_a3dd8fa2d64e4715c605c89a914699fcf} 
+\index{cudf::strings::detail@{cudf::strings::detail}!copy\_slice@{copy\_slice}}
+\index{copy\_slice@{copy\_slice}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{copy\_slice()}{copy\_slice()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ cudf\+::strings\+::detail\+::copy\+\_\+slice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{start,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{end,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Returns a new strings column created from a subset of of the strings column. 
+
+The subset of strings selected is between start (inclusive) and end (exclusive).
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{s1\ =\ ["{}a"{},\ "{}b"{},\ "{}c"{},\ "{}d"{},\ "{}e"{},\ "{}f"{}]}
+\DoxyCodeLine{s2\ =\ copy\_slice(\ s1,\ 2\ )}
+\DoxyCodeLine{s2\ is\ ["{}c"{},\ "{}d"{},\ "{}e"{},\ "{}f"{}]}
+\DoxyCodeLine{s2\ =\ copy\_slice(\ s1,\ 1,\ 3\ )}
+\DoxyCodeLine{s2\ is\ ["{}b"{},\ "{}c"{}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em start} & Index to first string to select in the column (inclusive). \\
+\hline
+{\em end} & Index to last string to select in the column (exclusive). Default -\/1 indicates the last element. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column of size (end-\/start)/step. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_ab61a53d3e72e6990eeddd5e02a856373}\label{namespacecudf_1_1strings_1_1detail_ab61a53d3e72e6990eeddd5e02a856373} 
+\index{cudf::strings::detail@{cudf::strings::detail}!create\_chars\_child\_column@{create\_chars\_child\_column}}
+\index{create\_chars\_child\_column@{create\_chars\_child\_column}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{create\_chars\_child\_column()}{create\_chars\_child\_column()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::detail\+::create\+\_\+chars\+\_\+child\+\_\+column (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{bytes,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Create a chars column to be a child of a strings column. 
+
+This will return the properly sized column to be filled in by the caller.
+
+
+\begin{DoxyParams}{参数}
+{\em bytes} & Number of bytes for the chars column. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The chars child column for a strings column. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a26dd010d5b4a20519bc2b80828a4976e}\label{namespacecudf_1_1strings_1_1detail_a26dd010d5b4a20519bc2b80828a4976e} 
+\index{cudf::strings::detail@{cudf::strings::detail}!create\_string\_vector\_from\_column@{create\_string\_vector\_from\_column}}
+\index{create\_string\_vector\_from\_column@{create\_string\_vector\_from\_column}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{create\_string\_vector\_from\_column()}{create\_string\_vector\_from\_column()}}
+{\footnotesize\ttfamily rmm\+::device\+\_\+uvector$<$ \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} $>$ cudf\+::strings\+::detail\+::create\+\_\+string\+\_\+vector\+\_\+from\+\_\+column (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{cudf\+::strings\+\_\+column\+\_\+view}} const}]{strings,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Creates a \doxylink{classcudf_1_1string__view}{string\+\_\+view} vector from a strings column. 
+
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings column instance. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned vector\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Device vector of string\+\_\+views 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_ab5402c3c7ab6f6efb5e22a53311dd6e4}\label{namespacecudf_1_1strings_1_1detail_ab5402c3c7ab6f6efb5e22a53311dd6e4} 
+\index{cudf::strings::detail@{cudf::strings::detail}!fill@{fill}}
+\index{fill@{fill}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{fill()}{fill()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::detail\+::fill (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{begin,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{end,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{value,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Returns a strings column replacing a range of rows with the specified string. 
+
+If the value parameter is invalid, the specified rows are filled with null entries.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if \mbox{[}begin,end) is outside the range of the input column.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings column to fill. \\
+\hline
+{\em begin} & First row index to include the new string. \\
+\hline
+{\em end} & Last row index (exclusive). \\
+\hline
+{\em value} & String to use when filling the range. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_ab90a7e7586fbbabb4fe8a0075a1a334f}\label{namespacecudf_1_1strings_1_1detail_ab90a7e7586fbbabb4fe8a0075a1a334f} 
+\index{cudf::strings::detail@{cudf::strings::detail}!from\_booleans@{from\_booleans}}
+\index{from\_booleans@{from\_booleans}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{from\_booleans()}{from\_booleans()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::detail\+::from\+\_\+booleans (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{booleans,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{true\+\_\+string,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{false\+\_\+string,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a1116f22b0a7433ae97db9be910aa8ccd}\label{namespacecudf_1_1strings_1_1detail_a1116f22b0a7433ae97db9be910aa8ccd} 
+\index{cudf::strings::detail@{cudf::strings::detail}!from\_char\_utf8@{from\_char\_utf8}}
+\index{from\_char\_utf8@{from\_char\_utf8}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{from\_char\_utf8()}{from\_char\_utf8()}}
+{\footnotesize\ttfamily constexpr \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::strings\+::detail\+::from\+\_\+char\+\_\+utf8 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{char\+\_\+utf8}}}]{character,  }\item[{char \texorpdfstring{$\ast$}{*}}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Place a char\+\_\+utf8 value into a char array. 
+
+
+\begin{DoxyParams}[1]{参数}
+ & {\em character} & Single character \\
+\hline
+\mbox{\texttt{ out}}  & {\em str} & Output array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The number of bytes in the character 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{utf8_8hpp_source}{utf8.\+hpp}} 第 \mbox{\hyperlink{utf8_8hpp_source_l00138}{138}} 行定义.
+
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a60eebd1c99814640f75595b3953105fe}\label{namespacecudf_1_1strings_1_1detail_a60eebd1c99814640f75595b3953105fe} 
+\index{cudf::strings::detail@{cudf::strings::detail}!from\_durations@{from\_durations}}
+\index{from\_durations@{from\_durations}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{from\_durations()}{from\_durations()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::detail\+::from\+\_\+durations (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{durations,  }\item[{std\+::string\+\_\+view}]{format,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a882aac910b9ef97e161e8360b5fbf659}\label{namespacecudf_1_1strings_1_1detail_a882aac910b9ef97e161e8360b5fbf659} 
+\index{cudf::strings::detail@{cudf::strings::detail}!from\_fixed\_point@{from\_fixed\_point}}
+\index{from\_fixed\_point@{from\_fixed\_point}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{from\_fixed\_point()}{from\_fixed\_point()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::detail\+::from\+\_\+fixed\+\_\+point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{integers,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a6d260003e0b7503d23d315a61af64d14}\label{namespacecudf_1_1strings_1_1detail_a6d260003e0b7503d23d315a61af64d14} 
+\index{cudf::strings::detail@{cudf::strings::detail}!from\_floats@{from\_floats}}
+\index{from\_floats@{from\_floats}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{from\_floats()}{from\_floats()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::detail\+::from\+\_\+floats (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{floats,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_ad20a1f72035f45c3aa909998320e0172}\label{namespacecudf_1_1strings_1_1detail_ad20a1f72035f45c3aa909998320e0172} 
+\index{cudf::strings::detail@{cudf::strings::detail}!from\_integers@{from\_integers}}
+\index{from\_integers@{from\_integers}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{from\_integers()}{from\_integers()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::detail\+::from\+\_\+integers (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{integers,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a7b39f903e9d254abff46402ec483766a}\label{namespacecudf_1_1strings_1_1detail_a7b39f903e9d254abff46402ec483766a} 
+\index{cudf::strings::detail@{cudf::strings::detail}!from\_timestamps@{from\_timestamps}}
+\index{from\_timestamps@{from\_timestamps}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{from\_timestamps()}{from\_timestamps()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::detail\+::from\+\_\+timestamps (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{timestamps,  }\item[{std\+::string\+\_\+view}]{format,  }\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{names,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a74cdd6b057adb51a22c70e46e9c17a85}\label{namespacecudf_1_1strings_1_1detail_a74cdd6b057adb51a22c70e46e9c17a85} 
+\index{cudf::strings::detail@{cudf::strings::detail}!generate\_special\_mapping\_hash\_table@{generate\_special\_mapping\_hash\_table}}
+\index{generate\_special\_mapping\_hash\_table@{generate\_special\_mapping\_hash\_table}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{generate\_special\_mapping\_hash\_table()}{generate\_special\_mapping\_hash\_table()}}
+{\footnotesize\ttfamily void cudf\+::strings\+::detail\+::generate\+\_\+special\+\_\+mapping\+\_\+hash\+\_\+table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Regenerates the special case mapping tables used to handle non-\/trivial unicode character case conversions. 
+
+\textquotesingle{}special\textquotesingle{} cased characters are those defined as not having trivial single-\/\texorpdfstring{$>$}{>}single character mappings when having upper(), lower() or titlecase() operations applied. Typically this is for cases where a single character maps to multiple, but there are also cases of non-\/reversible mappings, where\+: codepoint != lower(upper(code\+\_\+point)). \Hypertarget{namespacecudf_1_1strings_1_1detail_a9c09ebfde12af2f9f3df558134a8cc67}\label{namespacecudf_1_1strings_1_1detail_a9c09ebfde12af2f9f3df558134a8cc67} 
+\index{cudf::strings::detail@{cudf::strings::detail}!get\_character\_cases\_table@{get\_character\_cases\_table}}
+\index{get\_character\_cases\_table@{get\_character\_cases\_table}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{get\_character\_cases\_table()}{get\_character\_cases\_table()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a1754364b3624ead1177c92000bf133d7}{character\+\_\+cases\+\_\+table\+\_\+type}} \texorpdfstring{$\ast$}{*} cudf\+::strings\+::detail\+::get\+\_\+character\+\_\+cases\+\_\+table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns pointer to device memory that contains the static characters case table. On first call, this will copy the table into device memory and is guaranteed to be thread-\/safe. 
+
+This table is used to map upper and lower case characters with their counterpart.
+
+\begin{DoxyReturn}{返回}
+Device memory pointer to character cases table. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a8b5fde789ab36e11993e5627085d0f23}\label{namespacecudf_1_1strings_1_1detail_a8b5fde789ab36e11993e5627085d0f23} 
+\index{cudf::strings::detail@{cudf::strings::detail}!get\_character\_flags\_table@{get\_character\_flags\_table}}
+\index{get\_character\_flags\_table@{get\_character\_flags\_table}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{get\_character\_flags\_table()}{get\_character\_flags\_table()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_aa3e28807e386429e2589a280f21db124}{character\+\_\+flags\+\_\+table\+\_\+type}} \texorpdfstring{$\ast$}{*} cudf\+::strings\+::detail\+::get\+\_\+character\+\_\+flags\+\_\+table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns pointer to device memory that contains the static characters flags table. On first call, this will copy the table into device memory and is guaranteed to be thread-\/safe. 
+
+This table is used to check the type of character like alphanumeric, decimal, etc.
+
+\begin{DoxyReturn}{返回}
+Device memory pointer to character flags table. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a1a4e8afbd6a9da17a42179b22571c447}\label{namespacecudf_1_1strings_1_1detail_a1a4e8afbd6a9da17a42179b22571c447} 
+\index{cudf::strings::detail@{cudf::strings::detail}!get\_json\_object@{get\_json\_object}}
+\index{get\_json\_object@{get\_json\_object}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{get\_json\_object()}{get\_json\_object()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ cudf\+::strings\+::detail\+::get\+\_\+json\+\_\+object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{cudf\+::strings\+\_\+column\+\_\+view}} const \&}]{col,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{cudf\+::string\+\_\+scalar}} const \&}]{json\+\_\+path,  }\item[{\mbox{\hyperlink{classcudf_1_1strings_1_1get__json__object__options}{cudf\+::strings\+::get\+\_\+json\+\_\+object\+\_\+options}}}]{options,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Apply a JSONPath string to all rows in an input strings column.   
+
+Applies a JSONPath string to an incoming strings column where each row in the column is a valid json string. The output is returned by row as a strings column.
+
+\href{https://tools.ietf.org/id/draft-goessner-dispatch-jsonpath-00.html}{\texttt{ https\+://tools.\+ietf.\+org/id/draft-\/goessner-\/dispatch-\/jsonpath-\/00.\+html}} Implements only the operators\+: \$ . \mbox{[}\mbox{]} \texorpdfstring{$\ast$}{*}
+
+
+\begin{DoxyParams}{参数}
+{\em col} & The input strings column. Each row must contain a valid json string \\
+\hline
+{\em json\+\_\+path} & The JSONPath string to be applied to each row \\
+\hline
+{\em options} & Options for controlling the behavior of the function \\
+\hline
+{\em mr} & Resource for allocating device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column containing the retrieved json object strings  
+\end{DoxyReturn}
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_ae3d2f737d44317bd9b64aca509c5f591}\label{namespacecudf_1_1strings_1_1detail_ae3d2f737d44317bd9b64aca509c5f591} 
+\index{cudf::strings::detail@{cudf::strings::detail}!get\_special\_case\_hash\_index@{get\_special\_case\_hash\_index}}
+\index{get\_special\_case\_hash\_index@{get\_special\_case\_hash\_index}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{get\_special\_case\_hash\_index()}{get\_special\_case\_hash\_index()}}
+{\footnotesize\ttfamily constexpr uint16\+\_\+t cudf\+::strings\+::detail\+::get\+\_\+special\+\_\+case\+\_\+hash\+\_\+index (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{code\+\_\+point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Get the special mapping table index for a given code-\/point. 
+
+\begin{DoxySeeAlso}{参见}
+cpp/src/strings/char\+\_\+types/char\+\_\+cases.\+h 
+\end{DoxySeeAlso}
+
+
+在文件 \mbox{\hyperlink{char__tables_8hpp_source}{char\+\_\+tables.\+hpp}} 第 \mbox{\hyperlink{char__tables_8hpp_source_l00098}{98}} 行定义.
+
+\Hypertarget{namespacecudf_1_1strings_1_1detail_ab802022423cd65cadd6165cebc2de89f}\label{namespacecudf_1_1strings_1_1detail_ab802022423cd65cadd6165cebc2de89f} 
+\index{cudf::strings::detail@{cudf::strings::detail}!get\_special\_case\_mapping\_table@{get\_special\_case\_mapping\_table}}
+\index{get\_special\_case\_mapping\_table@{get\_special\_case\_mapping\_table}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{get\_special\_case\_mapping\_table()}{get\_special\_case\_mapping\_table()}}
+{\footnotesize\ttfamily const struct \mbox{\hyperlink{structcudf_1_1strings_1_1detail_1_1special__case__mapping}{special\+\_\+case\+\_\+mapping}} \texorpdfstring{$\ast$}{*} cudf\+::strings\+::detail\+::get\+\_\+special\+\_\+case\+\_\+mapping\+\_\+table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns pointer to device memory that contains the special case mapping table. On first call, this will copy the table into device memory and is guaranteed to be thread-\/safe. 
+
+This table is used to handle special case character mappings that don\textquotesingle{}t trivially work with the normal character cases table.
+
+\begin{DoxyReturn}{返回}
+Device memory pointer to the special case mapping table 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a459e3f8d1ed89a62bec62ec1ef0b1e5c}\label{namespacecudf_1_1strings_1_1detail_a459e3f8d1ed89a62bec62ec1ef0b1e5c} 
+\index{cudf::strings::detail@{cudf::strings::detail}!IS\_ALPHA@{IS\_ALPHA}}
+\index{IS\_ALPHA@{IS\_ALPHA}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{IS\_ALPHA()}{IS\_ALPHA()}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t cudf\+::strings\+::detail\+::\+IS\+\_\+\+ALPHA (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+在文件 \mbox{\hyperlink{char__tables_8hpp_source}{char\+\_\+tables.\+hpp}} 第 \mbox{\hyperlink{char__tables_8hpp_source_l00042}{42}} 行定义.
+
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a4ad21735b7fd9352c93a040d2de67356}\label{namespacecudf_1_1strings_1_1detail_a4ad21735b7fd9352c93a040d2de67356} 
+\index{cudf::strings::detail@{cudf::strings::detail}!IS\_ALPHANUM@{IS\_ALPHANUM}}
+\index{IS\_ALPHANUM@{IS\_ALPHANUM}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{IS\_ALPHANUM()}{IS\_ALPHANUM()}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t cudf\+::strings\+::detail\+::\+IS\+\_\+\+ALPHANUM (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+在文件 \mbox{\hyperlink{char__tables_8hpp_source}{char\+\_\+tables.\+hpp}} 第 \mbox{\hyperlink{char__tables_8hpp_source_l00047}{47}} 行定义.
+
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a47f61f43b790c0fd73c7c20d08e71858}\label{namespacecudf_1_1strings_1_1detail_a47f61f43b790c0fd73c7c20d08e71858} 
+\index{cudf::strings::detail@{cudf::strings::detail}!is\_begin\_utf8\_char@{is\_begin\_utf8\_char}}
+\index{is\_begin\_utf8\_char@{is\_begin\_utf8\_char}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{is\_begin\_utf8\_char()}{is\_begin\_utf8\_char()}}
+{\footnotesize\ttfamily constexpr bool cudf\+::strings\+::detail\+::is\+\_\+begin\+\_\+utf8\+\_\+char (\begin{DoxyParamCaption}\item[{unsigned char}]{chr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+This will return true if passed the first byte of a UTF-\/8 character. 
+
+
+\begin{DoxyParams}{参数}
+{\em chr} & Any single byte from a valid UTF-\/8 character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true if this the first byte of the character 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{utf8_8hpp_source}{utf8.\+hpp}} 第 \mbox{\hyperlink{utf8_8hpp_source_l00050}{50}} 行定义.
+
+\Hypertarget{namespacecudf_1_1strings_1_1detail_ab5b9527e53d156f316ba39f56da1744a}\label{namespacecudf_1_1strings_1_1detail_ab5b9527e53d156f316ba39f56da1744a} 
+\index{cudf::strings::detail@{cudf::strings::detail}!IS\_DECIMAL@{IS\_DECIMAL}}
+\index{IS\_DECIMAL@{IS\_DECIMAL}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{IS\_DECIMAL()}{IS\_DECIMAL()}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t cudf\+::strings\+::detail\+::\+IS\+\_\+\+DECIMAL (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+在文件 \mbox{\hyperlink{char__tables_8hpp_source}{char\+\_\+tables.\+hpp}} 第 \mbox{\hyperlink{char__tables_8hpp_source_l00039}{39}} 行定义.
+
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a2d49ae3ab525b5e11e7d76a4abd9c319}\label{namespacecudf_1_1strings_1_1detail_a2d49ae3ab525b5e11e7d76a4abd9c319} 
+\index{cudf::strings::detail@{cudf::strings::detail}!IS\_DIGIT@{IS\_DIGIT}}
+\index{IS\_DIGIT@{IS\_DIGIT}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{IS\_DIGIT()}{IS\_DIGIT()}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t cudf\+::strings\+::detail\+::\+IS\+\_\+\+DIGIT (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+在文件 \mbox{\hyperlink{char__tables_8hpp_source}{char\+\_\+tables.\+hpp}} 第 \mbox{\hyperlink{char__tables_8hpp_source_l00041}{41}} 行定义.
+
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a96b30f602d723da0e552f30d4c7f6e87}\label{namespacecudf_1_1strings_1_1detail_a96b30f602d723da0e552f30d4c7f6e87} 
+\index{cudf::strings::detail@{cudf::strings::detail}!IS\_LOWER@{IS\_LOWER}}
+\index{IS\_LOWER@{IS\_LOWER}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{IS\_LOWER()}{IS\_LOWER()}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t cudf\+::strings\+::detail\+::\+IS\+\_\+\+LOWER (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+在文件 \mbox{\hyperlink{char__tables_8hpp_source}{char\+\_\+tables.\+hpp}} 第 \mbox{\hyperlink{char__tables_8hpp_source_l00045}{45}} 行定义.
+
+\Hypertarget{namespacecudf_1_1strings_1_1detail_ae0eb07f8c45fd780eef62071f158a6a7}\label{namespacecudf_1_1strings_1_1detail_ae0eb07f8c45fd780eef62071f158a6a7} 
+\index{cudf::strings::detail@{cudf::strings::detail}!IS\_NUMERIC@{IS\_NUMERIC}}
+\index{IS\_NUMERIC@{IS\_NUMERIC}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{IS\_NUMERIC()}{IS\_NUMERIC()}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t cudf\+::strings\+::detail\+::\+IS\+\_\+\+NUMERIC (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+在文件 \mbox{\hyperlink{char__tables_8hpp_source}{char\+\_\+tables.\+hpp}} 第 \mbox{\hyperlink{char__tables_8hpp_source_l00040}{40}} 行定义.
+
+\Hypertarget{namespacecudf_1_1strings_1_1detail_ae4252a01db93d6015e75f6efa2a9a95b}\label{namespacecudf_1_1strings_1_1detail_ae4252a01db93d6015e75f6efa2a9a95b} 
+\index{cudf::strings::detail@{cudf::strings::detail}!IS\_SPACE@{IS\_SPACE}}
+\index{IS\_SPACE@{IS\_SPACE}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{IS\_SPACE()}{IS\_SPACE()}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t cudf\+::strings\+::detail\+::\+IS\+\_\+\+SPACE (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+在文件 \mbox{\hyperlink{char__tables_8hpp_source}{char\+\_\+tables.\+hpp}} 第 \mbox{\hyperlink{char__tables_8hpp_source_l00043}{43}} 行定义.
+
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a0bb2110e6146a501687fdefb7c8217d1}\label{namespacecudf_1_1strings_1_1detail_a0bb2110e6146a501687fdefb7c8217d1} 
+\index{cudf::strings::detail@{cudf::strings::detail}!IS\_SPECIAL@{IS\_SPECIAL}}
+\index{IS\_SPECIAL@{IS\_SPECIAL}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{IS\_SPECIAL()}{IS\_SPECIAL()}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t cudf\+::strings\+::detail\+::\+IS\+\_\+\+SPECIAL (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+在文件 \mbox{\hyperlink{char__tables_8hpp_source}{char\+\_\+tables.\+hpp}} 第 \mbox{\hyperlink{char__tables_8hpp_source_l00046}{46}} 行定义.
+
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a403235c4ef1582a8c8e4ff77fb4ed9e2}\label{namespacecudf_1_1strings_1_1detail_a403235c4ef1582a8c8e4ff77fb4ed9e2} 
+\index{cudf::strings::detail@{cudf::strings::detail}!IS\_UPPER@{IS\_UPPER}}
+\index{IS\_UPPER@{IS\_UPPER}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{IS\_UPPER()}{IS\_UPPER()}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t cudf\+::strings\+::detail\+::\+IS\+\_\+\+UPPER (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+在文件 \mbox{\hyperlink{char__tables_8hpp_source}{char\+\_\+tables.\+hpp}} 第 \mbox{\hyperlink{char__tables_8hpp_source_l00044}{44}} 行定义.
+
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a4565cab7f14504825bb74c7ad70015f3}\label{namespacecudf_1_1strings_1_1detail_a4565cab7f14504825bb74c7ad70015f3} 
+\index{cudf::strings::detail@{cudf::strings::detail}!IS\_UPPER\_OR\_LOWER@{IS\_UPPER\_OR\_LOWER}}
+\index{IS\_UPPER\_OR\_LOWER@{IS\_UPPER\_OR\_LOWER}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{IS\_UPPER\_OR\_LOWER()}{IS\_UPPER\_OR\_LOWER()}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t cudf\+::strings\+::detail\+::\+IS\+\_\+\+UPPER\+\_\+\+OR\+\_\+\+LOWER (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+在文件 \mbox{\hyperlink{char__tables_8hpp_source}{char\+\_\+tables.\+hpp}} 第 \mbox{\hyperlink{char__tables_8hpp_source_l00048}{48}} 行定义.
+
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a97882ae2ec7e0fbd7095aa6fe2be2bc1}\label{namespacecudf_1_1strings_1_1detail_a97882ae2ec7e0fbd7095aa6fe2be2bc1} 
+\index{cudf::strings::detail@{cudf::strings::detail}!is\_utf8\_continuation\_char@{is\_utf8\_continuation\_char}}
+\index{is\_utf8\_continuation\_char@{is\_utf8\_continuation\_char}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{is\_utf8\_continuation\_char()}{is\_utf8\_continuation\_char()}}
+{\footnotesize\ttfamily constexpr bool cudf\+::strings\+::detail\+::is\+\_\+utf8\+\_\+continuation\+\_\+char (\begin{DoxyParamCaption}\item[{unsigned char}]{chr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+This will return true if passed a continuation byte of a UTF-\/8 character. 
+
+
+\begin{DoxyParams}{参数}
+{\em chr} & Any single byte from a valid UTF-\/8 character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true if this is not the first byte of the character 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{utf8_8hpp_source}{utf8.\+hpp}} 第 \mbox{\hyperlink{utf8_8hpp_source_l00038}{38}} 行定义.
+
+\Hypertarget{namespacecudf_1_1strings_1_1detail_afb2de37c34a18957755e610fb13ca7db}\label{namespacecudf_1_1strings_1_1detail_afb2de37c34a18957755e610fb13ca7db} 
+\index{cudf::strings::detail@{cudf::strings::detail}!is\_valid\_begin\_utf8\_char@{is\_valid\_begin\_utf8\_char}}
+\index{is\_valid\_begin\_utf8\_char@{is\_valid\_begin\_utf8\_char}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{is\_valid\_begin\_utf8\_char()}{is\_valid\_begin\_utf8\_char()}}
+{\footnotesize\ttfamily constexpr bool cudf\+::strings\+::detail\+::is\+\_\+valid\+\_\+begin\+\_\+utf8\+\_\+char (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{byte }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+This will return true if the passed in byte could be the start of a valid UTF-\/8 character. 
+
+This differs from is\+\_\+begin\+\_\+utf8\+\_\+char(uint8\+\_\+t) in that byte may not be valid UTF-\/8, so a more rigorous check is performed.
+
+
+\begin{DoxyParams}{参数}
+{\em byte} & The byte to be tested \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true if this can be the first byte of a character 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{utf8_8hpp_source}{utf8.\+hpp}} 第 \mbox{\hyperlink{utf8_8hpp_source_l00062}{62}} 行定义.
+
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a9261073b68d8c966443f0d65e24227f5}\label{namespacecudf_1_1strings_1_1detail_a9261073b68d8c966443f0d65e24227f5} 
+\index{cudf::strings::detail@{cudf::strings::detail}!join\_list\_elements@{join\_list\_elements}}
+\index{join\_list\_elements@{join\_list\_elements}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{join\_list\_elements()}{join\_list\_elements()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::detail\+::join\+\_\+list\+\_\+elements (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&}]{lists\+\_\+strings\+\_\+column,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{separator,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{narep,  }\item[{\mbox{\hyperlink{group__strings__combine_gaa57d4c778ab4df08467dfaab3dc7ec6d}{separator\+\_\+on\+\_\+nulls}}}]{separate\+\_\+nulls,  }\item[{\mbox{\hyperlink{group__strings__combine_ga7c7d6d8dfa7a6f67a794d6c868960855}{output\+\_\+if\+\_\+empty\+\_\+list}}}]{empty\+\_\+list\+\_\+policy,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_ae23d49761309d3a450f7bfa388634476}\label{namespacecudf_1_1strings_1_1detail_ae23d49761309d3a450f7bfa388634476} 
+\index{cudf::strings::detail@{cudf::strings::detail}!join\_strings@{join\_strings}}
+\index{join\_strings@{join\_strings}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{join\_strings()}{join\_strings()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::detail\+::join\+\_\+strings (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{separator,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{narep,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_ab30196845a63941228874d76186e9db8}\label{namespacecudf_1_1strings_1_1detail_ab30196845a63941228874d76186e9db8} 
+\index{cudf::strings::detail@{cudf::strings::detail}!replace@{replace}}
+\index{replace@{replace}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{replace()}{replace()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_aa88c652b77640bc318560887f507a3c5}{replace\+\_\+algorithm}} alg = replace\+\_\+algorithm\+::\+AUTO$>$ \\
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::detail\+::replace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{target,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{repl,  }\item[{int32\+\_\+t}]{maxrepl,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Replaces target string within each string with the specified replacement string.   
+
+This function searches each string in the column for the target string. If found, the target string is replaced by the repl string within the input string. If not found, the output entry is just a copy of the corresponding input string.
+
+Specifying an empty string for repl will essentially remove the target string if found in each string.
+
+Null string entries will return null output string entries.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{s\ =\ ["{}hello"{},\ "{}goodbye"{}]}
+\DoxyCodeLine{r1\ =\ replace(s,"{}o"{},"{}OOO"{})}
+\DoxyCodeLine{r1\ is\ now\ ["{}hellOOO"{},"{}gOOOOOOdbye"{}]}
+\DoxyCodeLine{r2\ =\ replace(s,"{}oo"{},"{}"{})}
+\DoxyCodeLine{r2\ is\ now\ ["{}hello"{},"{}gdbye"{}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if target is an empty string.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings column for this operation. \\
+\hline
+{\em target} & String to search for within each string. \\
+\hline
+{\em repl} & Replacement string if target is found. \\
+\hline
+{\em maxrepl} & Maximum times to replace if target appears multiple times in the input string. Default of -\/1 specifies replace all occurrences of target in each string. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column.  
+\end{DoxyReturn}
+
+\begin{DoxyTemplParams}{模板参数}
+{\em alg} & Replacement algorithm to use \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_ab0f3895e0bc6dbe1282c3e75370183e2}\label{namespacecudf_1_1strings_1_1detail_ab0f3895e0bc6dbe1282c3e75370183e2} 
+\index{cudf::strings::detail@{cudf::strings::detail}!replace@{replace}}
+\index{replace@{replace}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{replace()}{replace()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::detail\+::replace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{targets,  }\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{repls,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Replaces substrings matching a list of targets with the corresponding replacement strings.   
+
+For each string in strings, the list of targets is searched within that string. If a target string is found, it is replaced by the corresponding entry in the repls column. All occurrences found in each string are replaced.
+
+This does not use regex to match targets in the string.
+
+Null string entries will return null output string entries.
+
+The repls argument can optionally contain a single string. In this case, all matching target substrings will be replaced by that single string.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{s\ =\ ["{}hello"{},\ "{}goodbye"{}]}
+\DoxyCodeLine{tgts\ =\ ["{}e"{},"{}o"{}]}
+\DoxyCodeLine{repls\ =\ ["{}EE"{},"{}OO"{}]}
+\DoxyCodeLine{r1\ =\ replace(s,tgts,repls)}
+\DoxyCodeLine{r1\ is\ now\ ["{}hEEllO"{},\ "{}gOOOOdbyEE"{}]}
+\DoxyCodeLine{tgts\ =\ ["{}e"{},"{}oo"{}]}
+\DoxyCodeLine{repls\ =\ ["{}33"{},"{}"{}]}
+\DoxyCodeLine{r2\ =\ replace(s,tgts,repls)}
+\DoxyCodeLine{r2\ is\ now\ ["{}h33llo"{},\ "{}gdby33"{}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if targets and repls are different sizes except if repls is a single string. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if targets or repls contain null entries.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings column for this operation. \\
+\hline
+{\em targets} & Strings to search for in each string. \\
+\hline
+{\em repls} & Corresponding replacement strings for target strings. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column.  
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a443c16ccfbad0c22ecd929d57bdfb401}\label{namespacecudf_1_1strings_1_1detail_a443c16ccfbad0c22ecd929d57bdfb401} 
+\index{cudf::strings::detail@{cudf::strings::detail}!replace\_nulls@{replace\_nulls}}
+\index{replace\_nulls@{replace\_nulls}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{replace\_nulls()}{replace\_nulls()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::detail\+::replace\+\_\+nulls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{repl,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Replaces any null string entries with the given string. 
+
+This returns a strings column with no null entries.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{s\ =\ ["{}hello"{},\ nullptr,\ "{}goodbye"{}]}
+\DoxyCodeLine{r\ =\ replace\_nulls(s,"{}**"{})}
+\DoxyCodeLine{r\ is\ now\ ["{}hello"{},\ "{}**"{},\ "{}goodbye"{}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings column for this operation. \\
+\hline
+{\em repl} & Replacement string for null entries. Default is empty string. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a3f02e4e04bb853b692dec05ce13056cb}\label{namespacecudf_1_1strings_1_1detail_a3f02e4e04bb853b692dec05ce13056cb} 
+\index{cudf::strings::detail@{cudf::strings::detail}!replace\_slice@{replace\_slice}}
+\index{replace\_slice@{replace\_slice}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{replace\_slice()}{replace\_slice()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::detail\+::replace\+\_\+slice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{repl,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{start,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{stop,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_ac1f9fc6a6cf9aa3f1fb7dadb4f980b1d}\label{namespacecudf_1_1strings_1_1detail_ac1f9fc6a6cf9aa3f1fb7dadb4f980b1d} 
+\index{cudf::strings::detail@{cudf::strings::detail}!shift@{shift}}
+\index{shift@{shift}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{shift()}{shift()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::detail\+::shift (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{offset,  }\item[{\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&}]{fill\+\_\+value,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Returns a new strings column created by shifting the rows by a specified offset. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{s\ =\ ["{}a"{},\ "{}b"{},\ "{}c"{},\ "{}d"{},\ "{}e"{},\ "{}f"{}]}
+\DoxyCodeLine{r1\ =\ shift(s,\ 2,\ "{}\_"{})}
+\DoxyCodeLine{r1\ is\ now\ ["{}\_"{},\ "{}\_"{},\ "{}a"{},\ "{}b"{},\ "{}c"{},\ "{}d"{}]}
+\DoxyCodeLine{r2\ =\ shift(s,\ -\/2,\ "{}\_"{})}
+\DoxyCodeLine{r2\ is\ now\ ["{}c"{},\ "{}d"{},\ "{}e"{},\ "{}f"{},\ "{}\_"{},\ "{}\_"{}]}
+
+\end{DoxyCode}
+
+
+The caller should set the validity mask in the output column.
+
+
+\begin{DoxyParams}{参数}
+{\em input} & Strings instance for this operation. \\
+\hline
+{\em offset} & The offset by which to shift the input. \\
+\hline
+{\em fill\+\_\+value} & Fill value for indeterminable outputs. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a4bc69f3cb103d377a4dbb3d06783a2f0}\label{namespacecudf_1_1strings_1_1detail_a4bc69f3cb103d377a4dbb3d06783a2f0} 
+\index{cudf::strings::detail@{cudf::strings::detail}!to\_booleans@{to\_booleans}}
+\index{to\_booleans@{to\_booleans}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{to\_booleans()}{to\_booleans()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::detail\+::to\+\_\+booleans (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{true\+\_\+string,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a4859c71d3da9bd19a9a213411a91ac1a}\label{namespacecudf_1_1strings_1_1detail_a4859c71d3da9bd19a9a213411a91ac1a} 
+\index{cudf::strings::detail@{cudf::strings::detail}!to\_char\_utf8@{to\_char\_utf8}}
+\index{to\_char\_utf8@{to\_char\_utf8}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{to\_char\_utf8()}{to\_char\_utf8()}}
+{\footnotesize\ttfamily constexpr \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::strings\+::detail\+::to\+\_\+char\+\_\+utf8 (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{\mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{char\+\_\+utf8}} \&}]{character }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Convert a char array into a char\+\_\+utf8 value. 
+
+
+\begin{DoxyParams}[1]{参数}
+ & {\em str} & String containing encoded char bytes. \\
+\hline
+\mbox{\texttt{ out}}  & {\em character} & Single char\+\_\+utf8 value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The number of bytes in the character 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{utf8_8hpp_source}{utf8.\+hpp}} 第 \mbox{\hyperlink{utf8_8hpp_source_l00111}{111}} 行定义.
+
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a9a1d3dd1ee9a847b6f15dd9a0ef7b91e}\label{namespacecudf_1_1strings_1_1detail_a9a1d3dd1ee9a847b6f15dd9a0ef7b91e} 
+\index{cudf::strings::detail@{cudf::strings::detail}!to\_durations@{to\_durations}}
+\index{to\_durations@{to\_durations}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{to\_durations()}{to\_durations()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::detail\+::to\+\_\+durations (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{duration\+\_\+type,  }\item[{std\+::string\+\_\+view}]{format,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Returns a new duration column converting a strings column into durations using the provided format pattern.   
+
+The format pattern can include the following specifiers\+: \"{}\%\%,\%n,\%t,\%\+D,\%\+H,\%\+I,\%\+M,\%\+S,\%p,\%\+R,\%\+T,\%r,\%\+OH,\%\+OI,\%\+OM,\%\+OS\"{}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Specifier   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Range    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Specifier   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Range    }\\\cline{1-3}
+\endhead
+\PBS\centering \%\%   &A literal \% character   &\%    \\\cline{1-3}
+\PBS\centering \%n   &A newline character   &\textbackslash{}n    \\\cline{1-3}
+\PBS\centering \%t   &A horizontal tab character   &\textbackslash{}t    \\\cline{1-3}
+\PBS\centering \%D   &Days   &-\/2,147,483,648 to 2,147,483,647    \\\cline{1-3}
+\PBS\centering \%H   &24-\/hour of the day   &00 to 23    \\\cline{1-3}
+\PBS\centering \%I   &12-\/hour of the day   &00 to 11    \\\cline{1-3}
+\PBS\centering \%M   &Minute of the hour   &00 to 59    \\\cline{1-3}
+\PBS\centering \%S   &Second of the minute   &00 to 59.\+999999999    \\\cline{1-3}
+\PBS\centering \%OH   &same as H but without sign   &00 to 23    \\\cline{1-3}
+\PBS\centering \%OI   &same as I but without sign   &00 to 11    \\\cline{1-3}
+\PBS\centering \%OM   &same as M but without sign   &00 to 59    \\\cline{1-3}
+\PBS\centering \%OS   &same as S but without sign   &00 to 59    \\\cline{1-3}
+\PBS\centering \%p   &AM/\+PM designations associated with a 12-\/hour clock   &\textquotesingle{}AM\textquotesingle{} or \textquotesingle{}PM\textquotesingle{}    \\\cline{1-3}
+\PBS\centering \%R   &Equivalent to \"{}\%\+H\+:\%\+M\"{}   &\\\cline{1-3}
+\PBS\centering \%T   &Equivalent to \"{}\%\+H\+:\%\+M\+:\%\+S\"{}   &\\\cline{1-3}
+\PBS\centering \%r   &Equivalent to \"{}\%\+OI\+:\%\+OM\+:\%\+OS \%p\"{}   &\\\cline{1-3}
+\end{longtabu}
+
+
+Other specifiers are not currently supported.
+
+Invalid formats are not checked. If the string contains unexpected or insufficient characters, that output row entry\textquotesingle{}s duration value is undefined.
+
+Any null string entry will result in a corresponding null row in the output column.
+
+The resulting time units are specified by the {\ttfamily duration\+\_\+type} parameter.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if duration\+\_\+type is not a duration type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em duration\+\_\+type} & The duration type used for creating the output column. \\
+\hline
+{\em format} & String specifying the duration format in strings. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New duration column.  
+\end{DoxyReturn}
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a5753e57985423ac2c8d8a24bc5a80493}\label{namespacecudf_1_1strings_1_1detail_a5753e57985423ac2c8d8a24bc5a80493} 
+\index{cudf::strings::detail@{cudf::strings::detail}!to\_fixed\_point@{to\_fixed\_point}}
+\index{to\_fixed\_point@{to\_fixed\_point}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{to\_fixed\_point()}{to\_fixed\_point()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::detail\+::to\+\_\+fixed\+\_\+point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{output\+\_\+type,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Returns a new fixed-\/point column parsing decimal values from the provided strings column.   
+
+Any null entries result in corresponding null entries in the output column.
+
+The expected format is {\ttfamily \mbox{[}sign\mbox{]}\mbox{[}integer\mbox{]}\mbox{[}.\mbox{]}\mbox{[}fraction\mbox{]}}, where the sign is either not present, {\ttfamily -\/} or {\ttfamily +}, The decimal point {\ttfamily \mbox{[}.\mbox{]}} may or may not be present, and {\ttfamily integer} and {\ttfamily fraction} are comprised of zero or more digits in \mbox{[}0-\/9\mbox{]}. An invalid data format results in undefined behavior in the corresponding output row result.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{s\ =\ ['123',\ '-\/876',\ '543.2',\ '-\/0.12']}
+\DoxyCodeLine{datatype\ =\ \{DECIMAL32,\ scale=-\/2\}}
+\DoxyCodeLine{fp\ =\ to\_fixed\_point(s,\ datatype)}
+\DoxyCodeLine{fp\ is\ [123400,\ -\/87600,\ 54320,\ -\/12]}
+
+\end{DoxyCode}
+
+
+Overflow of the resulting value type is not checked. The scale in the {\ttfamily output\+\_\+type} is used for setting the integer component.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily output\+\_\+type} is not a fixed-\/point decimal type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & Strings instance for this operation. \\
+\hline
+{\em output\+\_\+type} & Type of fixed-\/point column to return including the scale value. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New column of {\ttfamily output\+\_\+type}.  
+\end{DoxyReturn}
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a7c7b12cf229b9e3a4bf6fba1e682ec84}\label{namespacecudf_1_1strings_1_1detail_a7c7b12cf229b9e3a4bf6fba1e682ec84} 
+\index{cudf::strings::detail@{cudf::strings::detail}!to\_floats@{to\_floats}}
+\index{to\_floats@{to\_floats}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{to\_floats()}{to\_floats()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::detail\+::to\+\_\+floats (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{output\+\_\+type,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Returns a new numeric column by parsing float values from each string in the provided strings column.   
+
+Any null entries will result in corresponding null entries in the output column.
+
+Only characters \mbox{[}0-\/9\mbox{]} plus a prefix \textquotesingle{}-\/\textquotesingle{} and \textquotesingle{}+\textquotesingle{} and decimal \textquotesingle{}.\textquotesingle{} are recognized. Additionally, scientific notation is also supported (e.\+g. \"{}-\/1.\+78e+5\"{}).
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if output\+\_\+type is not float type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em output\+\_\+type} & Type of float numeric column to return. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New column with floats converted from strings.  
+\end{DoxyReturn}
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_aa0826c42ce4b8a0da9c6159c100c326a}\label{namespacecudf_1_1strings_1_1detail_aa0826c42ce4b8a0da9c6159c100c326a} 
+\index{cudf::strings::detail@{cudf::strings::detail}!to\_integers@{to\_integers}}
+\index{to\_integers@{to\_integers}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{to\_integers()}{to\_integers()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::detail\+::to\+\_\+integers (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{output\+\_\+type,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Returns a new integer numeric column parsing integer values from the provided strings column.   
+
+Any null entries will result in corresponding null entries in the output column.
+
+Only characters \mbox{[}0-\/9\mbox{]} plus a prefix \textquotesingle{}-\/\textquotesingle{} and \textquotesingle{}+\textquotesingle{} are recognized. When any other character is encountered, the parsing ends for that string and the current digits are converted into an integer.
+
+Overflow of the resulting integer type is not checked. Each string is converted using an int64 type and then cast to the target integer type before storing it into the output column. If the resulting integer type is too small to hold the value, the stored value will be undefined.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if output\+\_\+type is not integral type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em output\+\_\+type} & Type of integer numeric column to return. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New column with integers converted from strings.  
+\end{DoxyReturn}
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_adb1baf6dc284ce8c9ddbbd5fc0505929}\label{namespacecudf_1_1strings_1_1detail_adb1baf6dc284ce8c9ddbbd5fc0505929} 
+\index{cudf::strings::detail@{cudf::strings::detail}!to\_timestamps@{to\_timestamps}}
+\index{to\_timestamps@{to\_timestamps}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{to\_timestamps()}{to\_timestamps()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ cudf\+::strings\+::detail\+::to\+\_\+timestamps (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{timestamp\+\_\+type,  }\item[{std\+::string\+\_\+view}]{format,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Returns a new timestamp column converting a strings column into timestamps using the provided format pattern.   
+
+The format pattern can include the following specifiers\+: \"{}\%\+Y,\%y,\%m,\%d,\%\+H,\%\+I,\%p,\%\+M,\%\+S,\%f,\%z\"{}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Specifier   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Specifier   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+\PBS\centering \%d   &Day of the month\+: 01-\/31    \\\cline{1-2}
+\PBS\centering \%m   &Month of the year\+: 01-\/12    \\\cline{1-2}
+\PBS\centering \%y   &Year without century\+: 00-\/99. \mbox{[}0,68\mbox{]} maps to \mbox{[}2000,2068\mbox{]} and \mbox{[}69,99\mbox{]} maps to \mbox{[}1969,1999\mbox{]}    \\\cline{1-2}
+\PBS\centering \%Y   &Year with century\+: 0001-\/9999    \\\cline{1-2}
+\PBS\centering \%H   &24-\/hour of the day\+: 00-\/23    \\\cline{1-2}
+\PBS\centering \%I   &12-\/hour of the day\+: 01-\/12    \\\cline{1-2}
+\PBS\centering \%M   &Minute of the hour\+: 00-\/59    \\\cline{1-2}
+\PBS\centering \%S   &Second of the minute\+: 00-\/59. Leap second is not supported.    \\\cline{1-2}
+\PBS\centering \%f   &6-\/digit microsecond\+: 000000-\/999999    \\\cline{1-2}
+\PBS\centering \%z   &UTC offset with format ±\+HHMM Example +0500    \\\cline{1-2}
+\PBS\centering \%j   &Day of the year\+: 001-\/366    \\\cline{1-2}
+\PBS\centering \%p   &Only \textquotesingle{}AM\textquotesingle{}, \textquotesingle{}PM\textquotesingle{} or \textquotesingle{}am\textquotesingle{}, \textquotesingle{}pm\textquotesingle{} are recognized   \\\cline{1-2}
+\end{longtabu}
+
+
+Other specifiers are not currently supported.
+
+Invalid formats are not checked. If the string contains unexpected or insufficient characters, that output row entry\textquotesingle{}s timestamp value is undefined.
+
+Any null string entry will result in a corresponding null row in the output column.
+
+The resulting time units are specified by the {\ttfamily timestamp\+\_\+type} parameter. The time units are independent of the number of digits parsed by the \"{}\%f\"{} specifier. The \"{}\%f\"{} supports a precision value to read the numeric digits. Specify the precision with a single integer value (1-\/9) as follows\+: use \"{}\%3f\"{} for milliseconds, \"{}\%6f\"{} for microseconds and \"{}\%9f\"{} for nanoseconds.
+
+Although leap second is not supported for \"{}\%\+S\"{}, no checking is performed on the value. The \doxylink{group__strings__convert_ga4edf69c839f5d4cf7e135bcad00a1409}{cudf\+::strings\+::is\+\_\+timestamp} can be used to verify the valid range of values.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if timestamp\+\_\+type is not a timestamp type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em timestamp\+\_\+type} & The timestamp type used for creating the output column. \\
+\hline
+{\em format} & String specifying the timestamp format in strings. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New datetime column.  
+\end{DoxyReturn}
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_a1e06c92ed6f860d3e2009fa0f986b0e1}\label{namespacecudf_1_1strings_1_1detail_a1e06c92ed6f860d3e2009fa0f986b0e1} 
+\index{cudf::strings::detail@{cudf::strings::detail}!utf8\_to\_codepoint@{utf8\_to\_codepoint}}
+\index{utf8\_to\_codepoint@{utf8\_to\_codepoint}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{utf8\_to\_codepoint()}{utf8\_to\_codepoint()}}
+{\footnotesize\ttfamily constexpr uint32\+\_\+t cudf\+::strings\+::detail\+::utf8\+\_\+to\+\_\+codepoint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{cudf\+::char\+\_\+utf8}}}]{utf8\+\_\+char }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Converts a single UTF-\/8 character into a code-\/point value that can be used for lookup in the character flags or the character case tables. 
+
+
+\begin{DoxyParams}{参数}
+{\em utf8\+\_\+char} & Single UTF-\/8 character to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Code-\/point for the UTF-\/8 character. 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{utf8_8hpp_source}{utf8.\+hpp}} 第 \mbox{\hyperlink{utf8_8hpp_source_l00155}{155}} 行定义.
+
+
+
+\doxysubsection{变量说明}
+\Hypertarget{namespacecudf_1_1strings_1_1detail_ac53c1e98d2f3a5d4c69590173645d0df}\label{namespacecudf_1_1strings_1_1detail_ac53c1e98d2f3a5d4c69590173645d0df} 
+\index{cudf::strings::detail@{cudf::strings::detail}!ALL\_FLAGS@{ALL\_FLAGS}}
+\index{ALL\_FLAGS@{ALL\_FLAGS}!cudf::strings::detail@{cudf::strings::detail}}
+\doxysubsubsection{\texorpdfstring{ALL\_FLAGS}{ALL\_FLAGS}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t cudf\+::strings\+::detail\+::\+ALL\+\_\+\+FLAGS = 0x\+FF\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+在文件 \mbox{\hyperlink{char__tables_8hpp_source}{char\+\_\+tables.\+hpp}} 第 \mbox{\hyperlink{char__tables_8hpp_source_l00049}{49}} 行定义.
+

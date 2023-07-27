@@ -1,0 +1,649 @@
+\doxysection{cudf\+::column类 参考}
+\hypertarget{classcudf_1_1column}{}\label{classcudf_1_1column}\index{cudf::column@{cudf::column}}
+
+
+A container of nullable device data as a column of elements.  
+
+
+
+
+{\ttfamily \#include $<$column.\+hpp$>$}
+
+
+
+cudf\+::column 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcudf_1_1column__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1column_1_1contents}{contents}}
+\begin{DoxyCompactList}\small\item\em Wrapper for the contents of a column. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1column_ab3f801fd5b77d146b8ebd1d2b6305250}{column}} ()=default
+\item 
+\mbox{\hyperlink{classcudf_1_1column_ae1fae14e295fa346178991c1a7915e3e}{\texorpdfstring{$\sim$}{\string~}column}} ()=default
+\item 
+\mbox{\hyperlink{classcudf_1_1column}{column}} \& \mbox{\hyperlink{classcudf_1_1column_ae8a863df616e20f2e8a8e8fd89f45df4}{operator=}} (\mbox{\hyperlink{classcudf_1_1column}{column}} const \&other)=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1column}{column}} \& \mbox{\hyperlink{classcudf_1_1column_a4cb2225c95dae99cb3507ccddc9c8be9}{operator=}} (\mbox{\hyperlink{classcudf_1_1column}{column}} \&\&other)=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1column_ac932e5fa52aa1e84d602cbee507d7cbd}{column}} (\mbox{\hyperlink{classcudf_1_1column}{column}} const \&other, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}(), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Construct a new column object by deep copying the contents of {\ttfamily other}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1column_a51789e95134b9753295130ca21bab6b2}{column}} (\mbox{\hyperlink{classcudf_1_1column}{column}} \&\&other) noexcept
+\begin{DoxyCompactList}\small\item\em Move the contents from {\ttfamily other} to create a new column. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , \mbox{\hyperlink{group__utility__types_gadf63a9ff3257927585f111143a7c9ae4}{CUDF\+\_\+\+ENABLE\+\_\+\+IF}}(\mbox{\hyperlink{group__utility__types_ga736c39af324b57534639bd3d8af357e4}{cudf\+::is\+\_\+numeric}}$<$ T $>$() or \mbox{\hyperlink{group__utility__types_ga72f2d42d20b254754fd7bc8f4f32a990}{cudf\+::is\+\_\+chrono}}$<$ T $>$()) $>$ }\\\mbox{\hyperlink{classcudf_1_1column_a93212616761024c16cc8b48e63a0d014}{column}} (rmm\+::device\+\_\+uvector$<$ T $>$ \&\&other, rmm\+::device\+\_\+buffer \&\&null\+\_\+mask=\{\}, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1column_a2d92092a5214eb9ea8205eea0adbd9bc}{null\+\_\+count}}=\mbox{\hyperlink{group__utility__types_ga0eece3f40ff89fe8f1117097d86913b7}{UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT}})
+\begin{DoxyCompactList}\small\item\em Construct a new column by taking ownership of the contents of a device\+\_\+uvector. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename B1 , typename B2  = rmm\+::device\+\_\+buffer$>$ }\\\mbox{\hyperlink{classcudf_1_1column_a5c6a93d496a20c7f30408aa10d2fbc4e}{column}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} dtype, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1column_ae2270f05ff97dfbf45ea71f20f0ed275}{size}}, B1 \&\&data, B2 \&\&null\+\_\+mask=\{\}, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1column_a2d92092a5214eb9ea8205eea0adbd9bc}{null\+\_\+count}}=\mbox{\hyperlink{group__utility__types_ga0eece3f40ff89fe8f1117097d86913b7}{UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT}}, std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ $>$ \&\&children=\{\})
+\begin{DoxyCompactList}\small\item\em Construct a new column from existing device memory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1column_a6022e3e597ebcbc9c335d6de26f16799}{column}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} \mbox{\hyperlink{classcudf_1_1column_ab4d5aed625c00685f5bf826d5153d966}{view}}, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}(), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Construct a new column by deep copying the contents of a {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \mbox{\hyperlink{classcudf_1_1column_a138187ebd94b3a69aaec0700898ac464}{type}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the column\textquotesingle{}s logical element type \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1column_ae2270f05ff97dfbf45ea71f20f0ed275}{size}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the number of elements \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1column_a2d92092a5214eb9ea8205eea0adbd9bc}{null\+\_\+count}} () const
+\begin{DoxyCompactList}\small\item\em Returns the count of null elements. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1column_ab057d715c84c850103b5b047091bcb0a}{set\+\_\+null\+\_\+mask}} (rmm\+::device\+\_\+buffer \&\&new\+\_\+null\+\_\+mask, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} new\+\_\+null\+\_\+count=\mbox{\hyperlink{group__utility__types_ga0eece3f40ff89fe8f1117097d86913b7}{UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT}})
+\begin{DoxyCompactList}\small\item\em Sets the column\textquotesingle{}s null value indicator bitmask to {\ttfamily new\+\_\+null\+\_\+mask}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1column_ab8110b755bc15f9e9266e4a51923d44f}{set\+\_\+null\+\_\+mask}} (rmm\+::device\+\_\+buffer const \&new\+\_\+null\+\_\+mask, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} new\+\_\+null\+\_\+count=\mbox{\hyperlink{group__utility__types_ga0eece3f40ff89fe8f1117097d86913b7}{UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT}}, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}())
+\begin{DoxyCompactList}\small\item\em Sets the column\textquotesingle{}s null value indicator bitmask to {\ttfamily new\+\_\+null\+\_\+mask}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1column_ae3b18509d779b105420b96aa771a339a}{set\+\_\+null\+\_\+count}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} new\+\_\+null\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Updates the count of null elements. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1column_abb4380659f07daa47db1892b7d02a978}{nullable}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Indicates whether it is possible for the column to contain null values, i.\+e., it has an allocated null mask. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1column_a15dedd9b00fe76049c47b50ed3eba94b}{has\+\_\+nulls}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Indicates whether the column contains null elements. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1column_a38c6d502a24f01b09c73882f5ac335bd}{num\+\_\+children}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the number of child columns \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1column}{column}} \& \mbox{\hyperlink{classcudf_1_1column_adf46fde3c58b43b521f06b22efe0ca46}{child}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} child\+\_\+index) noexcept
+\begin{DoxyCompactList}\small\item\em Returns a reference to the specified child \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1column}{column}} const \& \mbox{\hyperlink{classcudf_1_1column_abd4061c560ef51f65c0ce19678617112}{child}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} child\+\_\+index) const noexcept
+\begin{DoxyCompactList}\small\item\em Returns a const reference to the specified child \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1column_1_1contents}{contents}} \mbox{\hyperlink{classcudf_1_1column_addbbc491f4e77906b49ecbebd20cdadd}{release}} () noexcept
+\begin{DoxyCompactList}\small\item\em Releases ownership of the column\textquotesingle{}s contents. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} \mbox{\hyperlink{classcudf_1_1column_ab4d5aed625c00685f5bf826d5153d966}{view}} () const
+\begin{DoxyCompactList}\small\item\em Creates an immutable, non-\/owning view of the column\textquotesingle{}s data and children. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1column_a355a40b2c6a8b13f1e1d71f9a6ff8dd6}{operator column\+\_\+view}} () const
+\begin{DoxyCompactList}\small\item\em Implicit conversion operator to a {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view}} \mbox{\hyperlink{classcudf_1_1column_a4eca7f6e7f9b412c8621c6ab19975a08}{mutable\+\_\+view}} ()
+\begin{DoxyCompactList}\small\item\em Creates a mutable, non-\/owning view of the column\textquotesingle{}s data and children. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1column_a4290dd11d5edb424d8c2d8193f738b84}{operator mutable\+\_\+column\+\_\+view}} ()
+\begin{DoxyCompactList}\small\item\em Implicit conversion operator to a {\ttfamily \doxylink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} \mbox{\hyperlink{classcudf_1_1column_ac5541cd535782203363a114d1b037970}{\+\_\+type}} \{\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539aba2b45bdc11e2a4a6e86aab2ac693cbb}{type\+\_\+id\+::\+EMPTY}}\}
+\begin{DoxyCompactList}\small\item\em Logical type of elements in the column \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1column_a3d84048e2a6013301f034f7e9634142c}{\+\_\+size}} \{\}
+\begin{DoxyCompactList}\small\item\em The number of elements in the column \end{DoxyCompactList}\item 
+rmm\+::device\+\_\+buffer \mbox{\hyperlink{classcudf_1_1column_a236ac832332dd5e798fbcaaac1f02b0b}{\+\_\+data}} \{\}
+\item 
+rmm\+::device\+\_\+buffer \mbox{\hyperlink{classcudf_1_1column_a2ce7bbdd3ea1f0e7fcbca00cb9af0851}{\+\_\+null\+\_\+mask}} \{\}
+\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1column_a9f2f80852cfe56fbfe09c8d101855278}{\+\_\+null\+\_\+count}} \{\mbox{\hyperlink{group__utility__types_ga0eece3f40ff89fe8f1117097d86913b7}{UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT}}\}
+\begin{DoxyCompactList}\small\item\em The number of null elements \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ $>$ \mbox{\hyperlink{classcudf_1_1column_aa96eb6e9f68cbc021a75d443877461ad}{\+\_\+children}} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+A container of nullable device data as a column of elements. 
+
+
+
+在文件 \mbox{\hyperlink{column_8hpp_source}{column.\+hpp}} 第 \mbox{\hyperlink{column_8hpp_source_l00048}{48}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1column_ab3f801fd5b77d146b8ebd1d2b6305250}\label{classcudf_1_1column_ab3f801fd5b77d146b8ebd1d2b6305250} 
+\index{cudf::column@{cudf::column}!column@{column}}
+\index{column@{column}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{column()}{column()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily cudf\+::column\+::column (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classcudf_1_1column_ae1fae14e295fa346178991c1a7915e3e}\label{classcudf_1_1column_ae1fae14e295fa346178991c1a7915e3e} 
+\index{cudf::column@{cudf::column}!````~column@{\texorpdfstring{$\sim$}{\string~}column}}
+\index{````~column@{\texorpdfstring{$\sim$}{\string~}column}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}column()}{\string~column()}}
+{\footnotesize\ttfamily cudf\+::column\+::\texorpdfstring{$\sim$}{\string~}column (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classcudf_1_1column_ac932e5fa52aa1e84d602cbee507d7cbd}\label{classcudf_1_1column_ac932e5fa52aa1e84d602cbee507d7cbd} 
+\index{cudf::column@{cudf::column}!column@{column}}
+\index{column@{column}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{column()}{column()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily cudf\+::column\+::column (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column}{column}} const \&}]{other,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream = {\ttfamily \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}()},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Construct a new column object by deep copying the contents of {\ttfamily other}. 
+
+Uses the specified {\ttfamily stream} and device\+\_\+memory\+\_\+resource for all allocations and copies.
+
+
+\begin{DoxyParams}{参数}
+{\em other} & The {\ttfamily column} to copy \\
+\hline
+{\em stream} & CUDA stream used for device memory operations. \\
+\hline
+{\em mr} & Device memory resource to use for all device memory allocations \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcudf_1_1column_a51789e95134b9753295130ca21bab6b2}\label{classcudf_1_1column_a51789e95134b9753295130ca21bab6b2} 
+\index{cudf::column@{cudf::column}!column@{column}}
+\index{column@{column}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{column()}{column()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily cudf\+::column\+::column (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column}{column}} \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Move the contents from {\ttfamily other} to create a new column. 
+
+After the move, {\ttfamily other.\+size() == 0} and {\ttfamily other.\+type() = \{EMPTY\}}
+
+
+\begin{DoxyParams}{参数}
+{\em other} & The column whose contents will be moved into the new column \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcudf_1_1column_a93212616761024c16cc8b48e63a0d014}\label{classcudf_1_1column_a93212616761024c16cc8b48e63a0d014} 
+\index{cudf::column@{cudf::column}!column@{column}}
+\index{column@{column}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{column()}{column()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily template$<$typename T , \mbox{\hyperlink{group__utility__types_gadf63a9ff3257927585f111143a7c9ae4}{CUDF\+\_\+\+ENABLE\+\_\+\+IF}}(\mbox{\hyperlink{group__utility__types_ga736c39af324b57534639bd3d8af357e4}{cudf\+::is\+\_\+numeric}}$<$ T $>$() or \mbox{\hyperlink{group__utility__types_ga72f2d42d20b254754fd7bc8f4f32a990}{cudf\+::is\+\_\+chrono}}$<$ T $>$()) $>$ \\
+cudf\+::column\+::column (\begin{DoxyParamCaption}\item[{rmm\+::device\+\_\+uvector$<$ T $>$ \&\&}]{other,  }\item[{rmm\+::device\+\_\+buffer \&\&}]{null\+\_\+mask = {\ttfamily \{\}},  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{null\+\_\+count = {\ttfamily \mbox{\hyperlink{group__utility__types_ga0eece3f40ff89fe8f1117097d86913b7}{UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new column by taking ownership of the contents of a device\+\_\+uvector. 
+
+
+\begin{DoxyParams}{参数}
+{\em other} & The device\+\_\+uvector whose contents will be moved into the new column. \\
+\hline
+{\em null\+\_\+mask} & Optional, column\textquotesingle{}s null value indicator bitmask. May be empty if {\ttfamily null\+\_\+count} is 0 or {\ttfamily UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT}. \\
+\hline
+{\em null\+\_\+count} & Optional, the count of null elements. If unknown, specify {\ttfamily UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT} to indicate that the null count should be computed on the first invocation of {\ttfamily \doxylink{classcudf_1_1column_a2d92092a5214eb9ea8205eea0adbd9bc}{null\+\_\+count()}}. \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{column_8hpp_source}{column.\+hpp}} 第 \mbox{\hyperlink{column_8hpp_source_l00090}{90}} 行定义.
+
+\Hypertarget{classcudf_1_1column_a5c6a93d496a20c7f30408aa10d2fbc4e}\label{classcudf_1_1column_a5c6a93d496a20c7f30408aa10d2fbc4e} 
+\index{cudf::column@{cudf::column}!column@{column}}
+\index{column@{column}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{column()}{column()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily template$<$typename B1 , typename B2  = rmm\+::device\+\_\+buffer$>$ \\
+cudf\+::column\+::column (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{dtype,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{size,  }\item[{B1 \&\&}]{data,  }\item[{B2 \&\&}]{null\+\_\+mask = {\ttfamily \{\}},  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{null\+\_\+count = {\ttfamily \mbox{\hyperlink{group__utility__types_ga0eece3f40ff89fe8f1117097d86913b7}{UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT}}},  }\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ $>$ \&\&}]{children = {\ttfamily \{\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new column from existing device memory. 
+
+\begin{DoxyNote}{注解}
+This constructor is primarily intended for use in column factory functions.
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily size \texorpdfstring{$<$}{<} 0}\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em dtype} & The element type \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & The number of elements in the column \\
+\hline
+\mbox{\texttt{ in}}  & {\em data} & The column\textquotesingle{}s data \\
+\hline
+\mbox{\texttt{ in}}  & {\em null\+\_\+mask} & Optional, column\textquotesingle{}s null value indicator bitmask. May be empty if {\ttfamily null\+\_\+count} is 0 or {\ttfamily UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT}. \\
+\hline
+ & {\em null\+\_\+count} & Optional, the count of null elements. If unknown, specify {\ttfamily UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT} to indicate that the null count should be computed on the first invocation of {\ttfamily \doxylink{classcudf_1_1column_a2d92092a5214eb9ea8205eea0adbd9bc}{null\+\_\+count()}}. \\
+\hline
+ & {\em children} & Optional, vector of child columns \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{column_8hpp_source}{column.\+hpp}} 第 \mbox{\hyperlink{column_8hpp_source_l00125}{125}} 行定义.
+
+\Hypertarget{classcudf_1_1column_a6022e3e597ebcbc9c335d6de26f16799}\label{classcudf_1_1column_a6022e3e597ebcbc9c335d6de26f16799} 
+\index{cudf::column@{cudf::column}!column@{column}}
+\index{column@{column}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{column()}{column()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily cudf\+::column\+::column (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}}}]{view,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream = {\ttfamily \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}()},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct a new column by deep copying the contents of a {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}}. 
+
+This accounts for the {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}}\textquotesingle{}s offset.
+
+
+\begin{DoxyParams}{参数}
+{\em view} & The view to copy \\
+\hline
+{\em stream} & CUDA stream used for device memory operations. \\
+\hline
+{\em mr} & Device memory resource to use for all device memory allocations \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1column_abd4061c560ef51f65c0ce19678617112}\label{classcudf_1_1column_abd4061c560ef51f65c0ce19678617112} 
+\index{cudf::column@{cudf::column}!child@{child}}
+\index{child@{child}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{child()}{child()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1column}{column}} const  \& cudf\+::column\+::child (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{child\+\_\+index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Returns a const reference to the specified child 
+
+
+\begin{DoxyParams}{参数}
+{\em child\+\_\+index} & Index of the desired child \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+column const\& Const reference to the desired child 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{column_8hpp_source}{column.\+hpp}} 第 \mbox{\hyperlink{column_8hpp_source_l00272}{272}} 行定义.
+
+\Hypertarget{classcudf_1_1column_adf46fde3c58b43b521f06b22efe0ca46}\label{classcudf_1_1column_adf46fde3c58b43b521f06b22efe0ca46} 
+\index{cudf::column@{cudf::column}!child@{child}}
+\index{child@{child}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{child()}{child()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1column}{column}} \& cudf\+::column\+::child (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{child\+\_\+index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Returns a reference to the specified child 
+
+
+\begin{DoxyParams}{参数}
+{\em child\+\_\+index} & Index of the desired child \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+column\& Reference to the desired child 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{column_8hpp_source}{column.\+hpp}} 第 \mbox{\hyperlink{column_8hpp_source_l00264}{264}} 行定义.
+
+\Hypertarget{classcudf_1_1column_a15dedd9b00fe76049c47b50ed3eba94b}\label{classcudf_1_1column_a15dedd9b00fe76049c47b50ed3eba94b} 
+\index{cudf::column@{cudf::column}!has\_nulls@{has\_nulls}}
+\index{has\_nulls@{has\_nulls}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{has\_nulls()}{has\_nulls()}}
+{\footnotesize\ttfamily bool cudf\+::column\+::has\+\_\+nulls (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Indicates whether the column contains null elements. 
+
+\begin{DoxyReturn}{返回}
+true One or more elements are null 
+
+false Zero elements are null 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{column_8hpp_source}{column.\+hpp}} 第 \mbox{\hyperlink{column_8hpp_source_l00249}{249}} 行定义.
+
+\Hypertarget{classcudf_1_1column_a4eca7f6e7f9b412c8621c6ab19975a08}\label{classcudf_1_1column_a4eca7f6e7f9b412c8621c6ab19975a08} 
+\index{cudf::column@{cudf::column}!mutable\_view@{mutable\_view}}
+\index{mutable\_view@{mutable\_view}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{mutable\_view()}{mutable\_view()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view}} cudf\+::column\+::mutable\+\_\+view (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates a mutable, non-\/owning view of the column\textquotesingle{}s data and children. 
+
+\begin{DoxyNote}{注解}
+Creating a mutable view of a {\ttfamily column} invalidates the {\ttfamily column}\textquotesingle{}s {\ttfamily \doxylink{classcudf_1_1column_a2d92092a5214eb9ea8205eea0adbd9bc}{null\+\_\+count()}} by setting it to {\ttfamily UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT}. The user can either explicitly update the null count with {\ttfamily \doxylink{classcudf_1_1column_ae3b18509d779b105420b96aa771a339a}{set\+\_\+null\+\_\+count()}}, or if not, the null count will be recomputed on the next invocation of {\ttfamily \doxylink{classcudf_1_1column_a2d92092a5214eb9ea8205eea0adbd9bc}{null\+\_\+count()}}.
+\end{DoxyNote}
+\begin{DoxyReturn}{返回}
+\doxylink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view} The mutable, non-\/owning view 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1column_a2d92092a5214eb9ea8205eea0adbd9bc}\label{classcudf_1_1column_a2d92092a5214eb9ea8205eea0adbd9bc} 
+\index{cudf::column@{cudf::column}!null\_count@{null\_count}}
+\index{null\_count@{null\_count}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{null\_count()}{null\_count()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::column\+::null\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the count of null elements. 
+
+\begin{DoxyNote}{注解}
+If the column was constructed with {\ttfamily UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT}, or if at any point {\ttfamily set\+\_\+null\+\_\+count(\+UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT)} was invoked, then the first invocation of {\ttfamily \doxylink{classcudf_1_1column_a2d92092a5214eb9ea8205eea0adbd9bc}{null\+\_\+count()}} will compute and store the count of null elements indicated by the {\ttfamily null\+\_\+mask} (if it exists).
+\end{DoxyNote}
+\begin{DoxyReturn}{返回}
+The number of null elements 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1column_abb4380659f07daa47db1892b7d02a978}\label{classcudf_1_1column_abb4380659f07daa47db1892b7d02a978} 
+\index{cudf::column@{cudf::column}!nullable@{nullable}}
+\index{nullable@{nullable}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{nullable()}{nullable()}}
+{\footnotesize\ttfamily bool cudf\+::column\+::nullable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Indicates whether it is possible for the column to contain null values, i.\+e., it has an allocated null mask. 
+
+This may return {\ttfamily false} iff {\ttfamily \doxylink{classcudf_1_1column_a2d92092a5214eb9ea8205eea0adbd9bc}{null\+\_\+count()} == 0}.
+
+May return true even if {\ttfamily \doxylink{classcudf_1_1column_a2d92092a5214eb9ea8205eea0adbd9bc}{null\+\_\+count()} == 0}. This function simply indicates whether the column has an allocated null mask.
+
+\begin{DoxyReturn}{返回}
+true The column can hold null values 
+
+false The column cannot hold null values 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{column_8hpp_source}{column.\+hpp}} 第 \mbox{\hyperlink{column_8hpp_source_l00241}{241}} 行定义.
+
+\Hypertarget{classcudf_1_1column_a38c6d502a24f01b09c73882f5ac335bd}\label{classcudf_1_1column_a38c6d502a24f01b09c73882f5ac335bd} 
+\index{cudf::column@{cudf::column}!num\_children@{num\_children}}
+\index{num\_children@{num\_children}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{num\_children()}{num\_children()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::column\+::num\+\_\+children (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Returns the number of child columns 
+
+\begin{DoxyReturn}{返回}
+The number of child columns 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{column_8hpp_source}{column.\+hpp}} 第 \mbox{\hyperlink{column_8hpp_source_l00256}{256}} 行定义.
+
+\Hypertarget{classcudf_1_1column_a355a40b2c6a8b13f1e1d71f9a6ff8dd6}\label{classcudf_1_1column_a355a40b2c6a8b13f1e1d71f9a6ff8dd6} 
+\index{cudf::column@{cudf::column}!operator column\_view@{operator column\_view}}
+\index{operator column\_view@{operator column\_view}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{operator column\_view()}{operator column\_view()}}
+{\footnotesize\ttfamily cudf\+::column\+::operator \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Implicit conversion operator to a {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}}. 
+
+This allows passing a {\ttfamily column} object directly into a function that requires a {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}}. The conversion is automatic.
+
+\begin{DoxyReturn}{返回}
+\doxylink{classcudf_1_1column__view}{column\+\_\+view} Immutable, non-\/owning {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}} 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{column_8hpp_source}{column.\+hpp}} 第 \mbox{\hyperlink{column_8hpp_source_l00321}{321}} 行定义.
+
+\Hypertarget{classcudf_1_1column_a4290dd11d5edb424d8c2d8193f738b84}\label{classcudf_1_1column_a4290dd11d5edb424d8c2d8193f738b84} 
+\index{cudf::column@{cudf::column}!operator mutable\_column\_view@{operator mutable\_column\_view}}
+\index{operator mutable\_column\_view@{operator mutable\_column\_view}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{operator mutable\_column\_view()}{operator mutable\_column\_view()}}
+{\footnotesize\ttfamily cudf\+::column\+::operator \mbox{\hyperlink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Implicit conversion operator to a {\ttfamily \doxylink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view}}. 
+
+This allows passing a {\ttfamily column} object into a function that accepts a {\ttfamily \doxylink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view}}. The conversion is automatic.
+
+\begin{DoxyNote}{注解}
+Creating a mutable view of a {\ttfamily column} invalidates the {\ttfamily column}\textquotesingle{}s {\ttfamily \doxylink{classcudf_1_1column_a2d92092a5214eb9ea8205eea0adbd9bc}{null\+\_\+count()}} by setting it to {\ttfamily UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT}. For best performance, the user should explicitly update the null count with {\ttfamily \doxylink{classcudf_1_1column_ae3b18509d779b105420b96aa771a339a}{set\+\_\+null\+\_\+count()}}. Otherwise, the null count will be recomputed on the next invocation of {\ttfamily \doxylink{classcudf_1_1column_a2d92092a5214eb9ea8205eea0adbd9bc}{null\+\_\+count()}}.
+\end{DoxyNote}
+\begin{DoxyReturn}{返回}
+\doxylink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view} Mutable, non-\/owning {\ttfamily \doxylink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view}} 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{column_8hpp_source}{column.\+hpp}} 第 \mbox{\hyperlink{column_8hpp_source_l00351}{351}} 行定义.
+
+\Hypertarget{classcudf_1_1column_a4cb2225c95dae99cb3507ccddc9c8be9}\label{classcudf_1_1column_a4cb2225c95dae99cb3507ccddc9c8be9} 
+\index{cudf::column@{cudf::column}!operator=@{operator=}}
+\index{operator=@{operator=}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1column}{column}} \& cudf\+::column\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column}{column}} \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classcudf_1_1column_ae8a863df616e20f2e8a8e8fd89f45df4}\label{classcudf_1_1column_ae8a863df616e20f2e8a8e8fd89f45df4} 
+\index{cudf::column@{cudf::column}!operator=@{operator=}}
+\index{operator=@{operator=}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1column}{column}} \& cudf\+::column\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column}{column}} const \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classcudf_1_1column_addbbc491f4e77906b49ecbebd20cdadd}\label{classcudf_1_1column_addbbc491f4e77906b49ecbebd20cdadd} 
+\index{cudf::column@{cudf::column}!release@{release}}
+\index{release@{release}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{release()}{release()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1column_1_1contents}{contents}} cudf\+::column\+::release (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Releases ownership of the column\textquotesingle{}s contents. 
+
+It is the caller\textquotesingle{}s responsibility to query the {\ttfamily \doxylink{classcudf_1_1column_ae2270f05ff97dfbf45ea71f20f0ed275}{size()}, \doxylink{classcudf_1_1column_a2d92092a5214eb9ea8205eea0adbd9bc}{null\+\_\+count()}, \doxylink{classcudf_1_1column_a138187ebd94b3a69aaec0700898ac464}{type()}} before invoking {\ttfamily \doxylink{classcudf_1_1column_addbbc491f4e77906b49ecbebd20cdadd}{release()}}.
+
+After calling {\ttfamily \doxylink{classcudf_1_1column_addbbc491f4e77906b49ecbebd20cdadd}{release()}} on a column it will be empty, i.\+e.\+:
+\begin{DoxyItemize}
+\item {\ttfamily \doxylink{classcudf_1_1column_a138187ebd94b3a69aaec0700898ac464}{type()} == \doxylink{classcudf_1_1data__type}{data\+\_\+type}\{EMPTY\}}
+\item {\ttfamily \doxylink{classcudf_1_1column_ae2270f05ff97dfbf45ea71f20f0ed275}{size()} == 0}
+\item {\ttfamily \doxylink{classcudf_1_1column_a2d92092a5214eb9ea8205eea0adbd9bc}{null\+\_\+count()} == 0}
+\item {\ttfamily \doxylink{classcudf_1_1column_a38c6d502a24f01b09c73882f5ac335bd}{num\+\_\+children()} == 0}
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{返回}
+A {\ttfamily contents} struct containing the data, null mask, and children of the column. 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1column_ae3b18509d779b105420b96aa771a339a}\label{classcudf_1_1column_ae3b18509d779b105420b96aa771a339a} 
+\index{cudf::column@{cudf::column}!set\_null\_count@{set\_null\_count}}
+\index{set\_null\_count@{set\_null\_count}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{set\_null\_count()}{set\_null\_count()}}
+{\footnotesize\ttfamily void cudf\+::column\+::set\+\_\+null\+\_\+count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{new\+\_\+null\+\_\+count }\end{DoxyParamCaption})}
+
+
+
+Updates the count of null elements. 
+
+\begin{DoxyNote}{注解}
+{\ttfamily UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT} can be specified as {\ttfamily new\+\_\+null\+\_\+count} to force the next invocation of {\ttfamily \doxylink{classcudf_1_1column_a2d92092a5214eb9ea8205eea0adbd9bc}{null\+\_\+count()}} to recompute the null count from the null mask.
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily new\+\_\+null\+\_\+count \texorpdfstring{$>$}{>} 0 and \doxylink{classcudf_1_1column_abb4380659f07daa47db1892b7d02a978}{nullable()} == false}\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em new\+\_\+null\+\_\+count} & The new null count. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcudf_1_1column_ab057d715c84c850103b5b047091bcb0a}\label{classcudf_1_1column_ab057d715c84c850103b5b047091bcb0a} 
+\index{cudf::column@{cudf::column}!set\_null\_mask@{set\_null\_mask}}
+\index{set\_null\_mask@{set\_null\_mask}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{set\_null\_mask()}{set\_null\_mask()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void cudf\+::column\+::set\+\_\+null\+\_\+mask (\begin{DoxyParamCaption}\item[{rmm\+::device\+\_\+buffer \&\&}]{new\+\_\+null\+\_\+mask,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{new\+\_\+null\+\_\+count = {\ttfamily \mbox{\hyperlink{group__utility__types_ga0eece3f40ff89fe8f1117097d86913b7}{UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT}}} }\end{DoxyParamCaption})}
+
+
+
+Sets the column\textquotesingle{}s null value indicator bitmask to {\ttfamily new\+\_\+null\+\_\+mask}. 
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if new\+\_\+null\+\_\+count is larger than 0 and the size of {\ttfamily new\+\_\+null\+\_\+mask} does not match the size of this column.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em new\+\_\+null\+\_\+mask} & New null value indicator bitmask (rvalue overload \& moved) to set the column\textquotesingle{}s null value indicator mask. May be empty if {\ttfamily new\+\_\+null\+\_\+count} is 0 or {\ttfamily UNKOWN\+\_\+\+NULL\+\_\+\+COUNT}. \\
+\hline
+{\em new\+\_\+null\+\_\+count} & Optional, the count of null elements. If unknown, specify {\ttfamily UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT} to indicate that the null count should be computed on the first invocation of {\ttfamily \doxylink{classcudf_1_1column_a2d92092a5214eb9ea8205eea0adbd9bc}{null\+\_\+count()}}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcudf_1_1column_ab8110b755bc15f9e9266e4a51923d44f}\label{classcudf_1_1column_ab8110b755bc15f9e9266e4a51923d44f} 
+\index{cudf::column@{cudf::column}!set\_null\_mask@{set\_null\_mask}}
+\index{set\_null\_mask@{set\_null\_mask}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{set\_null\_mask()}{set\_null\_mask()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void cudf\+::column\+::set\+\_\+null\+\_\+mask (\begin{DoxyParamCaption}\item[{rmm\+::device\+\_\+buffer const \&}]{new\+\_\+null\+\_\+mask,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{new\+\_\+null\+\_\+count = {\ttfamily \mbox{\hyperlink{group__utility__types_ga0eece3f40ff89fe8f1117097d86913b7}{UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT}}},  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream = {\ttfamily \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}()} }\end{DoxyParamCaption})}
+
+
+
+Sets the column\textquotesingle{}s null value indicator bitmask to {\ttfamily new\+\_\+null\+\_\+mask}. 
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if new\+\_\+null\+\_\+count is larger than 0 and the size of {\ttfamily new\+\_\+null\+\_\+mask} does not match the size of this column.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em new\+\_\+null\+\_\+mask} & New null value indicator bitmask (lvalue overload \& copied) to set the column\textquotesingle{}s null value indicator mask. May be empty if {\ttfamily new\+\_\+null\+\_\+count} is 0 or {\ttfamily UNKOWN\+\_\+\+NULL\+\_\+\+COUNT}. \\
+\hline
+{\em new\+\_\+null\+\_\+count} & Optional, the count of null elements. If unknown, specify {\ttfamily UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT} to indicate that the null count should be computed on the first invocation of {\ttfamily \doxylink{classcudf_1_1column_a2d92092a5214eb9ea8205eea0adbd9bc}{null\+\_\+count()}}. \\
+\hline
+{\em stream} & The stream on which to perform the allocation and copy. Uses the default CUDF stream if none is specified. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcudf_1_1column_ae2270f05ff97dfbf45ea71f20f0ed275}\label{classcudf_1_1column_ae2270f05ff97dfbf45ea71f20f0ed275} 
+\index{cudf::column@{cudf::column}!size@{size}}
+\index{size@{size}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::column\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Returns the number of elements 
+
+\begin{DoxyReturn}{返回}
+The number of elements 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{column_8hpp_source}{column.\+hpp}} 第 \mbox{\hyperlink{column_8hpp_source_l00167}{167}} 行定义.
+
+\Hypertarget{classcudf_1_1column_a138187ebd94b3a69aaec0700898ac464}\label{classcudf_1_1column_a138187ebd94b3a69aaec0700898ac464} 
+\index{cudf::column@{cudf::column}!type@{type}}
+\index{type@{type}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} cudf\+::column\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Returns the column\textquotesingle{}s logical element type 
+
+\begin{DoxyReturn}{返回}
+The column\textquotesingle{}s logical element type 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{column_8hpp_source}{column.\+hpp}} 第 \mbox{\hyperlink{column_8hpp_source_l00160}{160}} 行定义.
+
+\Hypertarget{classcudf_1_1column_ab4d5aed625c00685f5bf826d5153d966}\label{classcudf_1_1column_ab4d5aed625c00685f5bf826d5153d966} 
+\index{cudf::column@{cudf::column}!view@{view}}
+\index{view@{view}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{view()}{view()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} cudf\+::column\+::view (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Creates an immutable, non-\/owning view of the column\textquotesingle{}s data and children. 
+
+\begin{DoxyReturn}{返回}
+\doxylink{classcudf_1_1column__view}{column\+\_\+view} The immutable, non-\/owning view 
+\end{DoxyReturn}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1column_aa96eb6e9f68cbc021a75d443877461ad}\label{classcudf_1_1column_aa96eb6e9f68cbc021a75d443877461ad} 
+\index{cudf::column@{cudf::column}!\_children@{\_children}}
+\index{\_children@{\_children}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{\_children}{\_children}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classcudf_1_1column}{column}}$>$ $>$ cudf\+::column\+::\+\_\+children \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+Depending on element type, child columns may contain additional data 
+
+在文件 \mbox{\hyperlink{column_8hpp_source}{column.\+hpp}} 第 \mbox{\hyperlink{column_8hpp_source_l00361}{361}} 行定义.
+
+\Hypertarget{classcudf_1_1column_a236ac832332dd5e798fbcaaac1f02b0b}\label{classcudf_1_1column_a236ac832332dd5e798fbcaaac1f02b0b} 
+\index{cudf::column@{cudf::column}!\_data@{\_data}}
+\index{\_data@{\_data}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{\_data}{\_data}}
+{\footnotesize\ttfamily rmm\+::device\+\_\+buffer cudf\+::column\+::\+\_\+data \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+Dense, contiguous, type erased device memory buffer containing the column elements 
+
+在文件 \mbox{\hyperlink{column_8hpp_source}{column.\+hpp}} 第 \mbox{\hyperlink{column_8hpp_source_l00356}{356}} 行定义.
+
+\Hypertarget{classcudf_1_1column_a9f2f80852cfe56fbfe09c8d101855278}\label{classcudf_1_1column_a9f2f80852cfe56fbfe09c8d101855278} 
+\index{cudf::column@{cudf::column}!\_null\_count@{\_null\_count}}
+\index{\_null\_count@{\_null\_count}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{\_null\_count}{\_null\_count}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::column\+::\+\_\+null\+\_\+count \{\mbox{\hyperlink{group__utility__types_ga0eece3f40ff89fe8f1117097d86913b7}{UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT}}\}\hspace{0.3cm}{\ttfamily [mutable]}, {\ttfamily [private]}}
+
+
+
+The number of null elements 
+
+
+
+在文件 \mbox{\hyperlink{column_8hpp_source}{column.\+hpp}} 第 \mbox{\hyperlink{column_8hpp_source_l00360}{360}} 行定义.
+
+\Hypertarget{classcudf_1_1column_a2ce7bbdd3ea1f0e7fcbca00cb9af0851}\label{classcudf_1_1column_a2ce7bbdd3ea1f0e7fcbca00cb9af0851} 
+\index{cudf::column@{cudf::column}!\_null\_mask@{\_null\_mask}}
+\index{\_null\_mask@{\_null\_mask}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{\_null\_mask}{\_null\_mask}}
+{\footnotesize\ttfamily rmm\+::device\+\_\+buffer cudf\+::column\+::\+\_\+null\+\_\+mask \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+Bitmask used to represent null values. May be empty if {\ttfamily \doxylink{classcudf_1_1column_a2d92092a5214eb9ea8205eea0adbd9bc}{null\+\_\+count()} == 0} 
+
+在文件 \mbox{\hyperlink{column_8hpp_source}{column.\+hpp}} 第 \mbox{\hyperlink{column_8hpp_source_l00358}{358}} 行定义.
+
+\Hypertarget{classcudf_1_1column_a3d84048e2a6013301f034f7e9634142c}\label{classcudf_1_1column_a3d84048e2a6013301f034f7e9634142c} 
+\index{cudf::column@{cudf::column}!\_size@{\_size}}
+\index{\_size@{\_size}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{\_size}{\_size}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::column\+::\+\_\+size \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The number of elements in the column 
+
+
+
+在文件 \mbox{\hyperlink{column_8hpp_source}{column.\+hpp}} 第 \mbox{\hyperlink{column_8hpp_source_l00355}{355}} 行定义.
+
+\Hypertarget{classcudf_1_1column_ac5541cd535782203363a114d1b037970}\label{classcudf_1_1column_ac5541cd535782203363a114d1b037970} 
+\index{cudf::column@{cudf::column}!\_type@{\_type}}
+\index{\_type@{\_type}!cudf::column@{cudf::column}}
+\doxysubsubsection{\texorpdfstring{\_type}{\_type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} cudf\+::column\+::\+\_\+type \{\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539aba2b45bdc11e2a4a6e86aab2ac693cbb}{type\+\_\+id\+::\+EMPTY}}\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Logical type of elements in the column 
+
+
+
+在文件 \mbox{\hyperlink{column_8hpp_source}{column.\+hpp}} 第 \mbox{\hyperlink{column_8hpp_source_l00354}{354}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/column/\mbox{\hyperlink{column_8hpp}{column.\+hpp}}\end{DoxyCompactItemize}

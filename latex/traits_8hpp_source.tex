@@ -1,0 +1,266 @@
+\doxysection{traits.\+hpp}
+\hypertarget{traits_8hpp_source}{}\label{traits_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/utilities/traits.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/utilities/traits.hpp}}
+\mbox{\hyperlink{traits_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2019-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fixed__point_8hpp}{cudf/fixed\_point/fixed\_point.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{types_8hpp}{cudf/types.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{dictionary_8hpp}{cudf/wrappers/dictionary.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{durations_8hpp}{cudf/wrappers/durations.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{timestamps_8hpp}{cudf/wrappers/timestamps.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <cuda/std/type\_traits>}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00027}00027\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00036}00036\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00037}\mbox{\hyperlink{group__utility__types_ga9130d674f5ef432c1405fadd304a8c26}{00037}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{group__utility__types_ga9130d674f5ef432c1405fadd304a8c26}{void\_t}}\ =\ void;}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00050}\mbox{\hyperlink{group__utility__types_gadf63a9ff3257927585f111143a7c9ae4}{00050}}\ \textcolor{preprocessor}{\#define\ CUDF\_ENABLE\_IF(...)\ std::enable\_if\_t<(\_\_VA\_ARGS\_\_)>*\ =\ nullptr}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00053}00053\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ L,\ \textcolor{keyword}{typename}\ R>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00054}\mbox{\hyperlink{group__utility__types_ga6cc1c1fe68e5031f9865b4d9114a2491}{00054}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{group__utility__types_ga6cc1c1fe68e5031f9865b4d9114a2491}{less\_comparable}}\ =\ \textcolor{keyword}{decltype}(std::declval<L>()\ <\ std::declval<R>());}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00057}00057\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ L,\ \textcolor{keyword}{typename}\ R>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00058}\mbox{\hyperlink{group__utility__types_ga19a5866cc4b46bbff21bf863130d2f81}{00058}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{group__utility__types_ga19a5866cc4b46bbff21bf863130d2f81}{greater\_comparable}}\ =\ \textcolor{keyword}{decltype}(std::declval<L>()\ >\ std::declval<R>());}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00061}00061\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ L,\ \textcolor{keyword}{typename}\ R>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00062}\mbox{\hyperlink{group__utility__types_ga33f2db79a6c26d5d69a3c05cd057cee0}{00062}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{group__utility__types_ga33f2db79a6c26d5d69a3c05cd057cee0}{equality\_comparable}}\ =\ \textcolor{keyword}{decltype}(std::declval<L>()\ ==\ std::declval<R>());}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00064}00064\ \textcolor{keyword}{namespace\ }detail\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00065}00065\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ L,\ \textcolor{keyword}{typename}\ R,\ \textcolor{keyword}{typename}\ =\ \textcolor{keywordtype}{void}>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00066}\mbox{\hyperlink{structcudf_1_1detail_1_1is__relationally__comparable__impl}{00066}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1detail_1_1is__relationally__comparable__impl}{is\_relationally\_comparable\_impl}}\ :\ std::false\_type\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00067}00067\ \};}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00069}00069\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ L,\ \textcolor{keyword}{typename}\ R>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00070}\mbox{\hyperlink{structcudf_1_1detail_1_1is__relationally__comparable__impl_3_01_l_00_01_r_00_01void__t_3_01less_58b6dd73ceb6a464bcab762425ace104}{00070}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1detail_1_1is__relationally__comparable__impl}{is\_relationally\_comparable\_impl}}<L,}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ R,}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__utility__types_ga9130d674f5ef432c1405fadd304a8c26}{void\_t}}<\mbox{\hyperlink{group__utility__types_ga6cc1c1fe68e5031f9865b4d9114a2491}{less\_comparable}}<L,\ R>,\ \mbox{\hyperlink{group__utility__types_ga19a5866cc4b46bbff21bf863130d2f81}{greater\_comparable}}<L,\ R>>>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00073}00073\ \ \ :\ std::true\_type\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00074}00074\ \};}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00076}00076\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ L,\ \textcolor{keyword}{typename}\ R,\ \textcolor{keyword}{typename}\ =\ \textcolor{keywordtype}{void}>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00077}\mbox{\hyperlink{structcudf_1_1detail_1_1is__equality__comparable__impl}{00077}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1detail_1_1is__equality__comparable__impl}{is\_equality\_comparable\_impl}}\ :\ std::false\_type\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00078}00078\ \};}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00080}00080\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ L,\ \textcolor{keyword}{typename}\ R>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00081}\mbox{\hyperlink{structcudf_1_1detail_1_1is__equality__comparable__impl_3_01_l_00_01_r_00_01void__t_3_01equality_2f83d168aaedf92541e7f7f4a1af5cfa}{00081}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1detail_1_1is__equality__comparable__impl}{is\_equality\_comparable\_impl}}<L,\ R,\ \mbox{\hyperlink{group__utility__types_ga9130d674f5ef432c1405fadd304a8c26}{void\_t}}<\mbox{\hyperlink{group__utility__types_ga33f2db79a6c26d5d69a3c05cd057cee0}{equality\_comparable}}<L,\ R>>>\ :\ std::true\_type\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00082}00082\ \};}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00084}00084\ \textcolor{comment}{//\ has\ common\ type}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00085}00085\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ AlwaysVoid,\ \textcolor{keyword}{typename}...\ Ts>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00086}\mbox{\hyperlink{structcudf_1_1detail_1_1has__common__type__impl}{00086}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1detail_1_1has__common__type__impl}{has\_common\_type\_impl}}\ :\ std::false\_type\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00087}00087\ \};}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00089}00089\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Ts>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00090}\mbox{\hyperlink{structcudf_1_1detail_1_1has__common__type__impl_3_01void__t_3_01std_1_1common__type__t_3_01_ts_8e2d33eab3ad4b77e8506b3fe056aacf5}{00090}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1detail_1_1has__common__type__impl}{has\_common\_type\_impl}}<\mbox{\hyperlink{group__utility__types_ga9130d674f5ef432c1405fadd304a8c26}{void\_t}}<\mbox{\hyperlink{namespacestd}{std}}::common\_type\_t<Ts...>>,\ Ts...>\ :\ std::true\_type\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00091}00091\ \};}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00092}00092\ \}\ \ \textcolor{comment}{//\ namespace\ detail}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00095}00095\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Ts>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00096}\mbox{\hyperlink{group__utility__types_ga3d6f7d2e962d0063973334a901bd5381}{00096}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{group__utility__types_ga3d6f7d2e962d0063973334a901bd5381}{has\_common\_type}}\ =\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{structcudf_1_1detail_1_1has__common__type__impl}{detail::has\_common\_type\_impl}}<void,\ Ts...>::type;}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00099}00099\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Ts>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00100}\mbox{\hyperlink{group__utility__types_ga96e9ce4d30dc9a948112d814ee4cba79}{00100}}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_ga96e9ce4d30dc9a948112d814ee4cba79}{has\_common\_type\_v}}\ =\ \mbox{\hyperlink{structcudf_1_1detail_1_1has__common__type__impl}{detail::has\_common\_type\_impl}}<void,\ Ts...>::value;}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00103}00103\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00104}\mbox{\hyperlink{group__utility__types_gafab27b9e2451d4b930739368788b79c8}{00104}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{group__utility__types_gafab27b9e2451d4b930739368788b79c8}{is\_timestamp\_t}}\ =\ cuda::std::disjunction<std::is\_same<cudf::timestamp\_D,\ T>,}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_same<cudf::timestamp\_s,\ T>,}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_same<cudf::timestamp\_ms,\ T>,}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_same<cudf::timestamp\_us,\ T>,}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_same<cudf::timestamp\_ns,\ T>>;}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00111}00111\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00112}\mbox{\hyperlink{group__utility__types_gafb8bb6a0673998a47423aca482d5b5ee}{00112}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{group__utility__types_gafb8bb6a0673998a47423aca482d5b5ee}{is\_duration\_t}}\ =\ cuda::std::disjunction<std::is\_same<cudf::duration\_D,\ T>,}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_same<cudf::duration\_s,\ T>,}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_same<cudf::duration\_ms,\ T>,}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_same<cudf::duration\_us,\ T>,}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_same<cudf::duration\_ns,\ T>>;}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00130}00130\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ L,\ \textcolor{keyword}{typename}\ R>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00131}\mbox{\hyperlink{group__utility__types_gaef9b08b206b1340c5ac3893d17943309}{00131}}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_gaef9b08b206b1340c5ac3893d17943309}{is\_relationally\_comparable}}()}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00132}00132\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00133}00133\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structcudf_1_1detail_1_1is__relationally__comparable__impl}{detail::is\_relationally\_comparable\_impl<L,\ R>::value}};}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00134}00134\ \}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00143}\mbox{\hyperlink{group__utility__types_ga645a96d47abea35f5da669ecf10ceae7}{00143}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_gaef9b08b206b1340c5ac3893d17943309}{is\_relationally\_comparable}}(\mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type);}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00157}00157\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ L,\ \textcolor{keyword}{typename}\ R>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00158}\mbox{\hyperlink{group__utility__types_ga82f7470f89e1e2b53077246712787120}{00158}}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_ga82f7470f89e1e2b53077246712787120}{is\_equality\_comparable}}()}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00159}00159\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00160}00160\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structcudf_1_1detail_1_1is__equality__comparable__impl}{detail::is\_equality\_comparable\_impl<L,\ R>::value}};}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00161}00161\ \}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00170}\mbox{\hyperlink{group__utility__types_ga40162d35408ca1e9cc9b02af29b7149d}{00170}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_ga82f7470f89e1e2b53077246712787120}{is\_equality\_comparable}}(\mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type);}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00179}00179\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00180}\mbox{\hyperlink{group__utility__types_ga736c39af324b57534639bd3d8af357e4}{00180}}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_ga736c39af324b57534639bd3d8af357e4}{is\_numeric}}()}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00181}00181\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00182}00182\ \ \ \textcolor{keywordflow}{return}\ cuda::std::is\_arithmetic<T>();}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00183}00183\ \}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00196}\mbox{\hyperlink{group__utility__types_ga2eaf2d3443dd8aa17724e78190b537ba}{00196}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_ga736c39af324b57534639bd3d8af357e4}{is\_numeric}}(\mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type);}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00209}00209\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00210}\mbox{\hyperlink{group__utility__types_ga79a73ff286550b2f4fc764a6dbc2d782}{00210}}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_ga79a73ff286550b2f4fc764a6dbc2d782}{is\_index\_type}}()}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00211}00211\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00212}00212\ \ \ \textcolor{keywordflow}{return}\ std::is\_integral\_v<T>\ and\ not\ std::is\_same\_v<T,\ bool>;}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00213}00213\ \}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00226}\mbox{\hyperlink{group__utility__types_ga4c4225b65c8d89fc680fc705676ff6f1}{00226}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_ga79a73ff286550b2f4fc764a6dbc2d782}{is\_index\_type}}(\mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type);}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00227}00227\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00235}00235\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00236}\mbox{\hyperlink{group__utility__types_gaf186010866f2f5eb497467963eaf3d54}{00236}}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_gaf186010866f2f5eb497467963eaf3d54}{is\_unsigned}}()}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00237}00237\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00238}00238\ \ \ \textcolor{keywordflow}{return}\ std::is\_unsigned\_v<T>;}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00239}00239\ \}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00250}\mbox{\hyperlink{group__utility__types_ga95969e57d58b6b7468b1cba9f435d95e}{00250}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_gaf186010866f2f5eb497467963eaf3d54}{is\_unsigned}}(\mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type);}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00258}00258\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Iterator>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00259}\mbox{\hyperlink{group__utility__types_ga960cec36c56cd253a84fcd2cec3933f9}{00259}}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_ga960cec36c56cd253a84fcd2cec3933f9}{is\_signed\_iterator}}()}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00260}00260\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00261}00261\ \ \ \textcolor{keywordflow}{return}\ std::is\_signed\_v<typename\ std::iterator\_traits<Iterator>::value\_type>;}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00262}00262\ \}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00263}00263\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00271}00271\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00272}\mbox{\hyperlink{group__utility__types_gaa964d11859bcec770945cf53d964371c}{00272}}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_gaa964d11859bcec770945cf53d964371c}{is\_integral}}()}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00273}00273\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00274}00274\ \ \ \textcolor{keywordflow}{return}\ cuda::std::is\_integral\_v<T>;}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00275}00275\ \}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00276}00276\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00286}\mbox{\hyperlink{group__utility__types_ga31c663c44b3af8ae957a1d514052c923}{00286}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_gaa964d11859bcec770945cf53d964371c}{is\_integral}}(\mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type);}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00287}00287\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00295}00295\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00296}\mbox{\hyperlink{group__utility__types_gaac36fa8429a279de79c2afec53c02ee8}{00296}}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_gaac36fa8429a279de79c2afec53c02ee8}{is\_floating\_point}}()}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00297}00297\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00298}00298\ \ \ \textcolor{keywordflow}{return}\ std::is\_floating\_point\_v<T>;}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00299}00299\ \}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00300}00300\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00310}\mbox{\hyperlink{group__utility__types_ga947bd07e5edd70d8d56b38aeb856e9c6}{00310}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_gaac36fa8429a279de79c2afec53c02ee8}{is\_floating\_point}}(\mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type);}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00311}00311\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00319}00319\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00320}\mbox{\hyperlink{group__utility__types_ga27d4363f72ef43feeb12c06d90ff44c8}{00320}}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_ga27d4363f72ef43feeb12c06d90ff44c8}{is\_byte}}()}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00321}00321\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00322}00322\ \ \ \textcolor{keywordflow}{return}\ std::is\_same\_v<std::remove\_cv\_t<T>,\ std::byte>;}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00323}00323\ \}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00324}00324\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00332}00332\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00333}\mbox{\hyperlink{group__utility__types_gaa1b9dd3a6ee95fa52224a53869cd164e}{00333}}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_gaa1b9dd3a6ee95fa52224a53869cd164e}{is\_boolean}}()}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00334}00334\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00335}00335\ \ \ \textcolor{keywordflow}{return}\ std::is\_same\_v<T,\ bool>;}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00336}00336\ \}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00337}00337\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00345}\mbox{\hyperlink{group__utility__types_ga73bcdf0744b62b98f4aef5fccea5840c}{00345}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_gaa1b9dd3a6ee95fa52224a53869cd164e}{is\_boolean}}(\mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type);}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00346}00346\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00354}00354\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00355}\mbox{\hyperlink{group__utility__types_ga90ebb90931abfed637396889b7829173}{00355}}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_ga90ebb90931abfed637396889b7829173}{is\_timestamp}}()}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00356}00356\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00357}00357\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{group__utility__types_gafab27b9e2451d4b930739368788b79c8}{is\_timestamp\_t<T>::value}};}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00358}00358\ \}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00359}00359\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00369}\mbox{\hyperlink{group__utility__types_ga92ea03fd93fa19ae17c3190cb439e5b3}{00369}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_ga90ebb90931abfed637396889b7829173}{is\_timestamp}}(\mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type);}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00370}00370\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00378}00378\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00379}\mbox{\hyperlink{group__utility__types_ga02880fc9d2470aa36761dfe41c5309ee}{00379}}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_ga02880fc9d2470aa36761dfe41c5309ee}{is\_fixed\_point}}()}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00380}00380\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00381}00381\ \ \ \textcolor{keywordflow}{return}\ std::is\_same\_v<numeric::decimal32,\ T>\ ||\ std::is\_same\_v<numeric::decimal64,\ T>\ ||}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00382}00382\ \ \ \ \ \ \ \ \ \ std::is\_same\_v<numeric::decimal128,\ T>;}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00383}00383\ \}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00384}00384\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00392}\mbox{\hyperlink{group__utility__types_gad339e701fa8a26d7630aa28f846399fb}{00392}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_ga02880fc9d2470aa36761dfe41c5309ee}{is\_fixed\_point}}(\mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type);}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00393}00393\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00401}00401\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00402}\mbox{\hyperlink{group__utility__types_ga5196242442d99904c755da4920f1043f}{00402}}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_ga5196242442d99904c755da4920f1043f}{is\_duration}}()}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00403}00403\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00404}00404\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{group__utility__types_gafb8bb6a0673998a47423aca482d5b5ee}{is\_duration\_t<T>::value}};}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00405}00405\ \}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00406}00406\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00416}\mbox{\hyperlink{group__utility__types_ga285e3a7963fa18d913c1c9ff389d58ba}{00416}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_ga5196242442d99904c755da4920f1043f}{is\_duration}}(\mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type);}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00417}00417\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00425}00425\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00426}\mbox{\hyperlink{group__utility__types_ga72f2d42d20b254754fd7bc8f4f32a990}{00426}}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_ga72f2d42d20b254754fd7bc8f4f32a990}{is\_chrono}}()}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00427}00427\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00428}00428\ \ \ \textcolor{keywordflow}{return}\ is\_duration<T>()\ ||\ is\_timestamp<T>();}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00429}00429\ \}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00430}00430\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00441}\mbox{\hyperlink{group__utility__types_gad2846c31e90421f0cbe7834334822e6a}{00441}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_ga72f2d42d20b254754fd7bc8f4f32a990}{is\_chrono}}(\mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type);}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00442}00442\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00455}00455\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00456}\mbox{\hyperlink{group__utility__types_ga7c6839d4131493a1277f78a686226e54}{00456}}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_ga7c6839d4131493a1277f78a686226e54}{is\_rep\_layout\_compatible}}()}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00457}00457\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00458}00458\ \ \ \textcolor{keywordflow}{return}\ cudf::is\_numeric<T>()\ or\ cudf::is\_chrono<T>()\ or\ cudf::is\_boolean<T>()\ or}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00459}00459\ \ \ \ \ \ \ \ \ \ cudf::is\_byte<T>();}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00460}00460\ \}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00461}00461\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00469}00469\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00470}\mbox{\hyperlink{group__utility__types_ga1f0657d191e4b383da031cd506c5196f}{00470}}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_ga1f0657d191e4b383da031cd506c5196f}{is\_dictionary}}()}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00471}00471\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00472}00472\ \ \ \textcolor{keywordflow}{return}\ std::is\_same\_v<dictionary32,\ T>;}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00473}00473\ \}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00474}00474\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00482}\mbox{\hyperlink{group__utility__types_ga0e213a7906791cb36453a966a16bf326}{00482}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_ga1f0657d191e4b383da031cd506c5196f}{is\_dictionary}}(\mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type);}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00483}00483\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00493}00493\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00494}\mbox{\hyperlink{group__utility__types_gaaa937abead085ea9420b15c6473f08a7}{00494}}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_gaaa937abead085ea9420b15c6473f08a7}{is\_fixed\_width}}()}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00495}00495\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00496}00496\ \ \ \textcolor{comment}{//\ TODO\ Add\ fixed\ width\ wrapper\ types}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00497}00497\ \ \ \textcolor{comment}{//\ Is\ a\ category\ fixed\ width?}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00498}00498\ \ \ \textcolor{keywordflow}{return}\ cudf::is\_numeric<T>()\ ||\ cudf::is\_chrono<T>()\ ||\ cudf::is\_fixed\_point<T>();}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00499}00499\ \}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00500}00500\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00510}\mbox{\hyperlink{group__utility__types_gad588b3f9ca419e5a32f1ce42031994a5}{00510}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_gaaa937abead085ea9420b15c6473f08a7}{is\_fixed\_width}}(\mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type);}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00511}00511\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00512}00512\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcudf_1_1string__view}{string\_view}};}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00513}00513\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00526}00526\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00527}\mbox{\hyperlink{group__utility__types_ga14e1cea4200d1d92d7f38d596333d28a}{00527}}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_ga14e1cea4200d1d92d7f38d596333d28a}{is\_compound}}()}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00528}00528\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00529}00529\ \ \ \textcolor{keywordflow}{return}\ std::is\_same\_v<T,\ cudf::string\_view>\ or\ std::is\_same\_v<T,\ cudf::dictionary32>\ or}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00530}00530\ \ \ \ \ \ \ \ \ \ std::is\_same\_v<T,\ cudf::list\_view>\ or\ std::is\_same\_v<T,\ cudf::struct\_view>;}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00531}00531\ \}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00532}00532\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00545}\mbox{\hyperlink{group__utility__types_ga7b9445eeead457a3d5e18a2a675eb8dd}{00545}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_ga14e1cea4200d1d92d7f38d596333d28a}{is\_compound}}(\mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type);}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00546}00546\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00558}00558\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00559}\mbox{\hyperlink{group__utility__types_gacaa242e2e068ab62bdaae071ed748357}{00559}}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_gacaa242e2e068ab62bdaae071ed748357}{is\_nested}}()}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00560}00560\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00561}00561\ \ \ \textcolor{keywordflow}{return}\ std::is\_same\_v<T,\ cudf::list\_view>\ ||\ std::is\_same\_v<T,\ cudf::struct\_view>;}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00562}00562\ \}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00563}00563\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00575}\mbox{\hyperlink{group__utility__types_ga8bfcb79b22de847a085d106dbf813c03}{00575}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_gacaa242e2e068ab62bdaae071ed748357}{is\_nested}}(\mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type);}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00576}00576\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00590}\mbox{\hyperlink{group__utility__types_ga73dd2d74b0eafb1543eb1cd27accd38e}{00590}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{group__utility__types_ga73dd2d74b0eafb1543eb1cd27accd38e}{is\_bit\_castable}}(\mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ from,\ \mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ to);}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00591}00591\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00592}00592\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ From,\ \textcolor{keyword}{typename}\ To>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00593}\mbox{\hyperlink{structcudf_1_1is__convertible}{00593}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1is__convertible}{is\_convertible}}\ :\ std::is\_convertible<From,\ To>\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00594}00594\ \};}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00595}00595\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00596}00596\ \textcolor{comment}{//\ This\ will\ ensure\ that\ timestamps\ can\ be\ promoted\ to\ a\ higher\ precision.\ Presently,\ they\ can't}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00597}00597\ \textcolor{comment}{//\ do\ that\ due\ to\ nvcc/gcc\ compiler\ issues}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00598}00598\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Duration1,\ \textcolor{keyword}{typename}\ Duration2>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00599}\mbox{\hyperlink{structcudf_1_1is__convertible_3_01cudf_1_1detail_1_1timestamp_3_01_duration1_01_4_00_01cudf_1_1daa0b9b43387383cde2e3c74f3ffafc24}{00599}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1is__convertible}{is\_convertible}}<\mbox{\hyperlink{namespacecudf}{cudf}}::\mbox{\hyperlink{namespacecudf_1_1detail_a3128cb15ed7da5bb5e926bb24a419262}{detail::timestamp}}<Duration1>,\ \mbox{\hyperlink{namespacecudf_1_1detail_a3128cb15ed7da5bb5e926bb24a419262}{cudf::detail::timestamp}}<Duration2>>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00600}00600\ \ \ :\ std::is\_convertible<typename\ cudf::detail::time\_point<Duration1>::duration,}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00601}00601\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ typename\ cudf::detail::time\_point<Duration2>::duration>\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00602}00602\ \};}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00603}00603\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00606}00606\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

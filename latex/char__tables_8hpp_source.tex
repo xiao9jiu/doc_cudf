@@ -1,0 +1,69 @@
+\doxysection{char\+\_\+tables.\+hpp}
+\hypertarget{char__tables_8hpp_source}{}\label{char__tables_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/strings/detail/char\_tables.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/strings/detail/char\_tables.hpp}}
+\mbox{\hyperlink{char__tables_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2019-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00016}00016\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00020}00020\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00021}00021\ \textcolor{keyword}{namespace\ }strings\ \{}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00022}00022\ \textcolor{keyword}{namespace\ }detail\ \{}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00023}00023\ \textcolor{comment}{//\ Type\ for\ the\ character\ flags\ table.}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00024}\mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_aa3e28807e386429e2589a280f21db124}{00024}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_aa3e28807e386429e2589a280f21db124}{character\_flags\_table\_type}}\ =\ std::uint8\_t;}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00036}\mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a8b5fde789ab36e11993e5627085d0f23}{00036}}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_aa3e28807e386429e2589a280f21db124}{character\_flags\_table\_type}}*\ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a8b5fde789ab36e11993e5627085d0f23}{get\_character\_flags\_table}}();}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00038}00038\ \textcolor{comment}{//\ utilities\ to\ dissect\ a\ character-\/table\ flag}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00039}\mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ab5b9527e53d156f316ba39f56da1744a}{00039}}\ \textcolor{keyword}{constexpr}\ uint8\_t\ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ab5b9527e53d156f316ba39f56da1744a}{IS\_DECIMAL}}(uint8\_t\ x)\ \{\ \textcolor{keywordflow}{return}\ ((x)\ \&\ (1\ <<\ 0));\ \}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00040}\mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ae0eb07f8c45fd780eef62071f158a6a7}{00040}}\ \textcolor{keyword}{constexpr}\ uint8\_t\ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ae0eb07f8c45fd780eef62071f158a6a7}{IS\_NUMERIC}}(uint8\_t\ x)\ \{\ \textcolor{keywordflow}{return}\ ((x)\ \&\ (1\ <<\ 1));\ \}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00041}\mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a2d49ae3ab525b5e11e7d76a4abd9c319}{00041}}\ \textcolor{keyword}{constexpr}\ uint8\_t\ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a2d49ae3ab525b5e11e7d76a4abd9c319}{IS\_DIGIT}}(uint8\_t\ x)\ \{\ \textcolor{keywordflow}{return}\ ((x)\ \&\ (1\ <<\ 2));\ \}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00042}\mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a459e3f8d1ed89a62bec62ec1ef0b1e5c}{00042}}\ \textcolor{keyword}{constexpr}\ uint8\_t\ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a459e3f8d1ed89a62bec62ec1ef0b1e5c}{IS\_ALPHA}}(uint8\_t\ x)\ \{\ \textcolor{keywordflow}{return}\ ((x)\ \&\ (1\ <<\ 3));\ \}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00043}\mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ae4252a01db93d6015e75f6efa2a9a95b}{00043}}\ \textcolor{keyword}{constexpr}\ uint8\_t\ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ae4252a01db93d6015e75f6efa2a9a95b}{IS\_SPACE}}(uint8\_t\ x)\ \{\ \textcolor{keywordflow}{return}\ ((x)\ \&\ (1\ <<\ 4));\ \}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00044}\mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a403235c4ef1582a8c8e4ff77fb4ed9e2}{00044}}\ \textcolor{keyword}{constexpr}\ uint8\_t\ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a403235c4ef1582a8c8e4ff77fb4ed9e2}{IS\_UPPER}}(uint8\_t\ x)\ \{\ \textcolor{keywordflow}{return}\ ((x)\ \&\ (1\ <<\ 5));\ \}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00045}\mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a96b30f602d723da0e552f30d4c7f6e87}{00045}}\ \textcolor{keyword}{constexpr}\ uint8\_t\ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a96b30f602d723da0e552f30d4c7f6e87}{IS\_LOWER}}(uint8\_t\ x)\ \{\ \textcolor{keywordflow}{return}\ ((x)\ \&\ (1\ <<\ 6));\ \}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00046}\mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a0bb2110e6146a501687fdefb7c8217d1}{00046}}\ \textcolor{keyword}{constexpr}\ uint8\_t\ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a0bb2110e6146a501687fdefb7c8217d1}{IS\_SPECIAL}}(uint8\_t\ x)\ \{\ \textcolor{keywordflow}{return}\ ((x)\ \&\ (1\ <<\ 7));\ \}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00047}\mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a4ad21735b7fd9352c93a040d2de67356}{00047}}\ \textcolor{keyword}{constexpr}\ uint8\_t\ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a4ad21735b7fd9352c93a040d2de67356}{IS\_ALPHANUM}}(uint8\_t\ x)\ \{\ \textcolor{keywordflow}{return}\ ((x)\ \&\ (0x0F));\ \}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00048}\mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a4565cab7f14504825bb74c7ad70015f3}{00048}}\ \textcolor{keyword}{constexpr}\ uint8\_t\ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a4565cab7f14504825bb74c7ad70015f3}{IS\_UPPER\_OR\_LOWER}}(uint8\_t\ x)\ \{\ \textcolor{keywordflow}{return}\ ((x)\ \&\ ((1\ <<\ 5)\ |\ (1\ <<\ 6)));\ \}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00049}\mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ac53c1e98d2f3a5d4c69590173645d0df}{00049}}\ \textcolor{keyword}{constexpr}\ uint8\_t\ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ac53c1e98d2f3a5d4c69590173645d0df}{ALL\_FLAGS}}\ =\ 0xFF;}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00051}00051\ \textcolor{comment}{//\ Type\ for\ the\ character\ cases\ table.}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00052}\mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a1754364b3624ead1177c92000bf133d7}{00052}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a1754364b3624ead1177c92000bf133d7}{character\_cases\_table\_type}}\ =\ uint16\_t;}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00064}\mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a9c09ebfde12af2f9f3df558134a8cc67}{00064}}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a1754364b3624ead1177c92000bf133d7}{character\_cases\_table\_type}}*\ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a9c09ebfde12af2f9f3df558134a8cc67}{get\_character\_cases\_table}}();}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00074}\mbox{\hyperlink{structcudf_1_1strings_1_1detail_1_1special__case__mapping}{00074}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1strings_1_1detail_1_1special__case__mapping}{special\_case\_mapping}}\ \{}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00075}\mbox{\hyperlink{structcudf_1_1strings_1_1detail_1_1special__case__mapping_a526232c8219393102c38c4c9893194e1}{00075}}\ \ \ uint16\_t\ \mbox{\hyperlink{structcudf_1_1strings_1_1detail_1_1special__case__mapping_a526232c8219393102c38c4c9893194e1}{num\_upper\_chars}};}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00076}\mbox{\hyperlink{structcudf_1_1strings_1_1detail_1_1special__case__mapping_a32b4444cbeb00e4f9ff1b6ef0a42f827}{00076}}\ \ \ uint16\_t\ \mbox{\hyperlink{structcudf_1_1strings_1_1detail_1_1special__case__mapping_a32b4444cbeb00e4f9ff1b6ef0a42f827}{upper}}[3];}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00077}\mbox{\hyperlink{structcudf_1_1strings_1_1detail_1_1special__case__mapping_a0251eab95abd684933eeb07f98e06ee4}{00077}}\ \ \ uint16\_t\ \mbox{\hyperlink{structcudf_1_1strings_1_1detail_1_1special__case__mapping_a0251eab95abd684933eeb07f98e06ee4}{num\_lower\_chars}};}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00078}\mbox{\hyperlink{structcudf_1_1strings_1_1detail_1_1special__case__mapping_a2e67c72fce69013cd87264d421f7c9a0}{00078}}\ \ \ uint16\_t\ \mbox{\hyperlink{structcudf_1_1strings_1_1detail_1_1special__case__mapping_a2e67c72fce69013cd87264d421f7c9a0}{lower}}[3];}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00079}00079\ \};}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00091}\mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ab802022423cd65cadd6165cebc2de89f}{00091}}\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1strings_1_1detail_1_1special__case__mapping}{special\_case\_mapping}}*\ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ab802022423cd65cadd6165cebc2de89f}{get\_special\_case\_mapping\_table}}();}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00098}\mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ae3d2f737d44317bd9b64aca509c5f591}{00098}}\ \textcolor{keyword}{constexpr}\ uint16\_t\ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ae3d2f737d44317bd9b64aca509c5f591}{get\_special\_case\_hash\_index}}(uint32\_t\ code\_point)}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00099}00099\ \{}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00100}00100\ \ \ \textcolor{keyword}{constexpr}\ uint16\_t\ special\_case\_prime\ =\ 499;\ \ \textcolor{comment}{//\ computed\ from\ generate\_special\_mapping\_hash\_table}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00101}00101\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}uint16\_t\textcolor{keyword}{>}(code\_point\ \%\ special\_case\_prime);}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00102}00102\ \}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00104}00104\ \}\ \ \textcolor{comment}{//\ namespace\ detail}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00105}00105\ \}\ \ \textcolor{comment}{//\ namespace\ strings}}
+\DoxyCodeLine{\Hypertarget{char__tables_8hpp_source_l00106}00106\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

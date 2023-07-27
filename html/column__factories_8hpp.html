@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: D:/gitLibrary/cudf/cpp/include/cudf/column/column_factories.hpp 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('column__factories_8hpp.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#func-members">函数</a>  </div>
+  <div class="headertitle"><div class="title">column_factories.hpp 文件参考<div class="ingroups"><a class="el" href="group__column__factories.html">Factories</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Column factory APIs  
+<a href="#details">更多...</a></p>
+<div class="textblock"><code>#include &lt;<a class="el" href="column_8hpp_source.html">cudf/column/column.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="types_8hpp_source.html">cudf/types.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="utilities_2default__stream_8hpp_source.html">cudf/utilities/default_stream.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="span_8hpp_source.html">cudf/utilities/span.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="traits_8hpp_source.html">cudf/utilities/traits.hpp</a>&gt;</code><br />
+<code>#include &lt;rmm/cuda_stream_view.hpp&gt;</code><br />
+<code>#include &lt;rmm/mr/device/per_device_resource.hpp&gt;</code><br />
+<code>#include &lt;thrust/pair.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+column_factories.hpp 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="column__factories_8hpp__incl.png" border="0" usemap="#a_d_1_2git_library_2cudf_2cpp_2include_2cudf_2column_2column__factories_8hpp" alt=""/></div>
+<map name="a_d_1_2git_library_2cudf_2cpp_2include_2cudf_2column_2column__factories_8hpp" id="a_d_1_2git_library_2cudf_2cpp_2include_2cudf_2column_2column__factories_8hpp">
+<area shape="rect" title="Column factory APIs" alt="" coords="3141,5,3306,64"/>
+<area shape="rect" href="column_8hpp.html" title="Class definition for cudf::column" alt="" coords="3041,112,3203,139"/>
+<area shape="poly" title=" " alt="" coords="3192,66,3149,104,3146,100,3189,62"/>
+<area shape="rect" href="types_8hpp.html" title="Type declarations for libcudf." alt="" coords="1685,549,1791,576"/>
+<area shape="poly" title=" " alt="" coords="3261,63,3288,90,3314,124,3334,164,3342,206,3342,391,3337,410,3327,422,3309,435,3280,450,3239,467,3107,504,2988,524,2831,539,2648,550,2452,557,2075,564,1806,564,1806,559,2075,558,2452,552,2647,544,2831,533,2988,518,3105,499,3237,461,3278,445,3306,431,3323,418,3332,407,3337,390,3337,207,3329,165,3310,127,3284,94,3257,67"/>
+<area shape="rect" href="span_8hpp.html" title=" " alt="" coords="2459,285,2606,312"/>
+<area shape="poly" title=" " alt="" coords="3140,44,3069,53,2987,66,2900,87,2816,114,2739,152,2667,197,2605,241,2560,278,2556,274,2602,237,2664,193,2737,147,2814,110,2899,81,2986,61,3069,48,3140,39"/>
+<area shape="rect" href="traits_8hpp.html" title=" " alt="" coords="736,285,884,312"/>
+<area shape="poly" title=" " alt="" coords="3141,46,2543,103,1708,189,1253,243,899,288,899,283,1252,238,1707,184,2543,98,3140,41"/>
+<area shape="rect" title=" " alt="" coords="2923,277,3094,320"/>
+<area shape="poly" title=" " alt="" coords="3140,39,3050,48,2999,58,2948,72,2897,92,2850,117,2808,149,2772,188,2763,207,2765,224,2776,238,2794,251,2847,271,2909,284,2908,289,2845,276,2791,255,2772,242,2760,226,2758,207,2768,185,2804,145,2847,112,2895,87,2946,67,2998,53,3049,43,3140,34"/>
+<area shape="rect" href="utilities_2default__stream_8hpp.html" title=" " alt="" coords="3377,187,3509,229"/>
+<area shape="poly" title=" " alt="" coords="3285,62,3323,84,3360,110,3393,141,3421,173,3417,176,3389,145,3356,114,3320,89,3282,67"/>
+<area shape="rect" title=" " alt="" coords="3557,376,3740,403"/>
+<area shape="poly" title=" " alt="" coords="3307,57,3369,78,3437,106,3507,142,3572,185,3616,224,3631,246,3645,277,3654,321,3654,361,3649,361,3648,321,3639,278,3626,249,3612,227,3568,189,3504,146,3435,111,3367,83,3306,62"/>
+<area shape="rect" title=" " alt="" coords="3739,112,3830,139"/>
+<area shape="poly" title=" " alt="" coords="3307,45,3721,109,3725,110,3724,115,3720,115,3306,50"/>
+<area shape="rect" href="column__view_8hpp.html" title="column view class definitions" alt="" coords="1720,187,1857,229"/>
+<area shape="poly" title=" " alt="" coords="3041,134,1873,204,1872,199,3040,129"/>
+<area shape="poly" title=" " alt="" coords="3151,137,3193,161,3239,196,3259,217,3276,241,3287,268,3291,297,3291,391,3288,406,3277,419,3238,444,3178,465,3100,484,3006,500,2899,513,2660,535,2407,549,2164,558,1806,564,1806,558,2164,552,2407,544,2660,529,2898,508,3005,494,3099,478,3177,460,3236,439,3274,416,3283,403,3286,390,3286,298,3282,270,3271,244,3255,221,3235,200,3190,165,3148,141"/>
+<area shape="rect" title=" " alt="" coords="3101,376,3252,403"/>
+<area shape="poly" title=" " alt="" coords="3147,137,3173,157,3194,185,3202,209,3206,233,3206,281,3199,326,3189,362,3184,361,3194,325,3201,281,3201,233,3197,210,3189,188,3169,161,3143,141"/>
+<area shape="rect" title=" " alt="" coords="2916,376,3077,403"/>
+<area shape="poly" title=" " alt="" coords="3127,138,3133,173,3136,220,3129,273,3121,298,3108,322,3079,351,3045,372,3042,367,3076,347,3104,318,3116,296,3124,272,3130,220,3128,173,3122,139"/>
+<area shape="rect" title=" " alt="" coords="2759,376,2842,403"/>
+<area shape="poly" title=" " alt="" coords="3041,133,2960,139,2875,149,2799,166,2771,176,2750,189,2723,218,2710,248,2709,281,2722,319,2741,345,2766,366,2763,370,2737,349,2717,321,2704,282,2704,247,2719,215,2747,185,2768,172,2798,161,2874,144,2960,133,3040,127"/>
+<area shape="rect" title=" " alt="" coords="2732,285,2787,312"/>
+<area shape="poly" title=" " alt="" coords="3041,132,2965,138,2884,148,2815,165,2789,176,2772,188,2761,207,2755,228,2756,271,2751,271,2750,227,2756,205,2768,185,2787,171,2813,160,2883,143,2964,132,3040,127"/>
+<area shape="rect" href="null__mask_8hpp.html" title="APIs for managing validity bitmasks" alt="" coords="2951,195,3085,221"/>
+<area shape="poly" title=" " alt="" coords="3107,141,3047,187,3044,183,3104,137"/>
+<area shape="poly" title=" " alt="" coords="3124,139,3118,182,3111,207,3099,231,3081,253,3059,271,3056,267,3077,249,3094,228,3106,205,3113,181,3119,139"/>
+<area shape="poly" title=" " alt="" coords="3173,137,3364,184,3362,189,3172,142"/>
+<area shape="poly" title=" " alt="" coords="3204,130,3381,150,3464,165,3523,184,3555,203,3577,222,3595,245,3615,276,3635,320,3646,361,3641,362,3630,321,3610,279,3591,248,3573,225,3552,207,3521,189,3463,171,3380,155,3203,136"/>
+<area shape="rect" title=" " alt="" coords="2782,195,2851,221"/>
+<area shape="poly" title=" " alt="" coords="3051,142,2961,162,2863,189,2857,191,2855,186,2861,184,2959,156,3050,137"/>
+<area shape="rect" title=" " alt="" coords="2874,195,2927,221"/>
+<area shape="poly" title=" " alt="" coords="3078,142,3012,162,2940,189,2937,190,2935,186,2938,184,3010,157,3076,137"/>
+<area shape="poly" title=" " alt="" coords="1803,228,1829,279,1854,349,1861,388,1863,428,1858,466,1843,503,1821,528,1793,545,1790,541,1818,524,1838,500,1853,465,1858,427,1856,389,1848,351,1824,281,1799,231"/>
+<area shape="rect" href="error_8hpp.html" title=" " alt="" coords="1204,376,1349,403"/>
+<area shape="poly" title=" " alt="" coords="1731,232,1327,373,1325,368,1729,227"/>
+<area shape="poly" title=" " alt="" coords="1858,215,2445,284,2444,290,1858,220"/>
+<area shape="rect" title=" " alt="" coords="1776,467,1828,493"/>
+<area shape="poly" title=" " alt="" coords="1784,230,1773,278,1765,344,1766,373,1773,410,1789,453,1785,455,1767,411,1761,374,1760,344,1767,277,1779,229"/>
+<area shape="poly" title=" " alt="" coords="1858,207,2030,212,2251,223,2465,243,2553,257,2619,275,2637,284,2649,294,2677,318,2764,367,2761,371,2674,322,2646,298,2634,289,2617,280,2552,262,2465,248,2251,228,2030,217,1858,213"/>
+<area shape="poly" title=" " alt="" coords="1720,217,1402,242,984,280,899,289,899,284,983,275,1401,237,1719,212"/>
+<area shape="rect" href="type__dispatcher_8hpp.html" title="Defines the mapping between cudf::type_id runtime type information and concrete C++ types." alt="" coords="996,277,1115,320"/>
+<area shape="poly" title=" " alt="" coords="1720,220,1130,291,1129,286,1719,215"/>
+<area shape="poly" title=" " alt="" coords="1858,209,2204,228,2432,248,2662,275,2718,285,2717,290,2662,280,2431,253,2203,234,1857,214"/>
+<area shape="rect" title=" " alt="" coords="908,624,973,651"/>
+<area shape="poly" title=" " alt="" coords="1685,571,988,634,987,629,1684,566"/>
+<area shape="rect" title=" " alt="" coords="2600,624,2663,651"/>
+<area shape="poly" title=" " alt="" coords="1792,566,2585,630,2585,635,1791,571"/>
+<area shape="rect" title=" " alt="" coords="1665,624,1725,651"/>
+<area shape="poly" title=" " alt="" coords="1733,578,1712,612,1708,610,1728,575"/>
+<area shape="rect" title=" " alt="" coords="1750,624,1811,651"/>
+<area shape="poly" title=" " alt="" coords="1748,575,1768,610,1764,612,1743,578"/>
+<area shape="rect" title=" " alt="" coords="1194,467,1255,493"/>
+<area shape="poly" title=" " alt="" coords="1272,405,1242,455,1237,452,1267,402"/>
+<area shape="rect" title=" " alt="" coords="1279,467,1413,493"/>
+<area shape="poly" title=" " alt="" coords="1289,402,1329,453,1325,457,1285,405"/>
+<area shape="rect" title=" " alt="" coords="1437,467,1516,493"/>
+<area shape="poly" title=" " alt="" coords="1306,401,1436,458,1434,463,1304,406"/>
+<area shape="rect" title=" " alt="" coords="911,549,965,576"/>
+<area shape="poly" title=" " alt="" coords="1256,406,1177,450,1075,504,979,547,977,542,1073,499,1175,445,1254,401"/>
+<area shape="poly" title=" " alt="" coords="2579,310,2650,335,2680,350,2699,366,2714,398,2719,432,2716,467,2707,502,2680,565,2651,613,2646,611,2675,563,2702,500,2711,466,2713,432,2708,400,2695,370,2677,355,2647,340,2577,315"/>
+<area shape="poly" title=" " alt="" coords="2607,305,2862,335,3089,365,3111,370,3110,375,3088,371,2862,340,2607,311"/>
+<area shape="poly" title=" " alt="" coords="2600,310,2916,370,2915,375,2599,315"/>
+<area shape="rect" title=" " alt="" coords="2017,376,2171,403"/>
+<area shape="poly" title=" " alt="" coords="2465,315,2183,371,2163,375,2162,370,2181,365,2463,310"/>
+<area shape="rect" title=" " alt="" coords="2194,368,2354,411"/>
+<area shape="poly" title=" " alt="" coords="2496,315,2349,365,2347,360,2495,310"/>
+<area shape="rect" title=" " alt="" coords="2378,376,2524,403"/>
+<area shape="poly" title=" " alt="" coords="2523,314,2475,367,2471,363,2519,311"/>
+<area shape="rect" title=" " alt="" coords="2549,376,2684,403"/>
+<area shape="poly" title=" " alt="" coords="2547,311,2596,363,2593,367,2543,314"/>
+<area shape="rect" title=" " alt="" coords="1877,376,1993,403"/>
+<area shape="poly" title=" " alt="" coords="2459,309,2254,331,2129,348,2005,371,1989,374,1988,369,2004,365,2128,343,2253,325,2458,303"/>
+<area shape="poly" title=" " alt="" coords="2459,302,2315,304,2140,313,2055,321,1977,333,1912,349,1866,370,1847,387,1831,409,1812,453,1807,451,1827,406,1843,384,1863,366,1911,344,1976,328,2054,316,2140,307,2315,298,2458,297"/>
+<area shape="poly" title=" " alt="" coords="2572,310,2741,365,2750,368,2749,373,2740,371,2571,315"/>
+<area shape="poly" title=" " alt="" coords="829,310,885,349,970,401,1073,455,1127,479,1183,499,1248,517,1315,531,1450,549,1573,558,1670,560,1670,565,1573,563,1450,554,1315,536,1247,522,1181,504,1125,484,1070,460,967,406,882,353,826,315"/>
+<area shape="rect" href="fixed__point_8hpp.html" title="Class definition for fixed point data type" alt="" coords="651,368,793,411"/>
+<area shape="poly" title=" " alt="" coords="799,314,754,359,751,356,796,311"/>
+<area shape="rect" title=" " alt="" coords="267,549,403,576"/>
+<area shape="poly" title=" " alt="" coords="736,305,558,316,449,326,338,341,231,362,136,388,96,403,62,421,35,439,16,460,8,481,10,490,16,499,46,513,106,526,253,549,252,554,105,531,44,518,12,503,5,492,3,480,12,457,32,435,60,416,94,398,135,383,230,356,337,336,449,321,557,311,735,300"/>
+<area shape="rect" href="dictionary_8hpp.html" title="Concrete type definition for dictionary columns." alt="" coords="1463,376,1650,403"/>
+<area shape="poly" title=" " alt="" coords="885,306,1449,373,1448,378,884,311"/>
+<area shape="rect" href="durations_8hpp.html" title="Concrete type definitions for int32_t and int64_t durations in varying resolutions." alt="" coords="26,467,210,493"/>
+<area shape="poly" title=" " alt="" coords="736,308,566,328,466,346,368,371,308,391,249,415,155,462,152,457,247,411,306,386,367,365,465,341,565,323,735,303"/>
+<area shape="rect" href="timestamps_8hpp.html" title="Concrete type definitions for int32_t and int64_t timestamps in varying resolutions as durations sinc..." alt="" coords="379,376,577,403"/>
+<area shape="poly" title=" " alt="" coords="763,315,540,374,539,369,762,310"/>
+<area shape="poly" title=" " alt="" coords="758,409,830,457,855,480,866,490,882,499,949,518,1040,532,1147,543,1263,550,1492,558,1670,559,1670,565,1492,563,1263,556,1147,548,1039,538,948,523,880,504,863,495,851,484,827,461,755,413"/>
+<area shape="poly" title=" " alt="" coords="651,410,633,413,554,423,492,426,432,435,398,445,359,461,310,485,267,512,253,526,245,541,246,557,257,574,269,582,290,589,353,602,438,612,535,620,738,629,894,633,894,638,738,635,535,625,437,618,352,607,288,595,267,587,253,578,241,558,240,540,249,523,264,507,308,480,357,456,396,440,430,429,491,421,554,418,632,408,650,404"/>
+<area shape="poly" title=" " alt="" coords="724,411,728,456,736,479,749,500,782,525,821,542,861,552,897,557,896,562,860,558,819,547,779,530,745,503,731,481,723,457,718,411"/>
+<area shape="rect" title=" " alt="" coords="893,459,1018,501"/>
+<area shape="poly" title=" " alt="" coords="778,409,888,450,886,455,776,414"/>
+<area shape="rect" href="temporary_8hpp.html" title=" " alt="" coords="436,467,634,493"/>
+<area shape="poly" title=" " alt="" coords="679,414,576,462,574,457,677,409"/>
+<area shape="rect" title=" " alt="" coords="525,549,639,576"/>
+<area shape="poly" title=" " alt="" coords="651,409,426,461,421,470,419,479,427,500,440,511,462,522,518,542,517,547,460,527,437,516,422,503,414,480,416,468,423,457,650,404"/>
+<area shape="rect" title=" " alt="" coords="662,549,768,576"/>
+<area shape="poly" title=" " alt="" coords="717,412,706,459,706,501,712,534,706,535,701,502,701,458,712,411"/>
+<area shape="poly" title=" " alt="" coords="651,409,633,413,565,422,510,423,459,431,431,443,401,461,383,477,368,497,347,537,342,534,363,494,379,473,398,457,429,438,457,426,510,418,565,416,632,408,650,404"/>
+<area shape="rect" title=" " alt="" coords="427,549,502,576"/>
+<area shape="poly" title=" " alt="" coords="651,409,633,413,598,418,565,419,509,416,484,417,460,424,437,437,414,460,407,479,412,499,425,519,441,537,437,541,420,522,407,501,401,478,409,457,433,433,458,419,483,412,509,411,566,414,597,413,632,408,650,404"/>
+<area shape="rect" title=" " alt="" coords="760,467,817,493"/>
+<area shape="poly" title=" " alt="" coords="740,409,773,453,768,456,735,413"/>
+<area shape="poly" title=" " alt="" coords="635,489,748,499,1279,534,1670,555,1670,561,1278,539,747,504,635,494"/>
+<area shape="poly" title=" " alt="" coords="599,491,897,551,896,556,598,497"/>
+<area shape="poly" title=" " alt="" coords="545,492,570,535,565,538,540,495"/>
+<area shape="poly" title=" " alt="" coords="565,491,675,541,673,546,562,496"/>
+<area shape="poly" title=" " alt="" coords="505,496,380,546,379,541,503,491"/>
+<area shape="poly" title=" " alt="" coords="526,496,487,540,483,537,522,492"/>
+<area shape="poly" title=" " alt="" coords="1583,401,1622,425,1664,457,1699,496,1725,535,1721,538,1695,500,1660,461,1619,429,1580,406"/>
+<area shape="poly" title=" " alt="" coords="1593,401,1762,462,1761,467,1591,406"/>
+<area shape="rect" title=" " alt="" coords="1540,467,1650,493"/>
+<area shape="poly" title=" " alt="" coords="1565,402,1587,452,1582,454,1560,404"/>
+<area shape="rect" title=" " alt="" coords="61,549,175,576"/>
+<area shape="poly" title=" " alt="" coords="121,494,121,535,115,535,115,494"/>
+<area shape="poly" title=" " alt="" coords="427,406,184,465,183,460,426,401"/>
+<area shape="poly" title=" " alt="" coords="1116,297,1246,298,1408,307,1488,315,1560,328,1621,344,1664,366,1682,383,1698,404,1720,449,1733,495,1739,534,1733,535,1727,497,1715,451,1693,406,1678,387,1660,370,1619,349,1559,333,1487,321,1408,312,1246,303,1115,302"/>
+<area shape="poly" title=" " alt="" coords="1108,318,1232,368,1230,372,1106,323"/>
+<area shape="poly" title=" " alt="" coords="1061,320,1063,356,1062,404,1053,455,1032,503,1008,529,980,547,977,542,1005,525,1028,500,1048,453,1056,403,1058,357,1055,320"/>
+<area shape="poly" title=" " alt="" coords="996,318,808,368,807,363,995,313"/>
+<area shape="poly" title=" " alt="" coords="1046,322,976,447,971,445,1042,319"/>
+<area shape="poly" title=" " alt="" coords="1116,308,1472,370,1471,376,1115,313"/>
+<area shape="poly" title=" " alt="" coords="995,311,789,341,694,357,640,370,626,380,616,391,606,403,590,413,538,433,493,445,452,451,413,452,331,452,284,455,229,461,200,466,199,461,228,456,284,449,331,447,413,447,452,445,492,440,537,428,587,408,602,399,612,388,622,376,638,366,693,352,788,335,995,305"/>
+<area shape="poly" title=" " alt="" coords="996,311,596,371,565,376,565,370,595,365,995,306"/>
+<area shape="poly" title=" " alt="" coords="2990,224,2951,247,2913,279,2901,297,2895,314,2889,348,2881,381,2872,397,2856,413,2818,436,2771,456,2715,474,2651,490,2506,515,2349,534,2188,548,2037,556,1806,563,1806,558,2037,551,2188,542,2348,529,2506,510,2650,484,2713,469,2769,451,2816,431,2852,409,2867,394,2876,379,2884,347,2889,313,2897,294,2909,276,2948,242,2987,220"/>
+<area shape="poly" title=" " alt="" coords="2972,225,2940,232,2771,264,2622,287,2621,282,2770,258,2939,227,2971,219"/>
+<area shape="poly" title=" " alt="" coords="3040,220,3073,244,3108,276,3142,320,3166,362,3162,364,3137,323,3104,279,3070,248,3037,224"/>
+<area shape="poly" title=" " alt="" coords="2982,224,2802,286,2800,281,2980,219"/>
+<area shape="poly" title=" " alt="" coords="3019,222,3015,263,3010,262,3014,222"/>
+<area shape="rect" href="detail_2utilities_2default__stream_8hpp.html" title=" " alt="" coords="3428,277,3563,320"/>
+<area shape="poly" title=" " alt="" coords="3458,228,3478,263,3474,266,3453,231"/>
+<area shape="rect" title=" " alt="" coords="3381,376,3532,403"/>
+<area shape="poly" title=" " alt="" coords="3434,231,3419,272,3415,296,3418,319,3427,342,3440,363,3435,365,3423,344,3413,321,3410,296,3413,271,3429,229"/>
+<area shape="poly" title=" " alt="" coords="3499,228,3539,248,3577,275,3614,318,3639,361,3634,364,3609,321,3574,279,3536,253,3497,232"/>
+<area shape="poly" title=" " alt="" coords="3489,321,3470,364,3465,361,3484,319"/>
+<area shape="poly" title=" " alt="" coords="3533,318,3616,366,3613,371,3530,323"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+此图展示该文件直接或间接的被哪些文件引用了:</div>
+<div class="dyncontent">
+<div class="center"><img src="column__factories_8hpp__dep__incl.png" border="0" usemap="#a_d_1_2git_library_2cudf_2cpp_2include_2cudf_2column_2column__factories_8hppdep" alt=""/></div>
+<map name="a_d_1_2git_library_2cudf_2cpp_2include_2cudf_2column_2column__factories_8hppdep" id="a_d_1_2git_library_2cudf_2cpp_2include_2cudf_2column_2column__factories_8hppdep">
+<area shape="rect" title="Column factory APIs" alt="" coords="5,5,171,64"/>
+<area shape="rect" href="detail_2unary_8hpp.html" title=" " alt="" coords="11,112,165,171"/>
+<area shape="poly" title=" " alt="" coords="91,79,91,112,85,112,85,79"/>
+</map>
+</div>
+</div>
+<p><a href="column__factories_8hpp_source.html">浏览源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:namespacecudf"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecudf.html">cudf</a></td></tr>
+<tr class="memdesc:namespacecudf"><td class="mdescLeft">&#160;</td><td class="mdescRight">cuDF interfaces <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:gaa80de7d88a408ab660541a4a3b214ead"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__factories.html#gaa80de7d88a408ab660541a4a3b214ead">cudf::make_empty_column</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type)</td></tr>
+<tr class="memdesc:gaa80de7d88a408ab660541a4a3b214ead"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty column of the specified <code>type</code>  <br /></td></tr>
+<tr class="separator:gaa80de7d88a408ab660541a4a3b214ead"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga890d1519f4d245dca1f33d09b90f7ca5"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__factories.html#ga890d1519f4d245dca1f33d09b90f7ca5">cudf::make_empty_column</a> (<a class="el" href="group__utility__types.html#gadf077607da617d1dadcc5417e2783539">type_id</a> id)</td></tr>
+<tr class="memdesc:ga890d1519f4d245dca1f33d09b90f7ca5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty column of the specified type.  <br /></td></tr>
+<tr class="separator:ga890d1519f4d245dca1f33d09b90f7ca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga84a9f9deecdbac612cb79cec10a1cff6"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__factories.html#ga84a9f9deecdbac612cb79cec10a1cff6">cudf::make_numeric_column</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> size, <a class="el" href="group__utility__types.html#ga4daf20c000ab374d76f4d56f0ddb7b26">mask_state</a> state=<a class="el" href="group__utility__types.html#gga4daf20c000ab374d76f4d56f0ddb7b26a628732521c22dcf8a24bf1a0326bde80">mask_state::UNALLOCATED</a>, rmm::cuda_stream_view stream=<a class="el" href="namespacecudf.html#a001ed29e71e759518cae31e52312befa">cudf::get_default_stream</a>(), rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:ga84a9f9deecdbac612cb79cec10a1cff6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct column with sufficient uninitialized storage to hold <code>size</code> elements of the specified numeric <code><a class="el" href="classcudf_1_1data__type.html" title="Indicator for the logical data type of an element in a column.">data_type</a></code> with an optional null mask.  <br /></td></tr>
+<tr class="separator:ga84a9f9deecdbac612cb79cec10a1cff6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad908ea3b27809643a5459d191e52ac91"><td class="memTemplParams" colspan="2">template&lt;typename B &gt; </td></tr>
+<tr class="memitem:gad908ea3b27809643a5459d191e52ac91"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__column__factories.html#gad908ea3b27809643a5459d191e52ac91">cudf::make_numeric_column</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> size, B &amp;&amp;null_mask, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> null_count=<a class="el" href="group__utility__types.html#ga0eece3f40ff89fe8f1117097d86913b7">cudf::UNKNOWN_NULL_COUNT</a>, rmm::cuda_stream_view stream=<a class="el" href="namespacecudf.html#a001ed29e71e759518cae31e52312befa">cudf::get_default_stream</a>(), rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:gad908ea3b27809643a5459d191e52ac91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct column with sufficient uninitialized storage to hold <code>size</code> elements of the specified numeric <code><a class="el" href="classcudf_1_1data__type.html" title="Indicator for the logical data type of an element in a column.">data_type</a></code> with a null mask.  <br /></td></tr>
+<tr class="separator:gad908ea3b27809643a5459d191e52ac91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9329fc1ef9d96f36d71eab418926c206"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__factories.html#ga9329fc1ef9d96f36d71eab418926c206">cudf::make_fixed_point_column</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> size, <a class="el" href="group__utility__types.html#ga4daf20c000ab374d76f4d56f0ddb7b26">mask_state</a> state=<a class="el" href="group__utility__types.html#gga4daf20c000ab374d76f4d56f0ddb7b26a628732521c22dcf8a24bf1a0326bde80">mask_state::UNALLOCATED</a>, rmm::cuda_stream_view stream=<a class="el" href="namespacecudf.html#a001ed29e71e759518cae31e52312befa">cudf::get_default_stream</a>(), rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:ga9329fc1ef9d96f36d71eab418926c206"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct column with sufficient uninitialized storage to hold <code>size</code> elements of the specified <code>fixed_point</code> <code><a class="el" href="classcudf_1_1data__type.html" title="Indicator for the logical data type of an element in a column.">data_type</a></code> with an optional null mask.  <br /></td></tr>
+<tr class="separator:ga9329fc1ef9d96f36d71eab418926c206"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae70cbf7bed0d8e08087cbef612d0affb"><td class="memTemplParams" colspan="2">template&lt;typename B &gt; </td></tr>
+<tr class="memitem:gae70cbf7bed0d8e08087cbef612d0affb"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__column__factories.html#gae70cbf7bed0d8e08087cbef612d0affb">cudf::make_fixed_point_column</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> size, B &amp;&amp;null_mask, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> null_count=<a class="el" href="group__utility__types.html#ga0eece3f40ff89fe8f1117097d86913b7">cudf::UNKNOWN_NULL_COUNT</a>, rmm::cuda_stream_view stream=<a class="el" href="namespacecudf.html#a001ed29e71e759518cae31e52312befa">cudf::get_default_stream</a>(), rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:gae70cbf7bed0d8e08087cbef612d0affb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct column with sufficient uninitialized storage to hold <code>size</code> elements of the specified <code>fixed_point</code> <code><a class="el" href="classcudf_1_1data__type.html" title="Indicator for the logical data type of an element in a column.">data_type</a></code> with a null mask.  <br /></td></tr>
+<tr class="separator:gae70cbf7bed0d8e08087cbef612d0affb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad3dd1ff4b11ca9c70322004ea72fdf0d"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__factories.html#gad3dd1ff4b11ca9c70322004ea72fdf0d">cudf::make_timestamp_column</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> size, <a class="el" href="group__utility__types.html#ga4daf20c000ab374d76f4d56f0ddb7b26">mask_state</a> state=<a class="el" href="group__utility__types.html#gga4daf20c000ab374d76f4d56f0ddb7b26a628732521c22dcf8a24bf1a0326bde80">mask_state::UNALLOCATED</a>, rmm::cuda_stream_view stream=<a class="el" href="namespacecudf.html#a001ed29e71e759518cae31e52312befa">cudf::get_default_stream</a>(), rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:gad3dd1ff4b11ca9c70322004ea72fdf0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct column with sufficient uninitialized storage to hold <code>size</code> elements of the specified timestamp <code><a class="el" href="classcudf_1_1data__type.html" title="Indicator for the logical data type of an element in a column.">data_type</a></code> with an optional null mask.  <br /></td></tr>
+<tr class="separator:gad3dd1ff4b11ca9c70322004ea72fdf0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga82d67ff8acbde7370b6dfa4eeaf63893"><td class="memTemplParams" colspan="2">template&lt;typename B &gt; </td></tr>
+<tr class="memitem:ga82d67ff8acbde7370b6dfa4eeaf63893"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__column__factories.html#ga82d67ff8acbde7370b6dfa4eeaf63893">cudf::make_timestamp_column</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> size, B &amp;&amp;null_mask, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> null_count=<a class="el" href="group__utility__types.html#ga0eece3f40ff89fe8f1117097d86913b7">cudf::UNKNOWN_NULL_COUNT</a>, rmm::cuda_stream_view stream=<a class="el" href="namespacecudf.html#a001ed29e71e759518cae31e52312befa">cudf::get_default_stream</a>(), rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:ga82d67ff8acbde7370b6dfa4eeaf63893"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct column with sufficient uninitialized storage to hold <code>size</code> elements of the specified timestamp <code><a class="el" href="classcudf_1_1data__type.html" title="Indicator for the logical data type of an element in a column.">data_type</a></code> with a null mask.  <br /></td></tr>
+<tr class="separator:ga82d67ff8acbde7370b6dfa4eeaf63893"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7b83c4013e49cc28c0a2a74569853228"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__factories.html#ga7b83c4013e49cc28c0a2a74569853228">cudf::make_duration_column</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> size, <a class="el" href="group__utility__types.html#ga4daf20c000ab374d76f4d56f0ddb7b26">mask_state</a> state=<a class="el" href="group__utility__types.html#gga4daf20c000ab374d76f4d56f0ddb7b26a628732521c22dcf8a24bf1a0326bde80">mask_state::UNALLOCATED</a>, rmm::cuda_stream_view stream=<a class="el" href="namespacecudf.html#a001ed29e71e759518cae31e52312befa">cudf::get_default_stream</a>(), rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:ga7b83c4013e49cc28c0a2a74569853228"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct column with sufficient uninitialized storage to hold <code>size</code> elements of the specified duration <code><a class="el" href="classcudf_1_1data__type.html" title="Indicator for the logical data type of an element in a column.">data_type</a></code> with an optional null mask.  <br /></td></tr>
+<tr class="separator:ga7b83c4013e49cc28c0a2a74569853228"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0720e031f009c728943536a1cc9d361d"><td class="memTemplParams" colspan="2">template&lt;typename B &gt; </td></tr>
+<tr class="memitem:ga0720e031f009c728943536a1cc9d361d"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__column__factories.html#ga0720e031f009c728943536a1cc9d361d">cudf::make_duration_column</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> size, B &amp;&amp;null_mask, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> null_count=<a class="el" href="group__utility__types.html#ga0eece3f40ff89fe8f1117097d86913b7">cudf::UNKNOWN_NULL_COUNT</a>, rmm::cuda_stream_view stream=<a class="el" href="namespacecudf.html#a001ed29e71e759518cae31e52312befa">cudf::get_default_stream</a>(), rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:ga0720e031f009c728943536a1cc9d361d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct column with sufficient uninitialized storage to hold <code>size</code> elements of the specified duration <code><a class="el" href="classcudf_1_1data__type.html" title="Indicator for the logical data type of an element in a column.">data_type</a></code> with a null mask.  <br /></td></tr>
+<tr class="separator:ga0720e031f009c728943536a1cc9d361d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac251edf105c64ee963df5e53eeffd091"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__factories.html#gac251edf105c64ee963df5e53eeffd091">cudf::make_fixed_width_column</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> size, <a class="el" href="group__utility__types.html#ga4daf20c000ab374d76f4d56f0ddb7b26">mask_state</a> state=<a class="el" href="group__utility__types.html#gga4daf20c000ab374d76f4d56f0ddb7b26a628732521c22dcf8a24bf1a0326bde80">mask_state::UNALLOCATED</a>, rmm::cuda_stream_view stream=<a class="el" href="namespacecudf.html#a001ed29e71e759518cae31e52312befa">cudf::get_default_stream</a>(), rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:gac251edf105c64ee963df5e53eeffd091"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct column with sufficient uninitialized storage to hold <code>size</code> elements of the specified fixed width <code><a class="el" href="classcudf_1_1data__type.html" title="Indicator for the logical data type of an element in a column.">data_type</a></code> with an optional null mask.  <br /></td></tr>
+<tr class="separator:gac251edf105c64ee963df5e53eeffd091"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabe7756d1ac2c1027c2d1403054f482cb"><td class="memTemplParams" colspan="2">template&lt;typename B &gt; </td></tr>
+<tr class="memitem:gabe7756d1ac2c1027c2d1403054f482cb"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__column__factories.html#gabe7756d1ac2c1027c2d1403054f482cb">cudf::make_fixed_width_column</a> (<a class="el" href="classcudf_1_1data__type.html">data_type</a> type, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> size, B &amp;&amp;null_mask, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> null_count=<a class="el" href="group__utility__types.html#ga0eece3f40ff89fe8f1117097d86913b7">cudf::UNKNOWN_NULL_COUNT</a>, rmm::cuda_stream_view stream=<a class="el" href="namespacecudf.html#a001ed29e71e759518cae31e52312befa">cudf::get_default_stream</a>(), rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:gabe7756d1ac2c1027c2d1403054f482cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct column with sufficient uninitialized storage to hold <code>size</code> elements of the specified fixed width <code><a class="el" href="classcudf_1_1data__type.html" title="Indicator for the logical data type of an element in a column.">data_type</a></code> with a null mask.  <br /></td></tr>
+<tr class="separator:gabe7756d1ac2c1027c2d1403054f482cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1b4c7323b0728830bccaf9fd8785ce18"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__factories.html#ga1b4c7323b0728830bccaf9fd8785ce18">cudf::make_strings_column</a> (<a class="el" href="structcudf_1_1device__span.html">cudf::device_span</a>&lt; thrust::pair&lt; const char *, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> &gt; const &gt; strings, rmm::cuda_stream_view stream=<a class="el" href="namespacecudf.html#a001ed29e71e759518cae31e52312befa">cudf::get_default_stream</a>(), rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:ga1b4c7323b0728830bccaf9fd8785ce18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a STRING type column given a device span of pointer/size pairs.  <br /></td></tr>
+<tr class="separator:ga1b4c7323b0728830bccaf9fd8785ce18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac63c5f712a69911f57e1a25ea19aa4b9"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__factories.html#gac63c5f712a69911f57e1a25ea19aa4b9">cudf::make_strings_column</a> (<a class="el" href="structcudf_1_1device__span.html">cudf::device_span</a>&lt; <a class="el" href="classcudf_1_1string__view.html">string_view</a> const &gt; string_views, const <a class="el" href="classcudf_1_1string__view.html">string_view</a> null_placeholder, rmm::cuda_stream_view stream=<a class="el" href="namespacecudf.html#a001ed29e71e759518cae31e52312befa">cudf::get_default_stream</a>(), rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:gac63c5f712a69911f57e1a25ea19aa4b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a STRING type column given a device span of <a class="el" href="classcudf_1_1string__view.html" title="A non-owning, immutable view of device data that is a variable length char array representing a UTF-8...">string_view</a>.  <br /></td></tr>
+<tr class="separator:gac63c5f712a69911f57e1a25ea19aa4b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga344b235a4e1cbecd985858e64d8b2075"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__factories.html#ga344b235a4e1cbecd985858e64d8b2075">cudf::make_strings_column</a> (<a class="el" href="structcudf_1_1device__span.html">cudf::device_span</a>&lt; char const &gt; strings, <a class="el" href="structcudf_1_1device__span.html">cudf::device_span</a>&lt; <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> const &gt; offsets, <a class="el" href="structcudf_1_1device__span.html">cudf::device_span</a>&lt; <a class="el" href="group__utility__types.html#ga1d17001baf070a639c3a5e8ed8c46d34">bitmask_type</a> const &gt; null_mask={}, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> null_count=<a class="el" href="group__utility__types.html#ga0eece3f40ff89fe8f1117097d86913b7">cudf::UNKNOWN_NULL_COUNT</a>, rmm::cuda_stream_view stream=<a class="el" href="namespacecudf.html#a001ed29e71e759518cae31e52312befa">cudf::get_default_stream</a>(), rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:ga344b235a4e1cbecd985858e64d8b2075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a STRING type column given a device span of chars encoded as UTF-8, a device span of byte offsets identifying individual strings within the char vector, and an optional null bitmask.  <br /></td></tr>
+<tr class="separator:ga344b235a4e1cbecd985858e64d8b2075"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gace1c51569535b5ea5d23805470cfe8b7"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__factories.html#gace1c51569535b5ea5d23805470cfe8b7">cudf::make_strings_column</a> (<a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> num_strings, std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt; offsets_column, std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt; chars_column, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> null_count, rmm::device_buffer &amp;&amp;null_mask)</td></tr>
+<tr class="memdesc:gace1c51569535b5ea5d23805470cfe8b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a STRING type column given offsets column, chars columns, and null mask and null count.  <br /></td></tr>
+<tr class="separator:gace1c51569535b5ea5d23805470cfe8b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga12fdea6621b2945532151737c740a368"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__factories.html#ga12fdea6621b2945532151737c740a368">cudf::make_strings_column</a> (<a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> num_strings, rmm::device_uvector&lt; <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> &gt; &amp;&amp;offsets, rmm::device_uvector&lt; char &gt; &amp;&amp;chars, rmm::device_buffer &amp;&amp;null_mask={}, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> null_count=<a class="el" href="group__utility__types.html#ga0eece3f40ff89fe8f1117097d86913b7">cudf::UNKNOWN_NULL_COUNT</a>)</td></tr>
+<tr class="memdesc:ga12fdea6621b2945532151737c740a368"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a STRING type column given offsets, columns, and optional null count and null mask.  <br /></td></tr>
+<tr class="separator:ga12fdea6621b2945532151737c740a368"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaedfbe8e49523fcea96952534c6fa44b2"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">cudf::column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__factories.html#gaedfbe8e49523fcea96952534c6fa44b2">cudf::make_lists_column</a> (<a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> num_rows, std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt; offsets_column, std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt; child_column, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> null_count, rmm::device_buffer &amp;&amp;null_mask, rmm::cuda_stream_view stream=<a class="el" href="namespacecudf.html#a001ed29e71e759518cae31e52312befa">cudf::get_default_stream</a>(), rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:gaedfbe8e49523fcea96952534c6fa44b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a LIST type column given offsets column, child column, null mask and null count.  <br /></td></tr>
+<tr class="separator:gaedfbe8e49523fcea96952534c6fa44b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaca4580640fa3c0304fe22377b5ef1d3b"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">cudf::column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__factories.html#gaca4580640fa3c0304fe22377b5ef1d3b">cudf::make_structs_column</a> (<a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> num_rows, std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt; &gt; &amp;&amp;child_columns, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> null_count, rmm::device_buffer &amp;&amp;null_mask, rmm::cuda_stream_view stream=<a class="el" href="namespacecudf.html#a001ed29e71e759518cae31e52312befa">cudf::get_default_stream</a>(), rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:gaca4580640fa3c0304fe22377b5ef1d3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a STRUCT column using specified child columns as members.  <br /></td></tr>
+<tr class="separator:gaca4580640fa3c0304fe22377b5ef1d3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf402ec1007ea53418b2d5800daae8041"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__factories.html#gaf402ec1007ea53418b2d5800daae8041">cudf::make_column_from_scalar</a> (<a class="el" href="classcudf_1_1scalar.html">scalar</a> const &amp;s, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> size, rmm::cuda_stream_view stream=<a class="el" href="namespacecudf.html#a001ed29e71e759518cae31e52312befa">cudf::get_default_stream</a>(), rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:gaf402ec1007ea53418b2d5800daae8041"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a column with size elements that are all equal to the given scalar.  <br /></td></tr>
+<tr class="separator:gaf402ec1007ea53418b2d5800daae8041"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae4cb6e1340b0b96386142f25a0126fb6"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__column__factories.html#gae4cb6e1340b0b96386142f25a0126fb6">cudf::make_dictionary_from_scalar</a> (<a class="el" href="classcudf_1_1scalar.html">scalar</a> const &amp;s, <a class="el" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> size, rmm::cuda_stream_view stream=<a class="el" href="namespacecudf.html#a001ed29e71e759518cae31e52312befa">cudf::get_default_stream</a>(), rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</td></tr>
+<tr class="memdesc:gae4cb6e1340b0b96386142f25a0126fb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a dictionary column with size elements that are all equal to the given scalar.  <br /></td></tr>
+<tr class="separator:gae4cb6e1340b0b96386142f25a0126fb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>Column factory APIs </p>
+
+<p class="definition">在文件 <a class="el" href="column__factories_8hpp_source.html">column_factories.hpp</a> 中定义.</p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_d998dea0bd4559303135358082015ac8.html">gitLibrary</a></li><li class="navelem"><a class="el" href="dir_b6486b3d9bd1f4b89c884933ed658179.html">cudf</a></li><li class="navelem"><a class="el" href="dir_318a4414914f49dc0e7605c41de9d4af.html">cpp</a></li><li class="navelem"><a class="el" href="dir_7fbf5ee8ae486656ea40e5ca1dd304f9.html">include</a></li><li class="navelem"><a class="el" href="dir_87e6427d1ef099fd52d9d0724c66b062.html">cudf</a></li><li class="navelem"><a class="el" href="dir_fce7e93f70105769e490dda9a6ac64fb.html">column</a></li><li class="navelem"><a class="el" href="column__factories_8hpp.html">column_factories.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

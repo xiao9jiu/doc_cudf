@@ -1,0 +1,108 @@
+\doxysection{Column\+\_\+hash}
+\hypertarget{group__column__hash}{}\label{group__column__hash}\index{Column\_hash@{Column\_hash}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{hashing_8hpp}{hashing.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__column__hash_gaced8b9d129825edd13d76e912e4413c3}{cudf\+::hash\+\_\+id}} \{ \mbox{\hyperlink{group__column__hash_ggaced8b9d129825edd13d76e912e4413c3a87c5fdaedd591de89dc6528979fad559}{cudf\+::hash\+\_\+id\+::\+HASH\+\_\+\+IDENTITY}} = 0
+, \mbox{\hyperlink{group__column__hash_ggaced8b9d129825edd13d76e912e4413c3ae9ec854e962136b1afcf108e5301c354}{cudf\+::hash\+\_\+id\+::\+HASH\+\_\+\+MURMUR3}}
+, \mbox{\hyperlink{group__column__hash_ggaced8b9d129825edd13d76e912e4413c3a86e5d77c8925733c14f2ead71e800939}{cudf\+::hash\+\_\+id\+::\+HASH\+\_\+\+SPARK\+\_\+\+MURMUR3}}
+, \mbox{\hyperlink{group__column__hash_ggaced8b9d129825edd13d76e912e4413c3a1b39e06b1e490bb4792c0076b2733a45}{cudf\+::hash\+\_\+id\+::\+HASH\+\_\+\+MD5}}
+ \}
+\begin{DoxyCompactList}\small\item\em Identifies the hash function to be used \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__hash_ga324d3e89c473ffe4810b14da49a6c1e7}{cudf\+::hash}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, \mbox{\hyperlink{group__column__hash_gaced8b9d129825edd13d76e912e4413c3}{hash\+\_\+id}} hash\+\_\+function=\mbox{\hyperlink{group__column__hash_ggaced8b9d129825edd13d76e912e4413c3ae9ec854e962136b1afcf108e5301c354}{hash\+\_\+id\+::\+HASH\+\_\+\+MURMUR3}}, uint32\+\_\+t seed=\mbox{\hyperlink{group__column__hash_ga68de1d04aa2c0ea2eeacfc73fd99a915}{DEFAULT\+\_\+\+HASH\+\_\+\+SEED}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Computes the hash value of each row in the input set of columns. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{变量}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr uint32\+\_\+t \mbox{\hyperlink{group__column__hash_ga68de1d04aa2c0ea2eeacfc73fd99a915}{cudf\+::\+DEFAULT\+\_\+\+HASH\+\_\+\+SEED}} = 0
+\begin{DoxyCompactList}\small\item\em The default seed value for hash functions \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{枚举类型说明}
+\Hypertarget{group__column__hash_gaced8b9d129825edd13d76e912e4413c3}\label{group__column__hash_gaced8b9d129825edd13d76e912e4413c3} 
+\index{Column\_hash@{Column\_hash}!hash\_id@{hash\_id}}
+\index{hash\_id@{hash\_id}!Column\_hash@{Column\_hash}}
+\doxysubsubsection{\texorpdfstring{hash\_id}{hash\_id}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__column__hash_gaced8b9d129825edd13d76e912e4413c3}{cudf\+::hash\+\_\+id}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Identifies the hash function to be used 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HASH\_IDENTITY@{HASH\_IDENTITY}!Column\_hash@{Column\_hash}}\index{Column\_hash@{Column\_hash}!HASH\_IDENTITY@{HASH\_IDENTITY}}}\Hypertarget{group__column__hash_ggaced8b9d129825edd13d76e912e4413c3a87c5fdaedd591de89dc6528979fad559}\label{group__column__hash_ggaced8b9d129825edd13d76e912e4413c3a87c5fdaedd591de89dc6528979fad559} 
+HASH\+\_\+\+IDENTITY&Identity hash function that simply returns the key to be hashed \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HASH\_MURMUR3@{HASH\_MURMUR3}!Column\_hash@{Column\_hash}}\index{Column\_hash@{Column\_hash}!HASH\_MURMUR3@{HASH\_MURMUR3}}}\Hypertarget{group__column__hash_ggaced8b9d129825edd13d76e912e4413c3ae9ec854e962136b1afcf108e5301c354}\label{group__column__hash_ggaced8b9d129825edd13d76e912e4413c3ae9ec854e962136b1afcf108e5301c354} 
+HASH\+\_\+\+MURMUR3&Murmur3 hash function \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HASH\_SPARK\_MURMUR3@{HASH\_SPARK\_MURMUR3}!Column\_hash@{Column\_hash}}\index{Column\_hash@{Column\_hash}!HASH\_SPARK\_MURMUR3@{HASH\_SPARK\_MURMUR3}}}\Hypertarget{group__column__hash_ggaced8b9d129825edd13d76e912e4413c3a86e5d77c8925733c14f2ead71e800939}\label{group__column__hash_ggaced8b9d129825edd13d76e912e4413c3a86e5d77c8925733c14f2ead71e800939} 
+HASH\+\_\+\+SPARK\+\_\+\+MURMUR3&Spark Murmur3 hash function \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HASH\_MD5@{HASH\_MD5}!Column\_hash@{Column\_hash}}\index{Column\_hash@{Column\_hash}!HASH\_MD5@{HASH\_MD5}}}\Hypertarget{group__column__hash_ggaced8b9d129825edd13d76e912e4413c3a1b39e06b1e490bb4792c0076b2733a45}\label{group__column__hash_ggaced8b9d129825edd13d76e912e4413c3a1b39e06b1e490bb4792c0076b2733a45} 
+HASH\+\_\+\+MD5&MD5 hash function \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{hashing_8hpp_source}{hashing.\+hpp}} 第 \mbox{\hyperlink{hashing_8hpp_source_l00036}{36}} 行定义.
+
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__column__hash_ga324d3e89c473ffe4810b14da49a6c1e7}\label{group__column__hash_ga324d3e89c473ffe4810b14da49a6c1e7} 
+\index{Column\_hash@{Column\_hash}!hash@{hash}}
+\index{hash@{hash}!Column\_hash@{Column\_hash}}
+\doxysubsubsection{\texorpdfstring{hash()}{hash()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::hash (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__column__hash_gaced8b9d129825edd13d76e912e4413c3}{hash\+\_\+id}}}]{hash\+\_\+function = {\ttfamily \mbox{\hyperlink{group__column__hash_ggaced8b9d129825edd13d76e912e4413c3ae9ec854e962136b1afcf108e5301c354}{hash\+\_\+id\+::\+HASH\+\_\+\+MURMUR3}}},  }\item[{uint32\+\_\+t}]{seed = {\ttfamily \mbox{\hyperlink{group__column__hash_ga68de1d04aa2c0ea2eeacfc73fd99a915}{DEFAULT\+\_\+\+HASH\+\_\+\+SEED}}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Computes the hash value of each row in the input set of columns. 
+
+
+\begin{DoxyParams}{参数}
+{\em input} & The table of columns to hash \\
+\hline
+{\em hash\+\_\+function} & The hash function enum to use \\
+\hline
+{\em seed} & Optional seed value to use for the hash function \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A column where each row is the hash of a column from the input 
+\end{DoxyReturn}
+
+
+\doxysubsection{变量说明}
+\Hypertarget{group__column__hash_ga68de1d04aa2c0ea2eeacfc73fd99a915}\label{group__column__hash_ga68de1d04aa2c0ea2eeacfc73fd99a915} 
+\index{Column\_hash@{Column\_hash}!DEFAULT\_HASH\_SEED@{DEFAULT\_HASH\_SEED}}
+\index{DEFAULT\_HASH\_SEED@{DEFAULT\_HASH\_SEED}!Column\_hash@{Column\_hash}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_HASH\_SEED}{DEFAULT\_HASH\_SEED}}
+{\footnotesize\ttfamily constexpr uint32\+\_\+t cudf\+::\+DEFAULT\+\_\+\+HASH\+\_\+\+SEED = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+The default seed value for hash functions 
+
+
+
+在文件 \mbox{\hyperlink{hashing_8hpp_source}{hashing.\+hpp}} 第 \mbox{\hyperlink{hashing_8hpp_source_l00046}{46}} 行定义.
+

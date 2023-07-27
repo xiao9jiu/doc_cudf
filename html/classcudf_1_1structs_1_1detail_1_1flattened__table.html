@@ -1,0 +1,501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: cudf::structs::detail::flattened_table类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classcudf_1_1structs_1_1detail_1_1flattened__table.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pri-attribs">Private 属性</a> &#124;
+<a href="classcudf_1_1structs_1_1detail_1_1flattened__table-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">cudf::structs::detail::flattened_table类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Result of <code><a class="el" href="namespacecudf_1_1structs_1_1detail.html#a09c8725783cc2d0c3ce2f537a5ef92fb" title="Flatten table with struct columns to table with constituent columns of struct columns.">flatten_nested_columns()</a></code>, where all <code>STRUCT</code> columns are replaced with their non-nested member columns, and <code>BOOL8</code> columns for their null masks.  
+ <a href="classcudf_1_1structs_1_1detail_1_1flattened__table.html#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="detail_2structs_2utilities_8hpp_source.html">utilities.hpp</a>&gt;</code></p>
+<div class="dynheader">
+cudf::structs::detail::flattened_table 的协作图:</div>
+<div class="dyncontent">
+<div class="center"><img src="classcudf_1_1structs_1_1detail_1_1flattened__table__coll__graph.png" border="0" usemap="#acudf_1_1structs_1_1detail_1_1flattened__table_coll__map" alt="Collaboration graph"/></div>
+<map name="acudf_1_1structs_1_1detail_1_1flattened__table_coll__map" id="acudf_1_1structs_1_1detail_1_1flattened__table_coll__map">
+<area shape="rect" title="Result of flatten_nested_columns(), where all STRUCT columns are replaced with their non&#45;nested membe..." alt="" coords="5,657,183,913"/>
+<area shape="rect" href="classcudf_1_1table__view.html" title="A set of cudf::column_view&#39;s of the same size." alt="" coords="42,460,146,593"/>
+<area shape="poly" title=" " alt="" coords="97,593,97,640,91,640,91,593"/>
+<area shape="rect" href="classcudf_1_1detail_1_1table__view__base.html" title=" " alt="" coords="6,5,182,411"/>
+<area shape="poly" title=" " alt="" coords="97,425,97,460,91,460,91,425"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:adfecce07f835e43fa87481ec402524e5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1structs_1_1detail_1_1flattened__table.html#adfecce07f835e43fa87481ec402524e5">flattened_table</a> (<a class="el" href="classcudf_1_1table__view.html">table_view</a> const &amp;flattened_columns_, std::vector&lt; <a class="el" href="group__utility__types.html#ga750f02016b046079f7062d334890b4fc">order</a> &gt; const &amp;orders_, std::vector&lt; <a class="el" href="group__utility__types.html#ga058e6d6e8a21583ce0e85ee73e5abb31">null_order</a> &gt; const &amp;null_orders_, std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt; &gt; &amp;&amp;columns_, std::vector&lt; rmm::device_buffer &gt; &amp;&amp;null_masks_)</td></tr>
+<tr class="memdesc:adfecce07f835e43fa87481ec402524e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, to be used from <code><a class="el" href="namespacecudf_1_1structs_1_1detail.html#a09c8725783cc2d0c3ce2f537a5ef92fb" title="Flatten table with struct columns to table with constituent columns of struct columns.">flatten_nested_columns()</a></code>.  <br /></td></tr>
+<tr class="separator:adfecce07f835e43fa87481ec402524e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac63318a2f6f0e93f2c86e2da4996d002"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1structs_1_1detail_1_1flattened__table.html#ac63318a2f6f0e93f2c86e2da4996d002">flattened_table</a> ()=default</td></tr>
+<tr class="separator:ac63318a2f6f0e93f2c86e2da4996d002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a081fc9ebac2c5564987c7412c9fe9ae1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcudf_1_1table__view.html">table_view</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1structs_1_1detail_1_1flattened__table.html#a081fc9ebac2c5564987c7412c9fe9ae1">flattened_columns</a> () const</td></tr>
+<tr class="memdesc:a081fc9ebac2c5564987c7412c9fe9ae1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the flattened columns, as a <code><a class="el" href="classcudf_1_1table__view.html" title="A set of cudf::column_view&#39;s of the same size.">table_view</a></code>.  <br /></td></tr>
+<tr class="separator:a081fc9ebac2c5564987c7412c9fe9ae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f80cbeff63dfc448238c099c1753d5d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="group__utility__types.html#ga750f02016b046079f7062d334890b4fc">order</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1structs_1_1detail_1_1flattened__table.html#a0f80cbeff63dfc448238c099c1753d5d">orders</a> () const</td></tr>
+<tr class="memdesc:a0f80cbeff63dfc448238c099c1753d5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the <a class="el" href="group__utility__types.html#ga750f02016b046079f7062d334890b4fc" title="Indicates the order in which elements should be sorted.">cudf::order</a> of the <a class="el" href="classcudf_1_1table__view.html" title="A set of cudf::column_view&#39;s of the same size.">table_view</a>'s columns.  <br /></td></tr>
+<tr class="separator:a0f80cbeff63dfc448238c099c1753d5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53d11e3f3f57b2150b30c6d6621f2ae7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="group__utility__types.html#ga058e6d6e8a21583ce0e85ee73e5abb31">null_order</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1structs_1_1detail_1_1flattened__table.html#a53d11e3f3f57b2150b30c6d6621f2ae7">null_orders</a> () const</td></tr>
+<tr class="memdesc:a53d11e3f3f57b2150b30c6d6621f2ae7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the <a class="el" href="group__utility__types.html#ga058e6d6e8a21583ce0e85ee73e5abb31" title="Indicates how null values compare against all other values.">cudf::null_order</a> of the <a class="el" href="classcudf_1_1table__view.html" title="A set of cudf::column_view&#39;s of the same size.">table_view</a>'s columns.  <br /></td></tr>
+<tr class="separator:a53d11e3f3f57b2150b30c6d6621f2ae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae987e25c1033298b32dc6d2b6dab3f23"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1structs_1_1detail_1_1flattened__table.html#ae987e25c1033298b32dc6d2b6dab3f23">operator table_view</a> () const</td></tr>
+<tr class="memdesc:ae987e25c1033298b32dc6d2b6dab3f23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion to <code><a class="el" href="classcudf_1_1table__view.html" title="A set of cudf::column_view&#39;s of the same size.">table_view</a></code>, to fetch flattened columns.  <br /></td></tr>
+<tr class="separator:ae987e25c1033298b32dc6d2b6dab3f23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private 属性</h2></td></tr>
+<tr class="memitem:af84a408c5e8e6db24c43d107b8798b24"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcudf_1_1table__view.html">table_view</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1structs_1_1detail_1_1flattened__table.html#af84a408c5e8e6db24c43d107b8798b24">_flattened_columns</a></td></tr>
+<tr class="separator:af84a408c5e8e6db24c43d107b8798b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade4f4552b2bc51880a99b7250ea58c97"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="group__utility__types.html#ga750f02016b046079f7062d334890b4fc">order</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1structs_1_1detail_1_1flattened__table.html#ade4f4552b2bc51880a99b7250ea58c97">_orders</a></td></tr>
+<tr class="separator:ade4f4552b2bc51880a99b7250ea58c97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6db49e07105b55424f62fe7de90f205"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="group__utility__types.html#ga058e6d6e8a21583ce0e85ee73e5abb31">null_order</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1structs_1_1detail_1_1flattened__table.html#ae6db49e07105b55424f62fe7de90f205">_null_orders</a></td></tr>
+<tr class="separator:ae6db49e07105b55424f62fe7de90f205"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeedaa9e467f5c3f901dd253e0119805f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1structs_1_1detail_1_1flattened__table.html#aeedaa9e467f5c3f901dd253e0119805f">_columns</a></td></tr>
+<tr class="separator:aeedaa9e467f5c3f901dd253e0119805f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f8c7a9273e3b31c9da326633d9d81af"><td class="memItemLeft" align="right" valign="top">std::vector&lt; rmm::device_buffer &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcudf_1_1structs_1_1detail_1_1flattened__table.html#a4f8c7a9273e3b31c9da326633d9d81af">_superimposed_nullmasks</a></td></tr>
+<tr class="separator:a4f8c7a9273e3b31c9da326633d9d81af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>Result of <code><a class="el" href="namespacecudf_1_1structs_1_1detail.html#a09c8725783cc2d0c3ce2f537a5ef92fb" title="Flatten table with struct columns to table with constituent columns of struct columns.">flatten_nested_columns()</a></code>, where all <code>STRUCT</code> columns are replaced with their non-nested member columns, and <code>BOOL8</code> columns for their null masks. </p>
+<p><code><a class="el" href="namespacecudf_1_1structs_1_1detail.html#a09c8725783cc2d0c3ce2f537a5ef92fb" title="Flatten table with struct columns to table with constituent columns of struct columns.">flatten_nested_columns()</a></code> produces a "flattened" <a class="el" href="classcudf_1_1table__view.html" title="A set of cudf::column_view&#39;s of the same size.">table_view</a> with all <code>STRUCT</code> columns replaced with their child column_views, preceded by their null masks. All newly allocated columns and device_buffers that back the returned <a class="el" href="classcudf_1_1table__view.html" title="A set of cudf::column_view&#39;s of the same size.">table_view</a> are also encapsulated in <code>flatten_result</code>.</p>
+<p>Objects of <code>flatten_result</code> need to kept alive while its <a class="el" href="classcudf_1_1table__view.html" title="A set of cudf::column_view&#39;s of the same size.">table_view</a> is accessed. </p>
+
+<p class="definition">在文件 <a class="el" href="detail_2structs_2utilities_8hpp_source.html">utilities.hpp</a> 第 <a class="el" href="detail_2structs_2utilities_8hpp_source.html#l00081">81</a> 行定义.</p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="adfecce07f835e43fa87481ec402524e5" name="adfecce07f835e43fa87481ec402524e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfecce07f835e43fa87481ec402524e5">&#9670;&#160;</a></span>flattened_table() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">cudf::structs::detail::flattened_table::flattened_table </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcudf_1_1table__view.html">table_view</a> const &amp;&#160;</td>
+          <td class="paramname"><em>flattened_columns_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="group__utility__types.html#ga750f02016b046079f7062d334890b4fc">order</a> &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>orders_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="group__utility__types.html#ga058e6d6e8a21583ce0e85ee73e5abb31">null_order</a> &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>null_orders_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::unique_ptr&lt; <a class="el" href="classcudf_1_1column.html">column</a> &gt; &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>columns_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; rmm::device_buffer &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>null_masks_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor, to be used from <code><a class="el" href="namespacecudf_1_1structs_1_1detail.html#a09c8725783cc2d0c3ce2f537a5ef92fb" title="Flatten table with struct columns to table with constituent columns of struct columns.">flatten_nested_columns()</a></code>. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">flattened_columns_</td><td><a class="el" href="classcudf_1_1table__view.html" title="A set of cudf::column_view&#39;s of the same size.">table_view</a> resulting from <code><a class="el" href="namespacecudf_1_1structs_1_1detail.html#a09c8725783cc2d0c3ce2f537a5ef92fb" title="Flatten table with struct columns to table with constituent columns of struct columns.">flatten_nested_columns()</a></code> </td></tr>
+    <tr><td class="paramname">orders_</td><td>Per-column ordering of the <a class="el" href="classcudf_1_1table__view.html" title="A set of cudf::column_view&#39;s of the same size.">table_view</a> </td></tr>
+    <tr><td class="paramname">null_orders_</td><td>Per-column null_order of the <a class="el" href="classcudf_1_1table__view.html" title="A set of cudf::column_view&#39;s of the same size.">table_view</a> </td></tr>
+    <tr><td class="paramname">columns_</td><td>Newly allocated columns to back the <a class="el" href="classcudf_1_1table__view.html" title="A set of cudf::column_view&#39;s of the same size.">table_view</a> </td></tr>
+    <tr><td class="paramname">null_masks_</td><td>Newly allocated null masks to back the <a class="el" href="classcudf_1_1table__view.html" title="A set of cudf::column_view&#39;s of the same size.">table_view</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">在文件 <a class="el" href="detail_2structs_2utilities_8hpp_source.html">utilities.hpp</a> 第 <a class="el" href="detail_2structs_2utilities_8hpp_source.html#l00092">92</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ac63318a2f6f0e93f2c86e2da4996d002" name="ac63318a2f6f0e93f2c86e2da4996d002"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac63318a2f6f0e93f2c86e2da4996d002">&#9670;&#160;</a></span>flattened_table() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">cudf::structs::detail::flattened_table::flattened_table </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a081fc9ebac2c5564987c7412c9fe9ae1" name="a081fc9ebac2c5564987c7412c9fe9ae1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a081fc9ebac2c5564987c7412c9fe9ae1">&#9670;&#160;</a></span>flattened_columns()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcudf_1_1table__view.html">table_view</a> cudf::structs::detail::flattened_table::flattened_columns </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter for the flattened columns, as a <code><a class="el" href="classcudf_1_1table__view.html" title="A set of cudf::column_view&#39;s of the same size.">table_view</a></code>. </p>
+
+<p class="definition">在文件 <a class="el" href="detail_2structs_2utilities_8hpp_source.html">utilities.hpp</a> 第 <a class="el" href="detail_2structs_2utilities_8hpp_source.html#l00110">110</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a53d11e3f3f57b2150b30c6d6621f2ae7" name="a53d11e3f3f57b2150b30c6d6621f2ae7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53d11e3f3f57b2150b30c6d6621f2ae7">&#9670;&#160;</a></span>null_orders()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="group__utility__types.html#ga058e6d6e8a21583ce0e85ee73e5abb31">null_order</a> &gt; cudf::structs::detail::flattened_table::null_orders </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter for the <a class="el" href="group__utility__types.html#ga058e6d6e8a21583ce0e85ee73e5abb31" title="Indicates how null values compare against all other values.">cudf::null_order</a> of the <a class="el" href="classcudf_1_1table__view.html" title="A set of cudf::column_view&#39;s of the same size.">table_view</a>'s columns. </p>
+
+<p class="definition">在文件 <a class="el" href="detail_2structs_2utilities_8hpp_source.html">utilities.hpp</a> 第 <a class="el" href="detail_2structs_2utilities_8hpp_source.html#l00120">120</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ae987e25c1033298b32dc6d2b6dab3f23" name="ae987e25c1033298b32dc6d2b6dab3f23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae987e25c1033298b32dc6d2b6dab3f23">&#9670;&#160;</a></span>operator table_view()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">cudf::structs::detail::flattened_table::operator <a class="el" href="classcudf_1_1table__view.html">table_view</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Conversion to <code><a class="el" href="classcudf_1_1table__view.html" title="A set of cudf::column_view&#39;s of the same size.">table_view</a></code>, to fetch flattened columns. </p>
+
+<p class="definition">在文件 <a class="el" href="detail_2structs_2utilities_8hpp_source.html">utilities.hpp</a> 第 <a class="el" href="detail_2structs_2utilities_8hpp_source.html#l00125">125</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a0f80cbeff63dfc448238c099c1753d5d" name="a0f80cbeff63dfc448238c099c1753d5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f80cbeff63dfc448238c099c1753d5d">&#9670;&#160;</a></span>orders()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="group__utility__types.html#ga750f02016b046079f7062d334890b4fc">order</a> &gt; cudf::structs::detail::flattened_table::orders </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter for the <a class="el" href="group__utility__types.html#ga750f02016b046079f7062d334890b4fc" title="Indicates the order in which elements should be sorted.">cudf::order</a> of the <a class="el" href="classcudf_1_1table__view.html" title="A set of cudf::column_view&#39;s of the same size.">table_view</a>'s columns. </p>
+
+<p class="definition">在文件 <a class="el" href="detail_2structs_2utilities_8hpp_source.html">utilities.hpp</a> 第 <a class="el" href="detail_2structs_2utilities_8hpp_source.html#l00115">115</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="aeedaa9e467f5c3f901dd253e0119805f" name="aeedaa9e467f5c3f901dd253e0119805f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeedaa9e467f5c3f901dd253e0119805f">&#9670;&#160;</a></span>_columns</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::unique_ptr&lt;<a class="el" href="classcudf_1_1column.html">column</a>&gt; &gt; cudf::structs::detail::flattened_table::_columns</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="detail_2structs_2utilities_8hpp_source.html">utilities.hpp</a> 第 <a class="el" href="detail_2structs_2utilities_8hpp_source.html#l00131">131</a> 行定义.</p>
+
+</div>
+</div>
+<a id="af84a408c5e8e6db24c43d107b8798b24" name="af84a408c5e8e6db24c43d107b8798b24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af84a408c5e8e6db24c43d107b8798b24">&#9670;&#160;</a></span>_flattened_columns</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcudf_1_1table__view.html">table_view</a> cudf::structs::detail::flattened_table::_flattened_columns</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="detail_2structs_2utilities_8hpp_source.html">utilities.hpp</a> 第 <a class="el" href="detail_2structs_2utilities_8hpp_source.html#l00128">128</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ae6db49e07105b55424f62fe7de90f205" name="ae6db49e07105b55424f62fe7de90f205"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6db49e07105b55424f62fe7de90f205">&#9670;&#160;</a></span>_null_orders</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="group__utility__types.html#ga058e6d6e8a21583ce0e85ee73e5abb31">null_order</a>&gt; cudf::structs::detail::flattened_table::_null_orders</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="detail_2structs_2utilities_8hpp_source.html">utilities.hpp</a> 第 <a class="el" href="detail_2structs_2utilities_8hpp_source.html#l00130">130</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ade4f4552b2bc51880a99b7250ea58c97" name="ade4f4552b2bc51880a99b7250ea58c97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade4f4552b2bc51880a99b7250ea58c97">&#9670;&#160;</a></span>_orders</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="group__utility__types.html#ga750f02016b046079f7062d334890b4fc">order</a>&gt; cudf::structs::detail::flattened_table::_orders</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="detail_2structs_2utilities_8hpp_source.html">utilities.hpp</a> 第 <a class="el" href="detail_2structs_2utilities_8hpp_source.html#l00129">129</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a4f8c7a9273e3b31c9da326633d9d81af" name="a4f8c7a9273e3b31c9da326633d9d81af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f8c7a9273e3b31c9da326633d9d81af">&#9670;&#160;</a></span>_superimposed_nullmasks</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;rmm::device_buffer&gt; cudf::structs::detail::flattened_table::_superimposed_nullmasks</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="detail_2structs_2utilities_8hpp_source.html">utilities.hpp</a> 第 <a class="el" href="detail_2structs_2utilities_8hpp_source.html#l00132">132</a> 行定义.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>D:/gitLibrary/cudf/cpp/include/cudf/detail/structs/<a class="el" href="detail_2structs_2utilities_8hpp_source.html">utilities.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacecudf.html">cudf</a></li><li class="navelem"><a class="el" href="namespacecudf_1_1structs.html">structs</a></li><li class="navelem"><a class="el" href="namespacecudf_1_1structs_1_1detail.html">detail</a></li><li class="navelem"><a class="el" href="classcudf_1_1structs_1_1detail_1_1flattened__table.html">flattened_table</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

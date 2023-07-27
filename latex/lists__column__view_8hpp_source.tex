@@ -1,0 +1,73 @@
+\doxysection{lists\+\_\+column\+\_\+view.\+hpp}
+\hypertarget{lists__column__view_8hpp_source}{}\label{lists__column__view_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/lists/lists\_column\_view.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/lists/lists\_column\_view.hpp}}
+\mbox{\hyperlink{lists__column__view_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2020-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00016}00016\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{column_8hpp}{cudf/column/column.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{column__view_8hpp}{cudf/column/column\_view.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <rmm/cuda\_stream\_view.hpp>}}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00028}00028\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00039}\mbox{\hyperlink{classcudf_1_1lists__column__view}{00039}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\_column\_view}}\ :\ \textcolor{keyword}{private}\ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \{}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00040}00040\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00046}\mbox{\hyperlink{classcudf_1_1lists__column__view_a99b9af78e749264ca85b9c33b1984950}{00046}}\ \ \ \mbox{\hyperlink{classcudf_1_1lists__column__view_a99b9af78e749264ca85b9c33b1984950}{lists\_column\_view}}(\mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ lists\_column);}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00047}\mbox{\hyperlink{classcudf_1_1lists__column__view_af2f876799e403b230030135c6efdb397}{00047}}\ \ \ \mbox{\hyperlink{classcudf_1_1lists__column__view_af2f876799e403b230030135c6efdb397}{lists\_column\_view}}(\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\_column\_view}}\&\&)\ \ \ \ \ \ =\ \textcolor{keywordflow}{default};\ \ }
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00048}\mbox{\hyperlink{classcudf_1_1lists__column__view_a7c4f1e300045ebd5108b539f1802f706}{00048}}\ \ \ \mbox{\hyperlink{classcudf_1_1lists__column__view_a7c4f1e300045ebd5108b539f1802f706}{lists\_column\_view}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\_column\_view}}\&)\ =\ \textcolor{keywordflow}{default};\ \ }
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00049}\mbox{\hyperlink{classcudf_1_1lists__column__view_a319b3b7634fb3c9499c571f65e132ab7}{00049}}\ \ \ \mbox{\hyperlink{classcudf_1_1lists__column__view_a319b3b7634fb3c9499c571f65e132ab7}{\string~lists\_column\_view}}()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00055}\mbox{\hyperlink{classcudf_1_1lists__column__view_ad5f14f7c08920c5a4e94874c8801c38a}{00055}}\ \ \ \mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\_column\_view}}\&\ \mbox{\hyperlink{classcudf_1_1lists__column__view_ad5f14f7c08920c5a4e94874c8801c38a}{operator=}}(\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\_column\_view}}\ \textcolor{keyword}{const}\&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00061}\mbox{\hyperlink{classcudf_1_1lists__column__view_a9d5c69652acb67f95f710a4d0740792e}{00061}}\ \ \ \mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\_column\_view}}\&\ \mbox{\hyperlink{classcudf_1_1lists__column__view_a9d5c69652acb67f95f710a4d0740792e}{operator=}}(\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\_column\_view}}\&\&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00063}\mbox{\hyperlink{classcudf_1_1lists__column__view_a9730285ced48eb937197fb224e44dc6f}{00063}}\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \mbox{\hyperlink{classcudf_1_1lists__column__view_a9730285ced48eb937197fb224e44dc6f}{offsets\_column\_index}}\{0\};\ \ }
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00064}\mbox{\hyperlink{classcudf_1_1lists__column__view_a4b29720fd26bfb1407c1d28cb1cf65e9}{00064}}\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \mbox{\hyperlink{classcudf_1_1lists__column__view_a4b29720fd26bfb1407c1d28cb1cf65e9}{child\_column\_index}}\{1\};\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00066}00066\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classcudf_1_1column__view_a68dbd1a5bf17246397909a83f14cb7a2}{column\_view::child\_begin}};}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00067}00067\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classcudf_1_1column__view_aa052d0321ce9a1c7bfb69349caf113ae}{column\_view::child\_end}};}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00068}00068\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_ad67d943ff841c3fd4b460db3cc8277f3}{column\_view::has\_nulls}};}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00069}00069\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_afab51e8ae20f5ae57a07f24fa90dd369}{column\_view::is\_empty}};}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00070}00070\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a4b3a32978413e9c0246f31b4d083bf30}{column\_view::null\_count}};}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00071}00071\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a8fc94e5f1403f7f1213efe2f855a9ac6}{column\_view::null\_mask}};}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00072}00072\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a8bf33063791c751052a8ef20cf20468c}{column\_view::offset}};}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00073}00073\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a754fdc0ebe297a466d1b377638c6920a}{column\_view::size}};}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00074}00074\ \ \ \textcolor{keyword}{static\_assert}(std::is\_same\_v<offset\_type,\ size\_type>,}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}offset\_type\ is\ expected\ to\ be\ the\ same\ as\ size\_type."{}});}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00076}\mbox{\hyperlink{classcudf_1_1lists__column__view_a91156ac8ed5a49456615d0892251ba32}{00076}}\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classcudf_1_1lists__column__view_a91156ac8ed5a49456615d0892251ba32}{offset\_iterator}}\ =\ \mbox{\hyperlink{group__utility__types_ga3391e2df0069d3e7a07f0ec96cd2473e}{offset\_type}}\ \textcolor{keyword}{const}*;\ \ }
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00083}\mbox{\hyperlink{classcudf_1_1lists__column__view_afd2779f3ec3da3cc168d50e835bd6ad9}{00083}}\ \ \ [[nodiscard]]\ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \mbox{\hyperlink{classcudf_1_1lists__column__view_afd2779f3ec3da3cc168d50e835bd6ad9}{parent}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00091}\mbox{\hyperlink{classcudf_1_1lists__column__view_a3d738360310aad73666f1e3de3b7e50e}{00091}}\ \ \ [[nodiscard]]\ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \mbox{\hyperlink{classcudf_1_1lists__column__view_a3d738360310aad73666f1e3de3b7e50e}{offsets}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00099}\mbox{\hyperlink{classcudf_1_1lists__column__view_acbd5ba7859dee16d9f8a0950afd21269}{00099}}\ \ \ [[nodiscard]]\ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \mbox{\hyperlink{classcudf_1_1lists__column__view_acbd5ba7859dee16d9f8a0950afd21269}{child}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00113}\mbox{\hyperlink{classcudf_1_1lists__column__view_a5c454650ba377fd1611c4cce6f6a96f9}{00113}}\ \ \ [[nodiscard]]\ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \mbox{\hyperlink{classcudf_1_1lists__column__view_a5c454650ba377fd1611c4cce6f6a96f9}{get\_sliced\_child}}(rmm::cuda\_stream\_view\ stream)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00120}\mbox{\hyperlink{classcudf_1_1lists__column__view_a590d2b8fdc72bfd87b9cd92fd7ddd1f0}{00120}}\ \ \ [[nodiscard]]\ \mbox{\hyperlink{classcudf_1_1lists__column__view_a91156ac8ed5a49456615d0892251ba32}{offset\_iterator}}\ \mbox{\hyperlink{classcudf_1_1lists__column__view_a590d2b8fdc72bfd87b9cd92fd7ddd1f0}{offsets\_begin}}()\ const\ noexcept}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00121}00121\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00122}00122\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1lists__column__view_a3d738360310aad73666f1e3de3b7e50e}{offsets}}().\mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a7235c5bc0b745cd25b8f2e969a832a8e}{begin}}<\mbox{\hyperlink{group__utility__types_ga3391e2df0069d3e7a07f0ec96cd2473e}{offset\_type}}>()\ +\ \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a8bf33063791c751052a8ef20cf20468c}{offset}}();}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00123}00123\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00135}\mbox{\hyperlink{classcudf_1_1lists__column__view_afb957abf23e175f2f8096554e8f8dd57}{00135}}\ \ \ [[nodiscard]]\ \mbox{\hyperlink{classcudf_1_1lists__column__view_a91156ac8ed5a49456615d0892251ba32}{offset\_iterator}}\ \mbox{\hyperlink{classcudf_1_1lists__column__view_afb957abf23e175f2f8096554e8f8dd57}{offsets\_end}}()\ const\ noexcept}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00136}00136\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00137}00137\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1lists__column__view_a590d2b8fdc72bfd87b9cd92fd7ddd1f0}{offsets\_begin}}()\ +\ \mbox{\hyperlink{classcudf_1_1detail_1_1column__view__base_a754fdc0ebe297a466d1b377638c6920a}{size}}()\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00138}00138\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00139}00139\ \};\ \ \textcolor{comment}{//\ end\ of\ group}}
+\DoxyCodeLine{\Hypertarget{lists__column__view_8hpp_source_l00141}00141\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

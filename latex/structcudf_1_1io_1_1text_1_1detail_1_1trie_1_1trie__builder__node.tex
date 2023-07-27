@@ -1,0 +1,96 @@
+\doxysection{cudf\+::io\+::text\+::detail\+::trie\+::trie\+\_\+builder\+\_\+node结构体 参考}
+\hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node}{}\label{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node}\index{cudf::io::text::detail::trie::trie\_builder\_node@{cudf::io::text::detail::trie::trie\_builder\_node}}
+
+
+Used to build a hierarchical trie which can then be flattened.  
+
+
+
+
+cudf\+::io\+::text\+::detail\+::trie\+::trie\+\_\+builder\+\_\+node 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=189pt]{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_a76dd948746fe43d6a34bfc3b69f2f38d}{insert}} (std\+::string s)
+\begin{DoxyCompactList}\small\item\em Insert the string in to the trie tree, growing the trie as necessary \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_a8db78fd0efa51e0025efebced098817f}{match\+\_\+length}}
+\item 
+std\+::unordered\+\_\+map$<$ char, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node}{trie\+\_\+builder\+\_\+node}} $>$ $>$ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_add7b876c2be6eaa8edde51bbe1f1b6e4}{children}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node}{trie\+\_\+builder\+\_\+node}} \& \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_a7810a7adb471bfddfd006ccd5aaf0cb4}{insert}} (char const \texorpdfstring{$\ast$}{*}s, uint16\+\_\+t \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_a5497b4fcbb103d321e6a19adab52aae9}{size}}, uint8\+\_\+t depth)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Used to build a hierarchical trie which can then be flattened. 
+
+在文件 \mbox{\hyperlink{trie_8hpp_source}{trie.\+hpp}} 第 \mbox{\hyperlink{trie_8hpp_source_l00123}{123}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_a7810a7adb471bfddfd006ccd5aaf0cb4}\label{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_a7810a7adb471bfddfd006ccd5aaf0cb4} 
+\index{cudf::io::text::detail::trie::trie\_builder\_node@{cudf::io::text::detail::trie::trie\_builder\_node}!insert@{insert}}
+\index{insert@{insert}!cudf::io::text::detail::trie::trie\_builder\_node@{cudf::io::text::detail::trie::trie\_builder\_node}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node}{trie\+\_\+builder\+\_\+node}} \& cudf\+::io\+::text\+::detail\+::trie\+::trie\+\_\+builder\+\_\+node\+::insert (\begin{DoxyParamCaption}\item[{char const \texorpdfstring{$\ast$}{*}}]{s,  }\item[{uint16\+\_\+t}]{size,  }\item[{uint8\+\_\+t}]{depth }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{trie_8hpp_source}{trie.\+hpp}} 第 \mbox{\hyperlink{trie_8hpp_source_l00133}{133}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_a76dd948746fe43d6a34bfc3b69f2f38d}\label{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_a76dd948746fe43d6a34bfc3b69f2f38d} 
+\index{cudf::io::text::detail::trie::trie\_builder\_node@{cudf::io::text::detail::trie::trie\_builder\_node}!insert@{insert}}
+\index{insert@{insert}!cudf::io::text::detail::trie::trie\_builder\_node@{cudf::io::text::detail::trie::trie\_builder\_node}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void cudf\+::io\+::text\+::detail\+::trie\+::trie\+\_\+builder\+\_\+node\+::insert (\begin{DoxyParamCaption}\item[{std\+::string}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Insert the string in to the trie tree, growing the trie as necessary 
+
+
+
+在文件 \mbox{\hyperlink{trie_8hpp_source}{trie.\+hpp}} 第 \mbox{\hyperlink{trie_8hpp_source_l00130}{130}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_add7b876c2be6eaa8edde51bbe1f1b6e4}\label{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_add7b876c2be6eaa8edde51bbe1f1b6e4} 
+\index{cudf::io::text::detail::trie::trie\_builder\_node@{cudf::io::text::detail::trie::trie\_builder\_node}!children@{children}}
+\index{children@{children}!cudf::io::text::detail::trie::trie\_builder\_node@{cudf::io::text::detail::trie::trie\_builder\_node}}
+\doxysubsubsection{\texorpdfstring{children}{children}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$char, std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node}{trie\+\_\+builder\+\_\+node}}$>$ $>$ cudf\+::io\+::text\+::detail\+::trie\+::trie\+\_\+builder\+\_\+node\+::children}
+
+
+
+在文件 \mbox{\hyperlink{trie_8hpp_source}{trie.\+hpp}} 第 \mbox{\hyperlink{trie_8hpp_source_l00125}{125}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_a8db78fd0efa51e0025efebced098817f}\label{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node_a8db78fd0efa51e0025efebced098817f} 
+\index{cudf::io::text::detail::trie::trie\_builder\_node@{cudf::io::text::detail::trie::trie\_builder\_node}!match\_length@{match\_length}}
+\index{match\_length@{match\_length}!cudf::io::text::detail::trie::trie\_builder\_node@{cudf::io::text::detail::trie::trie\_builder\_node}}
+\doxysubsubsection{\texorpdfstring{match\_length}{match\_length}}
+{\footnotesize\ttfamily uint8\+\_\+t cudf\+::io\+::text\+::detail\+::trie\+::trie\+\_\+builder\+\_\+node\+::match\+\_\+length}
+
+
+
+在文件 \mbox{\hyperlink{trie_8hpp_source}{trie.\+hpp}} 第 \mbox{\hyperlink{trie_8hpp_source_l00124}{124}} 行定义.
+
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/text/detail/\mbox{\hyperlink{trie_8hpp}{trie.\+hpp}}\end{DoxyCompactItemize}

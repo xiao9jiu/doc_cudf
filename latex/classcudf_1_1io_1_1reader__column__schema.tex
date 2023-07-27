@@ -1,0 +1,258 @@
+\doxysection{cudf\+::io\+::reader\+\_\+column\+\_\+schema类 参考}
+\hypertarget{classcudf_1_1io_1_1reader__column__schema}{}\label{classcudf_1_1io_1_1reader__column__schema}\index{cudf::io::reader\_column\_schema@{cudf::io::reader\_column\_schema}}
+
+
+schema element for reader  
+
+
+
+
+{\ttfamily \#include $<$types.\+hpp$>$}
+
+
+
+cudf\+::io\+::reader\+\_\+column\+\_\+schema 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{classcudf_1_1io_1_1reader__column__schema__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema_a19446bef85867938975c499da74dce1a}{reader\+\_\+column\+\_\+schema}} ()=default
+\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema_ae7478e7c79f7205dd5eb8ae4b25a16cc}{reader\+\_\+column\+\_\+schema}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} number\+\_\+of\+\_\+children)
+\begin{DoxyCompactList}\small\item\em Construct a new reader column schema object \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema_aa1d7555e3439ca0e2d9edc649fbdfc56}{reader\+\_\+column\+\_\+schema}} (\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema}{reader\+\_\+column\+\_\+schema}} $>$ const \&child\+\_\+span)
+\begin{DoxyCompactList}\small\item\em Construct a new reader column schema object with a span defining the children \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema}{reader\+\_\+column\+\_\+schema}} \& \mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema_a3f128bdc0a9d52d44f4eff29d4938626}{add\+\_\+child}} (\mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema}{reader\+\_\+column\+\_\+schema}} const \&\mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema_a357be684133e8036241d5bb466d67a86}{child}})
+\begin{DoxyCompactList}\small\item\em Add the children metadata of this column \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema}{reader\+\_\+column\+\_\+schema}} \& \mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema_a357be684133e8036241d5bb466d67a86}{child}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} i)
+\begin{DoxyCompactList}\small\item\em Get reference to a child of this column \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema}{reader\+\_\+column\+\_\+schema}} const \& \mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema_a097724d73c54fa2d895173a89c70de22}{child}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} i) const
+\begin{DoxyCompactList}\small\item\em Get const reference to a child of this column \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema}{reader\+\_\+column\+\_\+schema}} \& \mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema_ac2c8b843d9aa5b1bc44ead2843350292}{set\+\_\+convert\+\_\+binary\+\_\+to\+\_\+strings}} (bool convert\+\_\+to\+\_\+string)
+\begin{DoxyCompactList}\small\item\em Specifies whether this column should be written as binary or string data Only valid for the following column types\+: string, list$<$int8$>$ \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema_a6d8579812308428cbccf62c53f75f7cc}{is\+\_\+enabled\+\_\+convert\+\_\+binary\+\_\+to\+\_\+strings}} () const
+\begin{DoxyCompactList}\small\item\em Get whether to encode this column as binary or string data \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema_ad07a44ed45451fb0fe1e4f1678c5e677}{get\+\_\+num\+\_\+children}} () const
+\begin{DoxyCompactList}\small\item\em Get the number of child objects \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema_ad1ad669c2ce2feb5c88c0c0fe00a3af7}{\+\_\+convert\+\_\+binary\+\_\+to\+\_\+strings}} \{true\}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema}{reader\+\_\+column\+\_\+schema}} $>$ \mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema_a6994f3165e243ffae63efc78f9c47596}{children}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+schema element for reader 
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00660}{660}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1io_1_1reader__column__schema_a19446bef85867938975c499da74dce1a}\label{classcudf_1_1io_1_1reader__column__schema_a19446bef85867938975c499da74dce1a} 
+\index{cudf::io::reader\_column\_schema@{cudf::io::reader\_column\_schema}!reader\_column\_schema@{reader\_column\_schema}}
+\index{reader\_column\_schema@{reader\_column\_schema}!cudf::io::reader\_column\_schema@{cudf::io::reader\_column\_schema}}
+\doxysubsubsection{\texorpdfstring{reader\_column\_schema()}{reader\_column\_schema()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily cudf\+::io\+::reader\+\_\+column\+\_\+schema\+::reader\+\_\+column\+\_\+schema (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classcudf_1_1io_1_1reader__column__schema_ae7478e7c79f7205dd5eb8ae4b25a16cc}\label{classcudf_1_1io_1_1reader__column__schema_ae7478e7c79f7205dd5eb8ae4b25a16cc} 
+\index{cudf::io::reader\_column\_schema@{cudf::io::reader\_column\_schema}!reader\_column\_schema@{reader\_column\_schema}}
+\index{reader\_column\_schema@{reader\_column\_schema}!cudf::io::reader\_column\_schema@{cudf::io::reader\_column\_schema}}
+\doxysubsubsection{\texorpdfstring{reader\_column\_schema()}{reader\_column\_schema()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily cudf\+::io\+::reader\+\_\+column\+\_\+schema\+::reader\+\_\+column\+\_\+schema (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{number\+\_\+of\+\_\+children }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new reader column schema object 
+
+
+\begin{DoxyParams}{参数}
+{\em number\+\_\+of\+\_\+children} & number of child schema objects to default construct \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00674}{674}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1reader__column__schema_aa1d7555e3439ca0e2d9edc649fbdfc56}\label{classcudf_1_1io_1_1reader__column__schema_aa1d7555e3439ca0e2d9edc649fbdfc56} 
+\index{cudf::io::reader\_column\_schema@{cudf::io::reader\_column\_schema}!reader\_column\_schema@{reader\_column\_schema}}
+\index{reader\_column\_schema@{reader\_column\_schema}!cudf::io::reader\_column\_schema@{cudf::io::reader\_column\_schema}}
+\doxysubsubsection{\texorpdfstring{reader\_column\_schema()}{reader\_column\_schema()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily cudf\+::io\+::reader\+\_\+column\+\_\+schema\+::reader\+\_\+column\+\_\+schema (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema}{reader\+\_\+column\+\_\+schema}} $>$ const \&}]{child\+\_\+span }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new reader column schema object with a span defining the children 
+
+
+\begin{DoxyParams}{参数}
+{\em child\+\_\+span} & span of child schema objects \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00681}{681}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1io_1_1reader__column__schema_a3f128bdc0a9d52d44f4eff29d4938626}\label{classcudf_1_1io_1_1reader__column__schema_a3f128bdc0a9d52d44f4eff29d4938626} 
+\index{cudf::io::reader\_column\_schema@{cudf::io::reader\_column\_schema}!add\_child@{add\_child}}
+\index{add\_child@{add\_child}!cudf::io::reader\_column\_schema@{cudf::io::reader\_column\_schema}}
+\doxysubsubsection{\texorpdfstring{add\_child()}{add\_child()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema}{reader\+\_\+column\+\_\+schema}} \& cudf\+::io\+::reader\+\_\+column\+\_\+schema\+::add\+\_\+child (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema}{reader\+\_\+column\+\_\+schema}} const \&}]{child }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add the children metadata of this column 
+
+
+\begin{DoxyParams}{参数}
+{\em child} & The children metadata of this column to add \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+this for chaining 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00692}{692}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1reader__column__schema_a357be684133e8036241d5bb466d67a86}\label{classcudf_1_1io_1_1reader__column__schema_a357be684133e8036241d5bb466d67a86} 
+\index{cudf::io::reader\_column\_schema@{cudf::io::reader\_column\_schema}!child@{child}}
+\index{child@{child}!cudf::io::reader\_column\_schema@{cudf::io::reader\_column\_schema}}
+\doxysubsubsection{\texorpdfstring{child()}{child()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema}{reader\+\_\+column\+\_\+schema}} \& cudf\+::io\+::reader\+\_\+column\+\_\+schema\+::child (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get reference to a child of this column 
+
+
+\begin{DoxyParams}{参数}
+{\em i} & Index of the child to get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+this for chaining 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00704}{704}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1reader__column__schema_a097724d73c54fa2d895173a89c70de22}\label{classcudf_1_1io_1_1reader__column__schema_a097724d73c54fa2d895173a89c70de22} 
+\index{cudf::io::reader\_column\_schema@{cudf::io::reader\_column\_schema}!child@{child}}
+\index{child@{child}!cudf::io::reader\_column\_schema@{cudf::io::reader\_column\_schema}}
+\doxysubsubsection{\texorpdfstring{child()}{child()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema}{reader\+\_\+column\+\_\+schema}} const  \& cudf\+::io\+::reader\+\_\+column\+\_\+schema\+::child (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get const reference to a child of this column 
+
+
+\begin{DoxyParams}{参数}
+{\em i} & Index of the child to get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+this for chaining 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00712}{712}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1reader__column__schema_ad07a44ed45451fb0fe1e4f1678c5e677}\label{classcudf_1_1io_1_1reader__column__schema_ad07a44ed45451fb0fe1e4f1678c5e677} 
+\index{cudf::io::reader\_column\_schema@{cudf::io::reader\_column\_schema}!get\_num\_children@{get\_num\_children}}
+\index{get\_num\_children@{get\_num\_children}!cudf::io::reader\_column\_schema@{cudf::io::reader\_column\_schema}}
+\doxysubsubsection{\texorpdfstring{get\_num\_children()}{get\_num\_children()}}
+{\footnotesize\ttfamily size\+\_\+t cudf\+::io\+::reader\+\_\+column\+\_\+schema\+::get\+\_\+num\+\_\+children (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the number of child objects 
+
+\begin{DoxyReturn}{返回}
+number of children 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00743}{743}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1reader__column__schema_a6d8579812308428cbccf62c53f75f7cc}\label{classcudf_1_1io_1_1reader__column__schema_a6d8579812308428cbccf62c53f75f7cc} 
+\index{cudf::io::reader\_column\_schema@{cudf::io::reader\_column\_schema}!is\_enabled\_convert\_binary\_to\_strings@{is\_enabled\_convert\_binary\_to\_strings}}
+\index{is\_enabled\_convert\_binary\_to\_strings@{is\_enabled\_convert\_binary\_to\_strings}!cudf::io::reader\_column\_schema@{cudf::io::reader\_column\_schema}}
+\doxysubsubsection{\texorpdfstring{is\_enabled\_convert\_binary\_to\_strings()}{is\_enabled\_convert\_binary\_to\_strings()}}
+{\footnotesize\ttfamily bool cudf\+::io\+::reader\+\_\+column\+\_\+schema\+::is\+\_\+enabled\+\_\+convert\+\_\+binary\+\_\+to\+\_\+strings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get whether to encode this column as binary or string data 
+
+\begin{DoxyReturn}{返回}
+Boolean indicating whether to encode this column as binary data 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00733}{733}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1reader__column__schema_ac2c8b843d9aa5b1bc44ead2843350292}\label{classcudf_1_1io_1_1reader__column__schema_ac2c8b843d9aa5b1bc44ead2843350292} 
+\index{cudf::io::reader\_column\_schema@{cudf::io::reader\_column\_schema}!set\_convert\_binary\_to\_strings@{set\_convert\_binary\_to\_strings}}
+\index{set\_convert\_binary\_to\_strings@{set\_convert\_binary\_to\_strings}!cudf::io::reader\_column\_schema@{cudf::io::reader\_column\_schema}}
+\doxysubsubsection{\texorpdfstring{set\_convert\_binary\_to\_strings()}{set\_convert\_binary\_to\_strings()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema}{reader\+\_\+column\+\_\+schema}} \& cudf\+::io\+::reader\+\_\+column\+\_\+schema\+::set\+\_\+convert\+\_\+binary\+\_\+to\+\_\+strings (\begin{DoxyParamCaption}\item[{bool}]{convert\+\_\+to\+\_\+string }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Specifies whether this column should be written as binary or string data Only valid for the following column types\+: string, list$<$int8$>$ 
+
+
+\begin{DoxyParams}{参数}
+{\em convert\+\_\+to\+\_\+string} & True = convert binary to strings False = return binary \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+this for chaining 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00722}{722}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1io_1_1reader__column__schema_ad1ad669c2ce2feb5c88c0c0fe00a3af7}\label{classcudf_1_1io_1_1reader__column__schema_ad1ad669c2ce2feb5c88c0c0fe00a3af7} 
+\index{cudf::io::reader\_column\_schema@{cudf::io::reader\_column\_schema}!\_convert\_binary\_to\_strings@{\_convert\_binary\_to\_strings}}
+\index{\_convert\_binary\_to\_strings@{\_convert\_binary\_to\_strings}!cudf::io::reader\_column\_schema@{cudf::io::reader\_column\_schema}}
+\doxysubsubsection{\texorpdfstring{\_convert\_binary\_to\_strings}{\_convert\_binary\_to\_strings}}
+{\footnotesize\ttfamily bool cudf\+::io\+::reader\+\_\+column\+\_\+schema\+::\+\_\+convert\+\_\+binary\+\_\+to\+\_\+strings \{true\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00662}{662}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1reader__column__schema_a6994f3165e243ffae63efc78f9c47596}\label{classcudf_1_1io_1_1reader__column__schema_a6994f3165e243ffae63efc78f9c47596} 
+\index{cudf::io::reader\_column\_schema@{cudf::io::reader\_column\_schema}!children@{children}}
+\index{children@{children}!cudf::io::reader\_column\_schema@{cudf::io::reader\_column\_schema}}
+\doxysubsubsection{\texorpdfstring{children}{children}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classcudf_1_1io_1_1reader__column__schema}{reader\+\_\+column\+\_\+schema}}$>$ cudf\+::io\+::reader\+\_\+column\+\_\+schema\+::children\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00664}{664}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/\mbox{\hyperlink{io_2types_8hpp}{types.\+hpp}}\end{DoxyCompactItemize}

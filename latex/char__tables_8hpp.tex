@@ -1,0 +1,68 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/strings/detail/char\+\_\+tables.hpp 文件参考}
+\hypertarget{char__tables_8hpp}{}\label{char__tables_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/strings/detail/char\_tables.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/strings/detail/char\_tables.hpp}}
+{\ttfamily \#include $<$cstdint$>$}\newline
+char\+\_\+tables.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{char__tables_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1strings_1_1detail_1_1special__case__mapping}{cudf\+::strings\+::detail\+::special\+\_\+case\+\_\+mapping}}
+\begin{DoxyCompactList}\small\item\em Case mapping structure for special characters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1strings}{cudf\+::strings}}
+\begin{DoxyCompactList}\small\item\em Strings column APIs \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail}{cudf\+::strings\+::detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{类型定义}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_aa3e28807e386429e2589a280f21db124}{cudf\+::strings\+::detail\+::character\+\_\+flags\+\_\+table\+\_\+type}} = std\+::uint8\+\_\+t
+\item 
+using \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a1754364b3624ead1177c92000bf133d7}{cudf\+::strings\+::detail\+::character\+\_\+cases\+\_\+table\+\_\+type}} = uint16\+\_\+t
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_aa3e28807e386429e2589a280f21db124}{character\+\_\+flags\+\_\+table\+\_\+type}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a8b5fde789ab36e11993e5627085d0f23}{cudf\+::strings\+::detail\+::get\+\_\+character\+\_\+flags\+\_\+table}} ()
+\begin{DoxyCompactList}\small\item\em Returns pointer to device memory that contains the static characters flags table. On first call, this will copy the table into device memory and is guaranteed to be thread-\/safe. \end{DoxyCompactList}\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ab5b9527e53d156f316ba39f56da1744a}{cudf\+::strings\+::detail\+::\+IS\+\_\+\+DECIMAL}} (uint8\+\_\+t x)
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ae0eb07f8c45fd780eef62071f158a6a7}{cudf\+::strings\+::detail\+::\+IS\+\_\+\+NUMERIC}} (uint8\+\_\+t x)
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a2d49ae3ab525b5e11e7d76a4abd9c319}{cudf\+::strings\+::detail\+::\+IS\+\_\+\+DIGIT}} (uint8\+\_\+t x)
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a459e3f8d1ed89a62bec62ec1ef0b1e5c}{cudf\+::strings\+::detail\+::\+IS\+\_\+\+ALPHA}} (uint8\+\_\+t x)
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ae4252a01db93d6015e75f6efa2a9a95b}{cudf\+::strings\+::detail\+::\+IS\+\_\+\+SPACE}} (uint8\+\_\+t x)
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a403235c4ef1582a8c8e4ff77fb4ed9e2}{cudf\+::strings\+::detail\+::\+IS\+\_\+\+UPPER}} (uint8\+\_\+t x)
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a96b30f602d723da0e552f30d4c7f6e87}{cudf\+::strings\+::detail\+::\+IS\+\_\+\+LOWER}} (uint8\+\_\+t x)
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a0bb2110e6146a501687fdefb7c8217d1}{cudf\+::strings\+::detail\+::\+IS\+\_\+\+SPECIAL}} (uint8\+\_\+t x)
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a4ad21735b7fd9352c93a040d2de67356}{cudf\+::strings\+::detail\+::\+IS\+\_\+\+ALPHANUM}} (uint8\+\_\+t x)
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a4565cab7f14504825bb74c7ad70015f3}{cudf\+::strings\+::detail\+::\+IS\+\_\+\+UPPER\+\_\+\+OR\+\_\+\+LOWER}} (uint8\+\_\+t x)
+\item 
+const \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a1754364b3624ead1177c92000bf133d7}{character\+\_\+cases\+\_\+table\+\_\+type}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a9c09ebfde12af2f9f3df558134a8cc67}{cudf\+::strings\+::detail\+::get\+\_\+character\+\_\+cases\+\_\+table}} ()
+\begin{DoxyCompactList}\small\item\em Returns pointer to device memory that contains the static characters case table. On first call, this will copy the table into device memory and is guaranteed to be thread-\/safe. \end{DoxyCompactList}\item 
+const struct \mbox{\hyperlink{structcudf_1_1strings_1_1detail_1_1special__case__mapping}{special\+\_\+case\+\_\+mapping}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ab802022423cd65cadd6165cebc2de89f}{cudf\+::strings\+::detail\+::get\+\_\+special\+\_\+case\+\_\+mapping\+\_\+table}} ()
+\begin{DoxyCompactList}\small\item\em Returns pointer to device memory that contains the special case mapping table. On first call, this will copy the table into device memory and is guaranteed to be thread-\/safe. \end{DoxyCompactList}\item 
+constexpr uint16\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ae3d2f737d44317bd9b64aca509c5f591}{cudf\+::strings\+::detail\+::get\+\_\+special\+\_\+case\+\_\+hash\+\_\+index}} (uint32\+\_\+t code\+\_\+point)
+\begin{DoxyCompactList}\small\item\em Get the special mapping table index for a given code-\/point. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{变量}
+\begin{DoxyCompactItemize}
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ac53c1e98d2f3a5d4c69590173645d0df}{cudf\+::strings\+::detail\+::\+ALL\+\_\+\+FLAGS}} = 0x\+FF
+\end{DoxyCompactItemize}

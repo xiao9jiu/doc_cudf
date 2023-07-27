@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: D:/gitLibrary/cudf/cpp/include/cudf/strings/find.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('find_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">find.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="find_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright (c) 2019-2022, NVIDIA CORPORATION.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;<a class="code" href="column_8hpp.html">cudf/column/column.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;<a class="code" href="scalar_8hpp.html">cudf/scalar/scalar.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;<a class="code" href="strings__column__view_8hpp.html">cudf/strings/strings_column_view.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;rmm/mr/device/per_device_resource.hpp&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecudf.html">cudf</a> {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">namespace </span>strings {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="group__strings__find.html#ga25be74f1bd037930e54a545e5c19686a">   54</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__strings__find.html#ga25be74f1bd037930e54a545e5c19686a">find</a>(</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  <a class="code hl_class" href="classcudf_1_1strings__column__view.html">strings_column_view</a> <span class="keyword">const</span>&amp; strings,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  <a class="code hl_class" href="classcudf_1_1string__scalar.html">string_scalar</a> <span class="keyword">const</span>&amp; target,</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> start                     = 0,</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> stop                      = -1,</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="group__strings__find.html#gae8a5404ef4422cc48cb935b84fb25fcc">   83</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__strings__find.html#gae8a5404ef4422cc48cb935b84fb25fcc">rfind</a>(</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  <a class="code hl_class" href="classcudf_1_1strings__column__view.html">strings_column_view</a> <span class="keyword">const</span>&amp; strings,</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  <a class="code hl_class" href="classcudf_1_1string__scalar.html">string_scalar</a> <span class="keyword">const</span>&amp; target,</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> start                     = 0,</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> stop                      = -1,</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="group__strings__find.html#ga208ad7f9d27e9b1d2b8224bd4fc32f5c">  104</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__strings__find.html#ga208ad7f9d27e9b1d2b8224bd4fc32f5c">contains</a>(</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>  <a class="code hl_class" href="classcudf_1_1strings__column__view.html">strings_column_view</a> <span class="keyword">const</span>&amp; strings,</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>  <a class="code hl_class" href="classcudf_1_1string__scalar.html">string_scalar</a> <span class="keyword">const</span>&amp; target,</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="group__strings__find.html#ga3392734ce7134e38ff84efcae4dc2c4d">  127</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__strings__find.html#ga208ad7f9d27e9b1d2b8224bd4fc32f5c">contains</a>(</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>  <a class="code hl_class" href="classcudf_1_1strings__column__view.html">strings_column_view</a> <span class="keyword">const</span>&amp; strings,</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>  <a class="code hl_class" href="classcudf_1_1strings__column__view.html">strings_column_view</a> <span class="keyword">const</span>&amp; targets,</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="group__strings__find.html#ga7d83775446f5c67cb6179a3ff5ff9c10">  147</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__strings__find.html#ga7d83775446f5c67cb6179a3ff5ff9c10">starts_with</a>(</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>  <a class="code hl_class" href="classcudf_1_1strings__column__view.html">strings_column_view</a> <span class="keyword">const</span>&amp; strings,</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>  <a class="code hl_class" href="classcudf_1_1string__scalar.html">string_scalar</a> <span class="keyword">const</span>&amp; target,</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno"><a class="line" href="group__strings__find.html#ga2d974574dfc7f881c974abf5b2b47b22">  171</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__strings__find.html#ga7d83775446f5c67cb6179a3ff5ff9c10">starts_with</a>(</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>  <a class="code hl_class" href="classcudf_1_1strings__column__view.html">strings_column_view</a> <span class="keyword">const</span>&amp; strings,</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>  <a class="code hl_class" href="classcudf_1_1strings__column__view.html">strings_column_view</a> <span class="keyword">const</span>&amp; targets,</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="group__strings__find.html#ga97d6f1e90f942e6ee832f8559523b72a">  191</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__strings__find.html#ga97d6f1e90f942e6ee832f8559523b72a">ends_with</a>(</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>  <a class="code hl_class" href="classcudf_1_1strings__column__view.html">strings_column_view</a> <span class="keyword">const</span>&amp; strings,</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>  <a class="code hl_class" href="classcudf_1_1string__scalar.html">string_scalar</a> <span class="keyword">const</span>&amp; target,</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno"><a class="line" href="group__strings__find.html#gaa8a00664ad806da7b599ffbc015ca11c">  215</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__strings__find.html#ga97d6f1e90f942e6ee832f8559523b72a">ends_with</a>(</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>  <a class="code hl_class" href="classcudf_1_1strings__column__view.html">strings_column_view</a> <span class="keyword">const</span>&amp; strings,</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>  <a class="code hl_class" href="classcudf_1_1strings__column__view.html">strings_column_view</a> <span class="keyword">const</span>&amp; targets,</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());  <span class="comment">// end of doxygen group</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>}  <span class="comment">// namespace strings</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>}  <span class="comment">// namespace cudf</span></div>
+<div class="ttc" id="aclasscudf_1_1string__scalar_html"><div class="ttname"><a href="classcudf_1_1string__scalar.html">cudf::string_scalar</a></div><div class="ttdoc">An owning class to represent a string in device memory.</div><div class="ttdef"><b>Definition</b> <a href="scalar_8hpp_source.html#l00429">scalar.hpp:429</a></div></div>
+<div class="ttc" id="aclasscudf_1_1strings__column__view_html"><div class="ttname"><a href="classcudf_1_1strings__column__view.html">cudf::strings_column_view</a></div><div class="ttdoc">Given a column-view of strings type, an instance of this class provides a wrapper on this compound co...</div><div class="ttdef"><b>Definition</b> <a href="strings__column__view_8hpp_source.html#l00036">strings_column_view.hpp:36</a></div></div>
+<div class="ttc" id="acolumn_8hpp_html"><div class="ttname"><a href="column_8hpp.html">column.hpp</a></div><div class="ttdoc">Class definition for cudf::column</div></div>
+<div class="ttc" id="agroup__strings__find_html_ga208ad7f9d27e9b1d2b8224bd4fc32f5c"><div class="ttname"><a href="group__strings__find.html#ga208ad7f9d27e9b1d2b8224bd4fc32f5c">cudf::strings::contains</a></div><div class="ttdeci">std::unique_ptr&lt; column &gt; contains(strings_column_view const &amp;strings, string_scalar const &amp;target, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Returns a column of boolean values for each string where true indicates the target string was found w...</div></div>
+<div class="ttc" id="agroup__strings__find_html_ga25be74f1bd037930e54a545e5c19686a"><div class="ttname"><a href="group__strings__find.html#ga25be74f1bd037930e54a545e5c19686a">cudf::strings::find</a></div><div class="ttdeci">std::unique_ptr&lt; column &gt; find(strings_column_view const &amp;strings, string_scalar const &amp;target, size_type start=0, size_type stop=-1, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Returns a column of character position values where the target string is first found in each string o...</div></div>
+<div class="ttc" id="agroup__strings__find_html_ga7d83775446f5c67cb6179a3ff5ff9c10"><div class="ttname"><a href="group__strings__find.html#ga7d83775446f5c67cb6179a3ff5ff9c10">cudf::strings::starts_with</a></div><div class="ttdeci">std::unique_ptr&lt; column &gt; starts_with(strings_column_view const &amp;strings, string_scalar const &amp;target, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Returns a column of boolean values for each string where true indicates the target string was found a...</div></div>
+<div class="ttc" id="agroup__strings__find_html_ga97d6f1e90f942e6ee832f8559523b72a"><div class="ttname"><a href="group__strings__find.html#ga97d6f1e90f942e6ee832f8559523b72a">cudf::strings::ends_with</a></div><div class="ttdeci">std::unique_ptr&lt; column &gt; ends_with(strings_column_view const &amp;strings, string_scalar const &amp;target, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Returns a column of boolean values for each string where true indicates the target string was found a...</div></div>
+<div class="ttc" id="agroup__strings__find_html_gae8a5404ef4422cc48cb935b84fb25fcc"><div class="ttname"><a href="group__strings__find.html#gae8a5404ef4422cc48cb935b84fb25fcc">cudf::strings::rfind</a></div><div class="ttdeci">std::unique_ptr&lt; column &gt; rfind(strings_column_view const &amp;strings, string_scalar const &amp;target, size_type start=0, size_type stop=-1, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Returns a column of character position values where the target string is first found searching from t...</div></div>
+<div class="ttc" id="agroup__utility__types_html_ga0aff16b2db009d92300befaca11827e9"><div class="ttname"><a href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">cudf::size_type</a></div><div class="ttdeci">int32_t size_type</div><div class="ttdoc">Row index type for columns and tables</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00080">types.hpp:80</a></div></div>
+<div class="ttc" id="anamespacecudf_html"><div class="ttname"><a href="namespacecudf.html">cudf</a></div><div class="ttdoc">cuDF interfaces</div><div class="ttdef"><b>Definition</b> <a href="aggregation_8hpp_source.html#l00034">aggregation.hpp:34</a></div></div>
+<div class="ttc" id="ascalar_8hpp_html"><div class="ttname"><a href="scalar_8hpp.html">scalar.hpp</a></div><div class="ttdoc">Class definitions for cudf::scalar</div></div>
+<div class="ttc" id="astrings__column__view_8hpp_html"><div class="ttname"><a href="strings__column__view_8hpp.html">strings_column_view.hpp</a></div><div class="ttdoc">Class definition for cudf::strings_column_view</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_d998dea0bd4559303135358082015ac8.html">gitLibrary</a></li><li class="navelem"><a class="el" href="dir_b6486b3d9bd1f4b89c884933ed658179.html">cudf</a></li><li class="navelem"><a class="el" href="dir_318a4414914f49dc0e7605c41de9d4af.html">cpp</a></li><li class="navelem"><a class="el" href="dir_7fbf5ee8ae486656ea40e5ca1dd304f9.html">include</a></li><li class="navelem"><a class="el" href="dir_87e6427d1ef099fd52d9d0724c66b062.html">cudf</a></li><li class="navelem"><a class="el" href="dir_e52a7cfcc5412b565f6ae0686e8a94b2.html">strings</a></li><li class="navelem"><a class="el" href="find_8hpp.html">find.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

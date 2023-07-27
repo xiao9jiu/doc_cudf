@@ -1,0 +1,106 @@
+\doxysection{Column\+\_\+merge}
+\hypertarget{group__column__merge}{}\label{group__column__merge}\index{Column\_merge@{Column\_merge}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{merge_8hpp}{merge.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{cudf\+::table}} $>$ \mbox{\hyperlink{group__column__merge_ga41e5427a85605a8ffa40025bf23baade}{cudf\+::merge}} (std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} $>$ const \&tables\+\_\+to\+\_\+merge, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} $>$ const \&key\+\_\+cols, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{cudf\+::order}} $>$ const \&column\+\_\+order, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{cudf\+::null\+\_\+order}} $>$ const \&null\+\_\+precedence=\{\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Merge a set of sorted tables. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__column__merge_ga41e5427a85605a8ffa40025bf23baade}\label{group__column__merge_ga41e5427a85605a8ffa40025bf23baade} 
+\index{Column\_merge@{Column\_merge}!merge@{merge}}
+\index{merge@{merge}!Column\_merge@{Column\_merge}}
+\doxysubsubsection{\texorpdfstring{merge()}{merge()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{cudf\+::table}} $>$ cudf\+::merge (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} $>$ const \&}]{tables\+\_\+to\+\_\+merge,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} $>$ const \&}]{key\+\_\+cols,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{cudf\+::order}} $>$ const \&}]{column\+\_\+order,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{cudf\+::null\+\_\+order}} $>$ const \&}]{null\+\_\+precedence = {\ttfamily \{\}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Merge a set of sorted tables. 
+
+Merges sorted tables into one sorted table containing data from all tables.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example\ 1:}
+\DoxyCodeLine{input:}
+\DoxyCodeLine{\mbox{\hyperlink{classcudf_1_1table}{table}}\ 1\ =>\ col\ 1\ \{0,\ 1,\ 2,\ 3\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ col\ 2\ \{4,\ 5,\ 6,\ 7\}}
+\DoxyCodeLine{table\ 2\ =>\ col\ 1\ \{1,\ 2\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ col\ 2\ \{8,\ 9\}}
+\DoxyCodeLine{table\ 3\ =>\ col\ 1\ \{2,\ 4\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ col\ 2\ \{8,\ 9\}}
+\DoxyCodeLine{output:}
+\DoxyCodeLine{table\ =>\ col\ 1\ \{0,\ 1,\ 1,\ 2,\ 2,\ 2,\ 3,\ 4\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ col\ 2\ \{4,\ 5,\ 8,\ 6,\ 8,\ 9,\ 7,\ 9\}}
+
+\end{DoxyCode}
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example\ 2:}
+\DoxyCodeLine{input:}
+\DoxyCodeLine{\mbox{\hyperlink{classcudf_1_1table}{table}}\ 1\ =>\ col\ 0\ \{1,\ 0\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ col\ 1\ \{\textcolor{charliteral}{'c'},\ \textcolor{charliteral}{'b'}\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ col\ 2\ \{RED,\ GREEN\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{table\ 2\ =>\ col\ 0\ \{1\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ col\ 1\ \{\textcolor{charliteral}{'a'}\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ col\ 2\ \{NULL\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ with\ key\_cols[]\ =\ \{0,1\}}
+\DoxyCodeLine{\ and\ \ asc\_desc[]\ =\ \{ASC,\ ASC\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ Lex-\/sorting\ is\ on\ columns\ \{0,1\};\ hence,\ lex-\/sorting\ of\ ((L0\ x\ L1)\ V\ (R0\ x\ R1))\ is:}
+\DoxyCodeLine{\ (0,\textcolor{charliteral}{'b'},\ GREEN),\ (1,\textcolor{charliteral}{'a'},\ NULL),\ (1,\textcolor{charliteral}{'c'},\ RED)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ (third\ column,\ the\ \textcolor{stringliteral}{"{}color"{}},\ just\ \textcolor{stringliteral}{"{}goes\ along\ for\ the\ ride"{}};}
+\DoxyCodeLine{\ \ meaning\ it\ is\ permuted\ according\ to\ the\ data\ movements\ dictated}
+\DoxyCodeLine{\ \ by\ lexicographic\ ordering\ of\ columns\ 0\ and\ 1)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ with\ result\ columns:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ Res0\ =\ \{0,1,1\}}
+\DoxyCodeLine{\ \ Res1\ =\ \{\textcolor{charliteral}{'b'},\ \textcolor{charliteral}{'a'},\ \textcolor{charliteral}{'c'}\}}
+\DoxyCodeLine{\ \ Res2\ =\ \{GREEN,\ NULL,\ RED\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if tables in {\ttfamily tables\+\_\+to\+\_\+merge} have different number of columns \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if tables in {\ttfamily tables\+\_\+to\+\_\+merge} have columns with mismatched types \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily key\+\_\+cols} is empty \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily key\+\_\+cols} size is larger than the number of columns in {\ttfamily tables\+\_\+to\+\_\+merge} tables \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily key\+\_\+cols} size and {\ttfamily column\+\_\+order} size mismatches\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em tables\+\_\+to\+\_\+merge} & Non-\/empty list of tables to be merged \\
+\hline
+\mbox{\texttt{ in}}  & {\em key\+\_\+cols} & Indices of left\+\_\+cols and right\+\_\+cols to be used for comparison criteria \\
+\hline
+\mbox{\texttt{ in}}  & {\em column\+\_\+order} & Sort order types of columns indexed by key\+\_\+cols \\
+\hline
+\mbox{\texttt{ in}}  & {\em null\+\_\+precedence} & Array indicating the order of nulls with respect to non-\/nulls for the indexing columns (key\+\_\+cols) \\
+\hline
+ & {\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A table containing sorted data from all input tables 
+\end{DoxyReturn}

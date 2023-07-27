@@ -1,0 +1,87 @@
+\doxysection{data\+\_\+sink.\+hpp}
+\hypertarget{data__sink_8hpp_source}{}\label{data__sink_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/io/data\_sink.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/io/data\_sink.hpp}}
+\mbox{\hyperlink{data__sink_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2020-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{types_8hpp}{cudf/types.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{error_8hpp}{cudf/utilities/error.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <rmm/cuda\_stream\_view.hpp>}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <future>}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00029}00029\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00031}00031\ \textcolor{keyword}{namespace\ }io\ \{}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00035}\mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{00035}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{data\_sink}}\ \{}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00036}00036\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00043}\mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a548c5228c6f57f77346a4095c6718a02}{00043}}\ \ \ \textcolor{keyword}{static}\ std::unique\_ptr<data\_sink>\ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a548c5228c6f57f77346a4095c6718a02}{create}}(\textcolor{keyword}{const}\ std::string\&\ filepath);}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00051}\mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a17a0c509947e843ce99f444d722e4fef}{00051}}\ \ \ \textcolor{keyword}{static}\ std::unique\_ptr<data\_sink>\ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a17a0c509947e843ce99f444d722e4fef}{create}}(std::vector<char>*\ buffer);}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00061}\mbox{\hyperlink{classcudf_1_1io_1_1data__sink_aaa8d5a963e97b707296df3d4e3b2552c}{00061}}\ \ \ \textcolor{keyword}{static}\ std::unique\_ptr<data\_sink>\ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_aaa8d5a963e97b707296df3d4e3b2552c}{create}}();}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00074}\mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a9c322a48d51176301f3a157291c09fbd}{00074}}\ \ \ \textcolor{keyword}{static}\ std::unique\_ptr<data\_sink>\ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a9c322a48d51176301f3a157291c09fbd}{create}}(\mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{cudf::io::data\_sink}}*\ \textcolor{keyword}{const}\ user\_sink);}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00082}00082\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00083}\mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a09d85364483b33d6eddd24f031954fb7}{00083}}\ \ \ \textcolor{keyword}{static}\ std::vector<std::unique\_ptr<data\_sink>>\ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a09d85364483b33d6eddd24f031954fb7}{create}}(std::vector<T>\ \textcolor{keyword}{const}\&\ args)}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00084}00084\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00085}00085\ \ \ \ \ std::vector<std::unique\_ptr<data\_sink>>\ sinks;}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00086}00086\ \ \ \ \ sinks.reserve(args.size());}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00087}00087\ \ \ \ \ std::transform(args.cbegin(),\ args.cend(),\ std::back\_inserter(sinks),\ [](\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ arg)\ \{}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00088}00088\ \ \ \ \ \ \ return\ data\_sink::create(arg);}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00089}00089\ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00090}00090\ \ \ \ \ \textcolor{keywordflow}{return}\ sinks;}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00091}00091\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00096}\mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a778f6bad53ffc49dc6285dd8a9879f73}{00096}}\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a778f6bad53ffc49dc6285dd8a9879f73}{\string~data\_sink}}()\{\};}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00104}\mbox{\hyperlink{classcudf_1_1io_1_1data__sink_ab68621d609bd643680481195dc07422c}{00104}}\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_ab68621d609bd643680481195dc07422c}{host\_write}}(\textcolor{keywordtype}{void}\ \textcolor{keyword}{const}*\ data,\ \textcolor{keywordtype}{size\_t}\ size)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00128}\mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a3a2904b3b6e1167676f0d88e3324a3b3}{00128}}\ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a3a2904b3b6e1167676f0d88e3324a3b3}{supports\_device\_write}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00136}\mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a61919a2f46a62914b64cb1756058f7a3}{00136}}\ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a61919a2f46a62914b64cb1756058f7a3}{is\_device\_write\_preferred}}(\textcolor{keywordtype}{size\_t}\ size)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00137}00137\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00138}00138\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a3a2904b3b6e1167676f0d88e3324a3b3}{supports\_device\_write}}();}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00139}00139\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00155}\mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a2a1de8c173d8320ba6e65e3ca72bb54c}{00155}}\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a2a1de8c173d8320ba6e65e3ca72bb54c}{device\_write}}(\textcolor{keywordtype}{void}\ \textcolor{keyword}{const}*\ gpu\_data,\ \textcolor{keywordtype}{size\_t}\ size,\ rmm::cuda\_stream\_view\ stream)}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00156}00156\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00157}00157\ \ \ \ \ \mbox{\hyperlink{group__utility__error_ga8fec215b7e7785312d292d75f797ccc1}{CUDF\_FAIL}}(\textcolor{stringliteral}{"{}data\_sink\ classes\ that\ support\ device\_write\ must\ override\ it."{}});}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00158}00158\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00182}\mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a33e8b3322ddc23f1d5be7ee2407a3b96}{00182}}\ \ \ \textcolor{keyword}{virtual}\ std::future<void>\ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a33e8b3322ddc23f1d5be7ee2407a3b96}{device\_write\_async}}(\textcolor{keywordtype}{void}\ \textcolor{keyword}{const}*\ gpu\_data,}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ size,}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::cuda\_stream\_view\ stream)}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00185}00185\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00186}00186\ \ \ \ \ \mbox{\hyperlink{group__utility__error_ga8fec215b7e7785312d292d75f797ccc1}{CUDF\_FAIL}}(\textcolor{stringliteral}{"{}data\_sink\ classes\ that\ support\ device\_write\_async\ must\ override\ it."{}});}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00187}00187\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00192}\mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a059e16ef19d5901feed0098bc97babfa}{00192}}\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a059e16ef19d5901feed0098bc97babfa}{flush}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00199}\mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a8b43b4b466aa55d96366e4fd934dd971}{00199}}\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink_a8b43b4b466aa55d96366e4fd934dd971}{bytes\_written}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00200}00200\ \};}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00202}00202\ \}\ \ \textcolor{comment}{//\ namespace\ io}}
+\DoxyCodeLine{\Hypertarget{data__sink_8hpp_source_l00203}00203\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

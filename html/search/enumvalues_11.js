@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['second_0',['SECOND',['../group__datetime__compute.html#ggaf04facbc9720e8f048637c9726233e7aa2200becb80f0019c4a2ccecec350d0db',1,'cudf::datetime']]],
+  ['secondary_1',['SECONDARY',['../namespacecudf_1_1io_1_1orc.html#ac5218b6f3b64304924dfe48c90be5bbbaf720bbf624ecd3471da7831944dc931a',1,'cudf::io::orc']]],
+  ['shift_5fleft_2',['SHIFT_LEFT',['../group__transformation__binaryops.html#gga00ed76601b6db662550f6826cfd99edcab11947742cdeb1e9d0b493239416e885',1,'cudf']]],
+  ['shift_5fright_3',['SHIFT_RIGHT',['../group__transformation__binaryops.html#gga00ed76601b6db662550f6826cfd99edcaf07939cca8bcd94dfa7356d96e4b1ebb',1,'cudf']]],
+  ['shift_5fright_5funsigned_4',['SHIFT_RIGHT_UNSIGNED',['../group__transformation__binaryops.html#gga00ed76601b6db662550f6826cfd99edcaa41bd9a635ce48d786cde49d803446e1',1,'cudf']]],
+  ['short_5',['SHORT',['../namespacecudf_1_1io_1_1orc.html#ae05e5ef15beac13262d33de5f0350203a43f65c0a6ab65f9b434e8c5b11f75a14',1,'cudf::io::orc']]],
+  ['sin_6',['SIN',['../namespacecudf_1_1ast.html#abf7da0251fa923970b1c6c85ccb7f9e7a5b001d63db54e7383587771eeb2018a1',1,'cudf::ast::SIN'],['../group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a5b001d63db54e7383587771eeb2018a1',1,'cudf::SIN']]],
+  ['sinh_7',['SINH',['../namespacecudf_1_1ast.html#abf7da0251fa923970b1c6c85ccb7f9e7ab387e847a769f9ef3794a3f559afcf69',1,'cudf::ast::SINH'],['../group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4ab387e847a769f9ef3794a3f559afcf69',1,'cudf::SINH']]],
+  ['snappy_8',['SNAPPY',['../namespacecudf_1_1io_1_1orc.html#a3d95f9b8d8e679d2a94d4b7689a7f653a733e3372d2f69d75b52e589a8e13df74',1,'cudf::io::orc::SNAPPY'],['../namespacecudf_1_1io.html#a8033aa1109d4e77468bda8b81eb216a8a2069e5c0aea54224dcd6b9b6c78c4902',1,'cudf::io::SNAPPY']]],
+  ['space_9',['SPACE',['../group__strings__types.html#ggacdc71043841f369de3cc8dd827a0eea1adb858a96cb7d1b5c364bb25c74bbca13',1,'cudf::strings']]],
+  ['spearman_10',['SPEARMAN',['../group__aggregation__factories.html#gga1dc83597d5b1e9cf752fc20fcdd77d40a17f4b051a83b72b0232e6c77c2bc4943',1,'cudf']]],
+  ['sqrt_11',['SQRT',['../namespacecudf_1_1ast.html#abf7da0251fa923970b1c6c85ccb7f9e7a36875f2500a09ee35d0bb7eb8c0b91b0',1,'cudf::ast::SQRT'],['../group__transformation__unaryops.html#gga030e62f30b296602f398e70d1ca657c4a36875f2500a09ee35d0bb7eb8c0b91b0',1,'cudf::SQRT']]],
+  ['start_5fgroup_12',['START_GROUP',['../namespacecudf_1_1io_1_1orc.html#ad6daf6a367f02a6bc828e6ddd4889b2ca807e4bb9599bca027005913ffe84ca12',1,'cudf::io::orc']]],
+  ['statistics_5fcolumn_13',['STATISTICS_COLUMN',['../namespacecudf_1_1io.html#ac52511ff52b01cf3c0d778bfaa5a5089a8dc9105a0a9b500299af0583ac00ab4b',1,'cudf::io']]],
+  ['statistics_5fnone_14',['STATISTICS_NONE',['../namespacecudf_1_1io.html#ac52511ff52b01cf3c0d778bfaa5a5089ab6e16f2e30db88778d22b3af11e0a833',1,'cudf::io']]],
+  ['statistics_5fpage_15',['STATISTICS_PAGE',['../namespacecudf_1_1io.html#ac52511ff52b01cf3c0d778bfaa5a5089acc5300394fed7d51595a8682f873f878',1,'cudf::io']]],
+  ['statistics_5frowgroup_16',['STATISTICS_ROWGROUP',['../namespacecudf_1_1io.html#ac52511ff52b01cf3c0d778bfaa5a5089ab6b7fe131d2f70e86e4383b3b5ba6c96',1,'cudf::io']]],
+  ['std_17',['STD',['../classcudf_1_1aggregation.html#a83579ae3cab2fc3d1c3b377d1cfab24ca6b1ba846de925ba39b9ee9e352adf84a',1,'cudf::aggregation']]],
+  ['string_18',['STRING',['../namespacecudf_1_1io_1_1orc.html#ae05e5ef15beac13262d33de5f0350203ad1a0475a80db6c12c16262c5a7da84e4',1,'cudf::io::orc::STRING'],['../group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a63b588d5559f64f89a416e656880b949',1,'cudf::STRING']]],
+  ['struct_19',['STRUCT',['../namespacecudf_1_1io_1_1orc.html#ae05e5ef15beac13262d33de5f0350203a754477914cd7a00cda8b7f8ab7cb814f',1,'cudf::io::orc::STRUCT'],['../group__utility__types.html#ggadf077607da617d1dadcc5417e2783539ab8223be2455e0ea5a0e63e8f018d6fc3',1,'cudf::STRUCT']]],
+  ['sub_20',['SUB',['../namespacecudf_1_1ast.html#abf7da0251fa923970b1c6c85ccb7f9e7a241dd841abade20fcb27b8a9f494e1eb',1,'cudf::ast::SUB'],['../group__transformation__binaryops.html#gga00ed76601b6db662550f6826cfd99edca241dd841abade20fcb27b8a9f494e1eb',1,'cudf::SUB']]],
+  ['sum_21',['SUM',['../classcudf_1_1aggregation.html#a83579ae3cab2fc3d1c3b377d1cfab24caabd3664f87be5147f644774133a057d0',1,'cudf::aggregation']]],
+  ['sum_5fof_5fsquares_22',['SUM_OF_SQUARES',['../classcudf_1_1aggregation.html#a83579ae3cab2fc3d1c3b377d1cfab24caab77380219a0b180391a113f599f887d',1,'cudf::aggregation']]]
+];

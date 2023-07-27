@@ -1,0 +1,91 @@
+\doxysection{orc.\+hpp}
+\hypertarget{detail_2orc_8hpp_source}{}\label{detail_2orc_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/io/detail/orc.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/io/detail/orc.hpp}}
+\mbox{\hyperlink{detail_2orc_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2020-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{utils_8hpp}{cudf/io/detail/utils.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{io_2types_8hpp}{cudf/io/types.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{table__view_8hpp}{cudf/table/table\_view.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{types_8hpp}{cudf/types.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{utilities_2default__stream_8hpp}{cudf/utilities/default\_stream.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <rmm/cuda\_stream\_view.hpp>}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00031}00031\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00032}00032\ \textcolor{keyword}{namespace\ }io\ \{}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00034}00034\ \textcolor{comment}{//\ Forward\ declaration}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00035}00035\ \textcolor{keyword}{class\ }orc\_reader\_options;}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00036}00036\ \textcolor{keyword}{class\ }orc\_writer\_options;}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00037}00037\ \textcolor{keyword}{class\ }chunked\_orc\_writer\_options;}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00039}00039\ \textcolor{keyword}{namespace\ }detail\ \{}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00040}\mbox{\hyperlink{namespacecudf_1_1io_1_1detail_1_1orc}{00040}}\ \textcolor{keyword}{namespace\ }orc\ \{}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00045}\mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1reader}{00045}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1reader}{reader}}\ \{}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00046}00046\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00047}00047\ \ \ \textcolor{keyword}{class\ }impl;}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00048}\mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1reader_a8267226f04ed3ec272f85d646409a76a}{00048}}\ \ \ std::unique\_ptr<impl>\ \mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1reader_a8267226f04ed3ec272f85d646409a76a}{\_impl}};}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00050}00050\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00059}\mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1reader_a9df51ee16a309f838d6ba8bff431471d}{00059}}\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1reader_a9df51ee16a309f838d6ba8bff431471d}{reader}}(std::vector<std::unique\_ptr<cudf::io::datasource>>\&\&\ sources,}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options}{orc\_reader\_options}}\ \textcolor{keyword}{const}\&\ options,}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::mr::device\_memory\_resource*\ mr);}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00067}\mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1reader_a51a7afc216cbe1de9698e4bdcb8f8f80}{00067}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1reader_a51a7afc216cbe1de9698e4bdcb8f8f80}{\string~reader}}();}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00077}\mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1reader_a20df68536272077c64ff84447304067c}{00077}}\ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1table__with__metadata}{table\_with\_metadata}}\ \mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1reader_a20df68536272077c64ff84447304067c}{read}}(\mbox{\hyperlink{classcudf_1_1io_1_1orc__reader__options}{orc\_reader\_options}}\ \textcolor{keyword}{const}\&\ options,\ rmm::cuda\_stream\_view\ stream);}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00078}00078\ \};}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00083}\mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1writer}{00083}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1writer}{writer}}\ \{}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00084}00084\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00085}00085\ \ \ \textcolor{keyword}{class\ }impl;}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00086}\mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a01a200a0d14a823050fd87ae034f05b1}{00086}}\ \ \ std::unique\_ptr<impl>\ \mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a01a200a0d14a823050fd87ae034f05b1}{\_impl}};}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00088}00088\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00098}\mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a45f79618701070594940af503391233d}{00098}}\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a45f79618701070594940af503391233d}{writer}}(std::unique\_ptr<cudf::io::data\_sink>\ sink,}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options}{orc\_writer\_options}}\ \textcolor{keyword}{const}\&\ options,}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacecudf_1_1io_1_1detail_ac04114990639289ba14c03af0b63e553}{SingleWriteMode}}\ mode,}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::mr::device\_memory\_resource*\ mr);}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00113}\mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1writer_ae3eebfa1c48a5d2c66233641e8ca563c}{00113}}\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1writer_ae3eebfa1c48a5d2c66233641e8ca563c}{writer}}(std::unique\_ptr<cudf::io::data\_sink>\ sink,}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1chunked__orc__writer__options}{chunked\_orc\_writer\_options}}\ \textcolor{keyword}{const}\&\ options,}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacecudf_1_1io_1_1detail_ac04114990639289ba14c03af0b63e553}{SingleWriteMode}}\ mode,}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::mr::device\_memory\_resource*\ mr);}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00122}\mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a27103dcf1ed0611419d0f6364b122dcb}{00122}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a27103dcf1ed0611419d0f6364b122dcb}{\string~writer}}();}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00129}\mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a23c24e824f4651e72a21eb52c5221bc5}{00129}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a23c24e824f4651e72a21eb52c5221bc5}{write}}(\mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1table}{table}});}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00134}\mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a5c5e198def7e8d596b3824d090bc1d51}{00134}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a5c5e198def7e8d596b3824d090bc1d51}{close}}();}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00135}00135\ \};}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00136}00136\ \}\ \ \textcolor{comment}{//\ namespace\ orc}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00137}00137\ \}\ \ \textcolor{comment}{//\ namespace\ detail}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00138}00138\ \}\ \ \textcolor{comment}{//\ namespace\ io}}
+\DoxyCodeLine{\Hypertarget{detail_2orc_8hpp_source_l00139}00139\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

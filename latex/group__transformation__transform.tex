@@ -1,0 +1,289 @@
+\doxysection{Transformation\+\_\+transform}
+\hypertarget{group__transformation__transform}{}\label{group__transformation__transform}\index{Transformation\_transform@{Transformation\_transform}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{transform_8hpp}{transform.\+hpp}}
+\begin{DoxyCompactList}\small\item\em Column APIs for transforming rows \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__transform_ga10b4d0e6674922ddf34b9bc32f3543e9}{cudf\+::transform}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, std\+::string const \&unary\+\_\+udf, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+type, bool is\+\_\+ptx, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Creates a new column by applying a unary function against every element of an input column. \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ rmm\+::device\+\_\+buffer $>$, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ \mbox{\hyperlink{group__transformation__transform_ga6d49c4245df211abb5b5157cfed58744}{cudf\+::nans\+\_\+to\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Creates a null\+\_\+mask from {\ttfamily input} by converting {\ttfamily NaN} to null and preserving existing null values and also returns new null\+\_\+count. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__transform_gaf935e4f6a30de36cdeb51c2120cf4ece}{cudf\+::compute\+\_\+column}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1table}{table}}, \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{ast\+::expression}} const \&expr, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Compute a new column by evaluating an expression tree on a table. \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ rmm\+::device\+\_\+buffer $>$, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} $>$ \mbox{\hyperlink{group__transformation__transform_ga4dd8538088b9897a261ab52583d8d192}{cudf\+::bools\+\_\+to\+\_\+mask}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Creates a bitmask from a column of boolean elements. \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{cudf\+::table}} $>$, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ $>$ \mbox{\hyperlink{group__transformation__transform_ga2fb087bbf77bdfd10bdc418aad34792e}{cudf\+::encode}} (\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&input, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Encode the rows of the given table as integers \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} $>$ \mbox{\hyperlink{group__transformation__transform_ga6d0d48b61fa97030d90ec7f697fa83e9}{cudf\+::one\+\_\+hot\+\_\+encode}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&categories, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Encodes {\ttfamily input} by generating a new column for each value in {\ttfamily categories} indicating the presence of that value in {\ttfamily input}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__transform_ga57308abbc54d2b0fc6cd221c539b3903}{cudf\+::mask\+\_\+to\+\_\+bools}} (\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} const \texorpdfstring{$\ast$}{*}bitmask, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} begin\+\_\+bit, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} end\+\_\+bit, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Creates a boolean column from given bitmask. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__transform_gae017bd71f182100b614e7e00f0e0c7ed}{cudf\+::row\+\_\+bit\+\_\+count}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&t, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns an approximate cumulative size in bits of all columns in the {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} for each row. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__transformation__transform_ga4dd8538088b9897a261ab52583d8d192}\label{group__transformation__transform_ga4dd8538088b9897a261ab52583d8d192} 
+\index{Transformation\_transform@{Transformation\_transform}!bools\_to\_mask@{bools\_to\_mask}}
+\index{bools\_to\_mask@{bools\_to\_mask}!Transformation\_transform@{Transformation\_transform}}
+\doxysubsubsection{\texorpdfstring{bools\_to\_mask()}{bools\_to\_mask()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::unique\+\_\+ptr$<$ rmm\+::device\+\_\+buffer $>$, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} $>$ cudf\+::bools\+\_\+to\+\_\+mask (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Creates a bitmask from a column of boolean elements. 
+
+If element {\ttfamily i} in {\ttfamily input} is {\ttfamily true}, bit {\ttfamily i} in the resulting mask is set ({\ttfamily 1}). Else, if element {\ttfamily i} is {\ttfamily false} or null, bit {\ttfamily i} is unset ({\ttfamily 0}).
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily input.\+type()} is a non-\/boolean type\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & Boolean elements to convert to a bitmask \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned bitmask \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A pair containing a {\ttfamily device\+\_\+buffer} with the new bitmask and it\textquotesingle{}s null count obtained from input considering {\ttfamily true} represent {\ttfamily valid}/{\ttfamily 1} and {\ttfamily false} represent {\ttfamily invalid}/{\ttfamily 0}. 
+\end{DoxyReturn}
+\Hypertarget{group__transformation__transform_gaf935e4f6a30de36cdeb51c2120cf4ece}\label{group__transformation__transform_gaf935e4f6a30de36cdeb51c2120cf4ece} 
+\index{Transformation\_transform@{Transformation\_transform}!compute\_column@{compute\_column}}
+\index{compute\_column@{compute\_column}!Transformation\_transform@{Transformation\_transform}}
+\doxysubsubsection{\texorpdfstring{compute\_column()}{compute\_column()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::compute\+\_\+column (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{table,  }\item[{\mbox{\hyperlink{structcudf_1_1ast_1_1expression}{ast\+::expression}} const \&}]{expr,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Compute a new column by evaluating an expression tree on a table. 
+
+This evaluates an expression over a table to produce a new column. Also called an n-\/ary transform.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if passed an expression operating on table\+\_\+reference\+::\+RIGHT.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em table} & The table used for expression evaluation \\
+\hline
+{\em expr} & The root of the expression tree \\
+\hline
+{\em mr} & Device memory resource \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+std\+::unique\+\_\+ptr$<$column$>$ Output column 
+\end{DoxyReturn}
+\Hypertarget{group__transformation__transform_ga2fb087bbf77bdfd10bdc418aad34792e}\label{group__transformation__transform_ga2fb087bbf77bdfd10bdc418aad34792e} 
+\index{Transformation\_transform@{Transformation\_transform}!encode@{encode}}
+\index{encode@{encode}!Transformation\_transform@{Transformation\_transform}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{cudf\+::table}} $>$, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ $>$ cudf\+::encode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&}]{input,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Encode the rows of the given table as integers 
+
+The encoded values are integers in the range \mbox{[}0, n), where {\ttfamily n} is the number of distinct rows in the input table. The result table is such that {\ttfamily keys\mbox{[}result\mbox{[}i\mbox{]}\mbox{]} == input\mbox{[}i\mbox{]}}, where {\ttfamily keys} is a table containing the distinct rows in {\ttfamily input} in sorted ascending order. Nulls, if any, are sorted to the end of the {\ttfamily keys} table.
+
+Examples\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{input:\ [\{'a',\ 'b',\ 'b',\ 'a'\}]}
+\DoxyCodeLine{output:\ [\{'a',\ 'b'\}],\ \{0,\ 1,\ 1,\ 0\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{input:\ [\{1,\ 3,\ 1,\ 2,\ 9\},\ \{1,\ 2,\ 1,\ 3,\ 5\}]}
+\DoxyCodeLine{output:\ [\{1,\ 2,\ 3,\ 9\},\ \{1,\ 3,\ 2,\ 5\}],\ \{0,\ 2,\ 0,\ 1,\ 3\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em input} & Table containing values to be encoded \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A pair containing the distinct row of the input table in sorter order, and a column of integer indices representing the encoded rows. 
+\end{DoxyReturn}
+\Hypertarget{group__transformation__transform_ga57308abbc54d2b0fc6cd221c539b3903}\label{group__transformation__transform_ga57308abbc54d2b0fc6cd221c539b3903} 
+\index{Transformation\_transform@{Transformation\_transform}!mask\_to\_bools@{mask\_to\_bools}}
+\index{mask\_to\_bools@{mask\_to\_bools}!Transformation\_transform@{Transformation\_transform}}
+\doxysubsubsection{\texorpdfstring{mask\_to\_bools()}{mask\_to\_bools()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::mask\+\_\+to\+\_\+bools (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} const \texorpdfstring{$\ast$}{*}}]{bitmask,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{begin\+\_\+bit,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{end\+\_\+bit,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Creates a boolean column from given bitmask. 
+
+Returns a {\ttfamily bool} for each bit in {\ttfamily \mbox{[}begin\+\_\+bit, end\+\_\+bit)}. If bit {\ttfamily i} in least-\/significant bit numbering is set (1), then element {\ttfamily i} in the output is {\ttfamily true}, otherwise {\ttfamily false}.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily bitmask} is null and end\+\_\+bit-\/begin\+\_\+bit \texorpdfstring{$>$}{>} 0 \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if begin\+\_\+bit \texorpdfstring{$>$}{>} end\+\_\+bit\\
+\hline
+\end{DoxyExceptions}
+Examples\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{input:\ \{0b10101010\}}
+\DoxyCodeLine{output:\ [\{false,\ true,\ false,\ true,\ false,\ true,\ false,\ true\}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em bitmask} & A device pointer to the bitmask which needs to be converted \\
+\hline
+{\em begin\+\_\+bit} & position of the bit from which the conversion should start \\
+\hline
+{\em end\+\_\+bit} & position of the bit before which the conversion should stop \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned columns\textquotesingle{} device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A boolean column representing the given mask from \mbox{[}begin\+\_\+bit, end\+\_\+bit) 
+\end{DoxyReturn}
+\Hypertarget{group__transformation__transform_ga6d49c4245df211abb5b5157cfed58744}\label{group__transformation__transform_ga6d49c4245df211abb5b5157cfed58744} 
+\index{Transformation\_transform@{Transformation\_transform}!nans\_to\_nulls@{nans\_to\_nulls}}
+\index{nans\_to\_nulls@{nans\_to\_nulls}!Transformation\_transform@{Transformation\_transform}}
+\doxysubsubsection{\texorpdfstring{nans\_to\_nulls()}{nans\_to\_nulls()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::unique\+\_\+ptr$<$ rmm\+::device\+\_\+buffer $>$, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ cudf\+::nans\+\_\+to\+\_\+nulls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Creates a null\+\_\+mask from {\ttfamily input} by converting {\ttfamily NaN} to null and preserving existing null values and also returns new null\+\_\+count. 
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily input.\+type()} is a non-\/floating type\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & An immutable view of the input column of floating-\/point type \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned bitmask \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A pair containing a {\ttfamily device\+\_\+buffer} with the new bitmask and it\textquotesingle{}s null count obtained by replacing {\ttfamily NaN} in {\ttfamily input} with null. 
+\end{DoxyReturn}
+\Hypertarget{group__transformation__transform_ga6d0d48b61fa97030d90ec7f697fa83e9}\label{group__transformation__transform_ga6d0d48b61fa97030d90ec7f697fa83e9} 
+\index{Transformation\_transform@{Transformation\_transform}!one\_hot\_encode@{one\_hot\_encode}}
+\index{one\_hot\_encode@{one\_hot\_encode}!Transformation\_transform@{Transformation\_transform}}
+\doxysubsubsection{\texorpdfstring{one\_hot\_encode()}{one\_hot\_encode()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} $>$ cudf\+::one\+\_\+hot\+\_\+encode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{categories,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Encodes {\ttfamily input} by generating a new column for each value in {\ttfamily categories} indicating the presence of that value in {\ttfamily input}. 
+
+The resulting per-\/category columns are returned concatenated as a single column viewed by a {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}}.
+
+The {\ttfamily i}th row of the {\ttfamily j}th column in the output table equals 1 if {\ttfamily input\mbox{[}i\mbox{]} == categories\mbox{[}j\mbox{]}}, and 0 otherwise.
+
+The {\ttfamily i}th row of the {\ttfamily j}th column in the output table equals 1 if input\mbox{[}i\mbox{]} == categories\mbox{[}j\mbox{]}, and 0 otherwise.
+
+Examples\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{input:\ [\{'a',\ 'c',\ null,\ 'c',\ 'b'\}]}
+\DoxyCodeLine{categories:\ ['c',\ null]}
+\DoxyCodeLine{output:\ [\{0,\ 1,\ 0,\ 1,\ 0\},\ \{0,\ 0,\ 1,\ 0,\ 0\}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if input and categories are of different types.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & Column containing values to be encoded \\
+\hline
+{\em categories} & Column containing categories \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A pair containing the owner to all encoded data and a table view into the data 
+\end{DoxyReturn}
+\Hypertarget{group__transformation__transform_gae017bd71f182100b614e7e00f0e0c7ed}\label{group__transformation__transform_gae017bd71f182100b614e7e00f0e0c7ed} 
+\index{Transformation\_transform@{Transformation\_transform}!row\_bit\_count@{row\_bit\_count}}
+\index{row\_bit\_count@{row\_bit\_count}!Transformation\_transform@{Transformation\_transform}}
+\doxysubsubsection{\texorpdfstring{row\_bit\_count()}{row\_bit\_count()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::row\+\_\+bit\+\_\+count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{t,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns an approximate cumulative size in bits of all columns in the {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} for each row. 
+
+This function counts bits instead of bytes to account for the null mask which only has one bit per row.
+
+Each row in the returned column is the sum of the per-\/row size for each column in the table.
+
+In some cases, this is an inexact approximation. Specifically, columns of lists and strings require N+1 offsets to represent N rows. It is up to the caller to calculate the small additional overhead of the terminating offset for any group of rows being considered.
+
+This function returns the per-\/row sizes as the columns are currently formed. This can end up being larger than the number you would get by gathering the rows. Specifically, the push-\/down of struct column validity masks can nullify rows that contain data for string or list columns. In these cases, the size returned is conservative\+:
+
+row\+\_\+bit\+\_\+count(column(x)) \texorpdfstring{$>$}{>}= row\+\_\+bit\+\_\+count(gather(column(x)))
+
+
+\begin{DoxyParams}{参数}
+{\em t} & The table view to perform the computation on \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned columns\textquotesingle{} device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A 32-\/bit integer column containing the per-\/row bit counts 
+\end{DoxyReturn}
+\Hypertarget{group__transformation__transform_ga10b4d0e6674922ddf34b9bc32f3543e9}\label{group__transformation__transform_ga10b4d0e6674922ddf34b9bc32f3543e9} 
+\index{Transformation\_transform@{Transformation\_transform}!transform@{transform}}
+\index{transform@{transform}!Transformation\_transform@{Transformation\_transform}}
+\doxysubsubsection{\texorpdfstring{transform()}{transform()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::transform (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{std\+::string const \&}]{unary\+\_\+udf,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{output\+\_\+type,  }\item[{bool}]{is\+\_\+ptx,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Creates a new column by applying a unary function against every element of an input column. 
+
+Computes\+: {\ttfamily out\mbox{[}i\mbox{]} = F(in\mbox{[}i\mbox{]})}
+
+The output null mask is the same is the input null mask so if input\mbox{[}i\mbox{]} is null then output\mbox{[}i\mbox{]} is also null
+
+
+\begin{DoxyParams}{参数}
+{\em input} & An immutable view of the input column to transform \\
+\hline
+{\em unary\+\_\+udf} & The PTX/\+CUDA string of the unary function to apply \\
+\hline
+{\em output\+\_\+type} & The output type that is compatible with the output type in the UDF \\
+\hline
+{\em is\+\_\+ptx} & true\+: the UDF is treated as PTX code; false\+: the UDF is treated as CUDA code \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The column resulting from applying the unary function to every element of the input 
+\end{DoxyReturn}

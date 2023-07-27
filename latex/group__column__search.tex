@@ -1,0 +1,200 @@
+\doxysection{Column\+\_\+search}
+\hypertarget{group__column__search}{}\label{group__column__search}\index{Column\_search@{Column\_search}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{search_8hpp}{search.\+hpp}}
+\begin{DoxyCompactList}\small\item\em Column APIs for lower\+\_\+bound, upper\+\_\+bound, and contains \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__search_ga858b67a25fd51b339eee1e3a02d46485}{cudf\+::lower\+\_\+bound}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&haystack, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&needles, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Find smallest indices in a sorted table where values should be inserted to maintain order. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__search_gad59489c94927ed191ef9720e0026008a}{cudf\+::upper\+\_\+bound}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&haystack, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&needles, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Find largest indices in a sorted table where values should be inserted to maintain order. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__column__search_ga287ee5469bf49b45112b27ed87cdefd7}{cudf\+::contains}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&haystack, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&needle)
+\begin{DoxyCompactList}\small\item\em Check if the given {\ttfamily needle} value exists in the {\ttfamily haystack} column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__search_gaada7019e9af242a3fd508726a3abe081}{cudf\+::contains}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&haystack, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&needles, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Check if the given {\ttfamily needles} values exists in the {\ttfamily haystack} column. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__column__search_gaada7019e9af242a3fd508726a3abe081}\label{group__column__search_gaada7019e9af242a3fd508726a3abe081} 
+\index{Column\_search@{Column\_search}!contains@{contains}}
+\index{contains@{contains}!Column\_search@{Column\_search}}
+\doxysubsubsection{\texorpdfstring{contains()}{contains()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::contains (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{haystack,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{needles,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Check if the given {\ttfamily needles} values exists in the {\ttfamily haystack} column. 
+
+The new column will have type BOOL and have the same size and null mask as the input {\ttfamily needles} column. That is, any null row in the {\ttfamily needles} column will result in a nul row in the output column.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & If {\ttfamily haystack.\+type() != needles.\+type()}\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{haystack\ =\ \{\ 10,\ 20,\ 30,\ 40,\ 50\ \}}
+\DoxyCodeLine{needles\ \ =\ \{\ 20,\ 40,\ 60,\ 80\ \}}
+\DoxyCodeLine{result\ \ \ =\ \{\ true,\ true,\ false,\ false\ \}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em haystack} & The column containing search space \\
+\hline
+{\em needles} & A column of values to check for existence in the search space \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A BOOL column indicating if each element in {\ttfamily needles} exists in the search space 
+\end{DoxyReturn}
+\Hypertarget{group__column__search_ga287ee5469bf49b45112b27ed87cdefd7}\label{group__column__search_ga287ee5469bf49b45112b27ed87cdefd7} 
+\index{Column\_search@{Column\_search}!contains@{contains}}
+\index{contains@{contains}!Column\_search@{Column\_search}}
+\doxysubsubsection{\texorpdfstring{contains()}{contains()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool cudf\+::contains (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{haystack,  }\item[{\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&}]{needle }\end{DoxyParamCaption})}
+
+
+
+Check if the given {\ttfamily needle} value exists in the {\ttfamily haystack} column. 
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & If {\ttfamily haystack.\+type() != needle.\+type()}.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Single\ Column:}
+\DoxyCodeLine{\ idx\ \ \ \ \ \ \ \ \ \ \ 0\ \ \ 1\ \ \ 2\ \ \ 3\ \ \ 4}
+\DoxyCodeLine{\ haystack\ =\ \{\ 10,\ 20,\ 20,\ 30,\ 50\ \}}
+\DoxyCodeLine{\ needle\ \ \ =\ \{\ 20\ \}}
+\DoxyCodeLine{\ result\ \ \ =\ true}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em haystack} & The column containing search space \\
+\hline
+{\em needle} & A scalar value to check for existence in the search space \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true if the given {\ttfamily needle} value exists in the {\ttfamily haystack} column 
+\end{DoxyReturn}
+\Hypertarget{group__column__search_ga858b67a25fd51b339eee1e3a02d46485}\label{group__column__search_ga858b67a25fd51b339eee1e3a02d46485} 
+\index{Column\_search@{Column\_search}!lower\_bound@{lower\_bound}}
+\index{lower\_bound@{lower\_bound}!Column\_search@{Column\_search}}
+\doxysubsubsection{\texorpdfstring{lower\_bound()}{lower\_bound()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lower\+\_\+bound (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{haystack,  }\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{needles,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&}]{column\+\_\+order,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&}]{null\+\_\+precedence,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Find smallest indices in a sorted table where values should be inserted to maintain order. 
+
+For each row in {\ttfamily needles}, find the first index in {\ttfamily haystack} where inserting the row still maintains its sort order.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ Single\ column:}
+\DoxyCodeLine{\ \ \ \ \ idx\ \ \ \ \ \ \ \ 0\ \ \ 1\ \ \ 2\ \ \ 3\ \ \ 4}
+\DoxyCodeLine{\ \ haystack\ =\ \{\ 10,\ 20,\ 20,\ 30,\ 50\ \}}
+\DoxyCodeLine{\ \ needles\ \ =\ \{\ 20\ \}}
+\DoxyCodeLine{\ \ result\ \ \ =\ \{\ \ 1\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ Multi\ Column:}
+\DoxyCodeLine{\ \ \ \ \ idx\ \ \ \ \ \ \ \ \ \ 0\ \ \ \ 1\ \ \ \ 2\ \ \ \ 3\ \ \ \ 4}
+\DoxyCodeLine{\ \ haystack\ =\ \{\{\ \ 10,\ \ 20,\ \ 20,\ \ 20,\ \ 20\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ 5.0,\ \ .5,\ \ .5,\ \ .7,\ \ .7\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ 90,\ \ 77,\ \ 78,\ \ 61,\ \ 61\ \}\}}
+\DoxyCodeLine{\ \ needles\ \ =\ \{\{\ 20\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ .7\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ 61\ \}\}}
+\DoxyCodeLine{\ \ result\ \ \ =\ \{\ \ \ 3\ \}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em haystack} & The table containing search space \\
+\hline
+{\em needles} & Values for which to find the insert locations in the search space \\
+\hline
+{\em column\+\_\+order} & Vector of column sort order \\
+\hline
+{\em null\+\_\+precedence} & Vector of null\+\_\+precedence enums needles \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A non-\/nullable column of \doxylink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type} elements containing the insertion points 
+\end{DoxyReturn}
+\Hypertarget{group__column__search_gad59489c94927ed191ef9720e0026008a}\label{group__column__search_gad59489c94927ed191ef9720e0026008a} 
+\index{Column\_search@{Column\_search}!upper\_bound@{upper\_bound}}
+\index{upper\_bound@{upper\_bound}!Column\_search@{Column\_search}}
+\doxysubsubsection{\texorpdfstring{upper\_bound()}{upper\_bound()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::upper\+\_\+bound (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{haystack,  }\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{needles,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&}]{column\+\_\+order,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&}]{null\+\_\+precedence,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Find largest indices in a sorted table where values should be inserted to maintain order. 
+
+For each row in {\ttfamily needles}, find the last index in {\ttfamily haystack} where inserting the row still maintains its sort order.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ Single\ Column:}
+\DoxyCodeLine{\ \ \ \ \ idx\ \ \ \ \ \ \ \ 0\ \ \ 1\ \ \ 2\ \ \ 3\ \ \ 4}
+\DoxyCodeLine{\ \ haystack\ =\ \{\ 10,\ 20,\ 20,\ 30,\ 50\ \}}
+\DoxyCodeLine{\ \ needles\ \ =\ \{\ 20\ \}}
+\DoxyCodeLine{\ \ result\ \ \ =\ \{\ \ 3\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ Multi\ Column:}
+\DoxyCodeLine{\ \ \ \ \ idx\ \ \ \ \ \ \ \ \ \ 0\ \ \ \ 1\ \ \ \ 2\ \ \ \ 3\ \ \ \ 4}
+\DoxyCodeLine{\ \ haystack\ =\ \{\{\ \ 10,\ \ 20,\ \ 20,\ \ 20,\ \ 20\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ 5.0,\ \ .5,\ \ .5,\ \ .7,\ \ .7\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ 90,\ \ 77,\ \ 78,\ \ 61,\ \ 61\ \}\}}
+\DoxyCodeLine{\ \ needles\ \ =\ \{\{\ 20\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ .7\ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ 61\ \}\}}
+\DoxyCodeLine{\ \ result\ =\ \ \ \ \ \{\ 5\ \}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em haystack} & The table containing search space \\
+\hline
+{\em needles} & Values for which to find the insert locations in the search space \\
+\hline
+{\em column\+\_\+order} & Vector of column sort order \\
+\hline
+{\em null\+\_\+precedence} & Vector of null\+\_\+precedence enums needles \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A non-\/nullable column of \doxylink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type} elements containing the insertion points 
+\end{DoxyReturn}

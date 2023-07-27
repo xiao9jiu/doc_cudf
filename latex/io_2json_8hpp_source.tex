@@ -1,0 +1,233 @@
+\doxysection{json.\+hpp}
+\hypertarget{io_2json_8hpp_source}{}\label{io_2json_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/io/json.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/io/json.hpp}}
+\mbox{\hyperlink{io_2json_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2020-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_8hpp}{types.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{table__view_8hpp}{cudf/table/table\_view.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{types_8hpp}{cudf/types.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <rmm/mr/device/per\_device\_resource.hpp>}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <variant>}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00031}00031\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00032}00032\ \textcolor{keyword}{namespace\ }io\ \{}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00039}00039\ \textcolor{keyword}{class\ }json\_reader\_options\_builder;}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00045}\mbox{\hyperlink{structcudf_1_1io_1_1schema__element}{00045}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1io_1_1schema__element}{schema\_element}}\ \{}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00049}\mbox{\hyperlink{structcudf_1_1io_1_1schema__element_a643963106e990df9f85c0e2fa21f3bea}{00049}}\ \ \ \mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ \mbox{\hyperlink{structcudf_1_1io_1_1schema__element_a643963106e990df9f85c0e2fa21f3bea}{type}};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00054}\mbox{\hyperlink{structcudf_1_1io_1_1schema__element_ad3c41b8a50d8f2877dd05147bb1f1099}{00054}}\ \ \ std::map<std::string,\ schema\_element>\ \mbox{\hyperlink{structcudf_1_1io_1_1schema__element_ad3c41b8a50d8f2877dd05147bb1f1099}{child\_types}};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00055}00055\ \};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00080}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options}{00080}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options}{json\_reader\_options}}\ \{}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00081}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a75e964d1fdafddbce8a7233243bf68eb}{00081}}\ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\_info}}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a75e964d1fdafddbce8a7233243bf68eb}{\_source}};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00083}00083\ \ \ \textcolor{comment}{//\ Data\ types\ of\ the\ column;\ empty\ to\ infer\ dtypes}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00084}00084\ \ \ std::variant<std::vector<data\_type>,}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::map<std::string,\ data\_type>,}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::map<std::string,\ schema\_element>>}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00087}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a3bf42eb212e44b58dc1a1bcfef089225}{00087}}\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a3bf42eb212e44b58dc1a1bcfef089225}{\_dtypes}};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00088}00088\ \ \ \textcolor{comment}{//\ Specify\ the\ compression\ format\ of\ the\ source\ or\ infer\ from\ file\ extension}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00089}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a2a75988bea5d92831e6e00643f0ab65f}{00089}}\ \ \ \mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\_type}}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a2a75988bea5d92831e6e00643f0ab65f}{\_compression}}\ =\ \mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8ae1f2d5134ed2543d38a0de9751cf75d9}{compression\_type::AUTO}};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00091}00091\ \ \ \textcolor{comment}{//\ Read\ the\ file\ as\ a\ json\ object\ per\ line}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00092}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ad8201d434d6aa8195ee8d5307ac90576}{00092}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ad8201d434d6aa8195ee8d5307ac90576}{\_lines}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00094}00094\ \ \ \textcolor{comment}{//\ Bytes\ to\ skip\ from\ the\ start}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00095}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a15f20842d689872c3e3071a65d94f809}{00095}}\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a15f20842d689872c3e3071a65d94f809}{\_byte\_range\_offset}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00096}00096\ \ \ \textcolor{comment}{//\ Bytes\ to\ read;\ always\ reads\ complete\ rows}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00097}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_aa1da1b668f186b6e7940e86e0d79253c}{00097}}\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_aa1da1b668f186b6e7940e86e0d79253c}{\_byte\_range\_size}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00099}00099\ \ \ \textcolor{comment}{//\ Whether\ to\ parse\ dates\ as\ DD/MM\ versus\ MM/DD}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00100}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_af223dded3164e60ec2a9e642c43eb29f}{00100}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_af223dded3164e60ec2a9e642c43eb29f}{\_dayfirst}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00102}00102\ \ \ \textcolor{comment}{//\ Whether\ to\ use\ the\ experimental\ reader}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00103}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a0540ae6bf8e69da7dfda7770da73e93e}{00103}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a0540ae6bf8e69da7dfda7770da73e93e}{\_experimental}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00105}00105\ \ \ \textcolor{comment}{//\ Whether\ to\ keep\ the\ quote\ characters\ of\ string\ values}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00106}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a59a13bf896a90d45eaee4c85954bde62}{00106}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a59a13bf896a90d45eaee4c85954bde62}{\_keep\_quotes}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00113}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a3b28a30d4d8bc54aa375c5951b253960}{00113}}\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a3b28a30d4d8bc54aa375c5951b253960}{json\_reader\_options}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\_info}}\&\ src)\ :\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a75e964d1fdafddbce8a7233243bf68eb}{\_source}}(src)\ \{\}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00115}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_af7ef8a9cb90cbd0e825c95483071977d}{00115}}\ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_af7ef8a9cb90cbd0e825c95483071977d}{json\_reader\_options\_builder}};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00117}00117\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00123}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a7852d5f9315bd4b74c231bc96f8208fd}{00123}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a7852d5f9315bd4b74c231bc96f8208fd}{json\_reader\_options}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00131}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a12bef48726e880ac96020c13b5fdfdfb}{00131}}\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder}{json\_reader\_options\_builder}}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a12bef48726e880ac96020c13b5fdfdfb}{builder}}(\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\_info}}\ \textcolor{keyword}{const}\&\ src);}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00138}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a6cd1b1a36fb2a007804771454089c906}{00138}}\ \ \ [[nodiscard]]\ \mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\_info}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a6cd1b1a36fb2a007804771454089c906}{get\_source}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a75e964d1fdafddbce8a7233243bf68eb}{\_source}};\ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00145}00145\ \ \ std::variant<std::vector<data\_type>,}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::map<std::string,\ data\_type>,}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::map<std::string,\ schema\_element>>\ \textcolor{keyword}{const}\&}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00148}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ae3d0ea9915056979586a22484a78d1c7}{00148}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ae3d0ea9915056979586a22484a78d1c7}{get\_dtypes}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00149}00149\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00150}00150\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a3bf42eb212e44b58dc1a1bcfef089225}{\_dtypes}};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00151}00151\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00158}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ab676cb5de47b3b4bbce0d3399e1170db}{00158}}\ \ \ \mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\_type}}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ab676cb5de47b3b4bbce0d3399e1170db}{get\_compression}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a2a75988bea5d92831e6e00643f0ab65f}{\_compression}};\ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00165}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a3171894e1573b55578a9fd6af8a8e68a}{00165}}\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a3171894e1573b55578a9fd6af8a8e68a}{get\_byte\_range\_offset}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a15f20842d689872c3e3071a65d94f809}{\_byte\_range\_offset}};\ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00172}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_abd1a8fe00092aaee053bc32f92e4514b}{00172}}\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_abd1a8fe00092aaee053bc32f92e4514b}{get\_byte\_range\_size}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_aa1da1b668f186b6e7940e86e0d79253c}{\_byte\_range\_size}};\ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00179}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a988ccd8f027f544ba9a2a5315c194ad2}{00179}}\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a988ccd8f027f544ba9a2a5315c194ad2}{get\_byte\_range\_size\_with\_padding}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00180}00180\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00181}00181\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_aa1da1b668f186b6e7940e86e0d79253c}{\_byte\_range\_size}}\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00182}00182\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00183}00183\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00184}00184\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_aa1da1b668f186b6e7940e86e0d79253c}{\_byte\_range\_size}}\ +\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ae555c5820e4a8c1061c9e439362170b4}{get\_byte\_range\_padding}}();}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00185}00185\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00186}00186\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00193}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ae555c5820e4a8c1061c9e439362170b4}{00193}}\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ae555c5820e4a8c1061c9e439362170b4}{get\_byte\_range\_padding}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00194}00194\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00195}00195\ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\ num\_columns\ =\ std::visit([](\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ dtypes)\ \{\ \textcolor{keywordflow}{return}\ dtypes.size();\ \},\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a3bf42eb212e44b58dc1a1bcfef089225}{\_dtypes}});}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00197}00197\ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\ max\_row\_bytes\ =\ 16\ *\ 1024;\ \ \textcolor{comment}{//\ 16KB}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00198}00198\ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\ column\_bytes\ \ =\ 64;}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00199}00199\ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\ base\_padding\ \ =\ 1024;\ \ \textcolor{comment}{//\ 1KB}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00201}00201\ \ \ \ \ \textcolor{keywordflow}{if}\ (num\_columns\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00202}00202\ \ \ \ \ \ \ \textcolor{comment}{//\ Use\ flat\ size\ if\ the\ number\ of\ columns\ is\ not\ known}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00203}00203\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ max\_row\_bytes;}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00204}00204\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00206}00206\ \ \ \ \ \textcolor{comment}{//\ Expand\ the\ size\ based\ on\ the\ number\ of\ columns,\ if\ available}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00207}00207\ \ \ \ \ \textcolor{keywordflow}{return}\ base\_padding\ +\ num\_columns\ *\ column\_bytes;}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00208}00208\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00215}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a6531d6a9b684822e466d970a394b143c}{00215}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a6531d6a9b684822e466d970a394b143c}{is\_enabled\_lines}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ad8201d434d6aa8195ee8d5307ac90576}{\_lines}};\ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00216}00216\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00222}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_adfeebb87dfd53323e1fabb5e4b1676ee}{00222}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_adfeebb87dfd53323e1fabb5e4b1676ee}{is\_enabled\_dayfirst}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_af223dded3164e60ec2a9e642c43eb29f}{\_dayfirst}};\ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00229}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ac7189635984bff57d9cdc72fc2e38b82}{00229}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ac7189635984bff57d9cdc72fc2e38b82}{is\_enabled\_experimental}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a0540ae6bf8e69da7dfda7770da73e93e}{\_experimental}};\ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00236}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a2c39809f3a0ec1268f4a95520d3debac}{00236}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a2c39809f3a0ec1268f4a95520d3debac}{is\_enabled\_keep\_quotes}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a59a13bf896a90d45eaee4c85954bde62}{\_keep\_quotes}};\ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00243}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a1528e302ee1e65b45cbda90a0540b2af}{00243}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a1528e302ee1e65b45cbda90a0540b2af}{set\_dtypes}}(std::vector<data\_type>\ types)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a3bf42eb212e44b58dc1a1bcfef089225}{\_dtypes}}\ =\ std::move(types);\ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00244}00244\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00250}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a57fdbb46908f332c7f37d779f9a868a3}{00250}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a57fdbb46908f332c7f37d779f9a868a3}{set\_dtypes}}(std::map<std::string,\ data\_type>\ types)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a3bf42eb212e44b58dc1a1bcfef089225}{\_dtypes}}\ =\ std::move(types);\ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00257}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ab837a45de34c9ca45ee523e2d670795f}{00257}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ab837a45de34c9ca45ee523e2d670795f}{set\_dtypes}}(std::map<std::string,\ schema\_element>\ types)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a3bf42eb212e44b58dc1a1bcfef089225}{\_dtypes}}\ =\ std::move(types);\ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00258}00258\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00264}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a15169dc5ae579883d329e03d8d35c5d4}{00264}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a15169dc5ae579883d329e03d8d35c5d4}{set\_compression}}(\mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\_type}}\ comp\_type)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a2a75988bea5d92831e6e00643f0ab65f}{\_compression}}\ =\ comp\_type;\ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00265}00265\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00271}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_adc048c7d91c8dbfd7b2e08f86e5e91b2}{00271}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_adc048c7d91c8dbfd7b2e08f86e5e91b2}{set\_byte\_range\_offset}}(\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ offset)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a15f20842d689872c3e3071a65d94f809}{\_byte\_range\_offset}}\ =\ offset;\ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00272}00272\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00278}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a7606947b3d802f3887d6c71390293780}{00278}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a7606947b3d802f3887d6c71390293780}{set\_byte\_range\_size}}(\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ size)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_aa1da1b668f186b6e7940e86e0d79253c}{\_byte\_range\_size}}\ =\ size;\ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00279}00279\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00285}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ab006ee0f3cf3a1cb330881adb93393c8}{00285}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ab006ee0f3cf3a1cb330881adb93393c8}{enable\_lines}}(\textcolor{keywordtype}{bool}\ val)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ad8201d434d6aa8195ee8d5307ac90576}{\_lines}}\ =\ val;\ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00286}00286\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00292}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a8f26b41b5fc7ec7a9bf4f46d46f01f82}{00292}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a8f26b41b5fc7ec7a9bf4f46d46f01f82}{enable\_dayfirst}}(\textcolor{keywordtype}{bool}\ val)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_af223dded3164e60ec2a9e642c43eb29f}{\_dayfirst}}\ =\ val;\ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00293}00293\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00299}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a40b5548b78b2d0bd100225dc8d06e0a7}{00299}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a40b5548b78b2d0bd100225dc8d06e0a7}{enable\_experimental}}(\textcolor{keywordtype}{bool}\ val)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a0540ae6bf8e69da7dfda7770da73e93e}{\_experimental}}\ =\ val;\ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00300}00300\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00307}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ab158ca02d218f12416553c7be7409c16}{00307}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ab158ca02d218f12416553c7be7409c16}{enable\_keep\_quotes}}(\textcolor{keywordtype}{bool}\ val)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a59a13bf896a90d45eaee4c85954bde62}{\_keep\_quotes}}\ =\ val;\ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00308}00308\ \};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00309}00309\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00313}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder}{00313}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder}{json\_reader\_options\_builder}}\ \{}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00314}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a011ee6b6198569d77f8171e40c11a992}{00314}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options}{json\_reader\_options}}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a011ee6b6198569d77f8171e40c11a992}{options}};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00315}00315\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00316}00316\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00322}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_af463e3d628ddabdf26cb9df853d039c7}{00322}}\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_af463e3d628ddabdf26cb9df853d039c7}{json\_reader\_options\_builder}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00323}00323\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00329}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a7a0426ead1d8561b31a825a0a64775e3}{00329}}\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a7a0426ead1d8561b31a825a0a64775e3}{json\_reader\_options\_builder}}(\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\_info}}\ \textcolor{keyword}{const}\&\ src)\ :\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a011ee6b6198569d77f8171e40c11a992}{options}}(src)\ \{\}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00330}00330\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00337}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a3093cc57634fd5a50d0ae2e2b0d6fb56}{00337}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder}{json\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a3093cc57634fd5a50d0ae2e2b0d6fb56}{dtypes}}(std::vector<data\_type>\ types)}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00338}00338\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00339}00339\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a011ee6b6198569d77f8171e40c11a992}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a3bf42eb212e44b58dc1a1bcfef089225}{\_dtypes}}\ =\ std::move(types);}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00340}00340\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00341}00341\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00342}00342\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00349}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a0de744a65bcc86c9ed9ca5ac1dfd6a8c}{00349}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder}{json\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a0de744a65bcc86c9ed9ca5ac1dfd6a8c}{dtypes}}(std::map<std::string,\ data\_type>\ types)}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00350}00350\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00351}00351\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a011ee6b6198569d77f8171e40c11a992}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a3bf42eb212e44b58dc1a1bcfef089225}{\_dtypes}}\ =\ std::move(types);}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00352}00352\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00353}00353\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00354}00354\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00361}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a8754c11d1267e9d84664b1e4fd4d9b96}{00361}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder}{json\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a8754c11d1267e9d84664b1e4fd4d9b96}{dtypes}}(std::map<std::string,\ schema\_element>\ types)}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00362}00362\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00363}00363\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a011ee6b6198569d77f8171e40c11a992}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a3bf42eb212e44b58dc1a1bcfef089225}{\_dtypes}}\ =\ std::move(types);}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00364}00364\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00365}00365\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00366}00366\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00373}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a17dda3b6bfb630bba31af7be87b8d21c}{00373}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder}{json\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a17dda3b6bfb630bba31af7be87b8d21c}{compression}}(\mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\_type}}\ comp\_type)}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00374}00374\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00375}00375\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a011ee6b6198569d77f8171e40c11a992}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a2a75988bea5d92831e6e00643f0ab65f}{\_compression}}\ =\ comp\_type;}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00376}00376\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00377}00377\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00378}00378\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00385}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_af0a247795b51dcc93463d3130f54c9da}{00385}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder}{json\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_af0a247795b51dcc93463d3130f54c9da}{byte\_range\_offset}}(\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ offset)}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00386}00386\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00387}00387\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a011ee6b6198569d77f8171e40c11a992}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a15f20842d689872c3e3071a65d94f809}{\_byte\_range\_offset}}\ =\ offset;}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00388}00388\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00389}00389\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00390}00390\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00397}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a7e087d13cd34f2594444b02e450fb7d8}{00397}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder}{json\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a7e087d13cd34f2594444b02e450fb7d8}{byte\_range\_size}}(\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ size)}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00398}00398\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00399}00399\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a011ee6b6198569d77f8171e40c11a992}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_aa1da1b668f186b6e7940e86e0d79253c}{\_byte\_range\_size}}\ =\ size;}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00400}00400\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00401}00401\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00402}00402\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00409}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a76247103058835048b4606a000b6cd8a}{00409}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder}{json\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a76247103058835048b4606a000b6cd8a}{lines}}(\textcolor{keywordtype}{bool}\ val)}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00410}00410\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00411}00411\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a011ee6b6198569d77f8171e40c11a992}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ad8201d434d6aa8195ee8d5307ac90576}{\_lines}}\ =\ val;}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00412}00412\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00413}00413\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00414}00414\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00421}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a37d82e68945f6fa9cdb8a779e47235e6}{00421}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder}{json\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a37d82e68945f6fa9cdb8a779e47235e6}{dayfirst}}(\textcolor{keywordtype}{bool}\ val)}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00422}00422\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00423}00423\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a011ee6b6198569d77f8171e40c11a992}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_af223dded3164e60ec2a9e642c43eb29f}{\_dayfirst}}\ =\ val;}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00424}00424\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00425}00425\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00426}00426\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00433}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a6576be3de042bed7aa4879d43b736106}{00433}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder}{json\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a6576be3de042bed7aa4879d43b736106}{experimental}}(\textcolor{keywordtype}{bool}\ val)}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00434}00434\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00435}00435\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a011ee6b6198569d77f8171e40c11a992}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a0540ae6bf8e69da7dfda7770da73e93e}{\_experimental}}\ =\ val;}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00436}00436\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00437}00437\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00438}00438\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00446}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a376a9a9db10ef62361fded24c895034a}{00446}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder}{json\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a376a9a9db10ef62361fded24c895034a}{keep\_quotes}}(\textcolor{keywordtype}{bool}\ val)}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00447}00447\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00448}00448\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a011ee6b6198569d77f8171e40c11a992}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a59a13bf896a90d45eaee4c85954bde62}{\_keep\_quotes}}\ =\ val;}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00449}00449\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00450}00450\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00451}00451\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00455}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_af0683819e6364eda7ad68a5a9ea06c1b}{00455}}\ \ \ \textcolor{keyword}{operator}\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options}{json\_reader\_options}}\&\&()\ \{\ \textcolor{keywordflow}{return}\ std::move(\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a011ee6b6198569d77f8171e40c11a992}{options}});\ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00456}00456\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00464}\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a48ec6bce43f98eabaaca7193e0d7f8fc}{00464}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options}{json\_reader\_options}}\&\&\ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a48ec6bce43f98eabaaca7193e0d7f8fc}{build}}()\ \{\ \textcolor{keywordflow}{return}\ std::move(\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder_a011ee6b6198569d77f8171e40c11a992}{options}});\ \}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00465}00465\ \};}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00466}00466\ }
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00483}\mbox{\hyperlink{group__io__readers_gaa375890b86faacd14b6ebd135ae0aea2}{00483}}\ \mbox{\hyperlink{structcudf_1_1io_1_1table__with__metadata}{table\_with\_metadata}}\ \mbox{\hyperlink{group__io__readers_gaa375890b86faacd14b6ebd135ae0aea2}{read\_json}}(}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00484}00484\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options}{json\_reader\_options}}\ options,}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00485}00485\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00486}00486\ \ \ \textcolor{comment}{//\ end\ of\ group}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00488}00488\ \}\ \ \textcolor{comment}{//\ namespace\ io}}
+\DoxyCodeLine{\Hypertarget{io_2json_8hpp_source_l00489}00489\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

@@ -1,0 +1,114 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/binaryop.hpp 文件参考}
+\hypertarget{binaryop_8hpp}{}\label{binaryop_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/binaryop.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/binaryop.hpp}}
+
+
+Column APIs for binary ops  
+
+
+{\ttfamily \#include $<$cudf/column/column.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/scalar/scalar.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/mr/device/per\+\_\+device\+\_\+resource.\+hpp$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+binaryop.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{binaryop_8hpp__incl}
+\end{center}
+\end{figure}
+此图展示该文件直接或间接的被哪些文件引用了\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{binaryop_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1binops}{cudf\+::binops}}
+\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1binops_1_1compiled}{cudf\+::binops\+::compiled}}
+\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1binops_1_1compiled_1_1detail}{cudf\+::binops\+::compiled\+::detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{cudf\+::binary\+\_\+operator}} \+: int32\+\_\+t \{ \newline
+\mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca9eeb52badb613229884838847294b90d}{cudf\+::binary\+\_\+operator\+::\+ADD}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca241dd841abade20fcb27b8a9f494e1eb}{cudf\+::binary\+\_\+operator\+::\+SUB}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca2cdf52a55876063ec93b7d18bc741f6c}{cudf\+::binary\+\_\+operator\+::\+MUL}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca29bbf66f7f8529ec47e394fb5a36c646}{cudf\+::binary\+\_\+operator\+::\+DIV}}
+, \newline
+\mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaa14fdfc1aa76e925151b566a67c99406}{cudf\+::binary\+\_\+operator\+::\+TRUE\+\_\+\+DIV}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca77811fd0ec3d3ed2711a923332e8e69f}{cudf\+::binary\+\_\+operator\+::\+FLOOR\+\_\+\+DIV}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcac5a28f4b35a2884fa3277150ac5d0967}{cudf\+::binary\+\_\+operator\+::\+MOD}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaaf5a744d55583fdb1af0f280f12c9ab1}{cudf\+::binary\+\_\+operator\+::\+PMOD}}
+, \newline
+\mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca36aaf571a1008bd43f47509344cd13ad}{cudf\+::binary\+\_\+operator\+::\+PYMOD}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca17faf4e999b8cee4c36915c1f54ccffe}{cudf\+::binary\+\_\+operator\+::\+POW}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcad41167c344e1771b57cbbf5df6633a90}{cudf\+::binary\+\_\+operator\+::\+INT\+\_\+\+POW}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca21fb6e241507492d75c488a9c65d12fe}{cudf\+::binary\+\_\+operator\+::\+LOG\+\_\+\+BASE}}
+, \newline
+\mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaf8d5f387d3ac8f7084ae44566b32acb2}{cudf\+::binary\+\_\+operator\+::\+ATAN2}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcab11947742cdeb1e9d0b493239416e885}{cudf\+::binary\+\_\+operator\+::\+SHIFT\+\_\+\+LEFT}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaf07939cca8bcd94dfa7356d96e4b1ebb}{cudf\+::binary\+\_\+operator\+::\+SHIFT\+\_\+\+RIGHT}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaa41bd9a635ce48d786cde49d803446e1}{cudf\+::binary\+\_\+operator\+::\+SHIFT\+\_\+\+RIGHT\+\_\+\+UNSIGNED}}
+, \newline
+\mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaaa5f2eafabf8fa18cbb708c657f37245}{cudf\+::binary\+\_\+operator\+::\+BITWISE\+\_\+\+AND}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca0d89cfe1f2f7f0c2deb3d35455783ab9}{cudf\+::binary\+\_\+operator\+::\+BITWISE\+\_\+\+OR}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca6d7cca7c0f0f278c56131a25e77c4a5c}{cudf\+::binary\+\_\+operator\+::\+BITWISE\+\_\+\+XOR}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaa770916377f618641eccd6783b13503a}{cudf\+::binary\+\_\+operator\+::\+LOGICAL\+\_\+\+AND}}
+, \newline
+\mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca0d0389dd347e259ac16a47fc9db81c18}{cudf\+::binary\+\_\+operator\+::\+LOGICAL\+\_\+\+OR}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca969f331a87d8c958473c32b4d0e61a44}{cudf\+::binary\+\_\+operator\+::\+EQUAL}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca4ea2d378cdec20f59330f113297bc1ce}{cudf\+::binary\+\_\+operator\+::\+NOT\+\_\+\+EQUAL}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca1798e8c3621ca53d9e3a80d257306000}{cudf\+::binary\+\_\+operator\+::\+LESS}}
+, \newline
+\mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcae7e72355289e404b762d4cf88824d23b}{cudf\+::binary\+\_\+operator\+::\+GREATER}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca8b4a5cd69b217bf93b054ada7f49abd4}{cudf\+::binary\+\_\+operator\+::\+LESS\+\_\+\+EQUAL}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca87e6b203bf40967d37a33f9a4438561a}{cudf\+::binary\+\_\+operator\+::\+GREATER\+\_\+\+EQUAL}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcacb8d87e20fe7c6f3786fb063814420e5}{cudf\+::binary\+\_\+operator\+::\+NULL\+\_\+\+EQUALS}}
+, \newline
+\mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaf96f1246ae59f3f396dd304c4e3efb2f}{cudf\+::binary\+\_\+operator\+::\+NULL\+\_\+\+MAX}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcadb8b769d7a9c9d41242eb4b721228c50}{cudf\+::binary\+\_\+operator\+::\+NULL\+\_\+\+MIN}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca8949d722159e21bb5941af5b0e92aeb5}{cudf\+::binary\+\_\+operator\+::\+GENERIC\+\_\+\+BINARY}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca0b0eecbb7754f87b05d19490f50ddd4f}{cudf\+::binary\+\_\+operator\+::\+NULL\+\_\+\+LOGICAL\+\_\+\+AND}}
+, \newline
+\mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca009adecefebadfcd26e7fad3b046104b}{cudf\+::binary\+\_\+operator\+::\+NULL\+\_\+\+LOGICAL\+\_\+\+OR}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca0b010d84b45dcb367a81c7c029d3f5bb}{cudf\+::binary\+\_\+operator\+::\+INVALID\+\_\+\+BINARY}}
+ \}
+\begin{DoxyCompactList}\small\item\em Types of binary operations that can be performed on data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__binaryops_gaff4f1be08dc3f02b429f4899b2eacbbf}{cudf\+::binary\+\_\+operation}} (\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&lhs, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&rhs, \mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{binary\+\_\+operator}} op, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+type, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs a binary operation between a scalar and a column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__binaryops_ga226c33874fc97e5e3122522425f3072b}{cudf\+::binary\+\_\+operation}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&lhs, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&rhs, \mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{binary\+\_\+operator}} op, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+type, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs a binary operation between a column and a scalar. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__binaryops_ga43558085c43d054937158b9de88b689d}{cudf\+::binary\+\_\+operation}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&lhs, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&rhs, \mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{binary\+\_\+operator}} op, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+type, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs a binary operation between two columns. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__binaryops_gab106aa46f902ec1266feb4eb5f0fef6b}{cudf\+::binary\+\_\+operation}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&lhs, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&rhs, std\+::string const \&ptx, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+type, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs a binary operation between two columns using a user-\/defined PTX function. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group__transformation__binaryops_ga76c84637bf4ca70809860a6135bb301a}{cudf\+::binary\+\_\+operation\+\_\+fixed\+\_\+point\+\_\+scale}} (\mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{binary\+\_\+operator}} op, int32\+\_\+t left\+\_\+scale, int32\+\_\+t right\+\_\+scale)
+\begin{DoxyCompactList}\small\item\em Computes the {\ttfamily scale} for a {\ttfamily fixed\+\_\+point} number based on given binary operator {\ttfamily op} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} \mbox{\hyperlink{group__transformation__binaryops_ga065bbc22dc02e3f4dd04a904c094acca}{cudf\+::binary\+\_\+operation\+\_\+fixed\+\_\+point\+\_\+output\+\_\+type}} (\mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{binary\+\_\+operator}} op, \mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} const \&lhs, \mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} const \&rhs)
+\begin{DoxyCompactList}\small\item\em Computes the {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} for a {\ttfamily fixed\+\_\+point} number based on given binary operator {\ttfamily op} \end{DoxyCompactList}\item 
+std\+::pair$<$ rmm\+::device\+\_\+buffer, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ \mbox{\hyperlink{namespacecudf_1_1binops_a31c1ed78466d15a1582594991213eb20}{cudf\+::binops\+::scalar\+\_\+col\+\_\+valid\+\_\+mask\+\_\+and}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&col, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&s, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}(), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Computes output valid mask for op between a column and a scalar \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacecudf_1_1binops_1_1compiled_1_1detail_aed04269dfa5a04dfd51bc9d87bb094d8}{cudf\+::binops\+::compiled\+::detail\+::apply\+\_\+sorting\+\_\+struct\+\_\+binary\+\_\+op}} (\mbox{\hyperlink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view}} \&out, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&lhs, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&rhs, bool is\+\_\+lhs\+\_\+scalar, bool is\+\_\+rhs\+\_\+scalar, \mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{binary\+\_\+operator}} op, rmm\+::cuda\+\_\+stream\+\_\+view stream)
+\begin{DoxyCompactList}\small\item\em struct binary operation using {\ttfamily NaN} aware sorting physical element comparators \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Column APIs for binary ops 
+
+
+
+在文件 \mbox{\hyperlink{binaryop_8hpp_source}{binaryop.\+hpp}} 中定义.
+

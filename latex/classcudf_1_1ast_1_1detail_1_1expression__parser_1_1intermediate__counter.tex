@@ -1,0 +1,134 @@
+\doxysection{cudf\+::ast\+::detail\+::expression\+\_\+parser\+::intermediate\+\_\+counter类 参考}
+\hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter}{}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter}\index{cudf::ast::detail::expression\_parser::intermediate\_counter@{cudf::ast::detail::expression\_parser::intermediate\_counter}}
+
+
+Internal class used to track the utilization of intermediate storage locations.  
+
+
+
+
+{\ttfamily \#include $<$expression\+\_\+parser.\+hpp$>$}
+
+
+
+cudf\+::ast\+::detail\+::expression\+\_\+parser\+::intermediate\+\_\+counter 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter_aaa5e18e407b0157cc12338803135de10}{intermediate\+\_\+counter}} ()
+\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter_ab99670bda1b919840e267f6a7593e749}{take}} ()
+\item 
+void \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter_a0d65ceada5720e76c956e5fcf4d03d42}{give}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} value)
+\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter_abd9460bb1084c5988c33feddbbf11315}{get\+\_\+max\+\_\+used}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter_a4a83f713e68619dffe6d2c172ece6fde}{find\+\_\+first\+\_\+missing}} () const
+\begin{DoxyCompactList}\small\item\em Find the first missing value in a contiguous sequence of integers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} $>$ \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter_a912b06e4d4252ecdbd9648d98eb2f320}{used\+\_\+values}}
+\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter_a9029bef5e58124f77be64f0f6cc746e3}{max\+\_\+used}} \{0\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Internal class used to track the utilization of intermediate storage locations. 
+
+As expressions are being evaluated, they may generate \"{}intermediate\"{} data that is immediately consumed. Rather than manifesting this data in global memory, we can store intermediates of any fixed width type (up to 8 bytes) by placing them in shared memory. This class helps to track the number and indices of intermediate data in shared memory using a give-\/take model. Locations in shared memory can be \"{}taken\"{} and used for storage, \"{}given back,\"{} and then later re-\/used. This aims to minimize the maximum amount of shared memory needed at any point during the evaluation. 
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00208}{208}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter_aaa5e18e407b0157cc12338803135de10}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter_aaa5e18e407b0157cc12338803135de10} 
+\index{cudf::ast::detail::expression\_parser::intermediate\_counter@{cudf::ast::detail::expression\_parser::intermediate\_counter}!intermediate\_counter@{intermediate\_counter}}
+\index{intermediate\_counter@{intermediate\_counter}!cudf::ast::detail::expression\_parser::intermediate\_counter@{cudf::ast::detail::expression\_parser::intermediate\_counter}}
+\doxysubsubsection{\texorpdfstring{intermediate\_counter()}{intermediate\_counter()}}
+{\footnotesize\ttfamily cudf\+::ast\+::detail\+::expression\+\_\+parser\+::intermediate\+\_\+counter\+::intermediate\+\_\+counter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00210}{210}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter_a4a83f713e68619dffe6d2c172ece6fde}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter_a4a83f713e68619dffe6d2c172ece6fde} 
+\index{cudf::ast::detail::expression\_parser::intermediate\_counter@{cudf::ast::detail::expression\_parser::intermediate\_counter}!find\_first\_missing@{find\_first\_missing}}
+\index{find\_first\_missing@{find\_first\_missing}!cudf::ast::detail::expression\_parser::intermediate\_counter@{cudf::ast::detail::expression\_parser::intermediate\_counter}}
+\doxysubsubsection{\texorpdfstring{find\_first\_missing()}{find\_first\_missing()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::ast\+::detail\+::expression\+\_\+parser\+::intermediate\+\_\+counter\+::find\+\_\+first\+\_\+missing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Find the first missing value in a contiguous sequence of integers. 
+
+From a sorted container of integers, find the first \"{}missing\"{} value. For example, \{0, 1, 2, 4, 5\} is missing 3, and \{1, 2, 3\} is missing 0. If there are no missing values, return the size of the container.
+
+\begin{DoxyReturn}{返回}
+\doxylink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type} Smallest value not already in the container. 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter_abd9460bb1084c5988c33feddbbf11315}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter_abd9460bb1084c5988c33feddbbf11315} 
+\index{cudf::ast::detail::expression\_parser::intermediate\_counter@{cudf::ast::detail::expression\_parser::intermediate\_counter}!get\_max\_used@{get\_max\_used}}
+\index{get\_max\_used@{get\_max\_used}!cudf::ast::detail::expression\_parser::intermediate\_counter@{cudf::ast::detail::expression\_parser::intermediate\_counter}}
+\doxysubsubsection{\texorpdfstring{get\_max\_used()}{get\_max\_used()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::ast\+::detail\+::expression\+\_\+parser\+::intermediate\+\_\+counter\+::get\+\_\+max\+\_\+used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00213}{213}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter_a0d65ceada5720e76c956e5fcf4d03d42}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter_a0d65ceada5720e76c956e5fcf4d03d42} 
+\index{cudf::ast::detail::expression\_parser::intermediate\_counter@{cudf::ast::detail::expression\_parser::intermediate\_counter}!give@{give}}
+\index{give@{give}!cudf::ast::detail::expression\_parser::intermediate\_counter@{cudf::ast::detail::expression\_parser::intermediate\_counter}}
+\doxysubsubsection{\texorpdfstring{give()}{give()}}
+{\footnotesize\ttfamily void cudf\+::ast\+::detail\+::expression\+\_\+parser\+::intermediate\+\_\+counter\+::give (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}}}]{value }\end{DoxyParamCaption})}
+
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter_ab99670bda1b919840e267f6a7593e749}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter_ab99670bda1b919840e267f6a7593e749} 
+\index{cudf::ast::detail::expression\_parser::intermediate\_counter@{cudf::ast::detail::expression\_parser::intermediate\_counter}!take@{take}}
+\index{take@{take}!cudf::ast::detail::expression\_parser::intermediate\_counter@{cudf::ast::detail::expression\_parser::intermediate\_counter}}
+\doxysubsubsection{\texorpdfstring{take()}{take()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::ast\+::detail\+::expression\+\_\+parser\+::intermediate\+\_\+counter\+::take (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter_a9029bef5e58124f77be64f0f6cc746e3}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter_a9029bef5e58124f77be64f0f6cc746e3} 
+\index{cudf::ast::detail::expression\_parser::intermediate\_counter@{cudf::ast::detail::expression\_parser::intermediate\_counter}!max\_used@{max\_used}}
+\index{max\_used@{max\_used}!cudf::ast::detail::expression\_parser::intermediate\_counter@{cudf::ast::detail::expression\_parser::intermediate\_counter}}
+\doxysubsubsection{\texorpdfstring{max\_used}{max\_used}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::ast\+::detail\+::expression\+\_\+parser\+::intermediate\+\_\+counter\+::max\+\_\+used \{0\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00228}{228}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter_a912b06e4d4252ecdbd9648d98eb2f320}\label{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter_a912b06e4d4252ecdbd9648d98eb2f320} 
+\index{cudf::ast::detail::expression\_parser::intermediate\_counter@{cudf::ast::detail::expression\_parser::intermediate\_counter}!used\_values@{used\_values}}
+\index{used\_values@{used\_values}!cudf::ast::detail::expression\_parser::intermediate\_counter@{cudf::ast::detail::expression\_parser::intermediate\_counter}}
+\doxysubsubsection{\texorpdfstring{used\_values}{used\_values}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}}$>$ cudf\+::ast\+::detail\+::expression\+\_\+parser\+::intermediate\+\_\+counter\+::used\+\_\+values\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{expression__parser_8hpp_source}{expression\+\_\+parser.\+hpp}} 第 \mbox{\hyperlink{expression__parser_8hpp_source_l00227}{227}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/ast/detail/\mbox{\hyperlink{expression__parser_8hpp}{expression\+\_\+parser.\+hpp}}\end{DoxyCompactItemize}

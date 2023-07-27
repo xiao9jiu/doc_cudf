@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: D:/gitLibrary/cudf/cpp/include/cudf/detail/utilities/integer_utils.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('integer__utils_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">integer_utils.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="integer__utils_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright 2019 BlazingDB, Inc.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *     Copyright 2019 Eyal Rozenberg &lt;eyalroz@blazingdb.com&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Copyright (c) 2020-2022, NVIDIA CORPORATION.</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;<a class="code" href="temporary_8hpp.html">cudf/fixed_point/temporary.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecudf.html">cudf</a> {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="namespacecudf_1_1util.html">   34</a></span><span class="keyword">namespace </span>util {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> S&gt;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="namespacecudf_1_1util.html#ad92e7a683250a2bd1f8f3bcaabc6bf9f">   47</a></span>S <a class="code hl_function" href="namespacecudf_1_1util.html#ad92e7a683250a2bd1f8f3bcaabc6bf9f">round_up_safe</a>(S number_to_round, S modulus)</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>{</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  <span class="keyword">auto</span> remainder = number_to_round % modulus;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <span class="keywordflow">if</span> (remainder == 0) { <span class="keywordflow">return</span> number_to_round; }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  <span class="keyword">auto</span> rounded_up = number_to_round - remainder + modulus;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  <span class="keywordflow">if</span> (rounded_up &lt; number_to_round) {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;Attempt to round up beyond the type&#39;s maximum value&quot;</span>);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  <span class="keywordflow">return</span> rounded_up;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> S&gt;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="namespacecudf_1_1util.html#a1f0a3599075ac4a667ee0817b4840696">   70</a></span>S <a class="code hl_function" href="namespacecudf_1_1util.html#a1f0a3599075ac4a667ee0817b4840696">round_down_safe</a>(S number_to_round, S modulus) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>{</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  <span class="keyword">auto</span> remainder    = number_to_round % modulus;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>  <span class="keyword">auto</span> rounded_down = number_to_round - remainder;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>  <span class="keywordflow">return</span> rounded_down;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>}</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> S&gt;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="namespacecudf_1_1util.html#abfb9644b0d39cf734610a2c8552e8c6a">   89</a></span><span class="keyword">constexpr</span> S <a class="code hl_function" href="namespacecudf_1_1util.html#abfb9644b0d39cf734610a2c8552e8c6a">round_up_unsafe</a>(S number_to_round, S modulus) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>{</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  <span class="keyword">auto</span> remainder = number_to_round % modulus;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  <span class="keywordflow">if</span> (remainder == 0) { <span class="keywordflow">return</span> number_to_round; }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  <span class="keyword">auto</span> rounded_up = number_to_round - remainder + modulus;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  <span class="keywordflow">return</span> rounded_up;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>}</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> S, <span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="namespacecudf_1_1util.html#ad5dcf0e19a83ef99dfa6d676c423c36f">  110</a></span><span class="keyword">constexpr</span> S <a class="code hl_function" href="namespacecudf_1_1util.html#ad5dcf0e19a83ef99dfa6d676c423c36f">div_rounding_up_unsafe</a>(<span class="keyword">const</span> S&amp; dividend, <span class="keyword">const</span> T&amp; divisor) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>{</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>  <span class="keywordflow">return</span> (dividend + divisor - 1) / divisor;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>}</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="namespacecudf_1_1util_1_1detail.html">  115</a></span><span class="keyword">namespace </span>detail {</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> I&gt;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="namespacecudf_1_1util_1_1detail.html#a63d39a99e8ffcb65363adb77ec7730d1">  117</a></span><span class="keyword">constexpr</span> I <a class="code hl_function" href="namespacecudf_1_1util_1_1detail.html#a63d39a99e8ffcb65363adb77ec7730d1">div_rounding_up_safe</a>(std::integral_constant&lt;bool, false&gt;,</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>                                 I dividend,</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>                                 I divisor) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>{</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>  <span class="comment">// TODO: This could probably be implemented faster</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>  <span class="keywordflow">return</span> (dividend &gt; divisor) ? 1 + <a class="code hl_function" href="namespacecudf_1_1util.html#ad5dcf0e19a83ef99dfa6d676c423c36f">div_rounding_up_unsafe</a>(dividend - divisor, divisor)</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                              : (dividend &gt; 0);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>}</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> I&gt;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="namespacecudf_1_1util_1_1detail.html#ac18ffe72e4430858b714e06c814e68ac">  127</a></span><span class="keyword">constexpr</span> I <a class="code hl_function" href="namespacecudf_1_1util_1_1detail.html#a63d39a99e8ffcb65363adb77ec7730d1">div_rounding_up_safe</a>(std::integral_constant&lt;bool, true&gt;, I dividend, I divisor) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>{</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>  <span class="keyword">auto</span> quotient  = dividend / divisor;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>  <span class="keyword">auto</span> remainder = dividend % divisor;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>  <span class="keywordflow">return</span> quotient + (remainder != 0);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>}</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>}  <span class="comment">// namespace detail</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> I&gt;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="namespacecudf_1_1util.html#a6fe189a1e4b812440a51a97c67fa7860">  149</a></span><span class="keyword">constexpr</span> I <a class="code hl_function" href="namespacecudf_1_1util.html#a6fe189a1e4b812440a51a97c67fa7860">div_rounding_up_safe</a>(I dividend, I divisor) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>{</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>  <span class="keyword">using </span>i_is_a_signed_type = std::integral_constant&lt;bool, std::is_signed_v&lt;I&gt;&gt;;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>  <span class="keywordflow">return</span> <a class="code hl_function" href="namespacecudf_1_1util_1_1detail.html#a63d39a99e8ffcb65363adb77ec7730d1">detail::div_rounding_up_safe</a>(i_is_a_signed_type{}, dividend, divisor);</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>}</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> I&gt;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="namespacecudf_1_1util.html#a514583024139235b4d606f11c940fff5">  156</a></span><span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacecudf_1_1util.html#a514583024139235b4d606f11c940fff5">is_a_power_of_two</a>(I val) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>{</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>  <span class="keyword">static_assert</span>(std::is_integral_v&lt;I&gt;, <span class="stringliteral">&quot;This function only applies to integral types&quot;</span>);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>  <span class="keywordflow">return</span> ((val - 1) &amp; val) == 0;</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>}</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="namespacecudf_1_1util.html#a414d91e01fb97879e2a4dd61673b866e">  186</a></span><span class="keyword">constexpr</span> <span class="keyword">auto</span> <a class="code hl_function" href="namespacecudf_1_1util.html#a414d91e01fb97879e2a4dd61673b866e">absolute_value</a>(T value) -&gt; T</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>{</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>  <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (cuda::std::is_signed&lt;T&gt;()) <span class="keywordflow">return</span> <a class="code hl_function" href="namespacenumeric_1_1detail.html#ad7597aacd8004bee10246759068ef73e">numeric::detail::abs</a>(value);</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>  <span class="keywordflow">return</span> value;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>}</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>}  <span class="comment">// namespace util</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>}  <span class="comment">// namespace cudf</span></div>
+<div class="ttc" id="anamespacecudf_1_1util_1_1detail_html_a63d39a99e8ffcb65363adb77ec7730d1"><div class="ttname"><a href="namespacecudf_1_1util_1_1detail.html#a63d39a99e8ffcb65363adb77ec7730d1">cudf::util::detail::div_rounding_up_safe</a></div><div class="ttdeci">constexpr I div_rounding_up_safe(std::integral_constant&lt; bool, false &gt;, I dividend, I divisor) noexcept</div><div class="ttdef"><b>Definition</b> <a href="integer__utils_8hpp_source.html#l00117">integer_utils.hpp:117</a></div></div>
+<div class="ttc" id="anamespacecudf_1_1util_html_a1f0a3599075ac4a667ee0817b4840696"><div class="ttname"><a href="namespacecudf_1_1util.html#a1f0a3599075ac4a667ee0817b4840696">cudf::util::round_down_safe</a></div><div class="ttdeci">S round_down_safe(S number_to_round, S modulus) noexcept</div><div class="ttdoc">Rounds number_to_round down to the last multiple of modulus</div><div class="ttdef"><b>Definition</b> <a href="integer__utils_8hpp_source.html#l00070">integer_utils.hpp:70</a></div></div>
+<div class="ttc" id="anamespacecudf_1_1util_html_a414d91e01fb97879e2a4dd61673b866e"><div class="ttname"><a href="namespacecudf_1_1util.html#a414d91e01fb97879e2a4dd61673b866e">cudf::util::absolute_value</a></div><div class="ttdeci">constexpr auto absolute_value(T value) -&gt; T</div><div class="ttdoc">Return the absolute value of a number.</div><div class="ttdef"><b>Definition</b> <a href="integer__utils_8hpp_source.html#l00186">integer_utils.hpp:186</a></div></div>
+<div class="ttc" id="anamespacecudf_1_1util_html_a514583024139235b4d606f11c940fff5"><div class="ttname"><a href="namespacecudf_1_1util.html#a514583024139235b4d606f11c940fff5">cudf::util::is_a_power_of_two</a></div><div class="ttdeci">constexpr bool is_a_power_of_two(I val) noexcept</div><div class="ttdef"><b>Definition</b> <a href="integer__utils_8hpp_source.html#l00156">integer_utils.hpp:156</a></div></div>
+<div class="ttc" id="anamespacecudf_1_1util_html_a6fe189a1e4b812440a51a97c67fa7860"><div class="ttname"><a href="namespacecudf_1_1util.html#a6fe189a1e4b812440a51a97c67fa7860">cudf::util::div_rounding_up_safe</a></div><div class="ttdeci">constexpr I div_rounding_up_safe(I dividend, I divisor) noexcept</div><div class="ttdef"><b>Definition</b> <a href="integer__utils_8hpp_source.html#l00149">integer_utils.hpp:149</a></div></div>
+<div class="ttc" id="anamespacecudf_1_1util_html_abfb9644b0d39cf734610a2c8552e8c6a"><div class="ttname"><a href="namespacecudf_1_1util.html#abfb9644b0d39cf734610a2c8552e8c6a">cudf::util::round_up_unsafe</a></div><div class="ttdeci">constexpr S round_up_unsafe(S number_to_round, S modulus) noexcept</div><div class="ttdoc">Rounds number_to_round up to the next multiple of modulus</div><div class="ttdef"><b>Definition</b> <a href="integer__utils_8hpp_source.html#l00089">integer_utils.hpp:89</a></div></div>
+<div class="ttc" id="anamespacecudf_1_1util_html_ad5dcf0e19a83ef99dfa6d676c423c36f"><div class="ttname"><a href="namespacecudf_1_1util.html#ad5dcf0e19a83ef99dfa6d676c423c36f">cudf::util::div_rounding_up_unsafe</a></div><div class="ttdeci">constexpr S div_rounding_up_unsafe(const S &amp;dividend, const T &amp;divisor) noexcept</div><div class="ttdef"><b>Definition</b> <a href="integer__utils_8hpp_source.html#l00110">integer_utils.hpp:110</a></div></div>
+<div class="ttc" id="anamespacecudf_1_1util_html_ad92e7a683250a2bd1f8f3bcaabc6bf9f"><div class="ttname"><a href="namespacecudf_1_1util.html#ad92e7a683250a2bd1f8f3bcaabc6bf9f">cudf::util::round_up_safe</a></div><div class="ttdeci">S round_up_safe(S number_to_round, S modulus)</div><div class="ttdoc">Rounds number_to_round up to the next multiple of modulus</div><div class="ttdef"><b>Definition</b> <a href="integer__utils_8hpp_source.html#l00047">integer_utils.hpp:47</a></div></div>
+<div class="ttc" id="anamespacecudf_html"><div class="ttname"><a href="namespacecudf.html">cudf</a></div><div class="ttdoc">cuDF interfaces</div><div class="ttdef"><b>Definition</b> <a href="aggregation_8hpp_source.html#l00034">aggregation.hpp:34</a></div></div>
+<div class="ttc" id="anamespacenumeric_1_1detail_html_ad7597aacd8004bee10246759068ef73e"><div class="ttname"><a href="namespacenumeric_1_1detail.html#ad7597aacd8004bee10246759068ef73e">numeric::detail::abs</a></div><div class="ttdeci">constexpr auto abs(T value)</div><div class="ttdef"><b>Definition</b> <a href="temporary_8hpp_source.html#l00060">temporary.hpp:60</a></div></div>
+<div class="ttc" id="atemporary_8hpp_html"><div class="ttname"><a href="temporary_8hpp.html">temporary.hpp</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_d998dea0bd4559303135358082015ac8.html">gitLibrary</a></li><li class="navelem"><a class="el" href="dir_b6486b3d9bd1f4b89c884933ed658179.html">cudf</a></li><li class="navelem"><a class="el" href="dir_318a4414914f49dc0e7605c41de9d4af.html">cpp</a></li><li class="navelem"><a class="el" href="dir_7fbf5ee8ae486656ea40e5ca1dd304f9.html">include</a></li><li class="navelem"><a class="el" href="dir_87e6427d1ef099fd52d9d0724c66b062.html">cudf</a></li><li class="navelem"><a class="el" href="dir_a82d85c89be6cfc9cc0f5c38ca1aa1ac.html">detail</a></li><li class="navelem"><a class="el" href="dir_607482f2dbb1f21ca0d4221640aca179.html">utilities</a></li><li class="navelem"><a class="el" href="integer__utils_8hpp.html">integer_utils.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

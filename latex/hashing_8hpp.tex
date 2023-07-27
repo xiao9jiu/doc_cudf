@@ -1,0 +1,50 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/hashing.hpp 文件参考}
+\hypertarget{hashing_8hpp}{}\label{hashing_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/hashing.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/hashing.hpp}}
+{\ttfamily \#include $<$cudf/table/table.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/table/table\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/mr/device/per\+\_\+device\+\_\+resource.\+hpp$>$}\newline
+hashing.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashing_8hpp__incl}
+\end{center}
+\end{figure}
+此图展示该文件直接或间接的被哪些文件引用了\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashing_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{类型定义}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacecudf_a98b5509c0aeedbdb5bce4dc3b6869f26}{cudf\+::hash\+\_\+value\+\_\+type}} = uint32\+\_\+t
+\begin{DoxyCompactList}\small\item\em Type of hash value \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__column__hash_gaced8b9d129825edd13d76e912e4413c3}{cudf\+::hash\+\_\+id}} \{ \mbox{\hyperlink{group__column__hash_ggaced8b9d129825edd13d76e912e4413c3a87c5fdaedd591de89dc6528979fad559}{cudf\+::hash\+\_\+id\+::\+HASH\+\_\+\+IDENTITY}} = 0
+, \mbox{\hyperlink{group__column__hash_ggaced8b9d129825edd13d76e912e4413c3ae9ec854e962136b1afcf108e5301c354}{cudf\+::hash\+\_\+id\+::\+HASH\+\_\+\+MURMUR3}}
+, \mbox{\hyperlink{group__column__hash_ggaced8b9d129825edd13d76e912e4413c3a86e5d77c8925733c14f2ead71e800939}{cudf\+::hash\+\_\+id\+::\+HASH\+\_\+\+SPARK\+\_\+\+MURMUR3}}
+, \mbox{\hyperlink{group__column__hash_ggaced8b9d129825edd13d76e912e4413c3a1b39e06b1e490bb4792c0076b2733a45}{cudf\+::hash\+\_\+id\+::\+HASH\+\_\+\+MD5}}
+ \}
+\begin{DoxyCompactList}\small\item\em Identifies the hash function to be used \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__hash_ga324d3e89c473ffe4810b14da49a6c1e7}{cudf\+::hash}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, \mbox{\hyperlink{group__column__hash_gaced8b9d129825edd13d76e912e4413c3}{hash\+\_\+id}} hash\+\_\+function=\mbox{\hyperlink{group__column__hash_ggaced8b9d129825edd13d76e912e4413c3ae9ec854e962136b1afcf108e5301c354}{hash\+\_\+id\+::\+HASH\+\_\+\+MURMUR3}}, uint32\+\_\+t seed=\mbox{\hyperlink{group__column__hash_ga68de1d04aa2c0ea2eeacfc73fd99a915}{DEFAULT\+\_\+\+HASH\+\_\+\+SEED}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Computes the hash value of each row in the input set of columns. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{变量}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr uint32\+\_\+t \mbox{\hyperlink{group__column__hash_ga68de1d04aa2c0ea2eeacfc73fd99a915}{cudf\+::\+DEFAULT\+\_\+\+HASH\+\_\+\+SEED}} = 0
+\begin{DoxyCompactList}\small\item\em The default seed value for hash functions \end{DoxyCompactList}\end{DoxyCompactItemize}

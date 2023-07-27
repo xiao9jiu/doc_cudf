@@ -1,0 +1,547 @@
+\doxysection{Column\+\_\+sort}
+\hypertarget{group__column__sort}{}\label{group__column__sort}\index{Column\_sort@{Column\_sort}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{sorting_8hpp}{sorting.\+hpp}}
+\begin{DoxyCompactList}\small\item\em Column APIs for sort and rank \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__column__sort_gac8975ec1273372f6ccae83a85bee71ce}{cudf\+::rank\+\_\+method}} \+: int32\+\_\+t \{ \newline
+\mbox{\hyperlink{group__column__sort_ggac8975ec1273372f6ccae83a85bee71cea2c2624a5059934a947d6e25fe8332ade}{cudf\+::rank\+\_\+method\+::\+FIRST}}
+, \mbox{\hyperlink{group__column__sort_ggac8975ec1273372f6ccae83a85bee71cea16de38737a9f8366e9b2042b4e9b6290}{cudf\+::rank\+\_\+method\+::\+AVERAGE}}
+, \mbox{\hyperlink{group__column__sort_ggac8975ec1273372f6ccae83a85bee71ceace31e2a082d17e038fcc6e3006166653}{cudf\+::rank\+\_\+method\+::\+MIN}}
+, \mbox{\hyperlink{group__column__sort_ggac8975ec1273372f6ccae83a85bee71cea26a4b44a837bf97b972628509912b4a5}{cudf\+::rank\+\_\+method\+::\+MAX}}
+, \newline
+\mbox{\hyperlink{group__column__sort_ggac8975ec1273372f6ccae83a85bee71cea0706fbbd929bd8abc4de386c53d439ff}{cudf\+::rank\+\_\+method\+::\+DENSE}}
+ \}
+\begin{DoxyCompactList}\small\item\em Tie-\/breaker method to use for ranking the column. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__sort_ga141398c354cc1607bcfe9590d93e63f5}{cudf\+::sorted\+\_\+order}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order=\{\}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence=\{\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Computes the row indices that would produce {\ttfamily input} in a lexicographical sorted order. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__sort_ga2db61bdd446ede1bdad2cf13ec4ab65d}{cudf\+::stable\+\_\+sorted\+\_\+order}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order=\{\}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence=\{\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Computes the row indices that would produce {\ttfamily input} in a stable lexicographical sorted order. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__column__sort_ga77f7f552aca16f21830817ccd088670e}{cudf\+::is\+\_\+sorted}} (\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1table}{table}}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence)
+\begin{DoxyCompactList}\small\item\em Checks whether the rows of a {\ttfamily table} are sorted in a lexicographical order. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__sort_ga921f48f195936eb38dc205e8dfd2ae54}{cudf\+::sort}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order=\{\}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence=\{\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs a lexicographic sort of the rows of a table \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__sort_gafb4d13cd3f1b4e9077011923422735a3}{cudf\+::sort\+\_\+by\+\_\+key}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&values, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&keys, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order=\{\}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence=\{\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs a key-\/value sort. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__sort_ga18ef8338c288288adfea62c9e12cbd9c}{cudf\+::stable\+\_\+sort\+\_\+by\+\_\+key}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&values, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&keys, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order=\{\}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence=\{\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs a key-\/value stable sort. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__sort_ga5209c095d2b7cb1a8c69b33a2e3956f2}{cudf\+::rank}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{group__column__sort_gac8975ec1273372f6ccae83a85bee71ce}{rank\+\_\+method}} method, \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} column\+\_\+order, \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling, \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} null\+\_\+precedence, bool percentage, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Computes the ranks of input column in sorted order. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__sort_gabe92e762f1eabd11c66eddf1cbc01eb7}{cudf\+::segmented\+\_\+sorted\+\_\+order}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&keys, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&segment\+\_\+offsets, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order=\{\}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence=\{\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns sorted order after sorting each segment in the table. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__sort_gab2a305a2004c722983cb8a863067dbd0}{cudf\+::stable\+\_\+segmented\+\_\+sorted\+\_\+order}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&keys, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&segment\+\_\+offsets, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order=\{\}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence=\{\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns sorted order after stably sorting each segment in the table. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__sort_ga362ef2bb477363f2314bf86e9fc52893}{cudf\+::segmented\+\_\+sort\+\_\+by\+\_\+key}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&values, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&keys, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&segment\+\_\+offsets, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order=\{\}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence=\{\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs a lexicographic segmented sort of a table \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__sort_ga1ddc75a2acfc4996bfc34c57050b1cfd}{cudf\+::stable\+\_\+segmented\+\_\+sort\+\_\+by\+\_\+key}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&values, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&keys, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&segment\+\_\+offsets, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order=\{\}, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence=\{\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs a stably lexicographic segmented sort of a table \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{枚举类型说明}
+\Hypertarget{group__column__sort_gac8975ec1273372f6ccae83a85bee71ce}\label{group__column__sort_gac8975ec1273372f6ccae83a85bee71ce} 
+\index{Column\_sort@{Column\_sort}!rank\_method@{rank\_method}}
+\index{rank\_method@{rank\_method}!Column\_sort@{Column\_sort}}
+\doxysubsubsection{\texorpdfstring{rank\_method}{rank\_method}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__column__sort_gac8975ec1273372f6ccae83a85bee71ce}{cudf\+::rank\+\_\+method}} \+: int32\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Tie-\/breaker method to use for ranking the column. 
+
+\begin{DoxySeeAlso}{参见}
+\doxylink{group__aggregation__factories_ga8459759dcad222d9e3376be39644e034}{cudf\+::make\+\_\+rank\+\_\+aggregation} for more details. 
+\end{DoxySeeAlso}
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FIRST@{FIRST}!Column\_sort@{Column\_sort}}\index{Column\_sort@{Column\_sort}!FIRST@{FIRST}}}\Hypertarget{group__column__sort_ggac8975ec1273372f6ccae83a85bee71cea2c2624a5059934a947d6e25fe8332ade}\label{group__column__sort_ggac8975ec1273372f6ccae83a85bee71cea2c2624a5059934a947d6e25fe8332ade} 
+FIRST&stable sort order ranking (no ties) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AVERAGE@{AVERAGE}!Column\_sort@{Column\_sort}}\index{Column\_sort@{Column\_sort}!AVERAGE@{AVERAGE}}}\Hypertarget{group__column__sort_ggac8975ec1273372f6ccae83a85bee71cea16de38737a9f8366e9b2042b4e9b6290}\label{group__column__sort_ggac8975ec1273372f6ccae83a85bee71cea16de38737a9f8366e9b2042b4e9b6290} 
+AVERAGE&mean of first in the group \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MIN@{MIN}!Column\_sort@{Column\_sort}}\index{Column\_sort@{Column\_sort}!MIN@{MIN}}}\Hypertarget{group__column__sort_ggac8975ec1273372f6ccae83a85bee71ceace31e2a082d17e038fcc6e3006166653}\label{group__column__sort_ggac8975ec1273372f6ccae83a85bee71ceace31e2a082d17e038fcc6e3006166653} 
+MIN&min of first in the group \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MAX@{MAX}!Column\_sort@{Column\_sort}}\index{Column\_sort@{Column\_sort}!MAX@{MAX}}}\Hypertarget{group__column__sort_ggac8975ec1273372f6ccae83a85bee71cea26a4b44a837bf97b972628509912b4a5}\label{group__column__sort_ggac8975ec1273372f6ccae83a85bee71cea26a4b44a837bf97b972628509912b4a5} 
+MAX&max of first in the group \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DENSE@{DENSE}!Column\_sort@{Column\_sort}}\index{Column\_sort@{Column\_sort}!DENSE@{DENSE}}}\Hypertarget{group__column__sort_ggac8975ec1273372f6ccae83a85bee71cea0706fbbd929bd8abc4de386c53d439ff}\label{group__column__sort_ggac8975ec1273372f6ccae83a85bee71cea0706fbbd929bd8abc4de386c53d439ff} 
+DENSE&rank always increases by 1 between groups \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{aggregation_8hpp_source}{aggregation.\+hpp}} 第 \mbox{\hyperlink{aggregation_8hpp_source_l00053}{53}} 行定义.
+
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__column__sort_ga77f7f552aca16f21830817ccd088670e}\label{group__column__sort_ga77f7f552aca16f21830817ccd088670e} 
+\index{Column\_sort@{Column\_sort}!is\_sorted@{is\_sorted}}
+\index{is\_sorted@{is\_sorted}!Column\_sort@{Column\_sort}}
+\doxysubsubsection{\texorpdfstring{is\_sorted()}{is\_sorted()}}
+{\footnotesize\ttfamily bool cudf\+::is\+\_\+sorted (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&}]{table,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&}]{column\+\_\+order,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&}]{null\+\_\+precedence }\end{DoxyParamCaption})}
+
+
+
+Checks whether the rows of a {\ttfamily table} are sorted in a lexicographical order. 
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em table} & Table whose rows need to be compared for ordering \\
+\hline
+\mbox{\texttt{ in}}  & {\em column\+\_\+order} & The expected sort order for each column. Size must be equal to {\ttfamily in.\+num\+\_\+columns()} or empty. If empty, it is expected all columns are in ascending order. \\
+\hline
+\mbox{\texttt{ in}}  & {\em null\+\_\+precedence} & The desired order of null compared to other elements for each column. Size must be equal to {\ttfamily input.\+num\+\_\+columns()} or empty. If empty, {\ttfamily \doxylink{group__utility__types_gga058e6d6e8a21583ce0e85ee73e5abb31a3525317285c6126ce3b62a8df8c00b07}{null\+\_\+order\+::\+BEFORE}} is assumed for all columns.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+bool true if sorted as expected, false if not 
+\end{DoxyReturn}
+\Hypertarget{group__column__sort_ga5209c095d2b7cb1a8c69b33a2e3956f2}\label{group__column__sort_ga5209c095d2b7cb1a8c69b33a2e3956f2} 
+\index{Column\_sort@{Column\_sort}!rank@{rank}}
+\index{rank@{rank}!Column\_sort@{Column\_sort}}
+\doxysubsubsection{\texorpdfstring{rank()}{rank()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::rank (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__column__sort_gac8975ec1273372f6ccae83a85bee71ce}{rank\+\_\+method}}}]{method,  }\item[{\mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}}}]{column\+\_\+order,  }\item[{\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}}}]{null\+\_\+handling,  }\item[{\mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}}}]{null\+\_\+precedence,  }\item[{bool}]{percentage,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Computes the ranks of input column in sorted order. 
+
+Rank indicate the position of each element in the sorted column and rank value starts from 1.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{input\ =\ \{\ 3,\ 4,\ 5,\ 4,\ 1,\ 2\}}
+\DoxyCodeLine{Result\ for\ different\ rank\_method\ are}
+\DoxyCodeLine{FIRST\ \ \ \ =\ \{3,\ 4,\ 6,\ 5,\ 1,\ 2\}}
+\DoxyCodeLine{AVERAGE\ \ =\ \{3,\ 4.5,\ 6,\ 4.5,\ 1,\ 2\}}
+\DoxyCodeLine{MIN\ \ \ \ \ \ =\ \{3,\ 4,\ 6,\ 4,\ 1,\ 2\}}
+\DoxyCodeLine{MAX\ \ \ \ \ \ =\ \{3,\ 5,\ 6,\ 5,\ 1,\ 2\}}
+\DoxyCodeLine{DENSE\ \ \ \ =\ \{3,\ 4,\ 5,\ 4,\ 1,\ 2\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em input} & The column to rank \\
+\hline
+{\em method} & The ranking method used for tie breaking (same values) \\
+\hline
+{\em column\+\_\+order} & The desired sort order for ranking \\
+\hline
+{\em null\+\_\+handling} & flag to include nulls during ranking. If nulls are not included, corresponding rank will be null. \\
+\hline
+{\em null\+\_\+precedence} & The desired order of null compared to other elements for column \\
+\hline
+{\em percentage} & flag to convert ranks to percentage in range (0,1\mbox{]} \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+std\+::unique\+\_\+ptr$<$column$>$ A column of containing the rank of the each element of the column of {\ttfamily input}. The output column type will be {\ttfamily size\+\_\+type} column by default or else {\ttfamily double} when {\ttfamily method=\doxylink{group__column__sort_ggac8975ec1273372f6ccae83a85bee71cea16de38737a9f8366e9b2042b4e9b6290}{rank\+\_\+method\+::\+AVERAGE}} or {\ttfamily percentage=True} 
+\end{DoxyReturn}
+\Hypertarget{group__column__sort_ga362ef2bb477363f2314bf86e9fc52893}\label{group__column__sort_ga362ef2bb477363f2314bf86e9fc52893} 
+\index{Column\_sort@{Column\_sort}!segmented\_sort\_by\_key@{segmented\_sort\_by\_key}}
+\index{segmented\_sort\_by\_key@{segmented\_sort\_by\_key}!Column\_sort@{Column\_sort}}
+\doxysubsubsection{\texorpdfstring{segmented\_sort\_by\_key()}{segmented\_sort\_by\_key()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::segmented\+\_\+sort\+\_\+by\+\_\+key (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{values,  }\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{keys,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{segment\+\_\+offsets,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&}]{column\+\_\+order = {\ttfamily \{\}},  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&}]{null\+\_\+precedence = {\ttfamily \{\}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Performs a lexicographic segmented sort of a table 
+
+If segment\+\_\+offsets contains values larger than the number of rows, the behavior is undefined. 
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily values.\+num\+\_\+rows() != keys.\+num\+\_\+rows()}. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily segment\+\_\+offsets} is not {\ttfamily size\+\_\+type} column.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{keys\ =\ \{\ \{9,\ 8,\ 7,\ 6,\ 5,\ 4,\ 3,\ 2,\ 1,\ 0\}\ \}}
+\DoxyCodeLine{values\ =\ \{\ \{'a',\ 'b',\ 'c',\ 'd',\ 'e',\ 'f',\ 'g',\ 'h',\ 'i',\ 'j'\}\ \}}
+\DoxyCodeLine{offsets\ =\ \{0,\ 3,\ 7,\ 10\}}
+\DoxyCodeLine{result\ =\ cudf::segmented\_sort\_by\_key(keys,\ values,\ offsets);}
+\DoxyCodeLine{result\ is\ \{\ 'c','b','a',\ 'g','f','e','d',\ 'j','i','h'\ \}}
+
+\end{DoxyCode}
+
+
+If segment\+\_\+offsets is empty or contains a single index, no values are sorted and the result is a copy of the values.
+
+The segment\+\_\+offsets are not required to include all indices. Any indices outside the specified segments will not be sorted.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:\ (offsets\ do\ not\ cover\ all\ indices)}
+\DoxyCodeLine{keys\ =\ \{\ \{9,\ 8,\ 7,\ 6,\ 5,\ 4,\ 3,\ 2,\ 1,\ 0\}\ \}}
+\DoxyCodeLine{values\ =\ \{\ \{'a',\ 'b',\ 'c',\ 'd',\ 'e',\ 'f',\ 'g',\ 'h',\ 'i',\ 'j'\}\ \}}
+\DoxyCodeLine{offsets\ =\ \{3,\ 7\}}
+\DoxyCodeLine{result\ =\ cudf::segmented\_sort\_by\_key(keys,\ values,\ offsets);}
+\DoxyCodeLine{result\ is\ \{\ 'a','b','c',\ 'g','f','e','d',\ 'h','i','j'\ \}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em values} & The table to reorder \\
+\hline
+{\em keys} & The table that determines the ordering of elements in each segment \\
+\hline
+{\em segment\+\_\+offsets} & The column of {\ttfamily size\+\_\+type} type containing start offset index for each contiguous segment. \\
+\hline
+{\em column\+\_\+order} & The desired order for each column in {\ttfamily keys}. Size must be equal to {\ttfamily keys.\+num\+\_\+columns()} or empty. If empty, all columns are sorted in ascending order. \\
+\hline
+{\em null\+\_\+precedence} & The desired order of a null element compared to other elements for each column in {\ttfamily keys}. Size must be equal to {\ttfamily keys.\+num\+\_\+columns()} or empty. If empty, all columns will be sorted with {\ttfamily \doxylink{group__utility__types_gga058e6d6e8a21583ce0e85ee73e5abb31a3525317285c6126ce3b62a8df8c00b07}{null\+\_\+order\+::\+BEFORE}}. \\
+\hline
+{\em mr} & Device memory resource to allocate any returned objects \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+table with elements in each segment sorted 
+\end{DoxyReturn}
+\Hypertarget{group__column__sort_gabe92e762f1eabd11c66eddf1cbc01eb7}\label{group__column__sort_gabe92e762f1eabd11c66eddf1cbc01eb7} 
+\index{Column\_sort@{Column\_sort}!segmented\_sorted\_order@{segmented\_sorted\_order}}
+\index{segmented\_sorted\_order@{segmented\_sorted\_order}!Column\_sort@{Column\_sort}}
+\doxysubsubsection{\texorpdfstring{segmented\_sorted\_order()}{segmented\_sorted\_order()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::segmented\+\_\+sorted\+\_\+order (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{keys,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{segment\+\_\+offsets,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&}]{column\+\_\+order = {\ttfamily \{\}},  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&}]{null\+\_\+precedence = {\ttfamily \{\}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns sorted order after sorting each segment in the table. 
+
+If segment\+\_\+offsets contains values larger than the number of rows, the behavior is undefined. 
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily segment\+\_\+offsets} is not {\ttfamily size\+\_\+type} column.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{keys\ =\ \{\ \{9,\ 8,\ 7,\ 6,\ 5,\ 4,\ 3,\ 2,\ 1,\ 0\}\ \}}
+\DoxyCodeLine{offsets\ =\ \{0,\ 3,\ 7,\ 10\}}
+\DoxyCodeLine{result\ =\ cudf::segmented\_sorted\_order(keys,\ offsets);}
+\DoxyCodeLine{result\ is\ \{\ 2,1,0,\ 6,5,4,3,\ 9,8,7\ \}}
+
+\end{DoxyCode}
+
+
+If segment\+\_\+offsets is empty or contains a single index, no values are sorted and the result is a sequence of integers from 0 to keys.\+size()-\/1.
+
+The segment\+\_\+offsets are not required to include all indices. Any indices outside the specified segments will not be sorted.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:\ (offsets\ do\ not\ cover\ all\ indices)}
+\DoxyCodeLine{keys\ =\ \{\ \{9,\ 8,\ 7,\ 6,\ 5,\ 4,\ 3,\ 2,\ 1,\ 0\}\ \}}
+\DoxyCodeLine{offsets\ =\ \{3,\ 7\}}
+\DoxyCodeLine{result\ =\ cudf::segmented\_sorted\_order(keys,\ offsets);}
+\DoxyCodeLine{result\ is\ \{\ 0,1,2,\ 6,5,4,3,\ 7,8,9\ \}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em keys} & The table that determines the ordering of elements in each segment \\
+\hline
+{\em segment\+\_\+offsets} & The column of {\ttfamily size\+\_\+type} type containing start offset index for each contiguous segment. \\
+\hline
+{\em column\+\_\+order} & The desired order for each column in {\ttfamily keys}. Size must be equal to {\ttfamily keys.\+num\+\_\+columns()} or empty. If empty, all columns are sorted in ascending order. \\
+\hline
+{\em null\+\_\+precedence} & The desired order of a null element compared to other elements for each column in {\ttfamily keys}. Size must be equal to {\ttfamily keys.\+num\+\_\+columns()} or empty. If empty, all columns will be sorted with {\ttfamily \doxylink{group__utility__types_gga058e6d6e8a21583ce0e85ee73e5abb31a3525317285c6126ce3b62a8df8c00b07}{null\+\_\+order\+::\+BEFORE}}. \\
+\hline
+{\em mr} & Device memory resource to allocate any returned objects \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+sorted order of the segment sorted table 
+\end{DoxyReturn}
+\Hypertarget{group__column__sort_ga921f48f195936eb38dc205e8dfd2ae54}\label{group__column__sort_ga921f48f195936eb38dc205e8dfd2ae54} 
+\index{Column\_sort@{Column\_sort}!sort@{sort}}
+\index{sort@{sort}!Column\_sort@{Column\_sort}}
+\doxysubsubsection{\texorpdfstring{sort()}{sort()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::sort (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&}]{column\+\_\+order = {\ttfamily \{\}},  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&}]{null\+\_\+precedence = {\ttfamily \{\}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Performs a lexicographic sort of the rows of a table 
+
+
+\begin{DoxyParams}{参数}
+{\em input} & The table to sort \\
+\hline
+{\em column\+\_\+order} & The desired order for each column. Size must be equal to {\ttfamily input.\+num\+\_\+columns()} or empty. If empty, all columns are sorted in ascending order. \\
+\hline
+{\em null\+\_\+precedence} & The desired order of a null element compared to other elements for each column in {\ttfamily input}. Size must be equal to {\ttfamily input.\+num\+\_\+columns()} or empty. If empty, all columns will be sorted with {\ttfamily \doxylink{group__utility__types_gga058e6d6e8a21583ce0e85ee73e5abb31a3525317285c6126ce3b62a8df8c00b07}{null\+\_\+order\+::\+BEFORE}}. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New table containing the desired sorted order of {\ttfamily input} 
+\end{DoxyReturn}
+\Hypertarget{group__column__sort_gafb4d13cd3f1b4e9077011923422735a3}\label{group__column__sort_gafb4d13cd3f1b4e9077011923422735a3} 
+\index{Column\_sort@{Column\_sort}!sort\_by\_key@{sort\_by\_key}}
+\index{sort\_by\_key@{sort\_by\_key}!Column\_sort@{Column\_sort}}
+\doxysubsubsection{\texorpdfstring{sort\_by\_key()}{sort\_by\_key()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::sort\+\_\+by\+\_\+key (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{values,  }\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{keys,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&}]{column\+\_\+order = {\ttfamily \{\}},  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&}]{null\+\_\+precedence = {\ttfamily \{\}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Performs a key-\/value sort. 
+
+Creates a new table that reorders the rows of {\ttfamily values} according to the lexicographic ordering of the rows of {\ttfamily keys}.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily values.\+num\+\_\+rows() != keys.\+num\+\_\+rows()}.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em values} & The table to reorder \\
+\hline
+{\em keys} & The table that determines the ordering \\
+\hline
+{\em column\+\_\+order} & The desired order for each column in {\ttfamily keys}. Size must be equal to {\ttfamily keys.\+num\+\_\+columns()} or empty. If empty, all columns are sorted in ascending order. \\
+\hline
+{\em null\+\_\+precedence} & The desired order of a null element compared to other elements for each column in {\ttfamily keys}. Size must be equal to {\ttfamily keys.\+num\+\_\+columns()} or empty. If empty, all columns will be sorted with {\ttfamily \doxylink{group__utility__types_gga058e6d6e8a21583ce0e85ee73e5abb31a3525317285c6126ce3b62a8df8c00b07}{null\+\_\+order\+::\+BEFORE}}. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The reordering of {\ttfamily values} determined by the lexicographic order of the rows of {\ttfamily keys}. 
+\end{DoxyReturn}
+\Hypertarget{group__column__sort_ga141398c354cc1607bcfe9590d93e63f5}\label{group__column__sort_ga141398c354cc1607bcfe9590d93e63f5} 
+\index{Column\_sort@{Column\_sort}!sorted\_order@{sorted\_order}}
+\index{sorted\_order@{sorted\_order}!Column\_sort@{Column\_sort}}
+\doxysubsubsection{\texorpdfstring{sorted\_order()}{sorted\_order()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::sorted\+\_\+order (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&}]{column\+\_\+order = {\ttfamily \{\}},  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&}]{null\+\_\+precedence = {\ttfamily \{\}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Computes the row indices that would produce {\ttfamily input} in a lexicographical sorted order. 
+
+
+\begin{DoxyParams}{参数}
+{\em input} & The table to sort \\
+\hline
+{\em column\+\_\+order} & The desired sort order for each column. Size must be equal to {\ttfamily input.\+num\+\_\+columns()} or empty. If empty, all columns will be sorted in ascending order. \\
+\hline
+{\em null\+\_\+precedence} & The desired order of null compared to other elements for each column. Size must be equal to {\ttfamily input.\+num\+\_\+columns()} or empty. If empty, all columns will be sorted in {\ttfamily \doxylink{group__utility__types_gga058e6d6e8a21583ce0e85ee73e5abb31a3525317285c6126ce3b62a8df8c00b07}{null\+\_\+order\+::\+BEFORE}}. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A non-\/nullable column of {\ttfamily size\+\_\+type} elements containing the permuted row indices of {\ttfamily input} if it were sorted 
+\end{DoxyReturn}
+\Hypertarget{group__column__sort_ga1ddc75a2acfc4996bfc34c57050b1cfd}\label{group__column__sort_ga1ddc75a2acfc4996bfc34c57050b1cfd} 
+\index{Column\_sort@{Column\_sort}!stable\_segmented\_sort\_by\_key@{stable\_segmented\_sort\_by\_key}}
+\index{stable\_segmented\_sort\_by\_key@{stable\_segmented\_sort\_by\_key}!Column\_sort@{Column\_sort}}
+\doxysubsubsection{\texorpdfstring{stable\_segmented\_sort\_by\_key()}{stable\_segmented\_sort\_by\_key()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::stable\+\_\+segmented\+\_\+sort\+\_\+by\+\_\+key (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{values,  }\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{keys,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{segment\+\_\+offsets,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&}]{column\+\_\+order = {\ttfamily \{\}},  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&}]{null\+\_\+precedence = {\ttfamily \{\}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Performs a stably lexicographic segmented sort of a table 
+
+Performs a lexicographic segmented sort of a table  
+
+If segment\+\_\+offsets contains values larger than the number of rows, the behavior is undefined. 
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily values.\+num\+\_\+rows() != keys.\+num\+\_\+rows()}. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily segment\+\_\+offsets} is not {\ttfamily size\+\_\+type} column.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{keys\ =\ \{\ \{9,\ 8,\ 7,\ 6,\ 5,\ 4,\ 3,\ 2,\ 1,\ 0\}\ \}}
+\DoxyCodeLine{values\ =\ \{\ \{'a',\ 'b',\ 'c',\ 'd',\ 'e',\ 'f',\ 'g',\ 'h',\ 'i',\ 'j'\}\ \}}
+\DoxyCodeLine{offsets\ =\ \{0,\ 3,\ 7,\ 10\}}
+\DoxyCodeLine{result\ =\ cudf::segmented\_sort\_by\_key(keys,\ values,\ offsets);}
+\DoxyCodeLine{result\ is\ \{\ 'c','b','a',\ 'g','f','e','d',\ 'j','i','h'\ \}}
+
+\end{DoxyCode}
+
+
+If segment\+\_\+offsets is empty or contains a single index, no values are sorted and the result is a copy of the values.
+
+The segment\+\_\+offsets are not required to include all indices. Any indices outside the specified segments will not be sorted.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:\ (offsets\ do\ not\ cover\ all\ indices)}
+\DoxyCodeLine{keys\ =\ \{\ \{9,\ 8,\ 7,\ 6,\ 5,\ 4,\ 3,\ 2,\ 1,\ 0\}\ \}}
+\DoxyCodeLine{values\ =\ \{\ \{'a',\ 'b',\ 'c',\ 'd',\ 'e',\ 'f',\ 'g',\ 'h',\ 'i',\ 'j'\}\ \}}
+\DoxyCodeLine{offsets\ =\ \{3,\ 7\}}
+\DoxyCodeLine{result\ =\ cudf::segmented\_sort\_by\_key(keys,\ values,\ offsets);}
+\DoxyCodeLine{result\ is\ \{\ 'a','b','c',\ 'g','f','e','d',\ 'h','i','j'\ \}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em values} & The table to reorder \\
+\hline
+{\em keys} & The table that determines the ordering of elements in each segment \\
+\hline
+{\em segment\+\_\+offsets} & The column of {\ttfamily size\+\_\+type} type containing start offset index for each contiguous segment. \\
+\hline
+{\em column\+\_\+order} & The desired order for each column in {\ttfamily keys}. Size must be equal to {\ttfamily keys.\+num\+\_\+columns()} or empty. If empty, all columns are sorted in ascending order. \\
+\hline
+{\em null\+\_\+precedence} & The desired order of a null element compared to other elements for each column in {\ttfamily keys}. Size must be equal to {\ttfamily keys.\+num\+\_\+columns()} or empty. If empty, all columns will be sorted with {\ttfamily \doxylink{group__utility__types_gga058e6d6e8a21583ce0e85ee73e5abb31a3525317285c6126ce3b62a8df8c00b07}{null\+\_\+order\+::\+BEFORE}}. \\
+\hline
+{\em mr} & Device memory resource to allocate any returned objects \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+table with elements in each segment sorted   
+\end{DoxyReturn}
+\Hypertarget{group__column__sort_gab2a305a2004c722983cb8a863067dbd0}\label{group__column__sort_gab2a305a2004c722983cb8a863067dbd0} 
+\index{Column\_sort@{Column\_sort}!stable\_segmented\_sorted\_order@{stable\_segmented\_sorted\_order}}
+\index{stable\_segmented\_sorted\_order@{stable\_segmented\_sorted\_order}!Column\_sort@{Column\_sort}}
+\doxysubsubsection{\texorpdfstring{stable\_segmented\_sorted\_order()}{stable\_segmented\_sorted\_order()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::stable\+\_\+segmented\+\_\+sorted\+\_\+order (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{keys,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{segment\+\_\+offsets,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&}]{column\+\_\+order = {\ttfamily \{\}},  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&}]{null\+\_\+precedence = {\ttfamily \{\}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns sorted order after stably sorting each segment in the table. 
+
+Returns sorted order after sorting each segment in the table.  
+
+If segment\+\_\+offsets contains values larger than the number of rows, the behavior is undefined. 
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily segment\+\_\+offsets} is not {\ttfamily size\+\_\+type} column.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{keys\ =\ \{\ \{9,\ 8,\ 7,\ 6,\ 5,\ 4,\ 3,\ 2,\ 1,\ 0\}\ \}}
+\DoxyCodeLine{offsets\ =\ \{0,\ 3,\ 7,\ 10\}}
+\DoxyCodeLine{result\ =\ cudf::segmented\_sorted\_order(keys,\ offsets);}
+\DoxyCodeLine{result\ is\ \{\ 2,1,0,\ 6,5,4,3,\ 9,8,7\ \}}
+
+\end{DoxyCode}
+
+
+If segment\+\_\+offsets is empty or contains a single index, no values are sorted and the result is a sequence of integers from 0 to keys.\+size()-\/1.
+
+The segment\+\_\+offsets are not required to include all indices. Any indices outside the specified segments will not be sorted.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:\ (offsets\ do\ not\ cover\ all\ indices)}
+\DoxyCodeLine{keys\ =\ \{\ \{9,\ 8,\ 7,\ 6,\ 5,\ 4,\ 3,\ 2,\ 1,\ 0\}\ \}}
+\DoxyCodeLine{offsets\ =\ \{3,\ 7\}}
+\DoxyCodeLine{result\ =\ cudf::segmented\_sorted\_order(keys,\ offsets);}
+\DoxyCodeLine{result\ is\ \{\ 0,1,2,\ 6,5,4,3,\ 7,8,9\ \}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em keys} & The table that determines the ordering of elements in each segment \\
+\hline
+{\em segment\+\_\+offsets} & The column of {\ttfamily size\+\_\+type} type containing start offset index for each contiguous segment. \\
+\hline
+{\em column\+\_\+order} & The desired order for each column in {\ttfamily keys}. Size must be equal to {\ttfamily keys.\+num\+\_\+columns()} or empty. If empty, all columns are sorted in ascending order. \\
+\hline
+{\em null\+\_\+precedence} & The desired order of a null element compared to other elements for each column in {\ttfamily keys}. Size must be equal to {\ttfamily keys.\+num\+\_\+columns()} or empty. If empty, all columns will be sorted with {\ttfamily \doxylink{group__utility__types_gga058e6d6e8a21583ce0e85ee73e5abb31a3525317285c6126ce3b62a8df8c00b07}{null\+\_\+order\+::\+BEFORE}}. \\
+\hline
+{\em mr} & Device memory resource to allocate any returned objects \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+sorted order of the segment sorted table   
+\end{DoxyReturn}
+\Hypertarget{group__column__sort_ga18ef8338c288288adfea62c9e12cbd9c}\label{group__column__sort_ga18ef8338c288288adfea62c9e12cbd9c} 
+\index{Column\_sort@{Column\_sort}!stable\_sort\_by\_key@{stable\_sort\_by\_key}}
+\index{stable\_sort\_by\_key@{stable\_sort\_by\_key}!Column\_sort@{Column\_sort}}
+\doxysubsubsection{\texorpdfstring{stable\_sort\_by\_key()}{stable\_sort\_by\_key()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::stable\+\_\+sort\+\_\+by\+\_\+key (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{values,  }\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{keys,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&}]{column\+\_\+order = {\ttfamily \{\}},  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&}]{null\+\_\+precedence = {\ttfamily \{\}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Performs a key-\/value stable sort. 
+
+Creates a new table that reorders the rows of {\ttfamily values} according to the lexicographic ordering of the rows of {\ttfamily keys}.
+
+The order of equivalent elements is guaranteed to be preserved.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily values.\+num\+\_\+rows() != keys.\+num\+\_\+rows()}.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em values} & The table to reorder \\
+\hline
+{\em keys} & The table that determines the ordering \\
+\hline
+{\em column\+\_\+order} & The desired order for each column in {\ttfamily keys}. Size must be equal to {\ttfamily keys.\+num\+\_\+columns()} or empty. If empty, all columns are sorted in ascending order. \\
+\hline
+{\em null\+\_\+precedence} & The desired order of a null element compared to other elements for each column in {\ttfamily keys}. Size must be equal to {\ttfamily keys.\+num\+\_\+columns()} or empty. If empty, all columns will be sorted with {\ttfamily \doxylink{group__utility__types_gga058e6d6e8a21583ce0e85ee73e5abb31a3525317285c6126ce3b62a8df8c00b07}{null\+\_\+order\+::\+BEFORE}}. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The reordering of {\ttfamily values} determined by the lexicographic order of the rows of {\ttfamily keys}. 
+\end{DoxyReturn}
+\Hypertarget{group__column__sort_ga2db61bdd446ede1bdad2cf13ec4ab65d}\label{group__column__sort_ga2db61bdd446ede1bdad2cf13ec4ab65d} 
+\index{Column\_sort@{Column\_sort}!stable\_sorted\_order@{stable\_sorted\_order}}
+\index{stable\_sorted\_order@{stable\_sorted\_order}!Column\_sort@{Column\_sort}}
+\doxysubsubsection{\texorpdfstring{stable\_sorted\_order()}{stable\_sorted\_order()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::stable\+\_\+sorted\+\_\+order (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&}]{column\+\_\+order = {\ttfamily \{\}},  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&}]{null\+\_\+precedence = {\ttfamily \{\}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Computes the row indices that would produce {\ttfamily input} in a stable lexicographical sorted order. 
+
+The order of equivalent elements is guaranteed to be preserved.
+
+Computes the row indices that would produce {\ttfamily input} in a lexicographical sorted order.  
+
+
+\begin{DoxyParams}{参数}
+{\em input} & The table to sort \\
+\hline
+{\em column\+\_\+order} & The desired sort order for each column. Size must be equal to {\ttfamily input.\+num\+\_\+columns()} or empty. If empty, all columns will be sorted in ascending order. \\
+\hline
+{\em null\+\_\+precedence} & The desired order of null compared to other elements for each column. Size must be equal to {\ttfamily input.\+num\+\_\+columns()} or empty. If empty, all columns will be sorted in {\ttfamily \doxylink{group__utility__types_gga058e6d6e8a21583ce0e85ee73e5abb31a3525317285c6126ce3b62a8df8c00b07}{null\+\_\+order\+::\+BEFORE}}. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A non-\/nullable column of {\ttfamily size\+\_\+type} elements containing the permuted row indices of {\ttfamily input} if it were sorted   
+\end{DoxyReturn}

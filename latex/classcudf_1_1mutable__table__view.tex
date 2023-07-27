@@ -1,0 +1,193 @@
+\doxysection{cudf\+::mutable\+\_\+table\+\_\+view类 参考}
+\hypertarget{classcudf_1_1mutable__table__view}{}\label{classcudf_1_1mutable__table__view}\index{cudf::mutable\_table\_view@{cudf::mutable\_table\_view}}
+
+
+A set of {\ttfamily \doxylink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view}}s of the same size.  
+
+
+
+
+{\ttfamily \#include $<$table\+\_\+view.\+hpp$>$}
+
+
+
+类 cudf\+::mutable\+\_\+table\+\_\+view 继承关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{classcudf_1_1mutable__table__view__inherit__graph}
+\end{center}
+\end{figure}
+
+
+cudf\+::mutable\+\_\+table\+\_\+view 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{classcudf_1_1mutable__table__view__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 类型}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classcudf_1_1mutable__table__view_a41b54e62b40363e0552b93cb23b3f6a1}{Column\+View}} = \mbox{\hyperlink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view}}
+\begin{DoxyCompactList}\small\item\em The type of column views in the table \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public 类型 继承自 \mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base}{cudf\+::detail\+::table\+\_\+view\+\_\+base$<$ mutable\+\_\+column\+\_\+view $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base_a9f51bb71b0988b6cc7dfa6f18f0a6fd0}{iterator}} = decltype(std\+::begin(\+\_\+columns))
+\begin{DoxyCompactList}\small\item\em Iterator type for the table \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base_ae61eeb64a7214ad28d5ebfac1c9bec76}{const\+\_\+iterator}} = decltype(std\+::cbegin(\+\_\+columns))
+\begin{DoxyCompactList}\small\item\em const iterator type for the table \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1mutable__table__view_a120b5a030407612099291d0facce811c}{mutable\+\_\+table\+\_\+view}} ()=default
+\item 
+\mbox{\hyperlink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view}} \& \mbox{\hyperlink{classcudf_1_1mutable__table__view_a77e23cbb63942563c82970ae0c76ac16}{column}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} column\+\_\+index) const
+\begin{DoxyCompactList}\small\item\em Returns column at specified index \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1mutable__table__view_ad7ea0ac7acbd88d8e44d6292af1e75c1}{operator table\+\_\+view}} ()
+\begin{DoxyCompactList}\small\item\em Creates an immutable {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} of the columns \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1mutable__table__view_a9b7e7052c9831308b24f5c002e0937d5}{mutable\+\_\+table\+\_\+view}} (std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1mutable__table__view}{mutable\+\_\+table\+\_\+view}} $>$ const \&views)
+\begin{DoxyCompactList}\small\item\em Construct a table from a vector of table views \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public 成员函数 继承自 \mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base}{cudf\+::detail\+::table\+\_\+view\+\_\+base$<$ mutable\+\_\+column\+\_\+view $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base_a1efbcc85f85d8e30b06e29633df0ca38}{table\+\_\+view\+\_\+base}} (std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view}} $>$ const \&cols)
+\begin{DoxyCompactList}\small\item\em Construct a table from a vector of column views \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base_abd1cdde2b20cc22b6023e3c0b416b7c9}{table\+\_\+view\+\_\+base}} ()=default
+\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base_afc8bf2cf10eeed1e9c27d169e7a7fc31}{table\+\_\+view\+\_\+base}} (\mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base}{table\+\_\+view\+\_\+base}} const \&)=default
+\begin{DoxyCompactList}\small\item\em Copy constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base_a3b4ab3932dcbf5980e618ab35e3ded38}{table\+\_\+view\+\_\+base}} (\mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base}{table\+\_\+view\+\_\+base}} \&\&)=default
+\begin{DoxyCompactList}\small\item\em Move constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base_a9f51bb71b0988b6cc7dfa6f18f0a6fd0}{iterator}} \mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base_a41c10dcb1d25ae0bfcb17e78a7184f54}{begin}} () noexcept
+\begin{DoxyCompactList}\small\item\em Returns an iterator to the first view in the {\ttfamily table}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base_ae61eeb64a7214ad28d5ebfac1c9bec76}{const\+\_\+iterator}} \mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base_ad90bcb2b621cd15638c6088bdd0090c0}{begin}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns an iterator to the first view in the {\ttfamily table}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base_a9f51bb71b0988b6cc7dfa6f18f0a6fd0}{iterator}} \mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base_ab046219cffed16909286da3b260418c5}{end}} () noexcept
+\begin{DoxyCompactList}\small\item\em Returns an iterator one past the last column view in the {\ttfamily table}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base_ae61eeb64a7214ad28d5ebfac1c9bec76}{const\+\_\+iterator}} \mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base_a6105220eceee5a633a47c4de2012629c}{end}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns an iterator one past the last column view in the {\ttfamily table}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view}} const \& \mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base_a686ec1d88c2beeafd6448a05e9d898d5}{column}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} column\+\_\+index) const
+\begin{DoxyCompactList}\small\item\em Returns a reference to the view of the specified column \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base_a8fe8d1c02d47117c940b8e5ebdaabb06}{num\+\_\+columns}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the number of columns \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base_aad8c7f7043c9c9f91ed61fb9d9558283}{num\+\_\+rows}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the number of rows \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base_a9493e90c670e738db4d22d184f9252ba}{is\+\_\+empty}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns true if {\ttfamily \doxylink{classcudf_1_1detail_1_1table__view__base_a8fe8d1c02d47117c940b8e5ebdaabb06}{num\+\_\+columns()}} returns zero, or false otherwise \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base_a175efb1f7549b37b69a3faa8df0123f0}{\texorpdfstring{$\sim$}{\string~}table\+\_\+view\+\_\+base}} ()=default
+\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base}{table\+\_\+view\+\_\+base}} \& \mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base_a110caf4d31974ad166c5818dcda82563}{operator=}} (\mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base}{table\+\_\+view\+\_\+base}} const \&)=default
+\begin{DoxyCompactList}\small\item\em Copy assignment operator \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base}{table\+\_\+view\+\_\+base}} \& \mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base_a997b9e643fb522c345124a7a3f97c491}{operator=}} (\mbox{\hyperlink{classcudf_1_1detail_1_1table__view__base}{table\+\_\+view\+\_\+base}} \&\&)=default
+\begin{DoxyCompactList}\small\item\em Move assignment operator \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+A set of {\ttfamily \doxylink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view}}s of the same size. 
+
+All public member functions and constructors are inherited from {\ttfamily table\+\_\+view\+\_\+base\texorpdfstring{$<$}{<}\doxylink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view}\texorpdfstring{$>$}{>}}. 
+
+在文件 \mbox{\hyperlink{table__view_8hpp_source}{table\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{table__view_8hpp_source_l00255}{255}} 行定义.
+
+
+
+\doxysubsection{成员类型定义说明}
+\Hypertarget{classcudf_1_1mutable__table__view_a41b54e62b40363e0552b93cb23b3f6a1}\label{classcudf_1_1mutable__table__view_a41b54e62b40363e0552b93cb23b3f6a1} 
+\index{cudf::mutable\_table\_view@{cudf::mutable\_table\_view}!ColumnView@{ColumnView}}
+\index{ColumnView@{ColumnView}!cudf::mutable\_table\_view@{cudf::mutable\_table\_view}}
+\doxysubsubsection{\texorpdfstring{ColumnView}{ColumnView}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classcudf_1_1mutable__table__view_a41b54e62b40363e0552b93cb23b3f6a1}{cudf\+::mutable\+\_\+table\+\_\+view\+::\+Column\+View}} =  \mbox{\hyperlink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view}}}
+
+
+
+The type of column views in the table 
+
+
+
+在文件 \mbox{\hyperlink{table__view_8hpp_source}{table\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{table__view_8hpp_source_l00259}{259}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1mutable__table__view_a120b5a030407612099291d0facce811c}\label{classcudf_1_1mutable__table__view_a120b5a030407612099291d0facce811c} 
+\index{cudf::mutable\_table\_view@{cudf::mutable\_table\_view}!mutable\_table\_view@{mutable\_table\_view}}
+\index{mutable\_table\_view@{mutable\_table\_view}!cudf::mutable\_table\_view@{cudf::mutable\_table\_view}}
+\doxysubsubsection{\texorpdfstring{mutable\_table\_view()}{mutable\_table\_view()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily cudf\+::mutable\+\_\+table\+\_\+view\+::mutable\+\_\+table\+\_\+view (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classcudf_1_1mutable__table__view_a9b7e7052c9831308b24f5c002e0937d5}\label{classcudf_1_1mutable__table__view_a9b7e7052c9831308b24f5c002e0937d5} 
+\index{cudf::mutable\_table\_view@{cudf::mutable\_table\_view}!mutable\_table\_view@{mutable\_table\_view}}
+\index{mutable\_table\_view@{mutable\_table\_view}!cudf::mutable\_table\_view@{cudf::mutable\_table\_view}}
+\doxysubsubsection{\texorpdfstring{mutable\_table\_view()}{mutable\_table\_view()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily cudf\+::mutable\+\_\+table\+\_\+view\+::mutable\+\_\+table\+\_\+view (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1mutable__table__view}{mutable\+\_\+table\+\_\+view}} $>$ const \&}]{views }\end{DoxyParamCaption})}
+
+
+
+Construct a table from a vector of table views 
+
+\begin{DoxyNote}{注解}
+Because a {\ttfamily std\+::vector} is constructible from a {\ttfamily std\+::initializer\+\_\+list}, this constructor also supports the following usage\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{table\_view\ t0,\ t1,\ t2;}
+\DoxyCodeLine{...}
+\DoxyCodeLine{table\_view\ t\{\{t0,t1,t2\}\};\ \textcolor{comment}{//\ Creates\ a\ \`{}table`\ from\ the\ columns\ of}}
+\DoxyCodeLine{t0,\ t1,\ t2}
+
+\end{DoxyCode}
+
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & If number of rows mismatch\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em views} & The vector of table views to construct the table from \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1mutable__table__view_a77e23cbb63942563c82970ae0c76ac16}\label{classcudf_1_1mutable__table__view_a77e23cbb63942563c82970ae0c76ac16} 
+\index{cudf::mutable\_table\_view@{cudf::mutable\_table\_view}!column@{column}}
+\index{column@{column}!cudf::mutable\_table\_view@{cudf::mutable\_table\_view}}
+\doxysubsubsection{\texorpdfstring{column()}{column()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view}} \& cudf\+::mutable\+\_\+table\+\_\+view\+::column (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{column\+\_\+index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns column at specified index 
+
+
+\begin{DoxyParams}{参数}
+{\em column\+\_\+index} & The index of the desired column \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A mutable column view reference to the desired column 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{table__view_8hpp_source}{table\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{table__view_8hpp_source_l00269}{269}} 行定义.
+
+\Hypertarget{classcudf_1_1mutable__table__view_ad7ea0ac7acbd88d8e44d6292af1e75c1}\label{classcudf_1_1mutable__table__view_ad7ea0ac7acbd88d8e44d6292af1e75c1} 
+\index{cudf::mutable\_table\_view@{cudf::mutable\_table\_view}!operator table\_view@{operator table\_view}}
+\index{operator table\_view@{operator table\_view}!cudf::mutable\_table\_view@{cudf::mutable\_table\_view}}
+\doxysubsubsection{\texorpdfstring{operator table\_view()}{operator table\_view()}}
+{\footnotesize\ttfamily cudf\+::mutable\+\_\+table\+\_\+view\+::operator \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates an immutable {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} of the columns 
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/table/\mbox{\hyperlink{table__view_8hpp}{table\+\_\+view.\+hpp}}\end{DoxyCompactItemize}

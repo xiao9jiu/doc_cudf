@@ -1,0 +1,50 @@
+\doxysection{csv.\+hpp}
+\hypertarget{detail_2csv_8hpp_source}{}\label{detail_2csv_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/io/detail/csv.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/io/detail/csv.hpp}}
+\mbox{\hyperlink{detail_2csv_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2020-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{csv_8hpp}{cudf/io/csv.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{utilities_2default__stream_8hpp}{cudf/utilities/default\_stream.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <rmm/cuda\_stream\_view.hpp>}}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00024}00024\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00025}00025\ \textcolor{keyword}{namespace\ }io\ \{}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00026}00026\ \textcolor{keyword}{namespace\ }detail\ \{}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00027}\mbox{\hyperlink{namespacecudf_1_1io_1_1detail_1_1csv}{00027}}\ \textcolor{keyword}{namespace\ }csv\ \{}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00039}\mbox{\hyperlink{namespacecudf_1_1io_1_1detail_1_1csv_aa379fa63689e80534fac9c1c898842e1}{00039}}\ \mbox{\hyperlink{structcudf_1_1io_1_1table__with__metadata}{table\_with\_metadata}}\ \mbox{\hyperlink{namespacecudf_1_1io_1_1detail_1_1csv_aa379fa63689e80534fac9c1c898842e1}{read\_csv}}(std::unique\_ptr<cudf::io::datasource>\&\&\ source,}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options}{csv\_reader\_options}}\ \textcolor{keyword}{const}\&\ options,}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::mr::device\_memory\_resource*\ mr);}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00054}\mbox{\hyperlink{namespacecudf_1_1io_1_1detail_1_1csv_a87821b45d7af96f1a15c64bfd9ec6c3f}{00054}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacecudf_1_1io_1_1detail_1_1csv_a87821b45d7af96f1a15c64bfd9ec6c3f}{write\_csv}}(\mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{data\_sink}}*\ sink,}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1table}{table}},}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structcudf_1_1host__span}{host\_span<std::string\ const>}}\ column\_names,}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options}{csv\_writer\_options}}\ \textcolor{keyword}{const}\&\ options,}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00061}00061\ \}\ \ \textcolor{comment}{//\ namespace\ csv}}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00062}00062\ \}\ \ \textcolor{comment}{//\ namespace\ detail}}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00063}00063\ \}\ \ \textcolor{comment}{//\ namespace\ io}}
+\DoxyCodeLine{\Hypertarget{detail_2csv_8hpp_source_l00064}00064\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

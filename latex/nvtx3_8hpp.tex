@@ -1,0 +1,200 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/detail/nvtx/nvtx3.hpp 文件参考}
+\hypertarget{nvtx3_8hpp}{}\label{nvtx3_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/detail/nvtx/nvtx3.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/detail/nvtx/nvtx3.hpp}}
+
+
+Provides C++ constructs making the NVTX library safer and easier to use with zero overhead.  
+
+
+{\ttfamily \#include $<$nvtx3/nv\+Tools\+Ext.\+h$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+nvtx3.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{nvtx3_8hpp__incl}
+\end{center}
+\end{figure}
+此图展示该文件直接或间接的被哪些文件引用了\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{nvtx3_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classnvtx3_1_1domain}{nvtx3\+::domain}}
+\begin{DoxyCompactList}\small\item\em {\ttfamily domain}s allow for grouping NVTX events into a single scope to differentiate them from events in other {\ttfamily domain}s. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structnvtx3_1_1domain_1_1global}{nvtx3\+::domain\+::global}}
+\begin{DoxyCompactList}\small\item\em Tag type for the \"{}global\"{} NVTX domain. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structnvtx3_1_1rgb}{nvtx3\+::rgb}}
+\begin{DoxyCompactList}\small\item\em Indicates the values of the red, green, blue color channels for a rgb color code. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structnvtx3_1_1argb}{nvtx3\+::argb}}
+\begin{DoxyCompactList}\small\item\em Indicates the value of the alpha, red, green, and blue color channels for an argb color code. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classnvtx3_1_1color}{nvtx3\+::color}}
+\begin{DoxyCompactList}\small\item\em Represents a custom color that can be associated with an NVTX event via it\textquotesingle{}s {\ttfamily \doxylink{classnvtx3_1_1event__attributes}{event\+\_\+attributes}}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classnvtx3_1_1category}{nvtx3\+::category}}
+\begin{DoxyCompactList}\small\item\em Object for intra-\/domain grouping of NVTX events. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classnvtx3_1_1named__category}{nvtx3\+::named\+\_\+category$<$ D $>$}}
+\begin{DoxyCompactList}\small\item\em A {\ttfamily category} with an associated name string. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classnvtx3_1_1registered__message}{nvtx3\+::registered\+\_\+message$<$ D $>$}}
+\begin{DoxyCompactList}\small\item\em A message registered with NVTX. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classnvtx3_1_1message}{nvtx3\+::message}}
+\begin{DoxyCompactList}\small\item\em Allows associating a message string with an NVTX event via its {\ttfamily Event\+Attribute}s. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classnvtx3_1_1payload}{nvtx3\+::payload}}
+\begin{DoxyCompactList}\small\item\em A numerical value that can be associated with an NVTX event via its {\ttfamily \doxylink{classnvtx3_1_1event__attributes}{event\+\_\+attributes}}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classnvtx3_1_1event__attributes}{nvtx3\+::event\+\_\+attributes}}
+\begin{DoxyCompactList}\small\item\em Describes the attributes of a NVTX event. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3\+::domain\+\_\+thread\+\_\+range$<$ D $>$}}
+\begin{DoxyCompactList}\small\item\em A RAII object for creating a NVTX range local to a thread within a domain. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classnvtx3_1_1domain__process__range}{nvtx3\+::domain\+\_\+process\+\_\+range$<$ D $>$}}
+\begin{DoxyCompactList}\small\item\em A RAII object for creating a NVTX range within a domain that can be created and destroyed on different threads. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacenvtx3}{nvtx3}}
+\item 
+namespace \mbox{\hyperlink{namespacenvtx3_1_1detail}{nvtx3\+::detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{宏定义}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{nvtx3_8hpp_a23a67ab53c89da8aed632531223cbf55}{NVTX3\+\_\+\+MINOR\+\_\+\+VERSION}}~0
+\begin{DoxyCompactList}\small\item\em Semantic minor version number. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nvtx3_8hpp_aed60c42629f272df1844fa29f4d6b86f}{NVTX3\+\_\+\+RELAXED\+\_\+\+CONSTEXPR}}
+\begin{DoxyCompactList}\small\item\em Enables the use of constexpr when support for C++14 relaxed constexpr is present. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nvtx3_8hpp_a5e20d020db37fe0012d1cf2b9dbcd83b}{NVTX3\+\_\+\+FUNC\+\_\+\+RANGE\+\_\+\+IN}}(D)
+\begin{DoxyCompactList}\small\item\em Convenience macro for generating a range in the specified {\ttfamily domain} from the lifetime of a function \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{nvtx3_8hpp_a0e511c3c6fd0b67c9160b485018bedd7}{NVTX3\+\_\+\+FUNC\+\_\+\+RANGE}}()~\mbox{\hyperlink{nvtx3_8hpp_a5e20d020db37fe0012d1cf2b9dbcd83b}{NVTX3\+\_\+\+FUNC\+\_\+\+RANGE\+\_\+\+IN}}(\mbox{\hyperlink{structnvtx3_1_1domain_1_1global}{\+::nvtx3\+::domain\+::global}})
+\begin{DoxyCompactList}\small\item\em Convenience macro for generating a range in the global domain from the lifetime of a function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{类型定义}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacenvtx3_a39e1b5e1f3eabab59d1ed7241972ef9d}{nvtx3\+::thread\+\_\+range}} = \mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}}$<$$>$
+\begin{DoxyCompactList}\small\item\em Alias for a {\ttfamily \doxylink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}} in the global NVTX domain. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespacenvtx3_a871f1092efc96daa974cc4d4a6287a31}{nvtx3\+::process\+\_\+range}} = \mbox{\hyperlink{classnvtx3_1_1domain__process__range}{domain\+\_\+process\+\_\+range}}$<$$>$
+\begin{DoxyCompactList}\small\item\em Alias for a {\ttfamily \doxylink{classnvtx3_1_1domain__process__range}{domain\+\_\+process\+\_\+range}} in the global NVTX domain. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr auto \mbox{\hyperlink{namespacenvtx3_1_1detail_a8b466161c990a8d5316ce8dd75ce0b23}{nvtx3\+::detail\+::has\+\_\+name\+\_\+member}} () noexcept -\/$>$ decltype(T\+::name, bool())
+\begin{DoxyCompactList}\small\item\em Verifies if a type {\ttfamily T} contains a member {\ttfamily T\+::name} of type {\ttfamily const char\texorpdfstring{$\ast$}{*}} or {\ttfamily const wchar\+\_\+t\texorpdfstring{$\ast$}{*}}. \end{DoxyCompactList}\item 
+template$<$$>$ \mbox{\hyperlink{classnvtx3_1_1domain}{domain}} const \& \mbox{\hyperlink{namespacenvtx3_a4e7ffd7a80bbe6e55a6eef08330f1e5a}{nvtx3\+::domain\+::get$<$ domain\+::global $>$}} ()
+\begin{DoxyCompactList}\small\item\em Returns reference to the {\ttfamily domain} object that represents the global NVTX domain. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename D  = nvtx3\+::domain\+::global$>$ }\\void \mbox{\hyperlink{namespacenvtx3_a96c1ba521a0672df70afcb1070875c18}{nvtx3\+::mark}} (\mbox{\hyperlink{classnvtx3_1_1event__attributes}{event\+\_\+attributes}} const \&attr) noexcept
+\begin{DoxyCompactList}\small\item\em Annotates an instantaneous point in time with the attributes specified by {\ttfamily attr}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Provides C++ constructs making the NVTX library safer and easier to use with zero overhead. 
+
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 中定义.
+
+
+
+\doxysubsection{宏定义说明}
+\Hypertarget{nvtx3_8hpp_a0e511c3c6fd0b67c9160b485018bedd7}\label{nvtx3_8hpp_a0e511c3c6fd0b67c9160b485018bedd7} 
+\index{nvtx3.hpp@{nvtx3.hpp}!NVTX3\_FUNC\_RANGE@{NVTX3\_FUNC\_RANGE}}
+\index{NVTX3\_FUNC\_RANGE@{NVTX3\_FUNC\_RANGE}!nvtx3.hpp@{nvtx3.hpp}}
+\doxysubsubsection{\texorpdfstring{NVTX3\_FUNC\_RANGE}{NVTX3\_FUNC\_RANGE}}
+{\footnotesize\ttfamily \#define NVTX3\+\_\+\+FUNC\+\_\+\+RANGE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\mbox{\hyperlink{nvtx3_8hpp_a5e20d020db37fe0012d1cf2b9dbcd83b}{NVTX3\+\_\+\+FUNC\+\_\+\+RANGE\+\_\+\+IN}}(\mbox{\hyperlink{structnvtx3_1_1domain_1_1global}{\+::nvtx3\+::domain\+::global}})}
+
+
+
+Convenience macro for generating a range in the global domain from the lifetime of a function. 
+
+This macro is useful for generating an NVTX range in the global domain from the entry point of a function to its exit. It is intended to be the first line of the function.
+
+Constructs a static {\ttfamily registered\+\_\+message} using the name of the immediately enclosing function returned by {\ttfamily \+\_\+\+\_\+func\+\_\+\+\_\+} and constructs a {\ttfamily \doxylink{namespacenvtx3_a39e1b5e1f3eabab59d1ed7241972ef9d}{nvtx3\+::thread\+\_\+range}} using the registered function name as the range\textquotesingle{}s message.
+
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ foo(...)\{}
+\DoxyCodeLine{\ \ \ \mbox{\hyperlink{nvtx3_8hpp_a0e511c3c6fd0b67c9160b485018bedd7}{NVTX3\_FUNC\_RANGE}}();\ \textcolor{comment}{//\ Range\ begins\ on\ entry\ to\ foo()}}
+\DoxyCodeLine{\ \ \ \textcolor{comment}{//\ do\ stuff}}
+\DoxyCodeLine{\ \ \ ...}
+\DoxyCodeLine{\}\ \textcolor{comment}{//\ Range\ ends\ on\ return\ from\ foo()}}
+
+\end{DoxyCode}
+ 
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01934}{1934}} 行定义.
+
+\Hypertarget{nvtx3_8hpp_a5e20d020db37fe0012d1cf2b9dbcd83b}\label{nvtx3_8hpp_a5e20d020db37fe0012d1cf2b9dbcd83b} 
+\index{nvtx3.hpp@{nvtx3.hpp}!NVTX3\_FUNC\_RANGE\_IN@{NVTX3\_FUNC\_RANGE\_IN}}
+\index{NVTX3\_FUNC\_RANGE\_IN@{NVTX3\_FUNC\_RANGE\_IN}!nvtx3.hpp@{nvtx3.hpp}}
+\doxysubsubsection{\texorpdfstring{NVTX3\_FUNC\_RANGE\_IN}{NVTX3\_FUNC\_RANGE\_IN}}
+{\footnotesize\ttfamily \#define NVTX3\+\_\+\+FUNC\+\_\+\+RANGE\+\_\+\+IN(\begin{DoxyParamCaption}\item[{}]{D }\end{DoxyParamCaption})}
+
+{\bfseries 值\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ static\ ::nvtx3::registered\_message<D>\ \textcolor{keyword}{const}\ nvtx3\_func\_name\_\_\{\_\_func\_\_\};\ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ static\ ::nvtx3::event\_attributes\ \textcolor{keyword}{const}\ nvtx3\_func\_attr\_\_\{nvtx3\_func\_name\_\_\};\ \(\backslash\)}
+\DoxyCodeLine{\ \ [[maybe\_unused]]\ \mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{::nvtx3::domain\_thread\_range<D>}}\ \textcolor{keyword}{const}\ nvtx3\_range\_\_\{nvtx3\_func\_attr\_\_\};}
+
+\end{DoxyCode}
+
+
+Convenience macro for generating a range in the specified {\ttfamily domain} from the lifetime of a function 
+
+This macro is useful for generating an NVTX range in {\ttfamily domain} from the entry point of a function to its exit. It is intended to be the first line of the function.
+
+Constructs a static {\ttfamily registered\+\_\+message} using the name of the immediately enclosing function returned by {\ttfamily \+\_\+\+\_\+func\+\_\+\+\_\+} and constructs a {\ttfamily \doxylink{namespacenvtx3_a39e1b5e1f3eabab59d1ed7241972ef9d}{nvtx3\+::thread\+\_\+range}} using the registered function name as the range\textquotesingle{}s message.
+
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }my\_domain\{\textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ name\{\textcolor{stringliteral}{"{}my\_domain"{}}\};\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ foo(...)\{}
+\DoxyCodeLine{\ \ \ \mbox{\hyperlink{nvtx3_8hpp_a5e20d020db37fe0012d1cf2b9dbcd83b}{NVTX3\_FUNC\_RANGE\_IN}}(my\_domain);\ \textcolor{comment}{//\ Range\ begins\ on\ entry\ to\ foo()}}
+\DoxyCodeLine{\ \ \ \textcolor{comment}{//\ do\ stuff}}
+\DoxyCodeLine{\ \ \ ...}
+\DoxyCodeLine{\}\ \textcolor{comment}{//\ Range\ ends\ on\ return\ from\ foo()}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em D} & Type containing {\ttfamily name} member used to identify the {\ttfamily domain} to which the {\ttfamily registered\+\_\+message} belongs. Else, {\ttfamily domain\+::global} to indicate that the global NVTX domain should be used. \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01907}{1907}} 行定义.
+
+\Hypertarget{nvtx3_8hpp_a23a67ab53c89da8aed632531223cbf55}\label{nvtx3_8hpp_a23a67ab53c89da8aed632531223cbf55} 
+\index{nvtx3.hpp@{nvtx3.hpp}!NVTX3\_MINOR\_VERSION@{NVTX3\_MINOR\_VERSION}}
+\index{NVTX3\_MINOR\_VERSION@{NVTX3\_MINOR\_VERSION}!nvtx3.hpp@{nvtx3.hpp}}
+\doxysubsubsection{\texorpdfstring{NVTX3\_MINOR\_VERSION}{NVTX3\_MINOR\_VERSION}}
+{\footnotesize\ttfamily \#define NVTX3\+\_\+\+MINOR\+\_\+\+VERSION~0}
+
+
+
+Semantic minor version number. 
+
+Major version number is hardcoded into the \"{}nvtx3\"{} namespace/prefix.
+
+If this value is incremented, the above version include guard needs to be updated. 
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l00031}{31}} 行定义.
+
+\Hypertarget{nvtx3_8hpp_aed60c42629f272df1844fa29f4d6b86f}\label{nvtx3_8hpp_aed60c42629f272df1844fa29f4d6b86f} 
+\index{nvtx3.hpp@{nvtx3.hpp}!NVTX3\_RELAXED\_CONSTEXPR@{NVTX3\_RELAXED\_CONSTEXPR}}
+\index{NVTX3\_RELAXED\_CONSTEXPR@{NVTX3\_RELAXED\_CONSTEXPR}!nvtx3.hpp@{nvtx3.hpp}}
+\doxysubsubsection{\texorpdfstring{NVTX3\_RELAXED\_CONSTEXPR}{NVTX3\_RELAXED\_CONSTEXPR}}
+{\footnotesize\ttfamily \#define NVTX3\+\_\+\+RELAXED\+\_\+\+CONSTEXPR}
+
+
+
+Enables the use of constexpr when support for C++14 relaxed constexpr is present. 
+
+Initializing a legacy-\/C (i.\+e., no constructor) union member requires initializing in the constructor body. Non-\/empty constexpr constructors require C++14 relaxed constexpr. 
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l00511}{511}} 行定义.
+

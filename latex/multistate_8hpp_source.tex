@@ -1,0 +1,92 @@
+\doxysection{multistate.\+hpp}
+\hypertarget{multistate_8hpp_source}{}\label{multistate_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/io/text/detail/multistate.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/io/text/detail/multistate.hpp}}
+\mbox{\hyperlink{multistate_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2021-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00021}00021\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00022}00022\ \textcolor{keyword}{namespace\ }io\ \{}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00023}00023\ \textcolor{keyword}{namespace\ }text\ \{}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00024}00024\ \textcolor{keyword}{namespace\ }detail\ \{}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00029}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate}{00029}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate}{multistate}}\ \{}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00030}00030\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00035}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_acd8e4f4cbea157ac5e98650b77c5187c}{00035}}\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_acd8e4f4cbea157ac5e98650b77c5187c}{max\_segment\_value}}\ =\ 15;}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00039}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a99b53668254844205a68487143e773de}{00039}}\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a99b53668254844205a68487143e773de}{max\_segment\_count}}\ =\ 7;}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00046}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a2dd9ff9590d65922c249ea02b78a241c}{00046}}\ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a2dd9ff9590d65922c249ea02b78a241c}{enqueue}}(uint8\_t\ head,\ uint8\_t\ tail)}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00047}00047\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00048}00048\ \ \ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_add005c679e7156bd8580b0eed5194a9a}{\_heads}}\ |=\ (head\ \&\ 0xFu)\ <<\ (\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_aac65cac16835bc40eec850a2021b8ba5}{\_size}}\ *\ 4);}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00049}00049\ \ \ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a90c5c6ce4d78e831d8340f104d5d69c8}{\_tails}}\ |=\ (tail\ \&\ 0xFu)\ <<\ (\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_aac65cac16835bc40eec850a2021b8ba5}{\_size}}\ *\ 4);}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00050}00050\ \ \ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_aac65cac16835bc40eec850a2021b8ba5}{\_size}}++;}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00051}00051\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00056}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a9f3b0753045f1259d62781a65c7587fc}{00056}}\ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ uint8\_t\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a9f3b0753045f1259d62781a65c7587fc}{size}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_aac65cac16835bc40eec850a2021b8ba5}{\_size}};\ \}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00061}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a97075292d9a04b777acbbc8d36aa8bcf}{00061}}\ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ uint8\_t\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a97075292d9a04b777acbbc8d36aa8bcf}{max\_tail}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00062}00062\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00063}00063\ \ \ \ \ uint8\_t\ maximum\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00065}00065\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint8\_t\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_aac65cac16835bc40eec850a2021b8ba5}{\_size}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00066}00066\ \ \ \ \ \ \ maximum\ =\ std::max(maximum,\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a193b76e025bf9fa3369dd9ba971a041f}{get\_tail}}(i));}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00067}00067\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00069}00069\ \ \ \ \ \textcolor{keywordflow}{return}\ maximum;}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00070}00070\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00075}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_aebce6d9e6b904c11aae3d1a0673f0aea}{00075}}\ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ uint8\_t\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_aebce6d9e6b904c11aae3d1a0673f0aea}{get\_head}}(uint8\_t\ idx)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00076}00076\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00077}00077\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_add005c679e7156bd8580b0eed5194a9a}{\_heads}}\ >>\ (idx\ *\ 4))\ \&\ 0xFu;}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00078}00078\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00083}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a193b76e025bf9fa3369dd9ba971a041f}{00083}}\ \ \ [[nodiscard]]\ \textcolor{keyword}{constexpr}\ uint8\_t\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a193b76e025bf9fa3369dd9ba971a041f}{get\_tail}}(uint8\_t\ idx)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00084}00084\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00085}00085\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a90c5c6ce4d78e831d8340f104d5d69c8}{\_tails}}\ >>\ (idx\ *\ 4))\ \&\ 0xFu;}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00086}00086\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00088}00088\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00089}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_aac65cac16835bc40eec850a2021b8ba5}{00089}}\ \ \ uint8\_t\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_aac65cac16835bc40eec850a2021b8ba5}{\_size}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00090}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_add005c679e7156bd8580b0eed5194a9a}{00090}}\ \ \ uint32\_t\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_add005c679e7156bd8580b0eed5194a9a}{\_heads}}\{\};}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00091}\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a90c5c6ce4d78e831d8340f104d5d69c8}{00091}}\ \ \ uint32\_t\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a90c5c6ce4d78e831d8340f104d5d69c8}{\_tails}}\{\};}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00092}00092\ \};}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00109}\mbox{\hyperlink{namespacecudf_1_1io_1_1text_1_1detail_af4ad90e5f1c396db39a712ae2e51c365}{00109}}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate}{multistate}}\ \mbox{\hyperlink{namespacecudf_1_1io_1_1text_1_1detail_af4ad90e5f1c396db39a712ae2e51c365}{operator+}}(\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate}{multistate}}\ \textcolor{keyword}{const}\&\ lhs,\ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate}{multistate}}\ \textcolor{keyword}{const}\&\ rhs)}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00110}00110\ \{}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00111}00111\ \ \ \textcolor{comment}{//\ combine\ two\ multistates\ together\ by\ full-\/joining\ LHS\ tails\ to\ RHS\ heads,}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00112}00112\ \ \ \textcolor{comment}{//\ and\ taking\ the\ corresponding\ LHS\ heads\ and\ RHS\ tails.}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00114}00114\ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate}{multistate}}\ result;}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00115}00115\ \ \ \textcolor{keywordflow}{for}\ (uint8\_t\ lhs\_idx\ =\ 0;\ lhs\_idx\ <\ lhs.\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a9f3b0753045f1259d62781a65c7587fc}{size}}();\ lhs\_idx++)\ \{}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00116}00116\ \ \ \ \ \textcolor{keyword}{auto}\ tail\ =\ lhs.\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a193b76e025bf9fa3369dd9ba971a041f}{get\_tail}}(lhs\_idx);}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00117}00117\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint8\_t\ rhs\_idx\ =\ 0;\ rhs\_idx\ <\ rhs.\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a9f3b0753045f1259d62781a65c7587fc}{size}}();\ rhs\_idx++)\ \{}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00118}00118\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ head\ =\ rhs.\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_aebce6d9e6b904c11aae3d1a0673f0aea}{get\_head}}(rhs\_idx);}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00119}00119\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tail\ ==\ head)\ \{\ result.\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a2dd9ff9590d65922c249ea02b78a241c}{enqueue}}(lhs.\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_aebce6d9e6b904c11aae3d1a0673f0aea}{get\_head}}(lhs\_idx),\ rhs.\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1multistate_a193b76e025bf9fa3369dd9ba971a041f}{get\_tail}}(rhs\_idx));\ \}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00120}00120\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00121}00121\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00122}00122\ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00123}00123\ \}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00125}00125\ \}\ \ \textcolor{comment}{//\ namespace\ detail}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00126}00126\ \}\ \ \textcolor{comment}{//\ namespace\ text}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00127}00127\ \}\ \ \textcolor{comment}{//\ namespace\ io}}
+\DoxyCodeLine{\Hypertarget{multistate_8hpp_source_l00128}00128\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

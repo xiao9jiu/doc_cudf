@@ -1,0 +1,44 @@
+\doxysection{cudf\+::ast\+::detail\+::operator\+\_\+functor\texorpdfstring{$<$}{<} op, has\+\_\+nulls \texorpdfstring{$>$}{>} 模板结构体 参考}
+\hypertarget{structcudf_1_1ast_1_1detail_1_1operator__functor}{}\label{structcudf_1_1ast_1_1detail_1_1operator__functor}\index{cudf::ast::detail::operator\_functor$<$ op, has\_nulls $>$@{cudf::ast::detail::operator\_functor$<$ op, has\_nulls $>$}}
+
+
+Operator functor.  
+
+
+
+
+{\ttfamily \#include $<$operators.\+hpp$>$}
+
+
+
+cudf\+::ast\+::detail\+::operator\+\_\+functor\texorpdfstring{$<$}{<} op, has\+\_\+nulls \texorpdfstring{$>$}{>} 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{structcudf_1_1ast_1_1detail_1_1operator__functor__coll__graph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{详细描述}
+\subsubsection*{template$<$\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}} op, bool has\+\_\+nulls$>$\newline
+struct cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ op, has\+\_\+nulls $>$}
+Operator functor. 
+
+This functor is templated on an {\ttfamily ast\+\_\+operator}, with each template specialization defining a callable {\ttfamily operator()} that executes the operation. The functor specialization also has a member {\ttfamily arity} defining the number of operands that are accepted by the call to {\ttfamily operator()}. The {\ttfamily operator()} is templated on the types of its inputs (e.\+g. {\ttfamily typename LHS} and {\ttfamily typename RHS} for a binary operator). Trailing return types are defined as {\ttfamily decltype(result)} where {\ttfamily result} is the returned value. The trailing return types allow SFINAE to only consider template instantiations for valid combinations of types. This, in turn, allows the operator functors to be used with traits like {\ttfamily is\+\_\+valid\+\_\+binary\+\_\+op} that rely on {\ttfamily std\+::is\+\_\+invocable} and related features.
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em op} & AST operator. \\
+\hline
+\end{DoxyTemplParams}
+
+
+在文件 \mbox{\hyperlink{operators_8hpp_source}{operators.\+hpp}} 第 \mbox{\hyperlink{operators_8hpp_source_l00227}{227}} 行定义.
+
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/ast/detail/\mbox{\hyperlink{operators_8hpp}{operators.\+hpp}}\end{DoxyCompactItemize}

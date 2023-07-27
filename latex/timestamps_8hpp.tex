@@ -1,0 +1,61 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/wrappers/timestamps.hpp 文件参考}
+\hypertarget{timestamps_8hpp}{}\label{timestamps_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/wrappers/timestamps.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/wrappers/timestamps.hpp}}
+
+
+Concrete type definitions for int32\+\_\+t and int64\+\_\+t timestamps in varying resolutions as durations since the UNIX epoch.  
+
+
+{\ttfamily \#include $<$cudf/wrappers/durations.\+hpp$>$}\newline
+timestamps.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{timestamps_8hpp__incl}
+\end{center}
+\end{figure}
+此图展示该文件直接或间接的被哪些文件引用了\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{timestamps_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1detail}{cudf\+::detail}}
+\begin{DoxyCompactList}\small\item\em Inner interfaces and implementations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{类型定义}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class Duration $>$ }\\using \mbox{\hyperlink{namespacecudf_1_1detail_a2d645cde6078342234d5d6ee2c8cd9f9}{cudf\+::detail\+::time\+\_\+point}} = cuda\+::std\+::chrono\+::sys\+\_\+time$<$ Duration $>$
+\begin{DoxyCompactList}\small\item\em Time point type \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Duration $>$ }\\using \mbox{\hyperlink{namespacecudf_1_1detail_a3128cb15ed7da5bb5e926bb24a419262}{cudf\+::detail\+::timestamp}} = \mbox{\hyperlink{namespacecudf_1_1detail_a2d645cde6078342234d5d6ee2c8cd9f9}{time\+\_\+point}}$<$ Duration $>$
+\begin{DoxyCompactList}\small\item\em A wrapper around a column of time\+\_\+point in varying resolutions \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{group__timestamp__classes_ga4658424aa55596e2f3b6b42a9260f736}{cudf\+::timestamp\+\_\+D}} = \mbox{\hyperlink{namespacecudf_1_1detail_a3128cb15ed7da5bb5e926bb24a419262}{detail\+::timestamp}}$<$ \mbox{\hyperlink{group__timestamp__classes_ga6a45112033b50dfa4988d71a0817131c}{cudf\+::duration\+\_\+D}} $>$
+\begin{DoxyCompactList}\small\item\em Type alias representing a \doxylink{group__timestamp__classes_ga6a45112033b50dfa4988d71a0817131c}{cudf\+::duration\+\_\+D} (int32\+\_\+t) since the unix epoch. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{group__timestamp__classes_ga8b55dd23383d1c37b7bdc0274ded9191}{cudf\+::timestamp\+\_\+h}} = \mbox{\hyperlink{namespacecudf_1_1detail_a3128cb15ed7da5bb5e926bb24a419262}{detail\+::timestamp}}$<$ \mbox{\hyperlink{group__timestamp__classes_gaac9f5a62b5d8bc39e808918f94cbc9ff}{cudf\+::duration\+\_\+h}} $>$
+\begin{DoxyCompactList}\small\item\em Type alias representing a \doxylink{group__timestamp__classes_gaac9f5a62b5d8bc39e808918f94cbc9ff}{cudf\+::duration\+\_\+h} (int32\+\_\+t) since the unix epoch. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{group__timestamp__classes_ga52883e4379d120186e9750158f1458b9}{cudf\+::timestamp\+\_\+m}} = \mbox{\hyperlink{namespacecudf_1_1detail_a3128cb15ed7da5bb5e926bb24a419262}{detail\+::timestamp}}$<$ \mbox{\hyperlink{group__timestamp__classes_ga02e8e6d4f16f2007e5994dd26adf6171}{cudf\+::duration\+\_\+m}} $>$
+\begin{DoxyCompactList}\small\item\em Type alias representing a \doxylink{group__timestamp__classes_ga02e8e6d4f16f2007e5994dd26adf6171}{cudf\+::duration\+\_\+m} (int32\+\_\+t) since the unix epoch. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{group__timestamp__classes_ga44668df4b32894904fb68f13a5f0fdab}{cudf\+::timestamp\+\_\+s}} = \mbox{\hyperlink{namespacecudf_1_1detail_a3128cb15ed7da5bb5e926bb24a419262}{detail\+::timestamp}}$<$ \mbox{\hyperlink{group__timestamp__classes_gae344db373c1568bd20e914cb74426519}{cudf\+::duration\+\_\+s}} $>$
+\begin{DoxyCompactList}\small\item\em Type alias representing a \doxylink{group__timestamp__classes_gae344db373c1568bd20e914cb74426519}{cudf\+::duration\+\_\+s} (int64\+\_\+t) since the unix epoch. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{group__timestamp__classes_ga24fdf63531f7998ef3122a5d0885e949}{cudf\+::timestamp\+\_\+ms}} = \mbox{\hyperlink{namespacecudf_1_1detail_a3128cb15ed7da5bb5e926bb24a419262}{detail\+::timestamp}}$<$ \mbox{\hyperlink{group__timestamp__classes_ga70b6b95d45de41529211d95531fa3f86}{cudf\+::duration\+\_\+ms}} $>$
+\begin{DoxyCompactList}\small\item\em Type alias representing a \doxylink{group__timestamp__classes_ga70b6b95d45de41529211d95531fa3f86}{cudf\+::duration\+\_\+ms} (int64\+\_\+t) since the unix epoch. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{group__timestamp__classes_gabc5dd6cc3229f57af772e06f8c0bd828}{cudf\+::timestamp\+\_\+us}} = \mbox{\hyperlink{namespacecudf_1_1detail_a3128cb15ed7da5bb5e926bb24a419262}{detail\+::timestamp}}$<$ \mbox{\hyperlink{group__timestamp__classes_gab8e261e3e2a11e8464efb2a251c107d7}{cudf\+::duration\+\_\+us}} $>$
+\begin{DoxyCompactList}\small\item\em Type alias representing a \doxylink{group__timestamp__classes_gab8e261e3e2a11e8464efb2a251c107d7}{cudf\+::duration\+\_\+us} (int64\+\_\+t) since the unix epoch. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{group__timestamp__classes_gae2aef2b10c32caf1889ef2a6575b531a}{cudf\+::timestamp\+\_\+ns}} = \mbox{\hyperlink{namespacecudf_1_1detail_a3128cb15ed7da5bb5e926bb24a419262}{detail\+::timestamp}}$<$ \mbox{\hyperlink{group__timestamp__classes_ga4efdb8225ec7e415ab3c660c066aa3ee}{cudf\+::duration\+\_\+ns}} $>$
+\begin{DoxyCompactList}\small\item\em Type alias representing a \doxylink{group__timestamp__classes_ga4efdb8225ec7e415ab3c660c066aa3ee}{cudf\+::duration\+\_\+ns} (int64\+\_\+t) since the unix epoch. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Concrete type definitions for int32\+\_\+t and int64\+\_\+t timestamps in varying resolutions as durations since the UNIX epoch. 
+
+
+
+在文件 \mbox{\hyperlink{timestamps_8hpp_source}{timestamps.\+hpp}} 中定义.
+

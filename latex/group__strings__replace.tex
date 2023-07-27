@@ -1,0 +1,345 @@
+\doxysection{Strings\+\_\+replace}
+\hypertarget{group__strings__replace}{}\label{group__strings__replace}\index{Strings\_replace@{Strings\_replace}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{strings_2replace_8hpp}{replace.\+hpp}}
+\item 
+文件 \mbox{\hyperlink{replace__re_8hpp}{replace\+\_\+re.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__replace_ga18f5e8e4ed280faa45d77ee63a1a373f}{cudf\+::strings\+::replace}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&target, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&repl, int32\+\_\+t maxrepl=-\/1, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Replaces target string within each string with the specified replacement string. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__replace_ga81207fee72700a7ece00decdd57782d5}{cudf\+::strings\+::replace\+\_\+slice}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&repl=\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{}), \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} start=0, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} stop=-\/1, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em This function replaces each string in the column with the provided repl string within the \mbox{[}start,stop) character position range. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__replace_ga32b4688ea5817b761aa56b4a8fd920ef}{cudf\+::strings\+::replace}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&targets, \mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&repls, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Replaces substrings matching a list of targets with the corresponding replacement strings. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__replace_gaa9271541e5c6b7191324697f65e87ee0}{cudf\+::strings\+::replace\+\_\+re}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, std\+::string\+\_\+view pattern, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&replacement=\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{}), std\+::optional$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ max\+\_\+replace\+\_\+count=std\+::nullopt, \mbox{\hyperlink{group__strings__regex_ga341eb616bce8b15119196ad8208ec16d}{regex\+\_\+flags}} const flags=\mbox{\hyperlink{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da432e1bed0776491ae9d73f3915142912}{regex\+\_\+flags\+::\+DEFAULT}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em For each string, replaces any character sequence matching the given pattern with the provided replacement string. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__replace_gae823541f27b70390941cd92a431f9f32}{cudf\+::strings\+::replace\+\_\+re}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{structcudf_1_1strings_1_1regex__program}{regex\+\_\+program}} const \&prog, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&replacement=\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{}), std\+::optional$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ max\+\_\+replace\+\_\+count=std\+::nullopt, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em For each string, replaces any character sequence matching the given regex with the provided replacement string. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__replace_gac9102ab2b70227db2e14694dddc3916f}{cudf\+::strings\+::replace\+\_\+re}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, std\+::vector$<$ std\+::string $>$ const \&patterns, \mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&replacements, \mbox{\hyperlink{group__strings__regex_ga341eb616bce8b15119196ad8208ec16d}{regex\+\_\+flags}} const flags=\mbox{\hyperlink{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da432e1bed0776491ae9d73f3915142912}{regex\+\_\+flags\+::\+DEFAULT}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em For each string, replaces any character sequence matching the given patterns with the corresponding string in the {\ttfamily replacements} column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__replace_ga100cede2b238a3941dd06434c3e03767}{cudf\+::strings\+::replace\+\_\+with\+\_\+backrefs}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, std\+::string\+\_\+view pattern, std\+::string\+\_\+view replacement, \mbox{\hyperlink{group__strings__regex_ga341eb616bce8b15119196ad8208ec16d}{regex\+\_\+flags}} const flags=\mbox{\hyperlink{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da432e1bed0776491ae9d73f3915142912}{regex\+\_\+flags\+::\+DEFAULT}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em For each string, replaces any character sequence matching the given pattern using the replacement template for back-\/references. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__replace_ga42f37eaec75df4651613d059bccc80d5}{cudf\+::strings\+::replace\+\_\+with\+\_\+backrefs}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{structcudf_1_1strings_1_1regex__program}{regex\+\_\+program}} const \&prog, std\+::string\+\_\+view replacement, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em For each string, replaces any character sequence matching the given regex using the replacement template for back-\/references. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__strings__replace_ga18f5e8e4ed280faa45d77ee63a1a373f}\label{group__strings__replace_ga18f5e8e4ed280faa45d77ee63a1a373f} 
+\index{Strings\_replace@{Strings\_replace}!replace@{replace}}
+\index{replace@{replace}!Strings\_replace@{Strings\_replace}}
+\doxysubsubsection{\texorpdfstring{replace()}{replace()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::replace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{target,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{repl,  }\item[{int32\+\_\+t}]{maxrepl = {\ttfamily -\/1},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Replaces target string within each string with the specified replacement string. 
+
+This function searches each string in the column for the target string. If found, the target string is replaced by the repl string within the input string. If not found, the output entry is just a copy of the corresponding input string.
+
+Specifying an empty string for repl will essentially remove the target string if found in each string.
+
+Null string entries will return null output string entries.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{s\ =\ ["{}hello"{},\ "{}goodbye"{}]}
+\DoxyCodeLine{r1\ =\ replace(s,"{}o"{},"{}OOO"{})}
+\DoxyCodeLine{r1\ is\ now\ ["{}hellOOO"{},"{}gOOOOOOdbye"{}]}
+\DoxyCodeLine{r2\ =\ replace(s,"{}oo"{},"{}"{})}
+\DoxyCodeLine{r2\ is\ now\ ["{}hello"{},"{}gdbye"{}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if target is an empty string.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings column for this operation. \\
+\hline
+{\em target} & String to search for within each string. \\
+\hline
+{\em repl} & Replacement string if target is found. \\
+\hline
+{\em maxrepl} & Maximum times to replace if target appears multiple times in the input string. Default of -\/1 specifies replace all occurrences of target in each string. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__replace_ga32b4688ea5817b761aa56b4a8fd920ef}\label{group__strings__replace_ga32b4688ea5817b761aa56b4a8fd920ef} 
+\index{Strings\_replace@{Strings\_replace}!replace@{replace}}
+\index{replace@{replace}!Strings\_replace@{Strings\_replace}}
+\doxysubsubsection{\texorpdfstring{replace()}{replace()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::replace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{targets,  }\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{repls,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Replaces substrings matching a list of targets with the corresponding replacement strings. 
+
+For each string in strings, the list of targets is searched within that string. If a target string is found, it is replaced by the corresponding entry in the repls column. All occurrences found in each string are replaced.
+
+This does not use regex to match targets in the string.
+
+Null string entries will return null output string entries.
+
+The repls argument can optionally contain a single string. In this case, all matching target substrings will be replaced by that single string.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{s\ =\ ["{}hello"{},\ "{}goodbye"{}]}
+\DoxyCodeLine{tgts\ =\ ["{}e"{},"{}o"{}]}
+\DoxyCodeLine{repls\ =\ ["{}EE"{},"{}OO"{}]}
+\DoxyCodeLine{r1\ =\ replace(s,tgts,repls)}
+\DoxyCodeLine{r1\ is\ now\ ["{}hEEllO"{},\ "{}gOOOOdbyEE"{}]}
+\DoxyCodeLine{tgts\ =\ ["{}e"{},"{}oo"{}]}
+\DoxyCodeLine{repls\ =\ ["{}33"{},"{}"{}]}
+\DoxyCodeLine{r2\ =\ replace(s,tgts,repls)}
+\DoxyCodeLine{r2\ is\ now\ ["{}h33llo"{},\ "{}gdby33"{}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if targets and repls are different sizes except if repls is a single string. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if targets or repls contain null entries.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings column for this operation. \\
+\hline
+{\em targets} & Strings to search for in each string. \\
+\hline
+{\em repls} & Corresponding replacement strings for target strings. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__replace_gae823541f27b70390941cd92a431f9f32}\label{group__strings__replace_gae823541f27b70390941cd92a431f9f32} 
+\index{Strings\_replace@{Strings\_replace}!replace\_re@{replace\_re}}
+\index{replace\_re@{replace\_re}!Strings\_replace@{Strings\_replace}}
+\doxysubsubsection{\texorpdfstring{replace\_re()}{replace\_re()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::replace\+\_\+re (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{structcudf_1_1strings_1_1regex__program}{regex\+\_\+program}} const \&}]{prog,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{replacement = {\ttfamily \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{})},  }\item[{std\+::optional$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$}]{max\+\_\+replace\+\_\+count = {\ttfamily std\+:\+:nullopt},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+For each string, replaces any character sequence matching the given regex with the provided replacement string. 
+
+Any null string entries return corresponding null output column entries.
+
+See the Regex Features page for details on patterns supported by this API.
+
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation \\
+\hline
+{\em prog} & Regex program instance \\
+\hline
+{\em replacement} & The string used to replace the matched sequence in each string. Default is an empty string. \\
+\hline
+{\em max\+\_\+replace\+\_\+count} & The maximum number of times to replace the matched pattern within each string. Default replaces every substring that is matched. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column 
+\end{DoxyReturn}
+\Hypertarget{group__strings__replace_gaa9271541e5c6b7191324697f65e87ee0}\label{group__strings__replace_gaa9271541e5c6b7191324697f65e87ee0} 
+\index{Strings\_replace@{Strings\_replace}!replace\_re@{replace\_re}}
+\index{replace\_re@{replace\_re}!Strings\_replace@{Strings\_replace}}
+\doxysubsubsection{\texorpdfstring{replace\_re()}{replace\_re()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::replace\+\_\+re (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{std\+::string\+\_\+view}]{pattern,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{replacement = {\ttfamily \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{})},  }\item[{std\+::optional$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$}]{max\+\_\+replace\+\_\+count = {\ttfamily std\+:\+:nullopt},  }\item[{\mbox{\hyperlink{group__strings__regex_ga341eb616bce8b15119196ad8208ec16d}{regex\+\_\+flags}} const}]{flags = {\ttfamily \mbox{\hyperlink{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da432e1bed0776491ae9d73f3915142912}{regex\+\_\+flags\+::\+DEFAULT}}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+For each string, replaces any character sequence matching the given pattern with the provided replacement string. 
+
+Any null string entries return corresponding null output column entries.
+
+See the Regex Features page for details on patterns supported by this API.
+
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em pattern} & The regular expression pattern to search within each string. \\
+\hline
+{\em replacement} & The string used to replace the matched sequence in each string. Default is an empty string. \\
+\hline
+{\em max\+\_\+replace\+\_\+count} & The maximum number of times to replace the matched pattern within each string. Default replaces every substring that is matched. \\
+\hline
+{\em flags} & Regex flags for interpreting special characters in the pattern. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__replace_gac9102ab2b70227db2e14694dddc3916f}\label{group__strings__replace_gac9102ab2b70227db2e14694dddc3916f} 
+\index{Strings\_replace@{Strings\_replace}!replace\_re@{replace\_re}}
+\index{replace\_re@{replace\_re}!Strings\_replace@{Strings\_replace}}
+\doxysubsubsection{\texorpdfstring{replace\_re()}{replace\_re()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::replace\+\_\+re (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{std\+::vector$<$ std\+::string $>$ const \&}]{patterns,  }\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{replacements,  }\item[{\mbox{\hyperlink{group__strings__regex_ga341eb616bce8b15119196ad8208ec16d}{regex\+\_\+flags}} const}]{flags = {\ttfamily \mbox{\hyperlink{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da432e1bed0776491ae9d73f3915142912}{regex\+\_\+flags\+::\+DEFAULT}}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+For each string, replaces any character sequence matching the given patterns with the corresponding string in the {\ttfamily replacements} column. 
+
+Any null string entries return corresponding null output column entries.
+
+See the Regex Features page for details on patterns supported by this API.
+
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em patterns} & The regular expression patterns to search within each string. \\
+\hline
+{\em replacements} & The strings used for replacement. \\
+\hline
+{\em flags} & Regex flags for interpreting special characters in the patterns. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__replace_ga81207fee72700a7ece00decdd57782d5}\label{group__strings__replace_ga81207fee72700a7ece00decdd57782d5} 
+\index{Strings\_replace@{Strings\_replace}!replace\_slice@{replace\_slice}}
+\index{replace\_slice@{replace\_slice}!Strings\_replace@{Strings\_replace}}
+\doxysubsubsection{\texorpdfstring{replace\_slice()}{replace\_slice()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::replace\+\_\+slice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{repl = {\ttfamily \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{})},  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{start = {\ttfamily 0},  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{stop = {\ttfamily -\/1},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+This function replaces each string in the column with the provided repl string within the \mbox{[}start,stop) character position range. 
+
+Null string entries will return null output string entries.
+
+Position values are 0-\/based meaning position 0 is the first character of each string.
+
+This function can be used to insert a string into specific position by specifying the same position value for start and stop. The repl string can be appended to each string by specifying -\/1 for both start and stop.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{s\ =\ ["{}abcdefghij"{},"{}0123456789"{}]}
+\DoxyCodeLine{r\ =\ s.replace\_slice(s,2,5,"{}z"{})}
+\DoxyCodeLine{r\ is\ now\ ["{}abzfghij"{},\ "{}01z56789"{}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if start is greater than stop.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings column for this operation. \\
+\hline
+{\em repl} & Replacement string for specified positions found. Default is empty string. \\
+\hline
+{\em start} & Start position where repl will be added. Default is 0, first character position. \\
+\hline
+{\em stop} & End position (exclusive) to use for replacement. Default of -\/1 specifies the end of each string. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__replace_ga42f37eaec75df4651613d059bccc80d5}\label{group__strings__replace_ga42f37eaec75df4651613d059bccc80d5} 
+\index{Strings\_replace@{Strings\_replace}!replace\_with\_backrefs@{replace\_with\_backrefs}}
+\index{replace\_with\_backrefs@{replace\_with\_backrefs}!Strings\_replace@{Strings\_replace}}
+\doxysubsubsection{\texorpdfstring{replace\_with\_backrefs()}{replace\_with\_backrefs()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::replace\+\_\+with\+\_\+backrefs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{structcudf_1_1strings_1_1regex__program}{regex\+\_\+program}} const \&}]{prog,  }\item[{std\+::string\+\_\+view}]{replacement,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+For each string, replaces any character sequence matching the given regex using the replacement template for back-\/references. 
+
+Any null string entries return corresponding null output column entries.
+
+See the Regex Features page for details on patterns supported by this API.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if capture index values in {\ttfamily replacement} are not in range 0-\/99, and also if the index exceeds the group count specified in the pattern\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation \\
+\hline
+{\em prog} & Regex program instance \\
+\hline
+{\em replacement} & The replacement template for creating the output string \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column 
+\end{DoxyReturn}
+\Hypertarget{group__strings__replace_ga100cede2b238a3941dd06434c3e03767}\label{group__strings__replace_ga100cede2b238a3941dd06434c3e03767} 
+\index{Strings\_replace@{Strings\_replace}!replace\_with\_backrefs@{replace\_with\_backrefs}}
+\index{replace\_with\_backrefs@{replace\_with\_backrefs}!Strings\_replace@{Strings\_replace}}
+\doxysubsubsection{\texorpdfstring{replace\_with\_backrefs()}{replace\_with\_backrefs()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::replace\+\_\+with\+\_\+backrefs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{std\+::string\+\_\+view}]{pattern,  }\item[{std\+::string\+\_\+view}]{replacement,  }\item[{\mbox{\hyperlink{group__strings__regex_ga341eb616bce8b15119196ad8208ec16d}{regex\+\_\+flags}} const}]{flags = {\ttfamily \mbox{\hyperlink{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da432e1bed0776491ae9d73f3915142912}{regex\+\_\+flags\+::\+DEFAULT}}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+For each string, replaces any character sequence matching the given pattern using the replacement template for back-\/references. 
+
+Any null string entries return corresponding null output column entries.
+
+See the Regex Features page for details on patterns supported by this API.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if capture index values in {\ttfamily replacement} are not in range 0-\/99, and also if the index exceeds the group count specified in the pattern\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em pattern} & The regular expression patterns to search within each string. \\
+\hline
+{\em replacement} & The replacement template for creating the output string. \\
+\hline
+{\em flags} & Regex flags for interpreting special characters in the pattern. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New strings column. 
+\end{DoxyReturn}

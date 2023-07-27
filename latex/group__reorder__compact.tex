@@ -1,0 +1,469 @@
+\doxysection{Reorder\+\_\+compact}
+\hypertarget{group__reorder__compact}{}\label{group__reorder__compact}\index{Reorder\_compact@{Reorder\_compact}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{stream__compaction_8hpp}{stream\+\_\+compaction.\+hpp}}
+\begin{DoxyCompactList}\small\item\em Column APIs for filtering rows \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__reorder__compact_ga69091647ea1f9c9d4cdcf7c8876bea3a}{cudf\+::duplicate\+\_\+keep\+\_\+option}} \{ \mbox{\hyperlink{group__reorder__compact_gga69091647ea1f9c9d4cdcf7c8876bea3aa0546025abe5830d9334bb82102420394}{cudf\+::duplicate\+\_\+keep\+\_\+option\+::\+KEEP\+\_\+\+ANY}} = 0
+, \mbox{\hyperlink{group__reorder__compact_gga69091647ea1f9c9d4cdcf7c8876bea3aa5968b12bf2e72e702a998c7fa6c83b1e}{cudf\+::duplicate\+\_\+keep\+\_\+option\+::\+KEEP\+\_\+\+FIRST}}
+, \mbox{\hyperlink{group__reorder__compact_gga69091647ea1f9c9d4cdcf7c8876bea3aa4583fc151efe5098dd96eeec8cf74699}{cudf\+::duplicate\+\_\+keep\+\_\+option\+::\+KEEP\+\_\+\+LAST}}
+, \mbox{\hyperlink{group__reorder__compact_gga69091647ea1f9c9d4cdcf7c8876bea3aa40c4abe57c2fda3e580eee916b9e0558}{cudf\+::duplicate\+\_\+keep\+\_\+option\+::\+KEEP\+\_\+\+NONE}}
+ \}
+\begin{DoxyCompactList}\small\item\em Choices for drop\+\_\+duplicates API for retainment of duplicate rows \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__reorder__compact_gaccf9b4b9eea838d724facc174df875a5}{cudf\+::drop\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&keys, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} keep\+\_\+threshold, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Filters a table to remove null elements with threshold count. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__reorder__compact_ga4213141aad40c18cf819324c0657fb13}{cudf\+::drop\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&keys, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Filters a table to remove null elements. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__reorder__compact_gacfbe51626a833f0f4364b20fcb4b92db}{cudf\+::drop\+\_\+nans}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&keys, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} keep\+\_\+threshold, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Filters a table to remove NANs with threshold count. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__reorder__compact_gac176247015532251d153376e64bc80a6}{cudf\+::drop\+\_\+nans}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&keys, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Filters a table to remove NANs. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__reorder__compact_ga6fe0c9d15a7c744a87c8334453798b8d}{cudf\+::apply\+\_\+boolean\+\_\+mask}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&boolean\+\_\+mask, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Filters {\ttfamily input} using {\ttfamily boolean\+\_\+mask} of boolean values as a mask. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__reorder__compact_ga87352ad4f282dd17365d4c9929d5c644}{cudf\+::unique}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&keys, \mbox{\hyperlink{group__reorder__compact_ga69091647ea1f9c9d4cdcf7c8876bea3a}{duplicate\+\_\+keep\+\_\+option}} keep, \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}} nulls\+\_\+equal=\mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\+\_\+equality\+::\+EQUAL}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a new table with consecutive duplicate rows removed. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__reorder__compact_ga201195610929658c5d383fa99434ef9c}{cudf\+::distinct}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&keys, \mbox{\hyperlink{group__reorder__compact_ga69091647ea1f9c9d4cdcf7c8876bea3a}{duplicate\+\_\+keep\+\_\+option}} keep=\mbox{\hyperlink{group__reorder__compact_gga69091647ea1f9c9d4cdcf7c8876bea3aa0546025abe5830d9334bb82102420394}{duplicate\+\_\+keep\+\_\+option\+::\+KEEP\+\_\+\+ANY}}, \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}} nulls\+\_\+equal=\mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\+\_\+equality\+::\+EQUAL}}, \mbox{\hyperlink{group__utility__types_gae9d1055c69c3089452794783c7c82f83}{nan\+\_\+equality}} nans\+\_\+equal=\mbox{\hyperlink{group__utility__types_ggae9d1055c69c3089452794783c7c82f83acd6d9f766e6e2753da429d26078711d7}{nan\+\_\+equality\+::\+ALL\+\_\+\+EQUAL}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a new table without duplicate rows. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{group__reorder__compact_ga63e5defd9560fcd397ff6aa79022a56c}{cudf\+::unique\+\_\+count}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling, \mbox{\hyperlink{group__utility__types_ga74641d3dfd6d96d0939b492ecf9b9cc8}{nan\+\_\+policy}} nan\+\_\+handling)
+\begin{DoxyCompactList}\small\item\em Count the number of consecutive groups of equivalent rows in a column. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{group__reorder__compact_gad947e78a65b8c7eca69337c6bd3ad749}{cudf\+::unique\+\_\+count}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}} nulls\+\_\+equal=\mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\+\_\+equality\+::\+EQUAL}})
+\begin{DoxyCompactList}\small\item\em Count the number of consecutive groups of equivalent rows in a table. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{group__reorder__compact_gab6e12738145f070878194502d8d5a1c9}{cudf\+::distinct\+\_\+count}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling, \mbox{\hyperlink{group__utility__types_ga74641d3dfd6d96d0939b492ecf9b9cc8}{nan\+\_\+policy}} nan\+\_\+handling)
+\begin{DoxyCompactList}\small\item\em Count the distinct elements in the \doxylink{classcudf_1_1column__view}{column\+\_\+view}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{group__reorder__compact_gad861920389b600bb3310ecb22e307316}{cudf\+::distinct\+\_\+count}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}} nulls\+\_\+equal=\mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\+\_\+equality\+::\+EQUAL}})
+\begin{DoxyCompactList}\small\item\em Count the distinct rows in a table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{枚举类型说明}
+\Hypertarget{group__reorder__compact_ga69091647ea1f9c9d4cdcf7c8876bea3a}\label{group__reorder__compact_ga69091647ea1f9c9d4cdcf7c8876bea3a} 
+\index{Reorder\_compact@{Reorder\_compact}!duplicate\_keep\_option@{duplicate\_keep\_option}}
+\index{duplicate\_keep\_option@{duplicate\_keep\_option}!Reorder\_compact@{Reorder\_compact}}
+\doxysubsubsection{\texorpdfstring{duplicate\_keep\_option}{duplicate\_keep\_option}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__reorder__compact_ga69091647ea1f9c9d4cdcf7c8876bea3a}{cudf\+::duplicate\+\_\+keep\+\_\+option}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Choices for drop\+\_\+duplicates API for retainment of duplicate rows 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEEP\_ANY@{KEEP\_ANY}!Reorder\_compact@{Reorder\_compact}}\index{Reorder\_compact@{Reorder\_compact}!KEEP\_ANY@{KEEP\_ANY}}}\Hypertarget{group__reorder__compact_gga69091647ea1f9c9d4cdcf7c8876bea3aa0546025abe5830d9334bb82102420394}\label{group__reorder__compact_gga69091647ea1f9c9d4cdcf7c8876bea3aa0546025abe5830d9334bb82102420394} 
+KEEP\+\_\+\+ANY&Keep an unspecified occurrence \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEEP\_FIRST@{KEEP\_FIRST}!Reorder\_compact@{Reorder\_compact}}\index{Reorder\_compact@{Reorder\_compact}!KEEP\_FIRST@{KEEP\_FIRST}}}\Hypertarget{group__reorder__compact_gga69091647ea1f9c9d4cdcf7c8876bea3aa5968b12bf2e72e702a998c7fa6c83b1e}\label{group__reorder__compact_gga69091647ea1f9c9d4cdcf7c8876bea3aa5968b12bf2e72e702a998c7fa6c83b1e} 
+KEEP\+\_\+\+FIRST&Keep first occurrence \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEEP\_LAST@{KEEP\_LAST}!Reorder\_compact@{Reorder\_compact}}\index{Reorder\_compact@{Reorder\_compact}!KEEP\_LAST@{KEEP\_LAST}}}\Hypertarget{group__reorder__compact_gga69091647ea1f9c9d4cdcf7c8876bea3aa4583fc151efe5098dd96eeec8cf74699}\label{group__reorder__compact_gga69091647ea1f9c9d4cdcf7c8876bea3aa4583fc151efe5098dd96eeec8cf74699} 
+KEEP\+\_\+\+LAST&Keep last occurrence \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEEP\_NONE@{KEEP\_NONE}!Reorder\_compact@{Reorder\_compact}}\index{Reorder\_compact@{Reorder\_compact}!KEEP\_NONE@{KEEP\_NONE}}}\Hypertarget{group__reorder__compact_gga69091647ea1f9c9d4cdcf7c8876bea3aa40c4abe57c2fda3e580eee916b9e0558}\label{group__reorder__compact_gga69091647ea1f9c9d4cdcf7c8876bea3aa40c4abe57c2fda3e580eee916b9e0558} 
+KEEP\+\_\+\+NONE&Keep no (remove all) occurrences of duplicates \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{stream__compaction_8hpp_source}{stream\+\_\+compaction.\+hpp}} 第 \mbox{\hyperlink{stream__compaction_8hpp_source_l00212}{212}} 行定义.
+
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__reorder__compact_ga6fe0c9d15a7c744a87c8334453798b8d}\label{group__reorder__compact_ga6fe0c9d15a7c744a87c8334453798b8d} 
+\index{Reorder\_compact@{Reorder\_compact}!apply\_boolean\_mask@{apply\_boolean\_mask}}
+\index{apply\_boolean\_mask@{apply\_boolean\_mask}!Reorder\_compact@{Reorder\_compact}}
+\doxysubsubsection{\texorpdfstring{apply\_boolean\_mask()}{apply\_boolean\_mask()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::apply\+\_\+boolean\+\_\+mask (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{boolean\+\_\+mask,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Filters {\ttfamily input} using {\ttfamily boolean\+\_\+mask} of boolean values as a mask. 
+
+Given an input {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} and a mask {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}}, an element {\ttfamily i} from each \doxylink{classcudf_1_1column__view}{column\+\_\+view} of the {\ttfamily input} is copied to the corresponding output column if the corresponding element {\ttfamily i} in the mask is non-\/null and {\ttfamily true}. This operation is stable\+: the input order is preserved.
+
+\begin{DoxyNote}{注解}
+if {\ttfamily input.\+num\+\_\+rows()} is zero, there is no error, and an empty table is returned.
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily input.\+num\+\_\+rows() != boolean\+\_\+mask.\+size()}. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily boolean\+\_\+mask} is not {\ttfamily \doxylink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a05afd9eb8887a406d47474cd3809a5dd}{type\+\_\+id\+::\+BOOL8}} type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & The input \doxylink{classcudf_1_1table__view}{table\+\_\+view} to filter \\
+\hline
+\mbox{\texttt{ in}}  & {\em boolean\+\_\+mask} & A nullable \doxylink{classcudf_1_1column__view}{column\+\_\+view} of type \doxylink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a05afd9eb8887a406d47474cd3809a5dd}{type\+\_\+id\+::\+BOOL8} used as a mask to filter the {\ttfamily input}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Table containing copy of all rows of {\ttfamily input} passing the filter defined by {\ttfamily boolean\+\_\+mask}. 
+\end{DoxyReturn}
+\Hypertarget{group__reorder__compact_ga201195610929658c5d383fa99434ef9c}\label{group__reorder__compact_ga201195610929658c5d383fa99434ef9c} 
+\index{Reorder\_compact@{Reorder\_compact}!distinct@{distinct}}
+\index{distinct@{distinct}!Reorder\_compact@{Reorder\_compact}}
+\doxysubsubsection{\texorpdfstring{distinct()}{distinct()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::distinct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&}]{keys,  }\item[{\mbox{\hyperlink{group__reorder__compact_ga69091647ea1f9c9d4cdcf7c8876bea3a}{duplicate\+\_\+keep\+\_\+option}}}]{keep = {\ttfamily \mbox{\hyperlink{group__reorder__compact_gga69091647ea1f9c9d4cdcf7c8876bea3aa0546025abe5830d9334bb82102420394}{duplicate\+\_\+keep\+\_\+option\+::\+KEEP\+\_\+\+ANY}}},  }\item[{\mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}}}]{nulls\+\_\+equal = {\ttfamily \mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\+\_\+equality\+::\+EQUAL}}},  }\item[{\mbox{\hyperlink{group__utility__types_gae9d1055c69c3089452794783c7c82f83}{nan\+\_\+equality}}}]{nans\+\_\+equal = {\ttfamily \mbox{\hyperlink{group__utility__types_ggae9d1055c69c3089452794783c7c82f83acd6d9f766e6e2753da429d26078711d7}{nan\+\_\+equality\+::\+ALL\+\_\+\+EQUAL}}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Create a new table without duplicate rows. 
+
+Given an {\ttfamily input} \doxylink{classcudf_1_1table__view}{table\+\_\+view}, each row is copied to the output table to create a set of distinct rows. If there are duplicate rows, which row to be copied depends on the specified value of the {\ttfamily keep} parameter.
+
+The order of rows in the output table is not specified.
+
+Performance hint\+: if the input is pre-\/sorted, {\ttfamily \doxylink{group__reorder__compact_ga87352ad4f282dd17365d4c9929d5c644}{cudf\+::unique}} can produce an equivalent result (i.\+e., same set of output rows) but with less running time than {\ttfamily \doxylink{group__reorder__compact_ga201195610929658c5d383fa99434ef9c}{cudf\+::distinct}}.
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & input \doxylink{classcudf_1_1table__view}{table\+\_\+view} to copy only distinct rows \\
+\hline
+\mbox{\texttt{ in}}  & {\em keys} & vector of indices representing key columns from {\ttfamily input} \\
+\hline
+\mbox{\texttt{ in}}  & {\em keep} & keep any, first, last, or none of the found duplicates \\
+\hline
+\mbox{\texttt{ in}}  & {\em nulls\+\_\+equal} & flag to control if nulls are compared equal or not \\
+\hline
+\mbox{\texttt{ in}}  & {\em nans\+\_\+equal} & flag to control if floating-\/point NaN values are compared equal or not \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Table with distinct rows in an unspecified order 
+\end{DoxyReturn}
+\Hypertarget{group__reorder__compact_gab6e12738145f070878194502d8d5a1c9}\label{group__reorder__compact_gab6e12738145f070878194502d8d5a1c9} 
+\index{Reorder\_compact@{Reorder\_compact}!distinct\_count@{distinct\_count}}
+\index{distinct\_count@{distinct\_count}!Reorder\_compact@{Reorder\_compact}}
+\doxysubsubsection{\texorpdfstring{distinct\_count()}{distinct\_count()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::distinct\+\_\+count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}}}]{null\+\_\+handling,  }\item[{\mbox{\hyperlink{group__utility__types_ga74641d3dfd6d96d0939b492ecf9b9cc8}{nan\+\_\+policy}}}]{nan\+\_\+handling }\end{DoxyParamCaption})}
+
+
+
+Count the distinct elements in the \doxylink{classcudf_1_1column__view}{column\+\_\+view}. 
+
+If {\ttfamily nulls\+\_\+equal == nulls\+\_\+equal\+::\+UNEQUAL}, all {\ttfamily null}s are distinct.
+
+Given an input \doxylink{classcudf_1_1column__view}{column\+\_\+view}, number of distinct elements in this \doxylink{classcudf_1_1column__view}{column\+\_\+view} is returned.
+
+If {\ttfamily null\+\_\+handling} is \doxylink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}{null\+\_\+policy\+::\+EXCLUDE} and {\ttfamily nan\+\_\+handling} is \doxylink{group__utility__types_gga74641d3dfd6d96d0939b492ecf9b9cc8aeed6bbfa0697c54960c7e0baa97313f4}{nan\+\_\+policy\+::\+NAN\+\_\+\+IS\+\_\+\+NULL}, both {\ttfamily NaN} and {\ttfamily null} values are ignored. If {\ttfamily null\+\_\+handling} is \doxylink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}{null\+\_\+policy\+::\+EXCLUDE} and {\ttfamily nan\+\_\+handling} is \doxylink{group__utility__types_gga74641d3dfd6d96d0939b492ecf9b9cc8a27adbe26caa2eb99976344933c281a77}{nan\+\_\+policy\+::\+NAN\+\_\+\+IS\+\_\+\+VALID}, only {\ttfamily null} is ignored, {\ttfamily NaN} is considered in distinct count.
+
+{\ttfamily null}s are handled as equal.
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & The \doxylink{classcudf_1_1column__view}{column\+\_\+view} whose distinct elements will be counted \\
+\hline
+\mbox{\texttt{ in}}  & {\em null\+\_\+handling} & flag to include or ignore {\ttfamily null} while counting \\
+\hline
+\mbox{\texttt{ in}}  & {\em nan\+\_\+handling} & flag to consider {\ttfamily NaN==null} or not\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+number of distinct rows in the table 
+\end{DoxyReturn}
+\Hypertarget{group__reorder__compact_gad861920389b600bb3310ecb22e307316}\label{group__reorder__compact_gad861920389b600bb3310ecb22e307316} 
+\index{Reorder\_compact@{Reorder\_compact}!distinct\_count@{distinct\_count}}
+\index{distinct\_count@{distinct\_count}!Reorder\_compact@{Reorder\_compact}}
+\doxysubsubsection{\texorpdfstring{distinct\_count()}{distinct\_count()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::distinct\+\_\+count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}}}]{nulls\+\_\+equal = {\ttfamily \mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\+\_\+equality\+::\+EQUAL}}} }\end{DoxyParamCaption})}
+
+
+
+Count the distinct rows in a table. 
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & Table whose distinct rows will be counted \\
+\hline
+\mbox{\texttt{ in}}  & {\em nulls\+\_\+equal} & flag to denote if null elements should be considered equal. nulls are not equal if \doxylink{group__utility__types_gga08a672308cd0f61562410d106b377771ac0df9e531f39895029236b71d0d1c0ac}{null\+\_\+equality\+::\+UNEQUAL}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+number of distinct rows in the table 
+\end{DoxyReturn}
+\Hypertarget{group__reorder__compact_gacfbe51626a833f0f4364b20fcb4b92db}\label{group__reorder__compact_gacfbe51626a833f0f4364b20fcb4b92db} 
+\index{Reorder\_compact@{Reorder\_compact}!drop\_nans@{drop\_nans}}
+\index{drop\_nans@{drop\_nans}!Reorder\_compact@{Reorder\_compact}}
+\doxysubsubsection{\texorpdfstring{drop\_nans()}{drop\_nans()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::drop\+\_\+nans (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&}]{keys,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}}}]{keep\+\_\+threshold,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Filters a table to remove NANs with threshold count. 
+
+Filters the rows of the {\ttfamily input} considering specified columns indicated in {\ttfamily keys} for NANs. These key columns must be of floating-\/point type.
+
+Given an input \doxylink{classcudf_1_1table__view}{table\+\_\+view}, row {\ttfamily i} from the input columns is copied to the output if the same row {\ttfamily i} of {\ttfamily keys} has at least {\ttfamily keep\+\_\+threshold} non-\/\+NAN elements.
+
+This operation is stable\+: the input order is preserved in the output.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{input\ \ \ \{col1:\ \{1.0,\ 2.0,\ 3.0,\ NAN\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ col2:\ \{4.0,\ null,\ NAN,\ NAN\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ col3:\ \{7.0,\ NAN,\ NAN,\ NAN\}\}}
+\DoxyCodeLine{keys\ =\ \{0,\ 1,\ 2\}\ //\ All\ columns}
+\DoxyCodeLine{keep\_threshold\ =\ 2}
+\DoxyCodeLine{}
+\DoxyCodeLine{output\ \{col1:\ \{1.0,\ 2.0\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ col2:\ \{4.0,\ null\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ col3:\ \{7.0,\ NAN\}\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{注解}
+if {\ttfamily input.\+num\+\_\+rows()} is zero, or {\ttfamily keys} is empty, there is no error, and an empty {\ttfamily table} is returned
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if The {\ttfamily keys} columns are not floating-\/point type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & The input {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} to filter \\
+\hline
+\mbox{\texttt{ in}}  & {\em keys} & vector of indices representing key columns from {\ttfamily input} \\
+\hline
+\mbox{\texttt{ in}}  & {\em keep\+\_\+threshold} & The minimum number of non-\/\+NAN elements in a row required to keep the row. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Table containing all rows of the {\ttfamily input} with at least {\ttfamily keep\+\_\+threshold} non-\/\+NAN elements in {\ttfamily keys}. 
+\end{DoxyReturn}
+\Hypertarget{group__reorder__compact_gac176247015532251d153376e64bc80a6}\label{group__reorder__compact_gac176247015532251d153376e64bc80a6} 
+\index{Reorder\_compact@{Reorder\_compact}!drop\_nans@{drop\_nans}}
+\index{drop\_nans@{drop\_nans}!Reorder\_compact@{Reorder\_compact}}
+\doxysubsubsection{\texorpdfstring{drop\_nans()}{drop\_nans()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::drop\+\_\+nans (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&}]{keys,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Filters a table to remove NANs. 
+
+Filters the rows of the {\ttfamily input} considering specified columns indicated in {\ttfamily keys} for NANs. These key columns must be of floating-\/point type.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{input\ \ \ \{col1:\ \{1.0,\ 2.0,\ 3.0,\ NAN\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ col2:\ \{4.0,\ null,\ NAN,\ NAN\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ col3:\ \{null,\ NAN,\ NAN,\ NAN\}\}}
+\DoxyCodeLine{keys\ =\ \{0,\ 1,\ 2\}\ //\ All\ columns}
+\DoxyCodeLine{keep\_threshold\ =\ 2}
+\DoxyCodeLine{}
+\DoxyCodeLine{output\ \{col1:\ \{1.0\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ col2:\ \{4.0\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ col3:\ \{null\}\}}
+
+\end{DoxyCode}
+
+
+Same as drop\+\_\+nans but defaults keep\+\_\+threshold to the number of columns in {\ttfamily keys}.
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & The input {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} to filter \\
+\hline
+\mbox{\texttt{ in}}  & {\em keys} & vector of indices representing key columns from {\ttfamily input} \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Table containing all rows of the {\ttfamily input} without NANs in the columns of {\ttfamily keys}. 
+\end{DoxyReturn}
+\Hypertarget{group__reorder__compact_gaccf9b4b9eea838d724facc174df875a5}\label{group__reorder__compact_gaccf9b4b9eea838d724facc174df875a5} 
+\index{Reorder\_compact@{Reorder\_compact}!drop\_nulls@{drop\_nulls}}
+\index{drop\_nulls@{drop\_nulls}!Reorder\_compact@{Reorder\_compact}}
+\doxysubsubsection{\texorpdfstring{drop\_nulls()}{drop\_nulls()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::drop\+\_\+nulls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&}]{keys,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}}}]{keep\+\_\+threshold,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Filters a table to remove null elements with threshold count. 
+
+Filters the rows of the {\ttfamily input} considering specified columns indicated in {\ttfamily keys} for validity / null values.
+
+Given an input \doxylink{classcudf_1_1table__view}{table\+\_\+view}, row {\ttfamily i} from the input columns is copied to the output if the same row {\ttfamily i} of {\ttfamily keys} has at least {\ttfamily keep\+\_\+threshold} non-\/null fields.
+
+This operation is stable\+: the input order is preserved in the output.
+
+Any non-\/nullable column in the input is treated as all non-\/null.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{input\ \ \ \{col1:\ \{1,\ 2,\ \ \ \ 3,\ \ \ \ null\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ col2:\ \{4,\ 5,\ \ \ \ null,\ null\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ col3:\ \{7,\ null,\ null,\ null\}\}}
+\DoxyCodeLine{keys\ =\ \{0,\ 1,\ 2\}\ //\ All\ columns}
+\DoxyCodeLine{keep\_threshold\ =\ 2}
+\DoxyCodeLine{}
+\DoxyCodeLine{output\ \{col1:\ \{1,\ 2\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ col2:\ \{4,\ 5\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ col3:\ \{7,\ null\}\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{注解}
+if {\ttfamily input.\+num\+\_\+rows()} is zero, or {\ttfamily keys} is empty or has no nulls, there is no error, and an empty {\ttfamily table} is returned
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & The input {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} to filter \\
+\hline
+\mbox{\texttt{ in}}  & {\em keys} & vector of indices representing key columns from {\ttfamily input} \\
+\hline
+\mbox{\texttt{ in}}  & {\em keep\+\_\+threshold} & The minimum number of non-\/null fields in a row required to keep the row. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Table containing all rows of the {\ttfamily input} with at least {\ttfamily keep\+\_\+threshold} non-\/null fields in {\ttfamily keys}. 
+\end{DoxyReturn}
+\Hypertarget{group__reorder__compact_ga4213141aad40c18cf819324c0657fb13}\label{group__reorder__compact_ga4213141aad40c18cf819324c0657fb13} 
+\index{Reorder\_compact@{Reorder\_compact}!drop\_nulls@{drop\_nulls}}
+\index{drop\_nulls@{drop\_nulls}!Reorder\_compact@{Reorder\_compact}}
+\doxysubsubsection{\texorpdfstring{drop\_nulls()}{drop\_nulls()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::drop\+\_\+nulls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&}]{keys,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Filters a table to remove null elements. 
+
+Filters the rows of the {\ttfamily input} considering specified columns indicated in {\ttfamily keys} for validity / null values.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{input\ \ \ \{col1:\ \{1,\ 2,\ \ \ \ 3,\ \ \ \ null\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ col2:\ \{4,\ 5,\ \ \ \ null,\ null\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ col3:\ \{7,\ null,\ null,\ null\}\}}
+\DoxyCodeLine{keys\ =\ \{0,\ 1,\ 2\}\ //All\ columns}
+\DoxyCodeLine{}
+\DoxyCodeLine{output\ \{col1:\ \{1\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ col2:\ \{4\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ col3:\ \{7\}\}}
+
+\end{DoxyCode}
+
+
+Same as drop\+\_\+nulls but defaults keep\+\_\+threshold to the number of columns in {\ttfamily keys}.
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & The input {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} to filter \\
+\hline
+\mbox{\texttt{ in}}  & {\em keys} & vector of indices representing key columns from {\ttfamily input} \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Table containing all rows of the {\ttfamily input} without nulls in the columns of {\ttfamily keys}. 
+\end{DoxyReturn}
+\Hypertarget{group__reorder__compact_ga87352ad4f282dd17365d4c9929d5c644}\label{group__reorder__compact_ga87352ad4f282dd17365d4c9929d5c644} 
+\index{Reorder\_compact@{Reorder\_compact}!unique@{unique}}
+\index{unique@{unique}!Reorder\_compact@{Reorder\_compact}}
+\doxysubsubsection{\texorpdfstring{unique()}{unique()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::unique (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&}]{keys,  }\item[{\mbox{\hyperlink{group__reorder__compact_ga69091647ea1f9c9d4cdcf7c8876bea3a}{duplicate\+\_\+keep\+\_\+option}}}]{keep,  }\item[{\mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}}}]{nulls\+\_\+equal = {\ttfamily \mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\+\_\+equality\+::\+EQUAL}}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Create a new table with consecutive duplicate rows removed. 
+
+Given an {\ttfamily input} \doxylink{classcudf_1_1table__view}{table\+\_\+view}, each row is copied to the output table to create a set of distinct rows. If there are duplicate rows, which row is copied depends on the {\ttfamily keep} parameter.
+
+The order of rows in the output table remains the same as in the input.
+
+A row is distinct if there are no equivalent rows in the table. A row is unique if there is no adjacent equivalent row. That is, keeping distinct rows removes all duplicates in the table/column, while keeping unique rows only removes duplicates from consecutive groupings.
+
+Performance hint\+: if the input is pre-\/sorted, {\ttfamily \doxylink{group__reorder__compact_ga87352ad4f282dd17365d4c9929d5c644}{cudf\+::unique}} can produce an equivalent result (i.\+e., same set of output rows) but with less running time than {\ttfamily \doxylink{group__reorder__compact_ga201195610929658c5d383fa99434ef9c}{cudf\+::distinct}}.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if the {\ttfamily keys} column indices are out of bounds in the {\ttfamily input} table.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & input \doxylink{classcudf_1_1table__view}{table\+\_\+view} to copy only unique rows \\
+\hline
+\mbox{\texttt{ in}}  & {\em keys} & vector of indices representing key columns from {\ttfamily input} \\
+\hline
+\mbox{\texttt{ in}}  & {\em keep} & keep any, first, last, or none of the found duplicates \\
+\hline
+\mbox{\texttt{ in}}  & {\em nulls\+\_\+equal} & flag to denote nulls are equal if \doxylink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\+\_\+equality\+::\+EQUAL}, nulls are not equal if \doxylink{group__utility__types_gga08a672308cd0f61562410d106b377771ac0df9e531f39895029236b71d0d1c0ac}{null\+\_\+equality\+::\+UNEQUAL} \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Table with unique rows from each sequence of equivalent rows as specified by {\ttfamily keep} 
+\end{DoxyReturn}
+\Hypertarget{group__reorder__compact_ga63e5defd9560fcd397ff6aa79022a56c}\label{group__reorder__compact_ga63e5defd9560fcd397ff6aa79022a56c} 
+\index{Reorder\_compact@{Reorder\_compact}!unique\_count@{unique\_count}}
+\index{unique\_count@{unique\_count}!Reorder\_compact@{Reorder\_compact}}
+\doxysubsubsection{\texorpdfstring{unique\_count()}{unique\_count()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::unique\+\_\+count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}}}]{null\+\_\+handling,  }\item[{\mbox{\hyperlink{group__utility__types_ga74641d3dfd6d96d0939b492ecf9b9cc8}{nan\+\_\+policy}}}]{nan\+\_\+handling }\end{DoxyParamCaption})}
+
+
+
+Count the number of consecutive groups of equivalent rows in a column. 
+
+If {\ttfamily null\+\_\+handling} is \doxylink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}{null\+\_\+policy\+::\+EXCLUDE} and {\ttfamily nan\+\_\+handling} is \doxylink{group__utility__types_gga74641d3dfd6d96d0939b492ecf9b9cc8aeed6bbfa0697c54960c7e0baa97313f4}{nan\+\_\+policy\+::\+NAN\+\_\+\+IS\+\_\+\+NULL}, both {\ttfamily NaN} and {\ttfamily null} values are ignored. If {\ttfamily null\+\_\+handling} is \doxylink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}{null\+\_\+policy\+::\+EXCLUDE} and {\ttfamily nan\+\_\+handling} is \doxylink{group__utility__types_gga74641d3dfd6d96d0939b492ecf9b9cc8a27adbe26caa2eb99976344933c281a77}{nan\+\_\+policy\+::\+NAN\+\_\+\+IS\+\_\+\+VALID}, only {\ttfamily null} is ignored, {\ttfamily NaN} is considered in count.
+
+{\ttfamily null}s are handled as equal.
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & The \doxylink{classcudf_1_1column__view}{column\+\_\+view} whose consecutive groups of equivalent rows will be counted \\
+\hline
+\mbox{\texttt{ in}}  & {\em null\+\_\+handling} & flag to include or ignore {\ttfamily null} while counting \\
+\hline
+\mbox{\texttt{ in}}  & {\em nan\+\_\+handling} & flag to consider {\ttfamily NaN==null} or not\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+number of consecutive groups of equivalent rows in the column 
+\end{DoxyReturn}
+\Hypertarget{group__reorder__compact_gad947e78a65b8c7eca69337c6bd3ad749}\label{group__reorder__compact_gad947e78a65b8c7eca69337c6bd3ad749} 
+\index{Reorder\_compact@{Reorder\_compact}!unique\_count@{unique\_count}}
+\index{unique\_count@{unique\_count}!Reorder\_compact@{Reorder\_compact}}
+\doxysubsubsection{\texorpdfstring{unique\_count()}{unique\_count()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::unique\+\_\+count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}}}]{nulls\+\_\+equal = {\ttfamily \mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\+\_\+equality\+::\+EQUAL}}} }\end{DoxyParamCaption})}
+
+
+
+Count the number of consecutive groups of equivalent rows in a table. 
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & Table whose consecutive groups of equivalent rows will be counted \\
+\hline
+\mbox{\texttt{ in}}  & {\em nulls\+\_\+equal} & flag to denote if null elements should be considered equal nulls are not equal if \doxylink{group__utility__types_gga08a672308cd0f61562410d106b377771ac0df9e531f39895029236b71d0d1c0ac}{null\+\_\+equality\+::\+UNEQUAL}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+number of consecutive groups of equivalent rows in the column 
+\end{DoxyReturn}

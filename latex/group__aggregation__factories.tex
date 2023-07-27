@@ -1,0 +1,838 @@
+\doxysection{Aggregation\+\_\+factories}
+\hypertarget{group__aggregation__factories}{}\label{group__aggregation__factories}\index{Aggregation\_factories@{Aggregation\_factories}}
+Aggregation\+\_\+factories 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__aggregation__factories}
+\end{center}
+\end{figure}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{aggregation_8hpp}{aggregation.\+hpp}}
+\begin{DoxyCompactList}\small\item\em Representation for specifying desired aggregations from aggregation-\/based APIs, e.\+g., groupby, reductions, rolling, etc. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1detail}{cudf\+::detail}}
+\begin{DoxyCompactList}\small\item\em Inner interfaces and implementations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcudf_1_1aggregation}{cudf\+::aggregation}}
+\begin{DoxyCompactList}\small\item\em Abstract base class for specifying the desired aggregation in an {\ttfamily aggregation\+\_\+request}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcudf_1_1rolling__aggregation}{cudf\+::rolling\+\_\+aggregation}}
+\begin{DoxyCompactList}\small\item\em Derived class intended for rolling\+\_\+window specific aggregation usage. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcudf_1_1groupby__aggregation}{cudf\+::groupby\+\_\+aggregation}}
+\begin{DoxyCompactList}\small\item\em Derived class intended for groupby specific aggregation usage. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcudf_1_1groupby__scan__aggregation}{cudf\+::groupby\+\_\+scan\+\_\+aggregation}}
+\begin{DoxyCompactList}\small\item\em Derived class intended for groupby specific scan usage. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcudf_1_1reduce__aggregation}{cudf\+::reduce\+\_\+aggregation}}
+\begin{DoxyCompactList}\small\item\em Derived class intended for reduction usage. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcudf_1_1scan__aggregation}{cudf\+::scan\+\_\+aggregation}}
+\begin{DoxyCompactList}\small\item\em Derived class intended for scan usage. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcudf_1_1segmented__reduce__aggregation}{cudf\+::segmented\+\_\+reduce\+\_\+aggregation}}
+\begin{DoxyCompactList}\small\item\em Derived class intended for segmented reduction usage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__aggregation__factories_ga3701f066cd6ad8bad2a70fbfcef93071}{cudf\+::rank\+\_\+percentage}} \+: int32\+\_\+t \{ \mbox{\hyperlink{group__aggregation__factories_gga3701f066cd6ad8bad2a70fbfcef93071ab50339a10e1de285ac99d4c3990b8693}{cudf\+::rank\+\_\+percentage\+::\+NONE}}
+, \mbox{\hyperlink{group__aggregation__factories_gga3701f066cd6ad8bad2a70fbfcef93071a90fa47f34fe7e9926f52e5eb144c798d}{cudf\+::rank\+\_\+percentage\+::\+ZERO\+\_\+\+NORMALIZED}}
+, \mbox{\hyperlink{group__aggregation__factories_gga3701f066cd6ad8bad2a70fbfcef93071a552e99f7f1cb96081c640e1756f137b6}{cudf\+::rank\+\_\+percentage\+::\+ONE\+\_\+\+NORMALIZED}}
+ \}
+\begin{DoxyCompactList}\small\item\em Whether returned rank should be percentage or not and mention the type of percentage normalization. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{group__aggregation__factories_gad2e43a487f20c968b2474a5cb980527e}{cudf\+::udf\+\_\+type}} \+: bool \{ \mbox{\hyperlink{group__aggregation__factories_ggad2e43a487f20c968b2474a5cb980527eaa33b7755e5f9b504d2d038eaca4ff28d}{cudf\+::udf\+\_\+type\+::\+CUDA}}
+, \mbox{\hyperlink{group__aggregation__factories_ggad2e43a487f20c968b2474a5cb980527eae3c5ca6a28ee215e0adfb1a014d9d7ab}{cudf\+::udf\+\_\+type\+::\+PTX}}
+ \}
+\begin{DoxyCompactList}\small\item\em Type of code in the user defined function string. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{group__aggregation__factories_ga1dc83597d5b1e9cf752fc20fcdd77d40}{cudf\+::correlation\+\_\+type}} \+: int32\+\_\+t \{ \mbox{\hyperlink{group__aggregation__factories_gga1dc83597d5b1e9cf752fc20fcdd77d40a04e79da97aad2da56010b0f681b8c7a2}{cudf\+::correlation\+\_\+type\+::\+PEARSON}}
+, \mbox{\hyperlink{group__aggregation__factories_gga1dc83597d5b1e9cf752fc20fcdd77d40a4ea5bfb1deff9aacbc55d3345c77d9ae}{cudf\+::correlation\+\_\+type\+::\+KENDALL}}
+, \mbox{\hyperlink{group__aggregation__factories_gga1dc83597d5b1e9cf752fc20fcdd77d40a17f4b051a83b72b0232e6c77c2bc4943}{cudf\+::correlation\+\_\+type\+::\+SPEARMAN}}
+ \}
+\begin{DoxyCompactList}\small\item\em Type of correlation method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gae5b74d72237dce180b58e72b9c2c4df5}{cudf\+::make\+\_\+sum\+\_\+aggregation}} ()
+\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gafb80c911d8fd6b7c99386e4ee0c19528}{cudf\+::make\+\_\+product\+\_\+aggregation}} ()
+\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga96fff41e453f8042dba3e8e3929dee3c}{cudf\+::make\+\_\+min\+\_\+aggregation}} ()
+\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gadf676fa44ede8206ef658ba6f3c2c493}{cudf\+::make\+\_\+max\+\_\+aggregation}} ()
+\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga42dad49568d0804fd536d8b3c7fad589}{cudf\+::make\+\_\+count\+\_\+aggregation}} (\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling=\mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}{null\+\_\+policy\+::\+EXCLUDE}})
+\begin{DoxyCompactList}\small\item\em Factory to create a COUNT aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga997b177576ffde84ada7258dcb46eacb}{cudf\+::make\+\_\+any\+\_\+aggregation}} ()
+\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga8466bb2dbb0a11b1343d2c8721bd9295}{cudf\+::make\+\_\+all\+\_\+aggregation}} ()
+\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga6a40c987b02d5daa60cb8bc3b4b92978}{cudf\+::make\+\_\+sum\+\_\+of\+\_\+squares\+\_\+aggregation}} ()
+\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gae5d94f062b4e6da50362a18957f21b78}{cudf\+::make\+\_\+mean\+\_\+aggregation}} ()
+\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gad6409efbd5fac20862b76065d17e3423}{cudf\+::make\+\_\+m2\+\_\+aggregation}} ()
+\begin{DoxyCompactList}\small\item\em Factory to create a M2 aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga9abb4c17f90c15712c5edba57c4b67d8}{cudf\+::make\+\_\+variance\+\_\+aggregation}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} ddof=1)
+\begin{DoxyCompactList}\small\item\em Factory to create a VARIANCE aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga4f3e8c7b8d395d160fed784479186412}{cudf\+::make\+\_\+std\+\_\+aggregation}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} ddof=1)
+\begin{DoxyCompactList}\small\item\em Factory to create a STD aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga5a96931dd2174dd158d7843e14c1e3e0}{cudf\+::make\+\_\+median\+\_\+aggregation}} ()
+\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gae2057553f0af67248aa9efd3607f9092}{cudf\+::make\+\_\+quantile\+\_\+aggregation}} (std\+::vector$<$ double $>$ const \&\mbox{\hyperlink{group__column__quantiles_ga5a7bfdd267148ba8038c50c3c27fa87a}{quantiles}}, \mbox{\hyperlink{group__utility__types_ga9cd17c1cdf028ead9a4783f605276ab3}{interpolation}} interp=\mbox{\hyperlink{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3aaac544aacc3615aada24897a215f5046}{interpolation\+::\+LINEAR}})
+\begin{DoxyCompactList}\small\item\em Factory to create a QUANTILE aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gad99a06c2f1299bd11fa7e1c352b976de}{cudf\+::make\+\_\+argmax\+\_\+aggregation}} ()
+\begin{DoxyCompactList}\small\item\em Factory to create an ARGMAX aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gafaf0438b1c84be2a9edecbc9f586593a}{cudf\+::make\+\_\+argmin\+\_\+aggregation}} ()
+\begin{DoxyCompactList}\small\item\em Factory to create an ARGMIN aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gacae54c114e7aefc438708bb5bbb391dc}{cudf\+::make\+\_\+nunique\+\_\+aggregation}} (\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling=\mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}{null\+\_\+policy\+::\+EXCLUDE}})
+\begin{DoxyCompactList}\small\item\em Factory to create a NUNIQUE aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gaaeb94e5a4cdf3250298b2e475fc1a7ef}{cudf\+::make\+\_\+nth\+\_\+element\+\_\+aggregation}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} n, \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling=\mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a04ff6a9583ba9957ebe1128d0f988ad8}{null\+\_\+policy\+::\+INCLUDE}})
+\begin{DoxyCompactList}\small\item\em Factory to create a NTH\+\_\+\+ELEMENT aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gac62f0cd24feeebf821f86d6d3daf03c1}{cudf\+::make\+\_\+row\+\_\+number\+\_\+aggregation}} ()
+\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga8459759dcad222d9e3376be39644e034}{cudf\+::make\+\_\+rank\+\_\+aggregation}} (\mbox{\hyperlink{group__column__sort_gac8975ec1273372f6ccae83a85bee71ce}{rank\+\_\+method}} method, \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} column\+\_\+order=\mbox{\hyperlink{group__utility__types_gga750f02016b046079f7062d334890b4fca83ec681a20197326c163ea3b39ef7c32}{order\+::\+ASCENDING}}, \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling=\mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}{null\+\_\+policy\+::\+EXCLUDE}}, \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} null\+\_\+precedence=\mbox{\hyperlink{group__utility__types_gga058e6d6e8a21583ce0e85ee73e5abb31ac130fda0cb93540bf1574912e78964fb}{null\+\_\+order\+::\+AFTER}}, \mbox{\hyperlink{group__aggregation__factories_ga3701f066cd6ad8bad2a70fbfcef93071}{rank\+\_\+percentage}} percentage=\mbox{\hyperlink{group__aggregation__factories_gga3701f066cd6ad8bad2a70fbfcef93071ab50339a10e1de285ac99d4c3990b8693}{rank\+\_\+percentage\+::\+NONE}})
+\begin{DoxyCompactList}\small\item\em Factory to create a RANK aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga3990aa8b1b93f589b59da40bb2db3a92}{cudf\+::make\+\_\+collect\+\_\+list\+\_\+aggregation}} (\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling=\mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a04ff6a9583ba9957ebe1128d0f988ad8}{null\+\_\+policy\+::\+INCLUDE}})
+\begin{DoxyCompactList}\small\item\em Factory to create a COLLECT\+\_\+\+LIST aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gaa5f717838c0e644888ee6d6fb277369c}{cudf\+::make\+\_\+collect\+\_\+set\+\_\+aggregation}} (\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling=\mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a04ff6a9583ba9957ebe1128d0f988ad8}{null\+\_\+policy\+::\+INCLUDE}}, \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}} nulls\+\_\+equal=\mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\+\_\+equality\+::\+EQUAL}}, \mbox{\hyperlink{group__utility__types_gae9d1055c69c3089452794783c7c82f83}{nan\+\_\+equality}} nans\+\_\+equal=\mbox{\hyperlink{group__utility__types_ggae9d1055c69c3089452794783c7c82f83acd6d9f766e6e2753da429d26078711d7}{nan\+\_\+equality\+::\+ALL\+\_\+\+EQUAL}})
+\begin{DoxyCompactList}\small\item\em Factory to create a COLLECT\+\_\+\+SET aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga4f7d7d2810366fb16dfa5beeb6ac558d}{cudf\+::make\+\_\+lag\+\_\+aggregation}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} offset)
+\begin{DoxyCompactList}\small\item\em Factory to create a LAG aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gae667d46023c348924a5bf6375b035d16}{cudf\+::make\+\_\+lead\+\_\+aggregation}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} offset)
+\begin{DoxyCompactList}\small\item\em Factory to create a LEAD aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gacffa15e505b5c0be97fcac800b1b6e4a}{cudf\+::make\+\_\+udf\+\_\+aggregation}} (\mbox{\hyperlink{group__aggregation__factories_gad2e43a487f20c968b2474a5cb980527e}{udf\+\_\+type}} type, std\+::string const \&user\+\_\+defined\+\_\+aggregator, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Factory to create an aggregation base on UDF for PTX or CUDA \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga289507baeaaa23c86bd0d7a13927fd7f}{cudf\+::make\+\_\+merge\+\_\+lists\+\_\+aggregation}} ()
+\begin{DoxyCompactList}\small\item\em Factory to create a MERGE\+\_\+\+LISTS aggregation. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_gabe6648e29d5c2043be76299c089e0e20}{cudf\+::make\+\_\+merge\+\_\+sets\+\_\+aggregation}} (\mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}} nulls\+\_\+equal=\mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\+\_\+equality\+::\+EQUAL}}, \mbox{\hyperlink{group__utility__types_gae9d1055c69c3089452794783c7c82f83}{nan\+\_\+equality}} nans\+\_\+equal=\mbox{\hyperlink{group__utility__types_ggae9d1055c69c3089452794783c7c82f83acd6d9f766e6e2753da429d26078711d7}{nan\+\_\+equality\+::\+ALL\+\_\+\+EQUAL}})
+\begin{DoxyCompactList}\small\item\em Factory to create a MERGE\+\_\+\+SETS aggregation. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga39e2d507b2d0ea78658c5c2c76313b62}{cudf\+::make\+\_\+merge\+\_\+m2\+\_\+aggregation}} ()
+\begin{DoxyCompactList}\small\item\em Factory to create a MERGE\+\_\+\+M2 aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga93c7e22dc9ee73c06fdda6a592a240b3}{cudf\+::make\+\_\+covariance\+\_\+aggregation}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} min\+\_\+periods=1, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} ddof=1)
+\begin{DoxyCompactList}\small\item\em Factory to create a COVARIANCE aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base  = aggregation$>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga484a5d1daa12445e816036e72bfa1154}{cudf\+::make\+\_\+correlation\+\_\+aggregation}} (\mbox{\hyperlink{group__aggregation__factories_ga1dc83597d5b1e9cf752fc20fcdd77d40}{correlation\+\_\+type}} type, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} min\+\_\+periods=1)
+\begin{DoxyCompactList}\small\item\em Factory to create a CORRELATION aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base $>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga92a39b05abcbb6fb8ceff7d28e36477b}{cudf\+::make\+\_\+tdigest\+\_\+aggregation}} (int max\+\_\+centroids=1000)
+\begin{DoxyCompactList}\small\item\em Factory to create a TDIGEST aggregation \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Base $>$ }\\std\+::unique\+\_\+ptr$<$ Base $>$ \mbox{\hyperlink{group__aggregation__factories_ga6541f64eed15c1ce29fdf27f67f31330}{cudf\+::make\+\_\+merge\+\_\+tdigest\+\_\+aggregation}} (int max\+\_\+centroids=1000)
+\begin{DoxyCompactList}\small\item\em Factory to create a MERGE\+\_\+\+TDIGEST aggregation \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{枚举类型说明}
+\Hypertarget{group__aggregation__factories_ga1dc83597d5b1e9cf752fc20fcdd77d40}\label{group__aggregation__factories_ga1dc83597d5b1e9cf752fc20fcdd77d40} 
+\index{Aggregation\_factories@{Aggregation\_factories}!correlation\_type@{correlation\_type}}
+\index{correlation\_type@{correlation\_type}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{correlation\_type}{correlation\_type}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__aggregation__factories_ga1dc83597d5b1e9cf752fc20fcdd77d40}{cudf\+::correlation\+\_\+type}} \+: int32\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Type of correlation method. 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PEARSON@{PEARSON}!Aggregation\_factories@{Aggregation\_factories}}\index{Aggregation\_factories@{Aggregation\_factories}!PEARSON@{PEARSON}}}\Hypertarget{group__aggregation__factories_gga1dc83597d5b1e9cf752fc20fcdd77d40a04e79da97aad2da56010b0f681b8c7a2}\label{group__aggregation__factories_gga1dc83597d5b1e9cf752fc20fcdd77d40a04e79da97aad2da56010b0f681b8c7a2} 
+PEARSON&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KENDALL@{KENDALL}!Aggregation\_factories@{Aggregation\_factories}}\index{Aggregation\_factories@{Aggregation\_factories}!KENDALL@{KENDALL}}}\Hypertarget{group__aggregation__factories_gga1dc83597d5b1e9cf752fc20fcdd77d40a4ea5bfb1deff9aacbc55d3345c77d9ae}\label{group__aggregation__factories_gga1dc83597d5b1e9cf752fc20fcdd77d40a4ea5bfb1deff9aacbc55d3345c77d9ae} 
+KENDALL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPEARMAN@{SPEARMAN}!Aggregation\_factories@{Aggregation\_factories}}\index{Aggregation\_factories@{Aggregation\_factories}!SPEARMAN@{SPEARMAN}}}\Hypertarget{group__aggregation__factories_gga1dc83597d5b1e9cf752fc20fcdd77d40a17f4b051a83b72b0232e6c77c2bc4943}\label{group__aggregation__factories_gga1dc83597d5b1e9cf752fc20fcdd77d40a17f4b051a83b72b0232e6c77c2bc4943} 
+SPEARMAN&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{aggregation_8hpp_source}{aggregation.\+hpp}} 第 \mbox{\hyperlink{aggregation_8hpp_source_l00250}{250}} 行定义.
+
+\Hypertarget{group__aggregation__factories_ga3701f066cd6ad8bad2a70fbfcef93071}\label{group__aggregation__factories_ga3701f066cd6ad8bad2a70fbfcef93071} 
+\index{Aggregation\_factories@{Aggregation\_factories}!rank\_percentage@{rank\_percentage}}
+\index{rank\_percentage@{rank\_percentage}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{rank\_percentage}{rank\_percentage}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__aggregation__factories_ga3701f066cd6ad8bad2a70fbfcef93071}{cudf\+::rank\+\_\+percentage}} \+: int32\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Whether returned rank should be percentage or not and mention the type of percentage normalization. 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NONE@{NONE}!Aggregation\_factories@{Aggregation\_factories}}\index{Aggregation\_factories@{Aggregation\_factories}!NONE@{NONE}}}\Hypertarget{group__aggregation__factories_gga3701f066cd6ad8bad2a70fbfcef93071ab50339a10e1de285ac99d4c3990b8693}\label{group__aggregation__factories_gga3701f066cd6ad8bad2a70fbfcef93071ab50339a10e1de285ac99d4c3990b8693} 
+NONE&rank \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ZERO\_NORMALIZED@{ZERO\_NORMALIZED}!Aggregation\_factories@{Aggregation\_factories}}\index{Aggregation\_factories@{Aggregation\_factories}!ZERO\_NORMALIZED@{ZERO\_NORMALIZED}}}\Hypertarget{group__aggregation__factories_gga3701f066cd6ad8bad2a70fbfcef93071a90fa47f34fe7e9926f52e5eb144c798d}\label{group__aggregation__factories_gga3701f066cd6ad8bad2a70fbfcef93071a90fa47f34fe7e9926f52e5eb144c798d} 
+ZERO\+\_\+\+NORMALIZED&rank / count \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ONE\_NORMALIZED@{ONE\_NORMALIZED}!Aggregation\_factories@{Aggregation\_factories}}\index{Aggregation\_factories@{Aggregation\_factories}!ONE\_NORMALIZED@{ONE\_NORMALIZED}}}\Hypertarget{group__aggregation__factories_gga3701f066cd6ad8bad2a70fbfcef93071a552e99f7f1cb96081c640e1756f137b6}\label{group__aggregation__factories_gga3701f066cd6ad8bad2a70fbfcef93071a552e99f7f1cb96081c640e1756f137b6} 
+ONE\+\_\+\+NORMALIZED&(rank -\/ 1) / (count -\/ 1) \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{aggregation_8hpp_source}{aggregation.\+hpp}} 第 \mbox{\hyperlink{aggregation_8hpp_source_l00066}{66}} 行定义.
+
+\Hypertarget{group__aggregation__factories_gad2e43a487f20c968b2474a5cb980527e}\label{group__aggregation__factories_gad2e43a487f20c968b2474a5cb980527e} 
+\index{Aggregation\_factories@{Aggregation\_factories}!udf\_type@{udf\_type}}
+\index{udf\_type@{udf\_type}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{udf\_type}{udf\_type}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__aggregation__factories_gad2e43a487f20c968b2474a5cb980527e}{cudf\+::udf\+\_\+type}} \+: bool\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Type of code in the user defined function string. 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CUDA@{CUDA}!Aggregation\_factories@{Aggregation\_factories}}\index{Aggregation\_factories@{Aggregation\_factories}!CUDA@{CUDA}}}\Hypertarget{group__aggregation__factories_ggad2e43a487f20c968b2474a5cb980527eaa33b7755e5f9b504d2d038eaca4ff28d}\label{group__aggregation__factories_ggad2e43a487f20c968b2474a5cb980527eaa33b7755e5f9b504d2d038eaca4ff28d} 
+CUDA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PTX@{PTX}!Aggregation\_factories@{Aggregation\_factories}}\index{Aggregation\_factories@{Aggregation\_factories}!PTX@{PTX}}}\Hypertarget{group__aggregation__factories_ggad2e43a487f20c968b2474a5cb980527eae3c5ca6a28ee215e0adfb1a014d9d7ab}\label{group__aggregation__factories_ggad2e43a487f20c968b2474a5cb980527eae3c5ca6a28ee215e0adfb1a014d9d7ab} 
+PTX&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{aggregation_8hpp_source}{aggregation.\+hpp}} 第 \mbox{\hyperlink{aggregation_8hpp_source_l00248}{248}} 行定义.
+
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__aggregation__factories_ga8466bb2dbb0a11b1343d2c8721bd9295}\label{group__aggregation__factories_ga8466bb2dbb0a11b1343d2c8721bd9295} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_all\_aggregation@{make\_all\_aggregation}}
+\index{make\_all\_aggregation@{make\_all\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_all\_aggregation()}{make\_all\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+all\+\_\+aggregation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Factory to create a ALL aggregation \begin{DoxyReturn}{返回}
+A ALL aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_ga997b177576ffde84ada7258dcb46eacb}\label{group__aggregation__factories_ga997b177576ffde84ada7258dcb46eacb} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_any\_aggregation@{make\_any\_aggregation}}
+\index{make\_any\_aggregation@{make\_any\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_any\_aggregation()}{make\_any\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+any\+\_\+aggregation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Factory to create an ANY aggregation \begin{DoxyReturn}{返回}
+A ANY aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_gad99a06c2f1299bd11fa7e1c352b976de}\label{group__aggregation__factories_gad99a06c2f1299bd11fa7e1c352b976de} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_argmax\_aggregation@{make\_argmax\_aggregation}}
+\index{make\_argmax\_aggregation@{make\_argmax\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_argmax\_aggregation()}{make\_argmax\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+argmax\+\_\+aggregation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Factory to create an ARGMAX aggregation 
+
+ARGMAX returns the index of the maximum element. \begin{DoxyReturn}{返回}
+A ARGMAX aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_gafaf0438b1c84be2a9edecbc9f586593a}\label{group__aggregation__factories_gafaf0438b1c84be2a9edecbc9f586593a} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_argmin\_aggregation@{make\_argmin\_aggregation}}
+\index{make\_argmin\_aggregation@{make\_argmin\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_argmin\_aggregation()}{make\_argmin\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+argmin\+\_\+aggregation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Factory to create an ARGMIN aggregation 
+
+{\ttfamily argmin} returns the index of the minimum element. \begin{DoxyReturn}{返回}
+A ARGMIN aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_ga3990aa8b1b93f589b59da40bb2db3a92}\label{group__aggregation__factories_ga3990aa8b1b93f589b59da40bb2db3a92} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_collect\_list\_aggregation@{make\_collect\_list\_aggregation}}
+\index{make\_collect\_list\_aggregation@{make\_collect\_list\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_collect\_list\_aggregation()}{make\_collect\_list\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+collect\+\_\+list\+\_\+aggregation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}}}]{null\+\_\+handling = {\ttfamily \mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a04ff6a9583ba9957ebe1128d0f988ad8}{null\+\_\+policy\+::\+INCLUDE}}} }\end{DoxyParamCaption})}
+
+
+
+Factory to create a COLLECT\+\_\+\+LIST aggregation 
+
+{\ttfamily COLLECT\+\_\+\+LIST} returns a list column of all included elements in the group/series.
+
+If {\ttfamily null\+\_\+handling} is set to {\ttfamily EXCLUDE}, null elements are dropped from each of the list rows.
+
+
+\begin{DoxyParams}{参数}
+{\em null\+\_\+handling} & Indicates whether to include/exclude nulls in list elements \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A COLLECT\+\_\+\+LIST aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_gaa5f717838c0e644888ee6d6fb277369c}\label{group__aggregation__factories_gaa5f717838c0e644888ee6d6fb277369c} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_collect\_set\_aggregation@{make\_collect\_set\_aggregation}}
+\index{make\_collect\_set\_aggregation@{make\_collect\_set\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_collect\_set\_aggregation()}{make\_collect\_set\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+collect\+\_\+set\+\_\+aggregation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}}}]{null\+\_\+handling = {\ttfamily \mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a04ff6a9583ba9957ebe1128d0f988ad8}{null\+\_\+policy\+::\+INCLUDE}}},  }\item[{\mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}}}]{nulls\+\_\+equal = {\ttfamily \mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\+\_\+equality\+::\+EQUAL}}},  }\item[{\mbox{\hyperlink{group__utility__types_gae9d1055c69c3089452794783c7c82f83}{nan\+\_\+equality}}}]{nans\+\_\+equal = {\ttfamily \mbox{\hyperlink{group__utility__types_ggae9d1055c69c3089452794783c7c82f83acd6d9f766e6e2753da429d26078711d7}{nan\+\_\+equality\+::\+ALL\+\_\+\+EQUAL}}} }\end{DoxyParamCaption})}
+
+
+
+Factory to create a COLLECT\+\_\+\+SET aggregation 
+
+{\ttfamily COLLECT\+\_\+\+SET} returns a lists column of all included elements in the group/series. Within each list, the duplicated entries are dropped out such that each entry appears only once.
+
+If {\ttfamily null\+\_\+handling} is set to {\ttfamily EXCLUDE}, null elements are dropped from each of the list rows.
+
+
+\begin{DoxyParams}{参数}
+{\em null\+\_\+handling} & Indicates whether to include/exclude nulls during collection \\
+\hline
+{\em nulls\+\_\+equal} & Flag to specify whether null entries within each list should be considered equal. \\
+\hline
+{\em nans\+\_\+equal} & Flag to specify whether NaN values in floating point column should be considered equal. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A COLLECT\+\_\+\+SET aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_ga484a5d1daa12445e816036e72bfa1154}\label{group__aggregation__factories_ga484a5d1daa12445e816036e72bfa1154} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_correlation\_aggregation@{make\_correlation\_aggregation}}
+\index{make\_correlation\_aggregation@{make\_correlation\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_correlation\_aggregation()}{make\_correlation\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+correlation\+\_\+aggregation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__aggregation__factories_ga1dc83597d5b1e9cf752fc20fcdd77d40}{correlation\+\_\+type}}}]{type,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{min\+\_\+periods = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Factory to create a CORRELATION aggregation 
+
+Compute correlation coefficient between two columns. The input columns are child columns of a non-\/nullable struct columns.
+
+
+\begin{DoxyParams}{参数}
+{\em type} & correlation\+\_\+type \\
+\hline
+{\em min\+\_\+periods} & Minimum number of non-\/null observations required to produce a result \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A CORRELATION aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_ga42dad49568d0804fd536d8b3c7fad589}\label{group__aggregation__factories_ga42dad49568d0804fd536d8b3c7fad589} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_count\_aggregation@{make\_count\_aggregation}}
+\index{make\_count\_aggregation@{make\_count\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_count\_aggregation()}{make\_count\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+count\+\_\+aggregation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}}}]{null\+\_\+handling = {\ttfamily \mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}{null\+\_\+policy\+::\+EXCLUDE}}} }\end{DoxyParamCaption})}
+
+
+
+Factory to create a COUNT aggregation 
+
+
+\begin{DoxyParams}{参数}
+{\em null\+\_\+handling} & Indicates if null values will be counted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A COUNT aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_ga93c7e22dc9ee73c06fdda6a592a240b3}\label{group__aggregation__factories_ga93c7e22dc9ee73c06fdda6a592a240b3} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_covariance\_aggregation@{make\_covariance\_aggregation}}
+\index{make\_covariance\_aggregation@{make\_covariance\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_covariance\_aggregation()}{make\_covariance\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+covariance\+\_\+aggregation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{min\+\_\+periods = {\ttfamily 1},  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{ddof = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Factory to create a COVARIANCE aggregation 
+
+Compute covariance between two columns. The input columns are child columns of a non-\/nullable struct columns. 
+\begin{DoxyParams}{参数}
+{\em min\+\_\+periods} & Minimum number of non-\/null observations required to produce a result \\
+\hline
+{\em ddof} & Delta Degrees of Freedom. The divisor used in calculations is N -\/ ddof, where N is the number of non-\/null observations. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A COVARIANCE aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_ga4f7d7d2810366fb16dfa5beeb6ac558d}\label{group__aggregation__factories_ga4f7d7d2810366fb16dfa5beeb6ac558d} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_lag\_aggregation@{make\_lag\_aggregation}}
+\index{make\_lag\_aggregation@{make\_lag\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_lag\_aggregation()}{make\_lag\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+lag\+\_\+aggregation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{offset }\end{DoxyParamCaption})}
+
+
+
+Factory to create a LAG aggregation 
+
+
+\begin{DoxyParams}{参数}
+{\em offset} & The number of rows to lag the input \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A LAG aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_gae667d46023c348924a5bf6375b035d16}\label{group__aggregation__factories_gae667d46023c348924a5bf6375b035d16} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_lead\_aggregation@{make\_lead\_aggregation}}
+\index{make\_lead\_aggregation@{make\_lead\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_lead\_aggregation()}{make\_lead\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+lead\+\_\+aggregation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{offset }\end{DoxyParamCaption})}
+
+
+
+Factory to create a LEAD aggregation 
+
+
+\begin{DoxyParams}{参数}
+{\em offset} & The number of rows to lead the input \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A LEAD aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_gad6409efbd5fac20862b76065d17e3423}\label{group__aggregation__factories_gad6409efbd5fac20862b76065d17e3423} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_m2\_aggregation@{make\_m2\_aggregation}}
+\index{make\_m2\_aggregation@{make\_m2\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_m2\_aggregation()}{make\_m2\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+m2\+\_\+aggregation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Factory to create a M2 aggregation 
+
+A M2 aggregation is sum of squares of differences from the mean. That is\+: {\ttfamily M2 = SUM((x -\/ MEAN) \texorpdfstring{$\ast$}{*} (x -\/ MEAN))}.
+
+This aggregation produces the intermediate values that are used to compute variance and standard deviation across multiple discrete sets. See {\ttfamily \href{https://en.wikipedia.org/wiki/Algorithms_for_calculating_variance}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Algorithms\+\_\+for\+\_\+calculating\+\_\+variance}}\#Parallel\+\_\+algorithm} for more detail. \begin{DoxyReturn}{返回}
+A M2 aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_gadf676fa44ede8206ef658ba6f3c2c493}\label{group__aggregation__factories_gadf676fa44ede8206ef658ba6f3c2c493} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_max\_aggregation@{make\_max\_aggregation}}
+\index{make\_max\_aggregation@{make\_max\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_max\_aggregation()}{make\_max\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+max\+\_\+aggregation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Factory to create a MAX aggregation \begin{DoxyReturn}{返回}
+A MAX aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_gae5d94f062b4e6da50362a18957f21b78}\label{group__aggregation__factories_gae5d94f062b4e6da50362a18957f21b78} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_mean\_aggregation@{make\_mean\_aggregation}}
+\index{make\_mean\_aggregation@{make\_mean\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_mean\_aggregation()}{make\_mean\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+mean\+\_\+aggregation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Factory to create a MEAN aggregation \begin{DoxyReturn}{返回}
+A MEAN aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_ga5a96931dd2174dd158d7843e14c1e3e0}\label{group__aggregation__factories_ga5a96931dd2174dd158d7843e14c1e3e0} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_median\_aggregation@{make\_median\_aggregation}}
+\index{make\_median\_aggregation@{make\_median\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_median\_aggregation()}{make\_median\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+median\+\_\+aggregation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Factory to create a MEDIAN aggregation \begin{DoxyReturn}{返回}
+A MEDIAN aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_ga289507baeaaa23c86bd0d7a13927fd7f}\label{group__aggregation__factories_ga289507baeaaa23c86bd0d7a13927fd7f} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_merge\_lists\_aggregation@{make\_merge\_lists\_aggregation}}
+\index{make\_merge\_lists\_aggregation@{make\_merge\_lists\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_merge\_lists\_aggregation()}{make\_merge\_lists\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+merge\+\_\+lists\+\_\+aggregation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Factory to create a MERGE\+\_\+\+LISTS aggregation. 
+
+Given a lists column, this aggregation merges all the lists corresponding to the same key value into one list. It is designed specifically to merge the partial results of multiple (distributed) groupby {\ttfamily COLLECT\+\_\+\+LIST} aggregations into a final {\ttfamily COLLECT\+\_\+\+LIST} result. As such, it requires the input lists column to be non-\/nullable (the child column containing list entries is not subjected to this requirement).
+
+\begin{DoxyReturn}{返回}
+A MERGE\+\_\+\+LISTS aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_ga39e2d507b2d0ea78658c5c2c76313b62}\label{group__aggregation__factories_ga39e2d507b2d0ea78658c5c2c76313b62} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_merge\_m2\_aggregation@{make\_merge\_m2\_aggregation}}
+\index{make\_merge\_m2\_aggregation@{make\_merge\_m2\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_merge\_m2\_aggregation()}{make\_merge\_m2\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+merge\+\_\+m2\+\_\+aggregation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Factory to create a MERGE\+\_\+\+M2 aggregation 
+
+Merges the results of {\ttfamily M2} aggregations on independent sets into a new {\ttfamily M2} value equivalent to if a single {\ttfamily M2} aggregation was done across all of the sets at once. This aggregation is only valid on structs whose members are the result of the {\ttfamily COUNT\+\_\+\+VALID}, {\ttfamily MEAN}, and {\ttfamily M2} aggregations on the same sets. The output of this aggregation is a struct containing the merged {\ttfamily COUNT\+\_\+\+VALID}, {\ttfamily MEAN}, and {\ttfamily M2} aggregations.
+
+The input {\ttfamily M2} aggregation values are expected to be all non-\/negative numbers, since they were output from {\ttfamily M2} aggregation.
+
+\begin{DoxyReturn}{返回}
+A MERGE\+\_\+\+M2 aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_gabe6648e29d5c2043be76299c089e0e20}\label{group__aggregation__factories_gabe6648e29d5c2043be76299c089e0e20} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_merge\_sets\_aggregation@{make\_merge\_sets\_aggregation}}
+\index{make\_merge\_sets\_aggregation@{make\_merge\_sets\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_merge\_sets\_aggregation()}{make\_merge\_sets\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+merge\+\_\+sets\+\_\+aggregation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}}}]{nulls\+\_\+equal = {\ttfamily \mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\+\_\+equality\+::\+EQUAL}}},  }\item[{\mbox{\hyperlink{group__utility__types_gae9d1055c69c3089452794783c7c82f83}{nan\+\_\+equality}}}]{nans\+\_\+equal = {\ttfamily \mbox{\hyperlink{group__utility__types_ggae9d1055c69c3089452794783c7c82f83acd6d9f766e6e2753da429d26078711d7}{nan\+\_\+equality\+::\+ALL\+\_\+\+EQUAL}}} }\end{DoxyParamCaption})}
+
+
+
+Factory to create a MERGE\+\_\+\+SETS aggregation. 
+
+Given a lists column, this aggregation firstly merges all the lists corresponding to the same key value into one list, then it drops all the duplicate entries in each lists, producing a lists column containing non-\/repeated entries.
+
+This aggregation is designed specifically to merge the partial results of multiple (distributed) groupby {\ttfamily COLLECT\+\_\+\+LIST} or {\ttfamily COLLECT\+\_\+\+SET} aggregations into a final {\ttfamily COLLECT\+\_\+\+SET} result. As such, it requires the input lists column to be non-\/nullable (the child column containing list entries is not subjected to this requirement).
+
+In practice, the input (partial results) to this aggregation should be generated by (distributed) {\ttfamily COLLECT\+\_\+\+LIST} aggregations, not {\ttfamily COLLECT\+\_\+\+SET}, to avoid unnecessarily removing duplicate entries for the partial results.
+
+
+\begin{DoxyParams}{参数}
+{\em nulls\+\_\+equal} & Flag to specify whether nulls within each list should be considered equal during dropping duplicate list entries. \\
+\hline
+{\em nans\+\_\+equal} & Flag to specify whether NaN values in floating point column should be considered equal during dropping duplicate list entries. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A MERGE\+\_\+\+SETS aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_ga6541f64eed15c1ce29fdf27f67f31330}\label{group__aggregation__factories_ga6541f64eed15c1ce29fdf27f67f31330} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_merge\_tdigest\_aggregation@{make\_merge\_tdigest\_aggregation}}
+\index{make\_merge\_tdigest\_aggregation@{make\_merge\_tdigest\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_merge\_tdigest\_aggregation()}{make\_merge\_tdigest\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base $>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+merge\+\_\+tdigest\+\_\+aggregation (\begin{DoxyParamCaption}\item[{int}]{max\+\_\+centroids = {\ttfamily 1000} }\end{DoxyParamCaption})}
+
+
+
+Factory to create a MERGE\+\_\+\+TDIGEST aggregation 
+
+Merges the results from a previous aggregation resulting from a {\ttfamily make\+\_\+tdigest\+\_\+aggregation} or {\ttfamily make\+\_\+merge\+\_\+tdigest\+\_\+aggregation} to produce a new a tdigest (\href{https://arxiv.org/pdf/1902.04023.pdf}{\texttt{ https\+://arxiv.\+org/pdf/1902.\+04023.\+pdf}}) column.
+
+The tdigest column produced is of the following structure\+:
+
+struct \{ // centroids for the digest list \{ struct \{ double // mean double // weight \}, ... \} // these are from the input stream, not the centroids. they are used // during the percentile\+\_\+approx computation near the beginning or // end of the quantiles double // min double // max \}
+
+Each output row is a single tdigest. The length of the row is the \"{}size\"{} of the tdigest, each element of which represents a weighted centroid (mean, weight).
+
+
+\begin{DoxyParams}{参数}
+{\em max\+\_\+centroids} & Parameter controlling compression level and accuracy on subsequent queries on the output tdigest data. {\ttfamily max\+\_\+centroids} places an upper bound on the size of the computed tdigests\+: A value of 1000 will result in a tdigest containing no more than 1000 centroids (32 bytes each). Higher result in more accurate tdigest information.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A MERGE\+\_\+\+TDIGEST aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_ga96fff41e453f8042dba3e8e3929dee3c}\label{group__aggregation__factories_ga96fff41e453f8042dba3e8e3929dee3c} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_min\_aggregation@{make\_min\_aggregation}}
+\index{make\_min\_aggregation@{make\_min\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_min\_aggregation()}{make\_min\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+min\+\_\+aggregation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Factory to create a MIN aggregation \begin{DoxyReturn}{返回}
+A MIN aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_gaaeb94e5a4cdf3250298b2e475fc1a7ef}\label{group__aggregation__factories_gaaeb94e5a4cdf3250298b2e475fc1a7ef} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_nth\_element\_aggregation@{make\_nth\_element\_aggregation}}
+\index{make\_nth\_element\_aggregation@{make\_nth\_element\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_nth\_element\_aggregation()}{make\_nth\_element\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+nth\+\_\+element\+\_\+aggregation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{n,  }\item[{\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}}}]{null\+\_\+handling = {\ttfamily \mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a04ff6a9583ba9957ebe1128d0f988ad8}{null\+\_\+policy\+::\+INCLUDE}}} }\end{DoxyParamCaption})}
+
+
+
+Factory to create a NTH\+\_\+\+ELEMENT aggregation 
+
+NTH\+\_\+\+ELEMENT returns the n\textquotesingle{}th element of the group/series.
+
+If {\ttfamily n} is not within the range {\ttfamily \mbox{[}-\/group\+\_\+size, group\+\_\+size)}, the result of the respective group will be null. Negative indices {\ttfamily \mbox{[}-\/group\+\_\+size, -\/1\mbox{]}} corresponds to {\ttfamily \mbox{[}0, group\+\_\+size-\/1\mbox{]}} indices respectively where {\ttfamily group\+\_\+size} is the size of each group.
+
+
+\begin{DoxyParams}{参数}
+{\em n} & index of nth element in each group \\
+\hline
+{\em null\+\_\+handling} & Indicates to include/exclude nulls during indexing \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A NTH\+\_\+\+ELEMENT aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_gacae54c114e7aefc438708bb5bbb391dc}\label{group__aggregation__factories_gacae54c114e7aefc438708bb5bbb391dc} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_nunique\_aggregation@{make\_nunique\_aggregation}}
+\index{make\_nunique\_aggregation@{make\_nunique\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_nunique\_aggregation()}{make\_nunique\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+nunique\+\_\+aggregation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}}}]{null\+\_\+handling = {\ttfamily \mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}{null\+\_\+policy\+::\+EXCLUDE}}} }\end{DoxyParamCaption})}
+
+
+
+Factory to create a NUNIQUE aggregation 
+
+NUNIQUE returns the number of unique elements. 
+\begin{DoxyParams}{参数}
+{\em null\+\_\+handling} & Indicates if null values will be counted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A NUNIQUE aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_gafb80c911d8fd6b7c99386e4ee0c19528}\label{group__aggregation__factories_gafb80c911d8fd6b7c99386e4ee0c19528} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_product\_aggregation@{make\_product\_aggregation}}
+\index{make\_product\_aggregation@{make\_product\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_product\_aggregation()}{make\_product\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+product\+\_\+aggregation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Factory to create a PRODUCT aggregation \begin{DoxyReturn}{返回}
+A PRODUCT aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_gae2057553f0af67248aa9efd3607f9092}\label{group__aggregation__factories_gae2057553f0af67248aa9efd3607f9092} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_quantile\_aggregation@{make\_quantile\_aggregation}}
+\index{make\_quantile\_aggregation@{make\_quantile\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_quantile\_aggregation()}{make\_quantile\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+quantile\+\_\+aggregation (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ const \&}]{quantiles,  }\item[{\mbox{\hyperlink{group__utility__types_ga9cd17c1cdf028ead9a4783f605276ab3}{interpolation}}}]{interp = {\ttfamily \mbox{\hyperlink{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3aaac544aacc3615aada24897a215f5046}{interpolation\+::\+LINEAR}}} }\end{DoxyParamCaption})}
+
+
+
+Factory to create a QUANTILE aggregation 
+
+
+\begin{DoxyParams}{参数}
+{\em quantiles} & The desired quantiles \\
+\hline
+{\em interp} & The desired interpolation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A QUANTILE aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_ga8459759dcad222d9e3376be39644e034}\label{group__aggregation__factories_ga8459759dcad222d9e3376be39644e034} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_rank\_aggregation@{make\_rank\_aggregation}}
+\index{make\_rank\_aggregation@{make\_rank\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_rank\_aggregation()}{make\_rank\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+rank\+\_\+aggregation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__column__sort_gac8975ec1273372f6ccae83a85bee71ce}{rank\+\_\+method}}}]{method,  }\item[{\mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}}}]{column\+\_\+order = {\ttfamily \mbox{\hyperlink{group__utility__types_gga750f02016b046079f7062d334890b4fca83ec681a20197326c163ea3b39ef7c32}{order\+::\+ASCENDING}}},  }\item[{\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}}}]{null\+\_\+handling = {\ttfamily \mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}{null\+\_\+policy\+::\+EXCLUDE}}},  }\item[{\mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}}}]{null\+\_\+precedence = {\ttfamily \mbox{\hyperlink{group__utility__types_gga058e6d6e8a21583ce0e85ee73e5abb31ac130fda0cb93540bf1574912e78964fb}{null\+\_\+order\+::\+AFTER}}},  }\item[{\mbox{\hyperlink{group__aggregation__factories_ga3701f066cd6ad8bad2a70fbfcef93071}{rank\+\_\+percentage}}}]{percentage = {\ttfamily \mbox{\hyperlink{group__aggregation__factories_gga3701f066cd6ad8bad2a70fbfcef93071ab50339a10e1de285ac99d4c3990b8693}{rank\+\_\+percentage\+::\+NONE}}} }\end{DoxyParamCaption})}
+
+
+
+Factory to create a RANK aggregation 
+
+{\ttfamily RANK} returns a column of size\+\_\+type or double \"{}ranks\"{} (see note 3 below for how the data type is determined) for a given rank method and column order. If nulls are excluded, the rank will be null for those rows, otherwise a non-\/nullable column is returned. Double precision column is returned only when percentage!=NONE and when rank method is average.
+
+This aggregation only works with \"{}scan\"{} algorithms. The input column into the group or ungrouped scan is an orderby column that orders the rows that the aggregate function ranks. If rows are ordered by more than one column, the orderby input column should be a struct column containing the ordering columns.
+
+Note\+:
+\begin{DoxyEnumerate}
+\item This method could work faster with the rows that are presorted by the group keys and order\+\_\+by columns. Though groupby object does not require order\+\_\+by column to be sorted, groupby rank scan aggregation does require the order\+\_\+by column to be sorted if the keys are sorted.
+\item {\ttfamily RANK} aggregations are not compatible with exclusive scans.
+\item All rank methods except AVERAGE method and percentage!=NONE returns size\+\_\+type column. For AVERAGE method and percentage!=NONE, the return type is double column.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:\ Consider\ a\ motor-\/racing\ statistics\ dataset,\ containing\ the\ following\ columns:}
+\DoxyCodeLine{\ \ 1.\ venue:\ \ (STRING)\ Location\ of\ the\ race\ event}
+\DoxyCodeLine{\ \ 2.\ driver:\ (STRING)\ Name\ of\ the\ car\ driver\ (abbreviated\ to\ 3\ characters)}
+\DoxyCodeLine{\ \ 3.\ time:\ \ \ (INT32)\ \ Time\ taken\ to\ complete\ the\ circuit}
+\DoxyCodeLine{}
+\DoxyCodeLine{For\ the\ following\ presorted\ data:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ [\ //\ \ \ \ \ \ venue,\ \ \ \ \ \ \ \ \ \ \ driver,\ \ \ \ \ \ \ \ \ \ \ time}
+\DoxyCodeLine{\ \ \ \{\ \ \ "{}silverstone"{},\ \ "{}HAM"{}\ ("{}hamilton"{}),\ \ \ 15823\},}
+\DoxyCodeLine{\ \ \ \{\ \ \ "{}silverstone"{},\ \ "{}LEC"{}\ ("{}leclerc"{}),\ \ \ \ 15827\},}
+\DoxyCodeLine{\ \ \ \{\ \ \ "{}silverstone"{},\ \ "{}BOT"{}\ ("{}bottas"{}),\ \ \ \ \ 15834\},\ \ //\ <-\/-\/\ Tied\ for\ 3rd\ place.}
+\DoxyCodeLine{\ \ \ \{\ \ \ "{}silverstone"{},\ \ "{}NOR"{}\ ("{}norris"{}),\ \ \ \ \ 15834\},\ \ //\ <-\/-\/\ Tied\ for\ 3rd\ place.}
+\DoxyCodeLine{\ \ \ \{\ \ \ "{}silverstone"{},\ \ "{}RIC"{}\ ("{}ricciardo"{}),\ \ 15905\},}
+\DoxyCodeLine{\ \ \ \{\ \ \ \ \ \ "{}monza"{},\ \ \ \ \ "{}RIC"{}\ ("{}ricciardo"{}),\ \ 12154\},}
+\DoxyCodeLine{\ \ \ \{\ \ \ \ \ \ "{}monza"{},\ \ \ \ \ "{}NOR"{}\ ("{}norris"{}),\ \ \ \ \ 12156\},\ \ //\ <-\/-\/\ Tied\ for\ 2nd\ place.}
+\DoxyCodeLine{\ \ \ \{\ \ \ \ \ \ "{}monza"{},\ \ \ \ \ "{}BOT"{}\ ("{}bottas"{}),\ \ \ \ \ 12156\},\ \ //\ <-\/-\/\ Tied\ for\ 2nd\ place.}
+\DoxyCodeLine{\ \ \ \{\ \ \ \ \ \ "{}monza"{},\ \ \ \ \ "{}LEC"{}\ ("{}leclerc"{}),\ \ \ \ 12201\},}
+\DoxyCodeLine{\ \ \ \{\ \ \ \ \ \ "{}monza"{},\ \ \ \ \ "{}PER"{}\ ("{}perez"{}),\ \ \ \ \ \ 12203\}}
+\DoxyCodeLine{\ ]}
+\DoxyCodeLine{}
+\DoxyCodeLine{A\ grouped\ rank\ aggregation\ scan\ with:}
+\DoxyCodeLine{\ \ groupby\ column\ \ \ \ \ \ :\ venue}
+\DoxyCodeLine{\ \ input\ orderby\ column:\ time}
+\DoxyCodeLine{Produces\ the\ following\ rank\ column\ for\ each\ methods:}
+\DoxyCodeLine{first:\ \ \ \{\ \ \ 1,\ \ \ \ \ 2,\ \ \ \ \ 3,\ \ \ \ \ 4,\ \ \ \ \ 5,\ \ \ \ \ \ 1,\ \ \ \ \ 2,\ \ \ \ \ 3,\ \ \ \ \ 4,\ \ \ \ \ 5\}}
+\DoxyCodeLine{average:\ \{\ \ \ 1,\ \ \ \ \ 2,\ \ \ 3.5,\ \ \ 3.5,\ \ \ \ \ 5,\ \ \ \ \ \ 1,\ \ \ 2.5,\ \ \ 2.5,\ \ \ \ \ 4,\ \ \ \ \ 5\}}
+\DoxyCodeLine{min:\ \ \ \ \ \{\ \ \ 1,\ \ \ \ \ 2,\ \ \ \ \ 3,\ \ \ \ \ 3,\ \ \ \ \ 5,\ \ \ \ \ \ 1,\ \ \ \ \ 2,\ \ \ \ \ 2,\ \ \ \ \ 4,\ \ \ \ \ 5\}}
+\DoxyCodeLine{max:\ \ \ \ \ \{\ \ \ 1,\ \ \ \ \ 2,\ \ \ \ \ 4,\ \ \ \ \ 4,\ \ \ \ \ 5,\ \ \ \ \ \ 1,\ \ \ \ \ 3,\ \ \ \ \ 3,\ \ \ \ \ 4,\ \ \ \ \ 5\}}
+\DoxyCodeLine{dense:\ \ \ \{\ \ \ 1,\ \ \ \ \ 2,\ \ \ \ \ 3,\ \ \ \ \ 3,\ \ \ \ \ 4,\ \ \ \ \ \ 1,\ \ \ \ \ 2,\ \ \ \ \ 2,\ \ \ \ \ 3,\ \ \ \ \ 4\}}
+\DoxyCodeLine{This\ corresponds\ to\ the\ following\ grouping\ and\ \`{}driver`\ rows:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \{\ "{}HAM"{},\ "{}LEC"{},\ "{}BOT"{},\ "{}NOR"{},\ "{}RIC"{},\ \ "{}RIC"{},\ "{}NOR"{},\ "{}BOT"{},\ "{}LEC"{},\ "{}PER"{}\ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/silverstone-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/>|<-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/monza-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/>}
+\DoxyCodeLine{}
+\DoxyCodeLine{min\ rank\ for\ each\ percentage\ types:}
+\DoxyCodeLine{NONE:\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ 1,\ \ \ \ \ \ 2,\ \ \ \ \ 3,\ \ \ \ \ 3,\ \ \ \ \ 5,\ \ \ \ \ \ 1,\ \ \ \ \ 2,\ \ \ \ \ 2,\ \ \ \ \ 4,\ \ \ \ \ 5\ \}}
+\DoxyCodeLine{ZERO\_NORMALIZED\ :\ \{\ 0.16,\ \ 0.33,\ \ 0.50,\ \ 0.50,\ \ 0.83,\ \ \ 0.16,\ \ 0.33,\ \ 0.33,\ \ 0.66,\ \ 0.83\ \}}
+\DoxyCodeLine{ONE\_NORMALIZED:\ \ \ \{\ 0.00,\ \ 0.25,\ \ 0.50,\ \ 0.50,\ \ 1.00,\ \ \ 0.00,\ \ 0.25,\ \ 0.25,\ \ 0.75,\ \ 1.00\ \}}
+\DoxyCodeLine{where\ count\ corresponds\ to\ the\ number\ of\ rows\ in\ the\ group.\ @see\ cudf::rank\_percentage}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em method} & The ranking method used for tie breaking (same values) \\
+\hline
+{\em column\+\_\+order} & The desired sort order for ranking \\
+\hline
+{\em null\+\_\+handling} & flag to include nulls during ranking If nulls are not included, the corresponding rank will be null. \\
+\hline
+{\em null\+\_\+precedence} & The desired order of null compared to other elements for column \\
+\hline
+{\em percentage} & enum to denote the type of conversion of ranks to percentage in range (0,1\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A RANK aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_gac62f0cd24feeebf821f86d6d3daf03c1}\label{group__aggregation__factories_gac62f0cd24feeebf821f86d6d3daf03c1} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_row\_number\_aggregation@{make\_row\_number\_aggregation}}
+\index{make\_row\_number\_aggregation@{make\_row\_number\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_row\_number\_aggregation()}{make\_row\_number\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+row\+\_\+number\+\_\+aggregation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Factory to create a ROW\+\_\+\+NUMBER aggregation \begin{DoxyReturn}{返回}
+A ROW\+\_\+\+NUMBER aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_ga4f3e8c7b8d395d160fed784479186412}\label{group__aggregation__factories_ga4f3e8c7b8d395d160fed784479186412} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_std\_aggregation@{make\_std\_aggregation}}
+\index{make\_std\_aggregation@{make\_std\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_std\_aggregation()}{make\_std\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+std\+\_\+aggregation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{ddof = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Factory to create a STD aggregation 
+
+
+\begin{DoxyParams}{参数}
+{\em ddof} & Delta degrees of freedom. The divisor used in calculation of {\ttfamily std} is {\ttfamily N -\/ ddof}, where {\ttfamily N} is the population size.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if input type is chrono or compound types. \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{返回}
+A STD aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_gae5b74d72237dce180b58e72b9c2c4df5}\label{group__aggregation__factories_gae5b74d72237dce180b58e72b9c2c4df5} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_sum\_aggregation@{make\_sum\_aggregation}}
+\index{make\_sum\_aggregation@{make\_sum\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_sum\_aggregation()}{make\_sum\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+sum\+\_\+aggregation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Factory to create a SUM aggregation \begin{DoxyReturn}{返回}
+A SUM aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_ga6a40c987b02d5daa60cb8bc3b4b92978}\label{group__aggregation__factories_ga6a40c987b02d5daa60cb8bc3b4b92978} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_sum\_of\_squares\_aggregation@{make\_sum\_of\_squares\_aggregation}}
+\index{make\_sum\_of\_squares\_aggregation@{make\_sum\_of\_squares\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_sum\_of\_squares\_aggregation()}{make\_sum\_of\_squares\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+sum\+\_\+of\+\_\+squares\+\_\+aggregation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Factory to create a SUM\+\_\+\+OF\+\_\+\+SQUARES aggregation \begin{DoxyReturn}{返回}
+A SUM\+\_\+\+OF\+\_\+\+SQUARES aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_ga92a39b05abcbb6fb8ceff7d28e36477b}\label{group__aggregation__factories_ga92a39b05abcbb6fb8ceff7d28e36477b} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_tdigest\_aggregation@{make\_tdigest\_aggregation}}
+\index{make\_tdigest\_aggregation@{make\_tdigest\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_tdigest\_aggregation()}{make\_tdigest\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base $>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+tdigest\+\_\+aggregation (\begin{DoxyParamCaption}\item[{int}]{max\+\_\+centroids = {\ttfamily 1000} }\end{DoxyParamCaption})}
+
+
+
+Factory to create a TDIGEST aggregation 
+
+Produces a tdigest (\href{https://arxiv.org/pdf/1902.04023.pdf}{\texttt{ https\+://arxiv.\+org/pdf/1902.\+04023.\+pdf}}) column from input values. The input aggregation values are expected to be fixed-\/width numeric types.
+
+The tdigest column produced is of the following structure\+:
+
+struct \{ // centroids for the digest list \{ struct \{ double // mean double // weight \}, ... \} // these are from the input stream, not the centroids. they are used // during the percentile\+\_\+approx computation near the beginning or // end of the quantiles double // min double // max \}
+
+Each output row is a single tdigest. The length of the row is the \"{}size\"{} of the tdigest, each element of which represents a weighted centroid (mean, weight).
+
+
+\begin{DoxyParams}{参数}
+{\em max\+\_\+centroids} & Parameter controlling compression level and accuracy on subsequent queries on the output tdigest data. {\ttfamily max\+\_\+centroids} places an upper bound on the size of the computed tdigests\+: A value of 1000 will result in a tdigest containing no more than 1000 centroids (32 bytes each). Higher result in more accurate tdigest information.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A TDIGEST aggregation object 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_gacffa15e505b5c0be97fcac800b1b6e4a}\label{group__aggregation__factories_gacffa15e505b5c0be97fcac800b1b6e4a} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_udf\_aggregation@{make\_udf\_aggregation}}
+\index{make\_udf\_aggregation@{make\_udf\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_udf\_aggregation()}{make\_udf\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+udf\+\_\+aggregation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__aggregation__factories_gad2e43a487f20c968b2474a5cb980527e}{udf\+\_\+type}}}]{type,  }\item[{std\+::string const \&}]{user\+\_\+defined\+\_\+aggregator,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{output\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+Factory to create an aggregation base on UDF for PTX or CUDA 
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em type} & either \doxylink{group__aggregation__factories_ggad2e43a487f20c968b2474a5cb980527eae3c5ca6a28ee215e0adfb1a014d9d7ab}{udf\+\_\+type\+::\+PTX} or \doxylink{group__aggregation__factories_ggad2e43a487f20c968b2474a5cb980527eaa33b7755e5f9b504d2d038eaca4ff28d}{udf\+\_\+type\+::\+CUDA} \\
+\hline
+\mbox{\texttt{ in}}  & {\em user\+\_\+defined\+\_\+aggregator} & A string containing the aggregator code \\
+\hline
+\mbox{\texttt{ in}}  & {\em output\+\_\+type} & expected output type\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+An aggregation containing a user-\/defined aggregator string 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__factories_ga9abb4c17f90c15712c5edba57c4b67d8}\label{group__aggregation__factories_ga9abb4c17f90c15712c5edba57c4b67d8} 
+\index{Aggregation\_factories@{Aggregation\_factories}!make\_variance\_aggregation@{make\_variance\_aggregation}}
+\index{make\_variance\_aggregation@{make\_variance\_aggregation}!Aggregation\_factories@{Aggregation\_factories}}
+\doxysubsubsection{\texorpdfstring{make\_variance\_aggregation()}{make\_variance\_aggregation()}}
+{\footnotesize\ttfamily template$<$typename Base  = aggregation$>$ \\
+std\+::unique\+\_\+ptr$<$ Base $>$ cudf\+::make\+\_\+variance\+\_\+aggregation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{ddof = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Factory to create a VARIANCE aggregation 
+
+
+\begin{DoxyParams}{参数}
+{\em ddof} & Delta degrees of freedom. The divisor used in calculation of {\ttfamily variance} is {\ttfamily N -\/ ddof}, where {\ttfamily N} is the population size.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if input type is chrono or compound types. \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{返回}
+A VARIANCE aggregation object 
+\end{DoxyReturn}

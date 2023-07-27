@@ -1,0 +1,673 @@
+\doxysection{cudf\+::io\+::json\+\_\+reader\+\_\+options类 参考}
+\hypertarget{classcudf_1_1io_1_1json__reader__options}{}\label{classcudf_1_1io_1_1json__reader__options}\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+
+
+Input arguments to the {\ttfamily read\+\_\+json} interface.  
+
+
+
+
+{\ttfamily \#include $<$json.\+hpp$>$}
+
+
+
+cudf\+::io\+::json\+\_\+reader\+\_\+options 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcudf_1_1io_1_1json__reader__options__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a7852d5f9315bd4b74c231bc96f8208fd}{json\+\_\+reader\+\_\+options}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} const \& \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a6cd1b1a36fb2a007804771454089c906}{get\+\_\+source}} () const
+\begin{DoxyCompactList}\small\item\em Returns source info. \end{DoxyCompactList}\item 
+std\+::variant$<$ std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} $>$, std\+::map$<$ std\+::string, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} $>$, std\+::map$<$ std\+::string, \mbox{\hyperlink{structcudf_1_1io_1_1schema__element}{schema\+\_\+element}} $>$ $>$ const \& \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ae3d0ea9915056979586a22484a78d1c7}{get\+\_\+dtypes}} () const
+\begin{DoxyCompactList}\small\item\em Returns data types of the columns. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\+\_\+type}} \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ab676cb5de47b3b4bbce0d3399e1170db}{get\+\_\+compression}} () const
+\begin{DoxyCompactList}\small\item\em Returns compression format of the source. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a3171894e1573b55578a9fd6af8a8e68a}{get\+\_\+byte\+\_\+range\+\_\+offset}} () const
+\begin{DoxyCompactList}\small\item\em Returns number of bytes to skip from source start. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_abd1a8fe00092aaee053bc32f92e4514b}{get\+\_\+byte\+\_\+range\+\_\+size}} () const
+\begin{DoxyCompactList}\small\item\em Returns number of bytes to read. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a988ccd8f027f544ba9a2a5315c194ad2}{get\+\_\+byte\+\_\+range\+\_\+size\+\_\+with\+\_\+padding}} () const
+\begin{DoxyCompactList}\small\item\em Returns number of bytes to read with padding. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ae555c5820e4a8c1061c9e439362170b4}{get\+\_\+byte\+\_\+range\+\_\+padding}} () const
+\begin{DoxyCompactList}\small\item\em Returns number of bytes to pad when reading. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a6531d6a9b684822e466d970a394b143c}{is\+\_\+enabled\+\_\+lines}} () const
+\begin{DoxyCompactList}\small\item\em Whether to read the file as a json object per line. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_adfeebb87dfd53323e1fabb5e4b1676ee}{is\+\_\+enabled\+\_\+dayfirst}} () const
+\begin{DoxyCompactList}\small\item\em Whether to parse dates as DD/\+MM versus MM/\+DD. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ac7189635984bff57d9cdc72fc2e38b82}{is\+\_\+enabled\+\_\+experimental}} () const
+\begin{DoxyCompactList}\small\item\em Whether the experimental reader should be used. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a2c39809f3a0ec1268f4a95520d3debac}{is\+\_\+enabled\+\_\+keep\+\_\+quotes}} () const
+\begin{DoxyCompactList}\small\item\em Whether the experimental reader should keep quotes of string values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a1528e302ee1e65b45cbda90a0540b2af}{set\+\_\+dtypes}} (std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} $>$ types)
+\begin{DoxyCompactList}\small\item\em Set data types for columns to be read. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a57fdbb46908f332c7f37d779f9a868a3}{set\+\_\+dtypes}} (std\+::map$<$ std\+::string, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} $>$ types)
+\begin{DoxyCompactList}\small\item\em Set data types for columns to be read. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ab837a45de34c9ca45ee523e2d670795f}{set\+\_\+dtypes}} (std\+::map$<$ std\+::string, \mbox{\hyperlink{structcudf_1_1io_1_1schema__element}{schema\+\_\+element}} $>$ types)
+\begin{DoxyCompactList}\small\item\em Set data types for a potentially nested column hierarchy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a15169dc5ae579883d329e03d8d35c5d4}{set\+\_\+compression}} (\mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\+\_\+type}} comp\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Set the compression type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_adc048c7d91c8dbfd7b2e08f86e5e91b2}{set\+\_\+byte\+\_\+range\+\_\+offset}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} offset)
+\begin{DoxyCompactList}\small\item\em Set number of bytes to skip from source start. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a7606947b3d802f3887d6c71390293780}{set\+\_\+byte\+\_\+range\+\_\+size}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} size)
+\begin{DoxyCompactList}\small\item\em Set number of bytes to read. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ab006ee0f3cf3a1cb330881adb93393c8}{enable\+\_\+lines}} (bool val)
+\begin{DoxyCompactList}\small\item\em Set whether to read the file as a json object per line. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a8f26b41b5fc7ec7a9bf4f46d46f01f82}{enable\+\_\+dayfirst}} (bool val)
+\begin{DoxyCompactList}\small\item\em Set whether to parse dates as DD/\+MM versus MM/\+DD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a40b5548b78b2d0bd100225dc8d06e0a7}{enable\+\_\+experimental}} (bool val)
+\begin{DoxyCompactList}\small\item\em Set whether to use the experimental reader. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ab158ca02d218f12416553c7be7409c16}{enable\+\_\+keep\+\_\+quotes}} (bool val)
+\begin{DoxyCompactList}\small\item\em Set whether the experimental reader should keep quotes of string values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder}{json\+\_\+reader\+\_\+options\+\_\+builder}} \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a12bef48726e880ac96020c13b5fdfdfb}{builder}} (\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} const \&src)
+\begin{DoxyCompactList}\small\item\em create \doxylink{classcudf_1_1io_1_1json__reader__options__builder}{json\+\_\+reader\+\_\+options\+\_\+builder} which will build \doxylink{classcudf_1_1io_1_1json__reader__options}{json\+\_\+reader\+\_\+options}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a3b28a30d4d8bc54aa375c5951b253960}{json\+\_\+reader\+\_\+options}} (const \mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} \&src)
+\begin{DoxyCompactList}\small\item\em Constructor from source info. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a75e964d1fdafddbce8a7233243bf68eb}{\+\_\+source}}
+\item 
+std\+::variant$<$ std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} $>$, std\+::map$<$ std\+::string, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} $>$, std\+::map$<$ std\+::string, \mbox{\hyperlink{structcudf_1_1io_1_1schema__element}{schema\+\_\+element}} $>$ $>$ \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a3bf42eb212e44b58dc1a1bcfef089225}{\+\_\+dtypes}}
+\item 
+\mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\+\_\+type}} \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a2a75988bea5d92831e6e00643f0ab65f}{\+\_\+compression}} = \mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8ae1f2d5134ed2543d38a0de9751cf75d9}{compression\+\_\+type\+::\+AUTO}}
+\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_ad8201d434d6aa8195ee8d5307ac90576}{\+\_\+lines}} = false
+\item 
+size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a15f20842d689872c3e3071a65d94f809}{\+\_\+byte\+\_\+range\+\_\+offset}} = 0
+\item 
+size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_aa1da1b668f186b6e7940e86e0d79253c}{\+\_\+byte\+\_\+range\+\_\+size}} = 0
+\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_af223dded3164e60ec2a9e642c43eb29f}{\+\_\+dayfirst}} = false
+\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a0540ae6bf8e69da7dfda7770da73e93e}{\+\_\+experimental}} = false
+\item 
+bool \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_a59a13bf896a90d45eaee4c85954bde62}{\+\_\+keep\+\_\+quotes}} = false
+\item 
+friend \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options_af7ef8a9cb90cbd0e825c95483071977d}{json\+\_\+reader\+\_\+options\+\_\+builder}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Input arguments to the {\ttfamily read\+\_\+json} interface. 
+
+Available parameters are closely patterned after PANDAS\textquotesingle{} {\ttfamily read\+\_\+json} API. Not all parameters are supported. If the matching PANDAS\textquotesingle{} parameter has a default value of {\ttfamily None}, then a default value of {\ttfamily -\/1} or {\ttfamily 0} may be used as the equivalent.
+
+Parameters in PANDAS that are unavailable or in cudf\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Name   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Name   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-2}
+\endhead
+{\ttfamily orient}   &currently fixed-\/format    \\\cline{1-2}
+{\ttfamily typ}   &data is always returned as a \doxylink{classcudf_1_1table}{cudf\+::table}    \\\cline{1-2}
+{\ttfamily convert\+\_\+axes}   &use column functions for axes operations instead    \\\cline{1-2}
+{\ttfamily convert\+\_\+dates}   &dates are detected automatically    \\\cline{1-2}
+{\ttfamily keep\+\_\+default\+\_\+dates}   &dates are detected automatically    \\\cline{1-2}
+{\ttfamily numpy}   &data is always returned as a \doxylink{classcudf_1_1table}{cudf\+::table}    \\\cline{1-2}
+{\ttfamily precise\+\_\+float}   &there is only one converter    \\\cline{1-2}
+{\ttfamily date\+\_\+unit}   &only millisecond units are supported    \\\cline{1-2}
+{\ttfamily encoding}   &only ASCII-\/encoded data is supported    \\\cline{1-2}
+{\ttfamily chunksize}   &use {\ttfamily byte\+\_\+range\+\_\+xxx} for chunking instead   \\\cline{1-2}
+\end{longtabu}
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00080}{80}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_a3b28a30d4d8bc54aa375c5951b253960}\label{classcudf_1_1io_1_1json__reader__options_a3b28a30d4d8bc54aa375c5951b253960} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!json\_reader\_options@{json\_reader\_options}}
+\index{json\_reader\_options@{json\_reader\_options}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{json\_reader\_options()}{json\_reader\_options()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily cudf\+::io\+::json\+\_\+reader\+\_\+options\+::json\+\_\+reader\+\_\+options (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [private]}}
+
+
+
+Constructor from source info. 
+
+
+\begin{DoxyParams}{参数}
+{\em src} & source information used to read parquet file \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00113}{113}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_a7852d5f9315bd4b74c231bc96f8208fd}\label{classcudf_1_1io_1_1json__reader__options_a7852d5f9315bd4b74c231bc96f8208fd} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!json\_reader\_options@{json\_reader\_options}}
+\index{json\_reader\_options@{json\_reader\_options}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{json\_reader\_options()}{json\_reader\_options()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily cudf\+::io\+::json\+\_\+reader\+\_\+options\+::json\+\_\+reader\+\_\+options (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor. 
+
+This has been added since Cython requires a default constructor to create objects on stack. 
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_a12bef48726e880ac96020c13b5fdfdfb}\label{classcudf_1_1io_1_1json__reader__options_a12bef48726e880ac96020c13b5fdfdfb} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!builder@{builder}}
+\index{builder@{builder}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{builder()}{builder()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classcudf_1_1io_1_1json__reader__options__builder}{json\+\_\+reader\+\_\+options\+\_\+builder}} cudf\+::io\+::json\+\_\+reader\+\_\+options\+::builder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} const \&}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+create \doxylink{classcudf_1_1io_1_1json__reader__options__builder}{json\+\_\+reader\+\_\+options\+\_\+builder} which will build \doxylink{classcudf_1_1io_1_1json__reader__options}{json\+\_\+reader\+\_\+options}. 
+
+
+\begin{DoxyParams}{参数}
+{\em src} & source information used to read json file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+builder to build the options 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_a8f26b41b5fc7ec7a9bf4f46d46f01f82}\label{classcudf_1_1io_1_1json__reader__options_a8f26b41b5fc7ec7a9bf4f46d46f01f82} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!enable\_dayfirst@{enable\_dayfirst}}
+\index{enable\_dayfirst@{enable\_dayfirst}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{enable\_dayfirst()}{enable\_dayfirst()}}
+{\footnotesize\ttfamily void cudf\+::io\+::json\+\_\+reader\+\_\+options\+::enable\+\_\+dayfirst (\begin{DoxyParamCaption}\item[{bool}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set whether to parse dates as DD/\+MM versus MM/\+DD. 
+
+
+\begin{DoxyParams}{参数}
+{\em val} & Boolean value to enable/disable day first parsing format \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00292}{292}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_a40b5548b78b2d0bd100225dc8d06e0a7}\label{classcudf_1_1io_1_1json__reader__options_a40b5548b78b2d0bd100225dc8d06e0a7} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!enable\_experimental@{enable\_experimental}}
+\index{enable\_experimental@{enable\_experimental}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{enable\_experimental()}{enable\_experimental()}}
+{\footnotesize\ttfamily void cudf\+::io\+::json\+\_\+reader\+\_\+options\+::enable\+\_\+experimental (\begin{DoxyParamCaption}\item[{bool}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set whether to use the experimental reader. 
+
+
+\begin{DoxyParams}{参数}
+{\em val} & Boolean value to enable/disable the experimental reader \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00299}{299}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_ab158ca02d218f12416553c7be7409c16}\label{classcudf_1_1io_1_1json__reader__options_ab158ca02d218f12416553c7be7409c16} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!enable\_keep\_quotes@{enable\_keep\_quotes}}
+\index{enable\_keep\_quotes@{enable\_keep\_quotes}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{enable\_keep\_quotes()}{enable\_keep\_quotes()}}
+{\footnotesize\ttfamily void cudf\+::io\+::json\+\_\+reader\+\_\+options\+::enable\+\_\+keep\+\_\+quotes (\begin{DoxyParamCaption}\item[{bool}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set whether the experimental reader should keep quotes of string values. 
+
+
+\begin{DoxyParams}{参数}
+{\em val} & Boolean value to indicate whether the experimental reader should keep quotes of string values \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00307}{307}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_ab006ee0f3cf3a1cb330881adb93393c8}\label{classcudf_1_1io_1_1json__reader__options_ab006ee0f3cf3a1cb330881adb93393c8} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!enable\_lines@{enable\_lines}}
+\index{enable\_lines@{enable\_lines}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{enable\_lines()}{enable\_lines()}}
+{\footnotesize\ttfamily void cudf\+::io\+::json\+\_\+reader\+\_\+options\+::enable\+\_\+lines (\begin{DoxyParamCaption}\item[{bool}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set whether to read the file as a json object per line. 
+
+
+\begin{DoxyParams}{参数}
+{\em val} & Boolean value to enable/disable the option to read each line as a json object \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00285}{285}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_a3171894e1573b55578a9fd6af8a8e68a}\label{classcudf_1_1io_1_1json__reader__options_a3171894e1573b55578a9fd6af8a8e68a} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!get\_byte\_range\_offset@{get\_byte\_range\_offset}}
+\index{get\_byte\_range\_offset@{get\_byte\_range\_offset}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{get\_byte\_range\_offset()}{get\_byte\_range\_offset()}}
+{\footnotesize\ttfamily size\+\_\+t cudf\+::io\+::json\+\_\+reader\+\_\+options\+::get\+\_\+byte\+\_\+range\+\_\+offset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns number of bytes to skip from source start. 
+
+\begin{DoxyReturn}{返回}
+Number of bytes to skip from source start 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00165}{165}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_ae555c5820e4a8c1061c9e439362170b4}\label{classcudf_1_1io_1_1json__reader__options_ae555c5820e4a8c1061c9e439362170b4} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!get\_byte\_range\_padding@{get\_byte\_range\_padding}}
+\index{get\_byte\_range\_padding@{get\_byte\_range\_padding}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{get\_byte\_range\_padding()}{get\_byte\_range\_padding()}}
+{\footnotesize\ttfamily size\+\_\+t cudf\+::io\+::json\+\_\+reader\+\_\+options\+::get\+\_\+byte\+\_\+range\+\_\+padding (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns number of bytes to pad when reading. 
+
+\begin{DoxyReturn}{返回}
+Number of bytes to pad 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00193}{193}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_abd1a8fe00092aaee053bc32f92e4514b}\label{classcudf_1_1io_1_1json__reader__options_abd1a8fe00092aaee053bc32f92e4514b} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!get\_byte\_range\_size@{get\_byte\_range\_size}}
+\index{get\_byte\_range\_size@{get\_byte\_range\_size}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{get\_byte\_range\_size()}{get\_byte\_range\_size()}}
+{\footnotesize\ttfamily size\+\_\+t cudf\+::io\+::json\+\_\+reader\+\_\+options\+::get\+\_\+byte\+\_\+range\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns number of bytes to read. 
+
+\begin{DoxyReturn}{返回}
+Number of bytes to read 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00172}{172}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_a988ccd8f027f544ba9a2a5315c194ad2}\label{classcudf_1_1io_1_1json__reader__options_a988ccd8f027f544ba9a2a5315c194ad2} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!get\_byte\_range\_size\_with\_padding@{get\_byte\_range\_size\_with\_padding}}
+\index{get\_byte\_range\_size\_with\_padding@{get\_byte\_range\_size\_with\_padding}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{get\_byte\_range\_size\_with\_padding()}{get\_byte\_range\_size\_with\_padding()}}
+{\footnotesize\ttfamily size\+\_\+t cudf\+::io\+::json\+\_\+reader\+\_\+options\+::get\+\_\+byte\+\_\+range\+\_\+size\+\_\+with\+\_\+padding (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns number of bytes to read with padding. 
+
+\begin{DoxyReturn}{返回}
+Number of bytes to read with padding 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00179}{179}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_ab676cb5de47b3b4bbce0d3399e1170db}\label{classcudf_1_1io_1_1json__reader__options_ab676cb5de47b3b4bbce0d3399e1170db} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!get\_compression@{get\_compression}}
+\index{get\_compression@{get\_compression}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{get\_compression()}{get\_compression()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\+\_\+type}} cudf\+::io\+::json\+\_\+reader\+\_\+options\+::get\+\_\+compression (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns compression format of the source. 
+
+\begin{DoxyReturn}{返回}
+Compression format of the source 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00158}{158}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_ae3d0ea9915056979586a22484a78d1c7}\label{classcudf_1_1io_1_1json__reader__options_ae3d0ea9915056979586a22484a78d1c7} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!get\_dtypes@{get\_dtypes}}
+\index{get\_dtypes@{get\_dtypes}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{get\_dtypes()}{get\_dtypes()}}
+{\footnotesize\ttfamily std\+::variant$<$ std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} $>$, std\+::map$<$ std\+::string, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} $>$, std\+::map$<$ std\+::string, \mbox{\hyperlink{structcudf_1_1io_1_1schema__element}{schema\+\_\+element}} $>$ $>$ const  \& cudf\+::io\+::json\+\_\+reader\+\_\+options\+::get\+\_\+dtypes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns data types of the columns. 
+
+\begin{DoxyReturn}{返回}
+Data types of the columns 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00148}{148}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_a6cd1b1a36fb2a007804771454089c906}\label{classcudf_1_1io_1_1json__reader__options_a6cd1b1a36fb2a007804771454089c906} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!get\_source@{get\_source}}
+\index{get\_source@{get\_source}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{get\_source()}{get\_source()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} const  \& cudf\+::io\+::json\+\_\+reader\+\_\+options\+::get\+\_\+source (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns source info. 
+
+\begin{DoxyReturn}{返回}
+Source info 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00138}{138}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_adfeebb87dfd53323e1fabb5e4b1676ee}\label{classcudf_1_1io_1_1json__reader__options_adfeebb87dfd53323e1fabb5e4b1676ee} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!is\_enabled\_dayfirst@{is\_enabled\_dayfirst}}
+\index{is\_enabled\_dayfirst@{is\_enabled\_dayfirst}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{is\_enabled\_dayfirst()}{is\_enabled\_dayfirst()}}
+{\footnotesize\ttfamily bool cudf\+::io\+::json\+\_\+reader\+\_\+options\+::is\+\_\+enabled\+\_\+dayfirst (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Whether to parse dates as DD/\+MM versus MM/\+DD. 
+
+\begin{DoxyReturn}{返回}
+true if dates are parsed as DD/\+MM, false if MM/\+DD 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00222}{222}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_ac7189635984bff57d9cdc72fc2e38b82}\label{classcudf_1_1io_1_1json__reader__options_ac7189635984bff57d9cdc72fc2e38b82} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!is\_enabled\_experimental@{is\_enabled\_experimental}}
+\index{is\_enabled\_experimental@{is\_enabled\_experimental}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{is\_enabled\_experimental()}{is\_enabled\_experimental()}}
+{\footnotesize\ttfamily bool cudf\+::io\+::json\+\_\+reader\+\_\+options\+::is\+\_\+enabled\+\_\+experimental (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Whether the experimental reader should be used. 
+
+\begin{DoxyReturn}{返回}
+true if the experimental reader will be used, false otherwise 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00229}{229}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_a2c39809f3a0ec1268f4a95520d3debac}\label{classcudf_1_1io_1_1json__reader__options_a2c39809f3a0ec1268f4a95520d3debac} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!is\_enabled\_keep\_quotes@{is\_enabled\_keep\_quotes}}
+\index{is\_enabled\_keep\_quotes@{is\_enabled\_keep\_quotes}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{is\_enabled\_keep\_quotes()}{is\_enabled\_keep\_quotes()}}
+{\footnotesize\ttfamily bool cudf\+::io\+::json\+\_\+reader\+\_\+options\+::is\+\_\+enabled\+\_\+keep\+\_\+quotes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Whether the experimental reader should keep quotes of string values. 
+
+\begin{DoxyReturn}{返回}
+true if the experimental reader should keep quotes, false otherwise 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00236}{236}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_a6531d6a9b684822e466d970a394b143c}\label{classcudf_1_1io_1_1json__reader__options_a6531d6a9b684822e466d970a394b143c} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!is\_enabled\_lines@{is\_enabled\_lines}}
+\index{is\_enabled\_lines@{is\_enabled\_lines}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{is\_enabled\_lines()}{is\_enabled\_lines()}}
+{\footnotesize\ttfamily bool cudf\+::io\+::json\+\_\+reader\+\_\+options\+::is\+\_\+enabled\+\_\+lines (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Whether to read the file as a json object per line. 
+
+\begin{DoxyReturn}{返回}
+{\ttfamily true} if reading the file as a json object per line 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00215}{215}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_adc048c7d91c8dbfd7b2e08f86e5e91b2}\label{classcudf_1_1io_1_1json__reader__options_adc048c7d91c8dbfd7b2e08f86e5e91b2} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!set\_byte\_range\_offset@{set\_byte\_range\_offset}}
+\index{set\_byte\_range\_offset@{set\_byte\_range\_offset}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{set\_byte\_range\_offset()}{set\_byte\_range\_offset()}}
+{\footnotesize\ttfamily void cudf\+::io\+::json\+\_\+reader\+\_\+options\+::set\+\_\+byte\+\_\+range\+\_\+offset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{offset }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set number of bytes to skip from source start. 
+
+
+\begin{DoxyParams}{参数}
+{\em offset} & Number of bytes of offset \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00271}{271}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_a7606947b3d802f3887d6c71390293780}\label{classcudf_1_1io_1_1json__reader__options_a7606947b3d802f3887d6c71390293780} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!set\_byte\_range\_size@{set\_byte\_range\_size}}
+\index{set\_byte\_range\_size@{set\_byte\_range\_size}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{set\_byte\_range\_size()}{set\_byte\_range\_size()}}
+{\footnotesize\ttfamily void cudf\+::io\+::json\+\_\+reader\+\_\+options\+::set\+\_\+byte\+\_\+range\+\_\+size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set number of bytes to read. 
+
+
+\begin{DoxyParams}{参数}
+{\em size} & Number of bytes to read \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00278}{278}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_a15169dc5ae579883d329e03d8d35c5d4}\label{classcudf_1_1io_1_1json__reader__options_a15169dc5ae579883d329e03d8d35c5d4} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!set\_compression@{set\_compression}}
+\index{set\_compression@{set\_compression}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{set\_compression()}{set\_compression()}}
+{\footnotesize\ttfamily void cudf\+::io\+::json\+\_\+reader\+\_\+options\+::set\+\_\+compression (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\+\_\+type}}}]{comp\+\_\+type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the compression type. 
+
+
+\begin{DoxyParams}{参数}
+{\em comp\+\_\+type} & The compression type used \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00264}{264}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_a57fdbb46908f332c7f37d779f9a868a3}\label{classcudf_1_1io_1_1json__reader__options_a57fdbb46908f332c7f37d779f9a868a3} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!set\_dtypes@{set\_dtypes}}
+\index{set\_dtypes@{set\_dtypes}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{set\_dtypes()}{set\_dtypes()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void cudf\+::io\+::json\+\_\+reader\+\_\+options\+::set\+\_\+dtypes (\begin{DoxyParamCaption}\item[{std\+::map$<$ std\+::string, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} $>$}]{types }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set data types for columns to be read. 
+
+
+\begin{DoxyParams}{参数}
+{\em types} & Vector dtypes in string format \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00250}{250}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_ab837a45de34c9ca45ee523e2d670795f}\label{classcudf_1_1io_1_1json__reader__options_ab837a45de34c9ca45ee523e2d670795f} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!set\_dtypes@{set\_dtypes}}
+\index{set\_dtypes@{set\_dtypes}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{set\_dtypes()}{set\_dtypes()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void cudf\+::io\+::json\+\_\+reader\+\_\+options\+::set\+\_\+dtypes (\begin{DoxyParamCaption}\item[{std\+::map$<$ std\+::string, \mbox{\hyperlink{structcudf_1_1io_1_1schema__element}{schema\+\_\+element}} $>$}]{types }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set data types for a potentially nested column hierarchy. 
+
+
+\begin{DoxyParams}{参数}
+{\em types} & Map of column names to \doxylink{structcudf_1_1io_1_1schema__element}{schema\+\_\+element} to support arbitrary nesting of data types \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00257}{257}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_a1528e302ee1e65b45cbda90a0540b2af}\label{classcudf_1_1io_1_1json__reader__options_a1528e302ee1e65b45cbda90a0540b2af} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!set\_dtypes@{set\_dtypes}}
+\index{set\_dtypes@{set\_dtypes}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{set\_dtypes()}{set\_dtypes()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void cudf\+::io\+::json\+\_\+reader\+\_\+options\+::set\+\_\+dtypes (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} $>$}]{types }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set data types for columns to be read. 
+
+
+\begin{DoxyParams}{参数}
+{\em types} & Vector of dtypes \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00243}{243}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_a15f20842d689872c3e3071a65d94f809}\label{classcudf_1_1io_1_1json__reader__options_a15f20842d689872c3e3071a65d94f809} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!\_byte\_range\_offset@{\_byte\_range\_offset}}
+\index{\_byte\_range\_offset@{\_byte\_range\_offset}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_byte\_range\_offset}{\_byte\_range\_offset}}
+{\footnotesize\ttfamily size\+\_\+t cudf\+::io\+::json\+\_\+reader\+\_\+options\+::\+\_\+byte\+\_\+range\+\_\+offset = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00095}{95}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_aa1da1b668f186b6e7940e86e0d79253c}\label{classcudf_1_1io_1_1json__reader__options_aa1da1b668f186b6e7940e86e0d79253c} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!\_byte\_range\_size@{\_byte\_range\_size}}
+\index{\_byte\_range\_size@{\_byte\_range\_size}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_byte\_range\_size}{\_byte\_range\_size}}
+{\footnotesize\ttfamily size\+\_\+t cudf\+::io\+::json\+\_\+reader\+\_\+options\+::\+\_\+byte\+\_\+range\+\_\+size = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00097}{97}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_a2a75988bea5d92831e6e00643f0ab65f}\label{classcudf_1_1io_1_1json__reader__options_a2a75988bea5d92831e6e00643f0ab65f} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!\_compression@{\_compression}}
+\index{\_compression@{\_compression}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_compression}{\_compression}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\+\_\+type}} cudf\+::io\+::json\+\_\+reader\+\_\+options\+::\+\_\+compression = \mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8ae1f2d5134ed2543d38a0de9751cf75d9}{compression\+\_\+type\+::\+AUTO}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00089}{89}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_af223dded3164e60ec2a9e642c43eb29f}\label{classcudf_1_1io_1_1json__reader__options_af223dded3164e60ec2a9e642c43eb29f} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!\_dayfirst@{\_dayfirst}}
+\index{\_dayfirst@{\_dayfirst}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_dayfirst}{\_dayfirst}}
+{\footnotesize\ttfamily bool cudf\+::io\+::json\+\_\+reader\+\_\+options\+::\+\_\+dayfirst = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00100}{100}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_a3bf42eb212e44b58dc1a1bcfef089225}\label{classcudf_1_1io_1_1json__reader__options_a3bf42eb212e44b58dc1a1bcfef089225} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!\_dtypes@{\_dtypes}}
+\index{\_dtypes@{\_dtypes}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_dtypes}{\_dtypes}}
+{\footnotesize\ttfamily std\+::variant$<$std\+::vector$<$\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}$>$, std\+::map$<$std\+::string, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}$>$, std\+::map$<$std\+::string, \mbox{\hyperlink{structcudf_1_1io_1_1schema__element}{schema\+\_\+element}}$>$ $>$ cudf\+::io\+::json\+\_\+reader\+\_\+options\+::\+\_\+dtypes\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00087}{87}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_a0540ae6bf8e69da7dfda7770da73e93e}\label{classcudf_1_1io_1_1json__reader__options_a0540ae6bf8e69da7dfda7770da73e93e} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!\_experimental@{\_experimental}}
+\index{\_experimental@{\_experimental}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_experimental}{\_experimental}}
+{\footnotesize\ttfamily bool cudf\+::io\+::json\+\_\+reader\+\_\+options\+::\+\_\+experimental = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00103}{103}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_a59a13bf896a90d45eaee4c85954bde62}\label{classcudf_1_1io_1_1json__reader__options_a59a13bf896a90d45eaee4c85954bde62} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!\_keep\_quotes@{\_keep\_quotes}}
+\index{\_keep\_quotes@{\_keep\_quotes}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_keep\_quotes}{\_keep\_quotes}}
+{\footnotesize\ttfamily bool cudf\+::io\+::json\+\_\+reader\+\_\+options\+::\+\_\+keep\+\_\+quotes = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00106}{106}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_ad8201d434d6aa8195ee8d5307ac90576}\label{classcudf_1_1io_1_1json__reader__options_ad8201d434d6aa8195ee8d5307ac90576} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!\_lines@{\_lines}}
+\index{\_lines@{\_lines}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_lines}{\_lines}}
+{\footnotesize\ttfamily bool cudf\+::io\+::json\+\_\+reader\+\_\+options\+::\+\_\+lines = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00092}{92}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_a75e964d1fdafddbce8a7233243bf68eb}\label{classcudf_1_1io_1_1json__reader__options_a75e964d1fdafddbce8a7233243bf68eb} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!\_source@{\_source}}
+\index{\_source@{\_source}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{\_source}{\_source}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} cudf\+::io\+::json\+\_\+reader\+\_\+options\+::\+\_\+source\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00081}{81}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1json__reader__options_af7ef8a9cb90cbd0e825c95483071977d}\label{classcudf_1_1io_1_1json__reader__options_af7ef8a9cb90cbd0e825c95483071977d} 
+\index{cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}!json\_reader\_options\_builder@{json\_reader\_options\_builder}}
+\index{json\_reader\_options\_builder@{json\_reader\_options\_builder}!cudf::io::json\_reader\_options@{cudf::io::json\_reader\_options}}
+\doxysubsubsection{\texorpdfstring{json\_reader\_options\_builder}{json\_reader\_options\_builder}}
+{\footnotesize\ttfamily friend cudf\+::io\+::json\+\_\+reader\+\_\+options\+::json\+\_\+reader\+\_\+options\+\_\+builder\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2json_8hpp_source}{json.\+hpp}} 第 \mbox{\hyperlink{io_2json_8hpp_source_l00115}{115}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/\mbox{\hyperlink{io_2json_8hpp}{json.\+hpp}}\end{DoxyCompactItemize}

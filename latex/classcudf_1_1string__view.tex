@@ -1,0 +1,810 @@
+\doxysection{cudf\+::string\+\_\+view类 参考}
+\hypertarget{classcudf_1_1string__view}{}\label{classcudf_1_1string__view}\index{cudf::string\_view@{cudf::string\_view}}
+
+
+A non-\/owning, immutable view of device data that is a variable length char array representing a UTF-\/8 string.  
+
+
+
+
+{\ttfamily \#include $<$string\+\_\+view.\+hpp$>$}
+
+
+
+cudf\+::string\+\_\+view 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{classcudf_1_1string__view__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcudf_1_1string__view_1_1const__iterator}{const\+\_\+iterator}}
+\begin{DoxyCompactList}\small\item\em Handy iterator for navigating through encoded characters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1string__view_a083aefaafd554f5bb786176a766df02e}{size\+\_\+bytes}} () const
+\begin{DoxyCompactList}\small\item\em Return the number of bytes in this string \end{DoxyCompactList}\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1string__view_a183cdfbfa799e8fa292382d060ea5b4d}{length}} () const
+\begin{DoxyCompactList}\small\item\em Return the number of characters in this string \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1string__view_ad08e7a953359e50ca098b4a6f84640fb}{data}} () const
+\begin{DoxyCompactList}\small\item\em Return a pointer to the internal device array \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} bool \mbox{\hyperlink{classcudf_1_1string__view_a58fe1a7fbacc4f1f384a27fd60fe31e8}{empty}} () const
+\begin{DoxyCompactList}\small\item\em Return true if string has no characters \end{DoxyCompactList}\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classcudf_1_1string__view_1_1const__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classcudf_1_1string__view_a0eecc7e5f7a8ec533a571079b7af1ffc}{begin}} () const
+\begin{DoxyCompactList}\small\item\em Return new iterator pointing to the beginning of this string \end{DoxyCompactList}\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classcudf_1_1string__view_1_1const__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classcudf_1_1string__view_a000583bc79963288e8612d727b306824}{end}} () const
+\begin{DoxyCompactList}\small\item\em Return new iterator pointing past the end of this string \end{DoxyCompactList}\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{char\+\_\+utf8}} \mbox{\hyperlink{classcudf_1_1string__view_afdfa4795d43bdf0d584bc31f37a7176a}{operator\mbox{[}$\,$\mbox{]}}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} pos) const
+\begin{DoxyCompactList}\small\item\em Return single UTF-\/8 character at the given character position \end{DoxyCompactList}\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1string__view_abfe2225bd482487ee631400929b961d4}{byte\+\_\+offset}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} pos) const
+\begin{DoxyCompactList}\small\item\em Return the byte offset from \doxylink{classcudf_1_1string__view_ad08e7a953359e50ca098b4a6f84640fb}{data()} for a given character position \end{DoxyCompactList}\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ int \mbox{\hyperlink{classcudf_1_1string__view_a8341299cf5b751379c71c3e6c3e2a22f}{compare}} (const \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&str) const
+\begin{DoxyCompactList}\small\item\em Comparing target string with this string. Each character is compared as a UTF-\/8 code-\/point value. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ int \mbox{\hyperlink{classcudf_1_1string__view_ac459ae341a0c804277d50134d1b211b6}{compare}} (const char \texorpdfstring{$\ast$}{*}str, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} bytes) const
+\begin{DoxyCompactList}\small\item\em Comparing target string with this string. Each character is compared as a UTF-\/8 code-\/point value. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ bool \mbox{\hyperlink{classcudf_1_1string__view_a511dece98a4455932a1abc5ecd21ca2a}{operator==}} (const \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Returns true if rhs matches this string exactly. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ bool \mbox{\hyperlink{classcudf_1_1string__view_aeb23e47347623f71560aa8640c60d639}{operator!=}} (const \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Returns true if rhs does not match this string. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ bool \mbox{\hyperlink{classcudf_1_1string__view_aa6523c4c5bbb655b0dc9f2983e329d05}{operator$<$}} (const \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Returns true if this string is ordered before rhs. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ bool \mbox{\hyperlink{classcudf_1_1string__view_ad572225e619316f4aff1745bd567f401}{operator$>$}} (const \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Returns true if rhs is ordered before this string. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ bool \mbox{\hyperlink{classcudf_1_1string__view_a6ccc1ed6224f5eebe0489ac60463027b}{operator$<$=}} (const \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Returns true if this string matches or is ordered before rhs. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ bool \mbox{\hyperlink{classcudf_1_1string__view_a0052af8c56061158556c97ccf224cf30}{operator$>$=}} (const \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Returns true if rhs matches or is ordered before this string. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1string__view_a008fd22e2cb118fc1a875d7722f7993c}{find}} (const \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&str, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} pos=0, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} count=-\/1) const
+\begin{DoxyCompactList}\small\item\em Returns the character position of the first occurrence where the argument str is found in this string within the character range \mbox{[}pos,pos+n). \end{DoxyCompactList}\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1string__view_acd7c186ce9bd8d9602ccdab810f156a6}{find}} (const char \texorpdfstring{$\ast$}{*}str, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} bytes, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} pos=0, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} count=-\/1) const
+\begin{DoxyCompactList}\small\item\em Returns the character position of the first occurrence where the array str is found in this string within the character range \mbox{[}pos,pos+n). \end{DoxyCompactList}\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1string__view_a5d4aabc603e9e6c81c5425eee09ee816}{find}} (\mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{char\+\_\+utf8}} character, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} pos=0, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} count=-\/1) const
+\begin{DoxyCompactList}\small\item\em Returns the character position of the first occurrence where character is found in this string within the character range \mbox{[}pos,pos+n). \end{DoxyCompactList}\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1string__view_af40b3e91041da96d0667cab3a4469bc1}{rfind}} (const \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&str, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} pos=0, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} count=-\/1) const
+\begin{DoxyCompactList}\small\item\em Returns the character position of the last occurrence where the argument str is found in this string within the character range \mbox{[}pos,pos+n). \end{DoxyCompactList}\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1string__view_aaa1a3bd708a977a7f3826b2f0b55144f}{rfind}} (const char \texorpdfstring{$\ast$}{*}str, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} bytes, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} pos=0, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} count=-\/1) const
+\begin{DoxyCompactList}\small\item\em Returns the character position of the last occurrence where the array str is found in this string within the character range \mbox{[}pos,pos+n). \end{DoxyCompactList}\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1string__view_a0e948aa77d605cb7f45b7524cb2038fc}{rfind}} (\mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{char\+\_\+utf8}} character, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} pos=0, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} count=-\/1) const
+\begin{DoxyCompactList}\small\item\em Returns the character position of the last occurrence where character is found in this string within the character range \mbox{[}pos,pos+n). \end{DoxyCompactList}\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \mbox{\hyperlink{classcudf_1_1string__view_a7d8085d631f72ef8a2c467bd370c1b6f}{substr}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} start, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1string__view_a183cdfbfa799e8fa292382d060ea5b4d}{length}}) const
+\begin{DoxyCompactList}\small\item\em Return a sub-\/string of this string. The original string and device memory must still be maintained for the lifetime of the returned instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classcudf_1_1string__view_a43bfe77b8ac924af9d5b40124db3082b}{string\+\_\+view}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor represents an empty string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classcudf_1_1string__view_ab7d893b1b3b320b3ce45c06a99869e11}{string\+\_\+view}} (const char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classcudf_1_1string__view_ad08e7a953359e50ca098b4a6f84640fb}{data}}, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} bytes)
+\begin{DoxyCompactList}\small\item\em Create instance from existing device char array. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1string__view_a2f68737d160ca0218a236575a0cf736a}{string\+\_\+view}} (const \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&)=default
+\begin{DoxyCompactList}\small\item\em Copy constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1string__view_a6258fc56a72ffc3254eeb783ac80a1d1}{string\+\_\+view}} (\mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&\&)=default
+\begin{DoxyCompactList}\small\item\em Move constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1string__view_a457915a467de0e9e5c3a4a94d9229de4}{\texorpdfstring{$\sim$}{\string~}string\+\_\+view}} ()=default
+\item 
+\mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \& \mbox{\hyperlink{classcudf_1_1string__view_ae8d8d51da94409e25cba3a6115f06d46}{operator=}} (const \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&)=default
+\begin{DoxyCompactList}\small\item\em Copy assignment operator \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \& \mbox{\hyperlink{classcudf_1_1string__view_a6ffad93f11bba9978ca7b2685f0d0865}{operator=}} (\mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&\&)=default
+\begin{DoxyCompactList}\small\item\em Move assignment operator \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \mbox{\hyperlink{classcudf_1_1string__view_a3f7e0503c1cc3d1d4cfb80cb3d994936}{min}} ()
+\begin{DoxyCompactList}\small\item\em Return minimum value associated with the string type \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \mbox{\hyperlink{classcudf_1_1string__view_a14265394513370505ec88b252fd34ea0}{max}} ()
+\begin{DoxyCompactList}\small\item\em Return maximum value associated with the string type \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{静态 Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} const \mbox{\hyperlink{classcudf_1_1string__view_af82def2c002ead69ab37568c20b5c539}{npos}} \{-\/1\}
+\begin{DoxyCompactList}\small\item\em No-\/position value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1string__view_aaa963bf70a5b378f2757837958f57981}{character\+\_\+offset}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} bytepos) const
+\begin{DoxyCompactList}\small\item\em Return the character position of the given byte offset. \end{DoxyCompactList}\item 
+{\footnotesize template$<$bool forward$>$ }\\\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1string__view_af98fe7d001427bd0c1d65774d5de1cd0}{find\+\_\+impl}} (const char \texorpdfstring{$\ast$}{*}str, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} bytes, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} pos, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} count) const
+\begin{DoxyCompactList}\small\item\em Common internal implementation for \doxylink{classcudf_1_1string__view_a008fd22e2cb118fc1a875d7722f7993c}{string\+\_\+view\+::find} and \doxylink{classcudf_1_1string__view_af40b3e91041da96d0667cab3a4469bc1}{string\+\_\+view\+::rfind}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1string__view_a96a1311026bcf2ac9592b37ed319ac7f}{\+\_\+data}} \{\}
+\begin{DoxyCompactList}\small\item\em Pointer to device memory contain char array for this string \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1string__view_a92369c085ea0989fc8a9a1f67e67d6e4}{\+\_\+bytes}} \{\}
+\begin{DoxyCompactList}\small\item\em Number of bytes in \+\_\+data for this string \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1string__view_aec68f29a877fc601548756e95025e394}{\+\_\+length}} \{\}
+\begin{DoxyCompactList}\small\item\em Number of characters in this string (computed) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{静态 Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} const \mbox{\hyperlink{classcudf_1_1string__view_abad865f5bbd178340c019719398ebcf3}{UNKNOWN\+\_\+\+STRING\+\_\+\+LENGTH}} \{-\/1\}
+\begin{DoxyCompactList}\small\item\em The string length is initialized to this value as a place-\/holder \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+A non-\/owning, immutable view of device data that is a variable length char array representing a UTF-\/8 string. 
+
+The caller must maintain the device memory for the lifetime of this instance.
+
+This may be used to wrap a device pointer and size but any member function that requires accessing the device memory must be called from a kernel. 
+
+在文件 \mbox{\hyperlink{string__view_8hpp_source}{string\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{string__view_8hpp_source_l00044}{44}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1string__view_a43bfe77b8ac924af9d5b40124db3082b}\label{classcudf_1_1string__view_a43bfe77b8ac924af9d5b40124db3082b} 
+\index{cudf::string\_view@{cudf::string\_view}!string\_view@{string\_view}}
+\index{string\_view@{string\_view}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{string\_view()}{string\_view()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} cudf\+::string\+\_\+view\+::string\+\_\+view (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor represents an empty string. 
+
+
+
+在文件 \mbox{\hyperlink{string__view_8hpp_source}{string\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{string__view_8hpp_source_l00332}{332}} 行定义.
+
+\Hypertarget{classcudf_1_1string__view_ab7d893b1b3b320b3ce45c06a99869e11}\label{classcudf_1_1string__view_ab7d893b1b3b320b3ce45c06a99869e11} 
+\index{cudf::string\_view@{cudf::string\_view}!string\_view@{string\_view}}
+\index{string\_view@{string\_view}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{string\_view()}{string\_view()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} cudf\+::string\+\_\+view\+::string\+\_\+view (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{data,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{bytes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Create instance from existing device char array. 
+
+
+\begin{DoxyParams}{参数}
+{\em data} & Device char array encoded in UTF8. \\
+\hline
+{\em bytes} & Number of bytes in data array. \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{string__view_8hpp_source}{string\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{string__view_8hpp_source_l00340}{340}} 行定义.
+
+\Hypertarget{classcudf_1_1string__view_a2f68737d160ca0218a236575a0cf736a}\label{classcudf_1_1string__view_a2f68737d160ca0218a236575a0cf736a} 
+\index{cudf::string\_view@{cudf::string\_view}!string\_view@{string\_view}}
+\index{string\_view@{string\_view}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{string\_view()}{string\_view()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily cudf\+::string\+\_\+view\+::string\+\_\+view (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Copy constructor 
+
+\Hypertarget{classcudf_1_1string__view_a6258fc56a72ffc3254eeb783ac80a1d1}\label{classcudf_1_1string__view_a6258fc56a72ffc3254eeb783ac80a1d1} 
+\index{cudf::string\_view@{cudf::string\_view}!string\_view@{string\_view}}
+\index{string\_view@{string\_view}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{string\_view()}{string\_view()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily cudf\+::string\+\_\+view\+::string\+\_\+view (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Move constructor 
+
+\Hypertarget{classcudf_1_1string__view_a457915a467de0e9e5c3a4a94d9229de4}\label{classcudf_1_1string__view_a457915a467de0e9e5c3a4a94d9229de4} 
+\index{cudf::string\_view@{cudf::string\_view}!````~string\_view@{\texorpdfstring{$\sim$}{\string~}string\_view}}
+\index{````~string\_view@{\texorpdfstring{$\sim$}{\string~}string\_view}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}string\_view()}{\string~string\_view()}}
+{\footnotesize\ttfamily cudf\+::string\+\_\+view\+::\texorpdfstring{$\sim$}{\string~}string\+\_\+view (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1string__view_a0eecc7e5f7a8ec533a571079b7af1ffc}\label{classcudf_1_1string__view_a0eecc7e5f7a8ec533a571079b7af1ffc} 
+\index{cudf::string\_view@{cudf::string\_view}!begin@{begin}}
+\index{begin@{begin}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classcudf_1_1string__view_1_1const__iterator}{const\+\_\+iterator}} cudf\+::string\+\_\+view\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return new iterator pointing to the beginning of this string 
+
+\begin{DoxyReturn}{返回}
+new iterator pointing to the beginning of this string 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_abfe2225bd482487ee631400929b961d4}\label{classcudf_1_1string__view_abfe2225bd482487ee631400929b961d4} 
+\index{cudf::string\_view@{cudf::string\_view}!byte\_offset@{byte\_offset}}
+\index{byte\_offset@{byte\_offset}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{byte\_offset()}{byte\_offset()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::string\+\_\+view\+::byte\+\_\+offset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the byte offset from \doxylink{classcudf_1_1string__view_ad08e7a953359e50ca098b4a6f84640fb}{data()} for a given character position 
+
+
+\begin{DoxyParams}{参数}
+{\em pos} & Character position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Byte offset from \doxylink{classcudf_1_1string__view_ad08e7a953359e50ca098b4a6f84640fb}{data()} for a given character position 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_aaa963bf70a5b378f2757837958f57981}\label{classcudf_1_1string__view_aaa963bf70a5b378f2757837958f57981} 
+\index{cudf::string\_view@{cudf::string\_view}!character\_offset@{character\_offset}}
+\index{character\_offset@{character\_offset}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{character\_offset()}{character\_offset()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::string\+\_\+view\+::character\+\_\+offset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{bytepos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Return the character position of the given byte offset. 
+
+
+\begin{DoxyParams}{参数}
+{\em bytepos} & Byte position from start of \+\_\+data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The character position for the specified byte. 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_ac459ae341a0c804277d50134d1b211b6}\label{classcudf_1_1string__view_ac459ae341a0c804277d50134d1b211b6} 
+\index{cudf::string\_view@{cudf::string\_view}!compare@{compare}}
+\index{compare@{compare}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{compare()}{compare()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ int cudf\+::string\+\_\+view\+::compare (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{bytes }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Comparing target string with this string. Each character is compared as a UTF-\/8 code-\/point value. 
+
+
+\begin{DoxyParams}{参数}
+{\em str} & Target string to compare with this string. \\
+\hline
+{\em bytes} & Number of bytes in str. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+0 If they compare equal. \texorpdfstring{$<$}{<}0 Either the value of the first character of this string that does not match is lower in the arg string, or all compared characters match but the arg string is shorter. \texorpdfstring{$>$}{>}0 Either the value of the first character of this string that does not match is greater in the arg string, or all compared characters match but the arg string is longer. 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_a8341299cf5b751379c71c3e6c3e2a22f}\label{classcudf_1_1string__view_a8341299cf5b751379c71c3e6c3e2a22f} 
+\index{cudf::string\_view@{cudf::string\_view}!compare@{compare}}
+\index{compare@{compare}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{compare()}{compare()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ int cudf\+::string\+\_\+view\+::compare (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&}]{str }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Comparing target string with this string. Each character is compared as a UTF-\/8 code-\/point value. 
+
+
+\begin{DoxyParams}{参数}
+{\em str} & Target string to compare with this string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+0 If they compare equal. \texorpdfstring{$<$}{<}0 Either the value of the first character of this string that does not match is lower in the arg string, or all compared characters match but the arg string is shorter. \texorpdfstring{$>$}{>}0 Either the value of the first character of this string that does not match is greater in the arg string, or all compared characters match but the arg string is longer. 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_ad08e7a953359e50ca098b4a6f84640fb}\label{classcudf_1_1string__view_ad08e7a953359e50ca098b4a6f84640fb} 
+\index{cudf::string\_view@{cudf::string\_view}!data@{data}}
+\index{data@{data}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} const char \texorpdfstring{$\ast$}{*} cudf\+::string\+\_\+view\+::data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return a pointer to the internal device array 
+
+\begin{DoxyReturn}{返回}
+A pointer to the internal device array 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{string__view_8hpp_source}{string\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{string__view_8hpp_source_l00063}{63}} 行定义.
+
+\Hypertarget{classcudf_1_1string__view_a58fe1a7fbacc4f1f384a27fd60fe31e8}\label{classcudf_1_1string__view_a58fe1a7fbacc4f1f384a27fd60fe31e8} 
+\index{cudf::string\_view@{cudf::string\_view}!empty@{empty}}
+\index{empty@{empty}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} bool cudf\+::string\+\_\+view\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return true if string has no characters 
+
+\begin{DoxyReturn}{返回}
+true if string has no characters 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{string__view_8hpp_source}{string\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{string__view_8hpp_source_l00070}{70}} 行定义.
+
+\Hypertarget{classcudf_1_1string__view_a000583bc79963288e8612d727b306824}\label{classcudf_1_1string__view_a000583bc79963288e8612d727b306824} 
+\index{cudf::string\_view@{cudf::string\_view}!end@{end}}
+\index{end@{end}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classcudf_1_1string__view_1_1const__iterator}{const\+\_\+iterator}} cudf\+::string\+\_\+view\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return new iterator pointing past the end of this string 
+
+\begin{DoxyReturn}{返回}
+new iterator pointing past the end of this string 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_a5d4aabc603e9e6c81c5425eee09ee816}\label{classcudf_1_1string__view_a5d4aabc603e9e6c81c5425eee09ee816} 
+\index{cudf::string\_view@{cudf::string\_view}!find@{find}}
+\index{find@{find}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::string\+\_\+view\+::find (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{char\+\_\+utf8}}}]{character,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{pos = {\ttfamily 0},  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{count = {\ttfamily -\/1} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the character position of the first occurrence where character is found in this string within the character range \mbox{[}pos,pos+n). 
+
+
+\begin{DoxyParams}{参数}
+{\em character} & Single encoded character. \\
+\hline
+{\em pos} & Character position to start search within this string. \\
+\hline
+{\em count} & Number of characters from pos to include in the search. Specify -\/1 to indicate to the end of the string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+npos if arg string is not found in this string. 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_acd7c186ce9bd8d9602ccdab810f156a6}\label{classcudf_1_1string__view_acd7c186ce9bd8d9602ccdab810f156a6} 
+\index{cudf::string\_view@{cudf::string\_view}!find@{find}}
+\index{find@{find}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::string\+\_\+view\+::find (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{bytes,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{pos = {\ttfamily 0},  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{count = {\ttfamily -\/1} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the character position of the first occurrence where the array str is found in this string within the character range \mbox{[}pos,pos+n). 
+
+
+\begin{DoxyParams}{参数}
+{\em str} & Target array to search within this string. \\
+\hline
+{\em bytes} & Number of bytes in str. \\
+\hline
+{\em pos} & Character position to start search within this string. \\
+\hline
+{\em count} & Number of characters from pos to include in the search. Specify -\/1 to indicate to the end of the string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+npos if arg string is not found in this string. 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_a008fd22e2cb118fc1a875d7722f7993c}\label{classcudf_1_1string__view_a008fd22e2cb118fc1a875d7722f7993c} 
+\index{cudf::string\_view@{cudf::string\_view}!find@{find}}
+\index{find@{find}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::string\+\_\+view\+::find (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&}]{str,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{pos = {\ttfamily 0},  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{count = {\ttfamily -\/1} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the character position of the first occurrence where the argument str is found in this string within the character range \mbox{[}pos,pos+n). 
+
+
+\begin{DoxyParams}{参数}
+{\em str} & Target string to search within this string. \\
+\hline
+{\em pos} & Character position to start search within this string. \\
+\hline
+{\em count} & Number of characters from pos to include in the search. Specify -\/1 to indicate to the end of the string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+npos if str is not found in this string. 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_af98fe7d001427bd0c1d65774d5de1cd0}\label{classcudf_1_1string__view_af98fe7d001427bd0c1d65774d5de1cd0} 
+\index{cudf::string\_view@{cudf::string\_view}!find\_impl@{find\_impl}}
+\index{find\_impl@{find\_impl}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{find\_impl()}{find\_impl()}}
+{\footnotesize\ttfamily template$<$bool forward$>$ \\
+\+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::string\+\_\+view\+::find\+\_\+impl (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{bytes,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{pos,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{count }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Common internal implementation for \doxylink{classcudf_1_1string__view_a008fd22e2cb118fc1a875d7722f7993c}{string\+\_\+view\+::find} and \doxylink{classcudf_1_1string__view_af40b3e91041da96d0667cab3a4469bc1}{string\+\_\+view\+::rfind}. 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em forward} & True for find and false for rfind\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em str} & Target string to search with this string \\
+\hline
+{\em bytes} & Number of bytes in str \\
+\hline
+{\em pos} & Character position to start search within this string \\
+\hline
+{\em count} & Number of characters from pos to include in the search \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+npos if str is not found in this string 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_a183cdfbfa799e8fa292382d060ea5b4d}\label{classcudf_1_1string__view_a183cdfbfa799e8fa292382d060ea5b4d} 
+\index{cudf::string\_view@{cudf::string\_view}!length@{length}}
+\index{length@{length}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{length()}{length()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::string\+\_\+view\+::length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the number of characters in this string 
+
+\begin{DoxyReturn}{返回}
+The number of characters in this string 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_a14265394513370505ec88b252fd34ea0}\label{classcudf_1_1string__view_a14265394513370505ec88b252fd34ea0} 
+\index{cudf::string\_view@{cudf::string\_view}!max@{max}}
+\index{max@{max}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{max()}{max()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} cudf\+::string\+\_\+view\+::max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Return maximum value associated with the string type 
+
+This function is needed to be host callable because it is called by a host callable function Device\+Min\+::identity$<$string\+\_\+view$>$()
+
+\begin{DoxyReturn}{返回}
+A string value which represents the highest possible valid UTF-\/8 encoded character. 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_a3f7e0503c1cc3d1d4cfb80cb3d994936}\label{classcudf_1_1string__view_a3f7e0503c1cc3d1d4cfb80cb3d994936} 
+\index{cudf::string\_view@{cudf::string\_view}!min@{min}}
+\index{min@{min}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{min()}{min()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} cudf\+::string\+\_\+view\+::min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Return minimum value associated with the string type 
+
+This function is needed to be host callable because it is called by a host callable function Device\+Max\+::identity$<$string\+\_\+view$>$()
+
+\begin{DoxyReturn}{返回}
+An empty string 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_aeb23e47347623f71560aa8640c60d639}\label{classcudf_1_1string__view_aeb23e47347623f71560aa8640c60d639} 
+\index{cudf::string\_view@{cudf::string\_view}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ bool cudf\+::string\+\_\+view\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns true if rhs does not match this string. 
+
+
+\begin{DoxyParams}{参数}
+{\em rhs} & Target string to compare with this string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true if rhs does not match this string 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_aa6523c4c5bbb655b0dc9f2983e329d05}\label{classcudf_1_1string__view_aa6523c4c5bbb655b0dc9f2983e329d05} 
+\index{cudf::string\_view@{cudf::string\_view}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ bool cudf\+::string\+\_\+view\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns true if this string is ordered before rhs. 
+
+
+\begin{DoxyParams}{参数}
+{\em rhs} & Target string to compare with this string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true if this string is ordered before rhs 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_a6ccc1ed6224f5eebe0489ac60463027b}\label{classcudf_1_1string__view_a6ccc1ed6224f5eebe0489ac60463027b} 
+\index{cudf::string\_view@{cudf::string\_view}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ bool cudf\+::string\+\_\+view\+::operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns true if this string matches or is ordered before rhs. 
+
+
+\begin{DoxyParams}{参数}
+{\em rhs} & Target string to compare with this string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true if this string matches or is ordered before rhs 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_ae8d8d51da94409e25cba3a6115f06d46}\label{classcudf_1_1string__view_ae8d8d51da94409e25cba3a6115f06d46} 
+\index{cudf::string\_view@{cudf::string\_view}!operator=@{operator=}}
+\index{operator=@{operator=}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \& cudf\+::string\+\_\+view\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Copy assignment operator 
+
+\begin{DoxyReturn}{返回}
+Reference to this instance 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_a6ffad93f11bba9978ca7b2685f0d0865}\label{classcudf_1_1string__view_a6ffad93f11bba9978ca7b2685f0d0865} 
+\index{cudf::string\_view@{cudf::string\_view}!operator=@{operator=}}
+\index{operator=@{operator=}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \& cudf\+::string\+\_\+view\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Move assignment operator 
+
+\begin{DoxyReturn}{返回}
+Reference to this instance (after transferring ownership) 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_a511dece98a4455932a1abc5ecd21ca2a}\label{classcudf_1_1string__view_a511dece98a4455932a1abc5ecd21ca2a} 
+\index{cudf::string\_view@{cudf::string\_view}!operator==@{operator==}}
+\index{operator==@{operator==}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ bool cudf\+::string\+\_\+view\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns true if rhs matches this string exactly. 
+
+
+\begin{DoxyParams}{参数}
+{\em rhs} & Target string to compare with this string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true if rhs matches this string exactly 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_ad572225e619316f4aff1745bd567f401}\label{classcudf_1_1string__view_ad572225e619316f4aff1745bd567f401} 
+\index{cudf::string\_view@{cudf::string\_view}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ bool cudf\+::string\+\_\+view\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns true if rhs is ordered before this string. 
+
+
+\begin{DoxyParams}{参数}
+{\em rhs} & Target string to compare with this string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true if rhs is ordered before this string 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_a0052af8c56061158556c97ccf224cf30}\label{classcudf_1_1string__view_a0052af8c56061158556c97ccf224cf30} 
+\index{cudf::string\_view@{cudf::string\_view}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ bool cudf\+::string\+\_\+view\+::operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns true if rhs matches or is ordered before this string. 
+
+
+\begin{DoxyParams}{参数}
+{\em rhs} & Target string to compare with this string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true if rhs matches or is ordered before this string 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_afdfa4795d43bdf0d584bc31f37a7176a}\label{classcudf_1_1string__view_afdfa4795d43bdf0d584bc31f37a7176a} 
+\index{cudf::string\_view@{cudf::string\_view}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{char\+\_\+utf8}} cudf\+::string\+\_\+view\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return single UTF-\/8 character at the given character position 
+
+
+\begin{DoxyParams}{参数}
+{\em pos} & Character position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+UTF-\/8 character at the given character position 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_a0e948aa77d605cb7f45b7524cb2038fc}\label{classcudf_1_1string__view_a0e948aa77d605cb7f45b7524cb2038fc} 
+\index{cudf::string\_view@{cudf::string\_view}!rfind@{rfind}}
+\index{rfind@{rfind}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{rfind()}{rfind()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::string\+\_\+view\+::rfind (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacecudf_af4f547550d24ad068f9f8ad75886af56}{char\+\_\+utf8}}}]{character,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{pos = {\ttfamily 0},  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{count = {\ttfamily -\/1} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the character position of the last occurrence where character is found in this string within the character range \mbox{[}pos,pos+n). 
+
+
+\begin{DoxyParams}{参数}
+{\em character} & Single encoded character. \\
+\hline
+{\em pos} & Character position to start search within this string. \\
+\hline
+{\em count} & Number of characters from pos to include in the search. Specify -\/1 to indicate to the end of the string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+npos if arg string is not found in this string. 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_aaa1a3bd708a977a7f3826b2f0b55144f}\label{classcudf_1_1string__view_aaa1a3bd708a977a7f3826b2f0b55144f} 
+\index{cudf::string\_view@{cudf::string\_view}!rfind@{rfind}}
+\index{rfind@{rfind}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{rfind()}{rfind()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::string\+\_\+view\+::rfind (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{bytes,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{pos = {\ttfamily 0},  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{count = {\ttfamily -\/1} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the character position of the last occurrence where the array str is found in this string within the character range \mbox{[}pos,pos+n). 
+
+
+\begin{DoxyParams}{参数}
+{\em str} & Target string to search with this string. \\
+\hline
+{\em bytes} & Number of bytes in str. \\
+\hline
+{\em pos} & Character position to start search within this string. \\
+\hline
+{\em count} & Number of characters from pos to include in the search. Specify -\/1 to indicate to the end of the string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+npos if arg string is not found in this string. 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_af40b3e91041da96d0667cab3a4469bc1}\label{classcudf_1_1string__view_af40b3e91041da96d0667cab3a4469bc1} 
+\index{cudf::string\_view@{cudf::string\_view}!rfind@{rfind}}
+\index{rfind@{rfind}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{rfind()}{rfind()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::string\+\_\+view\+::rfind (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} \&}]{str,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{pos = {\ttfamily 0},  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{count = {\ttfamily -\/1} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the character position of the last occurrence where the argument str is found in this string within the character range \mbox{[}pos,pos+n). 
+
+
+\begin{DoxyParams}{参数}
+{\em str} & Target string to search within this string. \\
+\hline
+{\em pos} & Character position to start search within this string. \\
+\hline
+{\em count} & Number of characters from pos to include in the search. Specify -\/1 to indicate to the end of the string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+npos if arg string is not found in this string. 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1string__view_a083aefaafd554f5bb786176a766df02e}\label{classcudf_1_1string__view_a083aefaafd554f5bb786176a766df02e} 
+\index{cudf::string\_view@{cudf::string\_view}!size\_bytes@{size\_bytes}}
+\index{size\_bytes@{size\_bytes}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{size\_bytes()}{size\_bytes()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::string\+\_\+view\+::size\+\_\+bytes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the number of bytes in this string 
+
+\begin{DoxyReturn}{返回}
+The number of bytes in this string 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{string__view_8hpp_source}{string\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{string__view_8hpp_source_l00051}{51}} 行定义.
+
+\Hypertarget{classcudf_1_1string__view_a7d8085d631f72ef8a2c467bd370c1b6f}\label{classcudf_1_1string__view_a7d8085d631f72ef8a2c467bd370c1b6f} 
+\index{cudf::string\_view@{cudf::string\_view}!substr@{substr}}
+\index{substr@{substr}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{substr()}{substr()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+device\+\_\+\+\_\+ \mbox{\hyperlink{classcudf_1_1string__view}{string\+\_\+view}} cudf\+::string\+\_\+view\+::substr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{start,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{length }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return a sub-\/string of this string. The original string and device memory must still be maintained for the lifetime of the returned instance. 
+
+
+\begin{DoxyParams}{参数}
+{\em start} & Character position to start the sub-\/string. \\
+\hline
+{\em length} & Number of characters from start to include in the sub-\/string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New instance pointing to a subset of the characters within this instance. 
+\end{DoxyReturn}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1string__view_a92369c085ea0989fc8a9a1f67e67d6e4}\label{classcudf_1_1string__view_a92369c085ea0989fc8a9a1f67e67d6e4} 
+\index{cudf::string\_view@{cudf::string\_view}!\_bytes@{\_bytes}}
+\index{\_bytes@{\_bytes}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{\_bytes}{\_bytes}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::string\+\_\+view\+::\+\_\+bytes \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Number of bytes in \+\_\+data for this string 
+
+
+
+在文件 \mbox{\hyperlink{string__view_8hpp_source}{string\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{string__view_8hpp_source_l00370}{370}} 行定义.
+
+\Hypertarget{classcudf_1_1string__view_a96a1311026bcf2ac9592b37ed319ac7f}\label{classcudf_1_1string__view_a96a1311026bcf2ac9592b37ed319ac7f} 
+\index{cudf::string\_view@{cudf::string\_view}!\_data@{\_data}}
+\index{\_data@{\_data}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{\_data}{\_data}}
+{\footnotesize\ttfamily const char\texorpdfstring{$\ast$}{*} cudf\+::string\+\_\+view\+::\+\_\+data \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Pointer to device memory contain char array for this string 
+
+
+
+在文件 \mbox{\hyperlink{string__view_8hpp_source}{string\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{string__view_8hpp_source_l00369}{369}} 行定义.
+
+\Hypertarget{classcudf_1_1string__view_aec68f29a877fc601548756e95025e394}\label{classcudf_1_1string__view_aec68f29a877fc601548756e95025e394} 
+\index{cudf::string\_view@{cudf::string\_view}!\_length@{\_length}}
+\index{\_length@{\_length}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{\_length}{\_length}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::string\+\_\+view\+::\+\_\+length \{\}\hspace{0.3cm}{\ttfamily [mutable]}, {\ttfamily [private]}}
+
+
+
+Number of characters in this string (computed) 
+
+
+
+在文件 \mbox{\hyperlink{string__view_8hpp_source}{string\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{string__view_8hpp_source_l00371}{371}} 行定义.
+
+\Hypertarget{classcudf_1_1string__view_af82def2c002ead69ab37568c20b5c539}\label{classcudf_1_1string__view_af82def2c002ead69ab37568c20b5c539} 
+\index{cudf::string\_view@{cudf::string\_view}!npos@{npos}}
+\index{npos@{npos}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{npos}{npos}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} const cudf\+::string\+\_\+view\+::npos \{-\/1\}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+No-\/position value. 
+
+Used when specifying or returning an invalid or unknown character position value. 
+
+在文件 \mbox{\hyperlink{string__view_8hpp_source}{string\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{string__view_8hpp_source_l00366}{366}} 行定义.
+
+\Hypertarget{classcudf_1_1string__view_abad865f5bbd178340c019719398ebcf3}\label{classcudf_1_1string__view_abad865f5bbd178340c019719398ebcf3} 
+\index{cudf::string\_view@{cudf::string\_view}!UNKNOWN\_STRING\_LENGTH@{UNKNOWN\_STRING\_LENGTH}}
+\index{UNKNOWN\_STRING\_LENGTH@{UNKNOWN\_STRING\_LENGTH}!cudf::string\_view@{cudf::string\_view}}
+\doxysubsubsection{\texorpdfstring{UNKNOWN\_STRING\_LENGTH}{UNKNOWN\_STRING\_LENGTH}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} const cudf\+::string\+\_\+view\+::\+UNKNOWN\+\_\+\+STRING\+\_\+\+LENGTH \{-\/1\}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+The string length is initialized to this value as a place-\/holder 
+
+The number of characters in a string is computed on-\/demand. 
+
+在文件 \mbox{\hyperlink{string__view_8hpp_source}{string\+\_\+view.\+hpp}} 第 \mbox{\hyperlink{string__view_8hpp_source_l00378}{378}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/strings/\mbox{\hyperlink{string__view_8hpp}{string\+\_\+view.\+hpp}}\end{DoxyCompactItemize}

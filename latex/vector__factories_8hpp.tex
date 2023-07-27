@@ -1,0 +1,84 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/detail/utilities/vector\+\_\+factories.hpp 文件参考}
+\hypertarget{vector__factories_8hpp}{}\label{vector__factories_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/detail/utilities/vector\_factories.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/detail/utilities/vector\_factories.hpp}}
+
+
+Convenience factories for creating device vectors from host spans  
+
+
+{\ttfamily \#include $<$cudf/utilities/default\+\_\+stream.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/utilities/error.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/utilities/span.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/cuda\+\_\+stream\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/device\+\_\+uvector.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/mr/device/device\+\_\+memory\+\_\+resource.\+hpp$>$}\newline
+{\ttfamily \#include $<$thrust/host\+\_\+vector.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+vector\+\_\+factories.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vector__factories_8hpp__incl}
+\end{center}
+\end{figure}
+此图展示该文件直接或间接的被哪些文件引用了\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{vector__factories_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1detail}{cudf\+::detail}}
+\begin{DoxyCompactList}\small\item\em Inner interfaces and implementations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\rmm\+::device\+\_\+uvector$<$ T $>$ \mbox{\hyperlink{namespacecudf_1_1detail_ab330bdc16d921431c949ade216386305}{cudf\+::detail\+::make\+\_\+zeroed\+\_\+device\+\_\+uvector\+\_\+async}} (std\+::size\+\_\+t size, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Asynchronously construct a {\ttfamily device\+\_\+uvector} and set all elements to zero. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\rmm\+::device\+\_\+uvector$<$ T $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a1cbce3bdea9ae93c27fedd21b4177e4f}{cudf\+::detail\+::make\+\_\+zeroed\+\_\+device\+\_\+uvector\+\_\+sync}} (std\+::size\+\_\+t size, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Synchronously construct a {\ttfamily device\+\_\+uvector} and set all elements to zero. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\rmm\+::device\+\_\+uvector$<$ T $>$ \mbox{\hyperlink{namespacecudf_1_1detail_af58212f43ad1509a309bf99b6abcabb3}{cudf\+::detail\+::make\+\_\+device\+\_\+uvector\+\_\+async}} (\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ T const $>$ source\+\_\+data, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Asynchronously construct a {\ttfamily device\+\_\+uvector} containing a deep copy of data from a {\ttfamily \doxylink{structcudf_1_1host__span}{host\+\_\+span}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Container , std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+convertible\+\_\+v$<$ Container, \mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ typename Container\+::value\+\_\+type const $>$ $>$ $>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ }\\rmm\+::device\+\_\+uvector$<$ typename Container\+::value\+\_\+type $>$ \mbox{\hyperlink{namespacecudf_1_1detail_ad3025511800f795e70b22eba7fd0def7}{cudf\+::detail\+::make\+\_\+device\+\_\+uvector\+\_\+async}} (Container const \&c, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Asynchronously construct a {\ttfamily device\+\_\+uvector} containing a deep copy of data from a host container \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\rmm\+::device\+\_\+uvector$<$ T $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a556dd2e77b79628c78ec6718935f565d}{cudf\+::detail\+::make\+\_\+device\+\_\+uvector\+\_\+async}} (\mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ T const $>$ source\+\_\+data, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Asynchronously construct a {\ttfamily device\+\_\+uvector} containing a deep copy of data from a {\ttfamily \doxylink{structcudf_1_1device__span}{device\+\_\+span}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\rmm\+::device\+\_\+uvector$<$ T $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a567b65a608d7b1818cff9632b3dafde8}{cudf\+::detail\+::make\+\_\+device\+\_\+uvector\+\_\+sync}} (\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ T const $>$ source\+\_\+data, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Synchronously construct a {\ttfamily device\+\_\+uvector} containing a deep copy of data from a {\ttfamily \doxylink{structcudf_1_1host__span}{host\+\_\+span}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Container , std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+convertible\+\_\+v$<$ Container, \mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ typename Container\+::value\+\_\+type const $>$ $>$ $>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ }\\rmm\+::device\+\_\+uvector$<$ typename Container\+::value\+\_\+type $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a5f1c217de33d11bb490a51d1904361f9}{cudf\+::detail\+::make\+\_\+device\+\_\+uvector\+\_\+sync}} (Container const \&c, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Synchronously construct a {\ttfamily device\+\_\+uvector} containing a deep copy of data from a host container \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\rmm\+::device\+\_\+uvector$<$ T $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a5a7fae42222fe71f2374141166c508cc}{cudf\+::detail\+::make\+\_\+device\+\_\+uvector\+\_\+sync}} (\mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ T const $>$ source\+\_\+data, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Synchronously construct a {\ttfamily device\+\_\+uvector} containing a deep copy of data from a {\ttfamily \doxylink{structcudf_1_1device__span}{device\+\_\+span}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename Out\+Container $>$ }\\Out\+Container \mbox{\hyperlink{namespacecudf_1_1detail_a0b73da63a9fe3fdc5f94d0095cb43c83}{cudf\+::detail\+::make\+\_\+vector\+\_\+async}} (\mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ T const $>$ v, rmm\+::cuda\+\_\+stream\+\_\+view stream)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a0f86869461e901b87a711c8fb331c17a}{cudf\+::detail\+::make\+\_\+std\+\_\+vector\+\_\+async}} (\mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ T const $>$ v, rmm\+::cuda\+\_\+stream\+\_\+view stream)
+\begin{DoxyCompactList}\small\item\em Asynchronously construct a {\ttfamily std\+::vector} containing a copy of data from a {\ttfamily \doxylink{structcudf_1_1device__span}{device\+\_\+span}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Container , std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+convertible\+\_\+v$<$ Container, \mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ typename Container\+::value\+\_\+type const $>$ $>$ $>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ }\\std\+::vector$<$ typename Container\+::value\+\_\+type $>$ \mbox{\hyperlink{namespacecudf_1_1detail_af13119be3a169f0210957725db3d144d}{cudf\+::detail\+::make\+\_\+std\+\_\+vector\+\_\+async}} (Container const \&c, rmm\+::cuda\+\_\+stream\+\_\+view stream)
+\begin{DoxyCompactList}\small\item\em Asynchronously construct a {\ttfamily std\+::vector} containing a copy of data from a device container \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{namespacecudf_1_1detail_aea3ae2fa6ca2edd73742c6e0ffcb8d49}{cudf\+::detail\+::make\+\_\+std\+\_\+vector\+\_\+sync}} (\mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ T const $>$ v, rmm\+::cuda\+\_\+stream\+\_\+view stream)
+\begin{DoxyCompactList}\small\item\em Synchronously construct a {\ttfamily std\+::vector} containing a copy of data from a {\ttfamily \doxylink{structcudf_1_1device__span}{device\+\_\+span}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Container , std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+convertible\+\_\+v$<$ Container, \mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ typename Container\+::value\+\_\+type const $>$ $>$ $>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ }\\std\+::vector$<$ typename Container\+::value\+\_\+type $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a76e49334977092cc1447d12b3aad3b76}{cudf\+::detail\+::make\+\_\+std\+\_\+vector\+\_\+sync}} (Container const \&c, rmm\+::cuda\+\_\+stream\+\_\+view stream)
+\begin{DoxyCompactList}\small\item\em Synchronously construct a {\ttfamily std\+::vector} containing a copy of data from a device container \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\thrust\+::host\+\_\+vector$<$ T $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a6a6bc114d57f9b4ebe7b1fd1c0debeb3}{cudf\+::detail\+::make\+\_\+host\+\_\+vector\+\_\+async}} (\mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ T const $>$ v, rmm\+::cuda\+\_\+stream\+\_\+view stream)
+\begin{DoxyCompactList}\small\item\em Asynchronously construct a {\ttfamily thrust\+::host\+\_\+vector} containing a copy of data from a {\ttfamily \doxylink{structcudf_1_1device__span}{device\+\_\+span}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Container , std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+convertible\+\_\+v$<$ Container, \mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ typename Container\+::value\+\_\+type const $>$ $>$ $>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ }\\thrust\+::host\+\_\+vector$<$ typename Container\+::value\+\_\+type $>$ \mbox{\hyperlink{namespacecudf_1_1detail_ac8a6ec6815c3166045d3417e832d1601}{cudf\+::detail\+::make\+\_\+host\+\_\+vector\+\_\+async}} (Container const \&c, rmm\+::cuda\+\_\+stream\+\_\+view stream)
+\begin{DoxyCompactList}\small\item\em Asynchronously construct a {\ttfamily std\+::vector} containing a copy of data from a device container \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\thrust\+::host\+\_\+vector$<$ T $>$ \mbox{\hyperlink{namespacecudf_1_1detail_ac324b531a3240ff154b04007561c9f34}{cudf\+::detail\+::make\+\_\+host\+\_\+vector\+\_\+sync}} (\mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ T const $>$ v, rmm\+::cuda\+\_\+stream\+\_\+view stream)
+\begin{DoxyCompactList}\small\item\em Synchronously construct a {\ttfamily std\+::vector} containing a copy of data from a {\ttfamily \doxylink{structcudf_1_1device__span}{device\+\_\+span}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Container , std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+convertible\+\_\+v$<$ Container, \mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ typename Container\+::value\+\_\+type const $>$ $>$ $>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ }\\thrust\+::host\+\_\+vector$<$ typename Container\+::value\+\_\+type $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a19a07077e71fffd39a9bae1ef7bfa379}{cudf\+::detail\+::make\+\_\+host\+\_\+vector\+\_\+sync}} (Container const \&c, rmm\+::cuda\+\_\+stream\+\_\+view stream)
+\begin{DoxyCompactList}\small\item\em Synchronously construct a {\ttfamily std\+::vector} containing a copy of data from a device container \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Convenience factories for creating device vectors from host spans 
+
+
+
+在文件 \mbox{\hyperlink{vector__factories_8hpp_source}{vector\+\_\+factories.\+hpp}} 中定义.
+

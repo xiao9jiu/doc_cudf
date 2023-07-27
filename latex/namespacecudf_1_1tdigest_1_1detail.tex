@@ -1,0 +1,286 @@
+\doxysection{cudf\+::tdigest\+::detail 命名空间参考}
+\hypertarget{namespacecudf_1_1tdigest_1_1detail}{}\label{namespacecudf_1_1tdigest_1_1detail}\index{cudf::tdigest::detail@{cudf::tdigest::detail}}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1tdigest_1_1detail_ac82f74e9f3cc4feb0808fa740c2af4be}{group\+\_\+tdigest}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&values, \mbox{\hyperlink{structcudf_1_1device__span}{cudf\+::device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$ group\+\_\+offsets, \mbox{\hyperlink{structcudf_1_1device__span}{cudf\+::device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$ group\+\_\+labels, \mbox{\hyperlink{structcudf_1_1device__span}{cudf\+::device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$ group\+\_\+valid\+\_\+counts, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} num\+\_\+groups, int max\+\_\+centroids, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Generate a tdigest column from a grouped set of numeric input values. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1tdigest_1_1detail_acd3da6e55ed3c7d5c26cbf347d9e151a}{group\+\_\+merge\+\_\+tdigest}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&values, \mbox{\hyperlink{structcudf_1_1device__span}{cudf\+::device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$ group\+\_\+offsets, \mbox{\hyperlink{structcudf_1_1device__span}{cudf\+::device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$ group\+\_\+labels, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} num\+\_\+groups, int max\+\_\+centroids, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Merges tdigests within the same group to generate a new tdigest. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1tdigest_1_1detail_a39bb8f02bc02add206d9c84fedc4d100}{make\+\_\+tdigest\+\_\+column}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} num\+\_\+rows, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \&\&centroid\+\_\+means, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \&\&centroid\+\_\+weights, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \&\&tdigest\+\_\+offsets, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \&\&min\+\_\+values, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \&\&max\+\_\+values, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a tdigest column from its constituent components. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1tdigest_1_1detail_aace10d450f09be4bc9f9b67101d6ea80}{make\+\_\+empty\+\_\+tdigest\+\_\+column}} (rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create an empty tdigest column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ \mbox{\hyperlink{namespacecudf_1_1tdigest_1_1detail_ae199018115ab7b8fca72df8f22cec436}{make\+\_\+empty\+\_\+tdigest\+\_\+scalar}} (rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create an empty tdigest scalar. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ \mbox{\hyperlink{namespacecudf_1_1tdigest_1_1detail_a65e033319c1e35eb0f4ad4280ca6c558}{reduce\+\_\+tdigest}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&values, int max\+\_\+centroids, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Generate a tdigest scalar from a set of numeric input values. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ \mbox{\hyperlink{namespacecudf_1_1tdigest_1_1detail_aefdfdc286a6ec109d60e8bd7f4714171}{reduce\+\_\+merge\+\_\+tdigest}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, int max\+\_\+centroids, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Merges multiple tdigest columns to generate a new tdigest scalar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{namespacecudf_1_1tdigest_1_1detail_acd3da6e55ed3c7d5c26cbf347d9e151a}\label{namespacecudf_1_1tdigest_1_1detail_acd3da6e55ed3c7d5c26cbf347d9e151a} 
+\index{cudf::tdigest::detail@{cudf::tdigest::detail}!group\_merge\_tdigest@{group\_merge\_tdigest}}
+\index{group\_merge\_tdigest@{group\_merge\_tdigest}!cudf::tdigest::detail@{cudf::tdigest::detail}}
+\doxysubsubsection{\texorpdfstring{group\_merge\_tdigest()}{group\_merge\_tdigest()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::tdigest\+::detail\+::group\+\_\+merge\+\_\+tdigest (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{values,  }\item[{\mbox{\hyperlink{structcudf_1_1device__span}{cudf\+::device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$}]{group\+\_\+offsets,  }\item[{\mbox{\hyperlink{structcudf_1_1device__span}{cudf\+::device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$}]{group\+\_\+labels,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{num\+\_\+groups,  }\item[{int}]{max\+\_\+centroids,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Merges tdigests within the same group to generate a new tdigest. 
+
+The tdigest column produced is of the following structure\+:
+
+struct \{ // centroids for the digest list \{ struct \{ double // mean double // weight \}, ... \} // these are from the input stream, not the centroids. they are used // during the percentile\+\_\+approx computation near the beginning or // end of the quantiles double // min double // max \}
+
+Each output row is a single tdigest. The length of the row is the \"{}size\"{} of the tdigest, each element of which represents a weighted centroid (mean, weight).
+
+
+\begin{DoxyParams}{参数}
+{\em values} & Grouped tdigests to merge. \\
+\hline
+{\em group\+\_\+offsets} & Offsets of groups\textquotesingle{} starting points within {\ttfamily values}. \\
+\hline
+{\em group\+\_\+labels} & 0-\/based ID of group that the corresponding value belongs to \\
+\hline
+{\em num\+\_\+groups} & Number of groups. \\
+\hline
+{\em max\+\_\+centroids} & Parameter controlling the level of compression of the tdigest. Higher values result in a larger, more precise tdigest. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+tdigest column, with 1 tdigest per row
+\end{DoxyReturn}
+
+
+The tdigest column produced is of the following structure\+:
+
+struct \{ // centroids for the digest list \{ struct \{ double // mean double // weight \}, ... \} // these are from the input stream, not the centroids. they are used // during the percentile\+\_\+approx computation near the beginning or // end of the quantiles double // min double // max \}
+
+Each output row is a single tdigest. The length of the row is the \"{}size\"{} of the tdigest, each element of which represents a weighted centroid (mean, weight).
+
+
+\begin{DoxyParams}{参数}
+{\em values} & Grouped tdigests to merge. \\
+\hline
+{\em group\+\_\+offsets} & Offsets of groups\textquotesingle{} starting points within {\ttfamily values}. \\
+\hline
+{\em group\+\_\+labels} & 0-\/based ID of group that the corresponding value belongs to \\
+\hline
+{\em num\+\_\+groups} & Number of groups. \\
+\hline
+{\em max\+\_\+centroids} & Parameter controlling the level of compression of the tdigest. Higher values result in a larger, more precise tdigest. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+tdigest column, with 1 tdigest per row 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1tdigest_1_1detail_ac82f74e9f3cc4feb0808fa740c2af4be}\label{namespacecudf_1_1tdigest_1_1detail_ac82f74e9f3cc4feb0808fa740c2af4be} 
+\index{cudf::tdigest::detail@{cudf::tdigest::detail}!group\_tdigest@{group\_tdigest}}
+\index{group\_tdigest@{group\_tdigest}!cudf::tdigest::detail@{cudf::tdigest::detail}}
+\doxysubsubsection{\texorpdfstring{group\_tdigest()}{group\_tdigest()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::tdigest\+::detail\+::group\+\_\+tdigest (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{values,  }\item[{\mbox{\hyperlink{structcudf_1_1device__span}{cudf\+::device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$}]{group\+\_\+offsets,  }\item[{\mbox{\hyperlink{structcudf_1_1device__span}{cudf\+::device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$}]{group\+\_\+labels,  }\item[{\mbox{\hyperlink{structcudf_1_1device__span}{cudf\+::device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$}]{group\+\_\+valid\+\_\+counts,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{num\+\_\+groups,  }\item[{int}]{max\+\_\+centroids,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Generate a tdigest column from a grouped set of numeric input values. 
+
+Generate a tdigest column from a grouped, sorted set of numeric input values.
+
+The tdigest column produced is of the following structure\+:
+
+struct \{ // centroids for the digest list \{ struct \{ double // mean double // weight \}, ... \} // these are from the input stream, not the centroids. they are used // during the percentile\+\_\+approx computation near the beginning or // end of the quantiles double // min double // max \}
+
+Each output row is a single tdigest. The length of the row is the \"{}size\"{} of the tdigest, each element of which represents a weighted centroid (mean, weight).
+
+
+\begin{DoxyParams}{参数}
+{\em values} & Grouped (and sorted) values to merge. \\
+\hline
+{\em group\+\_\+offsets} & Offsets of groups\textquotesingle{} starting points within {\ttfamily values}. \\
+\hline
+{\em group\+\_\+labels} & 0-\/based ID of group that the corresponding value belongs to \\
+\hline
+{\em group\+\_\+valid\+\_\+counts} & Per-\/group counts of valid elements. \\
+\hline
+{\em num\+\_\+groups} & Number of groups. \\
+\hline
+{\em max\+\_\+centroids} & Parameter controlling the level of compression of the tdigest. Higher values result in a larger, more precise tdigest. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+tdigest column, with 1 tdigest per row
+\end{DoxyReturn}
+
+
+The input is expected to be sorted in ascending order within each group, with nulls at the end.
+
+The tdigest column produced is of the following structure\+: struct \{ // centroids for the digest list \{ struct \{ double // mean double // weight \}, ... \} // these are from the input stream, not the centroids. they are used // during the percentile\+\_\+approx computation near the beginning or // end of the quantiles double // min double // max \}
+
+Each output row is a single tdigest. The length of the row is the \"{}size\"{} of the tdigest, each element of which represents a weighted centroid (mean, weight).
+
+
+\begin{DoxyParams}{参数}
+{\em values} & Grouped (and sorted) values to merge. \\
+\hline
+{\em group\+\_\+offsets} & Offsets of groups\textquotesingle{} starting points within {\ttfamily values}. \\
+\hline
+{\em group\+\_\+labels} & 0-\/based ID of group that the corresponding value belongs to \\
+\hline
+{\em group\+\_\+valid\+\_\+counts} & Per-\/group counts of valid elements. \\
+\hline
+{\em num\+\_\+groups} & Number of groups. \\
+\hline
+{\em max\+\_\+centroids} & Parameter controlling the level of compression of the tdigest. Higher values result in a larger, more precise tdigest. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+tdigest column, with 1 tdigest per row 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1tdigest_1_1detail_aace10d450f09be4bc9f9b67101d6ea80}\label{namespacecudf_1_1tdigest_1_1detail_aace10d450f09be4bc9f9b67101d6ea80} 
+\index{cudf::tdigest::detail@{cudf::tdigest::detail}!make\_empty\_tdigest\_column@{make\_empty\_tdigest\_column}}
+\index{make\_empty\_tdigest\_column@{make\_empty\_tdigest\_column}!cudf::tdigest::detail@{cudf::tdigest::detail}}
+\doxysubsubsection{\texorpdfstring{make\_empty\_tdigest\_column()}{make\_empty\_tdigest\_column()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::tdigest\+::detail\+::make\+\_\+empty\+\_\+tdigest\+\_\+column (\begin{DoxyParamCaption}\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Create an empty tdigest column. 
+
+An empty tdigest column contains a single row of length 0
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+An empty tdigest column. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1tdigest_1_1detail_ae199018115ab7b8fca72df8f22cec436}\label{namespacecudf_1_1tdigest_1_1detail_ae199018115ab7b8fca72df8f22cec436} 
+\index{cudf::tdigest::detail@{cudf::tdigest::detail}!make\_empty\_tdigest\_scalar@{make\_empty\_tdigest\_scalar}}
+\index{make\_empty\_tdigest\_scalar@{make\_empty\_tdigest\_scalar}!cudf::tdigest::detail@{cudf::tdigest::detail}}
+\doxysubsubsection{\texorpdfstring{make\_empty\_tdigest\_scalar()}{make\_empty\_tdigest\_scalar()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ cudf\+::tdigest\+::detail\+::make\+\_\+empty\+\_\+tdigest\+\_\+scalar (\begin{DoxyParamCaption}\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Create an empty tdigest scalar. 
+
+An empty tdigest scalar is a \doxylink{classcudf_1_1struct__scalar}{struct\+\_\+scalar} that contains a single row of length 0
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+An empty tdigest scalar. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1tdigest_1_1detail_a39bb8f02bc02add206d9c84fedc4d100}\label{namespacecudf_1_1tdigest_1_1detail_a39bb8f02bc02add206d9c84fedc4d100} 
+\index{cudf::tdigest::detail@{cudf::tdigest::detail}!make\_tdigest\_column@{make\_tdigest\_column}}
+\index{make\_tdigest\_column@{make\_tdigest\_column}!cudf::tdigest::detail@{cudf::tdigest::detail}}
+\doxysubsubsection{\texorpdfstring{make\_tdigest\_column()}{make\_tdigest\_column()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::tdigest\+::detail\+::make\+\_\+tdigest\+\_\+column (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{num\+\_\+rows,  }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \&\&}]{centroid\+\_\+means,  }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \&\&}]{centroid\+\_\+weights,  }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \&\&}]{tdigest\+\_\+offsets,  }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \&\&}]{min\+\_\+values,  }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \&\&}]{max\+\_\+values,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Create a tdigest column from its constituent components. 
+
+
+\begin{DoxyParams}{参数}
+{\em num\+\_\+rows} & The number of rows in the output column. \\
+\hline
+{\em centroid\+\_\+means} & The inner means column. These values are partitioned into lists by the {\ttfamily tdigest\+\_\+offsets} column. \\
+\hline
+{\em centroid\+\_\+weights} & The inner weights column. These values are partitioned into lists by the {\ttfamily tdigest\+\_\+offsets} column. \\
+\hline
+{\em tdigest\+\_\+offsets} & Offsets representing each individual tdigest in the output column. The offsets partition the centroid means and weights. \\
+\hline
+{\em min\+\_\+values} & Column representing the minimum input value for each tdigest. \\
+\hline
+{\em max\+\_\+values} & Column representing the maximum input value for each tdigest. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The constructed tdigest column. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1tdigest_1_1detail_aefdfdc286a6ec109d60e8bd7f4714171}\label{namespacecudf_1_1tdigest_1_1detail_aefdfdc286a6ec109d60e8bd7f4714171} 
+\index{cudf::tdigest::detail@{cudf::tdigest::detail}!reduce\_merge\_tdigest@{reduce\_merge\_tdigest}}
+\index{reduce\_merge\_tdigest@{reduce\_merge\_tdigest}!cudf::tdigest::detail@{cudf::tdigest::detail}}
+\doxysubsubsection{\texorpdfstring{reduce\_merge\_tdigest()}{reduce\_merge\_tdigest()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ cudf\+::tdigest\+::detail\+::reduce\+\_\+merge\+\_\+tdigest (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{int}]{max\+\_\+centroids,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Merges multiple tdigest columns to generate a new tdigest scalar. 
+
+The tdigest scalar produced is of the following structure\+:
+
+struct \{ // centroids for the digest list \{ struct \{ double // mean double // weight \}, ... \} // these are from the input stream, not the centroids. they are used // during the percentile\+\_\+approx computation near the beginning or // end of the quantiles double // min double // max \}
+
+
+\begin{DoxyParams}{参数}
+{\em values} & tdigests to merge. \\
+\hline
+{\em max\+\_\+centroids} & Parameter controlling the level of compression of the tdigest. Higher values result in a larger, more precise tdigest. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned scalar\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+tdigest column, with 1 tdigest per row 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1tdigest_1_1detail_a65e033319c1e35eb0f4ad4280ca6c558}\label{namespacecudf_1_1tdigest_1_1detail_a65e033319c1e35eb0f4ad4280ca6c558} 
+\index{cudf::tdigest::detail@{cudf::tdigest::detail}!reduce\_tdigest@{reduce\_tdigest}}
+\index{reduce\_tdigest@{reduce\_tdigest}!cudf::tdigest::detail@{cudf::tdigest::detail}}
+\doxysubsubsection{\texorpdfstring{reduce\_tdigest()}{reduce\_tdigest()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ cudf\+::tdigest\+::detail\+::reduce\+\_\+tdigest (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{values,  }\item[{int}]{max\+\_\+centroids,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Generate a tdigest scalar from a set of numeric input values. 
+
+The tdigest scalar produced is of the following structure\+: struct \{ // centroids for the digest list \{ struct \{ double // mean double // weight \}, ... \} // these are from the input stream, not the centroids. they are used // during the percentile\+\_\+approx computation near the beginning or // end of the quantiles double // min double // max \}
+
+
+\begin{DoxyParams}{参数}
+{\em values} & Values to merge. \\
+\hline
+{\em max\+\_\+centroids} & Parameter controlling the level of compression of the tdigest. Higher values result in a larger, more precise tdigest. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned scalar\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+tdigest scalar 
+\end{DoxyReturn}

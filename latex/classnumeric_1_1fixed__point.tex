@@ -1,0 +1,978 @@
+\doxysection{numeric\+::fixed\+\_\+point\texorpdfstring{$<$}{<} Rep, Rad \texorpdfstring{$>$}{>} 模板类 参考}
+\hypertarget{classnumeric_1_1fixed__point}{}\label{classnumeric_1_1fixed__point}\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+
+
+A type for representing a number with a fixed amount of precision  
+
+
+
+
+{\ttfamily \#include $<$fixed\+\_\+point.\+hpp$>$}
+
+
+
+numeric\+::fixed\+\_\+point\texorpdfstring{$<$}{<} Rep, Rad \texorpdfstring{$>$}{>} 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{classnumeric_1_1fixed__point__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 类型}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classnumeric_1_1fixed__point_ab9c37058c4e6c869acf5c05be6d0ca34}{rep}} = Rep
+\begin{DoxyCompactList}\small\item\em The representation type \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , typename cuda\+::std\+::enable\+\_\+if\+\_\+t$<$ cuda\+::std\+::is\+\_\+floating\+\_\+point$<$ T $>$() \&\&\mbox{\hyperlink{namespacenumeric_af75e4827d2539a1f5ea93858d2854eaa}{is\+\_\+supported\+\_\+representation\+\_\+type}}$<$ Rep $>$()$>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point_afe4cead242dc1bde2e9fd8bbe5b06a0c}{fixed\+\_\+point}} (T const \&\mbox{\hyperlink{classnumeric_1_1fixed__point_a4056f12bfeb3eadcbc1c1ecc9eb6e965}{value}}, \mbox{\hyperlink{namespacenumeric_a86733f2294a22704e81208c5ee8082be}{scale\+\_\+type}} const \&\mbox{\hyperlink{classnumeric_1_1fixed__point_a74695f9ed81795deacb74787a21f4f60}{scale}})
+\begin{DoxyCompactList}\small\item\em Constructor that will perform shifting to store value appropriately (from floating point types) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename cuda\+::std\+::enable\+\_\+if\+\_\+t$<$ cuda\+::std\+::is\+\_\+integral$<$ T $>$() \&\&\mbox{\hyperlink{namespacenumeric_af75e4827d2539a1f5ea93858d2854eaa}{is\+\_\+supported\+\_\+representation\+\_\+type}}$<$ Rep $>$()$>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point_afe4cead242dc1bde2e9fd8bbe5b06a0c}{fixed\+\_\+point}} (T const \&\mbox{\hyperlink{classnumeric_1_1fixed__point_a4056f12bfeb3eadcbc1c1ecc9eb6e965}{value}}, \mbox{\hyperlink{namespacenumeric_a86733f2294a22704e81208c5ee8082be}{scale\+\_\+type}} const \&\mbox{\hyperlink{classnumeric_1_1fixed__point_a74695f9ed81795deacb74787a21f4f60}{scale}})
+\begin{DoxyCompactList}\small\item\em Constructor that will perform shifting to store value appropriately (from integral types) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point_a0eb5ba1c542aaf7e859e3c83c94f3b8a}{fixed\+\_\+point}} (\mbox{\hyperlink{structnumeric_1_1scaled__integer}{scaled\+\_\+integer}}$<$ Rep $>$ s)
+\begin{DoxyCompactList}\small\item\em Constructor that will not perform shifting (assumes value already shifted) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename cuda\+::std\+::enable\+\_\+if\+\_\+t$<$ \mbox{\hyperlink{namespacenumeric_a7c6957d07de145140ca003e9c6dc34b3}{is\+\_\+supported\+\_\+construction\+\_\+value\+\_\+type}}$<$ T $>$()$>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point_a781fb2a2ab34950c7b70fc1f44d7099b}{fixed\+\_\+point}} (T const \&\mbox{\hyperlink{classnumeric_1_1fixed__point_a4056f12bfeb3eadcbc1c1ecc9eb6e965}{value}})
+\begin{DoxyCompactList}\small\item\em \"{}\+Scale-\/less\"{} constructor that constructs {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} number with a specified value and scale of zero \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point_abba6eda2401a7fd5e0157ec6bbcad1c4}{fixed\+\_\+point}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor that constructs {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} number with a value and scale of zero \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename U , typename cuda\+::std\+::enable\+\_\+if\+\_\+t$<$ cuda\+::std\+::is\+\_\+floating\+\_\+point\+\_\+v$<$ U $>$ $>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ }\\constexpr \mbox{\hyperlink{classnumeric_1_1fixed__point_a64acdc10a2e8fd4446ecc4bf97935f5d}{operator U}} () const
+\begin{DoxyCompactList}\small\item\em Explicit conversion operator for casting to floating point types \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename U , typename cuda\+::std\+::enable\+\_\+if\+\_\+t$<$ cuda\+::std\+::is\+\_\+integral\+\_\+v$<$ U $>$ $>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ }\\constexpr \mbox{\hyperlink{classnumeric_1_1fixed__point_a64acdc10a2e8fd4446ecc4bf97935f5d}{operator U}} () const
+\begin{DoxyCompactList}\small\item\em Explicit conversion operator for casting to integral types \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point_ad8a0ff8f9ca74bceeedb5fb108042ab1}{operator scaled\+\_\+integer}} () const
+\begin{DoxyCompactList}\small\item\em Converts the {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} number to a {\ttfamily \doxylink{structnumeric_1_1scaled__integer}{scaled\+\_\+integer}} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point_ab9c37058c4e6c869acf5c05be6d0ca34}{rep}} \mbox{\hyperlink{classnumeric_1_1fixed__point_a4056f12bfeb3eadcbc1c1ecc9eb6e965}{value}} () const
+\begin{DoxyCompactList}\small\item\em Method that returns the underlying value of the {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} number \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{namespacenumeric_a86733f2294a22704e81208c5ee8082be}{scale\+\_\+type}} \mbox{\hyperlink{classnumeric_1_1fixed__point_a74695f9ed81795deacb74787a21f4f60}{scale}} () const
+\begin{DoxyCompactList}\small\item\em Method that returns the scale of the {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} number \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} constexpr \mbox{\hyperlink{classnumeric_1_1fixed__point_ab24be69e4474960f1befa8bb42a4fe9e}{operator bool}} () const
+\begin{DoxyCompactList}\small\item\em Explicit conversion operator to {\ttfamily bool} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ \& \mbox{\hyperlink{classnumeric_1_1fixed__point_ae2f5cbc1ba956fc7e342797790576862}{operator+=}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\begin{DoxyCompactList}\small\item\em operator += \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ \& \mbox{\hyperlink{classnumeric_1_1fixed__point_af56cd2865faf9ba3922975f7804e9903}{operator\texorpdfstring{$\ast$}{*}=}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\begin{DoxyCompactList}\small\item\em operator \texorpdfstring{$\ast$}{*}= \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ \& \mbox{\hyperlink{classnumeric_1_1fixed__point_a2298ee60975162e46025970eebb7f286}{operator-\/=}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\begin{DoxyCompactList}\small\item\em operator -\/= \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ \& \mbox{\hyperlink{classnumeric_1_1fixed__point_a1b8aa39d1f490a4eeb7120dd8b63b7bd}{operator/=}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\begin{DoxyCompactList}\small\item\em operator /= \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep, Rad $>$ \& \mbox{\hyperlink{classnumeric_1_1fixed__point_af3db26a4d074f5cb01d2b59ba06c0e8c}{operator++}} ()
+\begin{DoxyCompactList}\small\item\em operator ++ (post-\/increment) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep, Rad $>$ \mbox{\hyperlink{classnumeric_1_1fixed__point_af730c0462ba2e79edff3bc84897e95ac}{rescaled}} (\mbox{\hyperlink{namespacenumeric_a86733f2294a22704e81208c5ee8082be}{scale\+\_\+type}} \mbox{\hyperlink{classnumeric_1_1fixed__point_a74695f9ed81795deacb74787a21f4f60}{scale}}) const
+\begin{DoxyCompactList}\small\item\em Method for creating a {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} number with a new {\ttfamily scale} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnumeric_1_1fixed__point_a62f2b0f808ae40960ce605203f487f77}{operator std\+::string}} () const
+\begin{DoxyCompactList}\small\item\em Returns a string representation of the \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point} value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+Rep \mbox{\hyperlink{classnumeric_1_1fixed__point_a92653d32a20aafe8f1de344a080a0b6b}{\+\_\+value}} \{\}
+\item 
+\mbox{\hyperlink{namespacenumeric_a86733f2294a22704e81208c5ee8082be}{scale\+\_\+type}} \mbox{\hyperlink{classnumeric_1_1fixed__point_a2171ad55c92f8f4072121bd2249d29f7}{\+\_\+scale}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{友元}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} friend \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ \mbox{\hyperlink{classnumeric_1_1fixed__point_a42d531f81115bfa513284ae01e9ee675}{operator+}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&lhs, \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\begin{DoxyCompactList}\small\item\em operator + (for adding two {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} numbers) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} friend \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ \mbox{\hyperlink{classnumeric_1_1fixed__point_acc87d5f0fa120ca8e72c9dcdfa7c225f}{operator-\/}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&lhs, \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\begin{DoxyCompactList}\small\item\em operator -\/ (for subtracting two {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} numbers) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} friend \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ \mbox{\hyperlink{classnumeric_1_1fixed__point_ae76254720dcf8bc07e03bd11ec714cf1}{operator\texorpdfstring{$\ast$}{*}}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&lhs, \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\begin{DoxyCompactList}\small\item\em operator \texorpdfstring{$\ast$}{*} (for multiplying two {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} numbers) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} friend \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ \mbox{\hyperlink{classnumeric_1_1fixed__point_aa99df54b36e3ecbf3a73988151d2ff9c}{operator/}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&lhs, \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\begin{DoxyCompactList}\small\item\em operator / (for dividing two {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} numbers) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} friend \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ \mbox{\hyperlink{classnumeric_1_1fixed__point_ad12706f40101587458f41fc5ab088c61}{operator\%}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&lhs, \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\begin{DoxyCompactList}\small\item\em operator \% (for computing the modulo operation of two {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} numbers) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} friend bool \mbox{\hyperlink{classnumeric_1_1fixed__point_a2cf551a1d92bce1f2ede87db6ae18b43}{operator==}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&lhs, \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\begin{DoxyCompactList}\small\item\em operator == (for comparing two {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} numbers) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} friend bool \mbox{\hyperlink{classnumeric_1_1fixed__point_a2c574b02184ceaff619cd9026e6918a8}{operator!=}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&lhs, \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\begin{DoxyCompactList}\small\item\em operator != (for comparing two {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} numbers) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} friend bool \mbox{\hyperlink{classnumeric_1_1fixed__point_ab8b7a5330dd53e5eb25d1a74d1e58b1f}{operator$<$=}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&lhs, \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\begin{DoxyCompactList}\small\item\em operator \texorpdfstring{$<$}{<}= (for comparing two {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} numbers) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} friend bool \mbox{\hyperlink{classnumeric_1_1fixed__point_acc418b8015cdb6eb4fcc9e98ee8e4299}{operator$>$=}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&lhs, \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\begin{DoxyCompactList}\small\item\em operator \texorpdfstring{$>$}{>}= (for comparing two {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} numbers) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} friend bool \mbox{\hyperlink{classnumeric_1_1fixed__point_a548287bfbd02633092582d481101286b}{operator$<$}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&lhs, \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\begin{DoxyCompactList}\small\item\em operator \texorpdfstring{$<$}{<} (for comparing two {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} numbers) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} friend bool \mbox{\hyperlink{classnumeric_1_1fixed__point_ad9aca6693df30830851ce49e1ced1cf3}{operator$>$}} (\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&lhs, \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&rhs)
+\begin{DoxyCompactList}\small\item\em operator \texorpdfstring{$>$}{>} (for comparing two {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} numbers) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+\subsubsection*{template$<$typename Rep, \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$\newline
+class numeric\+::fixed\+\_\+point$<$ Rep, Rad $>$}
+A type for representing a number with a fixed amount of precision 
+
+Currently, only binary and decimal {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} numbers are supported. Binary operations can only be performed with other {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} numbers
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em Rep} & The representation type (either {\ttfamily int32\+\_\+t} or {\ttfamily int64\+\_\+t}) \\
+\hline
+{\em Rad} & The radix/base (either {\ttfamily \doxylink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2ab47b1a7bacaef8ae6a6df16c671f76ca}{Radix\+::\+BASE\+\_\+2}} or {\ttfamily \doxylink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2a329acff975f3cc434528bec43bd5b6aa}{Radix\+::\+BASE\+\_\+10}}) \\
+\hline
+\end{DoxyTemplParams}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00213}{213}} 行定义.
+
+
+
+\doxysubsection{成员类型定义说明}
+\Hypertarget{classnumeric_1_1fixed__point_ab9c37058c4e6c869acf5c05be6d0ca34}\label{classnumeric_1_1fixed__point_ab9c37058c4e6c869acf5c05be6d0ca34} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!rep@{rep}}
+\index{rep@{rep}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{rep}{rep}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+using \mbox{\hyperlink{classnumeric_1_1fixed__point}{numeric\+::fixed\+\_\+point}}$<$ Rep, Rad $>$\+::rep =  Rep}
+
+
+
+The representation type 
+
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00218}{218}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classnumeric_1_1fixed__point_afe4cead242dc1bde2e9fd8bbe5b06a0c}\label{classnumeric_1_1fixed__point_afe4cead242dc1bde2e9fd8bbe5b06a0c} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!fixed\_point@{fixed\_point}}
+\index{fixed\_point@{fixed\_point}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{fixed\_point()}{fixed\_point()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+template$<$typename T , typename cuda\+::std\+::enable\+\_\+if\+\_\+t$<$ cuda\+::std\+::is\+\_\+floating\+\_\+point$<$ T $>$() \&\&\mbox{\hyperlink{namespacenumeric_af75e4827d2539a1f5ea93858d2854eaa}{is\+\_\+supported\+\_\+representation\+\_\+type}}$<$ Rep $>$()$>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{numeric\+::fixed\+\_\+point}}$<$ Rep, Rad $>$\+::fixed\+\_\+point (\begin{DoxyParamCaption}\item[{T const \&}]{value,  }\item[{\mbox{\hyperlink{namespacenumeric_a86733f2294a22704e81208c5ee8082be}{scale\+\_\+type}} const \&}]{scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructor that will perform shifting to store value appropriately (from floating point types) 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & The floating point type that you are constructing from \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em value} & The value that will be constructed from \\
+\hline
+{\em scale} & The exponent that is applied to Rad to perform shifting \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00231}{231}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_afe4cead242dc1bde2e9fd8bbe5b06a0c}\label{classnumeric_1_1fixed__point_afe4cead242dc1bde2e9fd8bbe5b06a0c} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!fixed\_point@{fixed\_point}}
+\index{fixed\_point@{fixed\_point}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{fixed\_point()}{fixed\_point()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+template$<$typename T , typename cuda\+::std\+::enable\+\_\+if\+\_\+t$<$ cuda\+::std\+::is\+\_\+integral$<$ T $>$() \&\&\mbox{\hyperlink{namespacenumeric_af75e4827d2539a1f5ea93858d2854eaa}{is\+\_\+supported\+\_\+representation\+\_\+type}}$<$ Rep $>$()$>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{numeric\+::fixed\+\_\+point}}$<$ Rep, Rad $>$\+::fixed\+\_\+point (\begin{DoxyParamCaption}\item[{T const \&}]{value,  }\item[{\mbox{\hyperlink{namespacenumeric_a86733f2294a22704e81208c5ee8082be}{scale\+\_\+type}} const \&}]{scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructor that will perform shifting to store value appropriately (from integral types) 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & The integral type that you are constructing from \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em value} & The value that will be constructed from \\
+\hline
+{\em scale} & The exponent that is applied to Rad to perform shifting \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00247}{247}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_a0eb5ba1c542aaf7e859e3c83c94f3b8a}\label{classnumeric_1_1fixed__point_a0eb5ba1c542aaf7e859e3c83c94f3b8a} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!fixed\_point@{fixed\_point}}
+\index{fixed\_point@{fixed\_point}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{fixed\_point()}{fixed\_point()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{numeric\+::fixed\+\_\+point}}$<$ Rep, Rad $>$\+::fixed\+\_\+point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnumeric_1_1scaled__integer}{scaled\+\_\+integer}}$<$ Rep $>$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructor that will not perform shifting (assumes value already shifted) 
+
+
+\begin{DoxyParams}{参数}
+{\em s} & \doxylink{structnumeric_1_1scaled__integer}{scaled\+\_\+integer} that contains scale and already shifted value \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00259}{259}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_a781fb2a2ab34950c7b70fc1f44d7099b}\label{classnumeric_1_1fixed__point_a781fb2a2ab34950c7b70fc1f44d7099b} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!fixed\_point@{fixed\_point}}
+\index{fixed\_point@{fixed\_point}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{fixed\_point()}{fixed\_point()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+template$<$typename T , typename cuda\+::std\+::enable\+\_\+if\+\_\+t$<$ \mbox{\hyperlink{namespacenumeric_a7c6957d07de145140ca003e9c6dc34b3}{is\+\_\+supported\+\_\+construction\+\_\+value\+\_\+type}}$<$ T $>$()$>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{numeric\+::fixed\+\_\+point}}$<$ Rep, Rad $>$\+::fixed\+\_\+point (\begin{DoxyParamCaption}\item[{T const \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\"{}\+Scale-\/less\"{} constructor that constructs {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} number with a specified value and scale of zero 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & The value type being constructing from \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em value} & The value that will be constructed from \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00273}{273}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_abba6eda2401a7fd5e0157ec6bbcad1c4}\label{classnumeric_1_1fixed__point_abba6eda2401a7fd5e0157ec6bbcad1c4} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!fixed\_point@{fixed\_point}}
+\index{fixed\_point@{fixed\_point}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{fixed\_point()}{fixed\_point()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{numeric\+::fixed\+\_\+point}}$<$ Rep, Rad $>$\+::fixed\+\_\+point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor that constructs {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} number with a value and scale of zero 
+
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00282}{282}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classnumeric_1_1fixed__point_ab24be69e4474960f1befa8bb42a4fe9e}\label{classnumeric_1_1fixed__point_ab24be69e4474960f1befa8bb42a4fe9e} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{operator bool()}{operator bool()}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} constexpr \mbox{\hyperlink{classnumeric_1_1fixed__point}{numeric\+::fixed\+\_\+point}}$<$ Rep, Rad $>$\+::operator bool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [constexpr]}}
+
+
+
+Explicit conversion operator to {\ttfamily bool} 
+
+\begin{DoxyReturn}{返回}
+The {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} value as a boolean (zero is {\ttfamily false}, nonzero is {\ttfamily true}) 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00342}{342}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_ad8a0ff8f9ca74bceeedb5fb108042ab1}\label{classnumeric_1_1fixed__point_ad8a0ff8f9ca74bceeedb5fb108042ab1} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!operator scaled\_integer@{operator scaled\_integer}}
+\index{operator scaled\_integer@{operator scaled\_integer}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{operator scaled\_integer()}{operator scaled\_integer()}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{numeric\+::fixed\+\_\+point}}$<$ Rep, Rad $>$\+::operator \mbox{\hyperlink{structnumeric_1_1scaled__integer}{scaled\+\_\+integer}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Converts the {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} number to a {\ttfamily \doxylink{structnumeric_1_1scaled__integer}{scaled\+\_\+integer}} 
+
+\begin{DoxyReturn}{返回}
+The {\ttfamily \doxylink{structnumeric_1_1scaled__integer}{scaled\+\_\+integer}} representation of the {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} number 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00318}{318}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_a62f2b0f808ae40960ce605203f487f77}\label{classnumeric_1_1fixed__point_a62f2b0f808ae40960ce605203f487f77} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!operator std::string@{operator std::string}}
+\index{operator std::string@{operator std::string}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{operator std::string()}{operator std::string()}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+\mbox{\hyperlink{classnumeric_1_1fixed__point}{numeric\+::fixed\+\_\+point}}$<$ Rep, Rad $>$\+::operator std\+::string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Returns a string representation of the \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point} value. 
+
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00620}{620}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_a64acdc10a2e8fd4446ecc4bf97935f5d}\label{classnumeric_1_1fixed__point_a64acdc10a2e8fd4446ecc4bf97935f5d} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!operator U@{operator U}}
+\index{operator U@{operator U}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{operator U()}{operator U()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+template$<$typename U , typename cuda\+::std\+::enable\+\_\+if\+\_\+t$<$ cuda\+::std\+::is\+\_\+floating\+\_\+point\+\_\+v$<$ U $>$ $>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ \\
+constexpr \mbox{\hyperlink{classnumeric_1_1fixed__point}{numeric\+::fixed\+\_\+point}}$<$ Rep, Rad $>$\+::operator U (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [constexpr]}}
+
+
+
+Explicit conversion operator for casting to floating point types 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em U} & The floating point type that is being explicitly converted to \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+The {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} number in base 10 (aka human readable format) 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00292}{292}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_a64acdc10a2e8fd4446ecc4bf97935f5d}\label{classnumeric_1_1fixed__point_a64acdc10a2e8fd4446ecc4bf97935f5d} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!operator U@{operator U}}
+\index{operator U@{operator U}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{operator U()}{operator U()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+template$<$typename U , typename cuda\+::std\+::enable\+\_\+if\+\_\+t$<$ cuda\+::std\+::is\+\_\+integral\+\_\+v$<$ U $>$ $>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ \\
+constexpr \mbox{\hyperlink{classnumeric_1_1fixed__point}{numeric\+::fixed\+\_\+point}}$<$ Rep, Rad $>$\+::operator U (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [constexpr]}}
+
+
+
+Explicit conversion operator for casting to integral types 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em U} & The integral type that is being explicitly converted to \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+The {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} number in base 10 (aka human readable format) 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00304}{304}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_af56cd2865faf9ba3922975f7804e9903}\label{classnumeric_1_1fixed__point_af56cd2865faf9ba3922975f7804e9903} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}}
+\index{operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}=()}{operator*=()}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ \& \mbox{\hyperlink{classnumeric_1_1fixed__point}{numeric\+::fixed\+\_\+point}}$<$ Rep, Rad $>$\+::operator\texorpdfstring{$\ast$}{*}= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+operator \texorpdfstring{$\ast$}{*}= 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em Rep1} & Representation type of the operand {\ttfamily rhs} \\
+\hline
+{\em Rad1} & Radix (base) type of the operand {\ttfamily rhs} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em rhs} & The number being multiplied to {\ttfamily this} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The product 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00371}{371}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_af3db26a4d074f5cb01d2b59ba06c0e8c}\label{classnumeric_1_1fixed__point_af3db26a4d074f5cb01d2b59ba06c0e8c} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!operator++@{operator++}}
+\index{operator++@{operator++}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep, Rad $>$ \& \mbox{\hyperlink{classnumeric_1_1fixed__point}{numeric\+::fixed\+\_\+point}}$<$ Rep, Rad $>$\+::operator++ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+operator ++ (post-\/increment) 
+
+\begin{DoxyReturn}{返回}
+The incremented result 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00412}{412}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_ae2f5cbc1ba956fc7e342797790576862}\label{classnumeric_1_1fixed__point_ae2f5cbc1ba956fc7e342797790576862} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ \& \mbox{\hyperlink{classnumeric_1_1fixed__point}{numeric\+::fixed\+\_\+point}}$<$ Rep, Rad $>$\+::operator+= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+operator += 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em Rep1} & Representation type of the operand {\ttfamily rhs} \\
+\hline
+{\em Rad1} & Radix (base) type of the operand {\ttfamily rhs} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em rhs} & The number being added to {\ttfamily this} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The sum 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00356}{356}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_a2298ee60975162e46025970eebb7f286}\label{classnumeric_1_1fixed__point_a2298ee60975162e46025970eebb7f286} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ \& \mbox{\hyperlink{classnumeric_1_1fixed__point}{numeric\+::fixed\+\_\+point}}$<$ Rep, Rad $>$\+::operator-\/= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+operator -\/= 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em Rep1} & Representation type of the operand {\ttfamily rhs} \\
+\hline
+{\em Rad1} & Radix (base) type of the operand {\ttfamily rhs} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em rhs} & The number being subtracted from {\ttfamily this} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The difference 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00386}{386}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_a1b8aa39d1f490a4eeb7120dd8b63b7bd}\label{classnumeric_1_1fixed__point_a1b8aa39d1f490a4eeb7120dd8b63b7bd} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ \& \mbox{\hyperlink{classnumeric_1_1fixed__point}{numeric\+::fixed\+\_\+point}}$<$ Rep, Rad $>$\+::operator/= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+operator /= 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em Rep1} & Representation type of the operand {\ttfamily rhs} \\
+\hline
+{\em Rad1} & Radix (base) type of the operand {\ttfamily rhs} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em rhs} & The number being divided from {\ttfamily this} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The quotient 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00401}{401}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_af730c0462ba2e79edff3bc84897e95ac}\label{classnumeric_1_1fixed__point_af730c0462ba2e79edff3bc84897e95ac} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!rescaled@{rescaled}}
+\index{rescaled@{rescaled}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{rescaled()}{rescaled()}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep, Rad $>$ \mbox{\hyperlink{classnumeric_1_1fixed__point}{numeric\+::fixed\+\_\+point}}$<$ Rep, Rad $>$\+::rescaled (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenumeric_a86733f2294a22704e81208c5ee8082be}{scale\+\_\+type}}}]{scale }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method for creating a {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} number with a new {\ttfamily scale} 
+
+The {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} number returned will have the same value, underlying representation and radix as {\ttfamily this}, the only thing changed is the scale.
+
+
+\begin{DoxyParams}{参数}
+{\em scale} & The {\ttfamily scale} of the returned {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+{\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} number with a new {\ttfamily scale} 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00610}{610}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_a74695f9ed81795deacb74787a21f4f60}\label{classnumeric_1_1fixed__point_a74695f9ed81795deacb74787a21f4f60} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!scale@{scale}}
+\index{scale@{scale}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{scale()}{scale()}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{namespacenumeric_a86733f2294a22704e81208c5ee8082be}{scale\+\_\+type}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{numeric\+::fixed\+\_\+point}}$<$ Rep, Rad $>$\+::scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method that returns the scale of the {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} number 
+
+\begin{DoxyReturn}{返回}
+The scale of the {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} number 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00335}{335}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_a4056f12bfeb3eadcbc1c1ecc9eb6e965}\label{classnumeric_1_1fixed__point_a4056f12bfeb3eadcbc1c1ecc9eb6e965} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!value@{value}}
+\index{value@{value}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{value()}{value()}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{classnumeric_1_1fixed__point_ab9c37058c4e6c869acf5c05be6d0ca34}{rep}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{numeric\+::fixed\+\_\+point}}$<$ Rep, Rad $>$\+::value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method that returns the underlying value of the {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} number 
+
+\begin{DoxyReturn}{返回}
+The underlying value of the {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} number 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00328}{328}} 行定义.
+
+
+
+\doxysubsection{友元及相关函数文档}
+\Hypertarget{classnumeric_1_1fixed__point_a2c574b02184ceaff619cd9026e6918a8}\label{classnumeric_1_1fixed__point_a2c574b02184ceaff619cd9026e6918a8} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{operator"!=}{operator!=}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} friend bool operator!= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{lhs,  }\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+operator != (for comparing two {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} numbers) 
+
+If {\ttfamily \+\_\+scale}s are equal, {\ttfamily \+\_\+value}s are compared. If {\ttfamily \+\_\+scale}s are not equal, the number with the larger {\ttfamily \+\_\+scale} is shifted to the smaller {\ttfamily \+\_\+scale}, and then the {\ttfamily \+\_\+value}s are compared.
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em Rep1} & Representation type of the operand {\ttfamily lhs} and {\ttfamily rhs} \\
+\hline
+{\em Rad1} & Radix (base) type of the operand {\ttfamily lhs} and {\ttfamily rhs} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em lhs} & The left hand side operand \\
+\hline
+{\em rhs} & The right hand side operand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true if {\ttfamily lhs} and {\ttfamily rhs} are not equal, false if not 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00778}{778}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_ad12706f40101587458f41fc5ab088c61}\label{classnumeric_1_1fixed__point_ad12706f40101587458f41fc5ab088c61} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!operator\%@{operator\%}}
+\index{operator\%@{operator\%}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{operator\%}{operator\%}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} friend \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ operator\% (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{lhs,  }\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+operator \% (for computing the modulo operation of two {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} numbers) 
+
+If {\ttfamily \+\_\+scale}s are equal, the modulus is computed directly. If {\ttfamily \+\_\+scale}s are not equal, the number with larger {\ttfamily \+\_\+scale} is shifted to the smaller {\ttfamily \+\_\+scale}, and then the modulus is computed.
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em Rep1} & Representation type of the operand {\ttfamily lhs} and {\ttfamily rhs} \\
+\hline
+{\em Rad1} & Radix (base) type of the operand {\ttfamily lhs} and {\ttfamily rhs} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em lhs} & The left hand side operand \\
+\hline
+{\em rhs} & The right hand side operand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The resulting {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} number 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00823}{823}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_ae76254720dcf8bc07e03bd11ec714cf1}\label{classnumeric_1_1fixed__point_ae76254720dcf8bc07e03bd11ec714cf1} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}}{operator*}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} friend \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{lhs,  }\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+operator \texorpdfstring{$\ast$}{*} (for multiplying two {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} numbers) 
+
+{\ttfamily \+\_\+scale}s are added and {\ttfamily \+\_\+value}s are multiplied.
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em Rep1} & Representation type of the operand {\ttfamily lhs} and {\ttfamily rhs} \\
+\hline
+{\em Rad1} & Radix (base) type of the operand {\ttfamily lhs} and {\ttfamily rhs} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em lhs} & The left hand side operand \\
+\hline
+{\em rhs} & The right hand side operand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The resulting {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} product 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00739}{739}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_a42d531f81115bfa513284ae01e9ee675}\label{classnumeric_1_1fixed__point_a42d531f81115bfa513284ae01e9ee675} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!operator+@{operator+}}
+\index{operator+@{operator+}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{operator+}{operator+}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} friend \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ operator+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{lhs,  }\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+operator + (for adding two {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} numbers) 
+
+If {\ttfamily \+\_\+scale}s are equal, {\ttfamily \+\_\+value}s are added. If {\ttfamily \+\_\+scale}s are not equal, the number with the larger {\ttfamily \+\_\+scale} is shifted to the smaller {\ttfamily \+\_\+scale}, and then the {\ttfamily \+\_\+value}s are added.
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em Rep1} & Representation type of the operand {\ttfamily lhs} and {\ttfamily rhs} \\
+\hline
+{\em Rad1} & Radix (base) type of the operand {\ttfamily lhs} and {\ttfamily rhs} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em lhs} & The left hand side operand \\
+\hline
+{\em rhs} & The right hand side operand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The resulting {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} sum 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00703}{703}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_acc87d5f0fa120ca8e72c9dcdfa7c225f}\label{classnumeric_1_1fixed__point_acc87d5f0fa120ca8e72c9dcdfa7c225f} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/}{operator-}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} friend \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ operator-\/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{lhs,  }\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+operator -\/ (for subtracting two {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} numbers) 
+
+If {\ttfamily \+\_\+scale}s are equal, {\ttfamily \+\_\+value}s are subtracted. If {\ttfamily \+\_\+scale}s are not equal, the number with the larger {\ttfamily \+\_\+scale} is shifted to the smaller {\ttfamily \+\_\+scale}, and then the {\ttfamily \+\_\+value}s are subtracted.
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em Rep1} & Representation type of the operand {\ttfamily lhs} and {\ttfamily rhs} \\
+\hline
+{\em Rad1} & Radix (base) type of the operand {\ttfamily lhs} and {\ttfamily rhs} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em lhs} & The left hand side operand \\
+\hline
+{\em rhs} & The right hand side operand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The resulting {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} difference 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00721}{721}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_aa99df54b36e3ecbf3a73988151d2ff9c}\label{classnumeric_1_1fixed__point_aa99df54b36e3ecbf3a73988151d2ff9c} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!operator/@{operator/}}
+\index{operator/@{operator/}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{operator/}{operator/}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} friend \mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ operator/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{lhs,  }\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+operator / (for dividing two {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} numbers) 
+
+{\ttfamily \+\_\+scale}s are subtracted and {\ttfamily \+\_\+value}s are divided.
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em Rep1} & Representation type of the operand {\ttfamily lhs} and {\ttfamily rhs} \\
+\hline
+{\em Rad1} & Radix (base) type of the operand {\ttfamily lhs} and {\ttfamily rhs} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em lhs} & The left hand side operand \\
+\hline
+{\em rhs} & The right hand side operand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The resulting {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} quotient 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00754}{754}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_a548287bfbd02633092582d481101286b}\label{classnumeric_1_1fixed__point_a548287bfbd02633092582d481101286b} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$}{operator<}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} friend bool operator$<$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{lhs,  }\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+operator \texorpdfstring{$<$}{<} (for comparing two {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} numbers) 
+
+If {\ttfamily \+\_\+scale}s are equal, {\ttfamily \+\_\+value}s are compared. If {\ttfamily \+\_\+scale}s are not equal, the number with the larger {\ttfamily \+\_\+scale} is shifted to the smaller {\ttfamily \+\_\+scale}, and then the {\ttfamily \+\_\+value}s are compared.
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em Rep1} & Representation type of the operand {\ttfamily lhs} and {\ttfamily rhs} \\
+\hline
+{\em Rad1} & Radix (base) type of the operand {\ttfamily lhs} and {\ttfamily rhs} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em lhs} & The left hand side operand \\
+\hline
+{\em rhs} & The right hand side operand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true if {\ttfamily lhs} less than {\ttfamily rhs}, false if not 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00805}{805}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_ab8b7a5330dd53e5eb25d1a74d1e58b1f}\label{classnumeric_1_1fixed__point_ab8b7a5330dd53e5eb25d1a74d1e58b1f} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$=}{operator<=}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} friend bool operator$<$= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{lhs,  }\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+operator \texorpdfstring{$<$}{<}= (for comparing two {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} numbers) 
+
+If {\ttfamily \+\_\+scale}s are equal, {\ttfamily \+\_\+value}s are compared. If {\ttfamily \+\_\+scale}s are not equal, the number with the larger {\ttfamily \+\_\+scale} is shifted to the smaller {\ttfamily \+\_\+scale}, and then the {\ttfamily \+\_\+value}s are compared.
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em Rep1} & Representation type of the operand {\ttfamily lhs} and {\ttfamily rhs} \\
+\hline
+{\em Rad1} & Radix (base) type of the operand {\ttfamily lhs} and {\ttfamily rhs} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em lhs} & The left hand side operand \\
+\hline
+{\em rhs} & The right hand side operand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true if {\ttfamily lhs} less than or equal to {\ttfamily rhs}, false if not 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00787}{787}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_a2cf551a1d92bce1f2ede87db6ae18b43}\label{classnumeric_1_1fixed__point_a2cf551a1d92bce1f2ede87db6ae18b43} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{operator==}{operator==}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} friend bool operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{lhs,  }\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+operator == (for comparing two {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} numbers) 
+
+If {\ttfamily \+\_\+scale}s are equal, {\ttfamily \+\_\+value}s are compared. If {\ttfamily \+\_\+scale}s are not equal, the number with the larger {\ttfamily \+\_\+scale} is shifted to the smaller {\ttfamily \+\_\+scale}, and then the {\ttfamily \+\_\+value}s are compared.
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em Rep1} & Representation type of the operand {\ttfamily lhs} and {\ttfamily rhs} \\
+\hline
+{\em Rad1} & Radix (base) type of the operand {\ttfamily lhs} and {\ttfamily rhs} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em lhs} & The left hand side operand \\
+\hline
+{\em rhs} & The right hand side operand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true if {\ttfamily lhs} and {\ttfamily rhs} are equal, false if not 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00769}{769}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_ad9aca6693df30830851ce49e1ced1cf3}\label{classnumeric_1_1fixed__point_ad9aca6693df30830851ce49e1ced1cf3} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{operator$>$}{operator>}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} friend bool operator$>$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{lhs,  }\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+operator \texorpdfstring{$>$}{>} (for comparing two {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} numbers) 
+
+If {\ttfamily \+\_\+scale}s are equal, {\ttfamily \+\_\+value}s are compared. If {\ttfamily \+\_\+scale}s are not equal, the number with the larger {\ttfamily \+\_\+scale} is shifted to the smaller {\ttfamily \+\_\+scale}, and then the {\ttfamily \+\_\+value}s are compared.
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em Rep1} & Representation type of the operand {\ttfamily lhs} and {\ttfamily rhs} \\
+\hline
+{\em Rad1} & Radix (base) type of the operand {\ttfamily lhs} and {\ttfamily rhs} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em lhs} & The left hand side operand \\
+\hline
+{\em rhs} & The right hand side operand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true if {\ttfamily lhs} greater than {\ttfamily rhs}, false if not 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00814}{814}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_acc418b8015cdb6eb4fcc9e98ee8e4299}\label{classnumeric_1_1fixed__point_acc418b8015cdb6eb4fcc9e98ee8e4299} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{operator$>$=}{operator>=}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+template$<$typename Rep1 , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad1$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} friend bool operator$>$= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{lhs,  }\item[{\mbox{\hyperlink{classnumeric_1_1fixed__point}{fixed\+\_\+point}}$<$ Rep1, Rad1 $>$ const \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+operator \texorpdfstring{$>$}{>}= (for comparing two {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} numbers) 
+
+If {\ttfamily \+\_\+scale}s are equal, {\ttfamily \+\_\+value}s are compared. If {\ttfamily \+\_\+scale}s are not equal, the number with the larger {\ttfamily \+\_\+scale} is shifted to the smaller {\ttfamily \+\_\+scale}, and then the {\ttfamily \+\_\+value}s are compared.
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em Rep1} & Representation type of the operand {\ttfamily lhs} and {\ttfamily rhs} \\
+\hline
+{\em Rad1} & Radix (base) type of the operand {\ttfamily lhs} and {\ttfamily rhs} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em lhs} & The left hand side operand \\
+\hline
+{\em rhs} & The right hand side operand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true if {\ttfamily lhs} greater than or equal to {\ttfamily rhs}, false if not 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00796}{796}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classnumeric_1_1fixed__point_a2171ad55c92f8f4072121bd2249d29f7}\label{classnumeric_1_1fixed__point_a2171ad55c92f8f4072121bd2249d29f7} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!\_scale@{\_scale}}
+\index{\_scale@{\_scale}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{\_scale}{\_scale}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+\mbox{\hyperlink{namespacenumeric_a86733f2294a22704e81208c5ee8082be}{scale\+\_\+type}} \mbox{\hyperlink{classnumeric_1_1fixed__point}{numeric\+::fixed\+\_\+point}}$<$ Rep, Rad $>$\+::\+\_\+scale\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00215}{215}} 行定义.
+
+\Hypertarget{classnumeric_1_1fixed__point_a92653d32a20aafe8f1de344a080a0b6b}\label{classnumeric_1_1fixed__point_a92653d32a20aafe8f1de344a080a0b6b} 
+\index{numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}!\_value@{\_value}}
+\index{\_value@{\_value}!numeric::fixed\_point$<$ Rep, Rad $>$@{numeric::fixed\_point$<$ Rep, Rad $>$}}
+\doxysubsubsection{\texorpdfstring{\_value}{\_value}}
+{\footnotesize\ttfamily template$<$typename Rep , \mbox{\hyperlink{namespacenumeric_a045400c0ebe33ec6b78a0d1294068fb2}{Radix}} Rad$>$ \\
+Rep \mbox{\hyperlink{classnumeric_1_1fixed__point}{numeric\+::fixed\+\_\+point}}$<$ Rep, Rad $>$\+::\+\_\+value \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00214}{214}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/fixed\+\_\+point/\mbox{\hyperlink{fixed__point_8hpp}{fixed\+\_\+point.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,226 @@
+\doxysection{cudf\+::data\+\_\+type类 参考}
+\hypertarget{classcudf_1_1data__type}{}\label{classcudf_1_1data__type}\index{cudf::data\_type@{cudf::data\_type}}
+
+
+Indicator for the logical data type of an element in a column.  
+
+
+
+
+{\ttfamily \#include $<$types.\+hpp$>$}
+
+
+
+cudf\+::data\+\_\+type 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{classcudf_1_1data__type__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1data__type_ade6e4b3e8b3e909210e40b9607f80d54}{data\+\_\+type}} ()=default
+\item 
+\mbox{\hyperlink{classcudf_1_1data__type_a3700b87f59723fd4935891aeac7de536}{\texorpdfstring{$\sim$}{\string~}data\+\_\+type}} ()=default
+\item 
+\mbox{\hyperlink{classcudf_1_1data__type_a937908ddf3295dcc56e849189e9c47ca}{data\+\_\+type}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} const \&)=default
+\begin{DoxyCompactList}\small\item\em Copy constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1data__type_a372ae4c31f9a17a6d9d0c0945462479a}{data\+\_\+type}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \&\&)=default
+\begin{DoxyCompactList}\small\item\em Move constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \& \mbox{\hyperlink{classcudf_1_1data__type_a52ff6a61acb9d6d6aac25c50ea6104ef}{operator=}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} const \&)=default
+\begin{DoxyCompactList}\small\item\em Copy assignment operator for \doxylink{classcudf_1_1data__type}{data\+\_\+type} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \& \mbox{\hyperlink{classcudf_1_1data__type_a12771f61770290662fa93a84a8f9ba93}{operator=}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \&\&)=default
+\begin{DoxyCompactList}\small\item\em Move assignment operator for \doxylink{classcudf_1_1data__type}{data\+\_\+type} \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{classcudf_1_1data__type_af99a835501bcd72eb881c56c2d91a57f}{data\+\_\+type}} (\mbox{\hyperlink{group__utility__types_gadf077607da617d1dadcc5417e2783539}{type\+\_\+id}} \mbox{\hyperlink{classcudf_1_1data__type_a8903a72fe81badbfdddd0093ff25514d}{id}})
+\begin{DoxyCompactList}\small\item\em Construct a new {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} object \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1data__type_a60784f1cc4bb15fe58bf50916484df8b}{data\+\_\+type}} (\mbox{\hyperlink{group__utility__types_gadf077607da617d1dadcc5417e2783539}{type\+\_\+id}} \mbox{\hyperlink{classcudf_1_1data__type_a8903a72fe81badbfdddd0093ff25514d}{id}}, int32\+\_\+t \mbox{\hyperlink{classcudf_1_1data__type_a5f25765282855117fb94bf0c5f2001b8}{scale}})
+\begin{DoxyCompactList}\small\item\em Construct a new {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} object for {\ttfamily \doxylink{classnumeric_1_1fixed__point}{numeric\+::fixed\+\_\+point}} \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{group__utility__types_gadf077607da617d1dadcc5417e2783539}{type\+\_\+id}} \mbox{\hyperlink{classcudf_1_1data__type_a8903a72fe81badbfdddd0093ff25514d}{id}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the type identifier \end{DoxyCompactList}\item 
+constexpr int32\+\_\+t \mbox{\hyperlink{classcudf_1_1data__type_a5f25765282855117fb94bf0c5f2001b8}{scale}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the scale (for fixed\+\_\+point types) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__utility__types_gadf077607da617d1dadcc5417e2783539}{type\+\_\+id}} \mbox{\hyperlink{classcudf_1_1data__type_aebfe9f665fb398079c0b101f78e68012}{\+\_\+id}} \{\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539aba2b45bdc11e2a4a6e86aab2ac693cbb}{type\+\_\+id\+::\+EMPTY}}\}
+\item 
+int32\+\_\+t \mbox{\hyperlink{classcudf_1_1data__type_aa4f6885f4d8379361fc574ae8f0c7a48}{\+\_\+fixed\+\_\+point\+\_\+scale}} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Indicator for the logical data type of an element in a column. 
+
+Simple types can be be entirely described by their {\ttfamily \doxylink{classcudf_1_1data__type_a8903a72fe81badbfdddd0093ff25514d}{id()}}, but some types require additional metadata to fully describe elements of that type. 
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00236}{236}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1data__type_ade6e4b3e8b3e909210e40b9607f80d54}\label{classcudf_1_1data__type_ade6e4b3e8b3e909210e40b9607f80d54} 
+\index{cudf::data\_type@{cudf::data\_type}!data\_type@{data\_type}}
+\index{data\_type@{data\_type}!cudf::data\_type@{cudf::data\_type}}
+\doxysubsubsection{\texorpdfstring{data\_type()}{data\_type()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily cudf\+::data\+\_\+type\+::data\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classcudf_1_1data__type_a3700b87f59723fd4935891aeac7de536}\label{classcudf_1_1data__type_a3700b87f59723fd4935891aeac7de536} 
+\index{cudf::data\_type@{cudf::data\_type}!````~data\_type@{\texorpdfstring{$\sim$}{\string~}data\_type}}
+\index{````~data\_type@{\texorpdfstring{$\sim$}{\string~}data\_type}!cudf::data\_type@{cudf::data\_type}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}data\_type()}{\string~data\_type()}}
+{\footnotesize\ttfamily cudf\+::data\+\_\+type\+::\texorpdfstring{$\sim$}{\string~}data\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classcudf_1_1data__type_a937908ddf3295dcc56e849189e9c47ca}\label{classcudf_1_1data__type_a937908ddf3295dcc56e849189e9c47ca} 
+\index{cudf::data\_type@{cudf::data\_type}!data\_type@{data\_type}}
+\index{data\_type@{data\_type}!cudf::data\_type@{cudf::data\_type}}
+\doxysubsubsection{\texorpdfstring{data\_type()}{data\_type()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily cudf\+::data\+\_\+type\+::data\+\_\+type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Copy constructor 
+
+\Hypertarget{classcudf_1_1data__type_a372ae4c31f9a17a6d9d0c0945462479a}\label{classcudf_1_1data__type_a372ae4c31f9a17a6d9d0c0945462479a} 
+\index{cudf::data\_type@{cudf::data\_type}!data\_type@{data\_type}}
+\index{data\_type@{data\_type}!cudf::data\_type@{cudf::data\_type}}
+\doxysubsubsection{\texorpdfstring{data\_type()}{data\_type()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily cudf\+::data\+\_\+type\+::data\+\_\+type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Move constructor 
+
+\Hypertarget{classcudf_1_1data__type_af99a835501bcd72eb881c56c2d91a57f}\label{classcudf_1_1data__type_af99a835501bcd72eb881c56c2d91a57f} 
+\index{cudf::data\_type@{cudf::data\_type}!data\_type@{data\_type}}
+\index{data\_type@{data\_type}!cudf::data\_type@{cudf::data\_type}}
+\doxysubsubsection{\texorpdfstring{data\_type()}{data\_type()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily constexpr cudf\+::data\+\_\+type\+::data\+\_\+type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_gadf077607da617d1dadcc5417e2783539}{type\+\_\+id}}}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [constexpr]}}
+
+
+
+Construct a new {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} object 
+
+
+\begin{DoxyParams}{参数}
+{\em id} & The type\textquotesingle{}s identifier \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00262}{262}} 行定义.
+
+\Hypertarget{classcudf_1_1data__type_a60784f1cc4bb15fe58bf50916484df8b}\label{classcudf_1_1data__type_a60784f1cc4bb15fe58bf50916484df8b} 
+\index{cudf::data\_type@{cudf::data\_type}!data\_type@{data\_type}}
+\index{data\_type@{data\_type}!cudf::data\_type@{cudf::data\_type}}
+\doxysubsubsection{\texorpdfstring{data\_type()}{data\_type()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily cudf\+::data\+\_\+type\+::data\+\_\+type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_gadf077607da617d1dadcc5417e2783539}{type\+\_\+id}}}]{id,  }\item[{int32\+\_\+t}]{scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Construct a new {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} object for {\ttfamily \doxylink{classnumeric_1_1fixed__point}{numeric\+::fixed\+\_\+point}} 
+
+
+\begin{DoxyParams}{参数}
+{\em id} & The {\ttfamily fixed\+\_\+point}\textquotesingle{}s identifier \\
+\hline
+{\em scale} & The {\ttfamily fixed\+\_\+point}\textquotesingle{}s scale (see {\ttfamily fixed\+\_\+point\+::\+\_\+scale}) \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00270}{270}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1data__type_a8903a72fe81badbfdddd0093ff25514d}\label{classcudf_1_1data__type_a8903a72fe81badbfdddd0093ff25514d} 
+\index{cudf::data\_type@{cudf::data\_type}!id@{id}}
+\index{id@{id}!cudf::data\_type@{cudf::data\_type}}
+\doxysubsubsection{\texorpdfstring{id()}{id()}}
+{\footnotesize\ttfamily constexpr \mbox{\hyperlink{group__utility__types_gadf077607da617d1dadcc5417e2783539}{type\+\_\+id}} cudf\+::data\+\_\+type\+::id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Returns the type identifier 
+
+\begin{DoxyReturn}{返回}
+The type identifier 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00280}{280}} 行定义.
+
+\Hypertarget{classcudf_1_1data__type_a12771f61770290662fa93a84a8f9ba93}\label{classcudf_1_1data__type_a12771f61770290662fa93a84a8f9ba93} 
+\index{cudf::data\_type@{cudf::data\_type}!operator=@{operator=}}
+\index{operator=@{operator=}!cudf::data\_type@{cudf::data\_type}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \& cudf\+::data\+\_\+type\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Move assignment operator for \doxylink{classcudf_1_1data__type}{data\+\_\+type} 
+
+\begin{DoxyReturn}{返回}
+Reference to this object 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1data__type_a52ff6a61acb9d6d6aac25c50ea6104ef}\label{classcudf_1_1data__type_a52ff6a61acb9d6d6aac25c50ea6104ef} 
+\index{cudf::data\_type@{cudf::data\_type}!operator=@{operator=}}
+\index{operator=@{operator=}!cudf::data\_type@{cudf::data\_type}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} \& cudf\+::data\+\_\+type\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Copy assignment operator for \doxylink{classcudf_1_1data__type}{data\+\_\+type} 
+
+\begin{DoxyReturn}{返回}
+Reference to this object 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1data__type_a5f25765282855117fb94bf0c5f2001b8}\label{classcudf_1_1data__type_a5f25765282855117fb94bf0c5f2001b8} 
+\index{cudf::data\_type@{cudf::data\_type}!scale@{scale}}
+\index{scale@{scale}!cudf::data\_type@{cudf::data\_type}}
+\doxysubsubsection{\texorpdfstring{scale()}{scale()}}
+{\footnotesize\ttfamily constexpr int32\+\_\+t cudf\+::data\+\_\+type\+::scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Returns the scale (for fixed\+\_\+point types) 
+
+\begin{DoxyReturn}{返回}
+The scale 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00287}{287}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1data__type_aa4f6885f4d8379361fc574ae8f0c7a48}\label{classcudf_1_1data__type_aa4f6885f4d8379361fc574ae8f0c7a48} 
+\index{cudf::data\_type@{cudf::data\_type}!\_fixed\_point\_scale@{\_fixed\_point\_scale}}
+\index{\_fixed\_point\_scale@{\_fixed\_point\_scale}!cudf::data\_type@{cudf::data\_type}}
+\doxysubsubsection{\texorpdfstring{\_fixed\_point\_scale}{\_fixed\_point\_scale}}
+{\footnotesize\ttfamily int32\+\_\+t cudf\+::data\+\_\+type\+::\+\_\+fixed\+\_\+point\+\_\+scale \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00294}{294}} 行定义.
+
+\Hypertarget{classcudf_1_1data__type_aebfe9f665fb398079c0b101f78e68012}\label{classcudf_1_1data__type_aebfe9f665fb398079c0b101f78e68012} 
+\index{cudf::data\_type@{cudf::data\_type}!\_id@{\_id}}
+\index{\_id@{\_id}!cudf::data\_type@{cudf::data\_type}}
+\doxysubsubsection{\texorpdfstring{\_id}{\_id}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_gadf077607da617d1dadcc5417e2783539}{type\+\_\+id}} cudf\+::data\+\_\+type\+::\+\_\+id \{\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539aba2b45bdc11e2a4a6e86aab2ac693cbb}{type\+\_\+id\+::\+EMPTY}}\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00290}{290}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/\mbox{\hyperlink{types_8hpp}{types.\+hpp}}\end{DoxyCompactItemize}

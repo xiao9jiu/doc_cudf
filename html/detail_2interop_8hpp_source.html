@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: D:/gitLibrary/cudf/cpp/include/cudf/detail/interop.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('detail_2interop_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">interop.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="detail_2interop_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright (c) 2020-2022, NVIDIA CORPORATION.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">// We disable warning 611 because the `arrow::TableBatchReader` only partially</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">// override the `ReadNext` method of `arrow::RecordBatchReader::ReadNext`</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">// triggering warning 611-D from nvcc.</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#pragma nv_diag_suppress 611</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;arrow/api.h&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#pragma nv_diag_default 611</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;<a class="code" href="interop_8hpp.html">cudf/interop.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;<a class="code" href="utilities_2default__stream_8hpp.html">cudf/utilities/default_stream.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;<a class="code" href="error_8hpp.html">cudf/utilities/error.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;rmm/cuda_stream_view.hpp&gt;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecudf.html">cudf</a> {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">namespace </span>detail {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#a94b63d8998a9b7eb5e1d4ae842f95a66">   41</a></span>std::unique_ptr&lt;table&gt; <a class="code hl_function" href="namespacecudf_1_1detail.html#a94b63d8998a9b7eb5e1d4ae842f95a66">from_dlpack</a>(</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  DLManagedTensor <span class="keyword">const</span>* managed_tensor,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#a93794af21ad050c5390d6ccd97783c52">   51</a></span>DLManagedTensor* <a class="code hl_function" href="namespacecudf_1_1detail.html#a93794af21ad050c5390d6ccd97783c52">to_dlpack</a>(</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  <a class="code hl_class" href="classcudf_1_1table__view.html">table_view</a> <span class="keyword">const</span>&amp; input,</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">// Creating arrow as per given type_id and buffer arguments</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Ts&gt;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#a65b402cf23474cf91d987693ebfdeaa9">   58</a></span>std::shared_ptr&lt;arrow::Array&gt; <a class="code hl_function" href="namespacecudf_1_1detail.html#a65b402cf23474cf91d987693ebfdeaa9">to_arrow_array</a>(<a class="code hl_enumeration" href="group__utility__types.html#gadf077607da617d1dadcc5417e2783539">cudf::type_id</a> <span class="keywordtype">id</span>, Ts&amp;&amp;... args)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>{</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  <span class="keywordflow">switch</span> (<span class="keywordtype">id</span>) {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a05afd9eb8887a406d47474cd3809a5dd">type_id::BOOL8</a>: <span class="keywordflow">return</span> std::make_shared&lt;arrow::BooleanArray&gt;(std::forward&lt;Ts&gt;(args)...);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539aee9d73311ff0658494edfff14c3ec1e3">type_id::INT8</a>: <span class="keywordflow">return</span> std::make_shared&lt;arrow::Int8Array&gt;(std::forward&lt;Ts&gt;(args)...);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a5f90af42814c0a419d715d43ae54fd7a">type_id::INT16</a>: <span class="keywordflow">return</span> std::make_shared&lt;arrow::Int16Array&gt;(std::forward&lt;Ts&gt;(args)...);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a6495adba09844fac8eeb0aba86e6f1bf">type_id::INT32</a>: <span class="keywordflow">return</span> std::make_shared&lt;arrow::Int32Array&gt;(std::forward&lt;Ts&gt;(args)...);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a4e866b275c85fbb439f6484251cfb31c">type_id::INT64</a>: <span class="keywordflow">return</span> std::make_shared&lt;arrow::Int64Array&gt;(std::forward&lt;Ts&gt;(args)...);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539aecfc091ed2a607335524c8389cfa41b5">type_id::UINT8</a>: <span class="keywordflow">return</span> std::make_shared&lt;arrow::UInt8Array&gt;(std::forward&lt;Ts&gt;(args)...);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a48d8f1a723d44ff4a87db1bb6c551c62">type_id::UINT16</a>: <span class="keywordflow">return</span> std::make_shared&lt;arrow::UInt16Array&gt;(std::forward&lt;Ts&gt;(args)...);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a17266551181f69a1b4a3ad5c9e270afc">type_id::UINT32</a>: <span class="keywordflow">return</span> std::make_shared&lt;arrow::UInt32Array&gt;(std::forward&lt;Ts&gt;(args)...);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a6de7acf711860176ba606e9aa2b85d5f">type_id::UINT64</a>: <span class="keywordflow">return</span> std::make_shared&lt;arrow::UInt64Array&gt;(std::forward&lt;Ts&gt;(args)...);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a967d280b5c16d95f2947647dd2ca6cc2">type_id::FLOAT32</a>: <span class="keywordflow">return</span> std::make_shared&lt;arrow::FloatArray&gt;(std::forward&lt;Ts&gt;(args)...);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a139882c654db8a57f7c3092de1dd0b02">type_id::FLOAT64</a>: <span class="keywordflow">return</span> std::make_shared&lt;arrow::DoubleArray&gt;(std::forward&lt;Ts&gt;(args)...);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539acf04253e348544a8e841a76dfecef3f6">type_id::TIMESTAMP_DAYS</a>:</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>      <span class="keywordflow">return</span> std::make_shared&lt;arrow::Date32Array&gt;(std::make_shared&lt;arrow::Date32Type&gt;(),</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                                                  std::forward&lt;Ts&gt;(args)...);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539ac46dfe2dc12b66ab3bf6deac3cd1a945">type_id::TIMESTAMP_SECONDS</a>:</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>      <span class="keywordflow">return</span> std::make_shared&lt;arrow::TimestampArray&gt;(arrow::timestamp(arrow::TimeUnit::SECOND),</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                                                     std::forward&lt;Ts&gt;(args)...);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a6244bf5dfcbc1adc3f9b4ccad8333f3c">type_id::TIMESTAMP_MILLISECONDS</a>:</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>      <span class="keywordflow">return</span> std::make_shared&lt;arrow::TimestampArray&gt;(arrow::timestamp(arrow::TimeUnit::MILLI),</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                                                     std::forward&lt;Ts&gt;(args)...);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a7053796e0238a00cf12b96beb273ba30">type_id::TIMESTAMP_MICROSECONDS</a>:</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>      <span class="keywordflow">return</span> std::make_shared&lt;arrow::TimestampArray&gt;(arrow::timestamp(arrow::TimeUnit::MICRO),</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                                                     std::forward&lt;Ts&gt;(args)...);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539ac62360a52ed83eda03975a09f092d7b0">type_id::TIMESTAMP_NANOSECONDS</a>:</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>      <span class="keywordflow">return</span> std::make_shared&lt;arrow::TimestampArray&gt;(arrow::timestamp(arrow::TimeUnit::NANO),</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                                                     std::forward&lt;Ts&gt;(args)...);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a77029488e6452eca1a908121589d7fd9">type_id::DURATION_SECONDS</a>:</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>      <span class="keywordflow">return</span> std::make_shared&lt;arrow::DurationArray&gt;(arrow::duration(arrow::TimeUnit::SECOND),</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>                                                    std::forward&lt;Ts&gt;(args)...);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a446364d0c90ab0072e9fa60cd7c32c3d">type_id::DURATION_MILLISECONDS</a>:</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>      <span class="keywordflow">return</span> std::make_shared&lt;arrow::DurationArray&gt;(arrow::duration(arrow::TimeUnit::MILLI),</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>                                                    std::forward&lt;Ts&gt;(args)...);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a7e68d3150eeefe2afcb2d2c138be4d15">type_id::DURATION_MICROSECONDS</a>:</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>      <span class="keywordflow">return</span> std::make_shared&lt;arrow::DurationArray&gt;(arrow::duration(arrow::TimeUnit::MICRO),</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>                                                    std::forward&lt;Ts&gt;(args)...);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a628d57b49cb66c1d14ce8db33be558ce">type_id::DURATION_NANOSECONDS</a>:</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>      <span class="keywordflow">return</span> std::make_shared&lt;arrow::DurationArray&gt;(arrow::duration(arrow::TimeUnit::NANO),</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>                                                    std::forward&lt;Ts&gt;(args)...);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordflow">default</span>: <a class="code hl_define" href="group__utility__error.html#ga8fec215b7e7785312d292d75f797ccc1">CUDF_FAIL</a>(<span class="stringliteral">&quot;Unsupported type_id conversion to arrow&quot;</span>);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  }</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>}</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">// Converting arrow type to cudf type</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#a1b91b19cf5f6210875f2c8066c263092">  104</a></span><a class="code hl_class" href="classcudf_1_1data__type.html">data_type</a> <a class="code hl_function" href="namespacecudf_1_1detail.html#a1b91b19cf5f6210875f2c8066c263092">arrow_to_cudf_type</a>(arrow::DataType <span class="keyword">const</span>&amp; arrow_type);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#a69fbe0566c564337747a5ba0c30f7813">  111</a></span>std::shared_ptr&lt;arrow::Table&gt; <a class="code hl_function" href="namespacecudf_1_1detail.html#a69fbe0566c564337747a5ba0c30f7813">to_arrow</a>(<a class="code hl_class" href="classcudf_1_1table__view.html">table_view</a> input,</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>                                       std::vector&lt;column_metadata&gt; <span class="keyword">const</span>&amp; metadata = {},</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                                       rmm::cuda_stream_view stream = <a class="code hl_function" href="namespacecudf.html#a001ed29e71e759518cae31e52312befa">cudf::get_default_stream</a>(),</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                                       arrow::MemoryPool* ar_mr     = arrow::default_memory_pool());</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="namespacecudf_1_1detail.html#ad2d059bf11972e2337fde993dbd2582b">  121</a></span>std::unique_ptr&lt;table&gt; <a class="code hl_function" href="namespacecudf_1_1detail.html#ad2d059bf11972e2337fde993dbd2582b">from_arrow</a>(</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>  arrow::Table <span class="keyword">const</span>&amp; input_table,</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>}  <span class="comment">// namespace detail</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>}  <span class="comment">// namespace cudf</span></div>
+<div class="ttc" id="aclasscudf_1_1data__type_html"><div class="ttname"><a href="classcudf_1_1data__type.html">cudf::data_type</a></div><div class="ttdoc">Indicator for the logical data type of an element in a column.</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00236">types.hpp:236</a></div></div>
+<div class="ttc" id="aclasscudf_1_1table__view_html"><div class="ttname"><a href="classcudf_1_1table__view.html">cudf::table_view</a></div><div class="ttdoc">A set of cudf::column_view's of the same size.</div><div class="ttdef"><b>Definition</b> <a href="table__view_8hpp_source.html#l00187">table_view.hpp:187</a></div></div>
+<div class="ttc" id="aerror_8hpp_html"><div class="ttname"><a href="error_8hpp.html">error.hpp</a></div></div>
+<div class="ttc" id="agroup__utility__error_html_ga8fec215b7e7785312d292d75f797ccc1"><div class="ttname"><a href="group__utility__error.html#ga8fec215b7e7785312d292d75f797ccc1">CUDF_FAIL</a></div><div class="ttdeci">#define CUDF_FAIL(reason)</div><div class="ttdoc">Indicates that an erroneous code path has been taken.</div><div class="ttdef"><b>Definition</b> <a href="error_8hpp_source.html#l00131">error.hpp:131</a></div></div>
+<div class="ttc" id="agroup__utility__types_html_gadf077607da617d1dadcc5417e2783539"><div class="ttname"><a href="group__utility__types.html#gadf077607da617d1dadcc5417e2783539">cudf::type_id</a></div><div class="ttdeci">type_id</div><div class="ttdoc">Identifies a column's logical element type</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00196">types.hpp:196</a></div></div>
+<div class="ttc" id="agroup__utility__types_html_ggadf077607da617d1dadcc5417e2783539a05afd9eb8887a406d47474cd3809a5dd"><div class="ttname"><a href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a05afd9eb8887a406d47474cd3809a5dd">cudf::type_id::BOOL8</a></div><div class="ttdeci">@ BOOL8</div><div class="ttdoc">Boolean using one byte per value, 0 == false, else true</div></div>
+<div class="ttc" id="agroup__utility__types_html_ggadf077607da617d1dadcc5417e2783539a139882c654db8a57f7c3092de1dd0b02"><div class="ttname"><a href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a139882c654db8a57f7c3092de1dd0b02">cudf::type_id::FLOAT64</a></div><div class="ttdeci">@ FLOAT64</div><div class="ttdoc">8 byte floating point</div></div>
+<div class="ttc" id="agroup__utility__types_html_ggadf077607da617d1dadcc5417e2783539a17266551181f69a1b4a3ad5c9e270afc"><div class="ttname"><a href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a17266551181f69a1b4a3ad5c9e270afc">cudf::type_id::UINT32</a></div><div class="ttdeci">@ UINT32</div><div class="ttdoc">4 byte unsigned integer</div></div>
+<div class="ttc" id="agroup__utility__types_html_ggadf077607da617d1dadcc5417e2783539a446364d0c90ab0072e9fa60cd7c32c3d"><div class="ttname"><a href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a446364d0c90ab0072e9fa60cd7c32c3d">cudf::type_id::DURATION_MILLISECONDS</a></div><div class="ttdeci">@ DURATION_MILLISECONDS</div><div class="ttdoc">time interval of milliseconds in int64</div></div>
+<div class="ttc" id="agroup__utility__types_html_ggadf077607da617d1dadcc5417e2783539a48d8f1a723d44ff4a87db1bb6c551c62"><div class="ttname"><a href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a48d8f1a723d44ff4a87db1bb6c551c62">cudf::type_id::UINT16</a></div><div class="ttdeci">@ UINT16</div><div class="ttdoc">2 byte unsigned integer</div></div>
+<div class="ttc" id="agroup__utility__types_html_ggadf077607da617d1dadcc5417e2783539a4e866b275c85fbb439f6484251cfb31c"><div class="ttname"><a href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a4e866b275c85fbb439f6484251cfb31c">cudf::type_id::INT64</a></div><div class="ttdeci">@ INT64</div><div class="ttdoc">8 byte signed integer</div></div>
+<div class="ttc" id="agroup__utility__types_html_ggadf077607da617d1dadcc5417e2783539a5f90af42814c0a419d715d43ae54fd7a"><div class="ttname"><a href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a5f90af42814c0a419d715d43ae54fd7a">cudf::type_id::INT16</a></div><div class="ttdeci">@ INT16</div><div class="ttdoc">2 byte signed integer</div></div>
+<div class="ttc" id="agroup__utility__types_html_ggadf077607da617d1dadcc5417e2783539a6244bf5dfcbc1adc3f9b4ccad8333f3c"><div class="ttname"><a href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a6244bf5dfcbc1adc3f9b4ccad8333f3c">cudf::type_id::TIMESTAMP_MILLISECONDS</a></div><div class="ttdeci">@ TIMESTAMP_MILLISECONDS</div><div class="ttdoc">point in time in milliseconds since Unix Epoch in int64</div></div>
+<div class="ttc" id="agroup__utility__types_html_ggadf077607da617d1dadcc5417e2783539a628d57b49cb66c1d14ce8db33be558ce"><div class="ttname"><a href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a628d57b49cb66c1d14ce8db33be558ce">cudf::type_id::DURATION_NANOSECONDS</a></div><div class="ttdeci">@ DURATION_NANOSECONDS</div><div class="ttdoc">time interval of nanoseconds in int64</div></div>
+<div class="ttc" id="agroup__utility__types_html_ggadf077607da617d1dadcc5417e2783539a6495adba09844fac8eeb0aba86e6f1bf"><div class="ttname"><a href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a6495adba09844fac8eeb0aba86e6f1bf">cudf::type_id::INT32</a></div><div class="ttdeci">@ INT32</div><div class="ttdoc">4 byte signed integer</div></div>
+<div class="ttc" id="agroup__utility__types_html_ggadf077607da617d1dadcc5417e2783539a6de7acf711860176ba606e9aa2b85d5f"><div class="ttname"><a href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a6de7acf711860176ba606e9aa2b85d5f">cudf::type_id::UINT64</a></div><div class="ttdeci">@ UINT64</div><div class="ttdoc">8 byte unsigned integer</div></div>
+<div class="ttc" id="agroup__utility__types_html_ggadf077607da617d1dadcc5417e2783539a7053796e0238a00cf12b96beb273ba30"><div class="ttname"><a href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a7053796e0238a00cf12b96beb273ba30">cudf::type_id::TIMESTAMP_MICROSECONDS</a></div><div class="ttdeci">@ TIMESTAMP_MICROSECONDS</div><div class="ttdoc">point in time in microseconds since Unix Epoch in int64</div></div>
+<div class="ttc" id="agroup__utility__types_html_ggadf077607da617d1dadcc5417e2783539a77029488e6452eca1a908121589d7fd9"><div class="ttname"><a href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a77029488e6452eca1a908121589d7fd9">cudf::type_id::DURATION_SECONDS</a></div><div class="ttdeci">@ DURATION_SECONDS</div><div class="ttdoc">time interval of seconds in int64</div></div>
+<div class="ttc" id="agroup__utility__types_html_ggadf077607da617d1dadcc5417e2783539a7e68d3150eeefe2afcb2d2c138be4d15"><div class="ttname"><a href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a7e68d3150eeefe2afcb2d2c138be4d15">cudf::type_id::DURATION_MICROSECONDS</a></div><div class="ttdeci">@ DURATION_MICROSECONDS</div><div class="ttdoc">time interval of microseconds in int64</div></div>
+<div class="ttc" id="agroup__utility__types_html_ggadf077607da617d1dadcc5417e2783539a967d280b5c16d95f2947647dd2ca6cc2"><div class="ttname"><a href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a967d280b5c16d95f2947647dd2ca6cc2">cudf::type_id::FLOAT32</a></div><div class="ttdeci">@ FLOAT32</div><div class="ttdoc">4 byte floating point</div></div>
+<div class="ttc" id="agroup__utility__types_html_ggadf077607da617d1dadcc5417e2783539ac46dfe2dc12b66ab3bf6deac3cd1a945"><div class="ttname"><a href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539ac46dfe2dc12b66ab3bf6deac3cd1a945">cudf::type_id::TIMESTAMP_SECONDS</a></div><div class="ttdeci">@ TIMESTAMP_SECONDS</div><div class="ttdoc">point in time in seconds since Unix Epoch in int64</div></div>
+<div class="ttc" id="agroup__utility__types_html_ggadf077607da617d1dadcc5417e2783539ac62360a52ed83eda03975a09f092d7b0"><div class="ttname"><a href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539ac62360a52ed83eda03975a09f092d7b0">cudf::type_id::TIMESTAMP_NANOSECONDS</a></div><div class="ttdeci">@ TIMESTAMP_NANOSECONDS</div><div class="ttdoc">point in time in nanoseconds since Unix Epoch in int64</div></div>
+<div class="ttc" id="agroup__utility__types_html_ggadf077607da617d1dadcc5417e2783539acf04253e348544a8e841a76dfecef3f6"><div class="ttname"><a href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539acf04253e348544a8e841a76dfecef3f6">cudf::type_id::TIMESTAMP_DAYS</a></div><div class="ttdeci">@ TIMESTAMP_DAYS</div><div class="ttdoc">point in time in days since Unix Epoch in int32</div></div>
+<div class="ttc" id="agroup__utility__types_html_ggadf077607da617d1dadcc5417e2783539aecfc091ed2a607335524c8389cfa41b5"><div class="ttname"><a href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539aecfc091ed2a607335524c8389cfa41b5">cudf::type_id::UINT8</a></div><div class="ttdeci">@ UINT8</div><div class="ttdoc">1 byte unsigned integer</div></div>
+<div class="ttc" id="agroup__utility__types_html_ggadf077607da617d1dadcc5417e2783539aee9d73311ff0658494edfff14c3ec1e3"><div class="ttname"><a href="group__utility__types.html#ggadf077607da617d1dadcc5417e2783539aee9d73311ff0658494edfff14c3ec1e3">cudf::type_id::INT8</a></div><div class="ttdeci">@ INT8</div><div class="ttdoc">1 byte signed integer</div></div>
+<div class="ttc" id="ainterop_8hpp_html"><div class="ttname"><a href="interop_8hpp.html">interop.hpp</a></div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_a1b91b19cf5f6210875f2c8066c263092"><div class="ttname"><a href="namespacecudf_1_1detail.html#a1b91b19cf5f6210875f2c8066c263092">cudf::detail::arrow_to_cudf_type</a></div><div class="ttdeci">data_type arrow_to_cudf_type(arrow::DataType const &amp;arrow_type)</div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_a65b402cf23474cf91d987693ebfdeaa9"><div class="ttname"><a href="namespacecudf_1_1detail.html#a65b402cf23474cf91d987693ebfdeaa9">cudf::detail::to_arrow_array</a></div><div class="ttdeci">std::shared_ptr&lt; arrow::Array &gt; to_arrow_array(cudf::type_id id, Ts &amp;&amp;... args)</div><div class="ttdef"><b>Definition</b> <a href="detail_2interop_8hpp_source.html#l00058">interop.hpp:58</a></div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_a69fbe0566c564337747a5ba0c30f7813"><div class="ttname"><a href="namespacecudf_1_1detail.html#a69fbe0566c564337747a5ba0c30f7813">cudf::detail::to_arrow</a></div><div class="ttdeci">std::shared_ptr&lt; arrow::Table &gt; to_arrow(table_view input, std::vector&lt; column_metadata &gt; const &amp;metadata={}, rmm::cuda_stream_view stream=cudf::get_default_stream(), arrow::MemoryPool *ar_mr=arrow::default_memory_pool())</div><div class="ttdoc">Create arrow::Table from cudf table input</div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_a93794af21ad050c5390d6ccd97783c52"><div class="ttname"><a href="namespacecudf_1_1detail.html#a93794af21ad050c5390d6ccd97783c52">cudf::detail::to_dlpack</a></div><div class="ttdeci">DLManagedTensor * to_dlpack(table_view const &amp;input, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Convert a cudf table into a DLPack DLTensor</div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_a94b63d8998a9b7eb5e1d4ae842f95a66"><div class="ttname"><a href="namespacecudf_1_1detail.html#a94b63d8998a9b7eb5e1d4ae842f95a66">cudf::detail::from_dlpack</a></div><div class="ttdeci">std::unique_ptr&lt; table &gt; from_dlpack(DLManagedTensor const *managed_tensor, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Convert a DLPack DLTensor into a cudf table</div></div>
+<div class="ttc" id="anamespacecudf_1_1detail_html_ad2d059bf11972e2337fde993dbd2582b"><div class="ttname"><a href="namespacecudf_1_1detail.html#ad2d059bf11972e2337fde993dbd2582b">cudf::detail::from_arrow</a></div><div class="ttdeci">std::unique_ptr&lt; table &gt; from_arrow(arrow::Table const &amp;input_table, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div></div>
+<div class="ttc" id="anamespacecudf_html"><div class="ttname"><a href="namespacecudf.html">cudf</a></div><div class="ttdoc">cuDF interfaces</div><div class="ttdef"><b>Definition</b> <a href="aggregation_8hpp_source.html#l00034">aggregation.hpp:34</a></div></div>
+<div class="ttc" id="anamespacecudf_html_a001ed29e71e759518cae31e52312befa"><div class="ttname"><a href="namespacecudf.html#a001ed29e71e759518cae31e52312befa">cudf::get_default_stream</a></div><div class="ttdeci">rmm::cuda_stream_view const get_default_stream()</div><div class="ttdoc">Get the current default stream</div></div>
+<div class="ttc" id="autilities_2default__stream_8hpp_html"><div class="ttname"><a href="utilities_2default__stream_8hpp.html">default_stream.hpp</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_d998dea0bd4559303135358082015ac8.html">gitLibrary</a></li><li class="navelem"><a class="el" href="dir_b6486b3d9bd1f4b89c884933ed658179.html">cudf</a></li><li class="navelem"><a class="el" href="dir_318a4414914f49dc0e7605c41de9d4af.html">cpp</a></li><li class="navelem"><a class="el" href="dir_7fbf5ee8ae486656ea40e5ca1dd304f9.html">include</a></li><li class="navelem"><a class="el" href="dir_87e6427d1ef099fd52d9d0724c66b062.html">cudf</a></li><li class="navelem"><a class="el" href="dir_a82d85c89be6cfc9cc0f5c38ca1aa1ac.html">detail</a></li><li class="navelem"><a class="el" href="detail_2interop_8hpp.html">interop.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

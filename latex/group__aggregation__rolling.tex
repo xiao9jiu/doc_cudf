@@ -1,0 +1,831 @@
+\doxysection{Aggregation\+\_\+rolling}
+\hypertarget{group__aggregation__rolling}{}\label{group__aggregation__rolling}\index{Aggregation\_rolling@{Aggregation\_rolling}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{rolling_8hpp}{rolling.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1window__bounds}{cudf\+::window\+\_\+bounds}}
+\begin{DoxyCompactList}\small\item\em Abstraction for window boundary sizes \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__aggregation__rolling_ga0dfc1f001d211212169ead998d484845}{cudf\+::rolling\+\_\+window}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} preceding\+\_\+window, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} following\+\_\+window, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} min\+\_\+periods, \mbox{\hyperlink{classcudf_1_1rolling__aggregation}{rolling\+\_\+aggregation}} const \&agg, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Applies a fixed-\/size rolling window function to the values in a column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__aggregation__rolling_ga350324e8e9ab0d4969d8de7597f2a242}{cudf\+::rolling\+\_\+window}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&default\+\_\+outputs, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} preceding\+\_\+window, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} following\+\_\+window, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} min\+\_\+periods, \mbox{\hyperlink{classcudf_1_1rolling__aggregation}{rolling\+\_\+aggregation}} const \&agg, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Applies a fixed-\/size rolling window function to the values in a column.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__aggregation__rolling_ga0d431c50f9d34e8bf6beda13f693bd69}{cudf\+::grouped\+\_\+rolling\+\_\+window}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&group\+\_\+keys, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} preceding\+\_\+window, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} following\+\_\+window, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} min\+\_\+periods, \mbox{\hyperlink{classcudf_1_1rolling__aggregation}{rolling\+\_\+aggregation}} const \&aggr, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Applies a grouping-\/aware, fixed-\/size rolling window function to the values in a column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__aggregation__rolling_gabd62060125be568902bf4a4eef397fa8}{cudf\+::grouped\+\_\+rolling\+\_\+window}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&group\+\_\+keys, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{structcudf_1_1window__bounds}{window\+\_\+bounds}} preceding\+\_\+window, \mbox{\hyperlink{structcudf_1_1window__bounds}{window\+\_\+bounds}} following\+\_\+window, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} min\+\_\+periods, \mbox{\hyperlink{classcudf_1_1rolling__aggregation}{rolling\+\_\+aggregation}} const \&aggr, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Applies a grouping-\/aware, fixed-\/size rolling window function to the values in a column.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__aggregation__rolling_gae00c7ff150e9bbdd9cb51b5fb4216081}{cudf\+::grouped\+\_\+rolling\+\_\+window}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&group\+\_\+keys, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&default\+\_\+outputs, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} preceding\+\_\+window, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} following\+\_\+window, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} min\+\_\+periods, \mbox{\hyperlink{classcudf_1_1rolling__aggregation}{rolling\+\_\+aggregation}} const \&aggr, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Applies a grouping-\/aware, fixed-\/size rolling window function to the values in a column.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__aggregation__rolling_gacf7ec568b0cab23f44af22ea3600075b}{cudf\+::grouped\+\_\+rolling\+\_\+window}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&group\+\_\+keys, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&default\+\_\+outputs, \mbox{\hyperlink{structcudf_1_1window__bounds}{window\+\_\+bounds}} preceding\+\_\+window, \mbox{\hyperlink{structcudf_1_1window__bounds}{window\+\_\+bounds}} following\+\_\+window, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} min\+\_\+periods, \mbox{\hyperlink{classcudf_1_1rolling__aggregation}{rolling\+\_\+aggregation}} const \&aggr, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Applies a grouping-\/aware, fixed-\/size rolling window function to the values in a column.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__aggregation__rolling_ga167a23498c3e82313df80f653b3c48b1}{cudf\+::grouped\+\_\+time\+\_\+range\+\_\+rolling\+\_\+window}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&group\+\_\+keys, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&timestamp\+\_\+column, \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{cudf\+::order}} const \&timestamp\+\_\+order, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} preceding\+\_\+window\+\_\+in\+\_\+days, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} following\+\_\+window\+\_\+in\+\_\+days, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} min\+\_\+periods, \mbox{\hyperlink{classcudf_1_1rolling__aggregation}{rolling\+\_\+aggregation}} const \&aggr, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Applies a grouping-\/aware, timestamp-\/based rolling window function to the values in a column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__aggregation__rolling_ga7f53b18345a094351160b187b263b746}{cudf\+::grouped\+\_\+time\+\_\+range\+\_\+rolling\+\_\+window}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&group\+\_\+keys, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&timestamp\+\_\+column, \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{cudf\+::order}} const \&timestamp\+\_\+order, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{structcudf_1_1window__bounds}{window\+\_\+bounds}} preceding\+\_\+window\+\_\+in\+\_\+days, \mbox{\hyperlink{structcudf_1_1window__bounds}{window\+\_\+bounds}} following\+\_\+window\+\_\+in\+\_\+days, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} min\+\_\+periods, \mbox{\hyperlink{classcudf_1_1rolling__aggregation}{rolling\+\_\+aggregation}} const \&aggr, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Applies a grouping-\/aware, timestamp-\/based rolling window function to the values in a column,. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__aggregation__rolling_ga595d27d939a1af9d00d2b6bea3b5623c}{cudf\+::grouped\+\_\+range\+\_\+rolling\+\_\+window}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&group\+\_\+keys, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&orderby\+\_\+column, \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{cudf\+::order}} const \&\mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}}, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{structcudf_1_1range__window__bounds}{range\+\_\+window\+\_\+bounds}} const \&preceding, \mbox{\hyperlink{structcudf_1_1range__window__bounds}{range\+\_\+window\+\_\+bounds}} const \&following, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} min\+\_\+periods, \mbox{\hyperlink{classcudf_1_1rolling__aggregation}{rolling\+\_\+aggregation}} const \&aggr, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Applies a grouping-\/aware, value range-\/based rolling window function to the values in a column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__aggregation__rolling_gaaed6574615700cec1d4bf5469fe28141}{cudf\+::rolling\+\_\+window}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&preceding\+\_\+window, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&following\+\_\+window, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} min\+\_\+periods, \mbox{\hyperlink{classcudf_1_1rolling__aggregation}{rolling\+\_\+aggregation}} const \&agg, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Applies a variable-\/size rolling window function to the values in a column. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__aggregation__rolling_ga595d27d939a1af9d00d2b6bea3b5623c}\label{group__aggregation__rolling_ga595d27d939a1af9d00d2b6bea3b5623c} 
+\index{Aggregation\_rolling@{Aggregation\_rolling}!grouped\_range\_rolling\_window@{grouped\_range\_rolling\_window}}
+\index{grouped\_range\_rolling\_window@{grouped\_range\_rolling\_window}!Aggregation\_rolling@{Aggregation\_rolling}}
+\doxysubsubsection{\texorpdfstring{grouped\_range\_rolling\_window()}{grouped\_range\_rolling\_window()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::grouped\+\_\+range\+\_\+rolling\+\_\+window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{group\+\_\+keys,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{orderby\+\_\+column,  }\item[{\mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{cudf\+::order}} const \&}]{order,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{structcudf_1_1range__window__bounds}{range\+\_\+window\+\_\+bounds}} const \&}]{preceding,  }\item[{\mbox{\hyperlink{structcudf_1_1range__window__bounds}{range\+\_\+window\+\_\+bounds}} const \&}]{following,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{min\+\_\+periods,  }\item[{\mbox{\hyperlink{classcudf_1_1rolling__aggregation}{rolling\+\_\+aggregation}} const \&}]{aggr,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Applies a grouping-\/aware, value range-\/based rolling window function to the values in a column. 
+
+This function aggregates rows in a window around each element of a specified {\ttfamily input} column. The window is determined based on the values of an ordered {\ttfamily orderby} column, and on the values of a {\ttfamily preceding} and {\ttfamily following} scalar representing an inclusive range of orderby column values.
+
+
+\begin{DoxyEnumerate}
+\item The elements of the {\ttfamily input} column are grouped into distinct groups (e.\+g. the result of a groupby), determined by the corresponding values of the columns under {\ttfamily group\+\_\+keys}. The window-\/aggregation cannot cross the group boundaries.
+\item Within a group, with all rows sorted by the {\ttfamily orderby} column, the aggregation window for a row at index {\ttfamily i} is determined as follows\+: a) If {\ttfamily orderby} is ASCENDING, aggregation window for row {\ttfamily i} includes all {\ttfamily input} rows at index {\ttfamily j} such that\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(orderby[i]\ -\/\ preceding)\ <=\ orderby[j]\ <=\ orderby[i]\ +\ following}
+
+\end{DoxyCode}
+ b) If {\ttfamily orderby} is DESCENDING, aggregation window for row {\ttfamily i} includes all {\ttfamily input} rows at index {\ttfamily j} such that\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(orderby[i]\ +\ preceding)\ >=\ orderby[j]\ >=\ orderby[i]\ -\/\ following}
+
+\end{DoxyCode}
+
+\end{DoxyEnumerate}
+
+Note\+: This method requires that the rows are presorted by the group keys and orderby column values.
+
+The window intervals are specified as scalar values appropriate for the orderby column. Currently, only the following combinations of {\ttfamily orderby} column type and range types are supported\+:
+\begin{DoxyEnumerate}
+\item If {\ttfamily orderby} column is a TIMESTAMP, the {\ttfamily preceding}/{\ttfamily following} windows are specified in terms of {\ttfamily DURATION} scalars of the same resolution. E.\+g. For {\ttfamily orderby} column of type {\ttfamily TIMESTAMP\+\_\+\+SECONDS}, the intervals may only be {\ttfamily DURATION\+\_\+\+SECONDS}. Durations of higher resolution (e.\+g. {\ttfamily DURATION\+\_\+\+NANOSECONDS}) or lower (e.\+g. {\ttfamily DURATION\+\_\+\+DAYS}) cannot be used.
+\item If the {\ttfamily orderby} column is an integral type (e.\+g. {\ttfamily INT32}), the {\ttfamily preceding}/{\ttfamily following} should be the exact same type ({\ttfamily INT32}).
+\end{DoxyEnumerate}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:\ Consider\ a\ motor-\/racing\ statistics\ dataset,\ containing\ the\ following\ columns:}
+\DoxyCodeLine{\ \ 1.\ driver\_name:\ \ \ (STRING)\ Name\ of\ the\ car\ driver}
+\DoxyCodeLine{\ \ 2.\ num\_overtakes:\ (INT32)\ \ Number\ of\ times\ the\ driver\ overtook\ another\ car\ in\ a\ lap}
+\DoxyCodeLine{\ \ 3.\ lap\_number:\ \ \ \ (INT32)\ \ The\ number\ of\ the\ lap}
+\DoxyCodeLine{}
+\DoxyCodeLine{The\ \`{}group\_range\_rolling\_window()`\ function\ allows\ one\ to\ calculate\ the\ total\ number\ of\ overtakes}
+\DoxyCodeLine{each\ driver\ made\ within\ any\ 3\ lap\ window\ of\ each\ entry:}
+\DoxyCodeLine{\ \ 1.\ Group/partition\ the\ dataset\ by\ \`{}driver\_id`\ (This\ is\ the\ group\_keys\ argument.)}
+\DoxyCodeLine{\ \ 2.\ Sort\ each\ group\ by\ the\ \`{}lap\_number`\ (i.e.\ This\ is\ the\ orderby\_column.)}
+\DoxyCodeLine{\ \ 3.\ Calculate\ the\ SUM(num\_overtakes)\ over\ a\ window\ (preceding=1,\ following=1)}
+\DoxyCodeLine{}
+\DoxyCodeLine{For\ the\ following\ input:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ [\ //\ driver\_name,\ \ num\_overtakes,\ \ lap\_number}
+\DoxyCodeLine{\ \ \ \{\ \ \ "{}bottas"{},\ \ \ \ \ \ \ \ 1,\ \ \ \ \ \ \ \ \ \ \ \ 1\ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ \ \ "{}hamilton"{},\ \ \ \ \ \ 2,\ \ \ \ \ \ \ \ \ \ \ \ 1\ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ \ \ "{}bottas"{},\ \ \ \ \ \ \ \ 2,\ \ \ \ \ \ \ \ \ \ \ \ 2\ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ \ \ "{}bottas"{},\ \ \ \ \ \ \ \ 1,\ \ \ \ \ \ \ \ \ \ \ \ 3\ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ \ \ "{}hamilton"{},\ \ \ \ \ \ 3,\ \ \ \ \ \ \ \ \ \ \ \ 1\ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ \ \ "{}hamilton"{},\ \ \ \ \ \ 8,\ \ \ \ \ \ \ \ \ \ \ \ 2\ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ \ \ "{}bottas"{},\ \ \ \ \ \ \ \ 5,\ \ \ \ \ \ \ \ \ \ \ \ 7\ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ \ \ "{}bottas"{},\ \ \ \ \ \ \ \ 6,\ \ \ \ \ \ \ \ \ \ \ \ 8\ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ \ \ "{}hamilton"{},\ \ \ \ \ \ 4,\ \ \ \ \ \ \ \ \ \ \ \ 4\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ ]}
+\DoxyCodeLine{}
+\DoxyCodeLine{Partitioning\ (grouping)\ by\ \`{}driver\_name`,\ and\ ordering\ by\ \`{}lap\_number`\ yields\ the\ following}
+\DoxyCodeLine{\`{}num\_overtakes`\ vector\ (with\ 2\ groups,\ one\ for\ each\ distinct\ \`{}driver\_name`):}
+\DoxyCodeLine{}
+\DoxyCodeLine{lap\_number:\ \ \ \ \ \ [\ 1,\ \ 2,\ \ 3,\ \ 7,\ \ 8,\ \ \ 1,\ \ 1,\ \ \ 2,\ \ 4\ ]}
+\DoxyCodeLine{num\_overtakes:\ \ \ [\ 1,\ \ 2,\ \ 1,\ \ 5,\ \ 6,\ \ \ 2,\ \ 3,\ \ \ 8,\ \ 4\ ]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <-\/-\/-\/-\/-\/bottas-\/-\/-\/-\/-\/-\/>|<-\/-\/-\/-\/hamilton-\/-\/-\/>}
+\DoxyCodeLine{}
+\DoxyCodeLine{The\ SUM\ aggregation\ is\ applied,\ with\ 1\ preceding,\ and\ 1\ following,\ with\ a\ minimum\ of\ 1}
+\DoxyCodeLine{period.\ The\ aggregation\ window\ is\ thus\ 3\ (laps)\ wide,\ yielding\ the\ following\ output\ column:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ Results:\ \ \ \ \ \ \ \ [\ 3,\ \ 4,\ \ 3,\ \ 11,\ 11,\ \ 13,\ 13,\ \ 13,\ \ 4\ ]}
+
+\end{DoxyCode}
+
+
+Note\+: The number of rows participating in each window might vary, based on the index within the group, datestamp, and {\ttfamily min\+\_\+periods}. Apropos\+:
+\begin{DoxyEnumerate}
+\item results\mbox{[}0\mbox{]} considers 2 values, because it is at the beginning of its group, and has no preceding values.
+\item results\mbox{[}5\mbox{]} considers 3 values, despite being at the beginning of its group. It must include 2 following values, based on its orderby\+\_\+column value.
+\end{DoxyEnumerate}
+
+Each aggregation operation cannot cross group boundaries.
+
+The type of the returned column depends on the input column type {\ttfamily T}, and the aggregation\+:
+\begin{DoxyEnumerate}
+\item COUNT returns {\ttfamily INT32} columns
+\item MIN/\+MAX returns {\ttfamily T} columns
+\item SUM returns the promoted type for T. Sum on {\ttfamily INT32} yields {\ttfamily INT64}.
+\item MEAN returns FLOAT64 columns
+\item COLLECT returns columns of type {\ttfamily LIST\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}}.
+\end{DoxyEnumerate}
+
+LEAD/\+LAG/\+ROW\+\_\+\+NUMBER are undefined for range queries.
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em group\+\_\+keys} & The (pre-\/sorted) grouping columns \\
+\hline
+\mbox{\texttt{ in}}  & {\em orderby\+\_\+column} & The (pre-\/sorted) order-\/by column, for range comparisons \\
+\hline
+\mbox{\texttt{ in}}  & {\em order} & The order (ASCENDING/\+DESCENDING) in which the order-\/by column is sorted \\
+\hline
+\mbox{\texttt{ in}}  & {\em input} & The input column (to be aggregated) \\
+\hline
+\mbox{\texttt{ in}}  & {\em preceding} & The interval value in the backward direction \\
+\hline
+\mbox{\texttt{ in}}  & {\em following} & The interval value in the forward direction \\
+\hline
+\mbox{\texttt{ in}}  & {\em min\+\_\+periods} & Minimum number of observations in window required to have a value, otherwise element {\ttfamily i} is null. \\
+\hline
+\mbox{\texttt{ in}}  & {\em aggr} & The rolling window aggregation type (SUM, MAX, MIN, etc.) \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A nullable output column containing the rolling window results 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__rolling_gae00c7ff150e9bbdd9cb51b5fb4216081}\label{group__aggregation__rolling_gae00c7ff150e9bbdd9cb51b5fb4216081} 
+\index{Aggregation\_rolling@{Aggregation\_rolling}!grouped\_rolling\_window@{grouped\_rolling\_window}}
+\index{grouped\_rolling\_window@{grouped\_rolling\_window}!Aggregation\_rolling@{Aggregation\_rolling}}
+\doxysubsubsection{\texorpdfstring{grouped\_rolling\_window()}{grouped\_rolling\_window()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::grouped\+\_\+rolling\+\_\+window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{group\+\_\+keys,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{default\+\_\+outputs,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{preceding\+\_\+window,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{following\+\_\+window,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{min\+\_\+periods,  }\item[{\mbox{\hyperlink{classcudf_1_1rolling__aggregation}{rolling\+\_\+aggregation}} const \&}]{aggr,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Applies a grouping-\/aware, fixed-\/size rolling window function to the values in a column.   
+
+Like {\ttfamily \doxylink{group__aggregation__rolling_ga0dfc1f001d211212169ead998d484845}{rolling\+\_\+window()}}, this function aggregates values in a window around each element of a specified {\ttfamily input} column. It differs from {\ttfamily \doxylink{group__aggregation__rolling_ga0dfc1f001d211212169ead998d484845}{rolling\+\_\+window()}} in that elements of the {\ttfamily input} column are grouped into distinct groups (e.\+g. the result of a groupby). The window aggregation cannot cross the group boundaries. For a row {\ttfamily i} of {\ttfamily input}, the group is determined from the corresponding (i.\+e. i-\/th) values of the columns under {\ttfamily group\+\_\+keys}.
+
+Note\+: This method requires that the rows are presorted by the {\ttfamily group\+\_\+key} values.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:\ Consider\ a\ user-\/sales\ dataset,\ where\ the\ rows\ look\ as\ follows:}
+\DoxyCodeLine{\{\ "{}user\_id"{},\ sales\_amt,\ day\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{The\ \`{}grouped\_rolling\_window()`\ method\ enables\ windowing\ queries\ such\ as\ grouping\ a\ dataset\ by}
+\DoxyCodeLine{\`{}user\_id`,\ and\ summing\ up\ the\ \`{}sales\_amt`\ column\ over\ a\ window\ of\ 3\ rows\ (2\ preceding\ (including}
+\DoxyCodeLine{current\ row),\ 1\ row\ following).}
+\DoxyCodeLine{}
+\DoxyCodeLine{In\ this\ example,}
+\DoxyCodeLine{\ \ \ 1.\ \`{}group\_keys\ ==\ [\ user\_id\ ]`}
+\DoxyCodeLine{\ \ \ 2.\ \`{}input\ ==\ sales\_amt`}
+\DoxyCodeLine{The\ data\ are\ grouped\ by\ \`{}user\_id`,\ and\ ordered\ by\ \`{}day`-\/string.\ The\ aggregation}
+\DoxyCodeLine{(SUM)\ is\ then\ calculated\ for\ a\ window\ of\ 3\ values\ around\ (and\ including)\ each\ row.}
+\DoxyCodeLine{}
+\DoxyCodeLine{For\ the\ following\ input:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ [\ //\ user,\ \ sales\_amt}
+\DoxyCodeLine{\ \ \ \{\ "{}user1"{},\ \ \ 10\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user2"{},\ \ \ 20\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user1"{},\ \ \ 20\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user1"{},\ \ \ 10\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user2"{},\ \ \ 30\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user2"{},\ \ \ 80\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user1"{},\ \ \ 50\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user1"{},\ \ \ 60\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user2"{},\ \ \ 40\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ ]}
+\DoxyCodeLine{}
+\DoxyCodeLine{Partitioning\ (grouping)\ by\ \`{}user\_id`\ yields\ the\ following\ \`{}sales\_amt`\ vector}
+\DoxyCodeLine{(with\ 2\ groups,\ one\ for\ each\ distinct\ \`{}user\_id`):}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ [\ 10,\ \ 20,\ \ 10,\ \ 50,\ \ 60,\ \ 20,\ \ 30,\ \ 80,\ \ 40\ ]}
+\DoxyCodeLine{\ \ \ \ \ <-\/-\/-\/-\/-\/-\/-\/user1-\/-\/-\/-\/-\/-\/-\/-\/>|<-\/-\/-\/-\/-\/-\/user2-\/-\/-\/-\/-\/-\/-\/>}
+\DoxyCodeLine{}
+\DoxyCodeLine{The\ SUM\ aggregation\ is\ applied\ with\ 1\ preceding\ and\ 1\ following}
+\DoxyCodeLine{row,\ with\ a\ minimum\ of\ 1\ period.\ The\ aggregation\ window\ is\ thus\ 3\ rows\ wide,}
+\DoxyCodeLine{yielding\ the\ following\ column:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ [\ 30,\ 40,\ \ 80,\ 120,\ 110,\ \ 50,\ 130,\ 150,\ 120\ ]}
+\DoxyCodeLine{}
+\DoxyCodeLine{Note:\ The\ SUMs\ calculated\ at\ the\ group\ boundaries\ (i.e.\ indices\ 0,\ 4,\ 5,\ and\ 8)}
+\DoxyCodeLine{consider\ only\ 2\ values\ each,\ in\ spite\ of\ the\ window-\/size\ being\ 3.}
+\DoxyCodeLine{Each\ aggregation\ operation\ cannot\ cross\ group\ boundaries.}
+
+\end{DoxyCode}
+
+
+The returned column for {\ttfamily op == COUNT} always has {\ttfamily INT32} type. All other operators return a column of the same type as the input. Therefore it is suggested to convert integer column types (especially low-\/precision integers) to {\ttfamily FLOAT32} or {\ttfamily FLOAT64} before doing a rolling {\ttfamily MEAN}.
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em group\+\_\+keys} & The (pre-\/sorted) grouping columns \\
+\hline
+\mbox{\texttt{ in}}  & {\em input} & The input column (to be aggregated) \\
+\hline
+\mbox{\texttt{ in}}  & {\em preceding\+\_\+window} & The static rolling window size in the backward direction \\
+\hline
+\mbox{\texttt{ in}}  & {\em following\+\_\+window} & The static rolling window size in the forward direction \\
+\hline
+\mbox{\texttt{ in}}  & {\em min\+\_\+periods} & Minimum number of observations in window required to have a value, otherwise element {\ttfamily i} is null. \\
+\hline
+\mbox{\texttt{ in}}  & {\em aggr} & The rolling window aggregation type (SUM, MAX, MIN, etc.) \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A nullable output column containing the rolling window results  
+\end{DoxyReturn}
+
+\begin{DoxyParams}{参数}
+{\em default\+\_\+outputs} & A column of per-\/row default values to be returned instead of nulls. Used for LEAD()/\+LAG(), if the row offset crosses the boundaries of the column or group. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{group__aggregation__rolling_gacf7ec568b0cab23f44af22ea3600075b}\label{group__aggregation__rolling_gacf7ec568b0cab23f44af22ea3600075b} 
+\index{Aggregation\_rolling@{Aggregation\_rolling}!grouped\_rolling\_window@{grouped\_rolling\_window}}
+\index{grouped\_rolling\_window@{grouped\_rolling\_window}!Aggregation\_rolling@{Aggregation\_rolling}}
+\doxysubsubsection{\texorpdfstring{grouped\_rolling\_window()}{grouped\_rolling\_window()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::grouped\+\_\+rolling\+\_\+window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{group\+\_\+keys,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{default\+\_\+outputs,  }\item[{\mbox{\hyperlink{structcudf_1_1window__bounds}{window\+\_\+bounds}}}]{preceding\+\_\+window,  }\item[{\mbox{\hyperlink{structcudf_1_1window__bounds}{window\+\_\+bounds}}}]{following\+\_\+window,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{min\+\_\+periods,  }\item[{\mbox{\hyperlink{classcudf_1_1rolling__aggregation}{rolling\+\_\+aggregation}} const \&}]{aggr,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Applies a grouping-\/aware, fixed-\/size rolling window function to the values in a column.   
+
+Like {\ttfamily \doxylink{group__aggregation__rolling_ga0dfc1f001d211212169ead998d484845}{rolling\+\_\+window()}}, this function aggregates values in a window around each element of a specified {\ttfamily input} column. It differs from {\ttfamily \doxylink{group__aggregation__rolling_ga0dfc1f001d211212169ead998d484845}{rolling\+\_\+window()}} in that elements of the {\ttfamily input} column are grouped into distinct groups (e.\+g. the result of a groupby). The window aggregation cannot cross the group boundaries. For a row {\ttfamily i} of {\ttfamily input}, the group is determined from the corresponding (i.\+e. i-\/th) values of the columns under {\ttfamily group\+\_\+keys}.
+
+Note\+: This method requires that the rows are presorted by the {\ttfamily group\+\_\+key} values.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:\ Consider\ a\ user-\/sales\ dataset,\ where\ the\ rows\ look\ as\ follows:}
+\DoxyCodeLine{\{\ "{}user\_id"{},\ sales\_amt,\ day\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{The\ \`{}grouped\_rolling\_window()`\ method\ enables\ windowing\ queries\ such\ as\ grouping\ a\ dataset\ by}
+\DoxyCodeLine{\`{}user\_id`,\ and\ summing\ up\ the\ \`{}sales\_amt`\ column\ over\ a\ window\ of\ 3\ rows\ (2\ preceding\ (including}
+\DoxyCodeLine{current\ row),\ 1\ row\ following).}
+\DoxyCodeLine{}
+\DoxyCodeLine{In\ this\ example,}
+\DoxyCodeLine{\ \ \ 1.\ \`{}group\_keys\ ==\ [\ user\_id\ ]`}
+\DoxyCodeLine{\ \ \ 2.\ \`{}input\ ==\ sales\_amt`}
+\DoxyCodeLine{The\ data\ are\ grouped\ by\ \`{}user\_id`,\ and\ ordered\ by\ \`{}day`-\/string.\ The\ aggregation}
+\DoxyCodeLine{(SUM)\ is\ then\ calculated\ for\ a\ window\ of\ 3\ values\ around\ (and\ including)\ each\ row.}
+\DoxyCodeLine{}
+\DoxyCodeLine{For\ the\ following\ input:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ [\ //\ user,\ \ sales\_amt}
+\DoxyCodeLine{\ \ \ \{\ "{}user1"{},\ \ \ 10\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user2"{},\ \ \ 20\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user1"{},\ \ \ 20\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user1"{},\ \ \ 10\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user2"{},\ \ \ 30\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user2"{},\ \ \ 80\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user1"{},\ \ \ 50\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user1"{},\ \ \ 60\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user2"{},\ \ \ 40\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ ]}
+\DoxyCodeLine{}
+\DoxyCodeLine{Partitioning\ (grouping)\ by\ \`{}user\_id`\ yields\ the\ following\ \`{}sales\_amt`\ vector}
+\DoxyCodeLine{(with\ 2\ groups,\ one\ for\ each\ distinct\ \`{}user\_id`):}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ [\ 10,\ \ 20,\ \ 10,\ \ 50,\ \ 60,\ \ 20,\ \ 30,\ \ 80,\ \ 40\ ]}
+\DoxyCodeLine{\ \ \ \ \ <-\/-\/-\/-\/-\/-\/-\/user1-\/-\/-\/-\/-\/-\/-\/-\/>|<-\/-\/-\/-\/-\/-\/user2-\/-\/-\/-\/-\/-\/-\/>}
+\DoxyCodeLine{}
+\DoxyCodeLine{The\ SUM\ aggregation\ is\ applied\ with\ 1\ preceding\ and\ 1\ following}
+\DoxyCodeLine{row,\ with\ a\ minimum\ of\ 1\ period.\ The\ aggregation\ window\ is\ thus\ 3\ rows\ wide,}
+\DoxyCodeLine{yielding\ the\ following\ column:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ [\ 30,\ 40,\ \ 80,\ 120,\ 110,\ \ 50,\ 130,\ 150,\ 120\ ]}
+\DoxyCodeLine{}
+\DoxyCodeLine{Note:\ The\ SUMs\ calculated\ at\ the\ group\ boundaries\ (i.e.\ indices\ 0,\ 4,\ 5,\ and\ 8)}
+\DoxyCodeLine{consider\ only\ 2\ values\ each,\ in\ spite\ of\ the\ window-\/size\ being\ 3.}
+\DoxyCodeLine{Each\ aggregation\ operation\ cannot\ cross\ group\ boundaries.}
+
+\end{DoxyCode}
+
+
+The returned column for {\ttfamily op == COUNT} always has {\ttfamily INT32} type. All other operators return a column of the same type as the input. Therefore it is suggested to convert integer column types (especially low-\/precision integers) to {\ttfamily FLOAT32} or {\ttfamily FLOAT64} before doing a rolling {\ttfamily MEAN}.
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em group\+\_\+keys} & The (pre-\/sorted) grouping columns \\
+\hline
+\mbox{\texttt{ in}}  & {\em input} & The input column (to be aggregated) \\
+\hline
+\mbox{\texttt{ in}}  & {\em preceding\+\_\+window} & The static rolling window size in the backward direction \\
+\hline
+\mbox{\texttt{ in}}  & {\em following\+\_\+window} & The static rolling window size in the forward direction \\
+\hline
+\mbox{\texttt{ in}}  & {\em min\+\_\+periods} & Minimum number of observations in window required to have a value, otherwise element {\ttfamily i} is null. \\
+\hline
+\mbox{\texttt{ in}}  & {\em aggr} & The rolling window aggregation type (SUM, MAX, MIN, etc.) \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A nullable output column containing the rolling window results  
+\end{DoxyReturn}
+
+\begin{DoxyParams}{参数}
+{\em default\+\_\+outputs} & A column of per-\/row default values to be returned instead of nulls. Used for LEAD()/\+LAG(), if the row offset crosses the boundaries of the column or group.   \\
+\hline
+\end{DoxyParams}
+\Hypertarget{group__aggregation__rolling_ga0d431c50f9d34e8bf6beda13f693bd69}\label{group__aggregation__rolling_ga0d431c50f9d34e8bf6beda13f693bd69} 
+\index{Aggregation\_rolling@{Aggregation\_rolling}!grouped\_rolling\_window@{grouped\_rolling\_window}}
+\index{grouped\_rolling\_window@{grouped\_rolling\_window}!Aggregation\_rolling@{Aggregation\_rolling}}
+\doxysubsubsection{\texorpdfstring{grouped\_rolling\_window()}{grouped\_rolling\_window()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::grouped\+\_\+rolling\+\_\+window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{group\+\_\+keys,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{preceding\+\_\+window,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{following\+\_\+window,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{min\+\_\+periods,  }\item[{\mbox{\hyperlink{classcudf_1_1rolling__aggregation}{rolling\+\_\+aggregation}} const \&}]{aggr,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Applies a grouping-\/aware, fixed-\/size rolling window function to the values in a column. 
+
+Like {\ttfamily \doxylink{group__aggregation__rolling_ga0dfc1f001d211212169ead998d484845}{rolling\+\_\+window()}}, this function aggregates values in a window around each element of a specified {\ttfamily input} column. It differs from {\ttfamily \doxylink{group__aggregation__rolling_ga0dfc1f001d211212169ead998d484845}{rolling\+\_\+window()}} in that elements of the {\ttfamily input} column are grouped into distinct groups (e.\+g. the result of a groupby). The window aggregation cannot cross the group boundaries. For a row {\ttfamily i} of {\ttfamily input}, the group is determined from the corresponding (i.\+e. i-\/th) values of the columns under {\ttfamily group\+\_\+keys}.
+
+Note\+: This method requires that the rows are presorted by the {\ttfamily group\+\_\+key} values.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:\ Consider\ a\ user-\/sales\ dataset,\ where\ the\ rows\ look\ as\ follows:}
+\DoxyCodeLine{\{\ "{}user\_id"{},\ sales\_amt,\ day\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{The\ \`{}grouped\_rolling\_window()`\ method\ enables\ windowing\ queries\ such\ as\ grouping\ a\ dataset\ by}
+\DoxyCodeLine{\`{}user\_id`,\ and\ summing\ up\ the\ \`{}sales\_amt`\ column\ over\ a\ window\ of\ 3\ rows\ (2\ preceding\ (including}
+\DoxyCodeLine{current\ row),\ 1\ row\ following).}
+\DoxyCodeLine{}
+\DoxyCodeLine{In\ this\ example,}
+\DoxyCodeLine{\ \ \ 1.\ \`{}group\_keys\ ==\ [\ user\_id\ ]`}
+\DoxyCodeLine{\ \ \ 2.\ \`{}input\ ==\ sales\_amt`}
+\DoxyCodeLine{The\ data\ are\ grouped\ by\ \`{}user\_id`,\ and\ ordered\ by\ \`{}day`-\/string.\ The\ aggregation}
+\DoxyCodeLine{(SUM)\ is\ then\ calculated\ for\ a\ window\ of\ 3\ values\ around\ (and\ including)\ each\ row.}
+\DoxyCodeLine{}
+\DoxyCodeLine{For\ the\ following\ input:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ [\ //\ user,\ \ sales\_amt}
+\DoxyCodeLine{\ \ \ \{\ "{}user1"{},\ \ \ 10\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user2"{},\ \ \ 20\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user1"{},\ \ \ 20\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user1"{},\ \ \ 10\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user2"{},\ \ \ 30\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user2"{},\ \ \ 80\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user1"{},\ \ \ 50\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user1"{},\ \ \ 60\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user2"{},\ \ \ 40\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ ]}
+\DoxyCodeLine{}
+\DoxyCodeLine{Partitioning\ (grouping)\ by\ \`{}user\_id`\ yields\ the\ following\ \`{}sales\_amt`\ vector}
+\DoxyCodeLine{(with\ 2\ groups,\ one\ for\ each\ distinct\ \`{}user\_id`):}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ [\ 10,\ \ 20,\ \ 10,\ \ 50,\ \ 60,\ \ 20,\ \ 30,\ \ 80,\ \ 40\ ]}
+\DoxyCodeLine{\ \ \ \ \ <-\/-\/-\/-\/-\/-\/-\/user1-\/-\/-\/-\/-\/-\/-\/-\/>|<-\/-\/-\/-\/-\/-\/user2-\/-\/-\/-\/-\/-\/-\/>}
+\DoxyCodeLine{}
+\DoxyCodeLine{The\ SUM\ aggregation\ is\ applied\ with\ 1\ preceding\ and\ 1\ following}
+\DoxyCodeLine{row,\ with\ a\ minimum\ of\ 1\ period.\ The\ aggregation\ window\ is\ thus\ 3\ rows\ wide,}
+\DoxyCodeLine{yielding\ the\ following\ column:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ [\ 30,\ 40,\ \ 80,\ 120,\ 110,\ \ 50,\ 130,\ 150,\ 120\ ]}
+\DoxyCodeLine{}
+\DoxyCodeLine{Note:\ The\ SUMs\ calculated\ at\ the\ group\ boundaries\ (i.e.\ indices\ 0,\ 4,\ 5,\ and\ 8)}
+\DoxyCodeLine{consider\ only\ 2\ values\ each,\ in\ spite\ of\ the\ window-\/size\ being\ 3.}
+\DoxyCodeLine{Each\ aggregation\ operation\ cannot\ cross\ group\ boundaries.}
+
+\end{DoxyCode}
+
+
+The returned column for {\ttfamily op == COUNT} always has {\ttfamily INT32} type. All other operators return a column of the same type as the input. Therefore it is suggested to convert integer column types (especially low-\/precision integers) to {\ttfamily FLOAT32} or {\ttfamily FLOAT64} before doing a rolling {\ttfamily MEAN}.
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em group\+\_\+keys} & The (pre-\/sorted) grouping columns \\
+\hline
+\mbox{\texttt{ in}}  & {\em input} & The input column (to be aggregated) \\
+\hline
+\mbox{\texttt{ in}}  & {\em preceding\+\_\+window} & The static rolling window size in the backward direction \\
+\hline
+\mbox{\texttt{ in}}  & {\em following\+\_\+window} & The static rolling window size in the forward direction \\
+\hline
+\mbox{\texttt{ in}}  & {\em min\+\_\+periods} & Minimum number of observations in window required to have a value, otherwise element {\ttfamily i} is null. \\
+\hline
+\mbox{\texttt{ in}}  & {\em aggr} & The rolling window aggregation type (SUM, MAX, MIN, etc.) \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A nullable output column containing the rolling window results 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__rolling_gabd62060125be568902bf4a4eef397fa8}\label{group__aggregation__rolling_gabd62060125be568902bf4a4eef397fa8} 
+\index{Aggregation\_rolling@{Aggregation\_rolling}!grouped\_rolling\_window@{grouped\_rolling\_window}}
+\index{grouped\_rolling\_window@{grouped\_rolling\_window}!Aggregation\_rolling@{Aggregation\_rolling}}
+\doxysubsubsection{\texorpdfstring{grouped\_rolling\_window()}{grouped\_rolling\_window()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::grouped\+\_\+rolling\+\_\+window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{group\+\_\+keys,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{structcudf_1_1window__bounds}{window\+\_\+bounds}}}]{preceding\+\_\+window,  }\item[{\mbox{\hyperlink{structcudf_1_1window__bounds}{window\+\_\+bounds}}}]{following\+\_\+window,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{min\+\_\+periods,  }\item[{\mbox{\hyperlink{classcudf_1_1rolling__aggregation}{rolling\+\_\+aggregation}} const \&}]{aggr,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Applies a grouping-\/aware, fixed-\/size rolling window function to the values in a column.   
+
+Like {\ttfamily \doxylink{group__aggregation__rolling_ga0dfc1f001d211212169ead998d484845}{rolling\+\_\+window()}}, this function aggregates values in a window around each element of a specified {\ttfamily input} column. It differs from {\ttfamily \doxylink{group__aggregation__rolling_ga0dfc1f001d211212169ead998d484845}{rolling\+\_\+window()}} in that elements of the {\ttfamily input} column are grouped into distinct groups (e.\+g. the result of a groupby). The window aggregation cannot cross the group boundaries. For a row {\ttfamily i} of {\ttfamily input}, the group is determined from the corresponding (i.\+e. i-\/th) values of the columns under {\ttfamily group\+\_\+keys}.
+
+Note\+: This method requires that the rows are presorted by the {\ttfamily group\+\_\+key} values.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:\ Consider\ a\ user-\/sales\ dataset,\ where\ the\ rows\ look\ as\ follows:}
+\DoxyCodeLine{\{\ "{}user\_id"{},\ sales\_amt,\ day\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{The\ \`{}grouped\_rolling\_window()`\ method\ enables\ windowing\ queries\ such\ as\ grouping\ a\ dataset\ by}
+\DoxyCodeLine{\`{}user\_id`,\ and\ summing\ up\ the\ \`{}sales\_amt`\ column\ over\ a\ window\ of\ 3\ rows\ (2\ preceding\ (including}
+\DoxyCodeLine{current\ row),\ 1\ row\ following).}
+\DoxyCodeLine{}
+\DoxyCodeLine{In\ this\ example,}
+\DoxyCodeLine{\ \ \ 1.\ \`{}group\_keys\ ==\ [\ user\_id\ ]`}
+\DoxyCodeLine{\ \ \ 2.\ \`{}input\ ==\ sales\_amt`}
+\DoxyCodeLine{The\ data\ are\ grouped\ by\ \`{}user\_id`,\ and\ ordered\ by\ \`{}day`-\/string.\ The\ aggregation}
+\DoxyCodeLine{(SUM)\ is\ then\ calculated\ for\ a\ window\ of\ 3\ values\ around\ (and\ including)\ each\ row.}
+\DoxyCodeLine{}
+\DoxyCodeLine{For\ the\ following\ input:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ [\ //\ user,\ \ sales\_amt}
+\DoxyCodeLine{\ \ \ \{\ "{}user1"{},\ \ \ 10\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user2"{},\ \ \ 20\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user1"{},\ \ \ 20\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user1"{},\ \ \ 10\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user2"{},\ \ \ 30\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user2"{},\ \ \ 80\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user1"{},\ \ \ 50\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user1"{},\ \ \ 60\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \{\ "{}user2"{},\ \ \ 40\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ ]}
+\DoxyCodeLine{}
+\DoxyCodeLine{Partitioning\ (grouping)\ by\ \`{}user\_id`\ yields\ the\ following\ \`{}sales\_amt`\ vector}
+\DoxyCodeLine{(with\ 2\ groups,\ one\ for\ each\ distinct\ \`{}user\_id`):}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ [\ 10,\ \ 20,\ \ 10,\ \ 50,\ \ 60,\ \ 20,\ \ 30,\ \ 80,\ \ 40\ ]}
+\DoxyCodeLine{\ \ \ \ \ <-\/-\/-\/-\/-\/-\/-\/user1-\/-\/-\/-\/-\/-\/-\/-\/>|<-\/-\/-\/-\/-\/-\/user2-\/-\/-\/-\/-\/-\/-\/>}
+\DoxyCodeLine{}
+\DoxyCodeLine{The\ SUM\ aggregation\ is\ applied\ with\ 1\ preceding\ and\ 1\ following}
+\DoxyCodeLine{row,\ with\ a\ minimum\ of\ 1\ period.\ The\ aggregation\ window\ is\ thus\ 3\ rows\ wide,}
+\DoxyCodeLine{yielding\ the\ following\ column:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ [\ 30,\ 40,\ \ 80,\ 120,\ 110,\ \ 50,\ 130,\ 150,\ 120\ ]}
+\DoxyCodeLine{}
+\DoxyCodeLine{Note:\ The\ SUMs\ calculated\ at\ the\ group\ boundaries\ (i.e.\ indices\ 0,\ 4,\ 5,\ and\ 8)}
+\DoxyCodeLine{consider\ only\ 2\ values\ each,\ in\ spite\ of\ the\ window-\/size\ being\ 3.}
+\DoxyCodeLine{Each\ aggregation\ operation\ cannot\ cross\ group\ boundaries.}
+
+\end{DoxyCode}
+
+
+The returned column for {\ttfamily op == COUNT} always has {\ttfamily INT32} type. All other operators return a column of the same type as the input. Therefore it is suggested to convert integer column types (especially low-\/precision integers) to {\ttfamily FLOAT32} or {\ttfamily FLOAT64} before doing a rolling {\ttfamily MEAN}.
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em group\+\_\+keys} & The (pre-\/sorted) grouping columns \\
+\hline
+\mbox{\texttt{ in}}  & {\em input} & The input column (to be aggregated) \\
+\hline
+\mbox{\texttt{ in}}  & {\em preceding\+\_\+window} & The static rolling window size in the backward direction \\
+\hline
+\mbox{\texttt{ in}}  & {\em following\+\_\+window} & The static rolling window size in the forward direction \\
+\hline
+\mbox{\texttt{ in}}  & {\em min\+\_\+periods} & Minimum number of observations in window required to have a value, otherwise element {\ttfamily i} is null. \\
+\hline
+\mbox{\texttt{ in}}  & {\em aggr} & The rolling window aggregation type (SUM, MAX, MIN, etc.) \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A nullable output column containing the rolling window results   
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__rolling_ga167a23498c3e82313df80f653b3c48b1}\label{group__aggregation__rolling_ga167a23498c3e82313df80f653b3c48b1} 
+\index{Aggregation\_rolling@{Aggregation\_rolling}!grouped\_time\_range\_rolling\_window@{grouped\_time\_range\_rolling\_window}}
+\index{grouped\_time\_range\_rolling\_window@{grouped\_time\_range\_rolling\_window}!Aggregation\_rolling@{Aggregation\_rolling}}
+\doxysubsubsection{\texorpdfstring{grouped\_time\_range\_rolling\_window()}{grouped\_time\_range\_rolling\_window()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::grouped\+\_\+time\+\_\+range\+\_\+rolling\+\_\+window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{group\+\_\+keys,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{timestamp\+\_\+column,  }\item[{\mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{cudf\+::order}} const \&}]{timestamp\+\_\+order,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{preceding\+\_\+window\+\_\+in\+\_\+days,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{following\+\_\+window\+\_\+in\+\_\+days,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{min\+\_\+periods,  }\item[{\mbox{\hyperlink{classcudf_1_1rolling__aggregation}{rolling\+\_\+aggregation}} const \&}]{aggr,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Applies a grouping-\/aware, timestamp-\/based rolling window function to the values in a column. 
+
+Like {\ttfamily \doxylink{group__aggregation__rolling_ga0dfc1f001d211212169ead998d484845}{rolling\+\_\+window()}}, this function aggregates values in a window around each element of a specified {\ttfamily input} column. It differs from {\ttfamily \doxylink{group__aggregation__rolling_ga0dfc1f001d211212169ead998d484845}{rolling\+\_\+window()}} in two respects\+:
+\begin{DoxyEnumerate}
+\item The elements of the {\ttfamily input} column are grouped into distinct groups (e.\+g. the result of a groupby), determined by the corresponding values of the columns under {\ttfamily group\+\_\+keys}. The window-\/aggregation cannot cross the group boundaries.
+\item Within a group, the aggregation window is calculated based on a time interval (e.\+g. number of days preceding/following the current row). The timestamps for the input data are specified by the {\ttfamily timestamp\+\_\+column} argument.
+\end{DoxyEnumerate}
+
+Note\+: This method requires that the rows are presorted by the group keys and timestamp values.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ Example:\ Consider\ a\ user-\/sales\ dataset,\ where\ the\ rows\ look\ as\ follows:}
+\DoxyCodeLine{\ \ \ \{\ "{}user\_id"{},\ sales\_amt,\ date\ \}}
+\DoxyCodeLine{\ }
+\DoxyCodeLine{\ \ This\ method\ enables\ windowing\ queries\ such\ as\ grouping\ a\ dataset\ by\ \`{}user\_id`,\ sorting\ by}
+\DoxyCodeLine{\ \ increasing\ \`{}date`,\ and\ summing\ up\ the\ \`{}sales\_amt`\ column\ over\ a\ window\ of\ 3\ days\ (1\ preceding}
+\DoxyCodeLine{*day,\ the\ current\ day,\ and\ 1\ following\ day).}
+\DoxyCodeLine{\ }
+\DoxyCodeLine{\ \ In\ this\ example,}
+\DoxyCodeLine{\ \ \ \ \ 1.\ \`{}group\_keys\ ==\ [\ user\_id\ ]`}
+\DoxyCodeLine{\ \ \ \ \ 2.\ \`{}timestamp\_column\ ==\ date`}
+\DoxyCodeLine{\ \ \ \ \ 3.\ \`{}input\ ==\ sales\_amt`}
+\DoxyCodeLine{\ \ The\ data\ are\ grouped\ by\ \`{}user\_id`,\ and\ ordered\ by\ \`{}date`.\ The\ aggregation}
+\DoxyCodeLine{\ \ (SUM)\ is\ then\ calculated\ for\ a\ window\ of\ 3\ days\ around\ (and\ including)\ each\ row.}
+\DoxyCodeLine{\ }
+\DoxyCodeLine{\ \ For\ the\ following\ input:}
+\DoxyCodeLine{\ }
+\DoxyCodeLine{\ \ \ [\ //\ user,\ \ sales\_amt,\ \ YYYYMMDD\ (date)}
+\DoxyCodeLine{\ \ \ \ \ \{\ "{}user1"{},\ \ \ 10,\ \ \ \ \ \ 20200101\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \{\ "{}user2"{},\ \ \ 20,\ \ \ \ \ \ 20200101\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \{\ "{}user1"{},\ \ \ 20,\ \ \ \ \ \ 20200102\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \{\ "{}user1"{},\ \ \ 10,\ \ \ \ \ \ 20200103\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \{\ "{}user2"{},\ \ \ 30,\ \ \ \ \ \ 20200101\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \{\ "{}user2"{},\ \ \ 80,\ \ \ \ \ \ 20200102\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \{\ "{}user1"{},\ \ \ 50,\ \ \ \ \ \ 20200107\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \{\ "{}user1"{},\ \ \ 60,\ \ \ \ \ \ 20200107\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \{\ "{}user2"{},\ \ \ 40,\ \ \ \ \ \ 20200104\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ ]}
+\DoxyCodeLine{\ }
+\DoxyCodeLine{\ \ Partitioning\ (grouping)\ by\ \`{}user\_id`,\ and\ ordering\ by\ \`{}date`\ yields\ the\ following\ \`{}sales\_amt`}
+\DoxyCodeLine{\ \ vector\ (with\ 2\ groups,\ one\ for\ each\ distinct\ \`{}user\_id`):}
+\DoxyCodeLine{\ }
+\DoxyCodeLine{\ \ Date\ :(202001-\/)\ \ [\ 01,\ \ 02,\ \ 03,\ \ 07,\ \ 07,\ \ \ \ 01,\ \ \ 01,\ \ \ 02,\ \ 04\ ]}
+\DoxyCodeLine{\ \ Input:\ \ \ \ \ \ \ \ \ \ \ [\ 10,\ \ 20,\ \ 10,\ \ 50,\ \ 60,\ \ \ \ 20,\ \ \ 30,\ \ \ 80,\ \ 40\ ]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <-\/-\/-\/-\/-\/-\/-\/user1-\/-\/-\/-\/-\/-\/-\/-\/>|<-\/-\/-\/-\/-\/-\/-\/-\/-\/user2-\/-\/-\/-\/-\/-\/-\/-\/-\/>}
+\DoxyCodeLine{\ }
+\DoxyCodeLine{\ \ The\ SUM\ aggregation\ is\ applied,\ with\ 1\ day\ preceding,\ and\ 1\ day\ following,\ with\ a\ minimum\ of\ 1}
+\DoxyCodeLine{\ \ period.\ The\ aggregation\ window\ is\ thus\ 3\ *days*\ wide,\ yielding\ the\ following\ output\ column:}
+\DoxyCodeLine{\ }
+\DoxyCodeLine{\ \ \ Results:\ \ \ \ \ \ \ \ [\ 30,\ \ 40,\ \ 30,\ \ 110,\ 110,\ \ 130,\ \ 130,\ \ 130,\ \ 40\ ]}
+
+\end{DoxyCode}
+
+
+Note\+: The number of rows participating in each window might vary, based on the index within the group, datestamp, and {\ttfamily min\+\_\+periods}. Apropos\+:
+\begin{DoxyEnumerate}
+\item results\mbox{[}0\mbox{]} considers 2 values, because it is at the beginning of its group, and has no preceding values.
+\item results\mbox{[}5\mbox{]} considers 3 values, despite being at the beginning of its group. It must include 2 following values, based on its datestamp.
+\end{DoxyEnumerate}
+
+Each aggregation operation cannot cross group boundaries.
+
+The returned column for {\ttfamily op == COUNT} always has {\ttfamily INT32} type. All other operators return a column of the same type as the input. Therefore it is suggested to convert integer column types (especially low-\/precision integers) to {\ttfamily FLOAT32} or {\ttfamily FLOAT64} before doing a rolling {\ttfamily MEAN}.
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em group\+\_\+keys} & The (pre-\/sorted) grouping columns \\
+\hline
+\mbox{\texttt{ in}}  & {\em timestamp\+\_\+column} & The (pre-\/sorted) timestamps for each row \\
+\hline
+\mbox{\texttt{ in}}  & {\em timestamp\+\_\+order} & The order (ASCENDING/\+DESCENDING) in which the timestamps are sorted \\
+\hline
+\mbox{\texttt{ in}}  & {\em input} & The input column (to be aggregated) \\
+\hline
+\mbox{\texttt{ in}}  & {\em preceding\+\_\+window\+\_\+in\+\_\+days} & The rolling window time-\/interval in the backward direction \\
+\hline
+\mbox{\texttt{ in}}  & {\em following\+\_\+window\+\_\+in\+\_\+days} & The rolling window time-\/interval in the forward direction \\
+\hline
+\mbox{\texttt{ in}}  & {\em min\+\_\+periods} & Minimum number of observations in window required to have a value, otherwise element {\ttfamily i} is null. \\
+\hline
+\mbox{\texttt{ in}}  & {\em aggr} & The rolling window aggregation type (SUM, MAX, MIN, etc.) \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A nullable output column containing the rolling window results 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__rolling_ga7f53b18345a094351160b187b263b746}\label{group__aggregation__rolling_ga7f53b18345a094351160b187b263b746} 
+\index{Aggregation\_rolling@{Aggregation\_rolling}!grouped\_time\_range\_rolling\_window@{grouped\_time\_range\_rolling\_window}}
+\index{grouped\_time\_range\_rolling\_window@{grouped\_time\_range\_rolling\_window}!Aggregation\_rolling@{Aggregation\_rolling}}
+\doxysubsubsection{\texorpdfstring{grouped\_time\_range\_rolling\_window()}{grouped\_time\_range\_rolling\_window()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::grouped\+\_\+time\+\_\+range\+\_\+rolling\+\_\+window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{group\+\_\+keys,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{timestamp\+\_\+column,  }\item[{\mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{cudf\+::order}} const \&}]{timestamp\+\_\+order,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{structcudf_1_1window__bounds}{window\+\_\+bounds}}}]{preceding\+\_\+window\+\_\+in\+\_\+days,  }\item[{\mbox{\hyperlink{structcudf_1_1window__bounds}{window\+\_\+bounds}}}]{following\+\_\+window\+\_\+in\+\_\+days,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{min\+\_\+periods,  }\item[{\mbox{\hyperlink{classcudf_1_1rolling__aggregation}{rolling\+\_\+aggregation}} const \&}]{aggr,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Applies a grouping-\/aware, timestamp-\/based rolling window function to the values in a column,. 
+
+Like {\ttfamily \doxylink{group__aggregation__rolling_ga0dfc1f001d211212169ead998d484845}{rolling\+\_\+window()}}, this function aggregates values in a window around each element of a specified {\ttfamily input} column. It differs from {\ttfamily \doxylink{group__aggregation__rolling_ga0dfc1f001d211212169ead998d484845}{rolling\+\_\+window()}} in two respects\+:
+\begin{DoxyEnumerate}
+\item The elements of the {\ttfamily input} column are grouped into distinct groups (e.\+g. the result of a groupby), determined by the corresponding values of the columns under {\ttfamily group\+\_\+keys}. The window-\/aggregation cannot cross the group boundaries.
+\item Within a group, the aggregation window is calculated based on a time interval (e.\+g. number of days preceding/following the current row). The timestamps for the input data are specified by the {\ttfamily timestamp\+\_\+column} argument.
+\end{DoxyEnumerate}
+
+Note\+: This method requires that the rows are presorted by the group keys and timestamp values.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ Example:\ Consider\ a\ user-\/sales\ dataset,\ where\ the\ rows\ look\ as\ follows:}
+\DoxyCodeLine{\ \ \ \{\ "{}user\_id"{},\ sales\_amt,\ date\ \}}
+\DoxyCodeLine{\ }
+\DoxyCodeLine{\ \ This\ method\ enables\ windowing\ queries\ such\ as\ grouping\ a\ dataset\ by\ \`{}user\_id`,\ sorting\ by}
+\DoxyCodeLine{\ \ increasing\ \`{}date`,\ and\ summing\ up\ the\ \`{}sales\_amt`\ column\ over\ a\ window\ of\ 3\ days\ (1\ preceding}
+\DoxyCodeLine{*day,\ the\ current\ day,\ and\ 1\ following\ day).}
+\DoxyCodeLine{\ }
+\DoxyCodeLine{\ \ In\ this\ example,}
+\DoxyCodeLine{\ \ \ \ \ 1.\ \`{}group\_keys\ ==\ [\ user\_id\ ]`}
+\DoxyCodeLine{\ \ \ \ \ 2.\ \`{}timestamp\_column\ ==\ date`}
+\DoxyCodeLine{\ \ \ \ \ 3.\ \`{}input\ ==\ sales\_amt`}
+\DoxyCodeLine{\ \ The\ data\ are\ grouped\ by\ \`{}user\_id`,\ and\ ordered\ by\ \`{}date`.\ The\ aggregation}
+\DoxyCodeLine{\ \ (SUM)\ is\ then\ calculated\ for\ a\ window\ of\ 3\ days\ around\ (and\ including)\ each\ row.}
+\DoxyCodeLine{\ }
+\DoxyCodeLine{\ \ For\ the\ following\ input:}
+\DoxyCodeLine{\ }
+\DoxyCodeLine{\ \ \ [\ //\ user,\ \ sales\_amt,\ \ YYYYMMDD\ (date)}
+\DoxyCodeLine{\ \ \ \ \ \{\ "{}user1"{},\ \ \ 10,\ \ \ \ \ \ 20200101\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \{\ "{}user2"{},\ \ \ 20,\ \ \ \ \ \ 20200101\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \{\ "{}user1"{},\ \ \ 20,\ \ \ \ \ \ 20200102\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \{\ "{}user1"{},\ \ \ 10,\ \ \ \ \ \ 20200103\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \{\ "{}user2"{},\ \ \ 30,\ \ \ \ \ \ 20200101\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \{\ "{}user2"{},\ \ \ 80,\ \ \ \ \ \ 20200102\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \{\ "{}user1"{},\ \ \ 50,\ \ \ \ \ \ 20200107\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \{\ "{}user1"{},\ \ \ 60,\ \ \ \ \ \ 20200107\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \{\ "{}user2"{},\ \ \ 40,\ \ \ \ \ \ 20200104\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ ]}
+\DoxyCodeLine{\ }
+\DoxyCodeLine{\ \ Partitioning\ (grouping)\ by\ \`{}user\_id`,\ and\ ordering\ by\ \`{}date`\ yields\ the\ following\ \`{}sales\_amt`}
+\DoxyCodeLine{\ \ vector\ (with\ 2\ groups,\ one\ for\ each\ distinct\ \`{}user\_id`):}
+\DoxyCodeLine{\ }
+\DoxyCodeLine{\ \ Date\ :(202001-\/)\ \ [\ 01,\ \ 02,\ \ 03,\ \ 07,\ \ 07,\ \ \ \ 01,\ \ \ 01,\ \ \ 02,\ \ 04\ ]}
+\DoxyCodeLine{\ \ Input:\ \ \ \ \ \ \ \ \ \ \ [\ 10,\ \ 20,\ \ 10,\ \ 50,\ \ 60,\ \ \ \ 20,\ \ \ 30,\ \ \ 80,\ \ 40\ ]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <-\/-\/-\/-\/-\/-\/-\/user1-\/-\/-\/-\/-\/-\/-\/-\/>|<-\/-\/-\/-\/-\/-\/-\/-\/-\/user2-\/-\/-\/-\/-\/-\/-\/-\/-\/>}
+\DoxyCodeLine{\ }
+\DoxyCodeLine{\ \ The\ SUM\ aggregation\ is\ applied,\ with\ 1\ day\ preceding,\ and\ 1\ day\ following,\ with\ a\ minimum\ of\ 1}
+\DoxyCodeLine{\ \ period.\ The\ aggregation\ window\ is\ thus\ 3\ *days*\ wide,\ yielding\ the\ following\ output\ column:}
+\DoxyCodeLine{\ }
+\DoxyCodeLine{\ \ \ Results:\ \ \ \ \ \ \ \ [\ 30,\ \ 40,\ \ 30,\ \ 110,\ 110,\ \ 130,\ \ 130,\ \ 130,\ \ 40\ ]}
+
+\end{DoxyCode}
+
+
+Note\+: The number of rows participating in each window might vary, based on the index within the group, datestamp, and {\ttfamily min\+\_\+periods}. Apropos\+:
+\begin{DoxyEnumerate}
+\item results\mbox{[}0\mbox{]} considers 2 values, because it is at the beginning of its group, and has no preceding values.
+\item results\mbox{[}5\mbox{]} considers 3 values, despite being at the beginning of its group. It must include 2 following values, based on its datestamp.
+\end{DoxyEnumerate}
+
+Each aggregation operation cannot cross group boundaries.
+
+The returned column for {\ttfamily op == COUNT} always has {\ttfamily INT32} type. All other operators return a column of the same type as the input. Therefore it is suggested to convert integer column types (especially low-\/precision integers) to {\ttfamily FLOAT32} or {\ttfamily FLOAT64} before doing a rolling {\ttfamily MEAN}.
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em group\+\_\+keys} & The (pre-\/sorted) grouping columns \\
+\hline
+\mbox{\texttt{ in}}  & {\em timestamp\+\_\+column} & The (pre-\/sorted) timestamps for each row \\
+\hline
+\mbox{\texttt{ in}}  & {\em timestamp\+\_\+order} & The order (ASCENDING/\+DESCENDING) in which the timestamps are sorted \\
+\hline
+\mbox{\texttt{ in}}  & {\em input} & The input column (to be aggregated) \\
+\hline
+\mbox{\texttt{ in}}  & {\em preceding\+\_\+window\+\_\+in\+\_\+days} & The rolling window time-\/interval in the backward direction \\
+\hline
+\mbox{\texttt{ in}}  & {\em following\+\_\+window\+\_\+in\+\_\+days} & The rolling window time-\/interval in the forward direction \\
+\hline
+\mbox{\texttt{ in}}  & {\em min\+\_\+periods} & Minimum number of observations in window required to have a value, otherwise element {\ttfamily i} is null. \\
+\hline
+\mbox{\texttt{ in}}  & {\em aggr} & The rolling window aggregation type (SUM, MAX, MIN, etc.) \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A nullable output column containing the rolling window results  
+\end{DoxyReturn}
+The {\ttfamily preceding\+\_\+window\+\_\+in\+\_\+days} and {\ttfamily following\+\_\+window\+\_\+in\+\_\+days} are specified as a {\ttfamily \doxylink{structcudf_1_1window__bounds}{window\+\_\+bounds}} and supports \"{}unbounded\"{} windows, if set to {\ttfamily \doxylink{structcudf_1_1window__bounds_a2e188fd2bd683e913dd86f082ee1ffa0}{window\+\_\+bounds\+::unbounded()}}. \Hypertarget{group__aggregation__rolling_ga350324e8e9ab0d4969d8de7597f2a242}\label{group__aggregation__rolling_ga350324e8e9ab0d4969d8de7597f2a242} 
+\index{Aggregation\_rolling@{Aggregation\_rolling}!rolling\_window@{rolling\_window}}
+\index{rolling\_window@{rolling\_window}!Aggregation\_rolling@{Aggregation\_rolling}}
+\doxysubsubsection{\texorpdfstring{rolling\_window()}{rolling\_window()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::rolling\+\_\+window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{default\+\_\+outputs,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{preceding\+\_\+window,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{following\+\_\+window,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{min\+\_\+periods,  }\item[{\mbox{\hyperlink{classcudf_1_1rolling__aggregation}{rolling\+\_\+aggregation}} const \&}]{agg,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Applies a fixed-\/size rolling window function to the values in a column.   
+
+This function aggregates values in a window around each element i of the input column, and invalidates the bit mask for element i if there are not enough observations. The window size is static (the same for each element). This matches Pandas\textquotesingle{} API for Data\+Frame.\+rolling with a few notable differences\+:
+\begin{DoxyItemize}
+\item instead of the center flag it uses a two-\/part window to allow for more flexible windows. The total window size = {\ttfamily preceding\+\_\+window + following\+\_\+window}. Element {\ttfamily i} uses elements {\ttfamily \mbox{[}i-\/preceding\+\_\+window+1, i+following\+\_\+window\mbox{]}} to do the window computation.
+\item instead of storing NA/\+NaN for output rows that do not meet the minimum number of observations this function updates the valid bitmask of the column to indicate which elements are valid.
+\end{DoxyItemize}
+
+Notes on return column types\+:
+\begin{DoxyItemize}
+\item The returned column for count aggregation always has {\ttfamily INT32} type.
+\item The returned column for VARIANCE/\+STD aggregations always has {\ttfamily FLOAT64} type.
+\item All other operators return a column of the same type as the input. Therefore it is suggested to convert integer column types (especially low-\/precision integers) to {\ttfamily FLOAT32} or {\ttfamily FLOAT64} before doing a rolling {\ttfamily MEAN}.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & The input column \\
+\hline
+\mbox{\texttt{ in}}  & {\em preceding\+\_\+window} & The static rolling window size in the backward direction \\
+\hline
+\mbox{\texttt{ in}}  & {\em following\+\_\+window} & The static rolling window size in the forward direction \\
+\hline
+\mbox{\texttt{ in}}  & {\em min\+\_\+periods} & Minimum number of observations in window required to have a value, otherwise element {\ttfamily i} is null. \\
+\hline
+\mbox{\texttt{ in}}  & {\em agg} & The rolling window aggregation type (SUM, MAX, MIN, etc.) \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A nullable output column containing the rolling window results  
+\end{DoxyReturn}
+
+\begin{DoxyParams}{参数}
+{\em default\+\_\+outputs} & A column of per-\/row default values to be returned instead of nulls. Used for LEAD()/\+LAG(), if the row offset crosses the boundaries of the column. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{group__aggregation__rolling_gaaed6574615700cec1d4bf5469fe28141}\label{group__aggregation__rolling_gaaed6574615700cec1d4bf5469fe28141} 
+\index{Aggregation\_rolling@{Aggregation\_rolling}!rolling\_window@{rolling\_window}}
+\index{rolling\_window@{rolling\_window}!Aggregation\_rolling@{Aggregation\_rolling}}
+\doxysubsubsection{\texorpdfstring{rolling\_window()}{rolling\_window()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::rolling\+\_\+window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{preceding\+\_\+window,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{following\+\_\+window,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{min\+\_\+periods,  }\item[{\mbox{\hyperlink{classcudf_1_1rolling__aggregation}{rolling\+\_\+aggregation}} const \&}]{agg,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Applies a variable-\/size rolling window function to the values in a column. 
+
+This function aggregates values in a window around each element i of the input column, and invalidates the bit mask for element i if there are not enough observations. The window size is dynamic (varying for each element). This matches Pandas\textquotesingle{} API for Data\+Frame.\+rolling with a few notable differences\+:
+\begin{DoxyItemize}
+\item instead of the center flag it uses a two-\/part window to allow for more flexible windows. The total window size = {\ttfamily preceding\+\_\+window + following\+\_\+window}. Element {\ttfamily i} uses elements {\ttfamily \mbox{[}i-\/preceding\+\_\+window+1, i+following\+\_\+window\mbox{]}} to do the window computation.
+\item instead of storing NA/\+NaN for output rows that do not meet the minimum number of observations this function updates the valid bitmask of the column to indicate which elements are valid.
+\item support for dynamic rolling windows, i.\+e. window size can be specified for each element using an additional array.
+\end{DoxyItemize}
+
+The returned column for count aggregation always has INT32 type. All other operators return a column of the same type as the input. Therefore it is suggested to convert integer column types (especially low-\/precision integers) to {\ttfamily FLOAT32} or {\ttfamily FLOAT64} before doing a rolling {\ttfamily MEAN}.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if window column type is not INT32\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & The input column \\
+\hline
+\mbox{\texttt{ in}}  & {\em preceding\+\_\+window} & A non-\/nullable column of INT32 window sizes in the forward direction. {\ttfamily preceding\+\_\+window\mbox{[}i\mbox{]}} specifies preceding window size for element {\ttfamily i}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em following\+\_\+window} & A non-\/nullable column of INT32 window sizes in the backward direction. {\ttfamily following\+\_\+window\mbox{[}i\mbox{]}} specifies following window size for element {\ttfamily i}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em min\+\_\+periods} & Minimum number of observations in window required to have a value, otherwise element {\ttfamily i} is null. \\
+\hline
+\mbox{\texttt{ in}}  & {\em agg} & The rolling window aggregation type (sum, max, min, etc.) \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A nullable output column containing the rolling window results 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__rolling_ga0dfc1f001d211212169ead998d484845}\label{group__aggregation__rolling_ga0dfc1f001d211212169ead998d484845} 
+\index{Aggregation\_rolling@{Aggregation\_rolling}!rolling\_window@{rolling\_window}}
+\index{rolling\_window@{rolling\_window}!Aggregation\_rolling@{Aggregation\_rolling}}
+\doxysubsubsection{\texorpdfstring{rolling\_window()}{rolling\_window()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::rolling\+\_\+window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{preceding\+\_\+window,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{following\+\_\+window,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{min\+\_\+periods,  }\item[{\mbox{\hyperlink{classcudf_1_1rolling__aggregation}{rolling\+\_\+aggregation}} const \&}]{agg,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Applies a fixed-\/size rolling window function to the values in a column. 
+
+This function aggregates values in a window around each element i of the input column, and invalidates the bit mask for element i if there are not enough observations. The window size is static (the same for each element). This matches Pandas\textquotesingle{} API for Data\+Frame.\+rolling with a few notable differences\+:
+\begin{DoxyItemize}
+\item instead of the center flag it uses a two-\/part window to allow for more flexible windows. The total window size = {\ttfamily preceding\+\_\+window + following\+\_\+window}. Element {\ttfamily i} uses elements {\ttfamily \mbox{[}i-\/preceding\+\_\+window+1, i+following\+\_\+window\mbox{]}} to do the window computation.
+\item instead of storing NA/\+NaN for output rows that do not meet the minimum number of observations this function updates the valid bitmask of the column to indicate which elements are valid.
+\end{DoxyItemize}
+
+Notes on return column types\+:
+\begin{DoxyItemize}
+\item The returned column for count aggregation always has {\ttfamily INT32} type.
+\item The returned column for VARIANCE/\+STD aggregations always has {\ttfamily FLOAT64} type.
+\item All other operators return a column of the same type as the input. Therefore it is suggested to convert integer column types (especially low-\/precision integers) to {\ttfamily FLOAT32} or {\ttfamily FLOAT64} before doing a rolling {\ttfamily MEAN}.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & The input column \\
+\hline
+\mbox{\texttt{ in}}  & {\em preceding\+\_\+window} & The static rolling window size in the backward direction \\
+\hline
+\mbox{\texttt{ in}}  & {\em following\+\_\+window} & The static rolling window size in the forward direction \\
+\hline
+\mbox{\texttt{ in}}  & {\em min\+\_\+periods} & Minimum number of observations in window required to have a value, otherwise element {\ttfamily i} is null. \\
+\hline
+\mbox{\texttt{ in}}  & {\em agg} & The rolling window aggregation type (SUM, MAX, MIN, etc.) \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A nullable output column containing the rolling window results 
+\end{DoxyReturn}

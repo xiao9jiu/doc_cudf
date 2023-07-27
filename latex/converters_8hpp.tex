@@ -1,0 +1,50 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/strings/detail/converters.hpp 文件参考}
+\hypertarget{converters_8hpp}{}\label{converters_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/strings/detail/converters.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/strings/detail/converters.hpp}}
+{\ttfamily \#include $<$cudf/column/column.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/scalar/scalar.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/strings/strings\+\_\+column\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/cuda\+\_\+stream\+\_\+view.\+hpp$>$}\newline
+converters.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{converters_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1strings}{cudf\+::strings}}
+\begin{DoxyCompactList}\small\item\em Strings column APIs \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail}{cudf\+::strings\+::detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_aa0826c42ce4b8a0da9c6159c100c326a}{cudf\+::strings\+::detail\+::to\+\_\+integers}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+type, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Returns a new integer numeric column parsing integer values from the provided strings column.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ad20a1f72035f45c3aa909998320e0172}{cudf\+::strings\+::detail\+::from\+\_\+integers}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&integers, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a7c7b12cf229b9e3a4bf6fba1e682ec84}{cudf\+::strings\+::detail\+::to\+\_\+floats}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+type, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Returns a new numeric column by parsing float values from each string in the provided strings column.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a6d260003e0b7503d23d315a61af64d14}{cudf\+::strings\+::detail\+::from\+\_\+floats}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&floats, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a4bc69f3cb103d377a4dbb3d06783a2f0}{cudf\+::strings\+::detail\+::to\+\_\+booleans}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&true\+\_\+string, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_ab90a7e7586fbbabb4fe8a0075a1a334f}{cudf\+::strings\+::detail\+::from\+\_\+booleans}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&booleans, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&true\+\_\+string, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&false\+\_\+string, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_adb1baf6dc284ce8c9ddbbd5fc0505929}{cudf\+::strings\+::detail\+::to\+\_\+timestamps}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} timestamp\+\_\+type, std\+::string\+\_\+view format, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Returns a new timestamp column converting a strings column into timestamps using the provided format pattern.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a7b39f903e9d254abff46402ec483766a}{cudf\+::strings\+::detail\+::from\+\_\+timestamps}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&timestamps, std\+::string\+\_\+view format, \mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&names, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a9a1d3dd1ee9a847b6f15dd9a0ef7b91e}{cudf\+::strings\+::detail\+::to\+\_\+durations}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} duration\+\_\+type, std\+::string\+\_\+view format, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Returns a new duration column converting a strings column into durations using the provided format pattern.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a60eebd1c99814640f75595b3953105fe}{cudf\+::strings\+::detail\+::from\+\_\+durations}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&durations, std\+::string\+\_\+view format, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a5753e57985423ac2c8d8a24bc5a80493}{cudf\+::strings\+::detail\+::to\+\_\+fixed\+\_\+point}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+type, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Returns a new fixed-\/point column parsing decimal values from the provided strings column.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1strings_1_1detail_a882aac910b9ef97e161e8360b5fbf659}{cudf\+::strings\+::detail\+::from\+\_\+fixed\+\_\+point}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&integers, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\end{DoxyCompactItemize}

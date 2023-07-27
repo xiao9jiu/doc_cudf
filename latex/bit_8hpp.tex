@@ -1,0 +1,55 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/utilities/bit.hpp 文件参考}
+\hypertarget{bit_8hpp}{}\label{bit_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/utilities/bit.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/utilities/bit.hpp}}
+
+
+Utilities for bit and bitmask operations.  
+
+
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cuda/std/climits$>$}\newline
+{\ttfamily \#include $<$cudf/types.\+hpp$>$}\newline
+bit.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{bit_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1detail}{cudf\+::detail}}
+\begin{DoxyCompactList}\small\item\em Inner interfaces and implementations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} std\+::size\+\_\+t \mbox{\hyperlink{namespacecudf_1_1detail_a84962657d1071313a0e63f3c05a4c26a}{cudf\+::detail\+::size\+\_\+in\+\_\+bits}} ()
+\begin{DoxyCompactList}\small\item\em Returns the number of bits the given type can hold. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{group__utility__bitmask_ga4f93fa04ed3df94180c09b0719d4d668}{cudf\+::word\+\_\+index}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} bit\+\_\+index)
+\begin{DoxyCompactList}\small\item\em Returns the index of the word containing the specified bit. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{group__utility__bitmask_ga44f4cef44ddd5ef149420e8f8707f23a}{cudf\+::intra\+\_\+word\+\_\+index}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} bit\+\_\+index)
+\begin{DoxyCompactList}\small\item\em Returns the position within a word of the specified bit. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} void \mbox{\hyperlink{group__utility__bitmask_ga00673f7c2476e7c429304bac820c2560}{cudf\+::set\+\_\+bit\+\_\+unsafe}} (\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} \texorpdfstring{$\ast$}{*}bitmask, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} bit\+\_\+index)
+\begin{DoxyCompactList}\small\item\em Sets the specified bit to {\ttfamily 1} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} void \mbox{\hyperlink{group__utility__bitmask_gaeb540f6ba5e87ae4ced0672f3ecf1c59}{cudf\+::clear\+\_\+bit\+\_\+unsafe}} (\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} \texorpdfstring{$\ast$}{*}bitmask, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} bit\+\_\+index)
+\begin{DoxyCompactList}\small\item\em Sets the specified bit to {\ttfamily 0} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} bool \mbox{\hyperlink{group__utility__bitmask_gad2d905951bd90303422a5f9631c55124}{cudf\+::bit\+\_\+is\+\_\+set}} (\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} const \texorpdfstring{$\ast$}{*}bitmask, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} bit\+\_\+index)
+\begin{DoxyCompactList}\small\item\em Indicates whether the specified bit is set to {\ttfamily 1} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} bool \mbox{\hyperlink{group__utility__bitmask_gaafd7de16384765ce87da7e00fc8a1c70}{cudf\+::bit\+\_\+value\+\_\+or}} (\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} const \texorpdfstring{$\ast$}{*}bitmask, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} bit\+\_\+index, bool default\+\_\+value)
+\begin{DoxyCompactList}\small\item\em optional-\/like interface to check if a specified bit of a bitmask is set. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} \mbox{\hyperlink{group__utility__bitmask_ga5cb42c2aa948d300b4b2b524c01b93a8}{cudf\+::set\+\_\+least\+\_\+significant\+\_\+bits}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} n)
+\begin{DoxyCompactList}\small\item\em Returns a bitmask word with the {\ttfamily n} least significant bits set. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} \mbox{\hyperlink{group__utility__bitmask_gae1761cf9cca86fe86d379bfdaa422e7b}{cudf\+::set\+\_\+most\+\_\+significant\+\_\+bits}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} n)
+\begin{DoxyCompactList}\small\item\em Returns a bitmask word with the {\ttfamily n} most significant bits set. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Utilities for bit and bitmask operations. 
+
+
+
+在文件 \mbox{\hyperlink{bit_8hpp_source}{bit.\+hpp}} 中定义.
+

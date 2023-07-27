@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: D:/gitLibrary/cudf/cpp/include/cudf/strings/regex/regex_program.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('regex__program_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">regex_program.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="regex__program_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright (c) 2022, NVIDIA CORPORATION.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;<a class="code" href="flags_8hpp.html">cudf/strings/regex/flags.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;<a class="code" href="types_8hpp.html">cudf/types.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecudf.html">cudf</a> {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">namespace </span>strings {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="structcudf_1_1strings_1_1regex__program.html">   40</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structcudf_1_1strings_1_1regex__program.html">regex_program</a> {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  <span class="keyword">struct </span>regex_program_impl;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="structcudf_1_1strings_1_1regex__program.html#a0fd06b22002ae42c23ac1b67f0b7b294">   53</a></span>  <span class="keyword">static</span> std::unique_ptr&lt;regex_program&gt; <a class="code hl_function" href="structcudf_1_1strings_1_1regex__program.html#a0fd06b22002ae42c23ac1b67f0b7b294">create</a>(std::string_view <a class="code hl_function" href="structcudf_1_1strings_1_1regex__program.html#a8186ff8c76894d501a86df5ad2ffcd09">pattern</a>,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                                               <a class="code hl_enumeration" href="group__strings__regex.html#ga341eb616bce8b15119196ad8208ec16d">regex_flags</a> <a class="code hl_function" href="structcudf_1_1strings_1_1regex__program.html#aa0778fc22d9ff8cddf2d7bfc1ec6e3d5">flags</a>      = <a class="code hl_enumvalue" href="group__strings__regex.html#gga341eb616bce8b15119196ad8208ec16da432e1bed0776491ae9d73f3915142912">regex_flags::DEFAULT</a>,</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                                               <a class="code hl_enumeration" href="group__strings__regex.html#ga227bb80d548c2970e05f829839966ba3">capture_groups</a> <a class="code hl_function" href="structcudf_1_1strings_1_1regex__program.html#a449da7ed336b8929404e295c42f53bf9">capture</a> = <a class="code hl_enumvalue" href="group__strings__regex.html#gga227bb80d548c2970e05f829839966ba3a06a05d6df9809ab85bf7734d9c49bc54">capture_groups::EXTRACT</a>);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="structcudf_1_1strings_1_1regex__program.html#ab91875a27ba0c7463bc0fe2b979fe5c8">   62</a></span>  <a class="code hl_function" href="structcudf_1_1strings_1_1regex__program.html#ab91875a27ba0c7463bc0fe2b979fe5c8">regex_program</a>(<a class="code hl_struct" href="structcudf_1_1strings_1_1regex__program.html">regex_program</a>&amp;&amp; other);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="structcudf_1_1strings_1_1regex__program.html#a83d91a835c7ce11e0bcf2b9b491091d9">   70</a></span>  <a class="code hl_struct" href="structcudf_1_1strings_1_1regex__program.html">regex_program</a>&amp; <a class="code hl_function" href="structcudf_1_1strings_1_1regex__program.html#a83d91a835c7ce11e0bcf2b9b491091d9">operator=</a>(<a class="code hl_struct" href="structcudf_1_1strings_1_1regex__program.html">regex_program</a>&amp;&amp; other);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="structcudf_1_1strings_1_1regex__program.html#a8186ff8c76894d501a86df5ad2ffcd09">   77</a></span>  std::string <a class="code hl_function" href="structcudf_1_1strings_1_1regex__program.html#a8186ff8c76894d501a86df5ad2ffcd09">pattern</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="structcudf_1_1strings_1_1regex__program.html#aa0778fc22d9ff8cddf2d7bfc1ec6e3d5">   84</a></span>  <a class="code hl_enumeration" href="group__strings__regex.html#ga341eb616bce8b15119196ad8208ec16d">regex_flags</a> <a class="code hl_function" href="structcudf_1_1strings_1_1regex__program.html#aa0778fc22d9ff8cddf2d7bfc1ec6e3d5">flags</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="structcudf_1_1strings_1_1regex__program.html#a449da7ed336b8929404e295c42f53bf9">   91</a></span>  <a class="code hl_enumeration" href="group__strings__regex.html#ga227bb80d548c2970e05f829839966ba3">capture_groups</a> <a class="code hl_function" href="structcudf_1_1strings_1_1regex__program.html#a449da7ed336b8929404e295c42f53bf9">capture</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="structcudf_1_1strings_1_1regex__program.html#aa0a4a650b84ed637372a352f2f7618c1">   98</a></span>  int32_t <a class="code hl_function" href="structcudf_1_1strings_1_1regex__program.html#aa0a4a650b84ed637372a352f2f7618c1">instructions_count</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="structcudf_1_1strings_1_1regex__program.html#a38ac3a1f769cc80b79f63bf2f6d5afd5">  105</a></span>  int32_t <a class="code hl_function" href="structcudf_1_1strings_1_1regex__program.html#a38ac3a1f769cc80b79f63bf2f6d5afd5">groups_count</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="structcudf_1_1strings_1_1regex__program.html#adc099e7cac91d0ca18095c6364813c7e">  113</a></span>  std::size_t <a class="code hl_function" href="structcudf_1_1strings_1_1regex__program.html#adc099e7cac91d0ca18095c6364813c7e">compute_working_memory_size</a>(int32_t num_strings) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="structcudf_1_1strings_1_1regex__program.html#afea6b0deb4fbea354491c9d8aef2f02a">  115</a></span>  <a class="code hl_function" href="structcudf_1_1strings_1_1regex__program.html#afea6b0deb4fbea354491c9d8aef2f02a">~regex_program</a>();</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="structcudf_1_1strings_1_1regex__program.html#a3330afc6f28a95190d59ba060157ca20">  118</a></span>  <a class="code hl_function" href="structcudf_1_1strings_1_1regex__program.html#a3330afc6f28a95190d59ba060157ca20">regex_program</a>() = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="structcudf_1_1strings_1_1regex__program.html#a15780736d59dfb896ab70b00de8ceb84">  120</a></span>  std::string <a class="code hl_variable" href="structcudf_1_1strings_1_1regex__program.html#a15780736d59dfb896ab70b00de8ceb84">_pattern</a>;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="structcudf_1_1strings_1_1regex__program.html#ae85b3f63feed8bc5e1455c95dcb5108f">  121</a></span>  <a class="code hl_enumeration" href="group__strings__regex.html#ga341eb616bce8b15119196ad8208ec16d">regex_flags</a> <a class="code hl_variable" href="structcudf_1_1strings_1_1regex__program.html#ae85b3f63feed8bc5e1455c95dcb5108f">_flags</a>;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="structcudf_1_1strings_1_1regex__program.html#abe2e7417951b601cc2f67dbb863cd1e3">  122</a></span>  <a class="code hl_enumeration" href="group__strings__regex.html#ga227bb80d548c2970e05f829839966ba3">capture_groups</a> <a class="code hl_variable" href="structcudf_1_1strings_1_1regex__program.html#abe2e7417951b601cc2f67dbb863cd1e3">_capture</a>;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="structcudf_1_1strings_1_1regex__program.html#abb696900a2ba7abff0f2448da7d954d9">  124</a></span>  std::unique_ptr&lt;regex_program_impl&gt; <a class="code hl_variable" href="structcudf_1_1strings_1_1regex__program.html#abb696900a2ba7abff0f2448da7d954d9">_impl</a>;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="structcudf_1_1strings_1_1regex__program.html#ac54b1e0dc544133f70825ffd01841bc5">  131</a></span>  <a class="code hl_function" href="structcudf_1_1strings_1_1regex__program.html#ac54b1e0dc544133f70825ffd01841bc5">regex_program</a>(std::string_view <a class="code hl_function" href="structcudf_1_1strings_1_1regex__program.html#a8186ff8c76894d501a86df5ad2ffcd09">pattern</a>, <a class="code hl_enumeration" href="group__strings__regex.html#ga341eb616bce8b15119196ad8208ec16d">regex_flags</a> <a class="code hl_function" href="structcudf_1_1strings_1_1regex__program.html#aa0778fc22d9ff8cddf2d7bfc1ec6e3d5">flags</a>, <a class="code hl_enumeration" href="group__strings__regex.html#ga227bb80d548c2970e05f829839966ba3">capture_groups</a> <a class="code hl_function" href="structcudf_1_1strings_1_1regex__program.html#a449da7ed336b8929404e295c42f53bf9">capture</a>);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="structcudf_1_1strings_1_1regex__program.html#a28f116318baef36522a57d472204bb09">  133</a></span>  <span class="keyword">friend</span> <span class="keyword">struct </span><a class="code hl_friend" href="structcudf_1_1strings_1_1regex__program.html#a28f116318baef36522a57d472204bb09">regex_device_builder</a>;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>};</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>  <span class="comment">// end of doxygen group</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>}  <span class="comment">// namespace strings</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>}  <span class="comment">// namespace cudf</span></div>
+<div class="ttc" id="aflags_8hpp_html"><div class="ttname"><a href="flags_8hpp.html">flags.hpp</a></div></div>
+<div class="ttc" id="agroup__strings__regex_html_ga227bb80d548c2970e05f829839966ba3"><div class="ttname"><a href="group__strings__regex.html#ga227bb80d548c2970e05f829839966ba3">cudf::strings::capture_groups</a></div><div class="ttdeci">capture_groups</div><div class="ttdoc">Capture groups setting</div><div class="ttdef"><b>Definition</b> <a href="flags_8hpp_source.html#l00082">flags.hpp:82</a></div></div>
+<div class="ttc" id="agroup__strings__regex_html_ga341eb616bce8b15119196ad8208ec16d"><div class="ttname"><a href="group__strings__regex.html#ga341eb616bce8b15119196ad8208ec16d">cudf::strings::regex_flags</a></div><div class="ttdeci">regex_flags</div><div class="ttdoc">Regex flags.</div><div class="ttdef"><b>Definition</b> <a href="flags_8hpp_source.html#l00035">flags.hpp:35</a></div></div>
+<div class="ttc" id="agroup__strings__regex_html_gga227bb80d548c2970e05f829839966ba3a06a05d6df9809ab85bf7734d9c49bc54"><div class="ttname"><a href="group__strings__regex.html#gga227bb80d548c2970e05f829839966ba3a06a05d6df9809ab85bf7734d9c49bc54">cudf::strings::capture_groups::EXTRACT</a></div><div class="ttdeci">@ EXTRACT</div><div class="ttdoc">Capture groups processed normally for extract</div></div>
+<div class="ttc" id="agroup__strings__regex_html_gga341eb616bce8b15119196ad8208ec16da432e1bed0776491ae9d73f3915142912"><div class="ttname"><a href="group__strings__regex.html#gga341eb616bce8b15119196ad8208ec16da432e1bed0776491ae9d73f3915142912">cudf::strings::DEFAULT</a></div><div class="ttdeci">@ DEFAULT</div><div class="ttdoc">default</div><div class="ttdef"><b>Definition</b> <a href="flags_8hpp_source.html#l00036">flags.hpp:36</a></div></div>
+<div class="ttc" id="anamespacecudf_html"><div class="ttname"><a href="namespacecudf.html">cudf</a></div><div class="ttdoc">cuDF interfaces</div><div class="ttdef"><b>Definition</b> <a href="aggregation_8hpp_source.html#l00034">aggregation.hpp:34</a></div></div>
+<div class="ttc" id="astructcudf_1_1strings_1_1regex__program_html"><div class="ttname"><a href="structcudf_1_1strings_1_1regex__program.html">cudf::strings::regex_program</a></div><div class="ttdoc">Regex program class</div><div class="ttdef"><b>Definition</b> <a href="regex__program_8hpp_source.html#l00040">regex_program.hpp:40</a></div></div>
+<div class="ttc" id="astructcudf_1_1strings_1_1regex__program_html_a0fd06b22002ae42c23ac1b67f0b7b294"><div class="ttname"><a href="structcudf_1_1strings_1_1regex__program.html#a0fd06b22002ae42c23ac1b67f0b7b294">cudf::strings::regex_program::create</a></div><div class="ttdeci">static std::unique_ptr&lt; regex_program &gt; create(std::string_view pattern, regex_flags flags=regex_flags::DEFAULT, capture_groups capture=capture_groups::EXTRACT)</div><div class="ttdoc">Create a program from a pattern</div></div>
+<div class="ttc" id="astructcudf_1_1strings_1_1regex__program_html_a15780736d59dfb896ab70b00de8ceb84"><div class="ttname"><a href="structcudf_1_1strings_1_1regex__program.html#a15780736d59dfb896ab70b00de8ceb84">cudf::strings::regex_program::_pattern</a></div><div class="ttdeci">std::string _pattern</div><div class="ttdef"><b>Definition</b> <a href="regex__program_8hpp_source.html#l00120">regex_program.hpp:120</a></div></div>
+<div class="ttc" id="astructcudf_1_1strings_1_1regex__program_html_a28f116318baef36522a57d472204bb09"><div class="ttname"><a href="structcudf_1_1strings_1_1regex__program.html#a28f116318baef36522a57d472204bb09">cudf::strings::regex_program::regex_device_builder</a></div><div class="ttdeci">friend struct regex_device_builder</div><div class="ttdef"><b>Definition</b> <a href="regex__program_8hpp_source.html#l00133">regex_program.hpp:133</a></div></div>
+<div class="ttc" id="astructcudf_1_1strings_1_1regex__program_html_a3330afc6f28a95190d59ba060157ca20"><div class="ttname"><a href="structcudf_1_1strings_1_1regex__program.html#a3330afc6f28a95190d59ba060157ca20">cudf::strings::regex_program::regex_program</a></div><div class="ttdeci">regex_program()=delete</div></div>
+<div class="ttc" id="astructcudf_1_1strings_1_1regex__program_html_a38ac3a1f769cc80b79f63bf2f6d5afd5"><div class="ttname"><a href="structcudf_1_1strings_1_1regex__program.html#a38ac3a1f769cc80b79f63bf2f6d5afd5">cudf::strings::regex_program::groups_count</a></div><div class="ttdeci">int32_t groups_count() const</div><div class="ttdoc">Return the number of capture groups in this instance</div></div>
+<div class="ttc" id="astructcudf_1_1strings_1_1regex__program_html_a449da7ed336b8929404e295c42f53bf9"><div class="ttname"><a href="structcudf_1_1strings_1_1regex__program.html#a449da7ed336b8929404e295c42f53bf9">cudf::strings::regex_program::capture</a></div><div class="ttdeci">capture_groups capture() const</div><div class="ttdoc">Return the capture_groups used to create this instance</div></div>
+<div class="ttc" id="astructcudf_1_1strings_1_1regex__program_html_a8186ff8c76894d501a86df5ad2ffcd09"><div class="ttname"><a href="structcudf_1_1strings_1_1regex__program.html#a8186ff8c76894d501a86df5ad2ffcd09">cudf::strings::regex_program::pattern</a></div><div class="ttdeci">std::string pattern() const</div><div class="ttdoc">Return the pattern used to create this instance</div></div>
+<div class="ttc" id="astructcudf_1_1strings_1_1regex__program_html_a83d91a835c7ce11e0bcf2b9b491091d9"><div class="ttname"><a href="structcudf_1_1strings_1_1regex__program.html#a83d91a835c7ce11e0bcf2b9b491091d9">cudf::strings::regex_program::operator=</a></div><div class="ttdeci">regex_program &amp; operator=(regex_program &amp;&amp;other)</div><div class="ttdoc">Move operator assignment</div></div>
+<div class="ttc" id="astructcudf_1_1strings_1_1regex__program_html_aa0778fc22d9ff8cddf2d7bfc1ec6e3d5"><div class="ttname"><a href="structcudf_1_1strings_1_1regex__program.html#aa0778fc22d9ff8cddf2d7bfc1ec6e3d5">cudf::strings::regex_program::flags</a></div><div class="ttdeci">regex_flags flags() const</div><div class="ttdoc">Return the regex_flags used to create this instance</div></div>
+<div class="ttc" id="astructcudf_1_1strings_1_1regex__program_html_aa0a4a650b84ed637372a352f2f7618c1"><div class="ttname"><a href="structcudf_1_1strings_1_1regex__program.html#aa0a4a650b84ed637372a352f2f7618c1">cudf::strings::regex_program::instructions_count</a></div><div class="ttdeci">int32_t instructions_count() const</div><div class="ttdoc">Return the number of instructions in this instance</div></div>
+<div class="ttc" id="astructcudf_1_1strings_1_1regex__program_html_ab91875a27ba0c7463bc0fe2b979fe5c8"><div class="ttname"><a href="structcudf_1_1strings_1_1regex__program.html#ab91875a27ba0c7463bc0fe2b979fe5c8">cudf::strings::regex_program::regex_program</a></div><div class="ttdeci">regex_program(regex_program &amp;&amp;other)</div><div class="ttdoc">Move constructor</div></div>
+<div class="ttc" id="astructcudf_1_1strings_1_1regex__program_html_abb696900a2ba7abff0f2448da7d954d9"><div class="ttname"><a href="structcudf_1_1strings_1_1regex__program.html#abb696900a2ba7abff0f2448da7d954d9">cudf::strings::regex_program::_impl</a></div><div class="ttdeci">std::unique_ptr&lt; regex_program_impl &gt; _impl</div><div class="ttdef"><b>Definition</b> <a href="regex__program_8hpp_source.html#l00124">regex_program.hpp:124</a></div></div>
+<div class="ttc" id="astructcudf_1_1strings_1_1regex__program_html_abe2e7417951b601cc2f67dbb863cd1e3"><div class="ttname"><a href="structcudf_1_1strings_1_1regex__program.html#abe2e7417951b601cc2f67dbb863cd1e3">cudf::strings::regex_program::_capture</a></div><div class="ttdeci">capture_groups _capture</div><div class="ttdef"><b>Definition</b> <a href="regex__program_8hpp_source.html#l00122">regex_program.hpp:122</a></div></div>
+<div class="ttc" id="astructcudf_1_1strings_1_1regex__program_html_ac54b1e0dc544133f70825ffd01841bc5"><div class="ttname"><a href="structcudf_1_1strings_1_1regex__program.html#ac54b1e0dc544133f70825ffd01841bc5">cudf::strings::regex_program::regex_program</a></div><div class="ttdeci">regex_program(std::string_view pattern, regex_flags flags, capture_groups capture)</div><div class="ttdoc">Constructor</div></div>
+<div class="ttc" id="astructcudf_1_1strings_1_1regex__program_html_adc099e7cac91d0ca18095c6364813c7e"><div class="ttname"><a href="structcudf_1_1strings_1_1regex__program.html#adc099e7cac91d0ca18095c6364813c7e">cudf::strings::regex_program::compute_working_memory_size</a></div><div class="ttdeci">std::size_t compute_working_memory_size(int32_t num_strings) const</div><div class="ttdoc">Return the pattern used to create this instance</div></div>
+<div class="ttc" id="astructcudf_1_1strings_1_1regex__program_html_ae85b3f63feed8bc5e1455c95dcb5108f"><div class="ttname"><a href="structcudf_1_1strings_1_1regex__program.html#ae85b3f63feed8bc5e1455c95dcb5108f">cudf::strings::regex_program::_flags</a></div><div class="ttdeci">regex_flags _flags</div><div class="ttdef"><b>Definition</b> <a href="regex__program_8hpp_source.html#l00121">regex_program.hpp:121</a></div></div>
+<div class="ttc" id="astructcudf_1_1strings_1_1regex__program_html_afea6b0deb4fbea354491c9d8aef2f02a"><div class="ttname"><a href="structcudf_1_1strings_1_1regex__program.html#afea6b0deb4fbea354491c9d8aef2f02a">cudf::strings::regex_program::~regex_program</a></div><div class="ttdeci">~regex_program()</div></div>
+<div class="ttc" id="atypes_8hpp_html"><div class="ttname"><a href="types_8hpp.html">types.hpp</a></div><div class="ttdoc">Type declarations for libcudf.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_d998dea0bd4559303135358082015ac8.html">gitLibrary</a></li><li class="navelem"><a class="el" href="dir_b6486b3d9bd1f4b89c884933ed658179.html">cudf</a></li><li class="navelem"><a class="el" href="dir_318a4414914f49dc0e7605c41de9d4af.html">cpp</a></li><li class="navelem"><a class="el" href="dir_7fbf5ee8ae486656ea40e5ca1dd304f9.html">include</a></li><li class="navelem"><a class="el" href="dir_87e6427d1ef099fd52d9d0724c66b062.html">cudf</a></li><li class="navelem"><a class="el" href="dir_e52a7cfcc5412b565f6ae0686e8a94b2.html">strings</a></li><li class="navelem"><a class="el" href="dir_568a03f11001829ed8df14935cd38280.html">regex</a></li><li class="navelem"><a class="el" href="regex__program_8hpp.html">regex_program.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

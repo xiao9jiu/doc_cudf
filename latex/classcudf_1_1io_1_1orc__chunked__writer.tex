@@ -1,0 +1,145 @@
+\doxysection{cudf\+::io\+::orc\+\_\+chunked\+\_\+writer类 参考}
+\hypertarget{classcudf_1_1io_1_1orc__chunked__writer}{}\label{classcudf_1_1io_1_1orc__chunked__writer}\index{cudf::io::orc\_chunked\_writer@{cudf::io::orc\_chunked\_writer}}
+
+
+Chunked orc writer class writes an ORC file in a chunked/stream form.  
+
+
+
+
+{\ttfamily \#include $<$orc.\+hpp$>$}
+
+
+
+cudf\+::io\+::orc\+\_\+chunked\+\_\+writer 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{classcudf_1_1io_1_1orc__chunked__writer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1orc__chunked__writer_af3b7ac3465328e6dfccf6f1c5d0de551}{orc\+\_\+chunked\+\_\+writer}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor, this should never be used. This is added just to satisfy cython. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1orc__chunked__writer_a48754016f900ea0b7da9c04873a3e41b}{orc\+\_\+chunked\+\_\+writer}} (\mbox{\hyperlink{classcudf_1_1io_1_1chunked__orc__writer__options}{chunked\+\_\+orc\+\_\+writer\+\_\+options}} const \&options, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Constructor with chunked writer options \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1orc__chunked__writer}{orc\+\_\+chunked\+\_\+writer}} \& \mbox{\hyperlink{classcudf_1_1io_1_1orc__chunked__writer_a84f5a537a85404b99ae93195c5b15c24}{write}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1table}{table}})
+\begin{DoxyCompactList}\small\item\em Writes table to output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1orc__chunked__writer_ac0eb6269306914d2c12974b631aa0422}{close}} ()
+\begin{DoxyCompactList}\small\item\em Finishes the chunked/streamed write process. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1writer}{cudf\+::io\+::detail\+::orc\+::writer}} $>$ \mbox{\hyperlink{classcudf_1_1io_1_1orc__chunked__writer_a731527c945dc6f3ae6c48e873618fbbf}{writer}}
+\begin{DoxyCompactList}\small\item\em Unique pointer to impl writer class \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Chunked orc writer class writes an ORC file in a chunked/stream form. 
+
+The intent of the write\+\_\+orc\+\_\+chunked\+\_\+ path is to allow writing of an arbitrarily large / arbitrary number of rows to an ORC file in multiple passes.
+
+The following code snippet demonstrates how to write a single ORC file containing one logical table by writing a series of individual cudf\+::tables. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ ...}
+\DoxyCodeLine{\ std::string\ filepath\ =\ \textcolor{stringliteral}{"{}dataset.orc"{}};}
+\DoxyCodeLine{\ \mbox{\hyperlink{classcudf_1_1io_1_1chunked__orc__writer__options}{cudf::io::chunked\_orc\_writer\_options}}\ options\ =\ \mbox{\hyperlink{classcudf_1_1io_1_1chunked__orc__writer__options}{cudf::io::chunked\_orc\_writer\_options}}}
+\DoxyCodeLine{options::builder(cudf::sink\_info(filepath));}
+\DoxyCodeLine{\ ...}
+\DoxyCodeLine{\ \mbox{\hyperlink{classcudf_1_1io_1_1orc__chunked__writer_af3b7ac3465328e6dfccf6f1c5d0de551}{orc\_chunked\_writer}}\ \mbox{\hyperlink{classcudf_1_1io_1_1orc__chunked__writer_a731527c945dc6f3ae6c48e873618fbbf}{writer}}(options)}
+\DoxyCodeLine{\ \mbox{\hyperlink{classcudf_1_1io_1_1orc__chunked__writer_a731527c945dc6f3ae6c48e873618fbbf}{writer}}.write(table0)}
+\DoxyCodeLine{\ \mbox{\hyperlink{classcudf_1_1io_1_1orc__chunked__writer_a731527c945dc6f3ae6c48e873618fbbf}{writer}}.write(table1)}
+\DoxyCodeLine{\ \ \ ...}
+\DoxyCodeLine{\ \mbox{\hyperlink{classcudf_1_1io_1_1orc__chunked__writer_a731527c945dc6f3ae6c48e873618fbbf}{writer}}.close();}
+
+\end{DoxyCode}
+ 
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l01128}{1128}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1io_1_1orc__chunked__writer_af3b7ac3465328e6dfccf6f1c5d0de551}\label{classcudf_1_1io_1_1orc__chunked__writer_af3b7ac3465328e6dfccf6f1c5d0de551} 
+\index{cudf::io::orc\_chunked\_writer@{cudf::io::orc\_chunked\_writer}!orc\_chunked\_writer@{orc\_chunked\_writer}}
+\index{orc\_chunked\_writer@{orc\_chunked\_writer}!cudf::io::orc\_chunked\_writer@{cudf::io::orc\_chunked\_writer}}
+\doxysubsubsection{\texorpdfstring{orc\_chunked\_writer()}{orc\_chunked\_writer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily cudf\+::io\+::orc\+\_\+chunked\+\_\+writer\+::orc\+\_\+chunked\+\_\+writer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor, this should never be used. This is added just to satisfy cython. 
+
+\Hypertarget{classcudf_1_1io_1_1orc__chunked__writer_a48754016f900ea0b7da9c04873a3e41b}\label{classcudf_1_1io_1_1orc__chunked__writer_a48754016f900ea0b7da9c04873a3e41b} 
+\index{cudf::io::orc\_chunked\_writer@{cudf::io::orc\_chunked\_writer}!orc\_chunked\_writer@{orc\_chunked\_writer}}
+\index{orc\_chunked\_writer@{orc\_chunked\_writer}!cudf::io::orc\_chunked\_writer@{cudf::io::orc\_chunked\_writer}}
+\doxysubsubsection{\texorpdfstring{orc\_chunked\_writer()}{orc\_chunked\_writer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily cudf\+::io\+::orc\+\_\+chunked\+\_\+writer\+::orc\+\_\+chunked\+\_\+writer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1io_1_1chunked__orc__writer__options}{chunked\+\_\+orc\+\_\+writer\+\_\+options}} const \&}]{options,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Constructor with chunked writer options 
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em options} & options used to write table \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource to use for device memory allocation \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1io_1_1orc__chunked__writer_ac0eb6269306914d2c12974b631aa0422}\label{classcudf_1_1io_1_1orc__chunked__writer_ac0eb6269306914d2c12974b631aa0422} 
+\index{cudf::io::orc\_chunked\_writer@{cudf::io::orc\_chunked\_writer}!close@{close}}
+\index{close@{close}!cudf::io::orc\_chunked\_writer@{cudf::io::orc\_chunked\_writer}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily void cudf\+::io\+::orc\+\_\+chunked\+\_\+writer\+::close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Finishes the chunked/streamed write process. 
+
+\Hypertarget{classcudf_1_1io_1_1orc__chunked__writer_a84f5a537a85404b99ae93195c5b15c24}\label{classcudf_1_1io_1_1orc__chunked__writer_a84f5a537a85404b99ae93195c5b15c24} 
+\index{cudf::io::orc\_chunked\_writer@{cudf::io::orc\_chunked\_writer}!write@{write}}
+\index{write@{write}!cudf::io::orc\_chunked\_writer@{cudf::io::orc\_chunked\_writer}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1io_1_1orc__chunked__writer}{orc\+\_\+chunked\+\_\+writer}} \& cudf\+::io\+::orc\+\_\+chunked\+\_\+writer\+::write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{table }\end{DoxyParamCaption})}
+
+
+
+Writes table to output. 
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em table} & Table that needs to be written \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+returns reference of the class object 
+\end{DoxyReturn}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1io_1_1orc__chunked__writer_a731527c945dc6f3ae6c48e873618fbbf}\label{classcudf_1_1io_1_1orc__chunked__writer_a731527c945dc6f3ae6c48e873618fbbf} 
+\index{cudf::io::orc\_chunked\_writer@{cudf::io::orc\_chunked\_writer}!writer@{writer}}
+\index{writer@{writer}!cudf::io::orc\_chunked\_writer@{cudf::io::orc\_chunked\_writer}}
+\doxysubsubsection{\texorpdfstring{writer}{writer}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1writer}{cudf\+::io\+::detail\+::orc\+::writer}}$>$ cudf\+::io\+::orc\+\_\+chunked\+\_\+writer\+::writer}
+
+
+
+Unique pointer to impl writer class 
+
+
+
+在文件 \mbox{\hyperlink{orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{orc_8hpp_source_l01159}{1159}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/\mbox{\hyperlink{orc_8hpp}{orc.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: D:/gitLibrary/cudf/cpp/include/cudf/transform.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('transform_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">transform.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="transform_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright (c) 2019-2022, NVIDIA CORPORATION.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;<a class="code" href="expressions_8hpp.html">cudf/ast/expressions.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;<a class="code" href="types_8hpp.html">cudf/types.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;rmm/mr/device/per_device_resource.hpp&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecudf.html">cudf</a> {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="group__transformation__transform.html#ga10b4d0e6674922ddf34b9bc32f3543e9">   52</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__transformation__transform.html#ga10b4d0e6674922ddf34b9bc32f3543e9">transform</a>(</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; input,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  std::string <span class="keyword">const</span>&amp; unary_udf,</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  <a class="code hl_class" href="classcudf_1_1data__type.html">data_type</a> output_type,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  <span class="keywordtype">bool</span> is_ptx,</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="group__transformation__transform.html#ga6d49c4245df211abb5b5157cfed58744">   70</a></span>std::pair&lt;std::unique_ptr&lt;rmm::device_buffer&gt;, <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a>&gt; <a class="code hl_function" href="group__transformation__transform.html#ga6d49c4245df211abb5b5157cfed58744">nans_to_nulls</a>(</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; input,</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="group__transformation__transform.html#gaf935e4f6a30de36cdeb51c2120cf4ece">   87</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__transformation__transform.html#gaf935e4f6a30de36cdeb51c2120cf4ece">compute_column</a>(</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  <a class="code hl_class" href="classcudf_1_1table__view.html">table_view</a> <span class="keyword">const</span>&amp; <a class="code hl_class" href="classcudf_1_1table.html">table</a>,</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  <a class="code hl_struct" href="structcudf_1_1ast_1_1expression.html">ast::expression</a> <span class="keyword">const</span>&amp; expr,</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="group__transformation__transform.html#ga4dd8538088b9897a261ab52583d8d192">  107</a></span>std::pair&lt;std::unique_ptr&lt;rmm::device_buffer&gt;, <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">cudf::size_type</a>&gt; <a class="code hl_function" href="group__transformation__transform.html#ga4dd8538088b9897a261ab52583d8d192">bools_to_mask</a>(</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; input,</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="group__transformation__transform.html#ga2fb087bbf77bdfd10bdc418aad34792e">  135</a></span>std::pair&lt;std::unique_ptr&lt;cudf::table&gt;, std::unique_ptr&lt;cudf::column&gt;&gt; <a class="code hl_function" href="group__transformation__transform.html#ga2fb087bbf77bdfd10bdc418aad34792e">encode</a>(</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>  <a class="code hl_class" href="classcudf_1_1table__view.html">cudf::table_view</a> <span class="keyword">const</span>&amp; input,</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="group__transformation__transform.html#ga6d0d48b61fa97030d90ec7f697fa83e9">  166</a></span>std::pair&lt;std::unique_ptr&lt;column&gt;, <a class="code hl_class" href="classcudf_1_1table__view.html">table_view</a>&gt; <a class="code hl_function" href="group__transformation__transform.html#ga6d0d48b61fa97030d90ec7f697fa83e9">one_hot_encode</a>(</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; input,</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; categories,</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno"><a class="line" href="group__transformation__transform.html#ga57308abbc54d2b0fc6cd221c539b3903">  192</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__transformation__transform.html#ga57308abbc54d2b0fc6cd221c539b3903">mask_to_bools</a>(</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>  <a class="code hl_typedef" href="group__utility__types.html#ga1d17001baf070a639c3a5e8ed8c46d34">bitmask_type</a> <span class="keyword">const</span>* bitmask,</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> begin_bit,</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> end_bit,</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno"><a class="line" href="group__transformation__transform.html#gae017bd71f182100b614e7e00f0e0c7ed">  223</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__transformation__transform.html#gae017bd71f182100b614e7e00f0e0c7ed">row_bit_count</a>(</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>  <a class="code hl_class" href="classcudf_1_1table__view.html">table_view</a> <span class="keyword">const</span>&amp; t,</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>  <span class="comment">// end of group</span></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>}  <span class="comment">// namespace cudf</span></div>
+<div class="ttc" id="aclasscudf_1_1column__view_html"><div class="ttname"><a href="classcudf_1_1column__view.html">cudf::column_view</a></div><div class="ttdoc">A non-owning, immutable view of device data as a column of elements, some of which may be null as ind...</div><div class="ttdef"><b>Definition</b> <a href="column__view_8hpp_source.html#l00322">column_view.hpp:322</a></div></div>
+<div class="ttc" id="aclasscudf_1_1data__type_html"><div class="ttname"><a href="classcudf_1_1data__type.html">cudf::data_type</a></div><div class="ttdoc">Indicator for the logical data type of an element in a column.</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00236">types.hpp:236</a></div></div>
+<div class="ttc" id="aclasscudf_1_1table__view_html"><div class="ttname"><a href="classcudf_1_1table__view.html">cudf::table_view</a></div><div class="ttdoc">A set of cudf::column_view's of the same size.</div><div class="ttdef"><b>Definition</b> <a href="table__view_8hpp_source.html#l00187">table_view.hpp:187</a></div></div>
+<div class="ttc" id="aclasscudf_1_1table_html"><div class="ttname"><a href="classcudf_1_1table.html">cudf::table</a></div><div class="ttdoc">A set of cudf::column's of the same size.</div><div class="ttdef"><b>Definition</b> <a href="table_8hpp_source.html#l00040">table.hpp:40</a></div></div>
+<div class="ttc" id="aexpressions_8hpp_html"><div class="ttname"><a href="expressions_8hpp.html">expressions.hpp</a></div></div>
+<div class="ttc" id="agroup__transformation__transform_html_ga10b4d0e6674922ddf34b9bc32f3543e9"><div class="ttname"><a href="group__transformation__transform.html#ga10b4d0e6674922ddf34b9bc32f3543e9">cudf::transform</a></div><div class="ttdeci">std::unique_ptr&lt; column &gt; transform(column_view const &amp;input, std::string const &amp;unary_udf, data_type output_type, bool is_ptx, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Creates a new column by applying a unary function against every element of an input column.</div></div>
+<div class="ttc" id="agroup__transformation__transform_html_ga2fb087bbf77bdfd10bdc418aad34792e"><div class="ttname"><a href="group__transformation__transform.html#ga2fb087bbf77bdfd10bdc418aad34792e">cudf::encode</a></div><div class="ttdeci">std::pair&lt; std::unique_ptr&lt; cudf::table &gt;, std::unique_ptr&lt; cudf::column &gt; &gt; encode(cudf::table_view const &amp;input, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Encode the rows of the given table as integers</div></div>
+<div class="ttc" id="agroup__transformation__transform_html_ga4dd8538088b9897a261ab52583d8d192"><div class="ttname"><a href="group__transformation__transform.html#ga4dd8538088b9897a261ab52583d8d192">cudf::bools_to_mask</a></div><div class="ttdeci">std::pair&lt; std::unique_ptr&lt; rmm::device_buffer &gt;, cudf::size_type &gt; bools_to_mask(column_view const &amp;input, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Creates a bitmask from a column of boolean elements.</div></div>
+<div class="ttc" id="agroup__transformation__transform_html_ga57308abbc54d2b0fc6cd221c539b3903"><div class="ttname"><a href="group__transformation__transform.html#ga57308abbc54d2b0fc6cd221c539b3903">cudf::mask_to_bools</a></div><div class="ttdeci">std::unique_ptr&lt; column &gt; mask_to_bools(bitmask_type const *bitmask, size_type begin_bit, size_type end_bit, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Creates a boolean column from given bitmask.</div></div>
+<div class="ttc" id="agroup__transformation__transform_html_ga6d0d48b61fa97030d90ec7f697fa83e9"><div class="ttname"><a href="group__transformation__transform.html#ga6d0d48b61fa97030d90ec7f697fa83e9">cudf::one_hot_encode</a></div><div class="ttdeci">std::pair&lt; std::unique_ptr&lt; column &gt;, table_view &gt; one_hot_encode(column_view const &amp;input, column_view const &amp;categories, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Encodes input by generating a new column for each value in categories indicating the presence of that...</div></div>
+<div class="ttc" id="agroup__transformation__transform_html_ga6d49c4245df211abb5b5157cfed58744"><div class="ttname"><a href="group__transformation__transform.html#ga6d49c4245df211abb5b5157cfed58744">cudf::nans_to_nulls</a></div><div class="ttdeci">std::pair&lt; std::unique_ptr&lt; rmm::device_buffer &gt;, size_type &gt; nans_to_nulls(column_view const &amp;input, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Creates a null_mask from input by converting NaN to null and preserving existing null values and also...</div></div>
+<div class="ttc" id="agroup__transformation__transform_html_gae017bd71f182100b614e7e00f0e0c7ed"><div class="ttname"><a href="group__transformation__transform.html#gae017bd71f182100b614e7e00f0e0c7ed">cudf::row_bit_count</a></div><div class="ttdeci">std::unique_ptr&lt; column &gt; row_bit_count(table_view const &amp;t, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Returns an approximate cumulative size in bits of all columns in the table_view for each row.</div></div>
+<div class="ttc" id="agroup__transformation__transform_html_gaf935e4f6a30de36cdeb51c2120cf4ece"><div class="ttname"><a href="group__transformation__transform.html#gaf935e4f6a30de36cdeb51c2120cf4ece">cudf::compute_column</a></div><div class="ttdeci">std::unique_ptr&lt; column &gt; compute_column(table_view const &amp;table, ast::expression const &amp;expr, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Compute a new column by evaluating an expression tree on a table.</div></div>
+<div class="ttc" id="agroup__utility__types_html_ga0aff16b2db009d92300befaca11827e9"><div class="ttname"><a href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">cudf::size_type</a></div><div class="ttdeci">int32_t size_type</div><div class="ttdoc">Row index type for columns and tables</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00080">types.hpp:80</a></div></div>
+<div class="ttc" id="agroup__utility__types_html_ga1d17001baf070a639c3a5e8ed8c46d34"><div class="ttname"><a href="group__utility__types.html#ga1d17001baf070a639c3a5e8ed8c46d34">cudf::bitmask_type</a></div><div class="ttdeci">uint32_t bitmask_type</div><div class="ttdoc">Bitmask type stored as 32-bit unsigned integer</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00081">types.hpp:81</a></div></div>
+<div class="ttc" id="anamespacecudf_html"><div class="ttname"><a href="namespacecudf.html">cudf</a></div><div class="ttdoc">cuDF interfaces</div><div class="ttdef"><b>Definition</b> <a href="aggregation_8hpp_source.html#l00034">aggregation.hpp:34</a></div></div>
+<div class="ttc" id="astructcudf_1_1ast_1_1expression_html"><div class="ttname"><a href="structcudf_1_1ast_1_1expression.html">cudf::ast::expression</a></div><div class="ttdoc">A generic expression that can be evaluated to return a value.</div><div class="ttdef"><b>Definition</b> <a href="expressions_8hpp_source.html#l00040">expressions.hpp:40</a></div></div>
+<div class="ttc" id="atypes_8hpp_html"><div class="ttname"><a href="types_8hpp.html">types.hpp</a></div><div class="ttdoc">Type declarations for libcudf.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_d998dea0bd4559303135358082015ac8.html">gitLibrary</a></li><li class="navelem"><a class="el" href="dir_b6486b3d9bd1f4b89c884933ed658179.html">cudf</a></li><li class="navelem"><a class="el" href="dir_318a4414914f49dc0e7605c41de9d4af.html">cpp</a></li><li class="navelem"><a class="el" href="dir_7fbf5ee8ae486656ea40e5ca1dd304f9.html">include</a></li><li class="navelem"><a class="el" href="dir_87e6427d1ef099fd52d9d0724c66b062.html">cudf</a></li><li class="navelem"><a class="el" href="transform_8hpp.html">transform.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

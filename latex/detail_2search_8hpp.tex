@@ -1,0 +1,36 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/detail/search.hpp 文件参考}
+\hypertarget{detail_2search_8hpp}{}\label{detail_2search_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/detail/search.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/detail/search.hpp}}
+{\ttfamily \#include $<$cudf/column/column.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/scalar/scalar.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/table/table.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/types.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/cuda\+\_\+stream\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/device\+\_\+uvector.\+hpp$>$}\newline
+search.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{detail_2search_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1detail}{cudf\+::detail}}
+\begin{DoxyCompactList}\small\item\em Inner interfaces and implementations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a45dd74287624f555fcfb232087bb16e6}{cudf\+::detail\+::lower\+\_\+bound}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&haystack, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&needles, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Find smallest indices in a sorted table where values should be inserted to maintain order.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_ad5c2375ffd17459ecf1ef510fe8c2ea2}{cudf\+::detail\+::upper\+\_\+bound}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&haystack, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&needles, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&column\+\_\+order, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+precedence, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Find largest indices in a sorted table where values should be inserted to maintain order.   \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacecudf_1_1detail_aabbae19d91d3507be87defb820d2e603}{cudf\+::detail\+::contains}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&haystack, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&needle, rmm\+::cuda\+\_\+stream\+\_\+view stream)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a6c1de6dab4d4d341e17ff17cdff7a133}{cudf\+::detail\+::contains}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&haystack, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&needles, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Check if the given {\ttfamily needles} values exists in the {\ttfamily haystack} column.   \end{DoxyCompactList}\item 
+rmm\+::device\+\_\+uvector$<$ bool $>$ \mbox{\hyperlink{namespacecudf_1_1detail_aa272dc48c5c03c83e46dc103a86bdeb4}{cudf\+::detail\+::contains}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&haystack, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&needles, \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}} compare\+\_\+nulls, \mbox{\hyperlink{group__utility__types_gae9d1055c69c3089452794783c7c82f83}{nan\+\_\+equality}} compare\+\_\+nans, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Check if rows in the given {\ttfamily needles} table exist in the {\ttfamily haystack} table. \end{DoxyCompactList}\end{DoxyCompactItemize}

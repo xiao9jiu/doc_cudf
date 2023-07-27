@@ -1,0 +1,44 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/partitioning.hpp 文件参考}
+\hypertarget{partitioning_8hpp}{}\label{partitioning_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/partitioning.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/partitioning.hpp}}
+
+
+Column partitioning APIs  
+
+
+{\ttfamily \#include $<$cudf/hashing.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/utilities/default\+\_\+stream.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/cuda\+\_\+stream\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/mr/device/per\+\_\+device\+\_\+resource.\+hpp$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+partitioning.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{partitioning_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ $>$ \mbox{\hyperlink{group__reorder__partition_gac862ac3926d44c41e92e6d3a47c6d388}{cudf\+::partition}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&t, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&partition\+\_\+map, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} num\+\_\+partitions, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Partitions rows of {\ttfamily t} according to the mapping specified by {\ttfamily partition\+\_\+map}. \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ $>$ \mbox{\hyperlink{group__reorder__partition_gac5e2aad87e6f5f09fa4370f4cec3be17}{cudf\+::hash\+\_\+partition}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&columns\+\_\+to\+\_\+hash, int num\+\_\+partitions, \mbox{\hyperlink{group__column__hash_gaced8b9d129825edd13d76e912e4413c3}{hash\+\_\+id}} hash\+\_\+function=\mbox{\hyperlink{group__column__hash_ggaced8b9d129825edd13d76e912e4413c3ae9ec854e962136b1afcf108e5301c354}{hash\+\_\+id\+::\+HASH\+\_\+\+MURMUR3}}, uint32\+\_\+t seed=\mbox{\hyperlink{group__column__hash_ga68de1d04aa2c0ea2eeacfc73fd99a915}{DEFAULT\+\_\+\+HASH\+\_\+\+SEED}}, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}(), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Partitions rows from the input table into multiple output tables. \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{cudf\+::table}} $>$, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} $>$ $>$ \mbox{\hyperlink{group__reorder__partition_ga5db3c207f2be3f7659416122ba3a1fdb}{cudf\+::round\+\_\+robin\+\_\+partition}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} num\+\_\+partitions, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} start\+\_\+partition=0, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Round-\/robin partition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Column partitioning APIs 
+
+
+
+在文件 \mbox{\hyperlink{partitioning_8hpp_source}{partitioning.\+hpp}} 中定义.
+

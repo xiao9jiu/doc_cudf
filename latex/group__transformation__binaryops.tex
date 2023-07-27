@@ -1,0 +1,432 @@
+\doxysection{Transformation\+\_\+binaryops}
+\hypertarget{group__transformation__binaryops}{}\label{group__transformation__binaryops}\index{Transformation\_binaryops@{Transformation\_binaryops}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{binaryop_8hpp}{binaryop.\+hpp}}
+\begin{DoxyCompactList}\small\item\em Column APIs for binary ops \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1binops}{cudf\+::binops}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{cudf\+::binary\+\_\+operator}} \+: int32\+\_\+t \{ \newline
+\mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca9eeb52badb613229884838847294b90d}{cudf\+::binary\+\_\+operator\+::\+ADD}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca241dd841abade20fcb27b8a9f494e1eb}{cudf\+::binary\+\_\+operator\+::\+SUB}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca2cdf52a55876063ec93b7d18bc741f6c}{cudf\+::binary\+\_\+operator\+::\+MUL}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca29bbf66f7f8529ec47e394fb5a36c646}{cudf\+::binary\+\_\+operator\+::\+DIV}}
+, \newline
+\mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaa14fdfc1aa76e925151b566a67c99406}{cudf\+::binary\+\_\+operator\+::\+TRUE\+\_\+\+DIV}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca77811fd0ec3d3ed2711a923332e8e69f}{cudf\+::binary\+\_\+operator\+::\+FLOOR\+\_\+\+DIV}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcac5a28f4b35a2884fa3277150ac5d0967}{cudf\+::binary\+\_\+operator\+::\+MOD}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaaf5a744d55583fdb1af0f280f12c9ab1}{cudf\+::binary\+\_\+operator\+::\+PMOD}}
+, \newline
+\mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca36aaf571a1008bd43f47509344cd13ad}{cudf\+::binary\+\_\+operator\+::\+PYMOD}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca17faf4e999b8cee4c36915c1f54ccffe}{cudf\+::binary\+\_\+operator\+::\+POW}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcad41167c344e1771b57cbbf5df6633a90}{cudf\+::binary\+\_\+operator\+::\+INT\+\_\+\+POW}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca21fb6e241507492d75c488a9c65d12fe}{cudf\+::binary\+\_\+operator\+::\+LOG\+\_\+\+BASE}}
+, \newline
+\mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaf8d5f387d3ac8f7084ae44566b32acb2}{cudf\+::binary\+\_\+operator\+::\+ATAN2}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcab11947742cdeb1e9d0b493239416e885}{cudf\+::binary\+\_\+operator\+::\+SHIFT\+\_\+\+LEFT}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaf07939cca8bcd94dfa7356d96e4b1ebb}{cudf\+::binary\+\_\+operator\+::\+SHIFT\+\_\+\+RIGHT}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaa41bd9a635ce48d786cde49d803446e1}{cudf\+::binary\+\_\+operator\+::\+SHIFT\+\_\+\+RIGHT\+\_\+\+UNSIGNED}}
+, \newline
+\mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaaa5f2eafabf8fa18cbb708c657f37245}{cudf\+::binary\+\_\+operator\+::\+BITWISE\+\_\+\+AND}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca0d89cfe1f2f7f0c2deb3d35455783ab9}{cudf\+::binary\+\_\+operator\+::\+BITWISE\+\_\+\+OR}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca6d7cca7c0f0f278c56131a25e77c4a5c}{cudf\+::binary\+\_\+operator\+::\+BITWISE\+\_\+\+XOR}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaa770916377f618641eccd6783b13503a}{cudf\+::binary\+\_\+operator\+::\+LOGICAL\+\_\+\+AND}}
+, \newline
+\mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca0d0389dd347e259ac16a47fc9db81c18}{cudf\+::binary\+\_\+operator\+::\+LOGICAL\+\_\+\+OR}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca969f331a87d8c958473c32b4d0e61a44}{cudf\+::binary\+\_\+operator\+::\+EQUAL}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca4ea2d378cdec20f59330f113297bc1ce}{cudf\+::binary\+\_\+operator\+::\+NOT\+\_\+\+EQUAL}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca1798e8c3621ca53d9e3a80d257306000}{cudf\+::binary\+\_\+operator\+::\+LESS}}
+, \newline
+\mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcae7e72355289e404b762d4cf88824d23b}{cudf\+::binary\+\_\+operator\+::\+GREATER}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca8b4a5cd69b217bf93b054ada7f49abd4}{cudf\+::binary\+\_\+operator\+::\+LESS\+\_\+\+EQUAL}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca87e6b203bf40967d37a33f9a4438561a}{cudf\+::binary\+\_\+operator\+::\+GREATER\+\_\+\+EQUAL}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcacb8d87e20fe7c6f3786fb063814420e5}{cudf\+::binary\+\_\+operator\+::\+NULL\+\_\+\+EQUALS}}
+, \newline
+\mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaf96f1246ae59f3f396dd304c4e3efb2f}{cudf\+::binary\+\_\+operator\+::\+NULL\+\_\+\+MAX}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcadb8b769d7a9c9d41242eb4b721228c50}{cudf\+::binary\+\_\+operator\+::\+NULL\+\_\+\+MIN}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca8949d722159e21bb5941af5b0e92aeb5}{cudf\+::binary\+\_\+operator\+::\+GENERIC\+\_\+\+BINARY}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca0b0eecbb7754f87b05d19490f50ddd4f}{cudf\+::binary\+\_\+operator\+::\+NULL\+\_\+\+LOGICAL\+\_\+\+AND}}
+, \newline
+\mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca009adecefebadfcd26e7fad3b046104b}{cudf\+::binary\+\_\+operator\+::\+NULL\+\_\+\+LOGICAL\+\_\+\+OR}}
+, \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca0b010d84b45dcb367a81c7c029d3f5bb}{cudf\+::binary\+\_\+operator\+::\+INVALID\+\_\+\+BINARY}}
+ \}
+\begin{DoxyCompactList}\small\item\em Types of binary operations that can be performed on data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__binaryops_gaff4f1be08dc3f02b429f4899b2eacbbf}{cudf\+::binary\+\_\+operation}} (\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&lhs, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&rhs, \mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{binary\+\_\+operator}} op, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+type, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs a binary operation between a scalar and a column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__binaryops_ga226c33874fc97e5e3122522425f3072b}{cudf\+::binary\+\_\+operation}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&lhs, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&rhs, \mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{binary\+\_\+operator}} op, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+type, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs a binary operation between a column and a scalar. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__binaryops_ga43558085c43d054937158b9de88b689d}{cudf\+::binary\+\_\+operation}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&lhs, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&rhs, \mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{binary\+\_\+operator}} op, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+type, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs a binary operation between two columns. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__binaryops_gab106aa46f902ec1266feb4eb5f0fef6b}{cudf\+::binary\+\_\+operation}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&lhs, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&rhs, std\+::string const \&ptx, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+type, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs a binary operation between two columns using a user-\/defined PTX function. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group__transformation__binaryops_ga76c84637bf4ca70809860a6135bb301a}{cudf\+::binary\+\_\+operation\+\_\+fixed\+\_\+point\+\_\+scale}} (\mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{binary\+\_\+operator}} op, int32\+\_\+t left\+\_\+scale, int32\+\_\+t right\+\_\+scale)
+\begin{DoxyCompactList}\small\item\em Computes the {\ttfamily scale} for a {\ttfamily fixed\+\_\+point} number based on given binary operator {\ttfamily op} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} \mbox{\hyperlink{group__transformation__binaryops_ga065bbc22dc02e3f4dd04a904c094acca}{cudf\+::binary\+\_\+operation\+\_\+fixed\+\_\+point\+\_\+output\+\_\+type}} (\mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{binary\+\_\+operator}} op, \mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} const \&lhs, \mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} const \&rhs)
+\begin{DoxyCompactList}\small\item\em Computes the {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} for a {\ttfamily fixed\+\_\+point} number based on given binary operator {\ttfamily op} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{枚举类型说明}
+\Hypertarget{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}\label{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc} 
+\index{Transformation\_binaryops@{Transformation\_binaryops}!binary\_operator@{binary\_operator}}
+\index{binary\_operator@{binary\_operator}!Transformation\_binaryops@{Transformation\_binaryops}}
+\doxysubsubsection{\texorpdfstring{binary\_operator}{binary\_operator}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{cudf\+::binary\+\_\+operator}} \+: int32\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Types of binary operations that can be performed on data. 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADD@{ADD}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!ADD@{ADD}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca9eeb52badb613229884838847294b90d}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca9eeb52badb613229884838847294b90d} 
+ADD&operator + \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SUB@{SUB}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!SUB@{SUB}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca241dd841abade20fcb27b8a9f494e1eb}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca241dd841abade20fcb27b8a9f494e1eb} 
+SUB&operator -\/ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MUL@{MUL}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!MUL@{MUL}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca2cdf52a55876063ec93b7d18bc741f6c}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca2cdf52a55876063ec93b7d18bc741f6c} 
+MUL&operator \texorpdfstring{$\ast$}{*} \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DIV@{DIV}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!DIV@{DIV}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca29bbf66f7f8529ec47e394fb5a36c646}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca29bbf66f7f8529ec47e394fb5a36c646} 
+DIV&operator / using common type of lhs and rhs \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRUE\_DIV@{TRUE\_DIV}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!TRUE\_DIV@{TRUE\_DIV}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaa14fdfc1aa76e925151b566a67c99406}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaa14fdfc1aa76e925151b566a67c99406} 
+TRUE\+\_\+\+DIV&operator / after promoting type to floating point \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FLOOR\_DIV@{FLOOR\_DIV}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!FLOOR\_DIV@{FLOOR\_DIV}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca77811fd0ec3d3ed2711a923332e8e69f}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca77811fd0ec3d3ed2711a923332e8e69f} 
+FLOOR\+\_\+\+DIV&operator / after promoting to 64 bit floating point and then flooring the result \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MOD@{MOD}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!MOD@{MOD}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcac5a28f4b35a2884fa3277150ac5d0967}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcac5a28f4b35a2884fa3277150ac5d0967} 
+MOD&operator \% \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PMOD@{PMOD}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!PMOD@{PMOD}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaaf5a744d55583fdb1af0f280f12c9ab1}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaaf5a744d55583fdb1af0f280f12c9ab1} 
+PMOD&positive modulo operator If remainder is negative, this returns (remainder + divisor) \% divisor else, it returns (dividend \% divisor) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PYMOD@{PYMOD}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!PYMOD@{PYMOD}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca36aaf571a1008bd43f47509344cd13ad}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca36aaf571a1008bd43f47509344cd13ad} 
+PYMOD&operator \% but following Python\textquotesingle{}s sign rules for negatives \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{POW@{POW}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!POW@{POW}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca17faf4e999b8cee4c36915c1f54ccffe}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca17faf4e999b8cee4c36915c1f54ccffe} 
+POW&lhs \texorpdfstring{$^\wedge$}{\string^} rhs \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INT\_POW@{INT\_POW}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!INT\_POW@{INT\_POW}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcad41167c344e1771b57cbbf5df6633a90}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcad41167c344e1771b57cbbf5df6633a90} 
+INT\+\_\+\+POW&int \texorpdfstring{$^\wedge$}{\string^} int, used to avoid floating point precision loss. Returns 0 for negative exponents. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOG\_BASE@{LOG\_BASE}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!LOG\_BASE@{LOG\_BASE}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca21fb6e241507492d75c488a9c65d12fe}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca21fb6e241507492d75c488a9c65d12fe} 
+LOG\+\_\+\+BASE&logarithm to the base \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ATAN2@{ATAN2}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!ATAN2@{ATAN2}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaf8d5f387d3ac8f7084ae44566b32acb2}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaf8d5f387d3ac8f7084ae44566b32acb2} 
+ATAN2&2-\/argument arctangent \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SHIFT\_LEFT@{SHIFT\_LEFT}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!SHIFT\_LEFT@{SHIFT\_LEFT}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcab11947742cdeb1e9d0b493239416e885}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcab11947742cdeb1e9d0b493239416e885} 
+SHIFT\+\_\+\+LEFT&operator \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SHIFT\_RIGHT@{SHIFT\_RIGHT}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!SHIFT\_RIGHT@{SHIFT\_RIGHT}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaf07939cca8bcd94dfa7356d96e4b1ebb}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaf07939cca8bcd94dfa7356d96e4b1ebb} 
+SHIFT\+\_\+\+RIGHT&operator \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SHIFT\_RIGHT\_UNSIGNED@{SHIFT\_RIGHT\_UNSIGNED}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!SHIFT\_RIGHT\_UNSIGNED@{SHIFT\_RIGHT\_UNSIGNED}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaa41bd9a635ce48d786cde49d803446e1}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaa41bd9a635ce48d786cde49d803446e1} 
+SHIFT\+\_\+\+RIGHT\+\_\+\+UNSIGNED&operator \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} (from Java) Logical right shift. Casts to an unsigned value before shifting. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BITWISE\_AND@{BITWISE\_AND}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!BITWISE\_AND@{BITWISE\_AND}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaaa5f2eafabf8fa18cbb708c657f37245}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaaa5f2eafabf8fa18cbb708c657f37245} 
+BITWISE\+\_\+\+AND&operator \& \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BITWISE\_OR@{BITWISE\_OR}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!BITWISE\_OR@{BITWISE\_OR}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca0d89cfe1f2f7f0c2deb3d35455783ab9}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca0d89cfe1f2f7f0c2deb3d35455783ab9} 
+BITWISE\+\_\+\+OR&operator \texorpdfstring{$\vert$}{|} \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BITWISE\_XOR@{BITWISE\_XOR}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!BITWISE\_XOR@{BITWISE\_XOR}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca6d7cca7c0f0f278c56131a25e77c4a5c}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca6d7cca7c0f0f278c56131a25e77c4a5c} 
+BITWISE\+\_\+\+XOR&operator \texorpdfstring{$^\wedge$}{\string^} \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOGICAL\_AND@{LOGICAL\_AND}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!LOGICAL\_AND@{LOGICAL\_AND}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaa770916377f618641eccd6783b13503a}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaa770916377f618641eccd6783b13503a} 
+LOGICAL\+\_\+\+AND&operator \&\& \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOGICAL\_OR@{LOGICAL\_OR}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!LOGICAL\_OR@{LOGICAL\_OR}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca0d0389dd347e259ac16a47fc9db81c18}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca0d0389dd347e259ac16a47fc9db81c18} 
+LOGICAL\+\_\+\+OR&operator \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EQUAL@{EQUAL}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!EQUAL@{EQUAL}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca969f331a87d8c958473c32b4d0e61a44}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca969f331a87d8c958473c32b4d0e61a44} 
+EQUAL&operator == \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NOT\_EQUAL@{NOT\_EQUAL}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!NOT\_EQUAL@{NOT\_EQUAL}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca4ea2d378cdec20f59330f113297bc1ce}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca4ea2d378cdec20f59330f113297bc1ce} 
+NOT\+\_\+\+EQUAL&operator != \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LESS@{LESS}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!LESS@{LESS}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca1798e8c3621ca53d9e3a80d257306000}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca1798e8c3621ca53d9e3a80d257306000} 
+LESS&operator \texorpdfstring{$<$}{<} \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GREATER@{GREATER}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!GREATER@{GREATER}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcae7e72355289e404b762d4cf88824d23b}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcae7e72355289e404b762d4cf88824d23b} 
+GREATER&operator \texorpdfstring{$>$}{>} \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LESS\_EQUAL@{LESS\_EQUAL}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!LESS\_EQUAL@{LESS\_EQUAL}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca8b4a5cd69b217bf93b054ada7f49abd4}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca8b4a5cd69b217bf93b054ada7f49abd4} 
+LESS\+\_\+\+EQUAL&operator \texorpdfstring{$<$}{<}= \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GREATER\_EQUAL@{GREATER\_EQUAL}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!GREATER\_EQUAL@{GREATER\_EQUAL}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca87e6b203bf40967d37a33f9a4438561a}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca87e6b203bf40967d37a33f9a4438561a} 
+GREATER\+\_\+\+EQUAL&operator \texorpdfstring{$>$}{>}= \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NULL\_EQUALS@{NULL\_EQUALS}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!NULL\_EQUALS@{NULL\_EQUALS}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcacb8d87e20fe7c6f3786fb063814420e5}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcacb8d87e20fe7c6f3786fb063814420e5} 
+NULL\+\_\+\+EQUALS&Returns true when both operands are null; false when one is null; the result of equality when both are non-\/null \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NULL\_MAX@{NULL\_MAX}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!NULL\_MAX@{NULL\_MAX}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaf96f1246ae59f3f396dd304c4e3efb2f}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaf96f1246ae59f3f396dd304c4e3efb2f} 
+NULL\+\_\+\+MAX&Returns max of operands when both are non-\/null; returns the non-\/null operand when one is null; or invalid when both are null \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NULL\_MIN@{NULL\_MIN}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!NULL\_MIN@{NULL\_MIN}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcadb8b769d7a9c9d41242eb4b721228c50}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcadb8b769d7a9c9d41242eb4b721228c50} 
+NULL\+\_\+\+MIN&Returns min of operands when both are non-\/null; returns the non-\/null operand when one is null; or invalid when both are null \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GENERIC\_BINARY@{GENERIC\_BINARY}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!GENERIC\_BINARY@{GENERIC\_BINARY}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca8949d722159e21bb5941af5b0e92aeb5}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca8949d722159e21bb5941af5b0e92aeb5} 
+GENERIC\+\_\+\+BINARY&generic binary operator to be generated with input ptx code \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NULL\_LOGICAL\_AND@{NULL\_LOGICAL\_AND}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!NULL\_LOGICAL\_AND@{NULL\_LOGICAL\_AND}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca0b0eecbb7754f87b05d19490f50ddd4f}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca0b0eecbb7754f87b05d19490f50ddd4f} 
+NULL\+\_\+\+LOGICAL\+\_\+\+AND&operator \&\& with Spark rules\+: (null, null) is null, (null, true) is null, (null, false) is false, and (valid, valid) == \doxylink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaa770916377f618641eccd6783b13503a}{LOGICAL\+\_\+\+AND(valid, valid)} \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NULL\_LOGICAL\_OR@{NULL\_LOGICAL\_OR}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!NULL\_LOGICAL\_OR@{NULL\_LOGICAL\_OR}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca009adecefebadfcd26e7fad3b046104b}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca009adecefebadfcd26e7fad3b046104b} 
+NULL\+\_\+\+LOGICAL\+\_\+\+OR&operator \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} with Spark rules\+: (null, null) is null, (null, true) is true, (null, false) is null, and (valid, valid) == \doxylink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca0d0389dd347e259ac16a47fc9db81c18}{LOGICAL\+\_\+\+OR(valid, valid)} \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INVALID\_BINARY@{INVALID\_BINARY}!Transformation\_binaryops@{Transformation\_binaryops}}\index{Transformation\_binaryops@{Transformation\_binaryops}!INVALID\_BINARY@{INVALID\_BINARY}}}\Hypertarget{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca0b010d84b45dcb367a81c7c029d3f5bb}\label{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca0b010d84b45dcb367a81c7c029d3f5bb} 
+INVALID\+\_\+\+BINARY&invalid operation \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{binaryop_8hpp_source}{binaryop.\+hpp}} 第 \mbox{\hyperlink{binaryop_8hpp_source_l00038}{38}} 行定义.
+
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__transformation__binaryops_ga43558085c43d054937158b9de88b689d}\label{group__transformation__binaryops_ga43558085c43d054937158b9de88b689d} 
+\index{Transformation\_binaryops@{Transformation\_binaryops}!binary\_operation@{binary\_operation}}
+\index{binary\_operation@{binary\_operation}!Transformation\_binaryops@{Transformation\_binaryops}}
+\doxysubsubsection{\texorpdfstring{binary\_operation()}{binary\_operation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::binary\+\_\+operation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{lhs,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{rhs,  }\item[{\mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{binary\+\_\+operator}}}]{op,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{output\+\_\+type,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Performs a binary operation between two columns. 
+
+The output contains the result of {\ttfamily op(lhs\mbox{[}i\mbox{]}, rhs\mbox{[}i\mbox{]})} for all {\ttfamily 0 \texorpdfstring{$<$}{<}= i \texorpdfstring{$<$}{<} lhs.\+size()}
+
+Regardless of the operator, the validity of the output value is the logical AND of the validity of the two operands except Null\+Min and Null\+Max (logical OR).
+
+
+\begin{DoxyParams}{参数}
+{\em lhs} & The left operand column \\
+\hline
+{\em rhs} & The right operand column \\
+\hline
+{\em op} & The binary operator \\
+\hline
+{\em output\+\_\+type} & The desired data type of the output column \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Output column of {\ttfamily output\+\_\+type} type containing the result of the binary operation 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily lhs} and {\ttfamily rhs} are different sizes \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily output\+\_\+type} dtype isn\textquotesingle{}t boolean for comparison and logical operations. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily output\+\_\+type} dtype isn\textquotesingle{}t fixed-\/width \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{group__transformation__binaryops_gab106aa46f902ec1266feb4eb5f0fef6b}\label{group__transformation__binaryops_gab106aa46f902ec1266feb4eb5f0fef6b} 
+\index{Transformation\_binaryops@{Transformation\_binaryops}!binary\_operation@{binary\_operation}}
+\index{binary\_operation@{binary\_operation}!Transformation\_binaryops@{Transformation\_binaryops}}
+\doxysubsubsection{\texorpdfstring{binary\_operation()}{binary\_operation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::binary\+\_\+operation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{lhs,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{rhs,  }\item[{std\+::string const \&}]{ptx,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{output\+\_\+type,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Performs a binary operation between two columns using a user-\/defined PTX function. 
+
+The output contains the result of {\ttfamily op(lhs\mbox{[}i\mbox{]}, rhs\mbox{[}i\mbox{]})} for all {\ttfamily 0 \texorpdfstring{$<$}{<}= i \texorpdfstring{$<$}{<} lhs.\+size()}
+
+Regardless of the operator, the validity of the output value is the logical AND of the validity of the two operands
+
+
+\begin{DoxyParams}{参数}
+{\em lhs} & The left operand column \\
+\hline
+{\em rhs} & The right operand column \\
+\hline
+{\em ptx} & String containing the PTX of a binary function \\
+\hline
+{\em output\+\_\+type} & The desired data type of the output column. It is assumed that output\+\_\+type is compatible with the output data type of the function in the PTX code \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Output column of {\ttfamily output\+\_\+type} type containing the result of the binary operation 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily lhs} and {\ttfamily rhs} are different sizes \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily lhs} and {\ttfamily rhs} dtypes aren\textquotesingle{}t numeric \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily output\+\_\+type} dtype isn\textquotesingle{}t numeric \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{group__transformation__binaryops_ga226c33874fc97e5e3122522425f3072b}\label{group__transformation__binaryops_ga226c33874fc97e5e3122522425f3072b} 
+\index{Transformation\_binaryops@{Transformation\_binaryops}!binary\_operation@{binary\_operation}}
+\index{binary\_operation@{binary\_operation}!Transformation\_binaryops@{Transformation\_binaryops}}
+\doxysubsubsection{\texorpdfstring{binary\_operation()}{binary\_operation()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::binary\+\_\+operation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{lhs,  }\item[{\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&}]{rhs,  }\item[{\mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{binary\+\_\+operator}}}]{op,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{output\+\_\+type,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Performs a binary operation between a column and a scalar. 
+
+The output contains the result of {\ttfamily op(lhs\mbox{[}i\mbox{]}, rhs)} for all {\ttfamily 0 \texorpdfstring{$<$}{<}= i \texorpdfstring{$<$}{<} lhs.\+size()} The column elements are the left operand and the scalar is the right operand. This distinction is significant in case of non-\/commutative binary operations
+
+Regardless of the operator, the validity of the output value is the logical AND of the validity of the two operands except Null\+Min and Null\+Max (logical OR).
+
+
+\begin{DoxyParams}{参数}
+{\em lhs} & The left operand column \\
+\hline
+{\em rhs} & The right operand scalar \\
+\hline
+{\em op} & The binary operator \\
+\hline
+{\em output\+\_\+type} & The desired data type of the output column \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Output column of {\ttfamily output\+\_\+type} type containing the result of the binary operation 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily output\+\_\+type} dtype isn\textquotesingle{}t fixed-\/width \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily output\+\_\+type} dtype isn\textquotesingle{}t boolean for comparison and logical operations. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{group__transformation__binaryops_gaff4f1be08dc3f02b429f4899b2eacbbf}\label{group__transformation__binaryops_gaff4f1be08dc3f02b429f4899b2eacbbf} 
+\index{Transformation\_binaryops@{Transformation\_binaryops}!binary\_operation@{binary\_operation}}
+\index{binary\_operation@{binary\_operation}!Transformation\_binaryops@{Transformation\_binaryops}}
+\doxysubsubsection{\texorpdfstring{binary\_operation()}{binary\_operation()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::binary\+\_\+operation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&}]{lhs,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{rhs,  }\item[{\mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{binary\+\_\+operator}}}]{op,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{output\+\_\+type,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Performs a binary operation between a scalar and a column. 
+
+The output contains the result of {\ttfamily op(lhs, rhs\mbox{[}i\mbox{]})} for all {\ttfamily 0 \texorpdfstring{$<$}{<}= i \texorpdfstring{$<$}{<} rhs.\+size()} The scalar is the left operand and the column elements are the right operand. This distinction is significant in case of non-\/commutative binary operations
+
+Regardless of the operator, the validity of the output value is the logical AND of the validity of the two operands except Null\+Min and Null\+Max (logical OR).
+
+
+\begin{DoxyParams}{参数}
+{\em lhs} & The left operand scalar \\
+\hline
+{\em rhs} & The right operand column \\
+\hline
+{\em op} & The binary operator \\
+\hline
+{\em output\+\_\+type} & The desired data type of the output column \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Output column of {\ttfamily output\+\_\+type} type containing the result of the binary operation 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily output\+\_\+type} dtype isn\textquotesingle{}t fixed-\/width \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily output\+\_\+type} dtype isn\textquotesingle{}t boolean for comparison and logical operations. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{group__transformation__binaryops_ga065bbc22dc02e3f4dd04a904c094acca}\label{group__transformation__binaryops_ga065bbc22dc02e3f4dd04a904c094acca} 
+\index{Transformation\_binaryops@{Transformation\_binaryops}!binary\_operation\_fixed\_point\_output\_type@{binary\_operation\_fixed\_point\_output\_type}}
+\index{binary\_operation\_fixed\_point\_output\_type@{binary\_operation\_fixed\_point\_output\_type}!Transformation\_binaryops@{Transformation\_binaryops}}
+\doxysubsubsection{\texorpdfstring{binary\_operation\_fixed\_point\_output\_type()}{binary\_operation\_fixed\_point\_output\_type()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} cudf\+::binary\+\_\+operation\+\_\+fixed\+\_\+point\+\_\+output\+\_\+type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{binary\+\_\+operator}}}]{op,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} const \&}]{lhs,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} const \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Computes the {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} for a {\ttfamily fixed\+\_\+point} number based on given binary operator {\ttfamily op} 
+
+
+\begin{DoxyParams}{参数}
+{\em op} & The binary\+\_\+operator used for two {\ttfamily fixed\+\_\+point} numbers \\
+\hline
+{\em lhs} & {\ttfamily \doxylink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} of left {\ttfamily fixed\+\_\+point} number \\
+\hline
+{\em rhs} & {\ttfamily \doxylink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} of right {\ttfamily fixed\+\_\+point} number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The resulting {\ttfamily \doxylink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} of the computed {\ttfamily fixed\+\_\+point} number 
+\end{DoxyReturn}
+\Hypertarget{group__transformation__binaryops_ga76c84637bf4ca70809860a6135bb301a}\label{group__transformation__binaryops_ga76c84637bf4ca70809860a6135bb301a} 
+\index{Transformation\_binaryops@{Transformation\_binaryops}!binary\_operation\_fixed\_point\_scale@{binary\_operation\_fixed\_point\_scale}}
+\index{binary\_operation\_fixed\_point\_scale@{binary\_operation\_fixed\_point\_scale}!Transformation\_binaryops@{Transformation\_binaryops}}
+\doxysubsubsection{\texorpdfstring{binary\_operation\_fixed\_point\_scale()}{binary\_operation\_fixed\_point\_scale()}}
+{\footnotesize\ttfamily int32\+\_\+t cudf\+::binary\+\_\+operation\+\_\+fixed\+\_\+point\+\_\+scale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{binary\+\_\+operator}}}]{op,  }\item[{int32\+\_\+t}]{left\+\_\+scale,  }\item[{int32\+\_\+t}]{right\+\_\+scale }\end{DoxyParamCaption})}
+
+
+
+Computes the {\ttfamily scale} for a {\ttfamily fixed\+\_\+point} number based on given binary operator {\ttfamily op} 
+
+
+\begin{DoxyParams}{参数}
+{\em op} & The binary\+\_\+operator used for two {\ttfamily fixed\+\_\+point} numbers \\
+\hline
+{\em left\+\_\+scale} & Scale of left {\ttfamily fixed\+\_\+point} number \\
+\hline
+{\em right\+\_\+scale} & Scale of right {\ttfamily fixed\+\_\+point} number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The resulting {\ttfamily scale} of the computed {\ttfamily fixed\+\_\+point} number 
+\end{DoxyReturn}

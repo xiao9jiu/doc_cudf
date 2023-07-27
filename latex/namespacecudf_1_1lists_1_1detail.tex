@@ -1,0 +1,681 @@
+\doxysection{cudf\+::lists\+::detail 命名空间参考}
+\hypertarget{namespacecudf_1_1lists_1_1detail}{}\label{namespacecudf_1_1lists_1_1detail}\index{cudf::lists::detail@{cudf::lists::detail}}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1lists_1_1detail_acf45a74094e0225cde7abf6e363f2bbf}{concatenate\+\_\+rows}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, \mbox{\hyperlink{group__lists__combine_gabb916eaef8a82d11855f551d2e9b91eb}{concatenate\+\_\+null\+\_\+policy}} \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}}, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Row-\/wise concatenating multiple lists columns into a single lists column.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1lists_1_1detail_aa34e2f5b3be82a387669b902773bc6a8}{concatenate\+\_\+list\+\_\+elements}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{group__lists__combine_gabb916eaef8a82d11855f551d2e9b91eb}{concatenate\+\_\+null\+\_\+policy}} \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}}, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Concatenating multiple lists on the same row of a lists column into a single list.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1lists_1_1detail_afebdb968f12b7a51a00d7a2c5d789b7c}{concatenate}} (\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const $>$ columns, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a single column by concatenating the given vector of lists columns. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1lists_1_1detail_a88e03223c8d75b94e2ce6275f3fbc4cf}{index\+\_\+of}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{cudf\+::lists\+\_\+column\+\_\+view}} const \&lists, \mbox{\hyperlink{classcudf_1_1scalar}{cudf\+::scalar}} const \&search\+\_\+key, \mbox{\hyperlink{group__lists__contains_gabc759fd5641585c3acfaea7e6a6a5981}{cudf\+::lists\+::duplicate\+\_\+find\+\_\+option}} find\+\_\+option, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a column of {\ttfamily size\+\_\+type} values indicating the position of a search key within each list row in the {\ttfamily lists} column   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1lists_1_1detail_aed555318d448302ce69420b6ccb3f76e}{index\+\_\+of}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{cudf\+::lists\+\_\+column\+\_\+view}} const \&lists, \mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&search\+\_\+keys, \mbox{\hyperlink{group__lists__contains_gabc759fd5641585c3acfaea7e6a6a5981}{cudf\+::lists\+::duplicate\+\_\+find\+\_\+option}} find\+\_\+option, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a column of {\ttfamily size\+\_\+type} values indicating the position of a search key row within the corresponding list row in the {\ttfamily lists} column   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1lists_1_1detail_a29e6bf19ff3dabdd8e9b6be3d81d4e0a}{contains}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{cudf\+::lists\+\_\+column\+\_\+view}} const \&lists, \mbox{\hyperlink{classcudf_1_1scalar}{cudf\+::scalar}} const \&search\+\_\+key, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a column of {\ttfamily bool} values indicating whether the specified scalar is an element of each row of a list column.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1lists_1_1detail_aa565b6240821fa4977b73803a25fdc1e}{contains}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{cudf\+::lists\+\_\+column\+\_\+view}} const \&lists, \mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&search\+\_\+keys, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a column of {\ttfamily bool} values indicating whether the list rows of the first column contain the corresponding values in the second column   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{namespacecudf_1_1lists_1_1detail_a87d461e1c23a08f2d1239b0132dcf887}{copy\+\_\+slice}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&lists, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} start, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} end, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Returns a new lists column created from a subset of the lists column. The subset of lists selected is between start (inclusive) and end (exclusive). \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1lists_1_1detail_a311b6a644ad17780515f31213a5fadbc}{extract\+\_\+list\+\_\+element}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} lists\+\_\+column, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const index, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1lists_1_1detail_acb0e1dd2733cb57c2c227b6e409b18cf}{extract\+\_\+list\+\_\+element}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} lists\+\_\+column, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&indices, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1lists_1_1detail_a22df76c41b0b3c74d4c1a1e9153b483e}{interleave\+\_\+columns}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, bool has\+\_\+null\+\_\+mask, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a single column by interleaving rows of the given table of list elements. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1lists_1_1detail_ad5c1279962e3a45629be42ab10788370}{have\+\_\+overlap}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&lhs, \mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&rhs, \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}} nulls\+\_\+equal, \mbox{\hyperlink{group__utility__types_gae9d1055c69c3089452794783c7c82f83}{nan\+\_\+equality}} nans\+\_\+equal, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1lists_1_1detail_abb6e8f1778f78f1cefef162ceba4f491}{intersect\+\_\+distinct}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&lhs, \mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&rhs, \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}} nulls\+\_\+equal, \mbox{\hyperlink{group__utility__types_gae9d1055c69c3089452794783c7c82f83}{nan\+\_\+equality}} nans\+\_\+equal, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1lists_1_1detail_abd168cb12f17f89ae76476a28923df65}{union\+\_\+distinct}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&lhs, \mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&rhs, \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}} nulls\+\_\+equal, \mbox{\hyperlink{group__utility__types_gae9d1055c69c3089452794783c7c82f83}{nan\+\_\+equality}} nans\+\_\+equal, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1lists_1_1detail_a9760065d330b3c9766d6cbb42f06da96}{difference\+\_\+distinct}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&lhs, \mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&rhs, \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}} nulls\+\_\+equal, \mbox{\hyperlink{group__utility__types_gae9d1055c69c3089452794783c7c82f83}{nan\+\_\+equality}} nans\+\_\+equal, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1lists_1_1detail_a5e8cf22351451e8102e4aecb2a6fa8be}{sort\+\_\+lists}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} column\+\_\+order, \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} null\+\_\+precedence, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Segmented sort of the elements within a list in each row of a list column.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1lists_1_1detail_ae37a0d7e44409fb205e53db37ba2c37f}{stable\+\_\+sort\+\_\+lists}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} column\+\_\+order, \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} null\+\_\+precedence, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Segmented sort of the elements within a list in each row of a list column using stable sort.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1lists_1_1detail_a3b3db0a7a23dd05017c799beecd40ec4}{apply\+\_\+boolean\+\_\+mask}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&boolean\+\_\+mask, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Filters elements in each row of {\ttfamily input} LIST column using {\ttfamily boolean\+\_\+mask} LIST of booleans as a mask.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1lists_1_1detail_aa6582e48cdb916908b0df594104f6bd2}{distinct}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}} nulls\+\_\+equal, \mbox{\hyperlink{group__utility__types_gae9d1055c69c3089452794783c7c82f83}{nan\+\_\+equality}} nans\+\_\+equal, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{namespacecudf_1_1lists_1_1detail_a1b65bb3c2e537c37589864d80d6bcba5}{make\+\_\+lists\+\_\+column\+\_\+from\+\_\+scalar}} (\mbox{\hyperlink{classcudf_1_1list__scalar}{list\+\_\+scalar}} const \&value, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} size, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Internal API to construct a lists column from a {\ttfamily \doxylink{classcudf_1_1list__scalar}{list\+\_\+scalar}}, for public use, use {\ttfamily \doxylink{group__column__factories_gaf402ec1007ea53418b2d5800daae8041}{cudf\+::make\+\_\+column\+\_\+from\+\_\+scalar}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{namespacecudf_1_1lists_1_1detail_a3b3db0a7a23dd05017c799beecd40ec4}\label{namespacecudf_1_1lists_1_1detail_a3b3db0a7a23dd05017c799beecd40ec4} 
+\index{cudf::lists::detail@{cudf::lists::detail}!apply\_boolean\_mask@{apply\_boolean\_mask}}
+\index{apply\_boolean\_mask@{apply\_boolean\_mask}!cudf::lists::detail@{cudf::lists::detail}}
+\doxysubsubsection{\texorpdfstring{apply\_boolean\_mask()}{apply\_boolean\_mask()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::detail\+::apply\+\_\+boolean\+\_\+mask (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&}]{boolean\+\_\+mask,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Filters elements in each row of {\ttfamily input} LIST column using {\ttfamily boolean\+\_\+mask} LIST of booleans as a mask.   
+
+Given an input {\ttfamily LIST} column and a list-\/of-\/bools column, the function produces a new {\ttfamily LIST} column of the same type as {\ttfamily input}, where each element is copied from the input row {\itshape only} if the corresponding {\ttfamily boolean\+\_\+mask} is non-\/null and {\ttfamily true}.
+
+E.\+g. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{input\ \ \ \ \ \ \ \ =\ \{\ \{0,1,2\},\ \{3,4\},\ \{5,6,7\},\ \{8,9\}\ \};}
+\DoxyCodeLine{boolean\_mask\ =\ \{\ \{0,1,1\},\ \{1,0\},\ \{1,1,1\},\ \{0,0\}\ \};}
+\DoxyCodeLine{results\ \ \ \ \ \ =\ \{\ \{1,2\},\ \ \ \{3\},\ \ \ \{5,6,7\},\ \{\}\ \};}
+
+\end{DoxyCode}
+
+
+{\ttfamily input} and {\ttfamily boolean\+\_\+mask} must have the same number of rows. The output column has the same number of rows as the input column. An element is copied to an output row {\itshape only} if the corresponding boolean\+\_\+mask element is {\ttfamily true}. An output row is invalid only if the input row is invalid.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily boolean\+\_\+mask} is not a \"{}lists of bools\"{} column \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily input} and {\ttfamily boolean\+\_\+mask} have different number of rows\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & The input list column view to be filtered \\
+\hline
+{\em boolean\+\_\+mask} & A nullable list of bools column used to filter {\ttfamily input} elements \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+List column of the same type as {\ttfamily input}, containing filtered list rows  
+\end{DoxyReturn}
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1lists_1_1detail_afebdb968f12b7a51a00d7a2c5d789b7c}\label{namespacecudf_1_1lists_1_1detail_afebdb968f12b7a51a00d7a2c5d789b7c} 
+\index{cudf::lists::detail@{cudf::lists::detail}!concatenate@{concatenate}}
+\index{concatenate@{concatenate}!cudf::lists::detail@{cudf::lists::detail}}
+\doxysubsubsection{\texorpdfstring{concatenate()}{concatenate()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::detail\+::concatenate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const $>$}]{columns,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a single column by concatenating the given vector of lists columns. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{s1\ =\ [\{0,\ 1\},\ \{2,\ 3,\ 4,\ 5,\ 6\}]}
+\DoxyCodeLine{s2\ =\ [\{7,\ 8,\ 9\},\ \{10,\ 11\}]}
+\DoxyCodeLine{r\ =\ concatenate(s1,\ s2)}
+\DoxyCodeLine{r\ is\ now\ [\{0,\ 1\},\ \{2,\ 3,\ 4,\ 5,\ 6\},\ \{7,\ 8,\ 9\},\ \{10,\ 11\}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em columns} & Vector of lists columns to concatenate. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New column with concatenated results. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1lists_1_1detail_aa34e2f5b3be82a387669b902773bc6a8}\label{namespacecudf_1_1lists_1_1detail_aa34e2f5b3be82a387669b902773bc6a8} 
+\index{cudf::lists::detail@{cudf::lists::detail}!concatenate\_list\_elements@{concatenate\_list\_elements}}
+\index{concatenate\_list\_elements@{concatenate\_list\_elements}!cudf::lists::detail@{cudf::lists::detail}}
+\doxysubsubsection{\texorpdfstring{concatenate\_list\_elements()}{concatenate\_list\_elements()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::detail\+::concatenate\+\_\+list\+\_\+elements (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__lists__combine_gabb916eaef8a82d11855f551d2e9b91eb}{concatenate\+\_\+null\+\_\+policy}}}]{null\+\_\+policy,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Concatenating multiple lists on the same row of a lists column into a single list.   
+
+Given a lists column where each row in the column is a list of lists of entries, an output lists column is generated by concatenating all the list elements at the same row together. If any row contains null list elements, the concatenation process will either ignore those null elements, or will simply set the entire resulting row to be a null element.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{l\ =\ [\ [\{1,\ 2\},\ \{3,\ 4\},\ \{5\}],\ [\{6\},\ \{\},\ \{7,\ 8,\ 9\}]\ ]}
+\DoxyCodeLine{r\ =\ lists::concatenate\_list\_elements(l);}
+\DoxyCodeLine{r\ is\ [\ \{1,\ 2,\ 3,\ 4,\ 5\},\ \{6,\ 7,\ 8,\ 9\}\ ]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if the input column is not at least two-\/level depth lists column (i.\+e., each row must be a list of list). \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if the input lists column contains nested typed entries that are not lists.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & The lists column containing lists of list elements to concatenate. \\
+\hline
+{\em null\+\_\+policy} & The parameter to specify whether a null list element will be ignored from concatenation, or any concatenation involving a null element will result in a null list. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A new column in which each row is a list resulted from concatenating all list elements in the corresponding row of the input lists column.  
+\end{DoxyReturn}
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1lists_1_1detail_acf45a74094e0225cde7abf6e363f2bbf}\label{namespacecudf_1_1lists_1_1detail_acf45a74094e0225cde7abf6e363f2bbf} 
+\index{cudf::lists::detail@{cudf::lists::detail}!concatenate\_rows@{concatenate\_rows}}
+\index{concatenate\_rows@{concatenate\_rows}!cudf::lists::detail@{cudf::lists::detail}}
+\doxysubsubsection{\texorpdfstring{concatenate\_rows()}{concatenate\_rows()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::detail\+::concatenate\+\_\+rows (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__lists__combine_gabb916eaef8a82d11855f551d2e9b91eb}{concatenate\+\_\+null\+\_\+policy}}}]{null\+\_\+policy,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Row-\/wise concatenating multiple lists columns into a single lists column.   
+
+The output column is generated by concatenating the elements within each row of the input table. If any row of the input table contains null elements, the concatenation process will either ignore those null elements, or will simply set the entire resulting row to be a null element.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{s1\ =\ [\{0,\ 1\},\ \{2,\ 3,\ 4\},\ \{5\},\ \{\},\ \{6,\ 7\}]}
+\DoxyCodeLine{s2\ =\ [\{8\},\ \{9\},\ \{\},\ \{10,\ 11,\ 12\},\ \{13,\ 14,\ 15,\ 16\}]}
+\DoxyCodeLine{r\ =\ lists::concatenate\_rows(s1,\ s2)}
+\DoxyCodeLine{r\ is\ now\ [\{0,\ 1,\ 8\},\ \{2,\ 3,\ 4,\ 9\},\ \{5\},\ \{10,\ 11,\ 12\},\ \{6,\ 7,\ 13,\ 14,\ 15,\ 16\}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if any column of the input table is not a lists column. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if all lists columns do not have the same type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & Table of lists to be concatenated. \\
+\hline
+{\em null\+\_\+policy} & The parameter to specify whether a null list element will be ignored from concatenation, or any concatenation involving a null element will result in a null list. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A new column in which each row is a list resulted from concatenating all list elements in the corresponding row of the input table.  
+\end{DoxyReturn}
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1lists_1_1detail_aa565b6240821fa4977b73803a25fdc1e}\label{namespacecudf_1_1lists_1_1detail_aa565b6240821fa4977b73803a25fdc1e} 
+\index{cudf::lists::detail@{cudf::lists::detail}!contains@{contains}}
+\index{contains@{contains}!cudf::lists::detail@{cudf::lists::detail}}
+\doxysubsubsection{\texorpdfstring{contains()}{contains()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::detail\+::contains (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{cudf\+::lists\+\_\+column\+\_\+view}} const \&}]{lists,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&}]{search\+\_\+keys,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Create a column of {\ttfamily bool} values indicating whether the list rows of the first column contain the corresponding values in the second column   
+
+The output column has as many elements as the input {\ttfamily lists} column. Output {\ttfamily column\mbox{[}i\mbox{]}} is set to true if the lists row {\ttfamily lists\mbox{[}i\mbox{]}} contains the value in {\ttfamily search\+\_\+keys\mbox{[}i\mbox{]}}. Otherwise, it is set to false.
+
+Output {\ttfamily column\mbox{[}i\mbox{]}} is set to null if one or more of the following are true\+:
+\begin{DoxyEnumerate}
+\item The row {\ttfamily search\+\_\+keys\mbox{[}i\mbox{]}} is null
+\item The list row {\ttfamily lists\mbox{[}i\mbox{]}} is null
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{参数}
+{\em lists} & Lists column whose {\ttfamily n} rows are to be searched \\
+\hline
+{\em search\+\_\+keys} & Column of elements to be looked up in each list row \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+std\+::unique\+\_\+ptr$<$column$>$ BOOL8 column of {\ttfamily n} rows with the result of the lookup   
+\end{DoxyReturn}
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1lists_1_1detail_a29e6bf19ff3dabdd8e9b6be3d81d4e0a}\label{namespacecudf_1_1lists_1_1detail_a29e6bf19ff3dabdd8e9b6be3d81d4e0a} 
+\index{cudf::lists::detail@{cudf::lists::detail}!contains@{contains}}
+\index{contains@{contains}!cudf::lists::detail@{cudf::lists::detail}}
+\doxysubsubsection{\texorpdfstring{contains()}{contains()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::detail\+::contains (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{cudf\+::lists\+\_\+column\+\_\+view}} const \&}]{lists,  }\item[{\mbox{\hyperlink{classcudf_1_1scalar}{cudf\+::scalar}} const \&}]{search\+\_\+key,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Create a column of {\ttfamily bool} values indicating whether the specified scalar is an element of each row of a list column.   
+
+The output column has as many elements as the input {\ttfamily lists} column. Output {\ttfamily column\mbox{[}i\mbox{]}} is set to true if the lists row {\ttfamily lists\mbox{[}i\mbox{]}} contains the value specified in {\ttfamily search\+\_\+key}. Otherwise, it is set to false.
+
+Output {\ttfamily column\mbox{[}i\mbox{]}} is set to null if one or more of the following are true\+:
+\begin{DoxyEnumerate}
+\item The search key {\ttfamily search\+\_\+key} is null
+\item The list row {\ttfamily lists\mbox{[}i\mbox{]}} is null
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{参数}
+{\em lists} & Lists column whose {\ttfamily n} rows are to be searched \\
+\hline
+{\em search\+\_\+key} & The scalar key to be looked up in each list row \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+std\+::unique\+\_\+ptr$<$column$>$ BOOL8 column of {\ttfamily n} rows with the result of the lookup   
+\end{DoxyReturn}
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1lists_1_1detail_a87d461e1c23a08f2d1239b0132dcf887}\label{namespacecudf_1_1lists_1_1detail_a87d461e1c23a08f2d1239b0132dcf887} 
+\index{cudf::lists::detail@{cudf::lists::detail}!copy\_slice@{copy\_slice}}
+\index{copy\_slice@{copy\_slice}!cudf::lists::detail@{cudf::lists::detail}}
+\doxysubsubsection{\texorpdfstring{copy\_slice()}{copy\_slice()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ cudf\+::lists\+::detail\+::copy\+\_\+slice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&}]{lists,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{start,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{end,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+
+
+Returns a new lists column created from a subset of the lists column. The subset of lists selected is between start (inclusive) and end (exclusive). 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{s1\ =\ \{\{1,\ 2,\ 3\},\ \{4,\ 5\},\ \{6,\ 7\},\ \{\},\ \{8,\ 9\}\}}
+\DoxyCodeLine{s2\ =\ slice(\ s1,\ 1,\ 4)}
+\DoxyCodeLine{s2\ is\ \{\{4,\ 5\},\ \{6,\ 7\},\ \{\}\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em lists} & Lists instance for this operation. \\
+\hline
+{\em start} & Index to first list to select in the column \\
+\hline
+{\em end} & One past the index to last list to select in the column \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New lists column of size (end -\/ start) 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1lists_1_1detail_a9760065d330b3c9766d6cbb42f06da96}\label{namespacecudf_1_1lists_1_1detail_a9760065d330b3c9766d6cbb42f06da96} 
+\index{cudf::lists::detail@{cudf::lists::detail}!difference\_distinct@{difference\_distinct}}
+\index{difference\_distinct@{difference\_distinct}!cudf::lists::detail@{cudf::lists::detail}}
+\doxysubsubsection{\texorpdfstring{difference\_distinct()}{difference\_distinct()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::detail\+::difference\+\_\+distinct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&}]{lhs,  }\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&}]{rhs,  }\item[{\mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}}}]{nulls\+\_\+equal,  }\item[{\mbox{\hyperlink{group__utility__types_gae9d1055c69c3089452794783c7c82f83}{nan\+\_\+equality}}}]{nans\+\_\+equal,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1lists_1_1detail_aa6582e48cdb916908b0df594104f6bd2}\label{namespacecudf_1_1lists_1_1detail_aa6582e48cdb916908b0df594104f6bd2} 
+\index{cudf::lists::detail@{cudf::lists::detail}!distinct@{distinct}}
+\index{distinct@{distinct}!cudf::lists::detail@{cudf::lists::detail}}
+\doxysubsubsection{\texorpdfstring{distinct()}{distinct()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::detail\+::distinct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}}}]{nulls\+\_\+equal,  }\item[{\mbox{\hyperlink{group__utility__types_gae9d1055c69c3089452794783c7c82f83}{nan\+\_\+equality}}}]{nans\+\_\+equal,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1lists_1_1detail_acb0e1dd2733cb57c2c227b6e409b18cf}\label{namespacecudf_1_1lists_1_1detail_acb0e1dd2733cb57c2c227b6e409b18cf} 
+\index{cudf::lists::detail@{cudf::lists::detail}!extract\_list\_element@{extract\_list\_element}}
+\index{extract\_list\_element@{extract\_list\_element}!cudf::lists::detail@{cudf::lists::detail}}
+\doxysubsubsection{\texorpdfstring{extract\_list\_element()}{extract\_list\_element()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::detail\+::extract\+\_\+list\+\_\+element (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}}}]{lists\+\_\+column,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{indices,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1lists_1_1detail_a311b6a644ad17780515f31213a5fadbc}\label{namespacecudf_1_1lists_1_1detail_a311b6a644ad17780515f31213a5fadbc} 
+\index{cudf::lists::detail@{cudf::lists::detail}!extract\_list\_element@{extract\_list\_element}}
+\index{extract\_list\_element@{extract\_list\_element}!cudf::lists::detail@{cudf::lists::detail}}
+\doxysubsubsection{\texorpdfstring{extract\_list\_element()}{extract\_list\_element()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::detail\+::extract\+\_\+list\+\_\+element (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}}}]{lists\+\_\+column,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const}]{index,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1lists_1_1detail_ad5c1279962e3a45629be42ab10788370}\label{namespacecudf_1_1lists_1_1detail_ad5c1279962e3a45629be42ab10788370} 
+\index{cudf::lists::detail@{cudf::lists::detail}!have\_overlap@{have\_overlap}}
+\index{have\_overlap@{have\_overlap}!cudf::lists::detail@{cudf::lists::detail}}
+\doxysubsubsection{\texorpdfstring{have\_overlap()}{have\_overlap()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::detail\+::have\+\_\+overlap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&}]{lhs,  }\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&}]{rhs,  }\item[{\mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}}}]{nulls\+\_\+equal,  }\item[{\mbox{\hyperlink{group__utility__types_gae9d1055c69c3089452794783c7c82f83}{nan\+\_\+equality}}}]{nans\+\_\+equal,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1lists_1_1detail_aed555318d448302ce69420b6ccb3f76e}\label{namespacecudf_1_1lists_1_1detail_aed555318d448302ce69420b6ccb3f76e} 
+\index{cudf::lists::detail@{cudf::lists::detail}!index\_of@{index\_of}}
+\index{index\_of@{index\_of}!cudf::lists::detail@{cudf::lists::detail}}
+\doxysubsubsection{\texorpdfstring{index\_of()}{index\_of()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::detail\+::index\+\_\+of (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{cudf\+::lists\+\_\+column\+\_\+view}} const \&}]{lists,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&}]{search\+\_\+keys,  }\item[{\mbox{\hyperlink{group__lists__contains_gabc759fd5641585c3acfaea7e6a6a5981}{cudf\+::lists\+::duplicate\+\_\+find\+\_\+option}}}]{find\+\_\+option,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Create a column of {\ttfamily size\+\_\+type} values indicating the position of a search key row within the corresponding list row in the {\ttfamily lists} column   
+
+The output column has as many elements as there are rows in the input {\ttfamily lists} column. Output {\ttfamily column\mbox{[}i\mbox{]}} contains a 0-\/based index indicating the position of each search key row in its corresponding list row, counting from the beginning of the list. Note\+:
+\begin{DoxyEnumerate}
+\item If {\ttfamily search\+\_\+keys\mbox{[}i\mbox{]}} is null, {\ttfamily output\mbox{[}i\mbox{]}} is also null.
+\item If the row {\ttfamily lists\mbox{[}i\mbox{]}} is null, {\ttfamily output\mbox{[}i\mbox{]}} is also null.
+\item If the row {\ttfamily lists\mbox{[}i\mbox{]}} does not contain {\ttfamily search\+\_\+key\mbox{[}i\mbox{]}}, {\ttfamily output\mbox{[}i\mbox{]}} is set to {\ttfamily -\/1}.
+\item In all other cases, {\ttfamily output\mbox{[}i\mbox{]}} is set to a non-\/negative {\ttfamily size\+\_\+type} index.
+\end{DoxyEnumerate}
+
+If the {\ttfamily find\+\_\+option} is set to {\ttfamily FIND\+\_\+\+FIRST}, the position of the first match for {\ttfamily search\+\_\+key} is returned. If {\ttfamily find\+\_\+option == FIND\+\_\+\+LAST}, the position of the last match in the list row is returned.
+
+
+\begin{DoxyParams}{参数}
+{\em lists} & Lists column whose {\ttfamily n} rows are to be searched \\
+\hline
+{\em search\+\_\+keys} & A column of search keys to be looked up in each corresponding row of {\ttfamily lists} \\
+\hline
+{\em find\+\_\+option} & Whether to return the position of the first match ({\ttfamily FIND\+\_\+\+FIRST}) or last ({\ttfamily FIND\+\_\+\+LAST}) \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+std\+::unique\+\_\+ptr$<$column$>$ INT32 column of {\ttfamily n} rows with the location of the {\ttfamily search\+\_\+key}
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & If {\ttfamily search\+\_\+keys} does not match {\ttfamily lists} in its number of rows \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & If {\ttfamily search\+\_\+keys} type does not match the element type in {\ttfamily lists} \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & If {\ttfamily lists} or {\ttfamily search\+\_\+keys} contains nested elements (LIST, STRUCT)   \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1lists_1_1detail_a88e03223c8d75b94e2ce6275f3fbc4cf}\label{namespacecudf_1_1lists_1_1detail_a88e03223c8d75b94e2ce6275f3fbc4cf} 
+\index{cudf::lists::detail@{cudf::lists::detail}!index\_of@{index\_of}}
+\index{index\_of@{index\_of}!cudf::lists::detail@{cudf::lists::detail}}
+\doxysubsubsection{\texorpdfstring{index\_of()}{index\_of()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::detail\+::index\+\_\+of (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{cudf\+::lists\+\_\+column\+\_\+view}} const \&}]{lists,  }\item[{\mbox{\hyperlink{classcudf_1_1scalar}{cudf\+::scalar}} const \&}]{search\+\_\+key,  }\item[{\mbox{\hyperlink{group__lists__contains_gabc759fd5641585c3acfaea7e6a6a5981}{cudf\+::lists\+::duplicate\+\_\+find\+\_\+option}}}]{find\+\_\+option,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Create a column of {\ttfamily size\+\_\+type} values indicating the position of a search key within each list row in the {\ttfamily lists} column   
+
+The output column has as many elements as there are rows in the input {\ttfamily lists} column. Output {\ttfamily column\mbox{[}i\mbox{]}} contains a 0-\/based index indicating the position of the search key in each list, counting from the beginning of the list. Note\+:
+\begin{DoxyEnumerate}
+\item If the {\ttfamily search\+\_\+key} is null, all output rows are set to null.
+\item If the row {\ttfamily lists\mbox{[}i\mbox{]}} is null, {\ttfamily output\mbox{[}i\mbox{]}} is also null.
+\item If the row {\ttfamily lists\mbox{[}i\mbox{]}} does not contain the {\ttfamily search\+\_\+key}, {\ttfamily output\mbox{[}i\mbox{]}} is set to {\ttfamily -\/1}.
+\item In all other cases, {\ttfamily output\mbox{[}i\mbox{]}} is set to a non-\/negative {\ttfamily size\+\_\+type} index.
+\end{DoxyEnumerate}
+
+If the {\ttfamily find\+\_\+option} is set to {\ttfamily FIND\+\_\+\+FIRST}, the position of the first match for {\ttfamily search\+\_\+key} is returned. If {\ttfamily find\+\_\+option == FIND\+\_\+\+LAST}, the position of the last match in the list row is returned.
+
+
+\begin{DoxyParams}{参数}
+{\em lists} & Lists column whose {\ttfamily n} rows are to be searched \\
+\hline
+{\em search\+\_\+key} & The scalar key to be looked up in each list row \\
+\hline
+{\em find\+\_\+option} & Whether to return the position of the first match ({\ttfamily FIND\+\_\+\+FIRST}) or last ({\ttfamily FIND\+\_\+\+LAST}) \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+std\+::unique\+\_\+ptr$<$column$>$ INT32 column of {\ttfamily n} rows with the location of the {\ttfamily search\+\_\+key}
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & If {\ttfamily search\+\_\+key} type does not match the element type in {\ttfamily lists} \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & If {\ttfamily search\+\_\+key} is of a nested type, or {\ttfamily lists} contains nested elements (LIST, STRUCT)   \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1lists_1_1detail_a22df76c41b0b3c74d4c1a1e9153b483e}\label{namespacecudf_1_1lists_1_1detail_a22df76c41b0b3c74d4c1a1e9153b483e} 
+\index{cudf::lists::detail@{cudf::lists::detail}!interleave\_columns@{interleave\_columns}}
+\index{interleave\_columns@{interleave\_columns}!cudf::lists::detail@{cudf::lists::detail}}
+\doxysubsubsection{\texorpdfstring{interleave\_columns()}{interleave\_columns()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::detail\+::interleave\+\_\+columns (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{bool}]{has\+\_\+null\+\_\+mask,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a single column by interleaving rows of the given table of list elements. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{s1\ =\ [\{0,\ 1\},\ \{2,\ 3,\ 4\},\ \{5\},\ \{\},\ \{6,\ 7\}]}
+\DoxyCodeLine{s2\ =\ [\{8\},\ \{9\},\ \{\},\ \{10,\ 11,\ 12\},\ \{13,\ 14,\ 15,\ 16\}]}
+\DoxyCodeLine{r\ =\ lists::interleave\_columns(s1,\ s2)}
+\DoxyCodeLine{r\ is\ now\ [\{0,\ 1\},\ \{8\},\ \{2,\ 3,\ 4\},\ \{9\},\ \{5\},\ \{\},\ \{\},\ \{10,\ 11,\ 12\},\ \{6,\ 7\},\ \{13,\ 14,\ 15,\ 16\}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if any column of the input table is not a lists columns. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if any lists column contains nested typed entry. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if all lists columns do not have the same entry type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & Table containing lists columns to interleave. \\
+\hline
+{\em has\+\_\+null\+\_\+mask} & A boolean flag indicating that the input columns have a null mask. \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The interleaved columns as a single column. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1lists_1_1detail_abb6e8f1778f78f1cefef162ceba4f491}\label{namespacecudf_1_1lists_1_1detail_abb6e8f1778f78f1cefef162ceba4f491} 
+\index{cudf::lists::detail@{cudf::lists::detail}!intersect\_distinct@{intersect\_distinct}}
+\index{intersect\_distinct@{intersect\_distinct}!cudf::lists::detail@{cudf::lists::detail}}
+\doxysubsubsection{\texorpdfstring{intersect\_distinct()}{intersect\_distinct()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::detail\+::intersect\+\_\+distinct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&}]{lhs,  }\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&}]{rhs,  }\item[{\mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}}}]{nulls\+\_\+equal,  }\item[{\mbox{\hyperlink{group__utility__types_gae9d1055c69c3089452794783c7c82f83}{nan\+\_\+equality}}}]{nans\+\_\+equal,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1lists_1_1detail_a1b65bb3c2e537c37589864d80d6bcba5}\label{namespacecudf_1_1lists_1_1detail_a1b65bb3c2e537c37589864d80d6bcba5} 
+\index{cudf::lists::detail@{cudf::lists::detail}!make\_lists\_column\_from\_scalar@{make\_lists\_column\_from\_scalar}}
+\index{make\_lists\_column\_from\_scalar@{make\_lists\_column\_from\_scalar}!cudf::lists::detail@{cudf::lists::detail}}
+\doxysubsubsection{\texorpdfstring{make\_lists\_column\_from\_scalar()}{make\_lists\_column\_from\_scalar()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ cudf\+::lists\+::detail\+::make\+\_\+lists\+\_\+column\+\_\+from\+\_\+scalar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1list__scalar}{list\+\_\+scalar}} const \&}]{value,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{size,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Internal API to construct a lists column from a {\ttfamily \doxylink{classcudf_1_1list__scalar}{list\+\_\+scalar}}, for public use, use {\ttfamily \doxylink{group__column__factories_gaf402ec1007ea53418b2d5800daae8041}{cudf\+::make\+\_\+column\+\_\+from\+\_\+scalar}}. 
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em value} & The {\ttfamily \doxylink{classcudf_1_1list__scalar}{list\+\_\+scalar}} to construct from \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & The number of rows for the output column. \\
+\hline
+\mbox{\texttt{ in}}  & {\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1lists_1_1detail_a5e8cf22351451e8102e4aecb2a6fa8be}\label{namespacecudf_1_1lists_1_1detail_a5e8cf22351451e8102e4aecb2a6fa8be} 
+\index{cudf::lists::detail@{cudf::lists::detail}!sort\_lists@{sort\_lists}}
+\index{sort\_lists@{sort\_lists}!cudf::lists::detail@{cudf::lists::detail}}
+\doxysubsubsection{\texorpdfstring{sort\_lists()}{sort\_lists()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::detail\+::sort\+\_\+lists (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}}}]{column\+\_\+order,  }\item[{\mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}}}]{null\+\_\+precedence,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Segmented sort of the elements within a list in each row of a list column.   
+
+{\ttfamily source\+\_\+column} with depth 1 is only supported.
+
+
+\begin{DoxyItemize}
+\item 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source\_column\ \ \ \ \ \ \ \ \ \ \ \ :\ [\{4,\ 2,\ 3,\ 1\},\ \{1,\ 2,\ NULL,\ 4\},\ \{-\/10,\ 10,\ 0\}]}
+\DoxyCodeLine{}
+\DoxyCodeLine{Ascending,\ \ Null\ After\ \ \ :\ [\{1,\ 2,\ 3,\ 4\},\ \{1,\ 2,\ 4,\ NULL\},\ \{-\/10,\ 0,\ 10\}]}
+\DoxyCodeLine{Ascending,\ \ Null\ Before\ \ :\ [\{1,\ 2,\ 3,\ 4\},\ \{NULL,\ 1,\ 2,\ 4\},\ \{-\/10,\ 0,\ 10\}]}
+\DoxyCodeLine{Descending,\ Null\ After\ \ \ :\ [\{4,\ 3,\ 2,\ 1\},\ \{NULL,\ 4,\ 2,\ 1\},\ \{10,\ 0,\ -\/10\}]}
+\DoxyCodeLine{Descending,\ Null\ Before\ \ :\ [\{4,\ 3,\ 2,\ 1\},\ \{4,\ 2,\ 1,\ NULL\},\ \{10,\ 0,\ -\/10\}]}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{参数}
+{\em source\+\_\+column} & View of the list column of numeric types to sort \\
+\hline
+{\em column\+\_\+order} & The desired sort order \\
+\hline
+{\em null\+\_\+precedence} & The desired order of null compared to other elements in the list \\
+\hline
+{\em mr} & Device memory resource to allocate any returned objects \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+list column with elements in each list sorted.  
+\end{DoxyReturn}
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1lists_1_1detail_ae37a0d7e44409fb205e53db37ba2c37f}\label{namespacecudf_1_1lists_1_1detail_ae37a0d7e44409fb205e53db37ba2c37f} 
+\index{cudf::lists::detail@{cudf::lists::detail}!stable\_sort\_lists@{stable\_sort\_lists}}
+\index{stable\_sort\_lists@{stable\_sort\_lists}!cudf::lists::detail@{cudf::lists::detail}}
+\doxysubsubsection{\texorpdfstring{stable\_sort\_lists()}{stable\_sort\_lists()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::detail\+::stable\+\_\+sort\+\_\+lists (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}}}]{column\+\_\+order,  }\item[{\mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}}}]{null\+\_\+precedence,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Segmented sort of the elements within a list in each row of a list column using stable sort.   
+
+Segmented sort of the elements within a list in each row of a list column.  
+
+{\ttfamily source\+\_\+column} with depth 1 is only supported.
+
+
+\begin{DoxyItemize}
+\item 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source\_column\ \ \ \ \ \ \ \ \ \ \ \ :\ [\{4,\ 2,\ 3,\ 1\},\ \{1,\ 2,\ NULL,\ 4\},\ \{-\/10,\ 10,\ 0\}]}
+\DoxyCodeLine{}
+\DoxyCodeLine{Ascending,\ \ Null\ After\ \ \ :\ [\{1,\ 2,\ 3,\ 4\},\ \{1,\ 2,\ 4,\ NULL\},\ \{-\/10,\ 0,\ 10\}]}
+\DoxyCodeLine{Ascending,\ \ Null\ Before\ \ :\ [\{1,\ 2,\ 3,\ 4\},\ \{NULL,\ 1,\ 2,\ 4\},\ \{-\/10,\ 0,\ 10\}]}
+\DoxyCodeLine{Descending,\ Null\ After\ \ \ :\ [\{4,\ 3,\ 2,\ 1\},\ \{NULL,\ 4,\ 2,\ 1\},\ \{10,\ 0,\ -\/10\}]}
+\DoxyCodeLine{Descending,\ Null\ Before\ \ :\ [\{4,\ 3,\ 2,\ 1\},\ \{4,\ 2,\ 1,\ NULL\},\ \{10,\ 0,\ -\/10\}]}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{参数}
+{\em source\+\_\+column} & View of the list column of numeric types to sort \\
+\hline
+{\em column\+\_\+order} & The desired sort order \\
+\hline
+{\em null\+\_\+precedence} & The desired order of null compared to other elements in the list \\
+\hline
+{\em mr} & Device memory resource to allocate any returned objects \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+list column with elements in each list sorted.    
+\end{DoxyReturn}
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacecudf_1_1lists_1_1detail_abd168cb12f17f89ae76476a28923df65}\label{namespacecudf_1_1lists_1_1detail_abd168cb12f17f89ae76476a28923df65} 
+\index{cudf::lists::detail@{cudf::lists::detail}!union\_distinct@{union\_distinct}}
+\index{union\_distinct@{union\_distinct}!cudf::lists::detail@{cudf::lists::detail}}
+\doxysubsubsection{\texorpdfstring{union\_distinct()}{union\_distinct()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::detail\+::union\+\_\+distinct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&}]{lhs,  }\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&}]{rhs,  }\item[{\mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}}}]{nulls\+\_\+equal,  }\item[{\mbox{\hyperlink{group__utility__types_gae9d1055c69c3089452794783c7c82f83}{nan\+\_\+equality}}}]{nans\+\_\+equal,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+
+
+
+\begin{DoxyParams}{参数}
+{\em stream} & CUDA stream used for device memory operations and kernel launches. \\
+\hline
+\end{DoxyParams}

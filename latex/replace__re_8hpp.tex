@@ -1,0 +1,36 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/strings/replace\+\_\+re.hpp 文件参考}
+\hypertarget{replace__re_8hpp}{}\label{replace__re_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/strings/replace\_re.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/strings/replace\_re.hpp}}
+{\ttfamily \#include $<$cudf/column/column.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/scalar/scalar.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/strings/regex/flags.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/strings/strings\+\_\+column\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/mr/device/per\+\_\+device\+\_\+resource.\+hpp$>$}\newline
+{\ttfamily \#include $<$optional$>$}\newline
+replace\+\_\+re.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replace__re_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1strings}{cudf\+::strings}}
+\begin{DoxyCompactList}\small\item\em Strings column APIs \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__replace_gaa9271541e5c6b7191324697f65e87ee0}{cudf\+::strings\+::replace\+\_\+re}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, std\+::string\+\_\+view pattern, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&replacement=\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{}), std\+::optional$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ max\+\_\+replace\+\_\+count=std\+::nullopt, \mbox{\hyperlink{group__strings__regex_ga341eb616bce8b15119196ad8208ec16d}{regex\+\_\+flags}} const flags=\mbox{\hyperlink{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da432e1bed0776491ae9d73f3915142912}{regex\+\_\+flags\+::\+DEFAULT}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em For each string, replaces any character sequence matching the given pattern with the provided replacement string. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__replace_gae823541f27b70390941cd92a431f9f32}{cudf\+::strings\+::replace\+\_\+re}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{structcudf_1_1strings_1_1regex__program}{regex\+\_\+program}} const \&prog, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&replacement=\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{}), std\+::optional$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ max\+\_\+replace\+\_\+count=std\+::nullopt, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em For each string, replaces any character sequence matching the given regex with the provided replacement string. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__replace_gac9102ab2b70227db2e14694dddc3916f}{cudf\+::strings\+::replace\+\_\+re}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, std\+::vector$<$ std\+::string $>$ const \&patterns, \mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&replacements, \mbox{\hyperlink{group__strings__regex_ga341eb616bce8b15119196ad8208ec16d}{regex\+\_\+flags}} const flags=\mbox{\hyperlink{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da432e1bed0776491ae9d73f3915142912}{regex\+\_\+flags\+::\+DEFAULT}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em For each string, replaces any character sequence matching the given patterns with the corresponding string in the {\ttfamily replacements} column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__replace_ga100cede2b238a3941dd06434c3e03767}{cudf\+::strings\+::replace\+\_\+with\+\_\+backrefs}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, std\+::string\+\_\+view pattern, std\+::string\+\_\+view replacement, \mbox{\hyperlink{group__strings__regex_ga341eb616bce8b15119196ad8208ec16d}{regex\+\_\+flags}} const flags=\mbox{\hyperlink{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da432e1bed0776491ae9d73f3915142912}{regex\+\_\+flags\+::\+DEFAULT}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em For each string, replaces any character sequence matching the given pattern using the replacement template for back-\/references. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__replace_ga42f37eaec75df4651613d059bccc80d5}{cudf\+::strings\+::replace\+\_\+with\+\_\+backrefs}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{structcudf_1_1strings_1_1regex__program}{regex\+\_\+program}} const \&prog, std\+::string\+\_\+view replacement, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em For each string, replaces any character sequence matching the given regex using the replacement template for back-\/references. \end{DoxyCompactList}\end{DoxyCompactItemize}

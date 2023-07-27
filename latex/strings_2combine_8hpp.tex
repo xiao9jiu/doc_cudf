@@ -1,0 +1,69 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/strings/combine.hpp 文件参考}
+\hypertarget{strings_2combine_8hpp}{}\label{strings_2combine_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/strings/combine.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/strings/combine.hpp}}
+
+
+Strings APIs for concatenate and join  
+
+
+{\ttfamily \#include $<$cudf/column/column.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/lists/lists\+\_\+column\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/scalar/scalar.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/strings/strings\+\_\+column\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/table/table\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/mr/device/per\+\_\+device\+\_\+resource.\+hpp$>$}\newline
+combine.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{strings_2combine_8hpp__incl}
+\end{center}
+\end{figure}
+此图展示该文件直接或间接的被哪些文件引用了\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{strings_2combine_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1strings}{cudf\+::strings}}
+\begin{DoxyCompactList}\small\item\em Strings column APIs \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__strings__combine_gaa57d4c778ab4df08467dfaab3dc7ec6d}{cudf\+::strings\+::separator\+\_\+on\+\_\+nulls}} \{ \mbox{\hyperlink{group__strings__combine_ggaa57d4c778ab4df08467dfaab3dc7ec6da7469a286259799e5b37e5db9296f00b3}{cudf\+::strings\+::separator\+\_\+on\+\_\+nulls\+::\+YES}}
+, \mbox{\hyperlink{group__strings__combine_ggaa57d4c778ab4df08467dfaab3dc7ec6dac2f3f489a00553e7a01d369c103c7251}{cudf\+::strings\+::separator\+\_\+on\+\_\+nulls\+::\+NO}}
+ \}
+\begin{DoxyCompactList}\small\item\em Setting for specifying how separators are added with null strings elements. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{group__strings__combine_ga7c7d6d8dfa7a6f67a794d6c868960855}{cudf\+::strings\+::output\+\_\+if\+\_\+empty\+\_\+list}} \{ \mbox{\hyperlink{group__strings__combine_gga7c7d6d8dfa7a6f67a794d6c868960855a12a2eccead83379187d7e41dfdf0a2f5}{cudf\+::strings\+::output\+\_\+if\+\_\+empty\+\_\+list\+::\+EMPTY\+\_\+\+STRING}}
+, \mbox{\hyperlink{group__strings__combine_gga7c7d6d8dfa7a6f67a794d6c868960855a03ff21f16ae3280d3358c204a1a5fddb}{cudf\+::strings\+::output\+\_\+if\+\_\+empty\+\_\+list\+::\+NULL\+\_\+\+ELEMENT}}
+ \}
+\begin{DoxyCompactList}\small\item\em Setting for specifying what will be output from {\ttfamily join\+\_\+list\+\_\+elements} when an input list is empty. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__combine_gad054d76f6109482930f69e7fe95ad450}{cudf\+::strings\+::join\+\_\+strings}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&separator=\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{}), \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&narep=\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{}, false), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Concatenates all strings in the column into one new string delimited by an optional separator string. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__combine_ga0a01dc695ed545034f08292ea6247f7f}{cudf\+::strings\+::concatenate}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&strings\+\_\+columns, \mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&separators, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&separator\+\_\+narep=\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{}, false), \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&col\+\_\+narep=\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{}, false), \mbox{\hyperlink{group__strings__combine_gaa57d4c778ab4df08467dfaab3dc7ec6d}{separator\+\_\+on\+\_\+nulls}} separate\+\_\+nulls=\mbox{\hyperlink{group__strings__combine_ggaa57d4c778ab4df08467dfaab3dc7ec6da7469a286259799e5b37e5db9296f00b3}{separator\+\_\+on\+\_\+nulls\+::\+YES}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Concatenates a list of strings columns using separators for each row and returns the result as a strings column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__combine_gad57997f57cb9c4db56c9aebf95f3c26b}{cudf\+::strings\+::concatenate}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&strings\+\_\+columns, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&separator=\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{}), \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&narep=\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{}, false), \mbox{\hyperlink{group__strings__combine_gaa57d4c778ab4df08467dfaab3dc7ec6d}{separator\+\_\+on\+\_\+nulls}} separate\+\_\+nulls=\mbox{\hyperlink{group__strings__combine_ggaa57d4c778ab4df08467dfaab3dc7ec6da7469a286259799e5b37e5db9296f00b3}{separator\+\_\+on\+\_\+nulls\+::\+YES}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Row-\/wise concatenates the given list of strings columns and returns a single strings column result. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__combine_ga9433fbdb47554ddde6c937f0ca2ccdad}{cudf\+::strings\+::join\+\_\+list\+\_\+elements}} (const \mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} \&lists\+\_\+strings\+\_\+column, const \mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} \&separators, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&separator\+\_\+narep=\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{}, false), \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&string\+\_\+narep=\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{}, false), \mbox{\hyperlink{group__strings__combine_gaa57d4c778ab4df08467dfaab3dc7ec6d}{separator\+\_\+on\+\_\+nulls}} separate\+\_\+nulls=\mbox{\hyperlink{group__strings__combine_ggaa57d4c778ab4df08467dfaab3dc7ec6da7469a286259799e5b37e5db9296f00b3}{separator\+\_\+on\+\_\+nulls\+::\+YES}}, \mbox{\hyperlink{group__strings__combine_ga7c7d6d8dfa7a6f67a794d6c868960855}{output\+\_\+if\+\_\+empty\+\_\+list}} empty\+\_\+list\+\_\+policy=\mbox{\hyperlink{group__strings__combine_gga7c7d6d8dfa7a6f67a794d6c868960855a12a2eccead83379187d7e41dfdf0a2f5}{output\+\_\+if\+\_\+empty\+\_\+list\+::\+EMPTY\+\_\+\+STRING}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Given a lists column of strings (each row is a list of strings), concatenates the strings within each row and returns a single strings column result. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__combine_ga71e770f46cf277682a17f015e7780f70}{cudf\+::strings\+::join\+\_\+list\+\_\+elements}} (const \mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} \&lists\+\_\+strings\+\_\+column, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&separator=\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{}), \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&narep=\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{}, false), \mbox{\hyperlink{group__strings__combine_gaa57d4c778ab4df08467dfaab3dc7ec6d}{separator\+\_\+on\+\_\+nulls}} separate\+\_\+nulls=\mbox{\hyperlink{group__strings__combine_ggaa57d4c778ab4df08467dfaab3dc7ec6da7469a286259799e5b37e5db9296f00b3}{separator\+\_\+on\+\_\+nulls\+::\+YES}}, \mbox{\hyperlink{group__strings__combine_ga7c7d6d8dfa7a6f67a794d6c868960855}{output\+\_\+if\+\_\+empty\+\_\+list}} empty\+\_\+list\+\_\+policy=\mbox{\hyperlink{group__strings__combine_gga7c7d6d8dfa7a6f67a794d6c868960855a12a2eccead83379187d7e41dfdf0a2f5}{output\+\_\+if\+\_\+empty\+\_\+list\+::\+EMPTY\+\_\+\+STRING}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Given a lists column of strings (each row is a list of strings), concatenates the strings within each row and returns a single strings column result. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Strings APIs for concatenate and join 
+
+
+
+在文件 \mbox{\hyperlink{strings_2combine_8hpp_source}{combine.\+hpp}} 中定义.
+

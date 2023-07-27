@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: D:/gitLibrary/cudf/cpp/include/cudf/rolling.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('rolling_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">rolling.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="rolling_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright (c) 2019-2022, NVIDIA CORPORATION.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;<a class="code" href="range__window__bounds_8hpp.html">cudf/rolling/range_window_bounds.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;<a class="code" href="types_8hpp.html">cudf/types.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;rmm/mr/device/per_device_resource.hpp&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecudf.html">cudf</a> {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="group__aggregation__rolling.html#ga0dfc1f001d211212169ead998d484845">   63</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__aggregation__rolling.html#ga0dfc1f001d211212169ead998d484845">rolling_window</a>(</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; input,</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> preceding_window,</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> following_window,</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> min_periods,</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  <a class="code hl_class" href="classcudf_1_1rolling__aggregation.html">rolling_aggregation</a> <span class="keyword">const</span>&amp; agg,</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="group__aggregation__rolling.html#ga350324e8e9ab0d4969d8de7597f2a242">   85</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__aggregation__rolling.html#ga0dfc1f001d211212169ead998d484845">rolling_window</a>(</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; input,</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; default_outputs,</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> preceding_window,</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> following_window,</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> min_periods,</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  <a class="code hl_class" href="classcudf_1_1rolling__aggregation.html">rolling_aggregation</a> <span class="keyword">const</span>&amp; agg,</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="structcudf_1_1window__bounds.html">   97</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structcudf_1_1window__bounds.html">window_bounds</a> {</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="structcudf_1_1window__bounds.html#adf58cf723dfc651904e2423f78890a7b">  105</a></span>  <span class="keyword">static</span> <a class="code hl_struct" href="structcudf_1_1window__bounds.html">window_bounds</a> <a class="code hl_function" href="structcudf_1_1window__bounds.html#adf58cf723dfc651904e2423f78890a7b">get</a>(<a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> <a class="code hl_variable" href="structcudf_1_1window__bounds.html#a23b2092923d577e4bd24052e0d02b336">value</a>) { <span class="keywordflow">return</span> <a class="code hl_struct" href="structcudf_1_1window__bounds.html">window_bounds</a>(<span class="keyword">false</span>, <a class="code hl_variable" href="structcudf_1_1window__bounds.html#a23b2092923d577e4bd24052e0d02b336">value</a>); }</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="structcudf_1_1window__bounds.html#a2e188fd2bd683e913dd86f082ee1ffa0">  112</a></span>  <span class="keyword">static</span> <a class="code hl_struct" href="structcudf_1_1window__bounds.html">window_bounds</a> <a class="code hl_function" href="structcudf_1_1window__bounds.html#a2e188fd2bd683e913dd86f082ee1ffa0">unbounded</a>()</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>  {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordflow">return</span> <a class="code hl_struct" href="structcudf_1_1window__bounds.html">window_bounds</a>(<span class="keyword">true</span>, std::numeric_limits&lt;cudf::size_type&gt;::max());</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>  }</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>  <span class="comment">// TODO: In the future, add units for bounds.</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>  <span class="comment">//       E.g. {value=1, unit=DAYS, unbounded=false}</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>  <span class="comment">//       For the present, assume units from context:</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>  <span class="comment">//         1. For time-based window functions, assume DAYS as before</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>  <span class="comment">//         2. For all else, assume ROWS as before.</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="structcudf_1_1window__bounds.html#ade4e3f46fe706df659c0e6be988c6194">  122</a></span>  <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code hl_variable" href="structcudf_1_1window__bounds.html#ade4e3f46fe706df659c0e6be988c6194">is_unbounded</a>;  </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="structcudf_1_1window__bounds.html#a23b2092923d577e4bd24052e0d02b336">  123</a></span>  <span class="keyword">const</span> <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> <a class="code hl_variable" href="structcudf_1_1window__bounds.html#a23b2092923d577e4bd24052e0d02b336">value</a>;    </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="structcudf_1_1window__bounds.html#a03edca235239acb453cf1daff9294f18">  126</a></span>  <span class="keyword">explicit</span> <a class="code hl_function" href="structcudf_1_1window__bounds.html#a03edca235239acb453cf1daff9294f18">window_bounds</a>(<span class="keywordtype">bool</span> is_unbounded_, <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> value_ = 0)</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    : <a class="code hl_variable" href="structcudf_1_1window__bounds.html#ade4e3f46fe706df659c0e6be988c6194">is_unbounded</a>{is_unbounded_}, <a class="code hl_variable" href="structcudf_1_1window__bounds.html#a23b2092923d577e4bd24052e0d02b336">value</a>{value_}</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>  {</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>  }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>};</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="group__aggregation__rolling.html#ga0d431c50f9d34e8bf6beda13f693bd69">  203</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__aggregation__rolling.html#ga0d431c50f9d34e8bf6beda13f693bd69">grouped_rolling_window</a>(</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>  <a class="code hl_class" href="classcudf_1_1table__view.html">table_view</a> <span class="keyword">const</span>&amp; group_keys,</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; input,</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> preceding_window,</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> following_window,</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> min_periods,</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>  <a class="code hl_class" href="classcudf_1_1rolling__aggregation.html">rolling_aggregation</a> <span class="keyword">const</span>&amp; aggr,</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno"><a class="line" href="group__aggregation__rolling.html#gabd62060125be568902bf4a4eef397fa8">  223</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__aggregation__rolling.html#ga0d431c50f9d34e8bf6beda13f693bd69">grouped_rolling_window</a>(</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>  <a class="code hl_class" href="classcudf_1_1table__view.html">table_view</a> <span class="keyword">const</span>&amp; group_keys,</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; input,</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>  <a class="code hl_struct" href="structcudf_1_1window__bounds.html">window_bounds</a> preceding_window,</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>  <a class="code hl_struct" href="structcudf_1_1window__bounds.html">window_bounds</a> following_window,</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> min_periods,</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>  <a class="code hl_class" href="classcudf_1_1rolling__aggregation.html">rolling_aggregation</a> <span class="keyword">const</span>&amp; aggr,</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno"><a class="line" href="group__aggregation__rolling.html#gae00c7ff150e9bbdd9cb51b5fb4216081">  247</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__aggregation__rolling.html#ga0d431c50f9d34e8bf6beda13f693bd69">grouped_rolling_window</a>(</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>  <a class="code hl_class" href="classcudf_1_1table__view.html">table_view</a> <span class="keyword">const</span>&amp; group_keys,</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; input,</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; default_outputs,</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> preceding_window,</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> following_window,</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> min_periods,</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>  <a class="code hl_class" href="classcudf_1_1rolling__aggregation.html">rolling_aggregation</a> <span class="keyword">const</span>&amp; aggr,</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno"><a class="line" href="group__aggregation__rolling.html#gacf7ec568b0cab23f44af22ea3600075b">  269</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__aggregation__rolling.html#ga0d431c50f9d34e8bf6beda13f693bd69">grouped_rolling_window</a>(</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>  <a class="code hl_class" href="classcudf_1_1table__view.html">table_view</a> <span class="keyword">const</span>&amp; group_keys,</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; input,</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; default_outputs,</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>  <a class="code hl_struct" href="structcudf_1_1window__bounds.html">window_bounds</a> preceding_window,</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>  <a class="code hl_struct" href="structcudf_1_1window__bounds.html">window_bounds</a> following_window,</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> min_periods,</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>  <a class="code hl_class" href="classcudf_1_1rolling__aggregation.html">rolling_aggregation</a> <span class="keyword">const</span>&amp; aggr,</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno"><a class="line" href="group__aggregation__rolling.html#ga167a23498c3e82313df80f653b3c48b1">  363</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__aggregation__rolling.html#ga167a23498c3e82313df80f653b3c48b1">grouped_time_range_rolling_window</a>(</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>  <a class="code hl_class" href="classcudf_1_1table__view.html">table_view</a> <span class="keyword">const</span>&amp; group_keys,</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; timestamp_column,</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>  <a class="code hl_enumeration" href="group__utility__types.html#ga750f02016b046079f7062d334890b4fc">cudf::order</a> <span class="keyword">const</span>&amp; timestamp_order,</div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; input,</div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> preceding_window_in_days,</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> following_window_in_days,</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> min_periods,</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>  <a class="code hl_class" href="classcudf_1_1rolling__aggregation.html">rolling_aggregation</a> <span class="keyword">const</span>&amp; aggr,</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span> </div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno"><a class="line" href="group__aggregation__rolling.html#ga7f53b18345a094351160b187b263b746">  392</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__aggregation__rolling.html#ga167a23498c3e82313df80f653b3c48b1">grouped_time_range_rolling_window</a>(</div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>  <a class="code hl_class" href="classcudf_1_1table__view.html">table_view</a> <span class="keyword">const</span>&amp; group_keys,</div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; timestamp_column,</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>  <a class="code hl_enumeration" href="group__utility__types.html#ga750f02016b046079f7062d334890b4fc">cudf::order</a> <span class="keyword">const</span>&amp; timestamp_order,</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; input,</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>  <a class="code hl_struct" href="structcudf_1_1window__bounds.html">window_bounds</a> preceding_window_in_days,</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>  <a class="code hl_struct" href="structcudf_1_1window__bounds.html">window_bounds</a> following_window_in_days,</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> min_periods,</div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>  <a class="code hl_class" href="classcudf_1_1rolling__aggregation.html">rolling_aggregation</a> <span class="keyword">const</span>&amp; aggr,</div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span> </div>
+<div class="line"><a id="l00512" name="l00512"></a><span class="lineno"><a class="line" href="group__aggregation__rolling.html#ga595d27d939a1af9d00d2b6bea3b5623c">  512</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__aggregation__rolling.html#ga595d27d939a1af9d00d2b6bea3b5623c">grouped_range_rolling_window</a>(</div>
+<div class="line"><a id="l00513" name="l00513"></a><span class="lineno">  513</span>  <a class="code hl_class" href="classcudf_1_1table__view.html">table_view</a> <span class="keyword">const</span>&amp; group_keys,</div>
+<div class="line"><a id="l00514" name="l00514"></a><span class="lineno">  514</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; orderby_column,</div>
+<div class="line"><a id="l00515" name="l00515"></a><span class="lineno">  515</span>  <a class="code hl_enumeration" href="group__utility__types.html#ga750f02016b046079f7062d334890b4fc">cudf::order</a> <span class="keyword">const</span>&amp; <a class="code hl_enumeration" href="group__utility__types.html#ga750f02016b046079f7062d334890b4fc">order</a>,</div>
+<div class="line"><a id="l00516" name="l00516"></a><span class="lineno">  516</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; input,</div>
+<div class="line"><a id="l00517" name="l00517"></a><span class="lineno">  517</span>  <a class="code hl_struct" href="structcudf_1_1range__window__bounds.html">range_window_bounds</a> <span class="keyword">const</span>&amp; preceding,</div>
+<div class="line"><a id="l00518" name="l00518"></a><span class="lineno">  518</span>  <a class="code hl_struct" href="structcudf_1_1range__window__bounds.html">range_window_bounds</a> <span class="keyword">const</span>&amp; following,</div>
+<div class="line"><a id="l00519" name="l00519"></a><span class="lineno">  519</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> min_periods,</div>
+<div class="line"><a id="l00520" name="l00520"></a><span class="lineno">  520</span>  <a class="code hl_class" href="classcudf_1_1rolling__aggregation.html">rolling_aggregation</a> <span class="keyword">const</span>&amp; aggr,</div>
+<div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00522" name="l00522"></a><span class="lineno">  522</span> </div>
+<div class="line"><a id="l00558" name="l00558"></a><span class="lineno"><a class="line" href="group__aggregation__rolling.html#gaaed6574615700cec1d4bf5469fe28141">  558</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="group__aggregation__rolling.html#ga0dfc1f001d211212169ead998d484845">rolling_window</a>(</div>
+<div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; input,</div>
+<div class="line"><a id="l00560" name="l00560"></a><span class="lineno">  560</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; preceding_window,</div>
+<div class="line"><a id="l00561" name="l00561"></a><span class="lineno">  561</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; following_window,</div>
+<div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> min_periods,</div>
+<div class="line"><a id="l00563" name="l00563"></a><span class="lineno">  563</span>  <a class="code hl_class" href="classcudf_1_1rolling__aggregation.html">rolling_aggregation</a> <span class="keyword">const</span>&amp; agg,</div>
+<div class="line"><a id="l00564" name="l00564"></a><span class="lineno">  564</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00565" name="l00565"></a><span class="lineno">  565</span>  <span class="comment">// end of group</span></div>
+<div class="line"><a id="l00567" name="l00567"></a><span class="lineno">  567</span>}  <span class="comment">// namespace cudf</span></div>
+<div class="ttc" id="aclasscudf_1_1column__view_html"><div class="ttname"><a href="classcudf_1_1column__view.html">cudf::column_view</a></div><div class="ttdoc">A non-owning, immutable view of device data as a column of elements, some of which may be null as ind...</div><div class="ttdef"><b>Definition</b> <a href="column__view_8hpp_source.html#l00322">column_view.hpp:322</a></div></div>
+<div class="ttc" id="aclasscudf_1_1rolling__aggregation_html"><div class="ttname"><a href="classcudf_1_1rolling__aggregation.html">cudf::rolling_aggregation</a></div><div class="ttdoc">Derived class intended for rolling_window specific aggregation usage.</div><div class="ttdef"><b>Definition</b> <a href="aggregation_8hpp_source.html#l00182">aggregation.hpp:182</a></div></div>
+<div class="ttc" id="aclasscudf_1_1table__view_html"><div class="ttname"><a href="classcudf_1_1table__view.html">cudf::table_view</a></div><div class="ttdoc">A set of cudf::column_view's of the same size.</div><div class="ttdef"><b>Definition</b> <a href="table__view_8hpp_source.html#l00187">table_view.hpp:187</a></div></div>
+<div class="ttc" id="agroup__aggregation__rolling_html_ga0d431c50f9d34e8bf6beda13f693bd69"><div class="ttname"><a href="group__aggregation__rolling.html#ga0d431c50f9d34e8bf6beda13f693bd69">cudf::grouped_rolling_window</a></div><div class="ttdeci">std::unique_ptr&lt; column &gt; grouped_rolling_window(table_view const &amp;group_keys, column_view const &amp;input, size_type preceding_window, size_type following_window, size_type min_periods, rolling_aggregation const &amp;aggr, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Applies a grouping-aware, fixed-size rolling window function to the values in a column.</div></div>
+<div class="ttc" id="agroup__aggregation__rolling_html_ga0dfc1f001d211212169ead998d484845"><div class="ttname"><a href="group__aggregation__rolling.html#ga0dfc1f001d211212169ead998d484845">cudf::rolling_window</a></div><div class="ttdeci">std::unique_ptr&lt; column &gt; rolling_window(column_view const &amp;input, size_type preceding_window, size_type following_window, size_type min_periods, rolling_aggregation const &amp;agg, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Applies a fixed-size rolling window function to the values in a column.</div></div>
+<div class="ttc" id="agroup__aggregation__rolling_html_ga167a23498c3e82313df80f653b3c48b1"><div class="ttname"><a href="group__aggregation__rolling.html#ga167a23498c3e82313df80f653b3c48b1">cudf::grouped_time_range_rolling_window</a></div><div class="ttdeci">std::unique_ptr&lt; column &gt; grouped_time_range_rolling_window(table_view const &amp;group_keys, column_view const &amp;timestamp_column, cudf::order const &amp;timestamp_order, column_view const &amp;input, size_type preceding_window_in_days, size_type following_window_in_days, size_type min_periods, rolling_aggregation const &amp;aggr, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Applies a grouping-aware, timestamp-based rolling window function to the values in a column.</div></div>
+<div class="ttc" id="agroup__aggregation__rolling_html_ga595d27d939a1af9d00d2b6bea3b5623c"><div class="ttname"><a href="group__aggregation__rolling.html#ga595d27d939a1af9d00d2b6bea3b5623c">cudf::grouped_range_rolling_window</a></div><div class="ttdeci">std::unique_ptr&lt; column &gt; grouped_range_rolling_window(table_view const &amp;group_keys, column_view const &amp;orderby_column, cudf::order const &amp;order, column_view const &amp;input, range_window_bounds const &amp;preceding, range_window_bounds const &amp;following, size_type min_periods, rolling_aggregation const &amp;aggr, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Applies a grouping-aware, value range-based rolling window function to the values in a column.</div></div>
+<div class="ttc" id="agroup__utility__types_html_ga0aff16b2db009d92300befaca11827e9"><div class="ttname"><a href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">cudf::size_type</a></div><div class="ttdeci">int32_t size_type</div><div class="ttdoc">Row index type for columns and tables</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00080">types.hpp:80</a></div></div>
+<div class="ttc" id="agroup__utility__types_html_ga750f02016b046079f7062d334890b4fc"><div class="ttname"><a href="group__utility__types.html#ga750f02016b046079f7062d334890b4fc">cudf::order</a></div><div class="ttdeci">order</div><div class="ttdoc">Indicates the order in which elements should be sorted.</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00111">types.hpp:111</a></div></div>
+<div class="ttc" id="anamespacecudf_html"><div class="ttname"><a href="namespacecudf.html">cudf</a></div><div class="ttdoc">cuDF interfaces</div><div class="ttdef"><b>Definition</b> <a href="aggregation_8hpp_source.html#l00034">aggregation.hpp:34</a></div></div>
+<div class="ttc" id="arange__window__bounds_8hpp_html"><div class="ttname"><a href="range__window__bounds_8hpp.html">range_window_bounds.hpp</a></div></div>
+<div class="ttc" id="astructcudf_1_1range__window__bounds_html"><div class="ttname"><a href="structcudf_1_1range__window__bounds.html">cudf::range_window_bounds</a></div><div class="ttdoc">Abstraction for window boundary sizes, to be used with grouped_range_rolling_window().</div><div class="ttdef"><b>Definition</b> <a href="range__window__bounds_8hpp_source.html#l00036">range_window_bounds.hpp:36</a></div></div>
+<div class="ttc" id="astructcudf_1_1window__bounds_html"><div class="ttname"><a href="structcudf_1_1window__bounds.html">cudf::window_bounds</a></div><div class="ttdoc">Abstraction for window boundary sizes</div><div class="ttdef"><b>Definition</b> <a href="rolling_8hpp_source.html#l00097">rolling.hpp:97</a></div></div>
+<div class="ttc" id="astructcudf_1_1window__bounds_html_a03edca235239acb453cf1daff9294f18"><div class="ttname"><a href="structcudf_1_1window__bounds.html#a03edca235239acb453cf1daff9294f18">cudf::window_bounds::window_bounds</a></div><div class="ttdeci">window_bounds(bool is_unbounded_, size_type value_=0)</div><div class="ttdef"><b>Definition</b> <a href="rolling_8hpp_source.html#l00126">rolling.hpp:126</a></div></div>
+<div class="ttc" id="astructcudf_1_1window__bounds_html_a23b2092923d577e4bd24052e0d02b336"><div class="ttname"><a href="structcudf_1_1window__bounds.html#a23b2092923d577e4bd24052e0d02b336">cudf::window_bounds::value</a></div><div class="ttdeci">const size_type value</div><div class="ttdoc">Finite window boundary value (in days or rows)</div><div class="ttdef"><b>Definition</b> <a href="rolling_8hpp_source.html#l00123">rolling.hpp:123</a></div></div>
+<div class="ttc" id="astructcudf_1_1window__bounds_html_a2e188fd2bd683e913dd86f082ee1ffa0"><div class="ttname"><a href="structcudf_1_1window__bounds.html#a2e188fd2bd683e913dd86f082ee1ffa0">cudf::window_bounds::unbounded</a></div><div class="ttdeci">static window_bounds unbounded()</div><div class="ttdoc">Construct unbounded window boundary.</div><div class="ttdef"><b>Definition</b> <a href="rolling_8hpp_source.html#l00112">rolling.hpp:112</a></div></div>
+<div class="ttc" id="astructcudf_1_1window__bounds_html_ade4e3f46fe706df659c0e6be988c6194"><div class="ttname"><a href="structcudf_1_1window__bounds.html#ade4e3f46fe706df659c0e6be988c6194">cudf::window_bounds::is_unbounded</a></div><div class="ttdeci">const bool is_unbounded</div><div class="ttdoc">Whether the window boundary is unbounded</div><div class="ttdef"><b>Definition</b> <a href="rolling_8hpp_source.html#l00122">rolling.hpp:122</a></div></div>
+<div class="ttc" id="astructcudf_1_1window__bounds_html_adf58cf723dfc651904e2423f78890a7b"><div class="ttname"><a href="structcudf_1_1window__bounds.html#adf58cf723dfc651904e2423f78890a7b">cudf::window_bounds::get</a></div><div class="ttdeci">static window_bounds get(size_type value)</div><div class="ttdoc">Construct bounded window boundary.</div><div class="ttdef"><b>Definition</b> <a href="rolling_8hpp_source.html#l00105">rolling.hpp:105</a></div></div>
+<div class="ttc" id="atypes_8hpp_html"><div class="ttname"><a href="types_8hpp.html">types.hpp</a></div><div class="ttdoc">Type declarations for libcudf.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_d998dea0bd4559303135358082015ac8.html">gitLibrary</a></li><li class="navelem"><a class="el" href="dir_b6486b3d9bd1f4b89c884933ed658179.html">cudf</a></li><li class="navelem"><a class="el" href="dir_318a4414914f49dc0e7605c41de9d4af.html">cpp</a></li><li class="navelem"><a class="el" href="dir_7fbf5ee8ae486656ea40e5ca1dd304f9.html">include</a></li><li class="navelem"><a class="el" href="dir_87e6427d1ef099fd52d9d0724c66b062.html">cudf</a></li><li class="navelem"><a class="el" href="rolling_8hpp.html">rolling.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

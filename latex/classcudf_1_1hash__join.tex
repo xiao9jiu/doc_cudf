@@ -1,0 +1,293 @@
+\doxysection{cudf\+::hash\+\_\+join类 参考}
+\hypertarget{classcudf_1_1hash__join}{}\label{classcudf_1_1hash__join}\index{cudf::hash\_join@{cudf::hash\_join}}
+
+
+Hash join that builds hash table in creation and probes results in subsequent {\ttfamily \texorpdfstring{$\ast$}{*}\+\_\+join} member functions.  
+
+
+
+
+{\ttfamily \#include $<$join.\+hpp$>$}
+
+
+
+cudf\+::hash\+\_\+join 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=168pt]{classcudf_1_1hash__join__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 类型}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classcudf_1_1hash__join_af6e59c597e8cdf9613fd3da41971f43c}{impl\+\_\+type}} = typename \mbox{\hyperlink{structcudf_1_1detail_1_1hash__join}{cudf\+::detail\+::hash\+\_\+join}}$<$ \mbox{\hyperlink{classcudf_1_1detail_1_1_murmur_hash3__32}{cudf\+::detail\+::\+Murmur\+Hash3\+\_\+32}}$<$ \mbox{\hyperlink{namespacecudf_a98b5509c0aeedbdb5bce4dc3b6869f26}{cudf\+::hash\+\_\+value\+\_\+type}} $>$ $>$
+\begin{DoxyCompactList}\small\item\em Implementation type \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1hash__join_ab5dcc0c0a2c2bbe653de4f08757c7a05}{hash\+\_\+join}} ()=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1hash__join_a85eb47f6abc2b85c3f8b2ffb5c039177}{\texorpdfstring{$\sim$}{\string~}hash\+\_\+join}} ()
+\item 
+\mbox{\hyperlink{classcudf_1_1hash__join_a9cabf891f64dcc178405c148d6a887ad}{hash\+\_\+join}} (\mbox{\hyperlink{classcudf_1_1hash__join}{hash\+\_\+join}} const \&)=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1hash__join_a2d5e64a59f1d9a128cefd5ddaa36dc33}{hash\+\_\+join}} (\mbox{\hyperlink{classcudf_1_1hash__join}{hash\+\_\+join}} \&\&)=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1hash__join}{hash\+\_\+join}} \& \mbox{\hyperlink{classcudf_1_1hash__join_a47350e93b484b5701be7bf9a43991763}{operator=}} (\mbox{\hyperlink{classcudf_1_1hash__join}{hash\+\_\+join}} const \&)=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1hash__join}{hash\+\_\+join}} \& \mbox{\hyperlink{classcudf_1_1hash__join_aa92b945ba5f9285a373cf34ad87148bf}{operator=}} (\mbox{\hyperlink{classcudf_1_1hash__join}{hash\+\_\+join}} \&\&)=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1hash__join_a8680001f829c7aab709615686d3d165f}{hash\+\_\+join}} (\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&build, \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}} compare\+\_\+nulls, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}())
+\begin{DoxyCompactList}\small\item\em Construct a hash join object for subsequent probe calls. \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ rmm\+::device\+\_\+uvector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ $>$, std\+::unique\+\_\+ptr$<$ rmm\+::device\+\_\+uvector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ $>$ $>$ \mbox{\hyperlink{classcudf_1_1hash__join_a5fb5252bdf3b8a4acba88ad29a4d3778}{inner\+\_\+join}} (\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&probe, std\+::optional$<$ std\+::size\+\_\+t $>$ output\+\_\+size=\{\}, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}(), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource()) const
+\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ rmm\+::device\+\_\+uvector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ $>$, std\+::unique\+\_\+ptr$<$ rmm\+::device\+\_\+uvector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ $>$ $>$ \mbox{\hyperlink{classcudf_1_1hash__join_aa0c6688a4876c11717668660f52b2e35}{left\+\_\+join}} (\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&probe, std\+::optional$<$ std\+::size\+\_\+t $>$ output\+\_\+size=\{\}, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}(), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource()) const
+\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ rmm\+::device\+\_\+uvector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ $>$, std\+::unique\+\_\+ptr$<$ rmm\+::device\+\_\+uvector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ $>$ $>$ \mbox{\hyperlink{classcudf_1_1hash__join_a25a992ad835bf7af5869f914f3181160}{full\+\_\+join}} (\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&probe, std\+::optional$<$ std\+::size\+\_\+t $>$ output\+\_\+size=\{\}, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}(), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource()) const
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classcudf_1_1hash__join_a85d5aafccb5ed61826503367ee849822}{inner\+\_\+join\+\_\+size}} (\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&probe, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}()) const
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classcudf_1_1hash__join_a3df048507614481af13b4eb6aafebaa7}{left\+\_\+join\+\_\+size}} (\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&probe, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}()) const
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classcudf_1_1hash__join_a797523ea71d97d8f5d8eb076a8303236}{full\+\_\+join\+\_\+size}} (\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&probe, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}(), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource()) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::unique\+\_\+ptr$<$ const \mbox{\hyperlink{classcudf_1_1hash__join_af6e59c597e8cdf9613fd3da41971f43c}{impl\+\_\+type}} $>$ \mbox{\hyperlink{classcudf_1_1hash__join_a4ac5835b6f7fa18829bb675c5b1f48aa}{\+\_\+impl}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Hash join that builds hash table in creation and probes results in subsequent {\ttfamily \texorpdfstring{$\ast$}{*}\+\_\+join} member functions. 
+
+This class enables the hash join scheme that builds hash table once, and probes as many times as needed (possibly in parallel). 
+
+在文件 \mbox{\hyperlink{join_8hpp_source}{join.\+hpp}} 第 \mbox{\hyperlink{join_8hpp_source_l00266}{266}} 行定义.
+
+
+
+\doxysubsection{成员类型定义说明}
+\Hypertarget{classcudf_1_1hash__join_af6e59c597e8cdf9613fd3da41971f43c}\label{classcudf_1_1hash__join_af6e59c597e8cdf9613fd3da41971f43c} 
+\index{cudf::hash\_join@{cudf::hash\_join}!impl\_type@{impl\_type}}
+\index{impl\_type@{impl\_type}!cudf::hash\_join@{cudf::hash\_join}}
+\doxysubsubsection{\texorpdfstring{impl\_type}{impl\_type}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classcudf_1_1hash__join_af6e59c597e8cdf9613fd3da41971f43c}{cudf\+::hash\+\_\+join\+::impl\+\_\+type}} =  typename \mbox{\hyperlink{structcudf_1_1detail_1_1hash__join}{cudf\+::detail\+::hash\+\_\+join}}$<$ \mbox{\hyperlink{classcudf_1_1detail_1_1_murmur_hash3__32}{cudf\+::detail\+::\+Murmur\+Hash3\+\_\+32}}$<$\mbox{\hyperlink{namespacecudf_a98b5509c0aeedbdb5bce4dc3b6869f26}{cudf\+::hash\+\_\+value\+\_\+type}}$>$ $>$}
+
+
+
+Implementation type 
+
+
+
+在文件 \mbox{\hyperlink{join_8hpp_source}{join.\+hpp}} 第 \mbox{\hyperlink{join_8hpp_source_l00268}{268}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1hash__join_ab5dcc0c0a2c2bbe653de4f08757c7a05}\label{classcudf_1_1hash__join_ab5dcc0c0a2c2bbe653de4f08757c7a05} 
+\index{cudf::hash\_join@{cudf::hash\_join}!hash\_join@{hash\_join}}
+\index{hash\_join@{hash\_join}!cudf::hash\_join@{cudf::hash\_join}}
+\doxysubsubsection{\texorpdfstring{hash\_join()}{hash\_join()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily cudf\+::hash\+\_\+join\+::hash\+\_\+join (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classcudf_1_1hash__join_a85eb47f6abc2b85c3f8b2ffb5c039177}\label{classcudf_1_1hash__join_a85eb47f6abc2b85c3f8b2ffb5c039177} 
+\index{cudf::hash\_join@{cudf::hash\_join}!````~hash\_join@{\texorpdfstring{$\sim$}{\string~}hash\_join}}
+\index{````~hash\_join@{\texorpdfstring{$\sim$}{\string~}hash\_join}!cudf::hash\_join@{cudf::hash\_join}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}hash\_join()}{\string~hash\_join()}}
+{\footnotesize\ttfamily cudf\+::hash\+\_\+join\+::\texorpdfstring{$\sim$}{\string~}hash\+\_\+join (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classcudf_1_1hash__join_a9cabf891f64dcc178405c148d6a887ad}\label{classcudf_1_1hash__join_a9cabf891f64dcc178405c148d6a887ad} 
+\index{cudf::hash\_join@{cudf::hash\_join}!hash\_join@{hash\_join}}
+\index{hash\_join@{hash\_join}!cudf::hash\_join@{cudf::hash\_join}}
+\doxysubsubsection{\texorpdfstring{hash\_join()}{hash\_join()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily cudf\+::hash\+\_\+join\+::hash\+\_\+join (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1hash__join}{hash\+\_\+join}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classcudf_1_1hash__join_a2d5e64a59f1d9a128cefd5ddaa36dc33}\label{classcudf_1_1hash__join_a2d5e64a59f1d9a128cefd5ddaa36dc33} 
+\index{cudf::hash\_join@{cudf::hash\_join}!hash\_join@{hash\_join}}
+\index{hash\_join@{hash\_join}!cudf::hash\_join@{cudf::hash\_join}}
+\doxysubsubsection{\texorpdfstring{hash\_join()}{hash\_join()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily cudf\+::hash\+\_\+join\+::hash\+\_\+join (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1hash__join}{hash\+\_\+join}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classcudf_1_1hash__join_a8680001f829c7aab709615686d3d165f}\label{classcudf_1_1hash__join_a8680001f829c7aab709615686d3d165f} 
+\index{cudf::hash\_join@{cudf::hash\_join}!hash\_join@{hash\_join}}
+\index{hash\_join@{hash\_join}!cudf::hash\_join@{cudf::hash\_join}}
+\doxysubsubsection{\texorpdfstring{hash\_join()}{hash\_join()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily cudf\+::hash\+\_\+join\+::hash\+\_\+join (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&}]{build,  }\item[{\mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}}}]{compare\+\_\+nulls,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream = {\ttfamily \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}()} }\end{DoxyParamCaption})}
+
+
+
+Construct a hash join object for subsequent probe calls. 
+
+\begin{DoxyNote}{注解}
+The {\ttfamily \doxylink{classcudf_1_1hash__join}{hash\+\_\+join}} object must not outlive the table viewed by {\ttfamily build}, else behavior is undefined.
+\end{DoxyNote}
+
+\begin{DoxyParams}{参数}
+{\em build} & The build table, from which the hash table is built \\
+\hline
+{\em compare\+\_\+nulls} & Controls whether null join-\/key values should match or not \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1hash__join_a25a992ad835bf7af5869f914f3181160}\label{classcudf_1_1hash__join_a25a992ad835bf7af5869f914f3181160} 
+\index{cudf::hash\_join@{cudf::hash\_join}!full\_join@{full\_join}}
+\index{full\_join@{full\_join}!cudf::hash\_join@{cudf::hash\_join}}
+\doxysubsubsection{\texorpdfstring{full\_join()}{full\_join()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::unique\+\_\+ptr$<$ rmm\+::device\+\_\+uvector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ $>$, std\+::unique\+\_\+ptr$<$ rmm\+::device\+\_\+uvector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ $>$ $>$ cudf\+::hash\+\_\+join\+::full\+\_\+join (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&}]{probe,  }\item[{std\+::optional$<$ std\+::size\+\_\+t $>$}]{output\+\_\+size = {\ttfamily \{\}},  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream = {\ttfamily \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}()},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption}) const}
+
+Returns the row indices that can be used to construct the result of performing a full join between two tables. \begin{DoxySeeAlso}{参见}
+\doxylink{group__column__join_ga2a114dd54b0275e7d6a2f48c49be0764}{cudf\+::full\+\_\+join()}. Behavior is undefined if the provided {\ttfamily output\+\_\+size} is smaller than the actual output size.
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{参数}
+{\em probe} & The probe table, from which the tuples are probed \\
+\hline
+{\em output\+\_\+size} & Optional value which allows users to specify the exact output size \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned table and columns\textquotesingle{} device memory.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A pair of columns \mbox{[}{\ttfamily left\+\_\+indices}, {\ttfamily right\+\_\+indices}\mbox{]} that can be used to construct the result of performing a full join between two tables with {\ttfamily build} and {\ttfamily probe} as the the join keys . 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1hash__join_a797523ea71d97d8f5d8eb076a8303236}\label{classcudf_1_1hash__join_a797523ea71d97d8f5d8eb076a8303236} 
+\index{cudf::hash\_join@{cudf::hash\_join}!full\_join\_size@{full\_join\_size}}
+\index{full\_join\_size@{full\_join\_size}!cudf::hash\_join@{cudf::hash\_join}}
+\doxysubsubsection{\texorpdfstring{full\_join\_size()}{full\_join\_size()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t cudf\+::hash\+\_\+join\+::full\+\_\+join\+\_\+size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&}]{probe,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream = {\ttfamily \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}()},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption}) const}
+
+Returns the exact number of matches (rows) when performing a full join with the specified probe table.
+
+
+\begin{DoxyParams}{参数}
+{\em probe} & The probe table, from which the tuples are probed \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches \\
+\hline
+{\em mr} & Device memory resource used to allocate the intermediate table and columns\textquotesingle{} device memory.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The exact number of output when performing a full join between two tables with {\ttfamily build} and {\ttfamily probe} as the the join keys . 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1hash__join_a5fb5252bdf3b8a4acba88ad29a4d3778}\label{classcudf_1_1hash__join_a5fb5252bdf3b8a4acba88ad29a4d3778} 
+\index{cudf::hash\_join@{cudf::hash\_join}!inner\_join@{inner\_join}}
+\index{inner\_join@{inner\_join}!cudf::hash\_join@{cudf::hash\_join}}
+\doxysubsubsection{\texorpdfstring{inner\_join()}{inner\_join()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::unique\+\_\+ptr$<$ rmm\+::device\+\_\+uvector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ $>$, std\+::unique\+\_\+ptr$<$ rmm\+::device\+\_\+uvector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ $>$ $>$ cudf\+::hash\+\_\+join\+::inner\+\_\+join (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&}]{probe,  }\item[{std\+::optional$<$ std\+::size\+\_\+t $>$}]{output\+\_\+size = {\ttfamily \{\}},  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream = {\ttfamily \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}()},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption}) const}
+
+Returns the row indices that can be used to construct the result of performing an inner join between two tables. \begin{DoxySeeAlso}{参见}
+\doxylink{group__column__join_gaaec6479cb2464d59cc29756420a3fe1c}{cudf\+::inner\+\_\+join()}. Behavior is undefined if the provided {\ttfamily output\+\_\+size} is smaller than the actual output size.
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{参数}
+{\em probe} & The probe table, from which the tuples are probed \\
+\hline
+{\em output\+\_\+size} & Optional value which allows users to specify the exact output size \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned table and columns\textquotesingle{} device memory.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A pair of columns \mbox{[}{\ttfamily left\+\_\+indices}, {\ttfamily right\+\_\+indices}\mbox{]} that can be used to construct the result of performing an inner join between two tables with {\ttfamily build} and {\ttfamily probe} as the the join keys . 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1hash__join_a85d5aafccb5ed61826503367ee849822}\label{classcudf_1_1hash__join_a85d5aafccb5ed61826503367ee849822} 
+\index{cudf::hash\_join@{cudf::hash\_join}!inner\_join\_size@{inner\_join\_size}}
+\index{inner\_join\_size@{inner\_join\_size}!cudf::hash\_join@{cudf::hash\_join}}
+\doxysubsubsection{\texorpdfstring{inner\_join\_size()}{inner\_join\_size()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t cudf\+::hash\+\_\+join\+::inner\+\_\+join\+\_\+size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&}]{probe,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream = {\ttfamily \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}()} }\end{DoxyParamCaption}) const}
+
+Returns the exact number of matches (rows) when performing an inner join with the specified probe table.
+
+
+\begin{DoxyParams}{参数}
+{\em probe} & The probe table, from which the tuples are probed \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The exact number of output when performing an inner join between two tables with {\ttfamily build} and {\ttfamily probe} as the the join keys . 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1hash__join_aa0c6688a4876c11717668660f52b2e35}\label{classcudf_1_1hash__join_aa0c6688a4876c11717668660f52b2e35} 
+\index{cudf::hash\_join@{cudf::hash\_join}!left\_join@{left\_join}}
+\index{left\_join@{left\_join}!cudf::hash\_join@{cudf::hash\_join}}
+\doxysubsubsection{\texorpdfstring{left\_join()}{left\_join()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::unique\+\_\+ptr$<$ rmm\+::device\+\_\+uvector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ $>$, std\+::unique\+\_\+ptr$<$ rmm\+::device\+\_\+uvector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ $>$ $>$ cudf\+::hash\+\_\+join\+::left\+\_\+join (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&}]{probe,  }\item[{std\+::optional$<$ std\+::size\+\_\+t $>$}]{output\+\_\+size = {\ttfamily \{\}},  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream = {\ttfamily \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}()},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption}) const}
+
+Returns the row indices that can be used to construct the result of performing a left join between two tables. \begin{DoxySeeAlso}{参见}
+\doxylink{group__column__join_gaaf40dc6e73a5aac3e0201dd7e5b939e3}{cudf\+::left\+\_\+join()}. Behavior is undefined if the provided {\ttfamily output\+\_\+size} is smaller than the actual output size.
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{参数}
+{\em probe} & The probe table, from which the tuples are probed \\
+\hline
+{\em output\+\_\+size} & Optional value which allows users to specify the exact output size \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned table and columns\textquotesingle{} device memory.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A pair of columns \mbox{[}{\ttfamily left\+\_\+indices}, {\ttfamily right\+\_\+indices}\mbox{]} that can be used to construct the result of performing a left join between two tables with {\ttfamily build} and {\ttfamily probe} as the the join keys . 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1hash__join_a3df048507614481af13b4eb6aafebaa7}\label{classcudf_1_1hash__join_a3df048507614481af13b4eb6aafebaa7} 
+\index{cudf::hash\_join@{cudf::hash\_join}!left\_join\_size@{left\_join\_size}}
+\index{left\_join\_size@{left\_join\_size}!cudf::hash\_join@{cudf::hash\_join}}
+\doxysubsubsection{\texorpdfstring{left\_join\_size()}{left\_join\_size()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t cudf\+::hash\+\_\+join\+::left\+\_\+join\+\_\+size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&}]{probe,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream = {\ttfamily \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}()} }\end{DoxyParamCaption}) const}
+
+Returns the exact number of matches (rows) when performing a left join with the specified probe table.
+
+
+\begin{DoxyParams}{参数}
+{\em probe} & The probe table, from which the tuples are probed \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The exact number of output when performing a left join between two tables with {\ttfamily build} and {\ttfamily probe} as the the join keys . 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1hash__join_aa92b945ba5f9285a373cf34ad87148bf}\label{classcudf_1_1hash__join_aa92b945ba5f9285a373cf34ad87148bf} 
+\index{cudf::hash\_join@{cudf::hash\_join}!operator=@{operator=}}
+\index{operator=@{operator=}!cudf::hash\_join@{cudf::hash\_join}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1hash__join}{hash\+\_\+join}} \& cudf\+::hash\+\_\+join\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1hash__join}{hash\+\_\+join}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classcudf_1_1hash__join_a47350e93b484b5701be7bf9a43991763}\label{classcudf_1_1hash__join_a47350e93b484b5701be7bf9a43991763} 
+\index{cudf::hash\_join@{cudf::hash\_join}!operator=@{operator=}}
+\index{operator=@{operator=}!cudf::hash\_join@{cudf::hash\_join}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1hash__join}{hash\+\_\+join}} \& cudf\+::hash\+\_\+join\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1hash__join}{hash\+\_\+join}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1hash__join_a4ac5835b6f7fa18829bb675c5b1f48aa}\label{classcudf_1_1hash__join_a4ac5835b6f7fa18829bb675c5b1f48aa} 
+\index{cudf::hash\_join@{cudf::hash\_join}!\_impl@{\_impl}}
+\index{\_impl@{\_impl}!cudf::hash\_join@{cudf::hash\_join}}
+\doxysubsubsection{\texorpdfstring{\_impl}{\_impl}}
+{\footnotesize\ttfamily const std\+::unique\+\_\+ptr$<$const \mbox{\hyperlink{classcudf_1_1hash__join_af6e59c597e8cdf9613fd3da41971f43c}{impl\+\_\+type}}$>$ cudf\+::hash\+\_\+join\+::\+\_\+impl\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{join_8hpp_source}{join.\+hpp}} 第 \mbox{\hyperlink{join_8hpp_source_l00402}{402}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/\mbox{\hyperlink{join_8hpp}{join.\+hpp}}\end{DoxyCompactItemize}

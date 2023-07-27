@@ -1,0 +1,36 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/detail/unary.hpp 文件参考}
+\hypertarget{detail_2unary_8hpp}{}\label{detail_2unary_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/detail/unary.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/detail/unary.hpp}}
+{\ttfamily \#include $<$cudf/column/column\+\_\+factories.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/unary.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/utilities/default\+\_\+stream.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/cuda\+\_\+stream\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/exec\+\_\+policy.\+hpp$>$}\newline
+{\ttfamily \#include $<$thrust/transform.\+h$>$}\newline
+unary.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{detail_2unary_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1detail}{cudf\+::detail}}
+\begin{DoxyCompactList}\small\item\em Inner interfaces and implementations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Input\+Iterator , typename Predicate $>$ }\\std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_ac0e1aa6f630065804422ba95e76da8f2}{cudf\+::detail\+::true\+\_\+if}} (Input\+Iterator begin, Input\+Iterator end, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} size, Predicate p, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Creates a column of {\ttfamily \doxylink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a05afd9eb8887a406d47474cd3809a5dd}{type\+\_\+id\+::\+BOOL8}} elements by applying a predicate to every element between \mbox{[}{\ttfamily begin,}end{\ttfamily )}true{\ttfamily indicates the value is satisfies the predicate and}false\`{} indicates it doesn\textquotesingle{}t. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_acc1d1df6733679d2f522bd838eae342a}{cudf\+::detail\+::unary\+\_\+operation}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&input, \mbox{\hyperlink{group__transformation__unaryops_ga030e62f30b296602f398e70d1ca657c4}{cudf\+::unary\+\_\+operator}} op, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs unary op on all values in column   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_ac2d9341a3c49eb3b9d237d9da1c1e5ac}{cudf\+::detail\+::cast}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Casts data from dtype specified in input to dtype specified in output.   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_a87fb076548c816c8477d213d3b56362a}{cudf\+::detail\+::is\+\_\+nan}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&input, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Creates a column of {\ttfamily \doxylink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a05afd9eb8887a406d47474cd3809a5dd}{type\+\_\+id\+::\+BOOL8}} elements indicating the presence of {\ttfamily NaN} values in a column of floating point values. The output element at row {\ttfamily i} is {\ttfamily true} if the element in {\ttfamily input} at row i is {\ttfamily NAN}, else {\ttfamily false}   \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{namespacecudf_1_1detail_aab222fc99bdf3b292820aa2502058869}{cudf\+::detail\+::is\+\_\+not\+\_\+nan}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&input, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Creates a column of {\ttfamily \doxylink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a05afd9eb8887a406d47474cd3809a5dd}{type\+\_\+id\+::\+BOOL8}} elements indicating the absence of {\ttfamily NaN} values in a column of floating point values. The output element at row {\ttfamily i} is {\ttfamily false} if the element in {\ttfamily input} at row i is {\ttfamily NAN}, else {\ttfamily true}   \end{DoxyCompactList}\end{DoxyCompactItemize}

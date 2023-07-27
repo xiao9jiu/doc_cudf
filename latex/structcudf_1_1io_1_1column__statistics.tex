@@ -1,0 +1,112 @@
+\doxysection{cudf\+::io\+::column\+\_\+statistics结构体 参考}
+\hypertarget{structcudf_1_1io_1_1column__statistics}{}\label{structcudf_1_1io_1_1column__statistics}\index{cudf::io::column\_statistics@{cudf::io::column\_statistics}}
+
+
+Contains per-\/column ORC statistics.  
+
+
+
+
+{\ttfamily \#include $<$orc\+\_\+metadata.\+hpp$>$}
+
+
+
+cudf\+::io\+::column\+\_\+statistics 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{structcudf_1_1io_1_1column__statistics__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1column__statistics_ac615b0af3c06eed692dc6af3829bcb56}{column\+\_\+statistics}} (orc\+::column\+\_\+statistics \&\&detail\+\_\+statistics)
+\begin{DoxyCompactList}\small\item\em Construct a new column statistics object \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+std\+::optional$<$ uint64\+\_\+t $>$ \mbox{\hyperlink{structcudf_1_1io_1_1column__statistics_a951bbe26ea9bbd2a701c9c7927318886}{number\+\_\+of\+\_\+values}}
+\begin{DoxyCompactList}\small\item\em number of statistics \end{DoxyCompactList}\item 
+std\+::optional$<$ bool $>$ \mbox{\hyperlink{structcudf_1_1io_1_1column__statistics_ab6f4122dd213847d16718e67f9df76cd}{has\+\_\+null}}
+\begin{DoxyCompactList}\small\item\em column has any nulls \end{DoxyCompactList}\item 
+std\+::variant$<$ \mbox{\hyperlink{namespacecudf_1_1io_a9f776ed5167dffd65625471a7bdb3996}{no\+\_\+statistics}}, \mbox{\hyperlink{structcudf_1_1io_1_1integer__statistics}{integer\+\_\+statistics}}, \mbox{\hyperlink{structcudf_1_1io_1_1double__statistics}{double\+\_\+statistics}}, \mbox{\hyperlink{structcudf_1_1io_1_1string__statistics}{string\+\_\+statistics}}, \mbox{\hyperlink{structcudf_1_1io_1_1bucket__statistics}{bucket\+\_\+statistics}}, \mbox{\hyperlink{structcudf_1_1io_1_1decimal__statistics}{decimal\+\_\+statistics}}, \mbox{\hyperlink{namespacecudf_1_1io_a7db6680f79f2ca2f8fab3ca6e349582d}{date\+\_\+statistics}}, \mbox{\hyperlink{namespacecudf_1_1io_a088a78a3e5d3e680910436b6ced538cf}{binary\+\_\+statistics}}, \mbox{\hyperlink{structcudf_1_1io_1_1timestamp__statistics}{timestamp\+\_\+statistics}} $>$ \mbox{\hyperlink{structcudf_1_1io_1_1column__statistics_acab0a6e77faac173089d33abc8d78973}{type\+\_\+specific\+\_\+stats}}
+\begin{DoxyCompactList}\small\item\em type-\/specific statistics \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Contains per-\/column ORC statistics. 
+
+All columns can have the {\ttfamily number\+\_\+of\+\_\+values} statistics. Depending on the data type, a column can have additional statistics, accessible through {\ttfamily type\+\_\+specific\+\_\+stats} accessor. 
+
+在文件 \mbox{\hyperlink{orc__metadata_8hpp_source}{orc\+\_\+metadata.\+hpp}} 第 \mbox{\hyperlink{orc__metadata_8hpp_source_l00165}{165}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{structcudf_1_1io_1_1column__statistics_ac615b0af3c06eed692dc6af3829bcb56}\label{structcudf_1_1io_1_1column__statistics_ac615b0af3c06eed692dc6af3829bcb56} 
+\index{cudf::io::column\_statistics@{cudf::io::column\_statistics}!column\_statistics@{column\_statistics}}
+\index{column\_statistics@{column\_statistics}!cudf::io::column\_statistics@{cudf::io::column\_statistics}}
+\doxysubsubsection{\texorpdfstring{column\_statistics()}{column\_statistics()}}
+{\footnotesize\ttfamily cudf\+::io\+::column\+\_\+statistics\+::column\+\_\+statistics (\begin{DoxyParamCaption}\item[{orc\+::column\+\_\+statistics \&\&}]{detail\+\_\+statistics }\end{DoxyParamCaption})}
+
+
+
+Construct a new column statistics object 
+
+
+\begin{DoxyParams}{参数}
+{\em detail\+\_\+statistics} & The statistics to initialize the object with \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{structcudf_1_1io_1_1column__statistics_ab6f4122dd213847d16718e67f9df76cd}\label{structcudf_1_1io_1_1column__statistics_ab6f4122dd213847d16718e67f9df76cd} 
+\index{cudf::io::column\_statistics@{cudf::io::column\_statistics}!has\_null@{has\_null}}
+\index{has\_null@{has\_null}!cudf::io::column\_statistics@{cudf::io::column\_statistics}}
+\doxysubsubsection{\texorpdfstring{has\_null}{has\_null}}
+{\footnotesize\ttfamily std\+::optional$<$bool$>$ cudf\+::io\+::column\+\_\+statistics\+::has\+\_\+null}
+
+
+
+column has any nulls 
+
+
+
+在文件 \mbox{\hyperlink{orc__metadata_8hpp_source}{orc\+\_\+metadata.\+hpp}} 第 \mbox{\hyperlink{orc__metadata_8hpp_source_l00167}{167}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1column__statistics_a951bbe26ea9bbd2a701c9c7927318886}\label{structcudf_1_1io_1_1column__statistics_a951bbe26ea9bbd2a701c9c7927318886} 
+\index{cudf::io::column\_statistics@{cudf::io::column\_statistics}!number\_of\_values@{number\_of\_values}}
+\index{number\_of\_values@{number\_of\_values}!cudf::io::column\_statistics@{cudf::io::column\_statistics}}
+\doxysubsubsection{\texorpdfstring{number\_of\_values}{number\_of\_values}}
+{\footnotesize\ttfamily std\+::optional$<$uint64\+\_\+t$>$ cudf\+::io\+::column\+\_\+statistics\+::number\+\_\+of\+\_\+values}
+
+
+
+number of statistics 
+
+
+
+在文件 \mbox{\hyperlink{orc__metadata_8hpp_source}{orc\+\_\+metadata.\+hpp}} 第 \mbox{\hyperlink{orc__metadata_8hpp_source_l00166}{166}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1column__statistics_acab0a6e77faac173089d33abc8d78973}\label{structcudf_1_1io_1_1column__statistics_acab0a6e77faac173089d33abc8d78973} 
+\index{cudf::io::column\_statistics@{cudf::io::column\_statistics}!type\_specific\_stats@{type\_specific\_stats}}
+\index{type\_specific\_stats@{type\_specific\_stats}!cudf::io::column\_statistics@{cudf::io::column\_statistics}}
+\doxysubsubsection{\texorpdfstring{type\_specific\_stats}{type\_specific\_stats}}
+{\footnotesize\ttfamily std\+::variant$<$\mbox{\hyperlink{namespacecudf_1_1io_a9f776ed5167dffd65625471a7bdb3996}{no\+\_\+statistics}}, \mbox{\hyperlink{structcudf_1_1io_1_1integer__statistics}{integer\+\_\+statistics}}, \mbox{\hyperlink{structcudf_1_1io_1_1double__statistics}{double\+\_\+statistics}}, \mbox{\hyperlink{structcudf_1_1io_1_1string__statistics}{string\+\_\+statistics}}, \mbox{\hyperlink{structcudf_1_1io_1_1bucket__statistics}{bucket\+\_\+statistics}}, \mbox{\hyperlink{structcudf_1_1io_1_1decimal__statistics}{decimal\+\_\+statistics}}, \mbox{\hyperlink{namespacecudf_1_1io_a7db6680f79f2ca2f8fab3ca6e349582d}{date\+\_\+statistics}}, \mbox{\hyperlink{namespacecudf_1_1io_a088a78a3e5d3e680910436b6ced538cf}{binary\+\_\+statistics}}, \mbox{\hyperlink{structcudf_1_1io_1_1timestamp__statistics}{timestamp\+\_\+statistics}}$>$ cudf\+::io\+::column\+\_\+statistics\+::type\+\_\+specific\+\_\+stats}
+
+
+
+type-\/specific statistics 
+
+
+
+在文件 \mbox{\hyperlink{orc__metadata_8hpp_source}{orc\+\_\+metadata.\+hpp}} 第 \mbox{\hyperlink{orc__metadata_8hpp_source_l00177}{177}} 行定义.
+
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/\mbox{\hyperlink{orc__metadata_8hpp}{orc\+\_\+metadata.\+hpp}}\end{DoxyCompactItemize}

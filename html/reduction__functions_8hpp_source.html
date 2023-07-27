@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: D:/gitLibrary/cudf/cpp/include/cudf/detail/reduction_functions.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('reduction__functions_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">reduction_functions.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="reduction__functions_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright (c) 2019-2022, NVIDIA CORPORATION.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;<a class="code" href="column__view_8hpp.html">cudf/column/column_view.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;<a class="code" href="lists__column__view_8hpp.html">cudf/lists/lists_column_view.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;<a class="code" href="scalar_8hpp.html">cudf/scalar/scalar.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;<a class="code" href="utilities_2default__stream_8hpp.html">cudf/utilities/default_stream.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;rmm/cuda_stream_view.hpp&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecudf.html">cudf</a> {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="namespacecudf_1_1reduction.html">   29</a></span><span class="keyword">namespace </span>reduction {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="namespacecudf_1_1reduction.html#a9a503d34c025917580be5ea1a6568ebf">   45</a></span>std::unique_ptr&lt;scalar&gt; <a class="code hl_function" href="namespacecudf_1_1reduction.html#a9a503d34c025917580be5ea1a6568ebf">sum</a>(</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; col,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  <a class="code hl_class" href="classcudf_1_1data__type.html">data_type</a> <span class="keyword">const</span> output_dtype,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  std::optional&lt;std::reference_wrapper&lt;scalar const&gt;&gt; init,</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="namespacecudf_1_1reduction.html#a0c5e479724e5503b71adf996a0b68c04">   66</a></span>std::unique_ptr&lt;scalar&gt; <a class="code hl_function" href="namespacecudf_1_1reduction.html#a0c5e479724e5503b71adf996a0b68c04">min</a>(</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; col,</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  <a class="code hl_class" href="classcudf_1_1data__type.html">data_type</a> <span class="keyword">const</span> output_dtype,</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  std::optional&lt;std::reference_wrapper&lt;scalar const&gt;&gt; init,</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="namespacecudf_1_1reduction.html#a29dd4f5e84ae4b9bc228206db25368d4">   87</a></span>std::unique_ptr&lt;scalar&gt; <a class="code hl_function" href="namespacecudf_1_1reduction.html#a29dd4f5e84ae4b9bc228206db25368d4">max</a>(</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; col,</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  <a class="code hl_class" href="classcudf_1_1data__type.html">data_type</a> <span class="keyword">const</span> output_dtype,</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>  std::optional&lt;std::reference_wrapper&lt;scalar const&gt;&gt; init,</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="namespacecudf_1_1reduction.html#a64e329fd7a5066a411ae8f3628b9051c">  109</a></span>std::unique_ptr&lt;scalar&gt; <a class="code hl_function" href="namespacecudf_1_1reduction.html#a64e329fd7a5066a411ae8f3628b9051c">any</a>(</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; col,</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>  <a class="code hl_class" href="classcudf_1_1data__type.html">data_type</a> <span class="keyword">const</span> output_dtype,</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>  std::optional&lt;std::reference_wrapper&lt;scalar const&gt;&gt; init,</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="namespacecudf_1_1reduction.html#ae94ffdbae58138ae7361cf89c88abd5f">  131</a></span>std::unique_ptr&lt;scalar&gt; <a class="code hl_function" href="namespacecudf_1_1reduction.html#ae94ffdbae58138ae7361cf89c88abd5f">all</a>(</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; col,</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>  <a class="code hl_class" href="classcudf_1_1data__type.html">data_type</a> <span class="keyword">const</span> output_dtype,</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>  std::optional&lt;std::reference_wrapper&lt;scalar const&gt;&gt; init,</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="namespacecudf_1_1reduction.html#adc241ef3a5aa4b0cba78ff7810574c96">  153</a></span>std::unique_ptr&lt;scalar&gt; <a class="code hl_function" href="namespacecudf_1_1reduction.html#adc241ef3a5aa4b0cba78ff7810574c96">product</a>(</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; col,</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>  <a class="code hl_class" href="classcudf_1_1data__type.html">data_type</a> <span class="keyword">const</span> output_dtype,</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>  std::optional&lt;std::reference_wrapper&lt;scalar const&gt;&gt; init,</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="namespacecudf_1_1reduction.html#a4dcc7883ec004ce6f6e5c758a60efd18">  174</a></span>std::unique_ptr&lt;scalar&gt; <a class="code hl_function" href="namespacecudf_1_1reduction.html#a4dcc7883ec004ce6f6e5c758a60efd18">sum_of_squares</a>(</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; col,</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>  <a class="code hl_class" href="classcudf_1_1data__type.html">data_type</a> <span class="keyword">const</span> output_dtype,</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno"><a class="line" href="namespacecudf_1_1reduction.html#af83cfb3bb693eb3496293af7ffa45fdb">  194</a></span>std::unique_ptr&lt;scalar&gt; <a class="code hl_function" href="namespacecudf_1_1reduction.html#af83cfb3bb693eb3496293af7ffa45fdb">mean</a>(</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; col,</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>  <a class="code hl_class" href="classcudf_1_1data__type.html">data_type</a> <span class="keyword">const</span> output_dtype,</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno"><a class="line" href="namespacecudf_1_1reduction.html#aeede968555f08573779b5505c320aaa8">  216</a></span>std::unique_ptr&lt;scalar&gt; <a class="code hl_function" href="namespacecudf_1_1reduction.html#aeede968555f08573779b5505c320aaa8">variance</a>(</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; col,</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>  <a class="code hl_class" href="classcudf_1_1data__type.html">data_type</a> <span class="keyword">const</span> output_dtype,</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">cudf::size_type</a> ddof,</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno"><a class="line" href="namespacecudf_1_1reduction.html#a247bd864b5acc46b0e7f0b55b2ef4f60">  239</a></span>std::unique_ptr&lt;scalar&gt; <a class="code hl_function" href="namespacecudf_1_1reduction.html#a247bd864b5acc46b0e7f0b55b2ef4f60">standard_deviation</a>(</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; col,</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>  <a class="code hl_class" href="classcudf_1_1data__type.html">data_type</a> <span class="keyword">const</span> output_dtype,</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">cudf::size_type</a> ddof,</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno"><a class="line" href="namespacecudf_1_1reduction.html#ae5d1648bba2207642bdaeede15159517">  270</a></span>std::unique_ptr&lt;scalar&gt; <a class="code hl_function" href="namespacecudf_1_1reduction.html#ae5d1648bba2207642bdaeede15159517">nth_element</a>(</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; col,</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>  <a class="code hl_typedef" href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">size_type</a> n,</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>  <a class="code hl_enumeration" href="group__utility__types.html#ga1b8cda4afb95a7c42c4679b4fae61009">null_policy</a> null_handling,</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno"><a class="line" href="namespacecudf_1_1reduction.html#a7104f29005c8ccb64ffcf5058de27057">  286</a></span>std::unique_ptr&lt;scalar&gt; <a class="code hl_function" href="namespacecudf_1_1reduction.html#a7104f29005c8ccb64ffcf5058de27057">collect_list</a>(</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; col,</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>  <a class="code hl_enumeration" href="group__utility__types.html#ga1b8cda4afb95a7c42c4679b4fae61009">null_policy</a> null_handling,</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span> </div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno"><a class="line" href="namespacecudf_1_1reduction.html#a8209e36dbd687aeb171bf311b2e0608e">  300</a></span>std::unique_ptr&lt;scalar&gt; <a class="code hl_function" href="namespacecudf_1_1reduction.html#a8209e36dbd687aeb171bf311b2e0608e">merge_lists</a>(</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>  <a class="code hl_class" href="classcudf_1_1lists__column__view.html">lists_column_view</a> <span class="keyword">const</span>&amp; col,</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span> </div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno"><a class="line" href="namespacecudf_1_1reduction.html#a9094ea070874b5604fad9d590c528f68">  316</a></span>std::unique_ptr&lt;scalar&gt; <a class="code hl_function" href="namespacecudf_1_1reduction.html#a9094ea070874b5604fad9d590c528f68">collect_set</a>(</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; col,</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>  <a class="code hl_enumeration" href="group__utility__types.html#ga1b8cda4afb95a7c42c4679b4fae61009">null_policy</a> null_handling,</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>  <a class="code hl_enumeration" href="group__utility__types.html#ga08a672308cd0f61562410d106b377771">null_equality</a> nulls_equal,</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>  <a class="code hl_enumeration" href="group__utility__types.html#gae9d1055c69c3089452794783c7c82f83">nan_equality</a> nans_equal,</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> </div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno"><a class="line" href="namespacecudf_1_1reduction.html#a46f2323908757ae7f11dcbd1ffc3c8c8">  334</a></span>std::unique_ptr&lt;scalar&gt; <a class="code hl_function" href="namespacecudf_1_1reduction.html#a46f2323908757ae7f11dcbd1ffc3c8c8">merge_sets</a>(</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>  <a class="code hl_class" href="classcudf_1_1lists__column__view.html">lists_column_view</a> <span class="keyword">const</span>&amp; col,</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>  <a class="code hl_enumeration" href="group__utility__types.html#ga08a672308cd0f61562410d106b377771">null_equality</a> nulls_equal,</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>  <a class="code hl_enumeration" href="group__utility__types.html#gae9d1055c69c3089452794783c7c82f83">nan_equality</a> nans_equal,</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span> </div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno"><a class="line" href="namespacecudf_1_1reduction.html#ae4dbf5143ee605cc85b3b035c08ef77f">  360</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="namespacecudf_1_1reduction.html#ae4dbf5143ee605cc85b3b035c08ef77f">segmented_sum</a>(</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; col,</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>  <a class="code hl_struct" href="structcudf_1_1device__span.html">device_span&lt;size_type const&gt;</a> offsets,</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>  <a class="code hl_class" href="classcudf_1_1data__type.html">data_type</a> <span class="keyword">const</span> output_dtype,</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>  <a class="code hl_enumeration" href="group__utility__types.html#ga1b8cda4afb95a7c42c4679b4fae61009">null_policy</a> null_handling,</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>  std::optional&lt;std::reference_wrapper&lt;scalar const&gt;&gt; init,</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span> </div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno"><a class="line" href="namespacecudf_1_1reduction.html#a289b02e26d06685c96a688cfa839624d">  388</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="namespacecudf_1_1reduction.html#a289b02e26d06685c96a688cfa839624d">segmented_product</a>(</div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; col,</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>  <a class="code hl_struct" href="structcudf_1_1device__span.html">device_span&lt;size_type const&gt;</a> offsets,</div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>  <a class="code hl_class" href="classcudf_1_1data__type.html">data_type</a> <span class="keyword">const</span> output_dtype,</div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>  <a class="code hl_enumeration" href="group__utility__types.html#ga1b8cda4afb95a7c42c4679b4fae61009">null_policy</a> null_handling,</div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>  std::optional&lt;std::reference_wrapper&lt;scalar const&gt;&gt; init,</div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span> </div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno"><a class="line" href="namespacecudf_1_1reduction.html#abe78326ad4cf3104d24f1703f6e747c9">  415</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="namespacecudf_1_1reduction.html#abe78326ad4cf3104d24f1703f6e747c9">segmented_min</a>(</div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; col,</div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>  <a class="code hl_struct" href="structcudf_1_1device__span.html">device_span&lt;size_type const&gt;</a> offsets,</div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>  <a class="code hl_class" href="classcudf_1_1data__type.html">data_type</a> <span class="keyword">const</span> output_dtype,</div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>  <a class="code hl_enumeration" href="group__utility__types.html#ga1b8cda4afb95a7c42c4679b4fae61009">null_policy</a> null_handling,</div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>  std::optional&lt;std::reference_wrapper&lt;scalar const&gt;&gt; init,</div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span> </div>
+<div class="line"><a id="l00442" name="l00442"></a><span class="lineno"><a class="line" href="namespacecudf_1_1reduction.html#ae1f92c0c0419d57cb10a36b7187965cf">  442</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="namespacecudf_1_1reduction.html#ae1f92c0c0419d57cb10a36b7187965cf">segmented_max</a>(</div>
+<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; col,</div>
+<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span>  <a class="code hl_struct" href="structcudf_1_1device__span.html">device_span&lt;size_type const&gt;</a> offsets,</div>
+<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span>  <a class="code hl_class" href="classcudf_1_1data__type.html">data_type</a> <span class="keyword">const</span> output_dtype,</div>
+<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>  <a class="code hl_enumeration" href="group__utility__types.html#ga1b8cda4afb95a7c42c4679b4fae61009">null_policy</a> null_handling,</div>
+<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span>  std::optional&lt;std::reference_wrapper&lt;scalar const&gt;&gt; init,</div>
+<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span> </div>
+<div class="line"><a id="l00470" name="l00470"></a><span class="lineno"><a class="line" href="namespacecudf_1_1reduction.html#a8f1f323e8eadc88a832efccac948165b">  470</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="namespacecudf_1_1reduction.html#a8f1f323e8eadc88a832efccac948165b">segmented_any</a>(</div>
+<div class="line"><a id="l00471" name="l00471"></a><span class="lineno">  471</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; col,</div>
+<div class="line"><a id="l00472" name="l00472"></a><span class="lineno">  472</span>  <a class="code hl_struct" href="structcudf_1_1device__span.html">device_span&lt;size_type const&gt;</a> offsets,</div>
+<div class="line"><a id="l00473" name="l00473"></a><span class="lineno">  473</span>  <a class="code hl_class" href="classcudf_1_1data__type.html">data_type</a> <span class="keyword">const</span> output_dtype,</div>
+<div class="line"><a id="l00474" name="l00474"></a><span class="lineno">  474</span>  <a class="code hl_enumeration" href="group__utility__types.html#ga1b8cda4afb95a7c42c4679b4fae61009">null_policy</a> null_handling,</div>
+<div class="line"><a id="l00475" name="l00475"></a><span class="lineno">  475</span>  std::optional&lt;std::reference_wrapper&lt;scalar const&gt;&gt; init,</div>
+<div class="line"><a id="l00476" name="l00476"></a><span class="lineno">  476</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00477" name="l00477"></a><span class="lineno">  477</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00478" name="l00478"></a><span class="lineno">  478</span> </div>
+<div class="line"><a id="l00498" name="l00498"></a><span class="lineno"><a class="line" href="namespacecudf_1_1reduction.html#a3b5f91f97f6d4b17b435e4f509a57ddd">  498</a></span>std::unique_ptr&lt;column&gt; <a class="code hl_function" href="namespacecudf_1_1reduction.html#a3b5f91f97f6d4b17b435e4f509a57ddd">segmented_all</a>(</div>
+<div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span>  <a class="code hl_class" href="classcudf_1_1column__view.html">column_view</a> <span class="keyword">const</span>&amp; col,</div>
+<div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span>  <a class="code hl_struct" href="structcudf_1_1device__span.html">device_span&lt;size_type const&gt;</a> offsets,</div>
+<div class="line"><a id="l00501" name="l00501"></a><span class="lineno">  501</span>  <a class="code hl_class" href="classcudf_1_1data__type.html">data_type</a> <span class="keyword">const</span> output_dtype,</div>
+<div class="line"><a id="l00502" name="l00502"></a><span class="lineno">  502</span>  <a class="code hl_enumeration" href="group__utility__types.html#ga1b8cda4afb95a7c42c4679b4fae61009">null_policy</a> null_handling,</div>
+<div class="line"><a id="l00503" name="l00503"></a><span class="lineno">  503</span>  std::optional&lt;std::reference_wrapper&lt;scalar const&gt;&gt; init,</div>
+<div class="line"><a id="l00504" name="l00504"></a><span class="lineno">  504</span>  rmm::cuda_stream_view stream,</div>
+<div class="line"><a id="l00505" name="l00505"></a><span class="lineno">  505</span>  rmm::mr::device_memory_resource* mr = rmm::mr::get_current_device_resource());</div>
+<div class="line"><a id="l00506" name="l00506"></a><span class="lineno">  506</span> </div>
+<div class="line"><a id="l00507" name="l00507"></a><span class="lineno">  507</span>}  <span class="comment">// namespace reduction</span></div>
+<div class="line"><a id="l00508" name="l00508"></a><span class="lineno">  508</span>}  <span class="comment">// namespace cudf</span></div>
+<div class="ttc" id="aclasscudf_1_1column__view_html"><div class="ttname"><a href="classcudf_1_1column__view.html">cudf::column_view</a></div><div class="ttdoc">A non-owning, immutable view of device data as a column of elements, some of which may be null as ind...</div><div class="ttdef"><b>Definition</b> <a href="column__view_8hpp_source.html#l00322">column_view.hpp:322</a></div></div>
+<div class="ttc" id="aclasscudf_1_1data__type_html"><div class="ttname"><a href="classcudf_1_1data__type.html">cudf::data_type</a></div><div class="ttdoc">Indicator for the logical data type of an element in a column.</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00236">types.hpp:236</a></div></div>
+<div class="ttc" id="aclasscudf_1_1lists__column__view_html"><div class="ttname"><a href="classcudf_1_1lists__column__view.html">cudf::lists_column_view</a></div><div class="ttdoc">Given a column-view of lists type, an instance of this class provides a wrapper on this compound colu...</div><div class="ttdef"><b>Definition</b> <a href="lists__column__view_8hpp_source.html#l00039">lists_column_view.hpp:39</a></div></div>
+<div class="ttc" id="acolumn__view_8hpp_html"><div class="ttname"><a href="column__view_8hpp.html">column_view.hpp</a></div><div class="ttdoc">column view class definitions</div></div>
+<div class="ttc" id="agroup__utility__types_html_ga08a672308cd0f61562410d106b377771"><div class="ttname"><a href="group__utility__types.html#ga08a672308cd0f61562410d106b377771">cudf::null_equality</a></div><div class="ttdeci">null_equality</div><div class="ttdoc">Enum to consider two nulls as equal or unequal</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00144">types.hpp:144</a></div></div>
+<div class="ttc" id="agroup__utility__types_html_ga0aff16b2db009d92300befaca11827e9"><div class="ttname"><a href="group__utility__types.html#ga0aff16b2db009d92300befaca11827e9">cudf::size_type</a></div><div class="ttdeci">int32_t size_type</div><div class="ttdoc">Row index type for columns and tables</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00080">types.hpp:80</a></div></div>
+<div class="ttc" id="agroup__utility__types_html_ga1b8cda4afb95a7c42c4679b4fae61009"><div class="ttname"><a href="group__utility__types.html#ga1b8cda4afb95a7c42c4679b4fae61009">cudf::null_policy</a></div><div class="ttdeci">null_policy</div><div class="ttdoc">Enum to specify whether to include nulls or exclude nulls</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00119">types.hpp:119</a></div></div>
+<div class="ttc" id="agroup__utility__types_html_gae9d1055c69c3089452794783c7c82f83"><div class="ttname"><a href="group__utility__types.html#gae9d1055c69c3089452794783c7c82f83">cudf::nan_equality</a></div><div class="ttdeci">nan_equality</div><div class="ttdoc">Enum to consider different elements (of floating point types) holding NaN value as equal or unequal</div><div class="ttdef"><b>Definition</b> <a href="types_8hpp_source.html#l00136">types.hpp:136</a></div></div>
+<div class="ttc" id="alists__column__view_8hpp_html"><div class="ttname"><a href="lists__column__view_8hpp.html">lists_column_view.hpp</a></div><div class="ttdoc">Class definition for cudf::lists_column_view</div></div>
+<div class="ttc" id="anamespacecudf_1_1reduction_html_a0c5e479724e5503b71adf996a0b68c04"><div class="ttname"><a href="namespacecudf_1_1reduction.html#a0c5e479724e5503b71adf996a0b68c04">cudf::reduction::min</a></div><div class="ttdeci">std::unique_ptr&lt; scalar &gt; min(column_view const &amp;col, data_type const output_dtype, std::optional&lt; std::reference_wrapper&lt; scalar const &gt; &gt; init, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Computes minimum of elements in input column</div></div>
+<div class="ttc" id="anamespacecudf_1_1reduction_html_a247bd864b5acc46b0e7f0b55b2ef4f60"><div class="ttname"><a href="namespacecudf_1_1reduction.html#a247bd864b5acc46b0e7f0b55b2ef4f60">cudf::reduction::standard_deviation</a></div><div class="ttdeci">std::unique_ptr&lt; scalar &gt; standard_deviation(column_view const &amp;col, data_type const output_dtype, cudf::size_type ddof, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Computes standard deviation of elements in input column</div></div>
+<div class="ttc" id="anamespacecudf_1_1reduction_html_a289b02e26d06685c96a688cfa839624d"><div class="ttname"><a href="namespacecudf_1_1reduction.html#a289b02e26d06685c96a688cfa839624d">cudf::reduction::segmented_product</a></div><div class="ttdeci">std::unique_ptr&lt; column &gt; segmented_product(column_view const &amp;col, device_span&lt; size_type const &gt; offsets, data_type const output_dtype, null_policy null_handling, std::optional&lt; std::reference_wrapper&lt; scalar const &gt; &gt; init, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Computes product of each segment in input column.</div></div>
+<div class="ttc" id="anamespacecudf_1_1reduction_html_a29dd4f5e84ae4b9bc228206db25368d4"><div class="ttname"><a href="namespacecudf_1_1reduction.html#a29dd4f5e84ae4b9bc228206db25368d4">cudf::reduction::max</a></div><div class="ttdeci">std::unique_ptr&lt; scalar &gt; max(column_view const &amp;col, data_type const output_dtype, std::optional&lt; std::reference_wrapper&lt; scalar const &gt; &gt; init, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Computes maximum of elements in input column</div></div>
+<div class="ttc" id="anamespacecudf_1_1reduction_html_a3b5f91f97f6d4b17b435e4f509a57ddd"><div class="ttname"><a href="namespacecudf_1_1reduction.html#a3b5f91f97f6d4b17b435e4f509a57ddd">cudf::reduction::segmented_all</a></div><div class="ttdeci">std::unique_ptr&lt; column &gt; segmented_all(column_view const &amp;col, device_span&lt; size_type const &gt; offsets, data_type const output_dtype, null_policy null_handling, std::optional&lt; std::reference_wrapper&lt; scalar const &gt; &gt; init, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Compute if all of the values in the segment are true when typecasted to bool.</div></div>
+<div class="ttc" id="anamespacecudf_1_1reduction_html_a46f2323908757ae7f11dcbd1ffc3c8c8"><div class="ttname"><a href="namespacecudf_1_1reduction.html#a46f2323908757ae7f11dcbd1ffc3c8c8">cudf::reduction::merge_sets</a></div><div class="ttdeci">std::unique_ptr&lt; scalar &gt; merge_sets(lists_column_view const &amp;col, null_equality nulls_equal, nan_equality nans_equal, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Merge a bunch of list scalars into single list scalar then drop duplicated elements</div></div>
+<div class="ttc" id="anamespacecudf_1_1reduction_html_a4dcc7883ec004ce6f6e5c758a60efd18"><div class="ttname"><a href="namespacecudf_1_1reduction.html#a4dcc7883ec004ce6f6e5c758a60efd18">cudf::reduction::sum_of_squares</a></div><div class="ttdeci">std::unique_ptr&lt; scalar &gt; sum_of_squares(column_view const &amp;col, data_type const output_dtype, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Computes sum of squares of elements in input column</div></div>
+<div class="ttc" id="anamespacecudf_1_1reduction_html_a64e329fd7a5066a411ae8f3628b9051c"><div class="ttname"><a href="namespacecudf_1_1reduction.html#a64e329fd7a5066a411ae8f3628b9051c">cudf::reduction::any</a></div><div class="ttdeci">std::unique_ptr&lt; scalar &gt; any(column_view const &amp;col, data_type const output_dtype, std::optional&lt; std::reference_wrapper&lt; scalar const &gt; &gt; init, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Computes any of elements in input column is true when typecasted to bool</div></div>
+<div class="ttc" id="anamespacecudf_1_1reduction_html_a7104f29005c8ccb64ffcf5058de27057"><div class="ttname"><a href="namespacecudf_1_1reduction.html#a7104f29005c8ccb64ffcf5058de27057">cudf::reduction::collect_list</a></div><div class="ttdeci">std::unique_ptr&lt; scalar &gt; collect_list(column_view const &amp;col, null_policy null_handling, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Collect input column into a (list) scalar</div></div>
+<div class="ttc" id="anamespacecudf_1_1reduction_html_a8209e36dbd687aeb171bf311b2e0608e"><div class="ttname"><a href="namespacecudf_1_1reduction.html#a8209e36dbd687aeb171bf311b2e0608e">cudf::reduction::merge_lists</a></div><div class="ttdeci">std::unique_ptr&lt; scalar &gt; merge_lists(lists_column_view const &amp;col, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Merge a bunch of list scalars into single list scalar</div></div>
+<div class="ttc" id="anamespacecudf_1_1reduction_html_a8f1f323e8eadc88a832efccac948165b"><div class="ttname"><a href="namespacecudf_1_1reduction.html#a8f1f323e8eadc88a832efccac948165b">cudf::reduction::segmented_any</a></div><div class="ttdeci">std::unique_ptr&lt; column &gt; segmented_any(column_view const &amp;col, device_span&lt; size_type const &gt; offsets, data_type const output_dtype, null_policy null_handling, std::optional&lt; std::reference_wrapper&lt; scalar const &gt; &gt; init, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Compute if any of the values in the segment are true when typecasted to bool.</div></div>
+<div class="ttc" id="anamespacecudf_1_1reduction_html_a9094ea070874b5604fad9d590c528f68"><div class="ttname"><a href="namespacecudf_1_1reduction.html#a9094ea070874b5604fad9d590c528f68">cudf::reduction::collect_set</a></div><div class="ttdeci">std::unique_ptr&lt; scalar &gt; collect_set(column_view const &amp;col, null_policy null_handling, null_equality nulls_equal, nan_equality nans_equal, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Collect input column into a (list) scalar without duplicated elements</div></div>
+<div class="ttc" id="anamespacecudf_1_1reduction_html_a9a503d34c025917580be5ea1a6568ebf"><div class="ttname"><a href="namespacecudf_1_1reduction.html#a9a503d34c025917580be5ea1a6568ebf">cudf::reduction::sum</a></div><div class="ttdeci">std::unique_ptr&lt; scalar &gt; sum(column_view const &amp;col, data_type const output_dtype, std::optional&lt; std::reference_wrapper&lt; scalar const &gt; &gt; init, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Computes sum of elements in input column</div></div>
+<div class="ttc" id="anamespacecudf_1_1reduction_html_abe78326ad4cf3104d24f1703f6e747c9"><div class="ttname"><a href="namespacecudf_1_1reduction.html#abe78326ad4cf3104d24f1703f6e747c9">cudf::reduction::segmented_min</a></div><div class="ttdeci">std::unique_ptr&lt; column &gt; segmented_min(column_view const &amp;col, device_span&lt; size_type const &gt; offsets, data_type const output_dtype, null_policy null_handling, std::optional&lt; std::reference_wrapper&lt; scalar const &gt; &gt; init, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Compute minimum of each segment in input column.</div></div>
+<div class="ttc" id="anamespacecudf_1_1reduction_html_adc241ef3a5aa4b0cba78ff7810574c96"><div class="ttname"><a href="namespacecudf_1_1reduction.html#adc241ef3a5aa4b0cba78ff7810574c96">cudf::reduction::product</a></div><div class="ttdeci">std::unique_ptr&lt; scalar &gt; product(column_view const &amp;col, data_type const output_dtype, std::optional&lt; std::reference_wrapper&lt; scalar const &gt; &gt; init, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Computes product of elements in input column</div></div>
+<div class="ttc" id="anamespacecudf_1_1reduction_html_ae1f92c0c0419d57cb10a36b7187965cf"><div class="ttname"><a href="namespacecudf_1_1reduction.html#ae1f92c0c0419d57cb10a36b7187965cf">cudf::reduction::segmented_max</a></div><div class="ttdeci">std::unique_ptr&lt; column &gt; segmented_max(column_view const &amp;col, device_span&lt; size_type const &gt; offsets, data_type const output_dtype, null_policy null_handling, std::optional&lt; std::reference_wrapper&lt; scalar const &gt; &gt; init, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Compute maximum of each segment in input column.</div></div>
+<div class="ttc" id="anamespacecudf_1_1reduction_html_ae4dbf5143ee605cc85b3b035c08ef77f"><div class="ttname"><a href="namespacecudf_1_1reduction.html#ae4dbf5143ee605cc85b3b035c08ef77f">cudf::reduction::segmented_sum</a></div><div class="ttdeci">std::unique_ptr&lt; column &gt; segmented_sum(column_view const &amp;col, device_span&lt; size_type const &gt; offsets, data_type const output_dtype, null_policy null_handling, std::optional&lt; std::reference_wrapper&lt; scalar const &gt; &gt; init, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Compute sum of each segment in input column.</div></div>
+<div class="ttc" id="anamespacecudf_1_1reduction_html_ae5d1648bba2207642bdaeede15159517"><div class="ttname"><a href="namespacecudf_1_1reduction.html#ae5d1648bba2207642bdaeede15159517">cudf::reduction::nth_element</a></div><div class="ttdeci">std::unique_ptr&lt; scalar &gt; nth_element(column_view const &amp;col, size_type n, null_policy null_handling, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Returns nth element in input column</div></div>
+<div class="ttc" id="anamespacecudf_1_1reduction_html_ae94ffdbae58138ae7361cf89c88abd5f"><div class="ttname"><a href="namespacecudf_1_1reduction.html#ae94ffdbae58138ae7361cf89c88abd5f">cudf::reduction::all</a></div><div class="ttdeci">std::unique_ptr&lt; scalar &gt; all(column_view const &amp;col, data_type const output_dtype, std::optional&lt; std::reference_wrapper&lt; scalar const &gt; &gt; init, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Computes all of elements in input column is true when typecasted to bool</div></div>
+<div class="ttc" id="anamespacecudf_1_1reduction_html_aeede968555f08573779b5505c320aaa8"><div class="ttname"><a href="namespacecudf_1_1reduction.html#aeede968555f08573779b5505c320aaa8">cudf::reduction::variance</a></div><div class="ttdeci">std::unique_ptr&lt; scalar &gt; variance(column_view const &amp;col, data_type const output_dtype, cudf::size_type ddof, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Computes variance of elements in input column</div></div>
+<div class="ttc" id="anamespacecudf_1_1reduction_html_af83cfb3bb693eb3496293af7ffa45fdb"><div class="ttname"><a href="namespacecudf_1_1reduction.html#af83cfb3bb693eb3496293af7ffa45fdb">cudf::reduction::mean</a></div><div class="ttdeci">std::unique_ptr&lt; scalar &gt; mean(column_view const &amp;col, data_type const output_dtype, rmm::cuda_stream_view stream, rmm::mr::device_memory_resource *mr=rmm::mr::get_current_device_resource())</div><div class="ttdoc">Computes mean of elements in input column</div></div>
+<div class="ttc" id="anamespacecudf_html"><div class="ttname"><a href="namespacecudf.html">cudf</a></div><div class="ttdoc">cuDF interfaces</div><div class="ttdef"><b>Definition</b> <a href="aggregation_8hpp_source.html#l00034">aggregation.hpp:34</a></div></div>
+<div class="ttc" id="ascalar_8hpp_html"><div class="ttname"><a href="scalar_8hpp.html">scalar.hpp</a></div><div class="ttdoc">Class definitions for cudf::scalar</div></div>
+<div class="ttc" id="astructcudf_1_1device__span_html"><div class="ttname"><a href="structcudf_1_1device__span.html">cudf::device_span</a></div><div class="ttdoc">Device version of C++20 std::span with reduced feature set.</div><div class="ttdef"><b>Definition</b> <a href="span_8hpp_source.html#l00285">span.hpp:285</a></div></div>
+<div class="ttc" id="autilities_2default__stream_8hpp_html"><div class="ttname"><a href="utilities_2default__stream_8hpp.html">default_stream.hpp</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_d998dea0bd4559303135358082015ac8.html">gitLibrary</a></li><li class="navelem"><a class="el" href="dir_b6486b3d9bd1f4b89c884933ed658179.html">cudf</a></li><li class="navelem"><a class="el" href="dir_318a4414914f49dc0e7605c41de9d4af.html">cpp</a></li><li class="navelem"><a class="el" href="dir_7fbf5ee8ae486656ea40e5ca1dd304f9.html">include</a></li><li class="navelem"><a class="el" href="dir_87e6427d1ef099fd52d9d0724c66b062.html">cudf</a></li><li class="navelem"><a class="el" href="dir_a82d85c89be6cfc9cc0f5c38ca1aa1ac.html">detail</a></li><li class="navelem"><a class="el" href="reduction__functions_8hpp.html">reduction_functions.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

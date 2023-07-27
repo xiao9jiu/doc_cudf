@@ -1,0 +1,213 @@
+\doxysection{cudf\+::structs\+::detail\+::flattened\+\_\+table类 参考}
+\hypertarget{classcudf_1_1structs_1_1detail_1_1flattened__table}{}\label{classcudf_1_1structs_1_1detail_1_1flattened__table}\index{cudf::structs::detail::flattened\_table@{cudf::structs::detail::flattened\_table}}
+
+
+Result of {\ttfamily \doxylink{namespacecudf_1_1structs_1_1detail_a09c8725783cc2d0c3ce2f537a5ef92fb}{flatten\+\_\+nested\+\_\+columns()}}, where all {\ttfamily STRUCT} columns are replaced with their non-\/nested member columns, and {\ttfamily BOOL8} columns for their null masks.  
+
+
+
+
+{\ttfamily \#include $<$utilities.\+hpp$>$}
+
+
+
+cudf\+::structs\+::detail\+::flattened\+\_\+table 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classcudf_1_1structs_1_1detail_1_1flattened__table__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1structs_1_1detail_1_1flattened__table_adfecce07f835e43fa87481ec402524e5}{flattened\+\_\+table}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&flattened\+\_\+columns\+\_\+, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&orders\+\_\+, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&null\+\_\+orders\+\_\+, std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ $>$ \&\&columns\+\_\+, std\+::vector$<$ rmm\+::device\+\_\+buffer $>$ \&\&null\+\_\+masks\+\_\+)
+\begin{DoxyCompactList}\small\item\em Constructor, to be used from {\ttfamily \doxylink{namespacecudf_1_1structs_1_1detail_a09c8725783cc2d0c3ce2f537a5ef92fb}{flatten\+\_\+nested\+\_\+columns()}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1structs_1_1detail_1_1flattened__table_ac63318a2f6f0e93f2c86e2da4996d002}{flattened\+\_\+table}} ()=default
+\item 
+\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} \mbox{\hyperlink{classcudf_1_1structs_1_1detail_1_1flattened__table_a081fc9ebac2c5564987c7412c9fe9ae1}{flattened\+\_\+columns}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the flattened columns, as a {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}}. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ \mbox{\hyperlink{classcudf_1_1structs_1_1detail_1_1flattened__table_a0f80cbeff63dfc448238c099c1753d5d}{orders}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the \doxylink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{cudf\+::order} of the \doxylink{classcudf_1_1table__view}{table\+\_\+view}\textquotesingle{}s columns. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ \mbox{\hyperlink{classcudf_1_1structs_1_1detail_1_1flattened__table_a53d11e3f3f57b2150b30c6d6621f2ae7}{null\+\_\+orders}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the \doxylink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{cudf\+::null\+\_\+order} of the \doxylink{classcudf_1_1table__view}{table\+\_\+view}\textquotesingle{}s columns. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1structs_1_1detail_1_1flattened__table_ae987e25c1033298b32dc6d2b6dab3f23}{operator table\+\_\+view}} () const
+\begin{DoxyCompactList}\small\item\em Conversion to {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}}, to fetch flattened columns. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} \mbox{\hyperlink{classcudf_1_1structs_1_1detail_1_1flattened__table_af84a408c5e8e6db24c43d107b8798b24}{\+\_\+flattened\+\_\+columns}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ \mbox{\hyperlink{classcudf_1_1structs_1_1detail_1_1flattened__table_ade4f4552b2bc51880a99b7250ea58c97}{\+\_\+orders}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ \mbox{\hyperlink{classcudf_1_1structs_1_1detail_1_1flattened__table_ae6db49e07105b55424f62fe7de90f205}{\+\_\+null\+\_\+orders}}
+\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ $>$ \mbox{\hyperlink{classcudf_1_1structs_1_1detail_1_1flattened__table_aeedaa9e467f5c3f901dd253e0119805f}{\+\_\+columns}}
+\item 
+std\+::vector$<$ rmm\+::device\+\_\+buffer $>$ \mbox{\hyperlink{classcudf_1_1structs_1_1detail_1_1flattened__table_a4f8c7a9273e3b31c9da326633d9d81af}{\+\_\+superimposed\+\_\+nullmasks}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Result of {\ttfamily \doxylink{namespacecudf_1_1structs_1_1detail_a09c8725783cc2d0c3ce2f537a5ef92fb}{flatten\+\_\+nested\+\_\+columns()}}, where all {\ttfamily STRUCT} columns are replaced with their non-\/nested member columns, and {\ttfamily BOOL8} columns for their null masks. 
+
+{\ttfamily \doxylink{namespacecudf_1_1structs_1_1detail_a09c8725783cc2d0c3ce2f537a5ef92fb}{flatten\+\_\+nested\+\_\+columns()}} produces a \"{}flattened\"{} \doxylink{classcudf_1_1table__view}{table\+\_\+view} with all {\ttfamily STRUCT} columns replaced with their child column\+\_\+views, preceded by their null masks. All newly allocated columns and device\+\_\+buffers that back the returned \doxylink{classcudf_1_1table__view}{table\+\_\+view} are also encapsulated in {\ttfamily flatten\+\_\+result}.
+
+Objects of {\ttfamily flatten\+\_\+result} need to kept alive while its \doxylink{classcudf_1_1table__view}{table\+\_\+view} is accessed. 
+
+在文件 \mbox{\hyperlink{detail_2structs_2utilities_8hpp_source}{utilities.\+hpp}} 第 \mbox{\hyperlink{detail_2structs_2utilities_8hpp_source_l00081}{81}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1structs_1_1detail_1_1flattened__table_adfecce07f835e43fa87481ec402524e5}\label{classcudf_1_1structs_1_1detail_1_1flattened__table_adfecce07f835e43fa87481ec402524e5} 
+\index{cudf::structs::detail::flattened\_table@{cudf::structs::detail::flattened\_table}!flattened\_table@{flattened\_table}}
+\index{flattened\_table@{flattened\_table}!cudf::structs::detail::flattened\_table@{cudf::structs::detail::flattened\_table}}
+\doxysubsubsection{\texorpdfstring{flattened\_table()}{flattened\_table()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily cudf\+::structs\+::detail\+::flattened\+\_\+table\+::flattened\+\_\+table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{flattened\+\_\+columns\+\_\+,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ const \&}]{orders\+\_\+,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ const \&}]{null\+\_\+orders\+\_\+,  }\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ $>$ \&\&}]{columns\+\_\+,  }\item[{std\+::vector$<$ rmm\+::device\+\_\+buffer $>$ \&\&}]{null\+\_\+masks\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor, to be used from {\ttfamily \doxylink{namespacecudf_1_1structs_1_1detail_a09c8725783cc2d0c3ce2f537a5ef92fb}{flatten\+\_\+nested\+\_\+columns()}}. 
+
+
+\begin{DoxyParams}{参数}
+{\em flattened\+\_\+columns\+\_\+} & \doxylink{classcudf_1_1table__view}{table\+\_\+view} resulting from {\ttfamily \doxylink{namespacecudf_1_1structs_1_1detail_a09c8725783cc2d0c3ce2f537a5ef92fb}{flatten\+\_\+nested\+\_\+columns()}} \\
+\hline
+{\em orders\+\_\+} & Per-\/column ordering of the \doxylink{classcudf_1_1table__view}{table\+\_\+view} \\
+\hline
+{\em null\+\_\+orders\+\_\+} & Per-\/column null\+\_\+order of the \doxylink{classcudf_1_1table__view}{table\+\_\+view} \\
+\hline
+{\em columns\+\_\+} & Newly allocated columns to back the \doxylink{classcudf_1_1table__view}{table\+\_\+view} \\
+\hline
+{\em null\+\_\+masks\+\_\+} & Newly allocated null masks to back the \doxylink{classcudf_1_1table__view}{table\+\_\+view} \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{detail_2structs_2utilities_8hpp_source}{utilities.\+hpp}} 第 \mbox{\hyperlink{detail_2structs_2utilities_8hpp_source_l00092}{92}} 行定义.
+
+\Hypertarget{classcudf_1_1structs_1_1detail_1_1flattened__table_ac63318a2f6f0e93f2c86e2da4996d002}\label{classcudf_1_1structs_1_1detail_1_1flattened__table_ac63318a2f6f0e93f2c86e2da4996d002} 
+\index{cudf::structs::detail::flattened\_table@{cudf::structs::detail::flattened\_table}!flattened\_table@{flattened\_table}}
+\index{flattened\_table@{flattened\_table}!cudf::structs::detail::flattened\_table@{cudf::structs::detail::flattened\_table}}
+\doxysubsubsection{\texorpdfstring{flattened\_table()}{flattened\_table()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily cudf\+::structs\+::detail\+::flattened\+\_\+table\+::flattened\+\_\+table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1structs_1_1detail_1_1flattened__table_a081fc9ebac2c5564987c7412c9fe9ae1}\label{classcudf_1_1structs_1_1detail_1_1flattened__table_a081fc9ebac2c5564987c7412c9fe9ae1} 
+\index{cudf::structs::detail::flattened\_table@{cudf::structs::detail::flattened\_table}!flattened\_columns@{flattened\_columns}}
+\index{flattened\_columns@{flattened\_columns}!cudf::structs::detail::flattened\_table@{cudf::structs::detail::flattened\_table}}
+\doxysubsubsection{\texorpdfstring{flattened\_columns()}{flattened\_columns()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} cudf\+::structs\+::detail\+::flattened\+\_\+table\+::flattened\+\_\+columns (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for the flattened columns, as a {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}}. 
+
+
+
+在文件 \mbox{\hyperlink{detail_2structs_2utilities_8hpp_source}{utilities.\+hpp}} 第 \mbox{\hyperlink{detail_2structs_2utilities_8hpp_source_l00110}{110}} 行定义.
+
+\Hypertarget{classcudf_1_1structs_1_1detail_1_1flattened__table_a53d11e3f3f57b2150b30c6d6621f2ae7}\label{classcudf_1_1structs_1_1detail_1_1flattened__table_a53d11e3f3f57b2150b30c6d6621f2ae7} 
+\index{cudf::structs::detail::flattened\_table@{cudf::structs::detail::flattened\_table}!null\_orders@{null\_orders}}
+\index{null\_orders@{null\_orders}!cudf::structs::detail::flattened\_table@{cudf::structs::detail::flattened\_table}}
+\doxysubsubsection{\texorpdfstring{null\_orders()}{null\_orders()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}} $>$ cudf\+::structs\+::detail\+::flattened\+\_\+table\+::null\+\_\+orders (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for the \doxylink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{cudf\+::null\+\_\+order} of the \doxylink{classcudf_1_1table__view}{table\+\_\+view}\textquotesingle{}s columns. 
+
+
+
+在文件 \mbox{\hyperlink{detail_2structs_2utilities_8hpp_source}{utilities.\+hpp}} 第 \mbox{\hyperlink{detail_2structs_2utilities_8hpp_source_l00120}{120}} 行定义.
+
+\Hypertarget{classcudf_1_1structs_1_1detail_1_1flattened__table_ae987e25c1033298b32dc6d2b6dab3f23}\label{classcudf_1_1structs_1_1detail_1_1flattened__table_ae987e25c1033298b32dc6d2b6dab3f23} 
+\index{cudf::structs::detail::flattened\_table@{cudf::structs::detail::flattened\_table}!operator table\_view@{operator table\_view}}
+\index{operator table\_view@{operator table\_view}!cudf::structs::detail::flattened\_table@{cudf::structs::detail::flattened\_table}}
+\doxysubsubsection{\texorpdfstring{operator table\_view()}{operator table\_view()}}
+{\footnotesize\ttfamily cudf\+::structs\+::detail\+::flattened\+\_\+table\+::operator \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Conversion to {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}}, to fetch flattened columns. 
+
+
+
+在文件 \mbox{\hyperlink{detail_2structs_2utilities_8hpp_source}{utilities.\+hpp}} 第 \mbox{\hyperlink{detail_2structs_2utilities_8hpp_source_l00125}{125}} 行定义.
+
+\Hypertarget{classcudf_1_1structs_1_1detail_1_1flattened__table_a0f80cbeff63dfc448238c099c1753d5d}\label{classcudf_1_1structs_1_1detail_1_1flattened__table_a0f80cbeff63dfc448238c099c1753d5d} 
+\index{cudf::structs::detail::flattened\_table@{cudf::structs::detail::flattened\_table}!orders@{orders}}
+\index{orders@{orders}!cudf::structs::detail::flattened\_table@{cudf::structs::detail::flattened\_table}}
+\doxysubsubsection{\texorpdfstring{orders()}{orders()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}} $>$ cudf\+::structs\+::detail\+::flattened\+\_\+table\+::orders (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for the \doxylink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{cudf\+::order} of the \doxylink{classcudf_1_1table__view}{table\+\_\+view}\textquotesingle{}s columns. 
+
+
+
+在文件 \mbox{\hyperlink{detail_2structs_2utilities_8hpp_source}{utilities.\+hpp}} 第 \mbox{\hyperlink{detail_2structs_2utilities_8hpp_source_l00115}{115}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1structs_1_1detail_1_1flattened__table_aeedaa9e467f5c3f901dd253e0119805f}\label{classcudf_1_1structs_1_1detail_1_1flattened__table_aeedaa9e467f5c3f901dd253e0119805f} 
+\index{cudf::structs::detail::flattened\_table@{cudf::structs::detail::flattened\_table}!\_columns@{\_columns}}
+\index{\_columns@{\_columns}!cudf::structs::detail::flattened\_table@{cudf::structs::detail::flattened\_table}}
+\doxysubsubsection{\texorpdfstring{\_columns}{\_columns}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classcudf_1_1column}{column}}$>$ $>$ cudf\+::structs\+::detail\+::flattened\+\_\+table\+::\+\_\+columns\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{detail_2structs_2utilities_8hpp_source}{utilities.\+hpp}} 第 \mbox{\hyperlink{detail_2structs_2utilities_8hpp_source_l00131}{131}} 行定义.
+
+\Hypertarget{classcudf_1_1structs_1_1detail_1_1flattened__table_af84a408c5e8e6db24c43d107b8798b24}\label{classcudf_1_1structs_1_1detail_1_1flattened__table_af84a408c5e8e6db24c43d107b8798b24} 
+\index{cudf::structs::detail::flattened\_table@{cudf::structs::detail::flattened\_table}!\_flattened\_columns@{\_flattened\_columns}}
+\index{\_flattened\_columns@{\_flattened\_columns}!cudf::structs::detail::flattened\_table@{cudf::structs::detail::flattened\_table}}
+\doxysubsubsection{\texorpdfstring{\_flattened\_columns}{\_flattened\_columns}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} cudf\+::structs\+::detail\+::flattened\+\_\+table\+::\+\_\+flattened\+\_\+columns\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{detail_2structs_2utilities_8hpp_source}{utilities.\+hpp}} 第 \mbox{\hyperlink{detail_2structs_2utilities_8hpp_source_l00128}{128}} 行定义.
+
+\Hypertarget{classcudf_1_1structs_1_1detail_1_1flattened__table_ae6db49e07105b55424f62fe7de90f205}\label{classcudf_1_1structs_1_1detail_1_1flattened__table_ae6db49e07105b55424f62fe7de90f205} 
+\index{cudf::structs::detail::flattened\_table@{cudf::structs::detail::flattened\_table}!\_null\_orders@{\_null\_orders}}
+\index{\_null\_orders@{\_null\_orders}!cudf::structs::detail::flattened\_table@{cudf::structs::detail::flattened\_table}}
+\doxysubsubsection{\texorpdfstring{\_null\_orders}{\_null\_orders}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{null\+\_\+order}}$>$ cudf\+::structs\+::detail\+::flattened\+\_\+table\+::\+\_\+null\+\_\+orders\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{detail_2structs_2utilities_8hpp_source}{utilities.\+hpp}} 第 \mbox{\hyperlink{detail_2structs_2utilities_8hpp_source_l00130}{130}} 行定义.
+
+\Hypertarget{classcudf_1_1structs_1_1detail_1_1flattened__table_ade4f4552b2bc51880a99b7250ea58c97}\label{classcudf_1_1structs_1_1detail_1_1flattened__table_ade4f4552b2bc51880a99b7250ea58c97} 
+\index{cudf::structs::detail::flattened\_table@{cudf::structs::detail::flattened\_table}!\_orders@{\_orders}}
+\index{\_orders@{\_orders}!cudf::structs::detail::flattened\_table@{cudf::structs::detail::flattened\_table}}
+\doxysubsubsection{\texorpdfstring{\_orders}{\_orders}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{order}}$>$ cudf\+::structs\+::detail\+::flattened\+\_\+table\+::\+\_\+orders\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{detail_2structs_2utilities_8hpp_source}{utilities.\+hpp}} 第 \mbox{\hyperlink{detail_2structs_2utilities_8hpp_source_l00129}{129}} 行定义.
+
+\Hypertarget{classcudf_1_1structs_1_1detail_1_1flattened__table_a4f8c7a9273e3b31c9da326633d9d81af}\label{classcudf_1_1structs_1_1detail_1_1flattened__table_a4f8c7a9273e3b31c9da326633d9d81af} 
+\index{cudf::structs::detail::flattened\_table@{cudf::structs::detail::flattened\_table}!\_superimposed\_nullmasks@{\_superimposed\_nullmasks}}
+\index{\_superimposed\_nullmasks@{\_superimposed\_nullmasks}!cudf::structs::detail::flattened\_table@{cudf::structs::detail::flattened\_table}}
+\doxysubsubsection{\texorpdfstring{\_superimposed\_nullmasks}{\_superimposed\_nullmasks}}
+{\footnotesize\ttfamily std\+::vector$<$rmm\+::device\+\_\+buffer$>$ cudf\+::structs\+::detail\+::flattened\+\_\+table\+::\+\_\+superimposed\+\_\+nullmasks\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{detail_2structs_2utilities_8hpp_source}{utilities.\+hpp}} 第 \mbox{\hyperlink{detail_2structs_2utilities_8hpp_source_l00132}{132}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/detail/structs/\mbox{\hyperlink{detail_2structs_2utilities_8hpp}{utilities.\+hpp}}\end{DoxyCompactItemize}

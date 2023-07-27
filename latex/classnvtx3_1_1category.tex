@@ -1,0 +1,202 @@
+\doxysection{nvtx3\+::category类 参考}
+\hypertarget{classnvtx3_1_1category}{}\label{classnvtx3_1_1category}\index{nvtx3::category@{nvtx3::category}}
+
+
+Object for intra-\/domain grouping of NVTX events.  
+
+
+
+
+{\ttfamily \#include $<$nvtx3.\+hpp$>$}
+
+
+
+类 nvtx3\+::category 继承关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{classnvtx3_1_1category__inherit__graph}
+\end{center}
+\end{figure}
+
+
+nvtx3\+::category 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=156pt]{classnvtx3_1_1category__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 类型}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classnvtx3_1_1category_ab99ba2a90acc6327d3e61f7999ca3bc4}{id\+\_\+type}} = uint32\+\_\+t
+\begin{DoxyCompactList}\small\item\em Type used for {\ttfamily category}s integer id. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+constexpr \mbox{\hyperlink{classnvtx3_1_1category_a036326d6d4795b03ee4f086e08058e3e}{category}} (\mbox{\hyperlink{classnvtx3_1_1category_ab99ba2a90acc6327d3e61f7999ca3bc4}{id\+\_\+type}} id) noexcept
+\begin{DoxyCompactList}\small\item\em Construct a {\ttfamily category} with the specified {\ttfamily id}. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{classnvtx3_1_1category_ab99ba2a90acc6327d3e61f7999ca3bc4}{id\+\_\+type}} \mbox{\hyperlink{classnvtx3_1_1category_ab5b1043bb1c42808b04a515e10a464c6}{get\+\_\+id}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the id of the category. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnvtx3_1_1category_a16bfa3b4b62bdef845f5b730126e332e}{category}} ()=delete
+\item 
+\mbox{\hyperlink{classnvtx3_1_1category_a7ddf31dbccd1589b84c21cd6dfda9ff9}{\texorpdfstring{$\sim$}{\string~}category}} ()=default
+\item 
+\mbox{\hyperlink{classnvtx3_1_1category_aabb2b442638208635e77585b2a897320}{category}} (\mbox{\hyperlink{classnvtx3_1_1category}{category}} const \&)=default
+\item 
+\mbox{\hyperlink{classnvtx3_1_1category}{category}} \& \mbox{\hyperlink{classnvtx3_1_1category_a4dfe9724d238aa887ba16291e3981566}{operator=}} (\mbox{\hyperlink{classnvtx3_1_1category}{category}} const \&)=default
+\item 
+\mbox{\hyperlink{classnvtx3_1_1category_ad3c9e5e40bcc0a026d145e84d671be12}{category}} (\mbox{\hyperlink{classnvtx3_1_1category}{category}} \&\&)=default
+\item 
+\mbox{\hyperlink{classnvtx3_1_1category}{category}} \& \mbox{\hyperlink{classnvtx3_1_1category_a0a5f01dea56a130818ff589acd19e532}{operator=}} (\mbox{\hyperlink{classnvtx3_1_1category}{category}} \&\&)=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnvtx3_1_1category_ab99ba2a90acc6327d3e61f7999ca3bc4}{id\+\_\+type}} const \mbox{\hyperlink{classnvtx3_1_1category_a09a5dda0bac9a2ddce23f090d2da69f6}{id\+\_\+}} \{\}
+\begin{DoxyCompactList}\small\item\em category\textquotesingle{}s unique identifier \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Object for intra-\/domain grouping of NVTX events. 
+
+A {\ttfamily category} is simply an integer id that allows for fine-\/grain grouping of NVTX events. For example, one might use separate categories for IO, memory allocation, compute, etc.
+
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1category}{nvtx3::category}}\ cat1\{1\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Range\ \`{}r1`\ belongs\ to\ the\ category\ identified\ by\ the\ value\ \`{}1`.}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::thread\_range}}\ r1\{cat1\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Range\ \`{}r2`\ belongs\ to\ the\ same\ category\ as\ \`{}r1`}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::thread\_range}}\ r2\{\mbox{\hyperlink{classnvtx3_1_1category}{nvtx3::category}}\{1\}\};}
+
+\end{DoxyCode}
+
+
+To associate a name string with a category id, see {\ttfamily \doxylink{classnvtx3_1_1named__category}{named\+\_\+category}}. 
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l00918}{918}} 行定义.
+
+
+
+\doxysubsection{成员类型定义说明}
+\Hypertarget{classnvtx3_1_1category_ab99ba2a90acc6327d3e61f7999ca3bc4}\label{classnvtx3_1_1category_ab99ba2a90acc6327d3e61f7999ca3bc4} 
+\index{nvtx3::category@{nvtx3::category}!id\_type@{id\_type}}
+\index{id\_type@{id\_type}!nvtx3::category@{nvtx3::category}}
+\doxysubsubsection{\texorpdfstring{id\_type}{id\_type}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classnvtx3_1_1category_ab99ba2a90acc6327d3e61f7999ca3bc4}{nvtx3\+::category\+::id\+\_\+type}} =  uint32\+\_\+t}
+
+
+
+Type used for {\ttfamily category}s integer id. 
+
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l00921}{921}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classnvtx3_1_1category_a036326d6d4795b03ee4f086e08058e3e}\label{classnvtx3_1_1category_a036326d6d4795b03ee4f086e08058e3e} 
+\index{nvtx3::category@{nvtx3::category}!category@{category}}
+\index{category@{category}!nvtx3::category@{nvtx3::category}}
+\doxysubsubsection{\texorpdfstring{category()}{category()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily constexpr nvtx3\+::category\+::category (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnvtx3_1_1category_ab99ba2a90acc6327d3e61f7999ca3bc4}{id\+\_\+type}}}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Construct a {\ttfamily category} with the specified {\ttfamily id}. 
+
+The {\ttfamily category} will be unnamed and identified only by its {\ttfamily id} value.
+
+All {\ttfamily category} objects sharing the same {\ttfamily id} are equivalent.
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em id} & The {\ttfamily category}\textquotesingle{}s identifying value \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l00932}{932}} 行定义.
+
+\Hypertarget{classnvtx3_1_1category_a16bfa3b4b62bdef845f5b730126e332e}\label{classnvtx3_1_1category_a16bfa3b4b62bdef845f5b730126e332e} 
+\index{nvtx3::category@{nvtx3::category}!category@{category}}
+\index{category@{category}!nvtx3::category@{nvtx3::category}}
+\doxysubsubsection{\texorpdfstring{category()}{category()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily nvtx3\+::category\+::category (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classnvtx3_1_1category_a7ddf31dbccd1589b84c21cd6dfda9ff9}\label{classnvtx3_1_1category_a7ddf31dbccd1589b84c21cd6dfda9ff9} 
+\index{nvtx3::category@{nvtx3::category}!````~category@{\texorpdfstring{$\sim$}{\string~}category}}
+\index{````~category@{\texorpdfstring{$\sim$}{\string~}category}!nvtx3::category@{nvtx3::category}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}category()}{\string~category()}}
+{\footnotesize\ttfamily nvtx3\+::category\+::\texorpdfstring{$\sim$}{\string~}category (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classnvtx3_1_1category_aabb2b442638208635e77585b2a897320}\label{classnvtx3_1_1category_aabb2b442638208635e77585b2a897320} 
+\index{nvtx3::category@{nvtx3::category}!category@{category}}
+\index{category@{category}!nvtx3::category@{nvtx3::category}}
+\doxysubsubsection{\texorpdfstring{category()}{category()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily nvtx3\+::category\+::category (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnvtx3_1_1category}{category}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classnvtx3_1_1category_ad3c9e5e40bcc0a026d145e84d671be12}\label{classnvtx3_1_1category_ad3c9e5e40bcc0a026d145e84d671be12} 
+\index{nvtx3::category@{nvtx3::category}!category@{category}}
+\index{category@{category}!nvtx3::category@{nvtx3::category}}
+\doxysubsubsection{\texorpdfstring{category()}{category()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily nvtx3\+::category\+::category (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnvtx3_1_1category}{category}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classnvtx3_1_1category_ab5b1043bb1c42808b04a515e10a464c6}\label{classnvtx3_1_1category_ab5b1043bb1c42808b04a515e10a464c6} 
+\index{nvtx3::category@{nvtx3::category}!get\_id@{get\_id}}
+\index{get\_id@{get\_id}!nvtx3::category@{nvtx3::category}}
+\doxysubsubsection{\texorpdfstring{get\_id()}{get\_id()}}
+{\footnotesize\ttfamily constexpr \mbox{\hyperlink{classnvtx3_1_1category_ab99ba2a90acc6327d3e61f7999ca3bc4}{id\+\_\+type}} nvtx3\+::category\+::get\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Returns the id of the category. 
+
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l00938}{938}} 行定义.
+
+\Hypertarget{classnvtx3_1_1category_a0a5f01dea56a130818ff589acd19e532}\label{classnvtx3_1_1category_a0a5f01dea56a130818ff589acd19e532} 
+\index{nvtx3::category@{nvtx3::category}!operator=@{operator=}}
+\index{operator=@{operator=}!nvtx3::category@{nvtx3::category}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnvtx3_1_1category}{category}} \& nvtx3\+::category\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnvtx3_1_1category}{category}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classnvtx3_1_1category_a4dfe9724d238aa887ba16291e3981566}\label{classnvtx3_1_1category_a4dfe9724d238aa887ba16291e3981566} 
+\index{nvtx3::category@{nvtx3::category}!operator=@{operator=}}
+\index{operator=@{operator=}!nvtx3::category@{nvtx3::category}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnvtx3_1_1category}{category}} \& nvtx3\+::category\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnvtx3_1_1category}{category}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classnvtx3_1_1category_a09a5dda0bac9a2ddce23f090d2da69f6}\label{classnvtx3_1_1category_a09a5dda0bac9a2ddce23f090d2da69f6} 
+\index{nvtx3::category@{nvtx3::category}!id\_@{id\_}}
+\index{id\_@{id\_}!nvtx3::category@{nvtx3::category}}
+\doxysubsubsection{\texorpdfstring{id\_}{id\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnvtx3_1_1category_ab99ba2a90acc6327d3e61f7999ca3bc4}{id\+\_\+type}} const nvtx3\+::category\+::id\+\_\+ \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+category\textquotesingle{}s unique identifier 
+
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l00948}{948}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/detail/nvtx/\mbox{\hyperlink{nvtx3_8hpp}{nvtx3.\+hpp}}\end{DoxyCompactItemize}

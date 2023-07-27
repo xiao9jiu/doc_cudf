@@ -1,0 +1,128 @@
+\doxysection{binaryop.\+hpp}
+\hypertarget{binaryop_8hpp_source}{}\label{binaryop_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/binaryop.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/binaryop.hpp}}
+\mbox{\hyperlink{binaryop_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2019-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{column_8hpp}{cudf/column/column.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{scalar_8hpp}{cudf/scalar/scalar.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <rmm/mr/device/per\_device\_resource.hpp>}}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00026}00026\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00038}\mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{00038}}\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{binary\_operator}}\ :\ int32\_t\ \{}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00039}00039\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca9eeb52badb613229884838847294b90d}{ADD}},\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00040}00040\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca241dd841abade20fcb27b8a9f494e1eb}{SUB}},\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00041}00041\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca2cdf52a55876063ec93b7d18bc741f6c}{MUL}},\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00042}00042\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca29bbf66f7f8529ec47e394fb5a36c646}{DIV}},\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00043}00043\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaa14fdfc1aa76e925151b566a67c99406}{TRUE\_DIV}},\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00044}00044\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca77811fd0ec3d3ed2711a923332e8e69f}{FLOOR\_DIV}},\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00046}00046\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcac5a28f4b35a2884fa3277150ac5d0967}{MOD}},\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00047}00047\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaaf5a744d55583fdb1af0f280f12c9ab1}{PMOD}},\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00050}00050\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca36aaf571a1008bd43f47509344cd13ad}{PYMOD}},\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00051}00051\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca17faf4e999b8cee4c36915c1f54ccffe}{POW}},\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00052}00052\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcad41167c344e1771b57cbbf5df6633a90}{INT\_POW}},\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00054}00054\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca21fb6e241507492d75c488a9c65d12fe}{LOG\_BASE}},\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00055}00055\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaf8d5f387d3ac8f7084ae44566b32acb2}{ATAN2}},\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00056}00056\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcab11947742cdeb1e9d0b493239416e885}{SHIFT\_LEFT}},\ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00057}00057\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaf07939cca8bcd94dfa7356d96e4b1ebb}{SHIFT\_RIGHT}},\ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00058}00058\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaa41bd9a635ce48d786cde49d803446e1}{SHIFT\_RIGHT\_UNSIGNED}},\ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00060}00060\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaaa5f2eafabf8fa18cbb708c657f37245}{BITWISE\_AND}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00061}00061\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca0d89cfe1f2f7f0c2deb3d35455783ab9}{BITWISE\_OR}},\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00062}00062\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca6d7cca7c0f0f278c56131a25e77c4a5c}{BITWISE\_XOR}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00063}00063\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaa770916377f618641eccd6783b13503a}{LOGICAL\_AND}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00064}00064\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca0d0389dd347e259ac16a47fc9db81c18}{LOGICAL\_OR}},\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00065}00065\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca969f331a87d8c958473c32b4d0e61a44}{EQUAL}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00066}00066\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca4ea2d378cdec20f59330f113297bc1ce}{NOT\_EQUAL}},\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00067}00067\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca1798e8c3621ca53d9e3a80d257306000}{LESS}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00068}00068\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcae7e72355289e404b762d4cf88824d23b}{GREATER}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00069}00069\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca8b4a5cd69b217bf93b054ada7f49abd4}{LESS\_EQUAL}},\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00070}00070\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca87e6b203bf40967d37a33f9a4438561a}{GREATER\_EQUAL}},\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00071}00071\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcacb8d87e20fe7c6f3786fb063814420e5}{NULL\_EQUALS}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00073}00073\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcaf96f1246ae59f3f396dd304c4e3efb2f}{NULL\_MAX}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00075}00075\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edcadb8b769d7a9c9d41242eb4b721228c50}{NULL\_MIN}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00077}00077\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca8949d722159e21bb5941af5b0e92aeb5}{GENERIC\_BINARY}},\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00079}00079\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca0b0eecbb7754f87b05d19490f50ddd4f}{NULL\_LOGICAL\_AND}},\ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00081}00081\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca009adecefebadfcd26e7fad3b046104b}{NULL\_LOGICAL\_OR}},\ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00083}00083\ \ \ \mbox{\hyperlink{group__transformation__binaryops_gga00ed76601b6db662550f6826cfd99edca0b010d84b45dcb367a81c7c029d3f5bb}{INVALID\_BINARY}}\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00084}00084\ \};}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00106}\mbox{\hyperlink{group__transformation__binaryops_gaff4f1be08dc3f02b429f4899b2eacbbf}{00106}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__transformation__binaryops_gaff4f1be08dc3f02b429f4899b2eacbbf}{binary\_operation}}(}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00107}00107\ \ \ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}}\ \textcolor{keyword}{const}\&\ lhs,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00108}00108\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ rhs,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00109}00109\ \ \ \mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{binary\_operator}}\ op,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00110}00110\ \ \ \mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ output\_type,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00111}00111\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00134}\mbox{\hyperlink{group__transformation__binaryops_ga226c33874fc97e5e3122522425f3072b}{00134}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__transformation__binaryops_gaff4f1be08dc3f02b429f4899b2eacbbf}{binary\_operation}}(}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00135}00135\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ lhs,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00136}00136\ \ \ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}}\ \textcolor{keyword}{const}\&\ rhs,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00137}00137\ \ \ \mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{binary\_operator}}\ op,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00138}00138\ \ \ \mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ output\_type,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00139}00139\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00161}\mbox{\hyperlink{group__transformation__binaryops_ga43558085c43d054937158b9de88b689d}{00161}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__transformation__binaryops_gaff4f1be08dc3f02b429f4899b2eacbbf}{binary\_operation}}(}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00162}00162\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ lhs,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00163}00163\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ rhs,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00164}00164\ \ \ \mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{binary\_operator}}\ op,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00165}00165\ \ \ \mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ output\_type,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00166}00166\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00190}\mbox{\hyperlink{group__transformation__binaryops_gab106aa46f902ec1266feb4eb5f0fef6b}{00190}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__transformation__binaryops_gaff4f1be08dc3f02b429f4899b2eacbbf}{binary\_operation}}(}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00191}00191\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ lhs,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00192}00192\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ rhs,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00193}00193\ \ \ std::string\ \textcolor{keyword}{const}\&\ ptx,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00194}00194\ \ \ \mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ output\_type,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00195}00195\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00205}\mbox{\hyperlink{group__transformation__binaryops_ga76c84637bf4ca70809860a6135bb301a}{00205}}\ int32\_t\ \mbox{\hyperlink{group__transformation__binaryops_ga76c84637bf4ca70809860a6135bb301a}{binary\_operation\_fixed\_point\_scale}}(\mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{binary\_operator}}\ op,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ int32\_t\ left\_scale,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ int32\_t\ right\_scale);}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00217}\mbox{\hyperlink{group__transformation__binaryops_ga065bbc22dc02e3f4dd04a904c094acca}{00217}}\ \mbox{\hyperlink{classcudf_1_1data__type}{cudf::data\_type}}\ \mbox{\hyperlink{group__transformation__binaryops_ga065bbc22dc02e3f4dd04a904c094acca}{binary\_operation\_fixed\_point\_output\_type}}(\mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{binary\_operator}}\ op,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcudf_1_1data__type}{cudf::data\_type}}\ \textcolor{keyword}{const}\&\ lhs,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcudf_1_1data__type}{cudf::data\_type}}\ \textcolor{keyword}{const}\&\ rhs);}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00221}\mbox{\hyperlink{namespacecudf_1_1binops}{00221}}\ \textcolor{keyword}{namespace\ }binops\ \{}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00222}00222\ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00232}\mbox{\hyperlink{namespacecudf_1_1binops_a31c1ed78466d15a1582594991213eb20}{00232}}\ std::pair<rmm::device\_buffer,\ size\_type>\ \mbox{\hyperlink{namespacecudf_1_1binops_a31c1ed78466d15a1582594991213eb20}{scalar\_col\_valid\_mask\_and}}(}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00233}00233\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ col,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00234}00234\ \ \ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}}\ \textcolor{keyword}{const}\&\ s,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00235}00235\ \ \ rmm::cuda\_stream\_view\ stream\ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf::get\_default\_stream}}(),}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00236}00236\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00238}\mbox{\hyperlink{namespacecudf_1_1binops_1_1compiled}{00238}}\ \textcolor{keyword}{namespace\ }compiled\ \{}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00239}\mbox{\hyperlink{namespacecudf_1_1binops_1_1compiled_1_1detail}{00239}}\ \textcolor{keyword}{namespace\ }detail\ \{}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00252}\mbox{\hyperlink{namespacecudf_1_1binops_1_1compiled_1_1detail_aed04269dfa5a04dfd51bc9d87bb094d8}{00252}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacecudf_1_1binops_1_1compiled_1_1detail_aed04269dfa5a04dfd51bc9d87bb094d8}{apply\_sorting\_struct\_binary\_op}}(\mbox{\hyperlink{classcudf_1_1mutable__column__view}{mutable\_column\_view}}\&\ out,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00253}00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ lhs,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00254}00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ rhs,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_lhs\_scalar,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_rhs\_scalar,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group__transformation__binaryops_ga00ed76601b6db662550f6826cfd99edc}{binary\_operator}}\ op,}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::cuda\_stream\_view\ stream);}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00259}00259\ \}\ \ \textcolor{comment}{//\ namespace\ detail}}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00260}00260\ \}\ \ \textcolor{comment}{//\ namespace\ compiled}}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00261}00261\ \}\ \ \textcolor{comment}{//\ namespace\ binops}}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00262}00262\ \ \ \textcolor{comment}{//\ end\ of\ group}}
+\DoxyCodeLine{\Hypertarget{binaryop_8hpp_source_l00264}00264\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

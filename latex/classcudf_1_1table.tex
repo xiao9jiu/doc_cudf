@@ -1,0 +1,409 @@
+\doxysection{cudf\+::table类 参考}
+\hypertarget{classcudf_1_1table}{}\label{classcudf_1_1table}\index{cudf::table@{cudf::table}}
+
+
+A set of \doxylink{classcudf_1_1column}{cudf\+::column}\textquotesingle{}s of the same size.  
+
+
+
+
+{\ttfamily \#include $<$table.\+hpp$>$}
+
+
+
+cudf\+::table 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{classcudf_1_1table__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1table_a5610a9bd918d2dc9694079ced772d54b}{table}} ()=default
+\item 
+\mbox{\hyperlink{classcudf_1_1table_ace8c6e926d3f190ca5395f5f28c7a2b7}{\texorpdfstring{$\sim$}{\string~}table}} ()=default
+\item 
+\mbox{\hyperlink{classcudf_1_1table_a7196bb055bd8b8888e568930683a04ab}{table}} (\mbox{\hyperlink{classcudf_1_1table}{table}} \&\&)=default
+\begin{DoxyCompactList}\small\item\em Move constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1table}{table}} \& \mbox{\hyperlink{classcudf_1_1table_a2ddd76f1193cb9170e78a017b4d3e74b}{operator=}} (\mbox{\hyperlink{classcudf_1_1table}{table}} const \&)=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1table}{table}} \& \mbox{\hyperlink{classcudf_1_1table_a0b5b616358ef81aba3c532b57e1e2fc1}{operator=}} (\mbox{\hyperlink{classcudf_1_1table}{table}} \&\&)=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1table_a7bd0ad09f593649786b3b5f14201ff4a}{table}} (\mbox{\hyperlink{classcudf_1_1table}{table}} const \&other)
+\begin{DoxyCompactList}\small\item\em Construct a new table by copying the contents of another table. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1table_aa76decb148cc2773d9be6c5a9a541336}{table}} (std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ $>$ \&\&columns)
+\begin{DoxyCompactList}\small\item\em Moves the contents from a vector of {\ttfamily unique\+\_\+ptr}s to columns to construct a new table. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1table_a8912943ed42355f7f321145fe3070bea}{table}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} \mbox{\hyperlink{classcudf_1_1table_a5306f5b7456553e2ec412a1bef154896}{view}}, rmm\+::cuda\+\_\+stream\+\_\+view stream=\mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}(), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Copy the contents of a {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} to construct a new {\ttfamily table}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1table_aaf0e0f19ad8e72384944d40798a65c14}{num\+\_\+columns}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the number of columns in the table \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1table_a6f413ef7e62bf5b2863c26e98f664c54}{num\+\_\+rows}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the number of rows \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} \mbox{\hyperlink{classcudf_1_1table_a5306f5b7456553e2ec412a1bef154896}{view}} () const
+\begin{DoxyCompactList}\small\item\em Returns an immutable, non-\/owning {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} of the contents of this {\ttfamily table}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1table_a76ec355be422ca358f859ad2b413ee26}{operator table\+\_\+view}} () const
+\begin{DoxyCompactList}\small\item\em Conversion operator to an immutable, non-\/owning {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} of the contents of this {\ttfamily table}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1mutable__table__view}{mutable\+\_\+table\+\_\+view}} \mbox{\hyperlink{classcudf_1_1table_a018d65d5b213a133407e272732c45e1b}{mutable\+\_\+view}} ()
+\begin{DoxyCompactList}\small\item\em Returns a mutable, non-\/owning {\ttfamily \doxylink{classcudf_1_1mutable__table__view}{mutable\+\_\+table\+\_\+view}} of the contents of this {\ttfamily table}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1table_aaf1c07ae403c14454bc3b79c2c28754a}{operator mutable\+\_\+table\+\_\+view}} ()
+\begin{DoxyCompactList}\small\item\em Conversion operator to a mutable, non-\/owning {\ttfamily \doxylink{classcudf_1_1mutable__table__view}{mutable\+\_\+table\+\_\+view}} of the contents of this {\ttfamily table}. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ $>$ \mbox{\hyperlink{classcudf_1_1table_a8fe370b9f0ac4c70cc606670adaef3dc}{release}} ()
+\begin{DoxyCompactList}\small\item\em Releases ownership of the {\ttfamily column}s by returning a vector of {\ttfamily unique\+\_\+ptr}s to the constituent columns. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Input\+Iterator $>$ }\\\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} \mbox{\hyperlink{classcudf_1_1table_a73815513eb6e62097e411dd38c6b1103}{select}} (Input\+Iterator begin, Input\+Iterator end) const
+\begin{DoxyCompactList}\small\item\em Returns a \doxylink{classcudf_1_1table__view}{table\+\_\+view} built from a range of column indices. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} \mbox{\hyperlink{classcudf_1_1table_a2f760e2da6f546fdd877389351c5dc9e}{select}} (std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} $>$ const \&column\+\_\+indices) const
+\begin{DoxyCompactList}\small\item\em Returns a \doxylink{classcudf_1_1table__view}{table\+\_\+view} with set of specified columns. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1column}{column}} \& \mbox{\hyperlink{classcudf_1_1table_a389bf64a00c8f80bb19a9c7470317ba8}{get\+\_\+column}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} column\+\_\+index)
+\begin{DoxyCompactList}\small\item\em Returns a reference to the specified column \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1column}{column}} const \& \mbox{\hyperlink{classcudf_1_1table_af10da56d0b2d74aeaa4df5ca9891c68a}{get\+\_\+column}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} i) const
+\begin{DoxyCompactList}\small\item\em Returns a const reference to the specified column \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ $>$ \mbox{\hyperlink{classcudf_1_1table_a740393992975bd380497b41b5e89f16e}{\+\_\+columns}} \{\}
+\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1table_abbb7fd7dcd41cecf770d9d8d42274f4a}{\+\_\+num\+\_\+rows}} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+A set of \doxylink{classcudf_1_1column}{cudf\+::column}\textquotesingle{}s of the same size. 
+
+
+
+在文件 \mbox{\hyperlink{table_8hpp_source}{table.\+hpp}} 第 \mbox{\hyperlink{table_8hpp_source_l00040}{40}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1table_a5610a9bd918d2dc9694079ced772d54b}\label{classcudf_1_1table_a5610a9bd918d2dc9694079ced772d54b} 
+\index{cudf::table@{cudf::table}!table@{table}}
+\index{table@{table}!cudf::table@{cudf::table}}
+\doxysubsubsection{\texorpdfstring{table()}{table()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily cudf\+::table\+::table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classcudf_1_1table_ace8c6e926d3f190ca5395f5f28c7a2b7}\label{classcudf_1_1table_ace8c6e926d3f190ca5395f5f28c7a2b7} 
+\index{cudf::table@{cudf::table}!````~table@{\texorpdfstring{$\sim$}{\string~}table}}
+\index{````~table@{\texorpdfstring{$\sim$}{\string~}table}!cudf::table@{cudf::table}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}table()}{\string~table()}}
+{\footnotesize\ttfamily cudf\+::table\+::\texorpdfstring{$\sim$}{\string~}table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classcudf_1_1table_a7196bb055bd8b8888e568930683a04ab}\label{classcudf_1_1table_a7196bb055bd8b8888e568930683a04ab} 
+\index{cudf::table@{cudf::table}!table@{table}}
+\index{table@{table}!cudf::table@{cudf::table}}
+\doxysubsubsection{\texorpdfstring{table()}{table()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily cudf\+::table\+::table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table}{table}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Move constructor 
+
+\Hypertarget{classcudf_1_1table_a7bd0ad09f593649786b3b5f14201ff4a}\label{classcudf_1_1table_a7bd0ad09f593649786b3b5f14201ff4a} 
+\index{cudf::table@{cudf::table}!table@{table}}
+\index{table@{table}!cudf::table@{cudf::table}}
+\doxysubsubsection{\texorpdfstring{table()}{table()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily cudf\+::table\+::table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table}{table}} const \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Construct a new table by copying the contents of another table. 
+
+
+\begin{DoxyParams}{参数}
+{\em other} & The table to copy \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcudf_1_1table_aa76decb148cc2773d9be6c5a9a541336}\label{classcudf_1_1table_aa76decb148cc2773d9be6c5a9a541336} 
+\index{cudf::table@{cudf::table}!table@{table}}
+\index{table@{table}!cudf::table@{cudf::table}}
+\doxysubsubsection{\texorpdfstring{table()}{table()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily cudf\+::table\+::table (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ $>$ \&\&}]{columns }\end{DoxyParamCaption})}
+
+
+
+Moves the contents from a vector of {\ttfamily unique\+\_\+ptr}s to columns to construct a new table. 
+
+
+\begin{DoxyParams}{参数}
+{\em columns} & The vector of {\ttfamily unique\+\_\+ptr}s to columns whose contents will be moved into the new table. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcudf_1_1table_a8912943ed42355f7f321145fe3070bea}\label{classcudf_1_1table_a8912943ed42355f7f321145fe3070bea} 
+\index{cudf::table@{cudf::table}!table@{table}}
+\index{table@{table}!cudf::table@{cudf::table}}
+\doxysubsubsection{\texorpdfstring{table()}{table()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily cudf\+::table\+::table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}}}]{view,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream = {\ttfamily \mbox{\hyperlink{namespacecudf_a001ed29e71e759518cae31e52312befa}{cudf\+::get\+\_\+default\+\_\+stream}}()},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Copy the contents of a {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} to construct a new {\ttfamily table}. 
+
+
+\begin{DoxyParams}{参数}
+{\em view} & The view whose contents will be copied to create a new {\ttfamily table} \\
+\hline
+{\em stream} & CUDA stream used for device memory operations. \\
+\hline
+{\em mr} & Device memory resource used for allocating the device memory for the new columns \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1table_a389bf64a00c8f80bb19a9c7470317ba8}\label{classcudf_1_1table_a389bf64a00c8f80bb19a9c7470317ba8} 
+\index{cudf::table@{cudf::table}!get\_column@{get\_column}}
+\index{get\_column@{get\_column}!cudf::table@{cudf::table}}
+\doxysubsubsection{\texorpdfstring{get\_column()}{get\_column()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1column}{column}} \& cudf\+::table\+::get\+\_\+column (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}}}]{column\+\_\+index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a reference to the specified column 
+
+
+\begin{DoxyExceptions}{异常}
+{\em std\+::out\+\_\+of\+\_\+range} & If i is out of the range \mbox{[}0, num\+\_\+columns)\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em column\+\_\+index} & Index of the desired column \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A reference to the desired column 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{table_8hpp_source}{table.\+hpp}} 第 \mbox{\hyperlink{table_8hpp_source_l00172}{172}} 行定义.
+
+\Hypertarget{classcudf_1_1table_af10da56d0b2d74aeaa4df5ca9891c68a}\label{classcudf_1_1table_af10da56d0b2d74aeaa4df5ca9891c68a} 
+\index{cudf::table@{cudf::table}!get\_column@{get\_column}}
+\index{get\_column@{get\_column}!cudf::table@{cudf::table}}
+\doxysubsubsection{\texorpdfstring{get\_column()}{get\_column()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1column}{column}} const  \& cudf\+::table\+::get\+\_\+column (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}}}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a const reference to the specified column 
+
+
+\begin{DoxyExceptions}{异常}
+{\em std\+::out\+\_\+of\+\_\+range} & If i is out of the range \mbox{[}0, num\+\_\+columns)\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em i} & Index of the desired column \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A const reference to the desired column 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{table_8hpp_source}{table.\+hpp}} 第 \mbox{\hyperlink{table_8hpp_source_l00183}{183}} 行定义.
+
+\Hypertarget{classcudf_1_1table_a018d65d5b213a133407e272732c45e1b}\label{classcudf_1_1table_a018d65d5b213a133407e272732c45e1b} 
+\index{cudf::table@{cudf::table}!mutable\_view@{mutable\_view}}
+\index{mutable\_view@{mutable\_view}!cudf::table@{cudf::table}}
+\doxysubsubsection{\texorpdfstring{mutable\_view()}{mutable\_view()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1mutable__table__view}{mutable\+\_\+table\+\_\+view}} cudf\+::table\+::mutable\+\_\+view (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns a mutable, non-\/owning {\ttfamily \doxylink{classcudf_1_1mutable__table__view}{mutable\+\_\+table\+\_\+view}} of the contents of this {\ttfamily table}. 
+
+\begin{DoxyReturn}{返回}
+A mutable, non-\/owning {\ttfamily \doxylink{classcudf_1_1mutable__table__view}{mutable\+\_\+table\+\_\+view}} of the contents of this {\ttfamily table} 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1table_aaf0e0f19ad8e72384944d40798a65c14}\label{classcudf_1_1table_aaf0e0f19ad8e72384944d40798a65c14} 
+\index{cudf::table@{cudf::table}!num\_columns@{num\_columns}}
+\index{num\_columns@{num\_columns}!cudf::table@{cudf::table}}
+\doxysubsubsection{\texorpdfstring{num\_columns()}{num\_columns()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::table\+::num\+\_\+columns (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Returns the number of columns in the table 
+
+\begin{DoxyReturn}{返回}
+The number of columns in the table 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{table_8hpp_source}{table.\+hpp}} 第 \mbox{\hyperlink{table_8hpp_source_l00080}{80}} 行定义.
+
+\Hypertarget{classcudf_1_1table_a6f413ef7e62bf5b2863c26e98f664c54}\label{classcudf_1_1table_a6f413ef7e62bf5b2863c26e98f664c54} 
+\index{cudf::table@{cudf::table}!num\_rows@{num\_rows}}
+\index{num\_rows@{num\_rows}!cudf::table@{cudf::table}}
+\doxysubsubsection{\texorpdfstring{num\_rows()}{num\_rows()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::table\+::num\+\_\+rows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Returns the number of rows 
+
+\begin{DoxyReturn}{返回}
+The number of rows 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{table_8hpp_source}{table.\+hpp}} 第 \mbox{\hyperlink{table_8hpp_source_l00087}{87}} 行定义.
+
+\Hypertarget{classcudf_1_1table_aaf1c07ae403c14454bc3b79c2c28754a}\label{classcudf_1_1table_aaf1c07ae403c14454bc3b79c2c28754a} 
+\index{cudf::table@{cudf::table}!operator mutable\_table\_view@{operator mutable\_table\_view}}
+\index{operator mutable\_table\_view@{operator mutable\_table\_view}!cudf::table@{cudf::table}}
+\doxysubsubsection{\texorpdfstring{operator mutable\_table\_view()}{operator mutable\_table\_view()}}
+{\footnotesize\ttfamily cudf\+::table\+::operator \mbox{\hyperlink{classcudf_1_1mutable__table__view}{mutable\+\_\+table\+\_\+view}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Conversion operator to a mutable, non-\/owning {\ttfamily \doxylink{classcudf_1_1mutable__table__view}{mutable\+\_\+table\+\_\+view}} of the contents of this {\ttfamily table}. 
+
+
+
+在文件 \mbox{\hyperlink{table_8hpp_source}{table.\+hpp}} 第 \mbox{\hyperlink{table_8hpp_source_l00115}{115}} 行定义.
+
+\Hypertarget{classcudf_1_1table_a76ec355be422ca358f859ad2b413ee26}\label{classcudf_1_1table_a76ec355be422ca358f859ad2b413ee26} 
+\index{cudf::table@{cudf::table}!operator table\_view@{operator table\_view}}
+\index{operator table\_view@{operator table\_view}!cudf::table@{cudf::table}}
+\doxysubsubsection{\texorpdfstring{operator table\_view()}{operator table\_view()}}
+{\footnotesize\ttfamily cudf\+::table\+::operator \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Conversion operator to an immutable, non-\/owning {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} of the contents of this {\ttfamily table}. 
+
+
+
+在文件 \mbox{\hyperlink{table_8hpp_source}{table.\+hpp}} 第 \mbox{\hyperlink{table_8hpp_source_l00101}{101}} 行定义.
+
+\Hypertarget{classcudf_1_1table_a0b5b616358ef81aba3c532b57e1e2fc1}\label{classcudf_1_1table_a0b5b616358ef81aba3c532b57e1e2fc1} 
+\index{cudf::table@{cudf::table}!operator=@{operator=}}
+\index{operator=@{operator=}!cudf::table@{cudf::table}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1table}{table}} \& cudf\+::table\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table}{table}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classcudf_1_1table_a2ddd76f1193cb9170e78a017b4d3e74b}\label{classcudf_1_1table_a2ddd76f1193cb9170e78a017b4d3e74b} 
+\index{cudf::table@{cudf::table}!operator=@{operator=}}
+\index{operator=@{operator=}!cudf::table@{cudf::table}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1table}{table}} \& cudf\+::table\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table}{table}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classcudf_1_1table_a8fe370b9f0ac4c70cc606670adaef3dc}\label{classcudf_1_1table_a8fe370b9f0ac4c70cc606670adaef3dc} 
+\index{cudf::table@{cudf::table}!release@{release}}
+\index{release@{release}!cudf::table@{cudf::table}}
+\doxysubsubsection{\texorpdfstring{release()}{release()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ $>$ cudf\+::table\+::release (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Releases ownership of the {\ttfamily column}s by returning a vector of {\ttfamily unique\+\_\+ptr}s to the constituent columns. 
+
+After {\ttfamily \doxylink{classcudf_1_1table_a8fe370b9f0ac4c70cc606670adaef3dc}{release()}}, {\ttfamily \doxylink{classcudf_1_1table_aaf0e0f19ad8e72384944d40798a65c14}{num\+\_\+columns()} == 0} and {\ttfamily \doxylink{classcudf_1_1table_a6f413ef7e62bf5b2863c26e98f664c54}{num\+\_\+rows()} == 0}
+
+\begin{DoxyReturn}{返回}
+A vector of {\ttfamily unique\+\_\+ptr}s to the constituent columns 
+\end{DoxyReturn}
+\Hypertarget{classcudf_1_1table_a73815513eb6e62097e411dd38c6b1103}\label{classcudf_1_1table_a73815513eb6e62097e411dd38c6b1103} 
+\index{cudf::table@{cudf::table}!select@{select}}
+\index{select@{select}!cudf::table@{cudf::table}}
+\doxysubsubsection{\texorpdfstring{select()}{select()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Input\+Iterator $>$ \\
+\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} cudf\+::table\+::select (\begin{DoxyParamCaption}\item[{Input\+Iterator}]{begin,  }\item[{Input\+Iterator}]{end }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a \doxylink{classcudf_1_1table__view}{table\+\_\+view} built from a range of column indices. 
+
+
+\begin{DoxyExceptions}{异常}
+{\em std\+::out\+\_\+of\+\_\+range} & If any index is outside \mbox{[}0, \doxylink{classcudf_1_1table_aaf0e0f19ad8e72384944d40798a65c14}{num\+\_\+columns()})\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em begin} & Beginning of the range \\
+\hline
+{\em end} & Ending of the range \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A \doxylink{classcudf_1_1table__view}{table\+\_\+view} consisting of columns from the original table specified by the elements of {\ttfamily column\+\_\+indices} 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{table_8hpp_source}{table.\+hpp}} 第 \mbox{\hyperlink{table_8hpp_source_l00140}{140}} 行定义.
+
+\Hypertarget{classcudf_1_1table_a2f760e2da6f546fdd877389351c5dc9e}\label{classcudf_1_1table_a2f760e2da6f546fdd877389351c5dc9e} 
+\index{cudf::table@{cudf::table}!select@{select}}
+\index{select@{select}!cudf::table@{cudf::table}}
+\doxysubsubsection{\texorpdfstring{select()}{select()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} cudf\+::table\+::select (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} $>$ const \&}]{column\+\_\+indices }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a \doxylink{classcudf_1_1table__view}{table\+\_\+view} with set of specified columns. 
+
+
+\begin{DoxyExceptions}{异常}
+{\em std\+::out\+\_\+of\+\_\+range} & If any element in {\ttfamily column\+\_\+indices} is outside \mbox{[}0, \doxylink{classcudf_1_1table_aaf0e0f19ad8e72384944d40798a65c14}{num\+\_\+columns()})\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em column\+\_\+indices} & Indices of columns in the table \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A \doxylink{classcudf_1_1table__view}{table\+\_\+view} consisting of columns from the original table specified by the elements of {\ttfamily column\+\_\+indices} 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{table_8hpp_source}{table.\+hpp}} 第 \mbox{\hyperlink{table_8hpp_source_l00158}{158}} 行定义.
+
+\Hypertarget{classcudf_1_1table_a5306f5b7456553e2ec412a1bef154896}\label{classcudf_1_1table_a5306f5b7456553e2ec412a1bef154896} 
+\index{cudf::table@{cudf::table}!view@{view}}
+\index{view@{view}!cudf::table@{cudf::table}}
+\doxysubsubsection{\texorpdfstring{view()}{view()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} cudf\+::table\+::view (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns an immutable, non-\/owning {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} of the contents of this {\ttfamily table}. 
+
+\begin{DoxyReturn}{返回}
+An immutable, non-\/owning {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} of the contents of this {\ttfamily table} 
+\end{DoxyReturn}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1table_a740393992975bd380497b41b5e89f16e}\label{classcudf_1_1table_a740393992975bd380497b41b5e89f16e} 
+\index{cudf::table@{cudf::table}!\_columns@{\_columns}}
+\index{\_columns@{\_columns}!cudf::table@{cudf::table}}
+\doxysubsubsection{\texorpdfstring{\_columns}{\_columns}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classcudf_1_1column}{column}}$>$ $>$ cudf\+::table\+::\+\_\+columns \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{table_8hpp_source}{table.\+hpp}} 第 \mbox{\hyperlink{table_8hpp_source_l00186}{186}} 行定义.
+
+\Hypertarget{classcudf_1_1table_abbb7fd7dcd41cecf770d9d8d42274f4a}\label{classcudf_1_1table_abbb7fd7dcd41cecf770d9d8d42274f4a} 
+\index{cudf::table@{cudf::table}!\_num\_rows@{\_num\_rows}}
+\index{\_num\_rows@{\_num\_rows}!cudf::table@{cudf::table}}
+\doxysubsubsection{\texorpdfstring{\_num\_rows}{\_num\_rows}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::table\+::\+\_\+num\+\_\+rows \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{table_8hpp_source}{table.\+hpp}} 第 \mbox{\hyperlink{table_8hpp_source_l00187}{187}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/table/\mbox{\hyperlink{table_8hpp}{table.\+hpp}}\end{DoxyCompactItemize}

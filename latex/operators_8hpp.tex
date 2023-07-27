@@ -1,0 +1,173 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/ast/detail/operators.hpp 文件参考}
+\hypertarget{operators_8hpp}{}\label{operators_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/ast/detail/operators.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/ast/detail/operators.hpp}}
+{\ttfamily \#include $<$cudf/ast/expressions.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/types.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/utilities/error.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/utilities/type\+\_\+dispatcher.\+hpp$>$}\newline
+{\ttfamily \#include $<$cuda/std/type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+operators.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{operators_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ op, has\+\_\+nulls $>$}}
+\begin{DoxyCompactList}\small\item\em Operator functor. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_a_d_d_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+ADD, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_s_u_b_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+SUB, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_m_u_l_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+MUL, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_d_i_v_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+DIV, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_t_r_u_e___d_i_v_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+TRUE\+\_\+\+DIV, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_f_l_o_o_r___d_i_v_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+FLOOR\+\_\+\+DIV, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_m_o_d_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+MOD, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_p_y_m_o_d_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+PYMOD, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_p_o_w_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+POW, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_e_q_u_a_l_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+EQUAL, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_n_u_l_l___e_q_u_a_l_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+NULL\+\_\+\+EQUAL, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_n_o_t___e_q_u_a_l_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+NOT\+\_\+\+EQUAL, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_l_e_s_s_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+LESS, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_g_r_e_a_t_e_r_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+GREATER, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_l_e_s_s___e_q_u_a_l_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+LESS\+\_\+\+EQUAL, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_g_r_e_a_t_e_r___e_q_u_a_l_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+GREATER\+\_\+\+EQUAL, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_b_i_t_w_i_s_e___a_n_d_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+BITWISE\+\_\+\+AND, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_b_i_t_w_i_s_e___o_r_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+BITWISE\+\_\+\+OR, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_b_i_t_w_i_s_e___x_o_r_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+BITWISE\+\_\+\+XOR, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_l_o_g_i_c_a_l___a_n_d_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+LOGICAL\+\_\+\+AND, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_n_u_l_l___l_o_g_i_c_a_l___a_n_d_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+NULL\+\_\+\+LOGICAL\+\_\+\+AND, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_l_o_g_i_c_a_l___o_r_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+LOGICAL\+\_\+\+OR, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_n_u_l_l___l_o_g_i_c_a_l___o_r_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+NULL\+\_\+\+LOGICAL\+\_\+\+OR, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_i_d_e_n_t_i_t_y_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+IDENTITY, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_s_i_n_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+SIN, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_c_o_s_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+COS, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_t_a_n_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+TAN, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_a_r_c_s_i_n_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+ARCSIN, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_a_r_c_c_o_s_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+ARCCOS, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_a_r_c_t_a_n_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+ARCTAN, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_s_i_n_h_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+SINH, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_c_o_s_h_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+COSH, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_t_a_n_h_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+TANH, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_a_r_c_s_i_n_h_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+ARCSINH, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_a_r_c_c_o_s_h_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+ARCCOSH, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_a_r_c_t_a_n_h_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+ARCTANH, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_e_x_p_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+EXP, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_l_o_g_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+LOG, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_s_q_r_t_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+SQRT, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_c_b_r_t_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+CBRT, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_c_e_i_l_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+CEIL, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_f_l_o_o_r_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+FLOOR, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_a_b_s_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+ABS, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_r_i_n_t_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+RINT, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_b_i_t___i_n_v_e_r_t_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+BIT\+\_\+\+INVERT, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_n_o_t_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+NOT, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1cast}{cudf\+::ast\+::detail\+::cast$<$ To $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_c_a_s_t___t_o___i_n_t64_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+CAST\+\_\+\+TO\+\_\+\+INT64, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_c_a_s_t___t_o___u_i_n_t64_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+CAST\+\_\+\+TO\+\_\+\+UINT64, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_c_a_s_t___t_o___f_l_o_a_t64_00_01false_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+CAST\+\_\+\+TO\+\_\+\+FLOAT64, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01op_00_01true_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ op, true $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_n_u_l_l___e_q_u_a_l_00_01true_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+NULL\+\_\+\+EQUAL, true $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_n_u_l_l___l_o_g_i_c_a_l___a_n_d_00_01true_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+NULL\+\_\+\+LOGICAL\+\_\+\+AND, true $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_n_u_l_l___l_o_g_i_c_a_l___o_r_00_01true_01_4}{cudf\+::ast\+::detail\+::operator\+\_\+functor$<$ ast\+\_\+operator\+::\+NULL\+\_\+\+LOGICAL\+\_\+\+OR, true $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1single__dispatch__binary__operator__types}{cudf\+::ast\+::detail\+::single\+\_\+dispatch\+\_\+binary\+\_\+operator\+\_\+types$<$ Operator\+Functor $>$}}
+\begin{DoxyCompactList}\small\item\em Functor used to single-\/type-\/dispatch binary operators. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1type__dispatch__binary__op}{cudf\+::ast\+::detail\+::type\+\_\+dispatch\+\_\+binary\+\_\+op}}
+\begin{DoxyCompactList}\small\item\em Functor performing a type dispatch for a binary operator. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1dispatch__unary__operator__types}{cudf\+::ast\+::detail\+::dispatch\+\_\+unary\+\_\+operator\+\_\+types$<$ Operator\+Functor $>$}}
+\begin{DoxyCompactList}\small\item\em Functor used to type-\/dispatch unary operators. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1type__dispatch__unary__op}{cudf\+::ast\+::detail\+::type\+\_\+dispatch\+\_\+unary\+\_\+op}}
+\begin{DoxyCompactList}\small\item\em Functor performing a type dispatch for a unary operator. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1return__type__functor}{cudf\+::ast\+::detail\+::return\+\_\+type\+\_\+functor}}
+\begin{DoxyCompactList}\small\item\em Functor to determine the return type of an operator from its input types. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1arity__functor}{cudf\+::ast\+::detail\+::arity\+\_\+functor}}
+\begin{DoxyCompactList}\small\item\em Functor to determine the arity (number of operands) of an operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1ast}{cudf\+::ast}}
+\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1ast_1_1detail}{cudf\+::ast\+::detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename F , typename... Ts$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} constexpr void \mbox{\hyperlink{namespacecudf_1_1ast_1_1detail_a73fe239c46bc669584d03c28b5111227}{cudf\+::ast\+::detail\+::ast\+\_\+operator\+\_\+dispatcher}} (\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}} op, F \&\&f, Ts \&\&... args)
+\begin{DoxyCompactList}\small\item\em Operator dispatcher \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename F , typename... Ts$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} constexpr void \mbox{\hyperlink{namespacecudf_1_1ast_1_1detail_a4c86a5b4286a62796d8f41504dbb538d}{cudf\+::ast\+::detail\+::binary\+\_\+operator\+\_\+dispatcher}} (\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}} op, \mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} lhs\+\_\+type, \mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} rhs\+\_\+type, F \&\&f, Ts \&\&... args)
+\begin{DoxyCompactList}\small\item\em Dispatches a runtime binary operator to a templated type dispatcher. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename F , typename... Ts$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} constexpr void \mbox{\hyperlink{namespacecudf_1_1ast_1_1detail_acfde50d7ac41dc5d674a917644f193f8}{cudf\+::ast\+::detail\+::unary\+\_\+operator\+\_\+dispatcher}} (\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}} op, \mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} input\+\_\+type, F \&\&f, Ts \&\&... args)
+\begin{DoxyCompactList}\small\item\em Dispatches a runtime unary operator to a templated type dispatcher. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} \mbox{\hyperlink{namespacecudf_1_1ast_1_1detail_a49efd63b3d606698576037cb6ae07140}{cudf\+::ast\+::detail\+::ast\+\_\+operator\+\_\+return\+\_\+type}} (\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}} op, std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} $>$ const \&operand\+\_\+types)
+\begin{DoxyCompactList}\small\item\em Gets the return type of an AST operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{namespacecudf_1_1ast_1_1detail_afef4f3466ad680bc491dd11f2dac0608}{cudf\+::ast\+::detail\+::ast\+\_\+operator\+\_\+arity}} (\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}} op)
+\begin{DoxyCompactList}\small\item\em Gets the arity (number of operands) of an AST operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{变量}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Op , typename LHS , typename RHS $>$ }\\constexpr bool \mbox{\hyperlink{namespacecudf_1_1ast_1_1detail_aeb7a32b587b1b10e839a1c00ce19029a}{cudf\+::ast\+::detail\+::is\+\_\+valid\+\_\+binary\+\_\+op}} = cuda\+::std\+::is\+\_\+invocable\+\_\+v$<$Op, LHS, RHS$>$
+\item 
+{\footnotesize template$<$typename Op , typename T $>$ }\\constexpr bool \mbox{\hyperlink{namespacecudf_1_1ast_1_1detail_a6f6d45b1fc2597499c3642237e9f5895}{cudf\+::ast\+::detail\+::is\+\_\+valid\+\_\+unary\+\_\+op}} = cuda\+::std\+::is\+\_\+invocable\+\_\+v$<$Op, T$>$
+\end{DoxyCompactItemize}

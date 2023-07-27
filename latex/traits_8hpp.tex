@@ -1,0 +1,152 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/utilities/traits.hpp 文件参考}
+\hypertarget{traits_8hpp}{}\label{traits_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/utilities/traits.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/utilities/traits.hpp}}
+{\ttfamily \#include $<$cudf/fixed\+\_\+point/fixed\+\_\+point.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/types.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/wrappers/dictionary.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/wrappers/durations.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/wrappers/timestamps.\+hpp$>$}\newline
+{\ttfamily \#include $<$cuda/std/type\+\_\+traits$>$}\newline
+traits.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{traits_8hpp__incl}
+\end{center}
+\end{figure}
+此图展示该文件直接或间接的被哪些文件引用了\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{traits_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1detail_1_1is__relationally__comparable__impl}{cudf\+::detail\+::is\+\_\+relationally\+\_\+comparable\+\_\+impl$<$ L, R, typename $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1detail_1_1is__relationally__comparable__impl_3_01_l_00_01_r_00_01void__t_3_01less_58b6dd73ceb6a464bcab762425ace104}{cudf\+::detail\+::is\+\_\+relationally\+\_\+comparable\+\_\+impl$<$ L, R, void\+\_\+t$<$ less\+\_\+comparable$<$ L, R $>$, greater\+\_\+comparable$<$ L, R $>$ $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1detail_1_1is__equality__comparable__impl}{cudf\+::detail\+::is\+\_\+equality\+\_\+comparable\+\_\+impl$<$ L, R, typename $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1detail_1_1is__equality__comparable__impl_3_01_l_00_01_r_00_01void__t_3_01equality_2f83d168aaedf92541e7f7f4a1af5cfa}{cudf\+::detail\+::is\+\_\+equality\+\_\+comparable\+\_\+impl$<$ L, R, void\+\_\+t$<$ equality\+\_\+comparable$<$ L, R $>$ $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1detail_1_1has__common__type__impl}{cudf\+::detail\+::has\+\_\+common\+\_\+type\+\_\+impl$<$ Always\+Void, Ts $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1detail_1_1has__common__type__impl_3_01void__t_3_01std_1_1common__type__t_3_01_ts_8e2d33eab3ad4b77e8506b3fe056aacf5}{cudf\+::detail\+::has\+\_\+common\+\_\+type\+\_\+impl$<$ void\+\_\+t$<$ std\+::common\+\_\+type\+\_\+t$<$ Ts... $>$ $>$, Ts... $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1is__convertible}{cudf\+::is\+\_\+convertible$<$ From, To $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1is__convertible_3_01cudf_1_1detail_1_1timestamp_3_01_duration1_01_4_00_01cudf_1_1daa0b9b43387383cde2e3c74f3ffafc24}{cudf\+::is\+\_\+convertible$<$ cudf\+::detail\+::timestamp$<$ Duration1 $>$, cudf\+::detail\+::timestamp$<$ Duration2 $>$ $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1detail}{cudf\+::detail}}
+\begin{DoxyCompactList}\small\item\em Inner interfaces and implementations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{宏定义}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__utility__types_gadf63a9ff3257927585f111143a7c9ae4}{CUDF\+\_\+\+ENABLE\+\_\+\+IF}}(...)~std\+::enable\+\_\+if\+\_\+t$<$(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)$>$\texorpdfstring{$\ast$}{*} = nullptr
+\begin{DoxyCompactList}\small\item\em Convenience macro for SFINAE as an unnamed template parameter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{类型定义}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename... $>$ }\\using \mbox{\hyperlink{group__utility__types_ga9130d674f5ef432c1405fadd304a8c26}{cudf\+::void\+\_\+t}} = void
+\begin{DoxyCompactList}\small\item\em Utility metafunction that maps a sequence of any types to the type void. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename L , typename R $>$ }\\using \mbox{\hyperlink{group__utility__types_ga6cc1c1fe68e5031f9865b4d9114a2491}{cudf\+::less\+\_\+comparable}} = decltype(std\+::declval$<$ L $>$()$<$ std\+::declval$<$ R $>$())
+\begin{DoxyCompactList}\small\item\em Checks if two types are comparable using less operator (i.\+e. \texorpdfstring{$<$}{<}). \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename L , typename R $>$ }\\using \mbox{\hyperlink{group__utility__types_ga19a5866cc4b46bbff21bf863130d2f81}{cudf\+::greater\+\_\+comparable}} = decltype(std\+::declval$<$ L $>$() $>$ std\+::declval$<$ R $>$())
+\begin{DoxyCompactList}\small\item\em Checks if two types are comparable using greater operator (i.\+e. \texorpdfstring{$>$}{>}). \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename L , typename R $>$ }\\using \mbox{\hyperlink{group__utility__types_ga33f2db79a6c26d5d69a3c05cd057cee0}{cudf\+::equality\+\_\+comparable}} = decltype(std\+::declval$<$ L $>$()==std\+::declval$<$ R $>$())
+\begin{DoxyCompactList}\small\item\em Checks if two types are comparable using equality operator (i.\+e. ==). \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Ts$>$ }\\using \mbox{\hyperlink{group__utility__types_ga3d6f7d2e962d0063973334a901bd5381}{cudf\+::has\+\_\+common\+\_\+type}} = typename \mbox{\hyperlink{structcudf_1_1detail_1_1has__common__type__impl}{detail\+::has\+\_\+common\+\_\+type\+\_\+impl}}$<$ void, Ts... $>$\+::type
+\begin{DoxyCompactList}\small\item\em Checks if types have a common type \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{group__utility__types_gafab27b9e2451d4b930739368788b79c8}{cudf\+::is\+\_\+timestamp\+\_\+t}} = cuda\+::std\+::disjunction$<$ std\+::is\+\_\+same$<$ \mbox{\hyperlink{group__timestamp__classes_ga4658424aa55596e2f3b6b42a9260f736}{cudf\+::timestamp\+\_\+D}}, T $>$, std\+::is\+\_\+same$<$ \mbox{\hyperlink{group__timestamp__classes_ga44668df4b32894904fb68f13a5f0fdab}{cudf\+::timestamp\+\_\+s}}, T $>$, std\+::is\+\_\+same$<$ \mbox{\hyperlink{group__timestamp__classes_ga24fdf63531f7998ef3122a5d0885e949}{cudf\+::timestamp\+\_\+ms}}, T $>$, std\+::is\+\_\+same$<$ \mbox{\hyperlink{group__timestamp__classes_gabc5dd6cc3229f57af772e06f8c0bd828}{cudf\+::timestamp\+\_\+us}}, T $>$, std\+::is\+\_\+same$<$ \mbox{\hyperlink{group__timestamp__classes_gae2aef2b10c32caf1889ef2a6575b531a}{cudf\+::timestamp\+\_\+ns}}, T $>$ $>$
+\begin{DoxyCompactList}\small\item\em Checks if a type is a timestamp type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{group__utility__types_gafb8bb6a0673998a47423aca482d5b5ee}{cudf\+::is\+\_\+duration\+\_\+t}} = cuda\+::std\+::disjunction$<$ std\+::is\+\_\+same$<$ \mbox{\hyperlink{group__timestamp__classes_ga6a45112033b50dfa4988d71a0817131c}{cudf\+::duration\+\_\+D}}, T $>$, std\+::is\+\_\+same$<$ \mbox{\hyperlink{group__timestamp__classes_gae344db373c1568bd20e914cb74426519}{cudf\+::duration\+\_\+s}}, T $>$, std\+::is\+\_\+same$<$ \mbox{\hyperlink{group__timestamp__classes_ga70b6b95d45de41529211d95531fa3f86}{cudf\+::duration\+\_\+ms}}, T $>$, std\+::is\+\_\+same$<$ \mbox{\hyperlink{group__timestamp__classes_gab8e261e3e2a11e8464efb2a251c107d7}{cudf\+::duration\+\_\+us}}, T $>$, std\+::is\+\_\+same$<$ \mbox{\hyperlink{group__timestamp__classes_ga4efdb8225ec7e415ab3c660c066aa3ee}{cudf\+::duration\+\_\+ns}}, T $>$ $>$
+\begin{DoxyCompactList}\small\item\em Checks if a type is a duration type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename L , typename R $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_gaef9b08b206b1340c5ac3893d17943309}{cudf\+::is\+\_\+relationally\+\_\+comparable}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether objects of types {\ttfamily L} and {\ttfamily R} can be relationally compared. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga645a96d47abea35f5da669ecf10ceae7}{cudf\+::is\+\_\+relationally\+\_\+comparable}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Checks whether {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} {\ttfamily type} supports relational comparisons. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename L , typename R $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga82f7470f89e1e2b53077246712787120}{cudf\+::is\+\_\+equality\+\_\+comparable}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether objects of types {\ttfamily L} and {\ttfamily R} can be compared for equality. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga40162d35408ca1e9cc9b02af29b7149d}{cudf\+::is\+\_\+equality\+\_\+comparable}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Checks whether {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} {\ttfamily type} supports equality comparisons. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga736c39af324b57534639bd3d8af357e4}{cudf\+::is\+\_\+numeric}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether the type {\ttfamily T} is a numeric type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga2eaf2d3443dd8aa17724e78190b537ba}{cudf\+::is\+\_\+numeric}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily type} is a numeric {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga79a73ff286550b2f4fc764a6dbc2d782}{cudf\+::is\+\_\+index\+\_\+type}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether the type {\ttfamily T} is a index type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga4c4225b65c8d89fc680fc705676ff6f1}{cudf\+::is\+\_\+index\+\_\+type}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether the type {\ttfamily type} is a index type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_gaf186010866f2f5eb497467963eaf3d54}{cudf\+::is\+\_\+unsigned}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether the type {\ttfamily T} is a unsigned numeric type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga95969e57d58b6b7468b1cba9f435d95e}{cudf\+::is\+\_\+unsigned}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily type} is a unsigned numeric {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Iterator $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga960cec36c56cd253a84fcd2cec3933f9}{cudf\+::is\+\_\+signed\+\_\+iterator}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether the {\ttfamily Iterator} value type is unsigned. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_gaa964d11859bcec770945cf53d964371c}{cudf\+::is\+\_\+integral}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether the type {\ttfamily T} is an integral type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga31c663c44b3af8ae957a1d514052c923}{cudf\+::is\+\_\+integral}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily type} is a integral {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_gaac36fa8429a279de79c2afec53c02ee8}{cudf\+::is\+\_\+floating\+\_\+point}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether the type {\ttfamily T} is a floating point type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga947bd07e5edd70d8d56b38aeb856e9c6}{cudf\+::is\+\_\+floating\+\_\+point}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily type} is a floating point {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga27d4363f72ef43feeb12c06d90ff44c8}{cudf\+::is\+\_\+byte}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily T} is a std\+::byte type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_gaa1b9dd3a6ee95fa52224a53869cd164e}{cudf\+::is\+\_\+boolean}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily T} is a Boolean type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga73bcdf0744b62b98f4aef5fccea5840c}{cudf\+::is\+\_\+boolean}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily type} is a Boolean {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga90ebb90931abfed637396889b7829173}{cudf\+::is\+\_\+timestamp}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether the type {\ttfamily T} is a timestamp type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga92ea03fd93fa19ae17c3190cb439e5b3}{cudf\+::is\+\_\+timestamp}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily type} is a timestamp {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga02880fc9d2470aa36761dfe41c5309ee}{cudf\+::is\+\_\+fixed\+\_\+point}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether the type {\ttfamily T} is a fixed-\/point type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_gad339e701fa8a26d7630aa28f846399fb}{cudf\+::is\+\_\+fixed\+\_\+point}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily type} is a fixed point {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga5196242442d99904c755da4920f1043f}{cudf\+::is\+\_\+duration}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether the type {\ttfamily T} is a duration type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga285e3a7963fa18d913c1c9ff389d58ba}{cudf\+::is\+\_\+duration}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily type} is a duration {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga72f2d42d20b254754fd7bc8f4f32a990}{cudf\+::is\+\_\+chrono}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether the type {\ttfamily T} is a chrono type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_gad2846c31e90421f0cbe7834334822e6a}{cudf\+::is\+\_\+chrono}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily type} is a chrono {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga7c6839d4131493a1277f78a686226e54}{cudf\+::is\+\_\+rep\+\_\+layout\+\_\+compatible}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily T} is layout compatible with its \"{}representation\"{} type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga1f0657d191e4b383da031cd506c5196f}{cudf\+::is\+\_\+dictionary}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether the type {\ttfamily T} is a dictionary type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga0e213a7906791cb36453a966a16bf326}{cudf\+::is\+\_\+dictionary}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily type} is a dictionary {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_gaaa937abead085ea9420b15c6473f08a7}{cudf\+::is\+\_\+fixed\+\_\+width}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether elements of type {\ttfamily T} are fixed-\/width. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_gad588b3f9ca419e5a32f1ce42031994a5}{cudf\+::is\+\_\+fixed\+\_\+width}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether elements of {\ttfamily type} are fixed-\/width. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga14e1cea4200d1d92d7f38d596333d28a}{cudf\+::is\+\_\+compound}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether the type {\ttfamily T} is a compound type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga7b9445eeead457a3d5e18a2a675eb8dd}{cudf\+::is\+\_\+compound}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether elements of {\ttfamily type} are compound. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_gacaa242e2e068ab62bdaae071ed748357}{cudf\+::is\+\_\+nested}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily T} is a nested type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga8bfcb79b22de847a085d106dbf813c03}{cudf\+::is\+\_\+nested}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily type} is a nested type \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga73dd2d74b0eafb1543eb1cd27accd38e}{cudf\+::is\+\_\+bit\+\_\+castable}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} from, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} to)
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily from} is bit-\/castable to {\ttfamily to}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{变量}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename... Ts$>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga96e9ce4d30dc9a948112d814ee4cba79}{cudf\+::has\+\_\+common\+\_\+type\+\_\+v}} = \mbox{\hyperlink{structcudf_1_1detail_1_1has__common__type__impl}{detail\+::has\+\_\+common\+\_\+type\+\_\+impl}}$<$void, Ts...$>$\+::value
+\begin{DoxyCompactList}\small\item\em Helper variable template for has\+\_\+common\+\_\+type$<$$>$\+::value \end{DoxyCompactList}\end{DoxyCompactItemize}

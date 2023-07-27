@@ -1,0 +1,428 @@
+\doxysection{cudf\+::detail\+::base\+\_\+2dspan\texorpdfstring{$<$}{<} T, Row\+Type \texorpdfstring{$>$}{>} 模板类 参考}
+\hypertarget{classcudf_1_1detail_1_1base__2dspan}{}\label{classcudf_1_1detail_1_1base__2dspan}\index{cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}}
+
+
+Generic class for row-\/major 2D spans. Not compliant with STL container semantics/syntax.  
+
+
+
+
+{\ttfamily \#include $<$span.\+hpp$>$}
+
+
+
+cudf\+::detail\+::base\+\_\+2dspan\texorpdfstring{$<$}{<} T, Row\+Type \texorpdfstring{$>$}{>} 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{classcudf_1_1detail_1_1base__2dspan__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 类型}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_a0e20c6fb637e88760d72f987b8e05427}{size\+\_\+type}} = std\+::pair$<$ size\+\_\+t, size\+\_\+t $>$
+\begin{DoxyCompactList}\small\item\em Type used to represent the dimension of the span \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+constexpr \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_a970b4c236def53c2c034016bbb3b42e9}{base\+\_\+2dspan}} () noexcept=default
+\item 
+constexpr \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_a7d1b8c085db9ee83b13d872d84fc0237}{base\+\_\+2dspan}} (T \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_a8ef609730b447d46becb0b4b15a1bb01}{data}}, size\+\_\+t rows, size\+\_\+t columns) noexcept
+\begin{DoxyCompactList}\small\item\em Constructor a 2D span \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_af5accaa27e61654c021225d348626b22}{base\+\_\+2dspan}} (T \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_a8ef609730b447d46becb0b4b15a1bb01}{data}}, \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_a0e20c6fb637e88760d72f987b8e05427}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_ad1a7e75f64cdee23217805e190ea9923}{size}}) noexcept
+\begin{DoxyCompactList}\small\item\em Constructor a 2D span \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_a8ef609730b447d46becb0b4b15a1bb01}{data}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns a pointer to the beginning of the sequence. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_ad1a7e75f64cdee23217805e190ea9923}{size}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the size in the span as pair. \end{DoxyCompactList}\item 
+constexpr auto \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_a264924b45c6ca93e7e6de2d7a3998cd1}{count}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the number of elements in the span. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_a74d21a691c0f418238b6622d3766f087}{is\+\_\+empty}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Checks if the span is empty. \end{DoxyCompactList}\item 
+constexpr Row\+Type$<$ T, \mbox{\hyperlink{namespacecudf_add874002afe5d4f40cb59453704712bb}{dynamic\+\_\+extent}} $>$ \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_aab919aae76ef645bf43e7a343542a590}{operator\mbox{[}$\,$\mbox{]}}} (size\+\_\+t row) const
+\begin{DoxyCompactList}\small\item\em Returns a reference to the row-\/th element of the sequence. \end{DoxyCompactList}\item 
+constexpr Row\+Type$<$ T, \mbox{\hyperlink{namespacecudf_add874002afe5d4f40cb59453704712bb}{dynamic\+\_\+extent}} $>$ \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_a641849987c156dc95161934aa7110f25}{front}} () const
+\begin{DoxyCompactList}\small\item\em Returns a reference to the first element in the span. \end{DoxyCompactList}\item 
+constexpr Row\+Type$<$ T, \mbox{\hyperlink{namespacecudf_add874002afe5d4f40cb59453704712bb}{dynamic\+\_\+extent}} $>$ \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_a8e4e6585ca0900aee4fc2380e98f5b67}{back}} () const
+\begin{DoxyCompactList}\small\item\em Returns a reference to the last element in the span. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan}{base\+\_\+2dspan}} \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_aba3842f755b9f7d066c5c9f128725eb4}{subspan}} (size\+\_\+t first\+\_\+row, size\+\_\+t num\+\_\+rows) const noexcept
+\begin{DoxyCompactList}\small\item\em Obtains a 2D span that is a view over the {\ttfamily num\+\_\+rows} rows of this span starting at {\ttfamily first\+\_\+row} \end{DoxyCompactList}\item 
+constexpr Row\+Type$<$ T, \mbox{\hyperlink{namespacecudf_add874002afe5d4f40cb59453704712bb}{dynamic\+\_\+extent}} $>$ \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_afe70f2ba2b95dcb6539d83857e0ba2e2}{flat\+\_\+view}} ()
+\begin{DoxyCompactList}\small\item\em Returns a flattened span of the 2D span. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename OtherT , template$<$ typename, size\+\_\+t $>$ typename Other\+Row\+Type, std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+convertible\+\_\+v$<$ Other\+Row\+Type$<$ OtherT, \mbox{\hyperlink{namespacecudf_add874002afe5d4f40cb59453704712bb}{dynamic\+\_\+extent}} $>$, Row\+Type$<$ T, \mbox{\hyperlink{namespacecudf_add874002afe5d4f40cb59453704712bb}{dynamic\+\_\+extent}} $>$ $>$, void $>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ }\\constexpr \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_af89da418523a9c34577c735669856f47}{base\+\_\+2dspan}} (\mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan}{base\+\_\+2dspan}}$<$ OtherT, Other\+Row\+Type $>$ const \&other) noexcept
+\begin{DoxyCompactList}\small\item\em Construct a 2D span from another 2D span of convertible type \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr size\+\_\+t \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_abf8c421fdcb1795c1367cb14f39eb041}{flatten\+\_\+index}} (size\+\_\+t row, size\+\_\+t \mbox{\hyperlink{classcudf_1_1column}{column}}, \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_a0e20c6fb637e88760d72f987b8e05427}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_ad1a7e75f64cdee23217805e190ea9923}{size}}) noexcept
+\begin{DoxyCompactList}\small\item\em Returns flattened index of the element at the specified 2D position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected 属性}
+\begin{DoxyCompactItemize}
+\item 
+T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_ac1f70ad9514cdb191f5c1b61302e52da}{\+\_\+data}} = nullptr
+\begin{DoxyCompactList}\small\item\em pointer to the first element \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_a0e20c6fb637e88760d72f987b8e05427}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_a84437a3e48152c74f255be10017f9d8e}{\+\_\+size}} \{0, 0\}
+\begin{DoxyCompactList}\small\item\em rows, columns \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+\subsubsection*{template$<$typename T, template$<$ typename, std\+::size\+\_\+t $>$ typename Row\+Type$>$\newline
+class cudf\+::detail\+::base\+\_\+2dspan$<$ T, Row\+Type $>$}
+Generic class for row-\/major 2D spans. Not compliant with STL container semantics/syntax. 
+
+The index operator returns the corresponding row. 
+
+在文件 \mbox{\hyperlink{span_8hpp_source}{span.\+hpp}} 第 \mbox{\hyperlink{span_8hpp_source_l00338}{338}} 行定义.
+
+
+
+\doxysubsection{成员类型定义说明}
+\Hypertarget{classcudf_1_1detail_1_1base__2dspan_a0e20c6fb637e88760d72f987b8e05427}\label{classcudf_1_1detail_1_1base__2dspan_a0e20c6fb637e88760d72f987b8e05427} 
+\index{cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}!size\_type@{size\_type}}
+\index{size\_type@{size\_type}!cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}}
+\doxysubsubsection{\texorpdfstring{size\_type}{size\_type}}
+{\footnotesize\ttfamily template$<$typename T , template$<$ typename, std\+::size\+\_\+t $>$ typename Row\+Type$>$ \\
+using \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan}{cudf\+::detail\+::base\+\_\+2dspan}}$<$ T, Row\+Type $>$\+::size\+\_\+type =  std\+::pair$<$size\+\_\+t, size\+\_\+t$>$}
+
+
+
+Type used to represent the dimension of the span 
+
+
+
+在文件 \mbox{\hyperlink{span_8hpp_source}{span.\+hpp}} 第 \mbox{\hyperlink{span_8hpp_source_l00340}{340}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1detail_1_1base__2dspan_a970b4c236def53c2c034016bbb3b42e9}\label{classcudf_1_1detail_1_1base__2dspan_a970b4c236def53c2c034016bbb3b42e9} 
+\index{cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}!base\_2dspan@{base\_2dspan}}
+\index{base\_2dspan@{base\_2dspan}!cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}}
+\doxysubsubsection{\texorpdfstring{base\_2dspan()}{base\_2dspan()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename T , template$<$ typename, std\+::size\+\_\+t $>$ typename Row\+Type$>$ \\
+constexpr \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan}{cudf\+::detail\+::base\+\_\+2dspan}}$<$ T, Row\+Type $>$\+::base\+\_\+2dspan (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}, {\ttfamily [default]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{classcudf_1_1detail_1_1base__2dspan_a7d1b8c085db9ee83b13d872d84fc0237}\label{classcudf_1_1detail_1_1base__2dspan_a7d1b8c085db9ee83b13d872d84fc0237} 
+\index{cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}!base\_2dspan@{base\_2dspan}}
+\index{base\_2dspan@{base\_2dspan}!cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}}
+\doxysubsubsection{\texorpdfstring{base\_2dspan()}{base\_2dspan()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename T , template$<$ typename, std\+::size\+\_\+t $>$ typename Row\+Type$>$ \\
+constexpr \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan}{cudf\+::detail\+::base\+\_\+2dspan}}$<$ T, Row\+Type $>$\+::base\+\_\+2dspan (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{data,  }\item[{size\+\_\+t}]{rows,  }\item[{size\+\_\+t}]{columns }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Constructor a 2D span 
+
+
+\begin{DoxyParams}{参数}
+{\em data} & Pointer to the data \\
+\hline
+{\em rows} & Number of rows \\
+\hline
+{\em columns} & Number of columns \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{span_8hpp_source}{span.\+hpp}} 第 \mbox{\hyperlink{span_8hpp_source_l00351}{351}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1base__2dspan_af5accaa27e61654c021225d348626b22}\label{classcudf_1_1detail_1_1base__2dspan_af5accaa27e61654c021225d348626b22} 
+\index{cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}!base\_2dspan@{base\_2dspan}}
+\index{base\_2dspan@{base\_2dspan}!cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}}
+\doxysubsubsection{\texorpdfstring{base\_2dspan()}{base\_2dspan()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename T , template$<$ typename, std\+::size\+\_\+t $>$ typename Row\+Type$>$ \\
+\mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan}{cudf\+::detail\+::base\+\_\+2dspan}}$<$ T, Row\+Type $>$\+::base\+\_\+2dspan (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{data,  }\item[{\mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_a0e20c6fb637e88760d72f987b8e05427}{size\+\_\+type}}}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Constructor a 2D span 
+
+
+\begin{DoxyParams}{参数}
+{\em data} & Pointer to the data \\
+\hline
+{\em size} & Size of the 2D span as pair \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{span_8hpp_source}{span.\+hpp}} 第 \mbox{\hyperlink{span_8hpp_source_l00361}{361}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1base__2dspan_af89da418523a9c34577c735669856f47}\label{classcudf_1_1detail_1_1base__2dspan_af89da418523a9c34577c735669856f47} 
+\index{cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}!base\_2dspan@{base\_2dspan}}
+\index{base\_2dspan@{base\_2dspan}!cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}}
+\doxysubsubsection{\texorpdfstring{base\_2dspan()}{base\_2dspan()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename T , template$<$ typename, std\+::size\+\_\+t $>$ typename Row\+Type$>$ \\
+template$<$typename OtherT , template$<$ typename, size\+\_\+t $>$ typename Other\+Row\+Type, std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+convertible\+\_\+v$<$ Other\+Row\+Type$<$ OtherT, \mbox{\hyperlink{namespacecudf_add874002afe5d4f40cb59453704712bb}{dynamic\+\_\+extent}} $>$, Row\+Type$<$ T, \mbox{\hyperlink{namespacecudf_add874002afe5d4f40cb59453704712bb}{dynamic\+\_\+extent}} $>$ $>$, void $>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ \\
+constexpr \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan}{cudf\+::detail\+::base\+\_\+2dspan}}$<$ T, Row\+Type $>$\+::base\+\_\+2dspan (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan}{base\+\_\+2dspan}}$<$ OtherT, Other\+Row\+Type $>$ const \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Construct a 2D span from another 2D span of convertible type 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em OtherT} & Type of the other 2D span \\
+\hline
+{\em Other\+Row\+Type} & Type of the row of the other 2D span \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em other} & The other 2D span \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{span_8hpp_source}{span.\+hpp}} 第 \mbox{\hyperlink{span_8hpp_source_l00472}{472}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1detail_1_1base__2dspan_a8e4e6585ca0900aee4fc2380e98f5b67}\label{classcudf_1_1detail_1_1base__2dspan_a8e4e6585ca0900aee4fc2380e98f5b67} 
+\index{cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}!back@{back}}
+\index{back@{back}!cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}}
+\doxysubsubsection{\texorpdfstring{back()}{back()}}
+{\footnotesize\ttfamily template$<$typename T , template$<$ typename, std\+::size\+\_\+t $>$ typename Row\+Type$>$ \\
+constexpr Row\+Type$<$ T, \mbox{\hyperlink{namespacecudf_add874002afe5d4f40cb59453704712bb}{dynamic\+\_\+extent}} $>$ \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan}{cudf\+::detail\+::base\+\_\+2dspan}}$<$ T, Row\+Type $>$\+::back (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Returns a reference to the last element in the span. 
+
+Calling \doxylink{classcudf_1_1detail_1_1base__2dspan_a8e4e6585ca0900aee4fc2380e98f5b67}{back()} on an empty span results in undefined behavior.
+
+\begin{DoxyReturn}{返回}
+Reference to the last element in the span 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{span_8hpp_source}{span.\+hpp}} 第 \mbox{\hyperlink{span_8hpp_source_l00430}{430}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1base__2dspan_a264924b45c6ca93e7e6de2d7a3998cd1}\label{classcudf_1_1detail_1_1base__2dspan_a264924b45c6ca93e7e6de2d7a3998cd1} 
+\index{cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}!count@{count}}
+\index{count@{count}!cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}}
+\doxysubsubsection{\texorpdfstring{count()}{count()}}
+{\footnotesize\ttfamily template$<$typename T , template$<$ typename, std\+::size\+\_\+t $>$ typename Row\+Type$>$ \\
+constexpr auto \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan}{cudf\+::detail\+::base\+\_\+2dspan}}$<$ T, Row\+Type $>$\+::count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Returns the number of elements in the span. 
+
+\begin{DoxyReturn}{返回}
+Number of elements in the span 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{span_8hpp_source}{span.\+hpp}} 第 \mbox{\hyperlink{span_8hpp_source_l00380}{380}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1base__2dspan_a8ef609730b447d46becb0b4b15a1bb01}\label{classcudf_1_1detail_1_1base__2dspan_a8ef609730b447d46becb0b4b15a1bb01} 
+\index{cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}!data@{data}}
+\index{data@{data}!cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}}
+{\footnotesize\ttfamily template$<$typename T , template$<$ typename, std\+::size\+\_\+t $>$ typename Row\+Type$>$ \\
+constexpr auto \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan}{cudf\+::detail\+::base\+\_\+2dspan}}$<$ T, Row\+Type $>$\+::data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Returns a pointer to the beginning of the sequence. 
+
+\begin{DoxyReturn}{返回}
+A pointer to the first element of the span 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{span_8hpp_source}{span.\+hpp}} 第 \mbox{\hyperlink{span_8hpp_source_l00368}{368}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1base__2dspan_afe70f2ba2b95dcb6539d83857e0ba2e2}\label{classcudf_1_1detail_1_1base__2dspan_afe70f2ba2b95dcb6539d83857e0ba2e2} 
+\index{cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}!flat\_view@{flat\_view}}
+\index{flat\_view@{flat\_view}!cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}}
+\doxysubsubsection{\texorpdfstring{flat\_view()}{flat\_view()}}
+{\footnotesize\ttfamily template$<$typename T , template$<$ typename, std\+::size\+\_\+t $>$ typename Row\+Type$>$ \\
+constexpr Row\+Type$<$ T, \mbox{\hyperlink{namespacecudf_add874002afe5d4f40cb59453704712bb}{dynamic\+\_\+extent}} $>$ \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan}{cudf\+::detail\+::base\+\_\+2dspan}}$<$ T, Row\+Type $>$\+::flat\+\_\+view (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Returns a flattened span of the 2D span. 
+
+\begin{DoxyReturn}{返回}
+A flattened span of the 2D span 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{span_8hpp_source}{span.\+hpp}} 第 \mbox{\hyperlink{span_8hpp_source_l00454}{454}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1base__2dspan_abf8c421fdcb1795c1367cb14f39eb041}\label{classcudf_1_1detail_1_1base__2dspan_abf8c421fdcb1795c1367cb14f39eb041} 
+\index{cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}!flatten\_index@{flatten\_index}}
+\index{flatten\_index@{flatten\_index}!cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}}
+\doxysubsubsection{\texorpdfstring{flatten\_index()}{flatten\_index()}}
+{\footnotesize\ttfamily template$<$typename T , template$<$ typename, std\+::size\+\_\+t $>$ typename Row\+Type$>$ \\
+static constexpr size\+\_\+t \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan}{cudf\+::detail\+::base\+\_\+2dspan}}$<$ T, Row\+Type $>$\+::flatten\+\_\+index (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{row,  }\item[{size\+\_\+t}]{column,  }\item[{\mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_a0e20c6fb637e88760d72f987b8e05427}{size\+\_\+type}}}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Returns flattened index of the element at the specified 2D position. 
+
+
+\begin{DoxyParams}{参数}
+{\em row} & The row index \\
+\hline
+{\em column} & The column index \\
+\hline
+{\em size} & The size of the 2D span as pair \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The flattened index of the element at the specified 2D position 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{span_8hpp_source}{span.\+hpp}} 第 \mbox{\hyperlink{span_8hpp_source_l00396}{396}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1base__2dspan_a641849987c156dc95161934aa7110f25}\label{classcudf_1_1detail_1_1base__2dspan_a641849987c156dc95161934aa7110f25} 
+\index{cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}!front@{front}}
+\index{front@{front}!cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}}
+\doxysubsubsection{\texorpdfstring{front()}{front()}}
+{\footnotesize\ttfamily template$<$typename T , template$<$ typename, std\+::size\+\_\+t $>$ typename Row\+Type$>$ \\
+constexpr Row\+Type$<$ T, \mbox{\hyperlink{namespacecudf_add874002afe5d4f40cb59453704712bb}{dynamic\+\_\+extent}} $>$ \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan}{cudf\+::detail\+::base\+\_\+2dspan}}$<$ T, Row\+Type $>$\+::front (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Returns a reference to the first element in the span. 
+
+Calling \doxylink{classcudf_1_1detail_1_1base__2dspan_a641849987c156dc95161934aa7110f25}{front()} on an empty span results in undefined behavior.
+
+\begin{DoxyReturn}{返回}
+Reference to the first element in the span 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{span_8hpp_source}{span.\+hpp}} 第 \mbox{\hyperlink{span_8hpp_source_l00422}{422}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1base__2dspan_a74d21a691c0f418238b6622d3766f087}\label{classcudf_1_1detail_1_1base__2dspan_a74d21a691c0f418238b6622d3766f087} 
+\index{cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}!is\_empty@{is\_empty}}
+\index{is\_empty@{is\_empty}!cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}}
+\doxysubsubsection{\texorpdfstring{is\_empty()}{is\_empty()}}
+{\footnotesize\ttfamily template$<$typename T , template$<$ typename, std\+::size\+\_\+t $>$ typename Row\+Type$>$ \\
+constexpr bool \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan}{cudf\+::detail\+::base\+\_\+2dspan}}$<$ T, Row\+Type $>$\+::is\+\_\+empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Checks if the span is empty. 
+
+\begin{DoxyReturn}{返回}
+True if the span is empty, false otherwise 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{span_8hpp_source}{span.\+hpp}} 第 \mbox{\hyperlink{span_8hpp_source_l00386}{386}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1base__2dspan_aab919aae76ef645bf43e7a343542a590}\label{classcudf_1_1detail_1_1base__2dspan_aab919aae76ef645bf43e7a343542a590} 
+\index{cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily template$<$typename T , template$<$ typename, std\+::size\+\_\+t $>$ typename Row\+Type$>$ \\
+constexpr Row\+Type$<$ T, \mbox{\hyperlink{namespacecudf_add874002afe5d4f40cb59453704712bb}{dynamic\+\_\+extent}} $>$ \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan}{cudf\+::detail\+::base\+\_\+2dspan}}$<$ T, Row\+Type $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{row }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Returns a reference to the row-\/th element of the sequence. 
+
+The behavior is undefined if row is out of range (i.\+e., if it is greater than or equal to \doxylink{classcudf_1_1detail_1_1base__2dspan_ad1a7e75f64cdee23217805e190ea9923}{size()}).
+
+
+\begin{DoxyParams}{参数}
+{\em row} & the index of the element to access \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A reference to the row-\/th element of the sequence, i.\+e., {\ttfamily \doxylink{classcudf_1_1detail_1_1base__2dspan_a8ef609730b447d46becb0b4b15a1bb01}{data()}\mbox{[}row\mbox{]}} 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{span_8hpp_source}{span.\+hpp}} 第 \mbox{\hyperlink{span_8hpp_source_l00410}{410}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1base__2dspan_ad1a7e75f64cdee23217805e190ea9923}\label{classcudf_1_1detail_1_1base__2dspan_ad1a7e75f64cdee23217805e190ea9923} 
+\index{cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}!size@{size}}
+\index{size@{size}!cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename T , template$<$ typename, std\+::size\+\_\+t $>$ typename Row\+Type$>$ \\
+constexpr auto \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan}{cudf\+::detail\+::base\+\_\+2dspan}}$<$ T, Row\+Type $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Returns the size in the span as pair. 
+
+\begin{DoxyReturn}{返回}
+pair representing rows and columns size of the span 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{span_8hpp_source}{span.\+hpp}} 第 \mbox{\hyperlink{span_8hpp_source_l00374}{374}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1base__2dspan_aba3842f755b9f7d066c5c9f128725eb4}\label{classcudf_1_1detail_1_1base__2dspan_aba3842f755b9f7d066c5c9f128725eb4} 
+\index{cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}!subspan@{subspan}}
+\index{subspan@{subspan}!cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}}
+\doxysubsubsection{\texorpdfstring{subspan()}{subspan()}}
+{\footnotesize\ttfamily template$<$typename T , template$<$ typename, std\+::size\+\_\+t $>$ typename Row\+Type$>$ \\
+constexpr \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan}{base\+\_\+2dspan}} \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan}{cudf\+::detail\+::base\+\_\+2dspan}}$<$ T, Row\+Type $>$\+::subspan (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{first\+\_\+row,  }\item[{size\+\_\+t}]{num\+\_\+rows }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+
+
+Obtains a 2D span that is a view over the {\ttfamily num\+\_\+rows} rows of this span starting at {\ttfamily first\+\_\+row} 
+
+
+\begin{DoxyParams}{参数}
+{\em first\+\_\+row} & The first row in the subspan \\
+\hline
+{\em num\+\_\+rows} & The number of rows in the subspan \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A subspan of the sequence, of requested starting {\ttfamily first\+\_\+row} and {\ttfamily num\+\_\+rows} 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{span_8hpp_source}{span.\+hpp}} 第 \mbox{\hyperlink{span_8hpp_source_l00443}{443}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1detail_1_1base__2dspan_ac1f70ad9514cdb191f5c1b61302e52da}\label{classcudf_1_1detail_1_1base__2dspan_ac1f70ad9514cdb191f5c1b61302e52da} 
+\index{cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}!\_data@{\_data}}
+\index{\_data@{\_data}!cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}}
+\doxysubsubsection{\texorpdfstring{\_data}{\_data}}
+{\footnotesize\ttfamily template$<$typename T , template$<$ typename, std\+::size\+\_\+t $>$ typename Row\+Type$>$ \\
+T\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan}{cudf\+::detail\+::base\+\_\+2dspan}}$<$ T, Row\+Type $>$\+::\+\_\+data = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+pointer to the first element 
+
+
+
+在文件 \mbox{\hyperlink{span_8hpp_source}{span.\+hpp}} 第 \mbox{\hyperlink{span_8hpp_source_l00478}{478}} 行定义.
+
+\Hypertarget{classcudf_1_1detail_1_1base__2dspan_a84437a3e48152c74f255be10017f9d8e}\label{classcudf_1_1detail_1_1base__2dspan_a84437a3e48152c74f255be10017f9d8e} 
+\index{cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}!\_size@{\_size}}
+\index{\_size@{\_size}!cudf::detail::base\_2dspan$<$ T, RowType $>$@{cudf::detail::base\_2dspan$<$ T, RowType $>$}}
+\doxysubsubsection{\texorpdfstring{\_size}{\_size}}
+{\footnotesize\ttfamily template$<$typename T , template$<$ typename, std\+::size\+\_\+t $>$ typename Row\+Type$>$ \\
+\mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan_a0e20c6fb637e88760d72f987b8e05427}{size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1detail_1_1base__2dspan}{cudf\+::detail\+::base\+\_\+2dspan}}$<$ T, Row\+Type $>$\+::\+\_\+size \{0, 0\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+rows, columns 
+
+
+
+在文件 \mbox{\hyperlink{span_8hpp_source}{span.\+hpp}} 第 \mbox{\hyperlink{span_8hpp_source_l00479}{479}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/utilities/\mbox{\hyperlink{span_8hpp}{span.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,87 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/io/orc\+\_\+metadata.hpp 文件参考}
+\hypertarget{orc__metadata_8hpp}{}\label{orc__metadata_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/io/orc\_metadata.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/io/orc\_metadata.hpp}}
+
+
+cu\+DF-\/\+IO freeform API  
+
+
+{\ttfamily \#include $<$cudf/io/orc\+\_\+types.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/io/types.\+hpp$>$}\newline
+{\ttfamily \#include $<$optional$>$}\newline
+{\ttfamily \#include $<$variant$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+orc\+\_\+metadata.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{orc__metadata_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1io_1_1raw__orc__statistics}{cudf\+::io\+::raw\+\_\+orc\+\_\+statistics}}
+\begin{DoxyCompactList}\small\item\em Holds column names and buffers containing raw file-\/level and stripe-\/level statistics. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1io_1_1minmax__statistics}{cudf\+::io\+::minmax\+\_\+statistics$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em Base class for column statistics that include optional minimum and maximum. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1io_1_1sum__statistics}{cudf\+::io\+::sum\+\_\+statistics$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em Base class for column statistics that include an optional sum. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1io_1_1integer__statistics}{cudf\+::io\+::integer\+\_\+statistics}}
+\begin{DoxyCompactList}\small\item\em Statistics for integral columns. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1io_1_1double__statistics}{cudf\+::io\+::double\+\_\+statistics}}
+\begin{DoxyCompactList}\small\item\em Statistics for floating point columns. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1io_1_1string__statistics}{cudf\+::io\+::string\+\_\+statistics}}
+\begin{DoxyCompactList}\small\item\em Statistics for string columns. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1io_1_1bucket__statistics}{cudf\+::io\+::bucket\+\_\+statistics}}
+\begin{DoxyCompactList}\small\item\em Statistics for boolean columns. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1io_1_1decimal__statistics}{cudf\+::io\+::decimal\+\_\+statistics}}
+\begin{DoxyCompactList}\small\item\em Statistics for decimal columns. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1io_1_1timestamp__statistics}{cudf\+::io\+::timestamp\+\_\+statistics}}
+\begin{DoxyCompactList}\small\item\em Statistics for timestamp columns. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1io_1_1column__statistics}{cudf\+::io\+::column\+\_\+statistics}}
+\begin{DoxyCompactList}\small\item\em Contains per-\/column ORC statistics. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1io_1_1parsed__orc__statistics}{cudf\+::io\+::parsed\+\_\+orc\+\_\+statistics}}
+\begin{DoxyCompactList}\small\item\em Holds column names and parsed file-\/level and stripe-\/level statistics. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1io_1_1orc__column__schema}{cudf\+::io\+::orc\+\_\+column\+\_\+schema}}
+\begin{DoxyCompactList}\small\item\em Schema of an ORC column, including the nested columns. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1io_1_1orc__schema}{cudf\+::io\+::orc\+\_\+schema}}
+\begin{DoxyCompactList}\small\item\em Schema of an ORC file. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata}{cudf\+::io\+::orc\+\_\+metadata}}
+\begin{DoxyCompactList}\small\item\em Information about content of an ORC file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1io}{cudf\+::io}}
+\begin{DoxyCompactList}\small\item\em IO interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1io_1_1orc}{cudf\+::io\+::orc}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{类型定义}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacecudf_1_1io_a9f776ed5167dffd65625471a7bdb3996}{cudf\+::io\+::no\+\_\+statistics}} = std\+::monostate
+\begin{DoxyCompactList}\small\item\em Monostate type alias for the statistics variant. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespacecudf_1_1io_a7db6680f79f2ca2f8fab3ca6e349582d}{cudf\+::io\+::date\+\_\+statistics}} = \mbox{\hyperlink{structcudf_1_1io_1_1minmax__statistics}{minmax\+\_\+statistics}}$<$ int32\+\_\+t $>$
+\begin{DoxyCompactList}\small\item\em Statistics for date(time) columns. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespacecudf_1_1io_a088a78a3e5d3e680910436b6ced538cf}{cudf\+::io\+::binary\+\_\+statistics}} = \mbox{\hyperlink{structcudf_1_1io_1_1sum__statistics}{sum\+\_\+statistics}}$<$ int64\+\_\+t $>$
+\begin{DoxyCompactList}\small\item\em Statistics for binary columns. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1raw__orc__statistics}{raw\+\_\+orc\+\_\+statistics}} \mbox{\hyperlink{group__io__readers_ga8045a73a80008301deb2c8d08ece0c14}{cudf\+::io\+::read\+\_\+raw\+\_\+orc\+\_\+statistics}} (\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} const \&src\+\_\+info)
+\begin{DoxyCompactList}\small\item\em Reads file-\/level and stripe-\/level statistics of ORC dataset. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1parsed__orc__statistics}{parsed\+\_\+orc\+\_\+statistics}} \mbox{\hyperlink{group__io__readers_ga70be592a55fe55b019cc327b723ef9ba}{cudf\+::io\+::read\+\_\+parsed\+\_\+orc\+\_\+statistics}} (\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} const \&src\+\_\+info)
+\begin{DoxyCompactList}\small\item\em Reads file-\/level and stripe-\/level statistics of ORC dataset. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1orc__metadata}{orc\+\_\+metadata}} \mbox{\hyperlink{group__io__readers_ga8d4346f591df1c4737e8a6485a936e71}{cudf\+::io\+::read\+\_\+orc\+\_\+metadata}} (\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\+\_\+info}} const \&src\+\_\+info)
+\begin{DoxyCompactList}\small\item\em Reads file-\/level and stripe-\/level statistics of ORC dataset. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+cu\+DF-\/\+IO freeform API 
+
+
+
+在文件 \mbox{\hyperlink{orc__metadata_8hpp_source}{orc\+\_\+metadata.\+hpp}} 中定义.
+

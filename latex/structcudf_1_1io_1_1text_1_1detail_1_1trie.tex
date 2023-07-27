@@ -1,0 +1,195 @@
+\doxysection{cudf\+::io\+::text\+::detail\+::trie结构体 参考}
+\hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1trie}{}\label{structcudf_1_1io_1_1text_1_1detail_1_1trie}\index{cudf::io::text::detail::trie@{cudf::io::text::detail::trie}}
+
+
+A flat trie contained in device memory.  
+
+
+
+
+{\ttfamily \#include $<$trie.\+hpp$>$}
+
+
+
+cudf\+::io\+::text\+::detail\+::trie 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=201pt]{structcudf_1_1io_1_1text_1_1detail_1_1trie__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_1_1trie__builder__node}{trie\+\_\+builder\+\_\+node}}
+\begin{DoxyCompactList}\small\item\em Used to build a hierarchical trie which can then be flattened. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_a5497b4fcbb103d321e6a19adab52aae9}{size}} () const
+\begin{DoxyCompactList}\small\item\em Gets the number of nodes contained in this trie. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_aed846ea47d4f2510854e870a3110dfaf}{max\+\_\+duplicate\+\_\+tokens}} () const
+\begin{DoxyCompactList}\small\item\em A pessimistic count of duplicate tokens in the trie. Used to determine the maximum possible stack size required to compute matches of this trie in parallel. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view}{trie\+\_\+device\+\_\+view}} \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_a5aea60bcb908820ced654b0976d850cc}{view}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie}{trie}} \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_ad763910e1b3ae91761327742088cd878}{create}} (std\+::string const \&pattern, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a trie which represents the given pattern. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie}{trie}} \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_ac96f47cbe83e87c7452f0e8d57bb3ee7}{create}} (std\+::vector$<$ std\+::string $>$ const \&patterns, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a trie which represents the given pattern. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_a0e638cea4271c264008902dd0c7aa90e}{trie}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_aed846ea47d4f2510854e870a3110dfaf}{max\+\_\+duplicate\+\_\+tokens}}, rmm\+::device\+\_\+uvector$<$ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__node}{trie\+\_\+node}} $>$ \&\&nodes)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_ab30118857d395d2aa0fc4db8ade4cc80}{\+\_\+max\+\_\+duplicate\+\_\+tokens}}
+\item 
+rmm\+::device\+\_\+uvector$<$ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__node}{trie\+\_\+node}} $>$ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie_a2e5d1f2dbb5328745ce71bf3b722390d}{\+\_\+nodes}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+A flat trie contained in device memory. 
+
+在文件 \mbox{\hyperlink{trie_8hpp_source}{trie.\+hpp}} 第 \mbox{\hyperlink{trie_8hpp_source_l00110}{110}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1trie_a0e638cea4271c264008902dd0c7aa90e}\label{structcudf_1_1io_1_1text_1_1detail_1_1trie_a0e638cea4271c264008902dd0c7aa90e} 
+\index{cudf::io::text::detail::trie@{cudf::io::text::detail::trie}!trie@{trie}}
+\index{trie@{trie}!cudf::io::text::detail::trie@{cudf::io::text::detail::trie}}
+\doxysubsubsection{\texorpdfstring{trie()}{trie()}}
+{\footnotesize\ttfamily cudf\+::io\+::text\+::detail\+::trie\+::trie (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}}}]{max\+\_\+duplicate\+\_\+tokens,  }\item[{rmm\+::device\+\_\+uvector$<$ \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__node}{trie\+\_\+node}} $>$ \&\&}]{nodes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{trie_8hpp_source}{trie.\+hpp}} 第 \mbox{\hyperlink{trie_8hpp_source_l00115}{115}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1trie_ad763910e1b3ae91761327742088cd878}\label{structcudf_1_1io_1_1text_1_1detail_1_1trie_ad763910e1b3ae91761327742088cd878} 
+\index{cudf::io::text::detail::trie@{cudf::io::text::detail::trie}!create@{create}}
+\index{create@{create}!cudf::io::text::detail::trie@{cudf::io::text::detail::trie}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie}{trie}} cudf\+::io\+::text\+::detail\+::trie\+::create (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{pattern,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Create a trie which represents the given pattern. 
+
+
+\begin{DoxyParams}{参数}
+{\em pattern} & The pattern to store in the trie \\
+\hline
+{\em stream} & The stream to use for allocation and copy \\
+\hline
+{\em mr} & Memory resource to use for the device memory allocation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The trie. 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{trie_8hpp_source}{trie.\+hpp}} 第 \mbox{\hyperlink{trie_8hpp_source_l00166}{166}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1trie_ac96f47cbe83e87c7452f0e8d57bb3ee7}\label{structcudf_1_1io_1_1text_1_1detail_1_1trie_ac96f47cbe83e87c7452f0e8d57bb3ee7} 
+\index{cudf::io::text::detail::trie@{cudf::io::text::detail::trie}!create@{create}}
+\index{create@{create}!cudf::io::text::detail::trie@{cudf::io::text::detail::trie}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie}{trie}} cudf\+::io\+::text\+::detail\+::trie\+::create (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ const \&}]{patterns,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Create a trie which represents the given pattern. 
+
+
+\begin{DoxyParams}{参数}
+{\em pattern} & The patterns to store in the trie \\
+\hline
+{\em stream} & The stream to use for allocation and copy \\
+\hline
+{\em mr} & Memory resource to use for the device memory allocation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The trie. 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{trie_8hpp_source}{trie.\+hpp}} 第 \mbox{\hyperlink{trie_8hpp_source_l00182}{182}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1trie_aed846ea47d4f2510854e870a3110dfaf}\label{structcudf_1_1io_1_1text_1_1detail_1_1trie_aed846ea47d4f2510854e870a3110dfaf} 
+\index{cudf::io::text::detail::trie@{cudf::io::text::detail::trie}!max\_duplicate\_tokens@{max\_duplicate\_tokens}}
+\index{max\_duplicate\_tokens@{max\_duplicate\_tokens}!cudf::io::text::detail::trie@{cudf::io::text::detail::trie}}
+\doxysubsubsection{\texorpdfstring{max\_duplicate\_tokens()}{max\_duplicate\_tokens()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::io\+::text\+::detail\+::trie\+::max\+\_\+duplicate\+\_\+tokens (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A pessimistic count of duplicate tokens in the trie. Used to determine the maximum possible stack size required to compute matches of this trie in parallel. 
+
+
+
+在文件 \mbox{\hyperlink{trie_8hpp_source}{trie.\+hpp}} 第 \mbox{\hyperlink{trie_8hpp_source_l00156}{156}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1trie_a5497b4fcbb103d321e6a19adab52aae9}\label{structcudf_1_1io_1_1text_1_1detail_1_1trie_a5497b4fcbb103d321e6a19adab52aae9} 
+\index{cudf::io::text::detail::trie@{cudf::io::text::detail::trie}!size@{size}}
+\index{size@{size}!cudf::io::text::detail::trie@{cudf::io::text::detail::trie}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::io\+::text\+::detail\+::trie\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the number of nodes contained in this trie. 
+
+
+
+在文件 \mbox{\hyperlink{trie_8hpp_source}{trie.\+hpp}} 第 \mbox{\hyperlink{trie_8hpp_source_l00150}{150}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1trie_a5aea60bcb908820ced654b0976d850cc}\label{structcudf_1_1io_1_1text_1_1detail_1_1trie_a5aea60bcb908820ced654b0976d850cc} 
+\index{cudf::io::text::detail::trie@{cudf::io::text::detail::trie}!view@{view}}
+\index{view@{view}!cudf::io::text::detail::trie@{cudf::io::text::detail::trie}}
+\doxysubsubsection{\texorpdfstring{view()}{view()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__device__view}{trie\+\_\+device\+\_\+view}} cudf\+::io\+::text\+::detail\+::trie\+::view (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+在文件 \mbox{\hyperlink{trie_8hpp_source}{trie.\+hpp}} 第 \mbox{\hyperlink{trie_8hpp_source_l00244}{244}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1trie_ab30118857d395d2aa0fc4db8ade4cc80}\label{structcudf_1_1io_1_1text_1_1detail_1_1trie_ab30118857d395d2aa0fc4db8ade4cc80} 
+\index{cudf::io::text::detail::trie@{cudf::io::text::detail::trie}!\_max\_duplicate\_tokens@{\_max\_duplicate\_tokens}}
+\index{\_max\_duplicate\_tokens@{\_max\_duplicate\_tokens}!cudf::io::text::detail::trie@{cudf::io::text::detail::trie}}
+\doxysubsubsection{\texorpdfstring{\_max\_duplicate\_tokens}{\_max\_duplicate\_tokens}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::io\+::text\+::detail\+::trie\+::\+\_\+max\+\_\+duplicate\+\_\+tokens\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{trie_8hpp_source}{trie.\+hpp}} 第 \mbox{\hyperlink{trie_8hpp_source_l00112}{112}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1text_1_1detail_1_1trie_a2e5d1f2dbb5328745ce71bf3b722390d}\label{structcudf_1_1io_1_1text_1_1detail_1_1trie_a2e5d1f2dbb5328745ce71bf3b722390d} 
+\index{cudf::io::text::detail::trie@{cudf::io::text::detail::trie}!\_nodes@{\_nodes}}
+\index{\_nodes@{\_nodes}!cudf::io::text::detail::trie@{cudf::io::text::detail::trie}}
+\doxysubsubsection{\texorpdfstring{\_nodes}{\_nodes}}
+{\footnotesize\ttfamily rmm\+::device\+\_\+uvector$<$\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1detail_1_1trie__node}{trie\+\_\+node}}$>$ cudf\+::io\+::text\+::detail\+::trie\+::\+\_\+nodes\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{trie_8hpp_source}{trie.\+hpp}} 第 \mbox{\hyperlink{trie_8hpp_source_l00113}{113}} 行定义.
+
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/text/detail/\mbox{\hyperlink{trie_8hpp}{trie.\+hpp}}\end{DoxyCompactItemize}

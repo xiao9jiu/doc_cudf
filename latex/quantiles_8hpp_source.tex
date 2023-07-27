@@ -1,0 +1,55 @@
+\doxysection{quantiles.\+hpp}
+\hypertarget{quantiles_8hpp_source}{}\label{quantiles_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/quantiles.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/quantiles.hpp}}
+\mbox{\hyperlink{quantiles_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2019-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{scalar_8hpp}{cudf/scalar/scalar.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{table__view_8hpp}{cudf/table/table\_view.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{tdigest__column__view_8hpp}{cudf/tdigest/tdigest\_column\_view.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{types_8hpp}{cudf/types.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <rmm/mr/device/per\_device\_resource.hpp>}}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00026}00026\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00056}\mbox{\hyperlink{group__column__quantiles_gac7d0d668dd96213645444c32fc6582a1}{00056}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__column__quantiles_gac7d0d668dd96213645444c32fc6582a1}{quantile}}(}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00057}00057\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00058}00058\ \ \ std::vector<double>\ \textcolor{keyword}{const}\&\ q,}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00059}00059\ \ \ \mbox{\hyperlink{group__utility__types_ga9cd17c1cdf028ead9a4783f605276ab3}{interpolation}}\ interp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3aaac544aacc3615aada24897a215f5046}{interpolation::LINEAR}},}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00060}00060\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ ordered\_indices\ \ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00061}00061\ \ \ \textcolor{keywordtype}{bool}\ exact\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00062}00062\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00094}\mbox{\hyperlink{group__column__quantiles_ga5a7bfdd267148ba8038c50c3c27fa87a}{00094}}\ std::unique\_ptr<table>\ \mbox{\hyperlink{group__column__quantiles_ga5a7bfdd267148ba8038c50c3c27fa87a}{quantiles}}(}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00095}00095\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00096}00096\ \ \ std::vector<double>\ \textcolor{keyword}{const}\&\ q,}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00097}00097\ \ \ \mbox{\hyperlink{group__utility__types_ga9cd17c1cdf028ead9a4783f605276ab3}{interpolation}}\ interp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3aad135772d7cf93dd0ccf9d2474b34e6a}{interpolation::NEAREST}},}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00098}00098\ \ \ \mbox{\hyperlink{group__utility__types_gab283c517931abd4152ffa62fec62425d}{cudf::sorted}}\ is\_input\_sorted\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group__utility__types_ggab283c517931abd4152ffa62fec62425dac2f3f489a00553e7a01d369c103c7251}{sorted::NO}},}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00099}00099\ \ \ std::vector<order>\ \textcolor{keyword}{const}\&\ column\_order\ \ \ \ \ \ \ \ \ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00100}00100\ \ \ std::vector<null\_order>\ \textcolor{keyword}{const}\&\ null\_precedence\ =\ \{\},}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00101}00101\ \ \ rmm::mr::device\_memory\_resource*\ mr\ \ \ \ \ \ \ \ \ \ \ \ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00125}\mbox{\hyperlink{group__column__quantiles_gac79832ed137f9001c00f6cfd5a0d87db}{00125}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__column__quantiles_gac79832ed137f9001c00f6cfd5a0d87db}{percentile\_approx}}(}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00126}00126\ \ \ \mbox{\hyperlink{classcudf_1_1tdigest_1_1tdigest__column__view}{tdigest::tdigest\_column\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00127}00127\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\ \textcolor{keyword}{const}\&\ percentiles,}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00128}00128\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00129}00129\ \ \ \textcolor{comment}{//\ end\ of\ group}}
+\DoxyCodeLine{\Hypertarget{quantiles_8hpp_source_l00131}00131\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

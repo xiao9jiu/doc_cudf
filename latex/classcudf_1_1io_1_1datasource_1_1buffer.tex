@@ -1,0 +1,141 @@
+\doxysection{cudf\+::io\+::datasource\+::buffer类 参考}
+\hypertarget{classcudf_1_1io_1_1datasource_1_1buffer}{}\label{classcudf_1_1io_1_1datasource_1_1buffer}\index{cudf::io::datasource::buffer@{cudf::io::datasource::buffer}}
+
+
+Interface class for buffers that the datasource returns to the caller.  
+
+
+
+
+{\ttfamily \#include $<$datasource.\+hpp$>$}
+
+
+
+类 cudf\+::io\+::datasource\+::buffer 继承关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classcudf_1_1io_1_1datasource_1_1buffer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+cudf\+::io\+::datasource\+::buffer 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{classcudf_1_1io_1_1datasource_1_1buffer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1buffer_ac359a49899b0c2c64d2f2eae79e1e519}{size}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the buffer size in bytes. \end{DoxyCompactList}\item 
+virtual uint8\+\_\+t const \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1buffer_a45919a17b521e3a3ddd54c7b1a598935}{data}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the address of the data in the buffer. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1buffer_a733c8294af2a75c527c14e942be39935}{\texorpdfstring{$\sim$}{\string~}buffer}} ()
+\begin{DoxyCompactList}\small\item\em Base class destructor \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Container $>$ }\\static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1buffer}{buffer}} $>$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1buffer_a19c1c829f5177d40ccc8616b59135866}{create}} (Container \&\&data\+\_\+owner)
+\begin{DoxyCompactList}\small\item\em Factory to construct a datasource buffer object from a container. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Interface class for buffers that the datasource returns to the caller. 
+
+Provides a basic interface to return the data address and size. 
+
+在文件 \mbox{\hyperlink{datasource_8hpp_source}{datasource.\+hpp}} 第 \mbox{\hyperlink{datasource_8hpp_source_l00059}{59}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1io_1_1datasource_1_1buffer_a733c8294af2a75c527c14e942be39935}\label{classcudf_1_1io_1_1datasource_1_1buffer_a733c8294af2a75c527c14e942be39935} 
+\index{cudf::io::datasource::buffer@{cudf::io::datasource::buffer}!````~buffer@{\texorpdfstring{$\sim$}{\string~}buffer}}
+\index{````~buffer@{\texorpdfstring{$\sim$}{\string~}buffer}!cudf::io::datasource::buffer@{cudf::io::datasource::buffer}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}buffer()}{\string~buffer()}}
+{\footnotesize\ttfamily virtual cudf\+::io\+::datasource\+::buffer\+::\texorpdfstring{$\sim$}{\string~}buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Base class destructor 
+
+
+
+在文件 \mbox{\hyperlink{datasource_8hpp_source}{datasource.\+hpp}} 第 \mbox{\hyperlink{datasource_8hpp_source_l00078}{78}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1io_1_1datasource_1_1buffer_a19c1c829f5177d40ccc8616b59135866}\label{classcudf_1_1io_1_1datasource_1_1buffer_a19c1c829f5177d40ccc8616b59135866} 
+\index{cudf::io::datasource::buffer@{cudf::io::datasource::buffer}!create@{create}}
+\index{create@{create}!cudf::io::datasource::buffer@{cudf::io::datasource::buffer}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily template$<$typename Container $>$ \\
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1buffer}{buffer}} $>$ cudf\+::io\+::datasource\+::buffer\+::create (\begin{DoxyParamCaption}\item[{Container \&\&}]{data\+\_\+owner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Factory to construct a datasource buffer object from a container. 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em Container} & Type of the container to construct the buffer from \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em data\+\_\+owner} & The container to construct the buffer from (ownership is transferred) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Constructed buffer object 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{datasource_8hpp_source}{datasource.\+hpp}} 第 \mbox{\hyperlink{datasource_8hpp_source_l00088}{88}} 行定义.
+
+\Hypertarget{classcudf_1_1io_1_1datasource_1_1buffer_a45919a17b521e3a3ddd54c7b1a598935}\label{classcudf_1_1io_1_1datasource_1_1buffer_a45919a17b521e3a3ddd54c7b1a598935} 
+\index{cudf::io::datasource::buffer@{cudf::io::datasource::buffer}!data@{data}}
+\index{data@{data}!cudf::io::datasource::buffer@{cudf::io::datasource::buffer}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}}
+{\footnotesize\ttfamily virtual uint8\+\_\+t const  \texorpdfstring{$\ast$}{*} cudf\+::io\+::datasource\+::buffer\+::data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns the address of the data in the buffer. 
+
+\begin{DoxyReturn}{返回}
+Address of the data in the buffer 
+\end{DoxyReturn}
+
+
+在 \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1non__owning__buffer_a4b2dafbf6b7975cac30900fe91ece276}{cudf\+::io\+::datasource\+::non\+\_\+owning\+\_\+buffer}}, \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1owning__buffer_aa803c3fb4762d199db6b85a4f8797eae}{cudf\+::io\+::datasource\+::owning\+\_\+buffer$<$ Container $>$}} , 以及 \mbox{\hyperlink{classcudf_1_1io_1_1arrow__io__source_1_1arrow__io__buffer_a1249ea5d567d7431e1e652440b546826}{cudf\+::io\+::arrow\+\_\+io\+\_\+source\+::arrow\+\_\+io\+\_\+buffer}} 内被实现.
+
+\Hypertarget{classcudf_1_1io_1_1datasource_1_1buffer_ac359a49899b0c2c64d2f2eae79e1e519}\label{classcudf_1_1io_1_1datasource_1_1buffer_ac359a49899b0c2c64d2f2eae79e1e519} 
+\index{cudf::io::datasource::buffer@{cudf::io::datasource::buffer}!size@{size}}
+\index{size@{size}!cudf::io::datasource::buffer@{cudf::io::datasource::buffer}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily virtual size\+\_\+t cudf\+::io\+::datasource\+::buffer\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns the buffer size in bytes. 
+
+\begin{DoxyReturn}{返回}
+Buffer size in bytes 
+\end{DoxyReturn}
+
+
+在 \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1non__owning__buffer_a75923dfefa45f297a80be5e59fc89cf2}{cudf\+::io\+::datasource\+::non\+\_\+owning\+\_\+buffer}}, \mbox{\hyperlink{classcudf_1_1io_1_1datasource_1_1owning__buffer_a9d499908697f3c593a8ff5de2d210b4d}{cudf\+::io\+::datasource\+::owning\+\_\+buffer$<$ Container $>$}} , 以及 \mbox{\hyperlink{classcudf_1_1io_1_1arrow__io__source_1_1arrow__io__buffer_a761f7411ad8cb3194ae206d3d3a0b02c}{cudf\+::io\+::arrow\+\_\+io\+\_\+source\+::arrow\+\_\+io\+\_\+buffer}} 内被实现.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/\mbox{\hyperlink{datasource_8hpp}{datasource.\+hpp}}\end{DoxyCompactItemize}

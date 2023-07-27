@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['identity_0',['IDENTITY',['../namespacecudf_1_1ast.html#abf7da0251fa923970b1c6c85ccb7f9e7ad8156d3c6735d75d8a1b8dedd0e79c8b',1,'cudf::ast']]],
+  ['ignore_1',['IGNORE',['../group__lists__combine.html#ggabb916eaef8a82d11855f551d2e9b91ebaa2e843feab94ef623fea888f07c28696',1,'cudf::lists']]],
+  ['include_2',['INCLUDE',['../group__utility__types.html#gga1b8cda4afb95a7c42c4679b4fae61009a04ff6a9583ba9957ebe1128d0f988ad8',1,'cudf']]],
+  ['inclusive_3',['INCLUSIVE',['../group__aggregation__reduction.html#gga269c5a531bd3bb4da9ebe4590db028afa572d795e2d044f895cc511e5c05030e5',1,'cudf']]],
+  ['inclusive_4',['inclusive',['../namespacecudf_1_1io_1_1text_1_1detail.html#afa2febf496d174632369d5b8314caa20a62628cfd1cdd77d02c32812f048bada3',1,'cudf::io::text::detail']]],
+  ['inner_5fjoin_5',['INNER_JOIN',['../namespacecudf_1_1detail.html#afe99faf2d7a570e5de8dbe1638f91dd0adacfb6b4a93e8c0996af0a50896b2ad6',1,'cudf::detail']]],
+  ['int_6',['INT',['../namespacecudf_1_1io_1_1orc.html#ae05e5ef15beac13262d33de5f0350203ab912b2b5641c6c2244436654a8c85091',1,'cudf::io::orc']]],
+  ['int16_7',['INT16',['../group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a5f90af42814c0a419d715d43ae54fd7a',1,'cudf']]],
+  ['int32_8',['INT32',['../group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a6495adba09844fac8eeb0aba86e6f1bf',1,'cudf']]],
+  ['int64_9',['INT64',['../group__utility__types.html#ggadf077607da617d1dadcc5417e2783539a4e866b275c85fbb439f6484251cfb31c',1,'cudf']]],
+  ['int8_10',['INT8',['../group__utility__types.html#ggadf077607da617d1dadcc5417e2783539aee9d73311ff0658494edfff14c3ec1e3',1,'cudf']]],
+  ['int_5fpow_11',['INT_POW',['../group__transformation__binaryops.html#gga00ed76601b6db662550f6826cfd99edcad41167c344e1771b57cbbf5df6633a90',1,'cudf']]],
+  ['intermediate_12',['INTERMEDIATE',['../namespacecudf_1_1ast_1_1detail.html#af54b8743a2791900ff7132f1f41a8e86a41dc7c9e385c4d2b6c1f7836973951bf',1,'cudf::ast::detail']]],
+  ['invalid_13',['invalid',['../namespacecudf_1_1io_1_1text_1_1detail.html#afa2febf496d174632369d5b8314caa20afedb2d84cafe20862cb4399751a8a7e3',1,'cudf::io::text::detail']]],
+  ['invalid_5f6_14',['INVALID_6',['../namespacecudf_1_1io_1_1orc.html#ad6daf6a367f02a6bc828e6ddd4889b2caedd39cd0c4429bb62d0f7ee4579cbfa7',1,'cudf::io::orc']]],
+  ['invalid_5f7_15',['INVALID_7',['../namespacecudf_1_1io_1_1orc.html#ad6daf6a367f02a6bc828e6ddd4889b2ca92831ce0824bdb5a112ed7efde4e3b39',1,'cudf::io::orc']]],
+  ['invalid_5fbinary_16',['INVALID_BINARY',['../group__transformation__binaryops.html#gga00ed76601b6db662550f6826cfd99edca0b010d84b45dcb367a81c7c029d3f5bb',1,'cudf']]],
+  ['invalid_5fencoding_5fkind_17',['INVALID_ENCODING_KIND',['../namespacecudf_1_1io_1_1orc.html#a74ec40d0188335dff297e67645b6957ba060e45b87c78f70fc0f71d907b419a91',1,'cudf::io::orc']]],
+  ['invalid_5fstream_5fkind_18',['INVALID_STREAM_KIND',['../namespacecudf_1_1io_1_1orc.html#ac5218b6f3b64304924dfe48c90be5bbba5f8592c5dccddb5d838ec5a9164ef10a',1,'cudf::io::orc']]],
+  ['invalid_5ftype_5fkind_19',['INVALID_TYPE_KIND',['../namespacecudf_1_1io_1_1orc.html#ae05e5ef15beac13262d33de5f0350203a41fe9593c0271964a394485f3cbc077d',1,'cudf::io::orc']]]
+];

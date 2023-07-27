@@ -1,0 +1,1565 @@
+\doxysection{Column\+\_\+copy}
+\hypertarget{group__column__copy}{}\label{group__column__copy}\index{Column\_copy@{Column\_copy}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{copying_8hpp}{copying.\+hpp}}
+\begin{DoxyCompactList}\small\item\em Column APIs for gather, scatter, split, slice, etc. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1packed__columns}{cudf\+::packed\+\_\+columns}}
+\begin{DoxyCompactList}\small\item\em Column data in a serialized format \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1packed__table}{cudf\+::packed\+\_\+table}}
+\begin{DoxyCompactList}\small\item\em The result(s) of a \doxylink{group__column__copy_gab171e877b57253d521eb8f6d3c7d7c4a}{cudf\+::contiguous\+\_\+split} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__column__copy_gae3ba74951558bc7966aae86abc6af5df}{cudf\+::out\+\_\+of\+\_\+bounds\+\_\+policy}} \+: bool \{ \mbox{\hyperlink{group__column__copy_ggae3ba74951558bc7966aae86abc6af5dfacac2cdaff9b4ab3bcda3b538a86f9edb}{cudf\+::out\+\_\+of\+\_\+bounds\+\_\+policy\+::\+NULLIFY}}
+, \mbox{\hyperlink{group__column__copy_ggae3ba74951558bc7966aae86abc6af5dfa12c1109487cf9a6a336b1dfe462bfd2d}{cudf\+::out\+\_\+of\+\_\+bounds\+\_\+policy\+::\+DONT\+\_\+\+CHECK}}
+ \}
+\begin{DoxyCompactList}\small\item\em Policy to account for possible out-\/of-\/bounds indices \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{group__column__copy_ga267e03474dcfd85242d2fdc6e5846ec6}{cudf\+::mask\+\_\+allocation\+\_\+policy}} \{ \mbox{\hyperlink{group__column__copy_gga267e03474dcfd85242d2fdc6e5846ec6a443475558f0168dff92ecde26b98ae5a}{cudf\+::mask\+\_\+allocation\+\_\+policy\+::\+NEVER}}
+, \mbox{\hyperlink{group__column__copy_gga267e03474dcfd85242d2fdc6e5846ec6a47e9136fa770199f6a8a9727b6173eb4}{cudf\+::mask\+\_\+allocation\+\_\+policy\+::\+RETAIN}}
+, \mbox{\hyperlink{group__column__copy_gga267e03474dcfd85242d2fdc6e5846ec6af3fc827ade4b968e50406496907ef962}{cudf\+::mask\+\_\+allocation\+\_\+policy\+::\+ALWAYS}}
+ \}
+\begin{DoxyCompactList}\small\item\em Indicates when to allocate a mask, based on an existing mask. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{group__column__copy_gae7607cde56cb602ab1b198b5bebf7cba}{cudf\+::sample\+\_\+with\+\_\+replacement}} \+: bool \{ \mbox{\hyperlink{group__column__copy_ggae7607cde56cb602ab1b198b5bebf7cbaa946003f97ccc52d5d3b54ac0ec31bbfc}{cudf\+::sample\+\_\+with\+\_\+replacement\+::\+FALSE}}
+, \mbox{\hyperlink{group__column__copy_ggae7607cde56cb602ab1b198b5bebf7cbaac0d83f0b82a6b30de8811e69e6d95c61}{cudf\+::sample\+\_\+with\+\_\+replacement\+::\+TRUE}}
+ \}
+\begin{DoxyCompactList}\small\item\em Indicates whether a row can be sampled more than once. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__copy_ga19ea162e7794e6cbbc2faba70fbd91aa}{cudf\+::gather}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&source\+\_\+table, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&gather\+\_\+map, \mbox{\hyperlink{group__column__copy_gae3ba74951558bc7966aae86abc6af5df}{out\+\_\+of\+\_\+bounds\+\_\+policy}} bounds\+\_\+policy=\mbox{\hyperlink{group__column__copy_ggae3ba74951558bc7966aae86abc6af5dfa12c1109487cf9a6a336b1dfe462bfd2d}{out\+\_\+of\+\_\+bounds\+\_\+policy\+::\+DONT\+\_\+\+CHECK}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Gathers the specified rows (including null values) of a set of columns. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__copy_gafbbf4a02a5108cbcd9368ce31efc7f2a}{cudf\+::reverse}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&source\+\_\+table, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Reverses the rows within a table. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__copy_ga6f6bd5517ff6f32a20b20d66a22616a7}{cudf\+::reverse}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&source\+\_\+column, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Reverses the elements of a column \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__copy_gabd90ba38ea2655ce3b435d2a4f199358}{cudf\+::scatter}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&source, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&scatter\+\_\+map, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&target, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Scatters the rows of the source table into a copy of the target table according to a scatter map. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__copy_ga474f55905324aea8ed00ff8e3e3fecea}{cudf\+::scatter}} (std\+::vector$<$ std\+::reference\+\_\+wrapper$<$ const \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ $>$ const \&source, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&indices, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&target, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Scatters a row of scalar values into a copy of the target table according to a scatter map. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__copy_ga62eff2fcac7ff377df316c7ef37ee4fd}{cudf\+::empty\+\_\+like}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input)
+\begin{DoxyCompactList}\small\item\em Initializes and returns an empty column of the same type as the {\ttfamily input}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__copy_gadf190ab1fe40049bc95bf7aebad93450}{cudf\+::empty\+\_\+like}} (\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&input)
+\begin{DoxyCompactList}\small\item\em Initializes and returns an empty column of the same type as the {\ttfamily input}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__copy_gab5aa629d9ff2157990e7187b9e1552df}{cudf\+::allocate\+\_\+like}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{group__column__copy_ga267e03474dcfd85242d2fdc6e5846ec6}{mask\+\_\+allocation\+\_\+policy}} mask\+\_\+alloc=\mbox{\hyperlink{group__column__copy_gga267e03474dcfd85242d2fdc6e5846ec6a47e9136fa770199f6a8a9727b6173eb4}{mask\+\_\+allocation\+\_\+policy\+::\+RETAIN}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Creates an uninitialized new column of the same size and type as the {\ttfamily input}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__copy_ga9c1552cc6c2d49d1a74b907bd4bb2baa}{cudf\+::allocate\+\_\+like}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} size, \mbox{\hyperlink{group__column__copy_ga267e03474dcfd85242d2fdc6e5846ec6}{mask\+\_\+allocation\+\_\+policy}} mask\+\_\+alloc=\mbox{\hyperlink{group__column__copy_gga267e03474dcfd85242d2fdc6e5846ec6a47e9136fa770199f6a8a9727b6173eb4}{mask\+\_\+allocation\+\_\+policy\+::\+RETAIN}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Creates an uninitialized new column of the specified size and same type as the {\ttfamily input}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__copy_gaf51eaa0bed9085f857e8edbcb4141d76}{cudf\+::empty\+\_\+like}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input\+\_\+table)
+\begin{DoxyCompactList}\small\item\em Creates a table of empty columns with the same types as the {\ttfamily input\+\_\+table} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__column__copy_gaf7453a32aa49fd9a55287a776f2b4b2f}{cudf\+::copy\+\_\+range\+\_\+in\+\_\+place}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&source, \mbox{\hyperlink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view}} \&target, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} source\+\_\+begin, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} source\+\_\+end, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} target\+\_\+begin)
+\begin{DoxyCompactList}\small\item\em Copies a range of elements in-\/place from one column to another. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__copy_ga9358e7f2ed4d47e3ee03f24ef711e402}{cudf\+::copy\+\_\+range}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&source, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&target, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} source\+\_\+begin, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} source\+\_\+end, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} target\+\_\+begin, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Copies a range of elements out-\/of-\/place from one column to another. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__copy_ga80b6ccd43dbb2359d520a3f3ea100e8e}{cudf\+::shift}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} offset, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&fill\+\_\+value, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Creates a new column by shifting all values by an offset. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} $>$ \mbox{\hyperlink{group__column__copy_ga52223b0ef6807f9a2454f7395b5425d4}{cudf\+::slice}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$ indices)
+\begin{DoxyCompactList}\small\item\em Slices a {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}} into a set of {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}}s according to a set of indices. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} $>$ \mbox{\hyperlink{group__column__copy_ga77b1d2c6579fa0ad8da690c8cd4c3192}{cudf\+::slice}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ indices)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} $>$ \mbox{\hyperlink{group__column__copy_ga61a6785244331834b458545e084b7017}{cudf\+::slice}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, \mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$ indices)
+\begin{DoxyCompactList}\small\item\em Slices a {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} into a set of {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}}s according to a set of indices. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} $>$ \mbox{\hyperlink{group__column__copy_gaadc72fabae41e8187065211ebe7d6cce}{cudf\+::slice}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ indices)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} $>$ \mbox{\hyperlink{group__column__copy_ga95ac220988903ef24d698ff49c683bfc}{cudf\+::split}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$ splits)
+\begin{DoxyCompactList}\small\item\em Splits a {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}} into a set of {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}}s according to a set of indices derived from expected splits. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} $>$ \mbox{\hyperlink{group__column__copy_ga5fb87b85cb2fedb682a6f4103414f97f}{cudf\+::split}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ splits)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} $>$ \mbox{\hyperlink{group__column__copy_ga72d5748fbf4bd848295769dce8a80979}{cudf\+::split}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, \mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$ splits)
+\begin{DoxyCompactList}\small\item\em Splits a {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} into a set of {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}}s according to a set of indices derived from expected splits. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} $>$ \mbox{\hyperlink{group__column__copy_ga94277c977c86ac93ebb279f562906aa0}{cudf\+::split}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ splits)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1packed__table}{packed\+\_\+table}} $>$ \mbox{\hyperlink{group__column__copy_gab171e877b57253d521eb8f6d3c7d7c4a}{cudf\+::contiguous\+\_\+split}} (\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&input, std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&splits, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs a deep-\/copy split of a {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} into a set of {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}}s into a single contiguous block of memory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1packed__columns}{packed\+\_\+columns}} \mbox{\hyperlink{group__column__copy_gaeb39dd8301fb76bfec9e777820bda3f2}{cudf\+::pack}} (\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&input, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Deep-\/copy a {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} into a serialized contiguous memory format \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1packed__columns_1_1metadata}{packed\+\_\+columns\+::metadata}} \mbox{\hyperlink{group__column__copy_gab28fc2d2294f2840df37814e7a4aa582}{cudf\+::pack\+\_\+metadata}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1table}{table}}, uint8\+\_\+t const \texorpdfstring{$\ast$}{*}contiguous\+\_\+buffer, size\+\_\+t buffer\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Produce the metadata used for packing a table stored in a contiguous buffer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} \mbox{\hyperlink{group__column__copy_ga1d62a18c2e6f087a92289c63693762cc}{cudf\+::unpack}} (\mbox{\hyperlink{structcudf_1_1packed__columns}{packed\+\_\+columns}} const \&input)
+\begin{DoxyCompactList}\small\item\em Deserialize the result of {\ttfamily \doxylink{group__column__copy_gaeb39dd8301fb76bfec9e777820bda3f2}{cudf\+::pack}} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} \mbox{\hyperlink{group__column__copy_gaaaebfb6742c09cccda8fb8a78e19fbd6}{cudf\+::unpack}} (uint8\+\_\+t const \texorpdfstring{$\ast$}{*}metadata, uint8\+\_\+t const \texorpdfstring{$\ast$}{*}gpu\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Deserialize the result of {\ttfamily \doxylink{group__column__copy_gaeb39dd8301fb76bfec9e777820bda3f2}{cudf\+::pack}} \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__copy_ga20a8a274e5efd32f012ada60ed20fbf1}{cudf\+::copy\+\_\+if\+\_\+else}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&lhs, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&rhs, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&boolean\+\_\+mask, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a new column, where each element is selected from either {\ttfamily lhs} or {\ttfamily rhs} based on the value of the corresponding element in {\ttfamily boolean\+\_\+mask} \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__copy_ga9419155faa6145c567bc10f4a9022b2f}{cudf\+::copy\+\_\+if\+\_\+else}} (\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&lhs, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&rhs, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&boolean\+\_\+mask, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a new column, where each element is selected from either {\ttfamily lhs} or {\ttfamily rhs} based on the value of the corresponding element in {\ttfamily boolean\+\_\+mask} \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__copy_ga0ef360d8b66500f7da10f9cb8298e079}{cudf\+::copy\+\_\+if\+\_\+else}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&lhs, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&rhs, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&boolean\+\_\+mask, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a new column, where each element is selected from either {\ttfamily lhs} or {\ttfamily rhs} based on the value of the corresponding element in {\ttfamily boolean\+\_\+mask} \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__copy_ga5f5e9508f27672af7450bbfc7a4acdb4}{cudf\+::copy\+\_\+if\+\_\+else}} (\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&lhs, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&rhs, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&boolean\+\_\+mask, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a new column, where each element is selected from either {\ttfamily lhs} or {\ttfamily rhs} based on the value of the corresponding element in {\ttfamily boolean\+\_\+mask} \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__copy_gae5cc9b107359c2666847a4586d07ef70}{cudf\+::boolean\+\_\+mask\+\_\+scatter}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&target, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&boolean\+\_\+mask, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Scatters rows from the input table to rows of the output corresponding to true values in a boolean mask. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__copy_ga7945f25673f72c65e1bf60821fa579e7}{cudf\+::boolean\+\_\+mask\+\_\+scatter}} (std\+::vector$<$ std\+::reference\+\_\+wrapper$<$ const \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ $>$ const \&input, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&target, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&boolean\+\_\+mask, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Scatters scalar values to rows of the output corresponding to true values in a boolean mask. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ \mbox{\hyperlink{group__column__copy_ga3c310958af4e031737d80ba8015452b6}{cudf\+::get\+\_\+element}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} index, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Get the element at specified index from a column \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__column__copy_ga29e76351f1ae5bd91dc922ad24243b1f}{cudf\+::sample}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const n, \mbox{\hyperlink{group__column__copy_gae7607cde56cb602ab1b198b5bebf7cba}{sample\+\_\+with\+\_\+replacement}} replacement=\mbox{\hyperlink{group__column__copy_ggae7607cde56cb602ab1b198b5bebf7cbaa946003f97ccc52d5d3b54ac0ec31bbfc}{sample\+\_\+with\+\_\+replacement\+::\+FALSE}}, int64\+\_\+t const seed=0, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Gather {\ttfamily n} samples from given {\ttfamily input} randomly \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__column__copy_ga0c61528cb588874f9c07c6f766f232db}{cudf\+::has\+\_\+nonempty\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input)
+\begin{DoxyCompactList}\small\item\em Checks if a column or its descendants have non-\/empty null rows \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__column__copy_ga9a9c46582ed07509d4bfe24e50d59bf2}{cudf\+::may\+\_\+have\+\_\+nonempty\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input)
+\begin{DoxyCompactList}\small\item\em Approximates if a column or its descendants {\itshape may} have non-\/empty null elements \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__column__copy_ga387d2221ad89e737e89270bf8c56dfa5}{cudf\+::purge\+\_\+nonempty\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Copy {\ttfamily input} into output while purging any non-\/empty null rows in the column or its descendants. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{枚举类型说明}
+\Hypertarget{group__column__copy_ga267e03474dcfd85242d2fdc6e5846ec6}\label{group__column__copy_ga267e03474dcfd85242d2fdc6e5846ec6} 
+\index{Column\_copy@{Column\_copy}!mask\_allocation\_policy@{mask\_allocation\_policy}}
+\index{mask\_allocation\_policy@{mask\_allocation\_policy}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{mask\_allocation\_policy}{mask\_allocation\_policy}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__column__copy_ga267e03474dcfd85242d2fdc6e5846ec6}{cudf\+::mask\+\_\+allocation\+\_\+policy}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Indicates when to allocate a mask, based on an existing mask. 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NEVER@{NEVER}!Column\_copy@{Column\_copy}}\index{Column\_copy@{Column\_copy}!NEVER@{NEVER}}}\Hypertarget{group__column__copy_gga267e03474dcfd85242d2fdc6e5846ec6a443475558f0168dff92ecde26b98ae5a}\label{group__column__copy_gga267e03474dcfd85242d2fdc6e5846ec6a443475558f0168dff92ecde26b98ae5a} 
+NEVER&Do not allocate a null mask, regardless of input \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RETAIN@{RETAIN}!Column\_copy@{Column\_copy}}\index{Column\_copy@{Column\_copy}!RETAIN@{RETAIN}}}\Hypertarget{group__column__copy_gga267e03474dcfd85242d2fdc6e5846ec6a47e9136fa770199f6a8a9727b6173eb4}\label{group__column__copy_gga267e03474dcfd85242d2fdc6e5846ec6a47e9136fa770199f6a8a9727b6173eb4} 
+RETAIN&Allocate a null mask if the input contains one \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ALWAYS@{ALWAYS}!Column\_copy@{Column\_copy}}\index{Column\_copy@{Column\_copy}!ALWAYS@{ALWAYS}}}\Hypertarget{group__column__copy_gga267e03474dcfd85242d2fdc6e5846ec6af3fc827ade4b968e50406496907ef962}\label{group__column__copy_gga267e03474dcfd85242d2fdc6e5846ec6af3fc827ade4b968e50406496907ef962} 
+ALWAYS&Allocate a null mask, regardless of input \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{copying_8hpp_source}{copying.\+hpp}} 第 \mbox{\hyperlink{copying_8hpp_source_l00204}{204}} 行定义.
+
+\Hypertarget{group__column__copy_gae3ba74951558bc7966aae86abc6af5df}\label{group__column__copy_gae3ba74951558bc7966aae86abc6af5df} 
+\index{Column\_copy@{Column\_copy}!out\_of\_bounds\_policy@{out\_of\_bounds\_policy}}
+\index{out\_of\_bounds\_policy@{out\_of\_bounds\_policy}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{out\_of\_bounds\_policy}{out\_of\_bounds\_policy}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__column__copy_gae3ba74951558bc7966aae86abc6af5df}{cudf\+::out\+\_\+of\+\_\+bounds\+\_\+policy}} \+: bool\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Policy to account for possible out-\/of-\/bounds indices 
+
+{\ttfamily NULLIFY} means to nullify output values corresponding to out-\/of-\/bounds gather\+\_\+map values. {\ttfamily DONT\+\_\+\+CHECK} means do not check whether the indices are out-\/of-\/bounds, for better performance. \begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NULLIFY@{NULLIFY}!Column\_copy@{Column\_copy}}\index{Column\_copy@{Column\_copy}!NULLIFY@{NULLIFY}}}\Hypertarget{group__column__copy_ggae3ba74951558bc7966aae86abc6af5dfacac2cdaff9b4ab3bcda3b538a86f9edb}\label{group__column__copy_ggae3ba74951558bc7966aae86abc6af5dfacac2cdaff9b4ab3bcda3b538a86f9edb} 
+NULLIFY&Output values corresponding to out-\/of-\/bounds indices are null \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DONT\_CHECK@{DONT\_CHECK}!Column\_copy@{Column\_copy}}\index{Column\_copy@{Column\_copy}!DONT\_CHECK@{DONT\_CHECK}}}\Hypertarget{group__column__copy_ggae3ba74951558bc7966aae86abc6af5dfa12c1109487cf9a6a336b1dfe462bfd2d}\label{group__column__copy_ggae3ba74951558bc7966aae86abc6af5dfa12c1109487cf9a6a336b1dfe462bfd2d} 
+DONT\+\_\+\+CHECK&No bounds checking is performed, better performance \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{copying_8hpp_source}{copying.\+hpp}} 第 \mbox{\hyperlink{copying_8hpp_source_l00048}{48}} 行定义.
+
+\Hypertarget{group__column__copy_gae7607cde56cb602ab1b198b5bebf7cba}\label{group__column__copy_gae7607cde56cb602ab1b198b5bebf7cba} 
+\index{Column\_copy@{Column\_copy}!sample\_with\_replacement@{sample\_with\_replacement}}
+\index{sample\_with\_replacement@{sample\_with\_replacement}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{sample\_with\_replacement}{sample\_with\_replacement}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__column__copy_gae7607cde56cb602ab1b198b5bebf7cba}{cudf\+::sample\+\_\+with\+\_\+replacement}} \+: bool\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Indicates whether a row can be sampled more than once. 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FALSE@{FALSE}!Column\_copy@{Column\_copy}}\index{Column\_copy@{Column\_copy}!FALSE@{FALSE}}}\Hypertarget{group__column__copy_ggae7607cde56cb602ab1b198b5bebf7cbaa946003f97ccc52d5d3b54ac0ec31bbfc}\label{group__column__copy_ggae7607cde56cb602ab1b198b5bebf7cbaa946003f97ccc52d5d3b54ac0ec31bbfc} 
+FALSE&A row can be sampled only once \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRUE@{TRUE}!Column\_copy@{Column\_copy}}\index{Column\_copy@{Column\_copy}!TRUE@{TRUE}}}\Hypertarget{group__column__copy_ggae7607cde56cb602ab1b198b5bebf7cbaac0d83f0b82a6b30de8811e69e6d95c61}\label{group__column__copy_ggae7607cde56cb602ab1b198b5bebf7cbaac0d83f0b82a6b30de8811e69e6d95c61} 
+TRUE&A row can be sampled more than once \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{copying_8hpp_source}{copying.\+hpp}} 第 \mbox{\hyperlink{copying_8hpp_source_l00933}{933}} 行定义.
+
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__column__copy_gab5aa629d9ff2157990e7187b9e1552df}\label{group__column__copy_gab5aa629d9ff2157990e7187b9e1552df} 
+\index{Column\_copy@{Column\_copy}!allocate\_like@{allocate\_like}}
+\index{allocate\_like@{allocate\_like}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{allocate\_like()}{allocate\_like()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::allocate\+\_\+like (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__column__copy_ga267e03474dcfd85242d2fdc6e5846ec6}{mask\+\_\+allocation\+\_\+policy}}}]{mask\+\_\+alloc = {\ttfamily \mbox{\hyperlink{group__column__copy_gga267e03474dcfd85242d2fdc6e5846ec6a47e9136fa770199f6a8a9727b6173eb4}{mask\+\_\+allocation\+\_\+policy\+::\+RETAIN}}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Creates an uninitialized new column of the same size and type as the {\ttfamily input}. 
+
+Supports only fixed-\/width types.
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & Immutable view of input column to emulate \\
+\hline
+\mbox{\texttt{ in}}  & {\em mask\+\_\+alloc} & Optional, Policy for allocating null mask. Defaults to RETAIN \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A column with sufficient uninitialized capacity to hold the same number of elements as {\ttfamily input} of the same type as {\ttfamily input.\+type()} 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_ga9c1552cc6c2d49d1a74b907bd4bb2baa}\label{group__column__copy_ga9c1552cc6c2d49d1a74b907bd4bb2baa} 
+\index{Column\_copy@{Column\_copy}!allocate\_like@{allocate\_like}}
+\index{allocate\_like@{allocate\_like}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{allocate\_like()}{allocate\_like()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::allocate\+\_\+like (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{size,  }\item[{\mbox{\hyperlink{group__column__copy_ga267e03474dcfd85242d2fdc6e5846ec6}{mask\+\_\+allocation\+\_\+policy}}}]{mask\+\_\+alloc = {\ttfamily \mbox{\hyperlink{group__column__copy_gga267e03474dcfd85242d2fdc6e5846ec6a47e9136fa770199f6a8a9727b6173eb4}{mask\+\_\+allocation\+\_\+policy\+::\+RETAIN}}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Creates an uninitialized new column of the specified size and same type as the {\ttfamily input}. 
+
+Supports only fixed-\/width types.
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & Immutable view of input column to emulate \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & The desired number of elements that the new column should have capacity for \\
+\hline
+\mbox{\texttt{ in}}  & {\em mask\+\_\+alloc} & Optional, Policy for allocating null mask. Defaults to RETAIN \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A column with sufficient uninitialized capacity to hold the specified number of elements as {\ttfamily input} of the same type as {\ttfamily input.\+type()} 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_ga7945f25673f72c65e1bf60821fa579e7}\label{group__column__copy_ga7945f25673f72c65e1bf60821fa579e7} 
+\index{Column\_copy@{Column\_copy}!boolean\_mask\_scatter@{boolean\_mask\_scatter}}
+\index{boolean\_mask\_scatter@{boolean\_mask\_scatter}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{boolean\_mask\_scatter()}{boolean\_mask\_scatter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::boolean\+\_\+mask\+\_\+scatter (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::reference\+\_\+wrapper$<$ const \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ $>$ const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{target,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{boolean\+\_\+mask,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Scatters scalar values to rows of the output corresponding to true values in a boolean mask. 
+
+The {\ttfamily i}th scalar in {\ttfamily input} will be written to all columns of the output table at the location of the {\ttfamily i}th true value in {\ttfamily boolean\+\_\+mask}. All other rows in the output will equal the same row in {\ttfamily target}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{input:\ \{11\}}
+\DoxyCodeLine{boolean\_mask:\ \{true,\ false,\ false,\ false,\ true,\ true,\ false,\ true,\ true,\ false\}}
+\DoxyCodeLine{target:\ \ \ \ \ \ \{\{\ \ \ 2,\ \ \ \ \ 2,\ \ \ \ \ 3,\ \ \ \ \ 4,\ \ \ \ 4,\ \ \ \ \ 7,\ \ \ \ 7,\ \ \ \ 7,\ \ \ \ 8,\ \ \ \ 10\}\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{output:\ \ \ \ \ \ \ \{\{\ \ \ 11,\ \ \ \ 2,\ \ \ \ \ 3,\ \ \ \ \ 4,\ \ \ 11,\ \ \ \ 11,\ \ \ \ 7,\ \ \ 11,\ \ \ 11,\ \ \ \ 10\}\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if input.\+size() != target.\+num\+\_\+columns() \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if any {\ttfamily i}th input\+\_\+scalar type != {\ttfamily i}th target\+\_\+column type \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if boolean\+\_\+mask.\+type() != bool \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if boolean\+\_\+mask.\+size() != target.\+size()\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & scalars to scatter \\
+\hline
+\mbox{\texttt{ in}}  & {\em target} & \doxylink{classcudf_1_1table__view}{table\+\_\+view} to modify with scattered values from {\ttfamily input} \\
+\hline
+\mbox{\texttt{ in}}  & {\em boolean\+\_\+mask} & \doxylink{classcudf_1_1column__view}{column\+\_\+view} which acts as boolean mask \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate device memory of the returned table\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Returns a table by scattering {\ttfamily input} into {\ttfamily target} as per {\ttfamily boolean\+\_\+mask} 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_gae5cc9b107359c2666847a4586d07ef70}\label{group__column__copy_gae5cc9b107359c2666847a4586d07ef70} 
+\index{Column\_copy@{Column\_copy}!boolean\_mask\_scatter@{boolean\_mask\_scatter}}
+\index{boolean\_mask\_scatter@{boolean\_mask\_scatter}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{boolean\_mask\_scatter()}{boolean\_mask\_scatter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::boolean\+\_\+mask\+\_\+scatter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{target,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{boolean\+\_\+mask,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Scatters rows from the input table to rows of the output corresponding to true values in a boolean mask. 
+
+The {\ttfamily i}th row of {\ttfamily input} will be written to the output table at the location of the {\ttfamily i}th true value in {\ttfamily boolean\+\_\+mask}. All other rows in the output will equal the same row in {\ttfamily target}.
+
+{\ttfamily boolean\+\_\+mask} should have number of {\ttfamily true}s \texorpdfstring{$<$}{<}= number of rows in {\ttfamily input}. If boolean mask is {\ttfamily true}, corresponding value in target is updated with value from corresponding {\ttfamily input} column, else it is left untouched.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{input:\ \{\{1,\ 5,\ 6,\ 8,\ 9\}\}}
+\DoxyCodeLine{boolean\_mask:\ \{true,\ false,\ false,\ false,\ true,\ true,\ false,\ true,\ true,\ false\}}
+\DoxyCodeLine{target:\ \ \ \ \ \ \ \{\{\ \ \ 2,\ \ \ \ \ 2,\ \ \ \ \ 3,\ \ \ \ \ 4,\ \ \ \ 4,\ \ \ \ \ 7,\ \ \ \ 7,\ \ \ \ 7,\ \ \ \ 8,\ \ \ \ 10\}\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{output:\ \ \ \ \ \ \ \{\{\ \ \ 1,\ \ \ \ \ 2,\ \ \ \ \ 3,\ \ \ \ \ 4,\ \ \ \ 5,\ \ \ \ \ 6,\ \ \ \ 7,\ \ \ \ 8,\ \ \ \ 9,\ \ \ \ 10\}\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if input.\+num\+\_\+columns() != target.\+num\+\_\+columns() \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if any {\ttfamily i}th input\+\_\+column type != {\ttfamily i}th target\+\_\+column type \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if boolean\+\_\+mask.\+type() != bool \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if boolean\+\_\+mask.\+size() != target.\+num\+\_\+rows() \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if number of {\ttfamily true} in {\ttfamily boolean\+\_\+mask} \texorpdfstring{$>$}{>} input.\+num\+\_\+rows()\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & \doxylink{classcudf_1_1table__view}{table\+\_\+view} (set of dense columns) to scatter \\
+\hline
+\mbox{\texttt{ in}}  & {\em target} & \doxylink{classcudf_1_1table__view}{table\+\_\+view} to modify with scattered values from {\ttfamily input} \\
+\hline
+\mbox{\texttt{ in}}  & {\em boolean\+\_\+mask} & \doxylink{classcudf_1_1column__view}{column\+\_\+view} which acts as boolean mask \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate device memory of the returned table\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Returns a table by scattering {\ttfamily input} into {\ttfamily target} as per {\ttfamily boolean\+\_\+mask} 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_gab171e877b57253d521eb8f6d3c7d7c4a}\label{group__column__copy_gab171e877b57253d521eb8f6d3c7d7c4a} 
+\index{Column\_copy@{Column\_copy}!contiguous\_split@{contiguous\_split}}
+\index{contiguous\_split@{contiguous\_split}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{contiguous\_split()}{contiguous\_split()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1packed__table}{packed\+\_\+table}} $>$ cudf\+::contiguous\+\_\+split (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&}]{input,  }\item[{std\+::vector$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ const \&}]{splits,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Performs a deep-\/copy split of a {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} into a set of {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}}s into a single contiguous block of memory. 
+
+The memory for the output views is allocated in a single contiguous {\ttfamily rmm\+::device\+\_\+buffer} returned in the {\ttfamily \doxylink{structcudf_1_1packed__table}{packed\+\_\+table}}. There is no top-\/level owning table.
+
+The returned views of {\ttfamily input} are constructed from a vector of indices, that indicate where each split should occur. The {\ttfamily i}th returned {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} is sliced as {\ttfamily \mbox{[}0, splits\mbox{[}i\mbox{]})} if {\ttfamily i}=0, else {\ttfamily \mbox{[}splits\mbox{[}i\mbox{]}, input.\+size())} if {\ttfamily i} is the last view and {\ttfamily \mbox{[}splits\mbox{[}i-\/1\mbox{]}, splits\mbox{[}i\mbox{]}\mbox{]}} otherwise.
+
+For all {\ttfamily i} it is expected {\ttfamily splits\mbox{[}i\mbox{]} \texorpdfstring{$<$}{<}= splits\mbox{[}i+1\mbox{]} \texorpdfstring{$<$}{<}= input.\+size()} For a {\ttfamily splits} size N, there will always be N+1 splits in the output
+
+\begin{DoxyNote}{注解}
+It is the caller\textquotesingle{}s responsibility to ensure that the returned views do not outlive the viewed device memory contained in the {\ttfamily all\+\_\+data} field of the returned \doxylink{structcudf_1_1packed__table}{packed\+\_\+table}.
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{input:\ \ \ [\{10,\ 12,\ 14,\ 16,\ 18,\ 20,\ 22,\ 24,\ 26,\ 28\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{50,\ 52,\ 54,\ 56,\ 58,\ 60,\ 62,\ 64,\ 66,\ 68\}]}
+\DoxyCodeLine{splits:\ \ \{2,\ 5,\ 9\}}
+\DoxyCodeLine{output:\ \ [\{\{10,\ 12\},\ \{14,\ 16,\ 18\},\ \{20,\ 22,\ 24,\ 26\},\ \{28\}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{\{50,\ 52\},\ \{54,\ 56,\ 58\},\ \{60,\ 62,\ 64,\ 66\},\ \{68\}\}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily splits} has end index \texorpdfstring{$>$}{>} size of {\ttfamily input}. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & When the value in {\ttfamily splits} is not in the range \mbox{[}0, input.\+size()). \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & When the values in the {\ttfamily splits} are \textquotesingle{}strictly decreasing\textquotesingle{}.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{参数}
+ & {\em input} & View of a table to split \\
+\hline
+ & {\em splits} & A vector of indices where the view will be split \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned result\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The set of requested views of {\ttfamily input} indicated by the {\ttfamily splits} and the viewed memory buffer. 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_ga20a8a274e5efd32f012ada60ed20fbf1}\label{group__column__copy_ga20a8a274e5efd32f012ada60ed20fbf1} 
+\index{Column\_copy@{Column\_copy}!copy\_if\_else@{copy\_if\_else}}
+\index{copy\_if\_else@{copy\_if\_else}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{copy\_if\_else()}{copy\_if\_else()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::copy\+\_\+if\+\_\+else (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{lhs,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{rhs,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{boolean\+\_\+mask,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a new column, where each element is selected from either {\ttfamily lhs} or {\ttfamily rhs} based on the value of the corresponding element in {\ttfamily boolean\+\_\+mask} 
+
+Selects each element i in the output column from either {\ttfamily rhs} or {\ttfamily lhs} using the following rule\+: {\ttfamily output\mbox{[}i\mbox{]} = (boolean\+\_\+mask.\+valid(i) and boolean\+\_\+mask\mbox{[}i\mbox{]}) ? lhs\mbox{[}i\mbox{]} \+: rhs\mbox{[}i\mbox{]}}
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if lhs and rhs are not of the same type \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if lhs and rhs are not of the same length \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if boolean mask is not of type bool \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if boolean mask is not of the same length as lhs and rhs \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em lhs} & left-\/hand \doxylink{classcudf_1_1column__view}{column\+\_\+view} \\
+\hline
+\mbox{\texttt{ in}}  & {\em rhs} & right-\/hand \doxylink{classcudf_1_1column__view}{column\+\_\+view} \\
+\hline
+\mbox{\texttt{ in}}  & {\em boolean\+\_\+mask} & column of {\ttfamily \doxylink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a05afd9eb8887a406d47474cd3809a5dd}{type\+\_\+id\+::\+BOOL8}} representing \"{}left (true) / right (false)\"{} boolean for each element. Null element represents false. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+new column with the selected elements 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_ga0ef360d8b66500f7da10f9cb8298e079}\label{group__column__copy_ga0ef360d8b66500f7da10f9cb8298e079} 
+\index{Column\_copy@{Column\_copy}!copy\_if\_else@{copy\_if\_else}}
+\index{copy\_if\_else@{copy\_if\_else}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{copy\_if\_else()}{copy\_if\_else()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::copy\+\_\+if\+\_\+else (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{lhs,  }\item[{\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&}]{rhs,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{boolean\+\_\+mask,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a new column, where each element is selected from either {\ttfamily lhs} or {\ttfamily rhs} based on the value of the corresponding element in {\ttfamily boolean\+\_\+mask} 
+
+Selects each element i in the output column from either {\ttfamily rhs} or {\ttfamily lhs} using the following rule\+: {\ttfamily output\mbox{[}i\mbox{]} = (boolean\+\_\+mask.\+valid(i) and boolean\+\_\+mask\mbox{[}i\mbox{]}) ? lhs\mbox{[}i\mbox{]} \+: rhs}
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if lhs and rhs are not of the same type \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if boolean mask is not of type bool \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if boolean mask is not of the same length as lhs \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em lhs} & left-\/hand \doxylink{classcudf_1_1column__view}{column\+\_\+view} \\
+\hline
+\mbox{\texttt{ in}}  & {\em rhs} & right-\/hand scalar \\
+\hline
+\mbox{\texttt{ in}}  & {\em boolean\+\_\+mask} & column of {\ttfamily \doxylink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a05afd9eb8887a406d47474cd3809a5dd}{type\+\_\+id\+::\+BOOL8}} representing \"{}left (true) / right (false)\"{} boolean for each element. Null element represents false. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+new column with the selected elements 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_ga9419155faa6145c567bc10f4a9022b2f}\label{group__column__copy_ga9419155faa6145c567bc10f4a9022b2f} 
+\index{Column\_copy@{Column\_copy}!copy\_if\_else@{copy\_if\_else}}
+\index{copy\_if\_else@{copy\_if\_else}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{copy\_if\_else()}{copy\_if\_else()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::copy\+\_\+if\+\_\+else (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&}]{lhs,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{rhs,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{boolean\+\_\+mask,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a new column, where each element is selected from either {\ttfamily lhs} or {\ttfamily rhs} based on the value of the corresponding element in {\ttfamily boolean\+\_\+mask} 
+
+Selects each element i in the output column from either {\ttfamily rhs} or {\ttfamily lhs} using the following rule\+: {\ttfamily output\mbox{[}i\mbox{]} = (boolean\+\_\+mask.\+valid(i) and boolean\+\_\+mask\mbox{[}i\mbox{]}) ? lhs \+: rhs\mbox{[}i\mbox{]}}
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if lhs and rhs are not of the same type \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if boolean mask is not of type bool \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if boolean mask is not of the same length as rhs \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em lhs} & left-\/hand scalar \\
+\hline
+\mbox{\texttt{ in}}  & {\em rhs} & right-\/hand \doxylink{classcudf_1_1column__view}{column\+\_\+view} \\
+\hline
+\mbox{\texttt{ in}}  & {\em boolean\+\_\+mask} & column of {\ttfamily \doxylink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a05afd9eb8887a406d47474cd3809a5dd}{type\+\_\+id\+::\+BOOL8}} representing \"{}left (true) / right (false)\"{} boolean for each element. Null element represents false. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+new column with the selected elements 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_ga5f5e9508f27672af7450bbfc7a4acdb4}\label{group__column__copy_ga5f5e9508f27672af7450bbfc7a4acdb4} 
+\index{Column\_copy@{Column\_copy}!copy\_if\_else@{copy\_if\_else}}
+\index{copy\_if\_else@{copy\_if\_else}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{copy\_if\_else()}{copy\_if\_else()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::copy\+\_\+if\+\_\+else (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&}]{lhs,  }\item[{\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&}]{rhs,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{boolean\+\_\+mask,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a new column, where each element is selected from either {\ttfamily lhs} or {\ttfamily rhs} based on the value of the corresponding element in {\ttfamily boolean\+\_\+mask} 
+
+Selects each element i in the output column from either {\ttfamily rhs} or {\ttfamily lhs} using the following rule\+: {\ttfamily output\mbox{[}i\mbox{]} = (boolean\+\_\+mask.\+valid(i) and boolean\+\_\+mask\mbox{[}i\mbox{]}) ? lhs \+: rhs}
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if boolean mask is not of type bool \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em lhs} & left-\/hand scalar \\
+\hline
+\mbox{\texttt{ in}}  & {\em rhs} & right-\/hand scalar \\
+\hline
+\mbox{\texttt{ in}}  & {\em boolean\+\_\+mask} & column of {\ttfamily \doxylink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a05afd9eb8887a406d47474cd3809a5dd}{type\+\_\+id\+::\+BOOL8}} representing \"{}left (true) / right (false)\"{} boolean for each element. null element represents false. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+new column with the selected elements 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_ga9358e7f2ed4d47e3ee03f24ef711e402}\label{group__column__copy_ga9358e7f2ed4d47e3ee03f24ef711e402} 
+\index{Column\_copy@{Column\_copy}!copy\_range@{copy\_range}}
+\index{copy\_range@{copy\_range}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{copy\_range()}{copy\_range()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::copy\+\_\+range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{source,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{target,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{source\+\_\+begin,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{source\+\_\+end,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{target\+\_\+begin,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Copies a range of elements out-\/of-\/place from one column to another. 
+
+Creates a new column as if an in-\/place copy was performed into {\ttfamily target}. A copy of {\ttfamily target} is created first and then the elements indicated by the indices \mbox{[}{\ttfamily target\+\_\+begin}, {\ttfamily target\+\_\+begin} + N) were copied from the elements indicated by the indices \mbox{[}{\ttfamily source\+\_\+begin}, {\ttfamily source\+\_\+end}) of {\ttfamily source} (where N = ({\ttfamily source\+\_\+end} -\/ {\ttfamily source\+\_\+begin})). Elements outside the range are copied from {\ttfamily target} into the returned new column target.
+
+If {\ttfamily source} and {\ttfamily target} refer to the same elements and the ranges overlap, the behavior is undefined.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & for invalid range (if {\ttfamily source\+\_\+begin} \texorpdfstring{$>$}{>} {\ttfamily source\+\_\+end}, {\ttfamily source\+\_\+begin} \texorpdfstring{$<$}{<} 0, {\ttfamily source\+\_\+begin} \texorpdfstring{$>$}{>}= {\ttfamily source.\+size()}, {\ttfamily source\+\_\+end} \texorpdfstring{$>$}{>} {\ttfamily source.\+size()}, {\ttfamily target\+\_\+begin} \texorpdfstring{$<$}{<} 0, target\+\_\+begin \texorpdfstring{$>$}{>}= {\ttfamily target.\+size()}, or {\ttfamily target\+\_\+begin} + ({\ttfamily source\+\_\+end} -\/ {\ttfamily source\+\_\+begin}) \texorpdfstring{$>$}{>} {\ttfamily target.\+size()}). \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily target} and {\ttfamily source} have different types.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em source} & The column to copy from inside the range \\
+\hline
+{\em target} & The column to copy from outside the range \\
+\hline
+{\em source\+\_\+begin} & The starting index of the source range (inclusive) \\
+\hline
+{\em source\+\_\+end} & The index of the last element in the source range (exclusive) \\
+\hline
+{\em target\+\_\+begin} & The starting index of the target range (inclusive) \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+std\+::unique\+\_\+ptr$<$column$>$ The result target column 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_gaf7453a32aa49fd9a55287a776f2b4b2f}\label{group__column__copy_gaf7453a32aa49fd9a55287a776f2b4b2f} 
+\index{Column\_copy@{Column\_copy}!copy\_range\_in\_place@{copy\_range\_in\_place}}
+\index{copy\_range\_in\_place@{copy\_range\_in\_place}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{copy\_range\_in\_place()}{copy\_range\_in\_place()}}
+{\footnotesize\ttfamily void cudf\+::copy\+\_\+range\+\_\+in\+\_\+place (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{source,  }\item[{\mbox{\hyperlink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view}} \&}]{target,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{source\+\_\+begin,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{source\+\_\+end,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{target\+\_\+begin }\end{DoxyParamCaption})}
+
+
+
+Copies a range of elements in-\/place from one column to another. 
+
+Overwrites the range of elements in {\ttfamily target} indicated by the indices \mbox{[}{\ttfamily target\+\_\+begin}, {\ttfamily target\+\_\+begin} + N) with the elements from {\ttfamily source} indicated by the indices \mbox{[}{\ttfamily source\+\_\+begin}, {\ttfamily source\+\_\+end}) (where N = ({\ttfamily source\+\_\+end} -\/ {\ttfamily source\+\_\+begin})). Use the out-\/of-\/place copy function returning std\+::unique\+\_\+ptr$<$column$>$ for uses cases requiring memory reallocation. For example for strings columns and other variable-\/width types.
+
+If {\ttfamily source} and {\ttfamily target} refer to the same elements and the ranges overlap, the behavior is undefined.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if memory reallocation is required (e.\+g. for variable width types). \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & for invalid range (if {\ttfamily source\+\_\+begin} \texorpdfstring{$>$}{>} {\ttfamily source\+\_\+end}, {\ttfamily source\+\_\+begin} \texorpdfstring{$<$}{<} 0, {\ttfamily source\+\_\+begin} \texorpdfstring{$>$}{>}= {\ttfamily source.\+size()}, {\ttfamily source\+\_\+end} \texorpdfstring{$>$}{>} {\ttfamily source.\+size()}, {\ttfamily target\+\_\+begin} \texorpdfstring{$<$}{<} 0, target\+\_\+begin \texorpdfstring{$>$}{>}= {\ttfamily target.\+size()}, or {\ttfamily target\+\_\+begin} + ({\ttfamily source\+\_\+end} -\/ {\ttfamily source\+\_\+begin}) \texorpdfstring{$>$}{>} {\ttfamily target.\+size()}). \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily target} and {\ttfamily source} have different types. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily source} has null values and {\ttfamily target} is not nullable.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em source} & The column to copy from \\
+\hline
+{\em target} & The preallocated column to copy into \\
+\hline
+{\em source\+\_\+begin} & The starting index of the source range (inclusive) \\
+\hline
+{\em source\+\_\+end} & The index of the last element in the source range (exclusive) \\
+\hline
+{\em target\+\_\+begin} & The starting index of the target range (inclusive) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{group__column__copy_ga62eff2fcac7ff377df316c7ef37ee4fd}\label{group__column__copy_ga62eff2fcac7ff377df316c7ef37ee4fd} 
+\index{Column\_copy@{Column\_copy}!empty\_like@{empty\_like}}
+\index{empty\_like@{empty\_like}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{empty\_like()}{empty\_like()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::empty\+\_\+like (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input }\end{DoxyParamCaption})}
+
+
+
+Initializes and returns an empty column of the same type as the {\ttfamily input}. 
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & Immutable view of input column to emulate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+std\+::unique\+\_\+ptr$<$column$>$ An empty column of same type as {\ttfamily input} 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_gadf190ab1fe40049bc95bf7aebad93450}\label{group__column__copy_gadf190ab1fe40049bc95bf7aebad93450} 
+\index{Column\_copy@{Column\_copy}!empty\_like@{empty\_like}}
+\index{empty\_like@{empty\_like}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{empty\_like()}{empty\_like()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::empty\+\_\+like (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&}]{input }\end{DoxyParamCaption})}
+
+
+
+Initializes and returns an empty column of the same type as the {\ttfamily input}. 
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & Scalar to emulate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+std\+::unique\+\_\+ptr$<$column$>$ An empty column of same type as {\ttfamily input} 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_gaf51eaa0bed9085f857e8edbcb4141d76}\label{group__column__copy_gaf51eaa0bed9085f857e8edbcb4141d76} 
+\index{Column\_copy@{Column\_copy}!empty\_like@{empty\_like}}
+\index{empty\_like@{empty\_like}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{empty\_like()}{empty\_like()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::empty\+\_\+like (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input\+\_\+table }\end{DoxyParamCaption})}
+
+
+
+Creates a table of empty columns with the same types as the {\ttfamily input\+\_\+table} 
+
+Creates the {\ttfamily \doxylink{classcudf_1_1column}{cudf\+::column}} objects, but does not allocate any underlying device memory for the column\textquotesingle{}s data or bitmask.
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input\+\_\+table} & Immutable view of input table to emulate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+std\+::unique\+\_\+ptr$<$table$>$ A table of empty columns with the same types as the columns in {\ttfamily input\+\_\+table} 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_ga19ea162e7794e6cbbc2faba70fbd91aa}\label{group__column__copy_ga19ea162e7794e6cbbc2faba70fbd91aa} 
+\index{Column\_copy@{Column\_copy}!gather@{gather}}
+\index{gather@{gather}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{gather()}{gather()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::gather (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{source\+\_\+table,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{gather\+\_\+map,  }\item[{\mbox{\hyperlink{group__column__copy_gae3ba74951558bc7966aae86abc6af5df}{out\+\_\+of\+\_\+bounds\+\_\+policy}}}]{bounds\+\_\+policy = {\ttfamily \mbox{\hyperlink{group__column__copy_ggae3ba74951558bc7966aae86abc6af5dfa12c1109487cf9a6a336b1dfe462bfd2d}{out\+\_\+of\+\_\+bounds\+\_\+policy\+::\+DONT\+\_\+\+CHECK}}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Gathers the specified rows (including null values) of a set of columns. 
+
+Gathers the rows of the source columns according to {\ttfamily gather\+\_\+map} such that row \"{}i\"{} in the resulting table\textquotesingle{}s columns will contain row \"{}gather\+\_\+map\mbox{[}i\mbox{]}\"{} from the source columns. The number of rows in the result table will be equal to the number of elements in {\ttfamily gather\+\_\+map}.
+
+A negative value {\ttfamily i} in the {\ttfamily gather\+\_\+map} is interpreted as {\ttfamily i+n}, where {\ttfamily n} is the number of rows in the {\ttfamily source\+\_\+table}.
+
+For dictionary columns, the keys column component is copied and not trimmed if the gather results in abandoned key elements.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if gather\+\_\+map contains null values.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em source\+\_\+table} & The input columns whose rows will be gathered \\
+\hline
+\mbox{\texttt{ in}}  & {\em gather\+\_\+map} & View into a non-\/nullable column of integral indices that maps the rows in the source columns to rows in the destination columns. \\
+\hline
+\mbox{\texttt{ in}}  & {\em bounds\+\_\+policy} & Policy to apply to account for possible out-\/of-\/bounds indices {\ttfamily DONT\+\_\+\+CHECK} skips all bounds checking for gather map values. {\ttfamily NULLIFY} coerces rows that corresponds to out-\/of-\/bounds indices in the gather map to be null elements. Callers should use {\ttfamily DONT\+\_\+\+CHECK} when they are certain that the gather\+\_\+map contains only valid indices for better performance. If {\ttfamily policy} is set to {\ttfamily DONT\+\_\+\+CHECK} and there are out-\/of-\/bounds indices in the gather map, the behavior is undefined. Defaults to {\ttfamily DONT\+\_\+\+CHECK}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+std\+::unique\+\_\+ptr$<$table$>$ Result of the gather 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_ga3c310958af4e031737d80ba8015452b6}\label{group__column__copy_ga3c310958af4e031737d80ba8015452b6} 
+\index{Column\_copy@{Column\_copy}!get\_element@{get\_element}}
+\index{get\_element@{get\_element}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{get\_element()}{get\_element()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ cudf\+::get\+\_\+element (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{index,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Get the element at specified index from a column 
+
+\begin{DoxyWarning}{警告}
+This function is expensive (invokes a kernel launch). So, it is not recommended to be used in performance sensitive code or inside a loop.
+\end{DoxyWarning}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily index} is not within the range {\ttfamily \mbox{[}0, input.\+size())}\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & Column view to get the element from \\
+\hline
+{\em index} & Index into {\ttfamily input} to get the element at \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned scalar\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+std\+::unique\+\_\+ptr$<$scalar$>$ Scalar containing the single value 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_ga0c61528cb588874f9c07c6f766f232db}\label{group__column__copy_ga0c61528cb588874f9c07c6f766f232db} 
+\index{Column\_copy@{Column\_copy}!has\_nonempty\_nulls@{has\_nonempty\_nulls}}
+\index{has\_nonempty\_nulls@{has\_nonempty\_nulls}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{has\_nonempty\_nulls()}{has\_nonempty\_nulls()}}
+{\footnotesize\ttfamily bool cudf\+::has\+\_\+nonempty\+\_\+nulls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input }\end{DoxyParamCaption})}
+
+
+
+Checks if a column or its descendants have non-\/empty null rows 
+
+\begin{DoxyNote}{注解}
+This function is exact. If it returns {\ttfamily true}, there exists one or more non-\/empty null elements.
+\end{DoxyNote}
+A LIST or STRING column might have non-\/empty rows that are marked as null. A STRUCT OR LIST column might have child columns that have non-\/empty null rows. Other types of columns are deemed incapable of having non-\/empty null rows. E.\+g. Fixed width columns have no concept of an \"{}empty\"{} row.
+
+
+\begin{DoxyParams}{参数}
+{\em input} & The column which is (and whose descendants are) to be checked for non-\/empty null rows. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true If either the column or its descendants have non-\/empty null rows 
+
+false If neither the column or its descendants have non-\/empty null rows 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_ga9a9c46582ed07509d4bfe24e50d59bf2}\label{group__column__copy_ga9a9c46582ed07509d4bfe24e50d59bf2} 
+\index{Column\_copy@{Column\_copy}!may\_have\_nonempty\_nulls@{may\_have\_nonempty\_nulls}}
+\index{may\_have\_nonempty\_nulls@{may\_have\_nonempty\_nulls}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{may\_have\_nonempty\_nulls()}{may\_have\_nonempty\_nulls()}}
+{\footnotesize\ttfamily bool cudf\+::may\+\_\+have\+\_\+nonempty\+\_\+nulls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input }\end{DoxyParamCaption})}
+
+
+
+Approximates if a column or its descendants {\itshape may} have non-\/empty null elements 
+
+\begin{DoxyNote}{注解}
+This function is approximate.
+\begin{DoxyItemize}
+\item {\ttfamily true}\+: Non-\/empty null elements could exist
+\item {\ttfamily false}\+: Non-\/empty null elements definitely do not exist
+\end{DoxyItemize}
+\end{DoxyNote}
+False positives are possible, but false negatives are not.
+
+Compared to the exact {\ttfamily \doxylink{group__column__copy_ga0c61528cb588874f9c07c6f766f232db}{has\+\_\+nonempty\+\_\+nulls()}} function, this function is typically more efficient.
+
+Complexity\+:
+\begin{DoxyItemize}
+\item Best case\+: {\ttfamily O(count\+\_\+descendants(input))}
+\item Worst case\+: {\ttfamily O(count\+\_\+descendants(input)) \texorpdfstring{$\ast$}{*} m}, where {\ttfamily m} is the number of rows in the largest descendant
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{参数}
+{\em input} & The column which is (and whose descendants are) to be checked for non-\/empty null rows \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true If either the column or its descendants have null rows 
+
+false If neither the column nor its descendants have null rows 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_gaeb39dd8301fb76bfec9e777820bda3f2}\label{group__column__copy_gaeb39dd8301fb76bfec9e777820bda3f2} 
+\index{Column\_copy@{Column\_copy}!pack@{pack}}
+\index{pack@{pack}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{pack()}{pack()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1packed__columns}{packed\+\_\+columns}} cudf\+::pack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{cudf\+::table\+\_\+view}} const \&}]{input,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Deep-\/copy a {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} into a serialized contiguous memory format 
+
+The metadata from the {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} is copied into a host vector of bytes and the data from the {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} is copied into a {\ttfamily device\+\_\+buffer}. Pass the output of this function into {\ttfamily \doxylink{group__column__copy_ga1d62a18c2e6f087a92289c63693762cc}{cudf\+::unpack}} to deserialize.
+
+
+\begin{DoxyParams}[1]{参数}
+ & {\em input} & View of the table to pack \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Optional, The resource to use for all returned device allocations \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+\doxylink{structcudf_1_1packed__columns}{packed\+\_\+columns} A struct containing the serialized metadata and data in contiguous host and device memory respectively 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_gab28fc2d2294f2840df37814e7a4aa582}\label{group__column__copy_gab28fc2d2294f2840df37814e7a4aa582} 
+\index{Column\_copy@{Column\_copy}!pack\_metadata@{pack\_metadata}}
+\index{pack\_metadata@{pack\_metadata}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{pack\_metadata()}{pack\_metadata()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structcudf_1_1packed__columns_1_1metadata}{packed\+\_\+columns\+::metadata}} cudf\+::pack\+\_\+metadata (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{table,  }\item[{uint8\+\_\+t const \texorpdfstring{$\ast$}{*}}]{contiguous\+\_\+buffer,  }\item[{size\+\_\+t}]{buffer\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Produce the metadata used for packing a table stored in a contiguous buffer. 
+
+The metadata from the {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} is copied into a host vector of bytes which can be used to construct a {\ttfamily \doxylink{structcudf_1_1packed__columns}{packed\+\_\+columns}} or {\ttfamily \doxylink{structcudf_1_1packed__table}{packed\+\_\+table}} structure. The caller is responsible for guaranteeing that that all of the columns in the table point into {\ttfamily contiguous\+\_\+buffer}.
+
+
+\begin{DoxyParams}{参数}
+{\em table} & View of the table to pack \\
+\hline
+{\em contiguous\+\_\+buffer} & A contiguous buffer of device memory which contains the data referenced by the columns in {\ttfamily table} \\
+\hline
+{\em buffer\+\_\+size} & The size of {\ttfamily contiguous\+\_\+buffer} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Vector of bytes representing the metadata used to {\ttfamily unpack} a \doxylink{structcudf_1_1packed__columns}{packed\+\_\+columns} struct 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_ga387d2221ad89e737e89270bf8c56dfa5}\label{group__column__copy_ga387d2221ad89e737e89270bf8c56dfa5} 
+\index{Column\_copy@{Column\_copy}!purge\_nonempty\_nulls@{purge\_nonempty\_nulls}}
+\index{purge\_nonempty\_nulls@{purge\_nonempty\_nulls}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{purge\_nonempty\_nulls()}{purge\_nonempty\_nulls()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::purge\+\_\+nonempty\+\_\+nulls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Copy {\ttfamily input} into output while purging any non-\/empty null rows in the column or its descendants. 
+
+If the input column is not of compound type (LIST/\+STRING/\+STRUCT/\+DICTIONARY), the output will be the same as input.
+
+The purge operation only applies directly to LIST and STRING columns, but it applies indirectly to STRUCT/\+DICTIONARY columns as well, since these columns may have child columns that are LIST or STRING.
+
+Examples\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{auto\ const\ lists\ \ \ =\ lists\_column\_wrapper<int32\_t>\{\ \{0,1\},\ \{2,3\},\ \{4,5\}\ \}.release();}
+\DoxyCodeLine{cudf::detail::set\_null\_mask(lists-\/>null\_mask(),\ 1,\ 2,\ false);}
+\DoxyCodeLine{}
+\DoxyCodeLine{lists[1]\ is\ now\ null,\ but\ the\ lists\ child\ column\ still\ stores\ \`{}\{2,3\}`.}
+\DoxyCodeLine{The\ lists\ column\ contents\ will\ be:}
+\DoxyCodeLine{\ \ Validity:\ 101}
+\DoxyCodeLine{\ \ Offsets:\ \ [0,\ 2,\ 4,\ 6]}
+\DoxyCodeLine{\ \ Child:\ \ \ \ [0,\ 1,\ 2,\ 3,\ 4,\ 5]}
+\DoxyCodeLine{}
+\DoxyCodeLine{After\ purging\ the\ contents\ of\ the\ list's\ null\ rows,\ the\ column's\ contents\ will\ be:}
+\DoxyCodeLine{\ \ Validity:\ 101}
+\DoxyCodeLine{\ \ Offsets:\ \ [0,\ 2,\ 2,\ 4]}
+\DoxyCodeLine{\ \ Child:\ \ \ \ [0,\ 1,\ 4,\ 5]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{auto\ const\ strings\ =\ strings\_column\_wrapper\{\ "{}AB"{},\ "{}CD"{},\ "{}EF"{}\ \}.release();}
+\DoxyCodeLine{cudf::detail::set\_null\_mask(strings-\/>null\_mask(),\ 1,\ 2,\ false);}
+\DoxyCodeLine{}
+\DoxyCodeLine{strings[1]\ is\ now\ null,\ but\ the\ strings\ column\ still\ stores\ \`{}"{}CD"{}`.}
+\DoxyCodeLine{The\ lists\ column\ contents\ will\ be:}
+\DoxyCodeLine{\ \ Validity:\ 101}
+\DoxyCodeLine{\ \ Offsets:\ \ [0,\ 2,\ 4,\ 6]}
+\DoxyCodeLine{\ \ Child:\ \ \ \ [A,\ B,\ C,\ D,\ E,\ F]}
+\DoxyCodeLine{}
+\DoxyCodeLine{After\ purging\ the\ contents\ of\ the\ list's\ null\ rows,\ the\ column's\ contents}
+\DoxyCodeLine{will\ be:}
+\DoxyCodeLine{\ \ Validity:\ 101}
+\DoxyCodeLine{\ \ Offsets:\ \ [0,\ 2,\ 2,\ 4]}
+\DoxyCodeLine{\ \ Child:\ \ \ \ [A,\ B,\ E,\ F]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{auto\ const\ lists\ \ \ =\ lists\_column\_wrapper<int32\_t>\{\ \{0,1\},\ \{2,3\},\ \{4,5\}\ \};}
+\DoxyCodeLine{auto\ const\ structs\ =\ structs\_column\_wrapper\{\ \{lists\},\ null\_at(1)\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{structs[1].child\ is\ now\ null,\ but\ the\ lists\ column\ still\ stores\ \`{}\{2,3\}`.}
+\DoxyCodeLine{The\ lists\ column\ contents\ will\ be:}
+\DoxyCodeLine{\ \ Validity:\ 101}
+\DoxyCodeLine{\ \ Offsets:\ \ [0,\ 2,\ 4,\ 6]}
+\DoxyCodeLine{\ \ Child:\ \ \ \ [0,\ 1,\ 2,\ 3,\ 4,\ 5]}
+\DoxyCodeLine{}
+\DoxyCodeLine{After\ purging\ the\ contents\ of\ the\ list's\ null\ rows,\ the\ column's\ contents}
+\DoxyCodeLine{will\ be:}
+\DoxyCodeLine{\ \ Validity:\ 101}
+\DoxyCodeLine{\ \ Offsets:\ \ [0,\ 2,\ 2,\ 4]}
+\DoxyCodeLine{\ \ Child:\ \ \ \ [0,\ 1,\ 4,\ 5]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em input} & The column whose null rows are to be checked and purged \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A new column with equivalent contents to {\ttfamily input}, but with null rows purged 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_ga6f6bd5517ff6f32a20b20d66a22616a7}\label{group__column__copy_ga6f6bd5517ff6f32a20b20d66a22616a7} 
+\index{Column\_copy@{Column\_copy}!reverse@{reverse}}
+\index{reverse@{reverse}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{reverse()}{reverse()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::reverse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{source\+\_\+column,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Reverses the elements of a column 
+
+Creates a new column that is the reverse of {\ttfamily source\+\_\+column}. Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source\ =\ [4,5,6]}
+\DoxyCodeLine{\textcolor{keywordflow}{return}\ =\ [6,5,4]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em source\+\_\+column} & Column that will be reversed \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Reversed column 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_gafbbf4a02a5108cbcd9368ce31efc7f2a}\label{group__column__copy_gafbbf4a02a5108cbcd9368ce31efc7f2a} 
+\index{Column\_copy@{Column\_copy}!reverse@{reverse}}
+\index{reverse@{reverse}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{reverse()}{reverse()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::reverse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{source\+\_\+table,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Reverses the rows within a table. 
+
+Creates a new table that is the reverse of {\ttfamily source\+\_\+table}. Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source\ =\ [[4,5,6],\ [7,8,9],\ [10,11,12]]}
+\DoxyCodeLine{\textcolor{keywordflow}{return}\ =\ [[6,5,4],\ [9,8,7],\ [12,11,10]]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em source\+\_\+table} & Table that will be reversed \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Reversed table 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_ga29e76351f1ae5bd91dc922ad24243b1f}\label{group__column__copy_ga29e76351f1ae5bd91dc922ad24243b1f} 
+\index{Column\_copy@{Column\_copy}!sample@{sample}}
+\index{sample@{sample}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{sample()}{sample()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::sample (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const}]{n,  }\item[{\mbox{\hyperlink{group__column__copy_gae7607cde56cb602ab1b198b5bebf7cba}{sample\+\_\+with\+\_\+replacement}}}]{replacement = {\ttfamily \mbox{\hyperlink{group__column__copy_ggae7607cde56cb602ab1b198b5bebf7cbaa946003f97ccc52d5d3b54ac0ec31bbfc}{sample\+\_\+with\+\_\+replacement\+::\+FALSE}}},  }\item[{int64\+\_\+t const}]{seed = {\ttfamily 0},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Gather {\ttfamily n} samples from given {\ttfamily input} randomly 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{input:\ \{col1:\ \{1,\ 2,\ 3,\ 4,\ 5\},\ col2:\ \{6,\ 7,\ 8,\ 9,\ 10\}\}}
+\DoxyCodeLine{n:\ 3}
+\DoxyCodeLine{replacement:\ false}
+\DoxyCodeLine{}
+\DoxyCodeLine{output:\ \ \ \ \ \ \ \{col1:\ \{3,\ 1,\ 4\},\ col2:\ \{8,\ 6,\ 9\}\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{replacement:\ true}
+\DoxyCodeLine{}
+\DoxyCodeLine{output:\ \ \ \ \ \ \ \{col1:\ \{3,\ 1,\ 1\},\ col2:\ \{8,\ 6,\ 6\}\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily n} \texorpdfstring{$>$}{>} {\ttfamily input.\+num\+\_\+rows()} and {\ttfamily replacement} == FALSE. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily n} \texorpdfstring{$<$}{<} 0.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & View of a table to sample \\
+\hline
+{\em n} & non-\/negative number of samples expected from {\ttfamily input} \\
+\hline
+{\em replacement} & Allow or disallow sampling of the same row more than once \\
+\hline
+{\em seed} & Seed value to initiate random number generator \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+std\+::unique\+\_\+ptr$<$table$>$ Table containing samples from {\ttfamily input} 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_ga474f55905324aea8ed00ff8e3e3fecea}\label{group__column__copy_ga474f55905324aea8ed00ff8e3e3fecea} 
+\index{Column\_copy@{Column\_copy}!scatter@{scatter}}
+\index{scatter@{scatter}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{scatter()}{scatter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::scatter (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::reference\+\_\+wrapper$<$ const \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ $>$ const \&}]{source,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{indices,  }\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{target,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Scatters a row of scalar values into a copy of the target table according to a scatter map. 
+
+Scatters values from the source row into the target table out-\/of-\/place, returning a \"{}destination table\"{}. The scatter is performed according to a scatter map such that row {\ttfamily scatter\+\_\+map\mbox{[}i\mbox{]}} of the destination table is replaced by the source row. All other rows of the destination table equal corresponding rows of the target table.
+
+The number of elements in source must match the number of columns in target and their corresponding datatypes must be the same.
+
+If the same index appears more than once in the scatter map, the result is undefined.
+
+If any values in {\ttfamily scatter\+\_\+map} are outside of the interval \mbox{[}-\/n, n) where {\ttfamily n} is the number of rows in the {\ttfamily target} table, behavior is undefined.
+
+
+\begin{DoxyParams}{参数}
+{\em source} & The input scalars containing values to be scattered into the target columns \\
+\hline
+{\em indices} & A non-\/nullable column of integral indices that indicate the rows in the target table to be replaced by source. \\
+\hline
+{\em target} & The set of columns into which values from the source\+\_\+table are to be scattered \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Result of scattering values from source to target 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_gabd90ba38ea2655ce3b435d2a4f199358}\label{group__column__copy_gabd90ba38ea2655ce3b435d2a4f199358} 
+\index{Column\_copy@{Column\_copy}!scatter@{scatter}}
+\index{scatter@{scatter}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{scatter()}{scatter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ cudf\+::scatter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{source,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{scatter\+\_\+map,  }\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{target,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Scatters the rows of the source table into a copy of the target table according to a scatter map. 
+
+Scatters values from the source table into the target table out-\/of-\/place, returning a \"{}destination table\"{}. The scatter is performed according to a scatter map such that row {\ttfamily scatter\+\_\+map\mbox{[}i\mbox{]}} of the destination table gets row {\ttfamily i} of the source table. All other rows of the destination table equal corresponding rows of the target table.
+
+The number of columns in source must match the number of columns in target and their corresponding datatypes must be the same.
+
+If the same index appears more than once in the scatter map, the result is undefined.
+
+If any values in {\ttfamily scatter\+\_\+map} are outside of the interval \mbox{[}-\/n, n) where {\ttfamily n} is the number of rows in the {\ttfamily target} table, behavior is undefined.
+
+A negative value {\ttfamily i} in the {\ttfamily scatter\+\_\+map} is interpreted as {\ttfamily i+n}, where {\ttfamily n} is the number of rows in the {\ttfamily target} table.
+
+
+\begin{DoxyParams}{参数}
+{\em source} & The input columns containing values to be scattered into the target columns \\
+\hline
+{\em scatter\+\_\+map} & A non-\/nullable column of integral indices that maps the rows in the source table to rows in the target table. The size must be equal to or less than the number of elements in the source columns. \\
+\hline
+{\em target} & The set of columns into which values from the source\+\_\+table are to be scattered \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Result of scattering values from source to target 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_ga80b6ccd43dbb2359d520a3f3ea100e8e}\label{group__column__copy_ga80b6ccd43dbb2359d520a3f3ea100e8e} 
+\index{Column\_copy@{Column\_copy}!shift@{shift}}
+\index{shift@{shift}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{shift()}{shift()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::shift (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{offset,  }\item[{\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&}]{fill\+\_\+value,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Creates a new column by shifting all values by an offset. 
+
+Elements will be determined by {\ttfamily output\mbox{[}idx\mbox{]} = input\mbox{[}idx -\/ offset\mbox{]}}. Some elements in the output may be indeterminable from the input. For those elements, the value will be determined by {\ttfamily fill\+\_\+values}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Examples}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{input\ \ \ \ \ \ \ =\ [0,\ 1,\ 2,\ 3,\ 4]}
+\DoxyCodeLine{offset\ \ \ \ \ \ =\ 3}
+\DoxyCodeLine{fill\_values\ =\ @}
+\DoxyCodeLine{return\ \ \ \ \ \ =\ [@,\ @,\ @,\ 0,\ 1]}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{input\ \ \ \ \ \ \ =\ [5,\ 4,\ 3,\ 2,\ 1]}
+\DoxyCodeLine{offset\ \ \ \ \ \ =\ -\/2}
+\DoxyCodeLine{fill\_values\ =\ 7}
+\DoxyCodeLine{return\ \ \ \ \ \ =\ [3,\ 2,\ 1,\ 7,\ 7]}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{注解}
+if the input is nullable, the output will be nullable. 
+
+if the fill value is null, the output will be nullable.
+\end{DoxyNote}
+
+\begin{DoxyParams}{参数}
+{\em input} & Column to be shifted \\
+\hline
+{\em offset} & The offset by which to shift the input \\
+\hline
+{\em fill\+\_\+value} & Fill value for indeterminable outputs \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned result\textquotesingle{}s device memory\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily input} dtype is neither fixed-\/width nor string type \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily fill\+\_\+value} dtype does not match {\ttfamily input} dtype.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{返回}
+The shifted column 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_ga52223b0ef6807f9a2454f7395b5425d4}\label{group__column__copy_ga52223b0ef6807f9a2454f7395b5425d4} 
+\index{Column\_copy@{Column\_copy}!slice@{slice}}
+\index{slice@{slice}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{slice()}{slice()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} $>$ cudf\+::slice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$}]{indices }\end{DoxyParamCaption})}
+
+
+
+Slices a {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}} into a set of {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}}s according to a set of indices. 
+
+The returned views of {\ttfamily input} are constructed from an even number indices where the {\ttfamily i}th returned {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}} views the elements in {\ttfamily input} indicated by the range {\ttfamily \mbox{[}indices\mbox{[}2\texorpdfstring{$\ast$}{*}i\mbox{]}, indices\mbox{[}(2\texorpdfstring{$\ast$}{*}i)+1\mbox{]})}.
+
+For all {\ttfamily i} it is expected {\ttfamily indices\mbox{[}i\mbox{]} \texorpdfstring{$<$}{<}= input.\+size()} For all {\ttfamily i\%2==0}, it is expected that {\ttfamily indices\mbox{[}i\mbox{]} \texorpdfstring{$<$}{<}= indices\mbox{[}i+1\mbox{]}}
+
+\begin{DoxyNote}{注解}
+It is the caller\textquotesingle{}s responsibility to ensure that the returned views do not outlive the viewed device memory.
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{input:\ \ \ \{10,\ 12,\ 14,\ 16,\ 18,\ 20,\ 22,\ 24,\ 26,\ 28\}}
+\DoxyCodeLine{indices:\ \{1,\ 3,\ 5,\ 9,\ 2,\ 4,\ 8,\ 8\}}
+\DoxyCodeLine{output:\ \ \{\{12,\ 14\},\ \{20,\ 22,\ 24,\ 26\},\ \{14,\ 16\},\ \{\}\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily indices} size is not even. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & When the values in the pair are strictly decreasing. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & When any of the values in the pair don\textquotesingle{}t belong to the range \mbox{[}0, input.\+size()).\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & View of column to slice \\
+\hline
+{\em indices} & Indices used to take slices of {\ttfamily input} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Vector of views of {\ttfamily input} indicated by the ranges in {\ttfamily indices} 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_ga77b1d2c6579fa0ad8da690c8cd4c3192}\label{group__column__copy_ga77b1d2c6579fa0ad8da690c8cd4c3192} 
+\index{Column\_copy@{Column\_copy}!slice@{slice}}
+\index{slice@{slice}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{slice()}{slice()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} $>$ cudf\+::slice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$}]{indices }\end{DoxyParamCaption})}
+
+Slices a {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}} into a set of {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}}s according to a set of indices.  
+
+The returned views of {\ttfamily input} are constructed from an even number indices where the {\ttfamily i}th returned {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}} views the elements in {\ttfamily input} indicated by the range {\ttfamily \mbox{[}indices\mbox{[}2\texorpdfstring{$\ast$}{*}i\mbox{]}, indices\mbox{[}(2\texorpdfstring{$\ast$}{*}i)+1\mbox{]})}.
+
+For all {\ttfamily i} it is expected {\ttfamily indices\mbox{[}i\mbox{]} \texorpdfstring{$<$}{<}= input.\+size()} For all {\ttfamily i\%2==0}, it is expected that {\ttfamily indices\mbox{[}i\mbox{]} \texorpdfstring{$<$}{<}= indices\mbox{[}i+1\mbox{]}}
+
+\begin{DoxyNote}{注解}
+It is the caller\textquotesingle{}s responsibility to ensure that the returned views do not outlive the viewed device memory.
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{input:\ \ \ \{10,\ 12,\ 14,\ 16,\ 18,\ 20,\ 22,\ 24,\ 26,\ 28\}}
+\DoxyCodeLine{indices:\ \{1,\ 3,\ 5,\ 9,\ 2,\ 4,\ 8,\ 8\}}
+\DoxyCodeLine{output:\ \ \{\{12,\ 14\},\ \{20,\ 22,\ 24,\ 26\},\ \{14,\ 16\},\ \{\}\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily indices} size is not even. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & When the values in the pair are strictly decreasing. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & When any of the values in the pair don\textquotesingle{}t belong to the range \mbox{[}0, input.\+size()).\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & View of column to slice \\
+\hline
+{\em indices} & Indices used to take slices of {\ttfamily input} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Vector of views of {\ttfamily input} indicated by the ranges in {\ttfamily indices}   
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_ga61a6785244331834b458545e084b7017}\label{group__column__copy_ga61a6785244331834b458545e084b7017} 
+\index{Column\_copy@{Column\_copy}!slice@{slice}}
+\index{slice@{slice}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{slice()}{slice()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} $>$ cudf\+::slice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$}]{indices }\end{DoxyParamCaption})}
+
+
+
+Slices a {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} into a set of {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}}s according to a set of indices. 
+
+The returned views of {\ttfamily input} are constructed from an even number indices where the {\ttfamily i}th returned {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} views the elements in {\ttfamily input} indicated by the range {\ttfamily \mbox{[}indices\mbox{[}2\texorpdfstring{$\ast$}{*}i\mbox{]}, indices\mbox{[}(2\texorpdfstring{$\ast$}{*}i)+1\mbox{]})}.
+
+For all {\ttfamily i} it is expected {\ttfamily indices\mbox{[}i\mbox{]} \texorpdfstring{$<$}{<}= input.\+size()} For all {\ttfamily i\%2==0}, it is expected that {\ttfamily indices\mbox{[}i\mbox{]} \texorpdfstring{$<$}{<}= indices\mbox{[}i+1\mbox{]}}
+
+\begin{DoxyNote}{注解}
+It is the caller\textquotesingle{}s responsibility to ensure that the returned views do not outlive the viewed device memory.
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{input:\ \ \ [\{10,\ 12,\ 14,\ 16,\ 18,\ 20,\ 22,\ 24,\ 26,\ 28\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{50,\ 52,\ 54,\ 56,\ 58,\ 60,\ 62,\ 64,\ 66,\ 68\}]}
+\DoxyCodeLine{indices:\ \{1,\ 3,\ 5,\ 9,\ 2,\ 4,\ 8,\ 8\}}
+\DoxyCodeLine{output:\ \ [\{\{12,\ 14\},\ \{20,\ 22,\ 24,\ 26\},\ \{14,\ 16\},\ \{\}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{\{52,\ 54\},\ \{60,\ 22,\ 24,\ 26\},\ \{14,\ 16\},\ \{\}\}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily indices} size is not even. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & When the values in the pair are strictly decreasing. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & When any of the values in the pair don\textquotesingle{}t belong to the range \mbox{[}0, input.\+size()).\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & View of table to slice \\
+\hline
+{\em indices} & Indices used to take slices of {\ttfamily input} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Vector of views of {\ttfamily input} indicated by the ranges in {\ttfamily indices} 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_gaadc72fabae41e8187065211ebe7d6cce}\label{group__column__copy_gaadc72fabae41e8187065211ebe7d6cce} 
+\index{Column\_copy@{Column\_copy}!slice@{slice}}
+\index{slice@{slice}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{slice()}{slice()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} $>$ cudf\+::slice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$}]{indices }\end{DoxyParamCaption})}
+
+Slices a {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} into a set of {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}}s according to a set of indices.  
+
+The returned views of {\ttfamily input} are constructed from an even number indices where the {\ttfamily i}th returned {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} views the elements in {\ttfamily input} indicated by the range {\ttfamily \mbox{[}indices\mbox{[}2\texorpdfstring{$\ast$}{*}i\mbox{]}, indices\mbox{[}(2\texorpdfstring{$\ast$}{*}i)+1\mbox{]})}.
+
+For all {\ttfamily i} it is expected {\ttfamily indices\mbox{[}i\mbox{]} \texorpdfstring{$<$}{<}= input.\+size()} For all {\ttfamily i\%2==0}, it is expected that {\ttfamily indices\mbox{[}i\mbox{]} \texorpdfstring{$<$}{<}= indices\mbox{[}i+1\mbox{]}}
+
+\begin{DoxyNote}{注解}
+It is the caller\textquotesingle{}s responsibility to ensure that the returned views do not outlive the viewed device memory.
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{input:\ \ \ [\{10,\ 12,\ 14,\ 16,\ 18,\ 20,\ 22,\ 24,\ 26,\ 28\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{50,\ 52,\ 54,\ 56,\ 58,\ 60,\ 62,\ 64,\ 66,\ 68\}]}
+\DoxyCodeLine{indices:\ \{1,\ 3,\ 5,\ 9,\ 2,\ 4,\ 8,\ 8\}}
+\DoxyCodeLine{output:\ \ [\{\{12,\ 14\},\ \{20,\ 22,\ 24,\ 26\},\ \{14,\ 16\},\ \{\}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{\{52,\ 54\},\ \{60,\ 22,\ 24,\ 26\},\ \{14,\ 16\},\ \{\}\}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily indices} size is not even. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & When the values in the pair are strictly decreasing. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & When any of the values in the pair don\textquotesingle{}t belong to the range \mbox{[}0, input.\+size()).\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & View of table to slice \\
+\hline
+{\em indices} & Indices used to take slices of {\ttfamily input} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Vector of views of {\ttfamily input} indicated by the ranges in {\ttfamily indices}   
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_ga95ac220988903ef24d698ff49c683bfc}\label{group__column__copy_ga95ac220988903ef24d698ff49c683bfc} 
+\index{Column\_copy@{Column\_copy}!split@{split}}
+\index{split@{split}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{split()}{split()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} $>$ cudf\+::split (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$}]{splits }\end{DoxyParamCaption})}
+
+
+
+Splits a {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}} into a set of {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}}s according to a set of indices derived from expected splits. 
+
+The returned view\textquotesingle{}s of {\ttfamily input} are constructed from vector of splits, which indicates where the split should occur. The {\ttfamily i}th returned {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}} is sliced as {\ttfamily \mbox{[}0, splits\mbox{[}i\mbox{]})} if {\ttfamily i}=0, else {\ttfamily \mbox{[}splits\mbox{[}i\mbox{]}, input.\+size())} if {\ttfamily i} is the last view and {\ttfamily \mbox{[}splits\mbox{[}i-\/1\mbox{]}, splits\mbox{[}i\mbox{]}\mbox{]}} otherwise.
+
+For all {\ttfamily i} it is expected {\ttfamily splits\mbox{[}i\mbox{]} \texorpdfstring{$<$}{<}= splits\mbox{[}i+1\mbox{]} \texorpdfstring{$<$}{<}= input.\+size()} For a {\ttfamily splits} size N, there will always be N+1 splits in the output
+
+\begin{DoxyNote}{注解}
+It is the caller\textquotesingle{}s responsibility to ensure that the returned views do not outlive the viewed device memory.
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{input:\ \ \ \{10,\ 12,\ 14,\ 16,\ 18,\ 20,\ 22,\ 24,\ 26,\ 28\}}
+\DoxyCodeLine{splits:\ \ \{2,\ 5,\ 9\}}
+\DoxyCodeLine{output:\ \ \{\{10,\ 12\},\ \{14,\ 16,\ 18\},\ \{20,\ 22,\ 24,\ 26\},\ \{28\}\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily splits} has end index \texorpdfstring{$>$}{>} size of {\ttfamily input}. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & When the value in {\ttfamily splits} is not in the range \mbox{[}0, input.\+size()). \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & When the values in the {\ttfamily splits} are \textquotesingle{}strictly decreasing\textquotesingle{}.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & View of column to split \\
+\hline
+{\em splits} & Indices where the view will be split \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The set of requested views of {\ttfamily input} indicated by the {\ttfamily splits} 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_ga5fb87b85cb2fedb682a6f4103414f97f}\label{group__column__copy_ga5fb87b85cb2fedb682a6f4103414f97f} 
+\index{Column\_copy@{Column\_copy}!split@{split}}
+\index{split@{split}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{split()}{split()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} $>$ cudf\+::split (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{input,  }\item[{std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$}]{splits }\end{DoxyParamCaption})}
+
+Splits a {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}} into a set of {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}}s according to a set of indices derived from expected splits.  
+
+The returned view\textquotesingle{}s of {\ttfamily input} are constructed from vector of splits, which indicates where the split should occur. The {\ttfamily i}th returned {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}} is sliced as {\ttfamily \mbox{[}0, splits\mbox{[}i\mbox{]})} if {\ttfamily i}=0, else {\ttfamily \mbox{[}splits\mbox{[}i\mbox{]}, input.\+size())} if {\ttfamily i} is the last view and {\ttfamily \mbox{[}splits\mbox{[}i-\/1\mbox{]}, splits\mbox{[}i\mbox{]}\mbox{]}} otherwise.
+
+For all {\ttfamily i} it is expected {\ttfamily splits\mbox{[}i\mbox{]} \texorpdfstring{$<$}{<}= splits\mbox{[}i+1\mbox{]} \texorpdfstring{$<$}{<}= input.\+size()} For a {\ttfamily splits} size N, there will always be N+1 splits in the output
+
+\begin{DoxyNote}{注解}
+It is the caller\textquotesingle{}s responsibility to ensure that the returned views do not outlive the viewed device memory.
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{input:\ \ \ \{10,\ 12,\ 14,\ 16,\ 18,\ 20,\ 22,\ 24,\ 26,\ 28\}}
+\DoxyCodeLine{splits:\ \ \{2,\ 5,\ 9\}}
+\DoxyCodeLine{output:\ \ \{\{10,\ 12\},\ \{14,\ 16,\ 18\},\ \{20,\ 22,\ 24,\ 26\},\ \{28\}\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily splits} has end index \texorpdfstring{$>$}{>} size of {\ttfamily input}. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & When the value in {\ttfamily splits} is not in the range \mbox{[}0, input.\+size()). \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & When the values in the {\ttfamily splits} are \textquotesingle{}strictly decreasing\textquotesingle{}.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & View of column to split \\
+\hline
+{\em splits} & Indices where the view will be split \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The set of requested views of {\ttfamily input} indicated by the {\ttfamily splits}   
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_ga72d5748fbf4bd848295769dce8a80979}\label{group__column__copy_ga72d5748fbf4bd848295769dce8a80979} 
+\index{Column\_copy@{Column\_copy}!split@{split}}
+\index{split@{split}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{split()}{split()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} $>$ cudf\+::split (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$}]{splits }\end{DoxyParamCaption})}
+
+
+
+Splits a {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} into a set of {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}}s according to a set of indices derived from expected splits. 
+
+The returned views of {\ttfamily input} are constructed from vector of splits, which indicates where the split should occur. The {\ttfamily i}th returned {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} is sliced as {\ttfamily \mbox{[}0, splits\mbox{[}i\mbox{]})} if {\ttfamily i}=0, else {\ttfamily \mbox{[}splits\mbox{[}i\mbox{]}, input.\+size())} if {\ttfamily i} is the last view and {\ttfamily \mbox{[}splits\mbox{[}i-\/1\mbox{]}, splits\mbox{[}i\mbox{]}\mbox{]}} otherwise.
+
+For all {\ttfamily i} it is expected {\ttfamily splits\mbox{[}i\mbox{]} \texorpdfstring{$<$}{<}= splits\mbox{[}i+1\mbox{]} \texorpdfstring{$<$}{<}= input.\+size()} For a {\ttfamily splits} size N, there will always be N+1 splits in the output
+
+\begin{DoxyNote}{注解}
+It is the caller\textquotesingle{}s responsibility to ensure that the returned views do not outlive the viewed device memory.
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{input:\ \ \ [\{10,\ 12,\ 14,\ 16,\ 18,\ 20,\ 22,\ 24,\ 26,\ 28\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{50,\ 52,\ 54,\ 56,\ 58,\ 60,\ 62,\ 64,\ 66,\ 68\}]}
+\DoxyCodeLine{splits:\ \ \{2,\ 5,\ 9\}}
+\DoxyCodeLine{output:\ \ [\{\{10,\ 12\},\ \{14,\ 16,\ 18\},\ \{20,\ 22,\ 24,\ 26\},\ \{28\}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{\{50,\ 52\},\ \{54,\ 56,\ 58\},\ \{60,\ 62,\ 64,\ 66\},\ \{68\}\}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily splits} has end index \texorpdfstring{$>$}{>} size of {\ttfamily input}. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & When the value in {\ttfamily splits} is not in the range \mbox{[}0, input.\+size()). \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & When the values in the {\ttfamily splits} are \textquotesingle{}strictly decreasing\textquotesingle{}.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & View of a table to split \\
+\hline
+{\em splits} & Indices where the view will be split \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The set of requested views of {\ttfamily input} indicated by the {\ttfamily splits} 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_ga94277c977c86ac93ebb279f562906aa0}\label{group__column__copy_ga94277c977c86ac93ebb279f562906aa0} 
+\index{Column\_copy@{Column\_copy}!split@{split}}
+\index{split@{split}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{split()}{split()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} $>$ cudf\+::split (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{input,  }\item[{std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$}]{splits }\end{DoxyParamCaption})}
+
+Splits a {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} into a set of {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}}s according to a set of indices derived from expected splits.  
+
+The returned views of {\ttfamily input} are constructed from vector of splits, which indicates where the split should occur. The {\ttfamily i}th returned {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} is sliced as {\ttfamily \mbox{[}0, splits\mbox{[}i\mbox{]})} if {\ttfamily i}=0, else {\ttfamily \mbox{[}splits\mbox{[}i\mbox{]}, input.\+size())} if {\ttfamily i} is the last view and {\ttfamily \mbox{[}splits\mbox{[}i-\/1\mbox{]}, splits\mbox{[}i\mbox{]}\mbox{]}} otherwise.
+
+For all {\ttfamily i} it is expected {\ttfamily splits\mbox{[}i\mbox{]} \texorpdfstring{$<$}{<}= splits\mbox{[}i+1\mbox{]} \texorpdfstring{$<$}{<}= input.\+size()} For a {\ttfamily splits} size N, there will always be N+1 splits in the output
+
+\begin{DoxyNote}{注解}
+It is the caller\textquotesingle{}s responsibility to ensure that the returned views do not outlive the viewed device memory.
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{input:\ \ \ [\{10,\ 12,\ 14,\ 16,\ 18,\ 20,\ 22,\ 24,\ 26,\ 28\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{50,\ 52,\ 54,\ 56,\ 58,\ 60,\ 62,\ 64,\ 66,\ 68\}]}
+\DoxyCodeLine{splits:\ \ \{2,\ 5,\ 9\}}
+\DoxyCodeLine{output:\ \ [\{\{10,\ 12\},\ \{14,\ 16,\ 18\},\ \{20,\ 22,\ 24,\ 26\},\ \{28\}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \{\{50,\ 52\},\ \{54,\ 56,\ 58\},\ \{60,\ 62,\ 64,\ 66\},\ \{68\}\}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily splits} has end index \texorpdfstring{$>$}{>} size of {\ttfamily input}. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & When the value in {\ttfamily splits} is not in the range \mbox{[}0, input.\+size()). \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & When the values in the {\ttfamily splits} are \textquotesingle{}strictly decreasing\textquotesingle{}.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & View of a table to split \\
+\hline
+{\em splits} & Indices where the view will be split \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The set of requested views of {\ttfamily input} indicated by the {\ttfamily splits}   
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_ga1d62a18c2e6f087a92289c63693762cc}\label{group__column__copy_ga1d62a18c2e6f087a92289c63693762cc} 
+\index{Column\_copy@{Column\_copy}!unpack@{unpack}}
+\index{unpack@{unpack}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{unpack()}{unpack()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} cudf\+::unpack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1packed__columns}{packed\+\_\+columns}} const \&}]{input }\end{DoxyParamCaption})}
+
+
+
+Deserialize the result of {\ttfamily \doxylink{group__column__copy_gaeb39dd8301fb76bfec9e777820bda3f2}{cudf\+::pack}} 
+
+Converts the result of a serialized table into a {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} that points to the data stored in the contiguous device buffer contained in {\ttfamily input}.
+
+It is the caller\textquotesingle{}s responsibility to ensure that the {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} in the output does not outlive the data in the input.
+
+No new device memory is allocated in this function.
+
+
+\begin{DoxyParams}{参数}
+{\em input} & The packed columns to unpack \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The unpacked {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} 
+\end{DoxyReturn}
+\Hypertarget{group__column__copy_gaaaebfb6742c09cccda8fb8a78e19fbd6}\label{group__column__copy_gaaaebfb6742c09cccda8fb8a78e19fbd6} 
+\index{Column\_copy@{Column\_copy}!unpack@{unpack}}
+\index{unpack@{unpack}!Column\_copy@{Column\_copy}}
+\doxysubsubsection{\texorpdfstring{unpack()}{unpack()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} cudf\+::unpack (\begin{DoxyParamCaption}\item[{uint8\+\_\+t const \texorpdfstring{$\ast$}{*}}]{metadata,  }\item[{uint8\+\_\+t const \texorpdfstring{$\ast$}{*}}]{gpu\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Deserialize the result of {\ttfamily \doxylink{group__column__copy_gaeb39dd8301fb76bfec9e777820bda3f2}{cudf\+::pack}} 
+
+Converts the result of a serialized table into a {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} that points to the data stored in the contiguous device buffer contained in {\ttfamily gpu\+\_\+data} using the metadata contained in the host buffer {\ttfamily metadata}.
+
+It is the caller\textquotesingle{}s responsibility to ensure that the {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} in the output does not outlive the data in the input.
+
+No new device memory is allocated in this function.
+
+
+\begin{DoxyParams}{参数}
+{\em metadata} & The host-\/side metadata buffer resulting from the initial \doxylink{group__column__copy_gaeb39dd8301fb76bfec9e777820bda3f2}{pack()} call \\
+\hline
+{\em gpu\+\_\+data} & The device-\/side contiguous buffer storing the data that will be referenced by the resulting {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The unpacked {\ttfamily \doxylink{classcudf_1_1table__view}{table\+\_\+view}} 
+\end{DoxyReturn}

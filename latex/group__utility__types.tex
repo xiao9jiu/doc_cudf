@@ -1,0 +1,1820 @@
+\doxysection{Utility\+\_\+types}
+\hypertarget{group__utility__types}{}\label{group__utility__types}\index{Utility\_types@{Utility\_types}}
+Utility\+\_\+types 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{group__utility__types}
+\end{center}
+\end{figure}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{types_8hpp}{types.\+hpp}}
+\begin{DoxyCompactList}\small\item\em Type declarations for libcudf. \end{DoxyCompactList}\item 
+文件 \mbox{\hyperlink{traits_8hpp}{traits.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1detail}{cudf\+::detail}}
+\begin{DoxyCompactList}\small\item\em Inner interfaces and implementations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1order__info}{cudf\+::order\+\_\+info}}
+\begin{DoxyCompactList}\small\item\em Indicates how a collection of values has been ordered. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}}
+\begin{DoxyCompactList}\small\item\em Indicator for the logical data type of an element in a column. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1is__convertible}{cudf\+::is\+\_\+convertible$<$ From, To $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1is__convertible_3_01cudf_1_1detail_1_1timestamp_3_01_duration1_01_4_00_01cudf_1_1daa0b9b43387383cde2e3c74f3ffafc24}{cudf\+::is\+\_\+convertible$<$ cudf\+::detail\+::timestamp$<$ Duration1 $>$, cudf\+::detail\+::timestamp$<$ Duration2 $>$ $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{宏定义}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__utility__types_gadf63a9ff3257927585f111143a7c9ae4}{CUDF\+\_\+\+ENABLE\+\_\+\+IF}}(...)~std\+::enable\+\_\+if\+\_\+t$<$(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)$>$\texorpdfstring{$\ast$}{*} = nullptr
+\begin{DoxyCompactList}\small\item\em Convenience macro for SFINAE as an unnamed template parameter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{类型定义}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} = int32\+\_\+t
+\begin{DoxyCompactList}\small\item\em Row index type for columns and tables \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{cudf\+::bitmask\+\_\+type}} = uint32\+\_\+t
+\begin{DoxyCompactList}\small\item\em Bitmask type stored as 32-\/bit unsigned integer \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{group__utility__types_ga9b06145972e36cd6b4d72ad20dd10ac1}{cudf\+::valid\+\_\+type}} = uint8\+\_\+t
+\begin{DoxyCompactList}\small\item\em Valid type in host memory \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{group__utility__types_ga3391e2df0069d3e7a07f0ec96cd2473e}{cudf\+::offset\+\_\+type}} = int32\+\_\+t
+\begin{DoxyCompactList}\small\item\em Offset type for column offsets \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{group__utility__types_ga7291486dc8f7911dffca95ee8ea3aa7c}{cudf\+::thread\+\_\+index\+\_\+type}} = int64\+\_\+t
+\begin{DoxyCompactList}\small\item\em Thread index type in kernels \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... $>$ }\\using \mbox{\hyperlink{group__utility__types_ga9130d674f5ef432c1405fadd304a8c26}{cudf\+::void\+\_\+t}} = void
+\begin{DoxyCompactList}\small\item\em Utility metafunction that maps a sequence of any types to the type void. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename L , typename R $>$ }\\using \mbox{\hyperlink{group__utility__types_ga6cc1c1fe68e5031f9865b4d9114a2491}{cudf\+::less\+\_\+comparable}} = decltype(std\+::declval$<$ L $>$()$<$ std\+::declval$<$ R $>$())
+\begin{DoxyCompactList}\small\item\em Checks if two types are comparable using less operator (i.\+e. \texorpdfstring{$<$}{<}). \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename L , typename R $>$ }\\using \mbox{\hyperlink{group__utility__types_ga19a5866cc4b46bbff21bf863130d2f81}{cudf\+::greater\+\_\+comparable}} = decltype(std\+::declval$<$ L $>$() $>$ std\+::declval$<$ R $>$())
+\begin{DoxyCompactList}\small\item\em Checks if two types are comparable using greater operator (i.\+e. \texorpdfstring{$>$}{>}). \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename L , typename R $>$ }\\using \mbox{\hyperlink{group__utility__types_ga33f2db79a6c26d5d69a3c05cd057cee0}{cudf\+::equality\+\_\+comparable}} = decltype(std\+::declval$<$ L $>$()==std\+::declval$<$ R $>$())
+\begin{DoxyCompactList}\small\item\em Checks if two types are comparable using equality operator (i.\+e. ==). \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Ts$>$ }\\using \mbox{\hyperlink{group__utility__types_ga3d6f7d2e962d0063973334a901bd5381}{cudf\+::has\+\_\+common\+\_\+type}} = typename \mbox{\hyperlink{structcudf_1_1detail_1_1has__common__type__impl}{detail\+::has\+\_\+common\+\_\+type\+\_\+impl}}$<$ void, Ts... $>$\+::type
+\begin{DoxyCompactList}\small\item\em Checks if types have a common type \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{group__utility__types_gafab27b9e2451d4b930739368788b79c8}{cudf\+::is\+\_\+timestamp\+\_\+t}} = cuda\+::std\+::disjunction$<$ std\+::is\+\_\+same$<$ \mbox{\hyperlink{group__timestamp__classes_ga4658424aa55596e2f3b6b42a9260f736}{cudf\+::timestamp\+\_\+D}}, T $>$, std\+::is\+\_\+same$<$ \mbox{\hyperlink{group__timestamp__classes_ga44668df4b32894904fb68f13a5f0fdab}{cudf\+::timestamp\+\_\+s}}, T $>$, std\+::is\+\_\+same$<$ \mbox{\hyperlink{group__timestamp__classes_ga24fdf63531f7998ef3122a5d0885e949}{cudf\+::timestamp\+\_\+ms}}, T $>$, std\+::is\+\_\+same$<$ \mbox{\hyperlink{group__timestamp__classes_gabc5dd6cc3229f57af772e06f8c0bd828}{cudf\+::timestamp\+\_\+us}}, T $>$, std\+::is\+\_\+same$<$ \mbox{\hyperlink{group__timestamp__classes_gae2aef2b10c32caf1889ef2a6575b531a}{cudf\+::timestamp\+\_\+ns}}, T $>$ $>$
+\begin{DoxyCompactList}\small\item\em Checks if a type is a timestamp type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{group__utility__types_gafb8bb6a0673998a47423aca482d5b5ee}{cudf\+::is\+\_\+duration\+\_\+t}} = cuda\+::std\+::disjunction$<$ std\+::is\+\_\+same$<$ \mbox{\hyperlink{group__timestamp__classes_ga6a45112033b50dfa4988d71a0817131c}{cudf\+::duration\+\_\+D}}, T $>$, std\+::is\+\_\+same$<$ \mbox{\hyperlink{group__timestamp__classes_gae344db373c1568bd20e914cb74426519}{cudf\+::duration\+\_\+s}}, T $>$, std\+::is\+\_\+same$<$ \mbox{\hyperlink{group__timestamp__classes_ga70b6b95d45de41529211d95531fa3f86}{cudf\+::duration\+\_\+ms}}, T $>$, std\+::is\+\_\+same$<$ \mbox{\hyperlink{group__timestamp__classes_gab8e261e3e2a11e8464efb2a251c107d7}{cudf\+::duration\+\_\+us}}, T $>$, std\+::is\+\_\+same$<$ \mbox{\hyperlink{group__timestamp__classes_ga4efdb8225ec7e415ab3c660c066aa3ee}{cudf\+::duration\+\_\+ns}}, T $>$ $>$
+\begin{DoxyCompactList}\small\item\em Checks if a type is a duration type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{cudf\+::order}} \+: bool \{ \mbox{\hyperlink{group__utility__types_gga750f02016b046079f7062d334890b4fca83ec681a20197326c163ea3b39ef7c32}{cudf\+::order\+::\+ASCENDING}}
+, \mbox{\hyperlink{group__utility__types_gga750f02016b046079f7062d334890b4fcacff818f0ae4cef845577e39283886a53}{cudf\+::order\+::\+DESCENDING}}
+ \}
+\begin{DoxyCompactList}\small\item\em Indicates the order in which elements should be sorted. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{cudf\+::null\+\_\+policy}} \+: bool \{ \mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}{cudf\+::null\+\_\+policy\+::\+EXCLUDE}}
+, \mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a04ff6a9583ba9957ebe1128d0f988ad8}{cudf\+::null\+\_\+policy\+::\+INCLUDE}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enum to specify whether to include nulls or exclude nulls \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{group__utility__types_ga74641d3dfd6d96d0939b492ecf9b9cc8}{cudf\+::nan\+\_\+policy}} \+: bool \{ \mbox{\hyperlink{group__utility__types_gga74641d3dfd6d96d0939b492ecf9b9cc8aeed6bbfa0697c54960c7e0baa97313f4}{cudf\+::nan\+\_\+policy\+::\+NAN\+\_\+\+IS\+\_\+\+NULL}}
+, \mbox{\hyperlink{group__utility__types_gga74641d3dfd6d96d0939b492ecf9b9cc8a27adbe26caa2eb99976344933c281a77}{cudf\+::nan\+\_\+policy\+::\+NAN\+\_\+\+IS\+\_\+\+VALID}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enum to treat NaN floating point value as null or non-\/null element \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{group__utility__types_gae9d1055c69c3089452794783c7c82f83}{cudf\+::nan\+\_\+equality}} \{ \mbox{\hyperlink{group__utility__types_ggae9d1055c69c3089452794783c7c82f83acd6d9f766e6e2753da429d26078711d7}{cudf\+::nan\+\_\+equality\+::\+ALL\+\_\+\+EQUAL}}
+, \mbox{\hyperlink{group__utility__types_ggae9d1055c69c3089452794783c7c82f83ac0df9e531f39895029236b71d0d1c0ac}{cudf\+::nan\+\_\+equality\+::\+UNEQUAL}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enum to consider different elements (of floating point types) holding NaN value as equal or unequal \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{cudf\+::null\+\_\+equality}} \+: bool \{ \mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{cudf\+::null\+\_\+equality\+::\+EQUAL}}
+, \mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771ac0df9e531f39895029236b71d0d1c0ac}{cudf\+::null\+\_\+equality\+::\+UNEQUAL}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enum to consider two nulls as equal or unequal \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{cudf\+::null\+\_\+order}} \+: bool \{ \mbox{\hyperlink{group__utility__types_gga058e6d6e8a21583ce0e85ee73e5abb31ac130fda0cb93540bf1574912e78964fb}{cudf\+::null\+\_\+order\+::\+AFTER}}
+, \mbox{\hyperlink{group__utility__types_gga058e6d6e8a21583ce0e85ee73e5abb31a3525317285c6126ce3b62a8df8c00b07}{cudf\+::null\+\_\+order\+::\+BEFORE}}
+ \}
+\begin{DoxyCompactList}\small\item\em Indicates how null values compare against all other values. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{group__utility__types_gab283c517931abd4152ffa62fec62425d}{cudf\+::sorted}} \+: bool \{ \mbox{\hyperlink{group__utility__types_ggab283c517931abd4152ffa62fec62425dac2f3f489a00553e7a01d369c103c7251}{cudf\+::sorted\+::\+NO}}
+, \mbox{\hyperlink{group__utility__types_ggab283c517931abd4152ffa62fec62425da7469a286259799e5b37e5db9296f00b3}{cudf\+::sorted\+::\+YES}}
+ \}
+\begin{DoxyCompactList}\small\item\em Indicates whether a collection of values is known to be sorted. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{group__utility__types_ga4daf20c000ab374d76f4d56f0ddb7b26}{cudf\+::mask\+\_\+state}} \+: int32\+\_\+t \{ \mbox{\hyperlink{group__utility__types_gga4daf20c000ab374d76f4d56f0ddb7b26a628732521c22dcf8a24bf1a0326bde80}{cudf\+::mask\+\_\+state\+::\+UNALLOCATED}}
+, \mbox{\hyperlink{group__utility__types_gga4daf20c000ab374d76f4d56f0ddb7b26add652546039b18970b8dcf2cff824268}{cudf\+::mask\+\_\+state\+::\+UNINITIALIZED}}
+, \mbox{\hyperlink{group__utility__types_gga4daf20c000ab374d76f4d56f0ddb7b26a00a0fd1f61b5bd5c53628de693967e08}{cudf\+::mask\+\_\+state\+::\+ALL\+\_\+\+VALID}}
+, \mbox{\hyperlink{group__utility__types_gga4daf20c000ab374d76f4d56f0ddb7b26ab8a690c8c67b400079b43eb5a2146753}{cudf\+::mask\+\_\+state\+::\+ALL\+\_\+\+NULL}}
+ \}
+\begin{DoxyCompactList}\small\item\em Controls the allocation/initialization of a null mask. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{group__utility__types_ga9cd17c1cdf028ead9a4783f605276ab3}{cudf\+::interpolation}} \+: int32\+\_\+t \{ \newline
+\mbox{\hyperlink{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3aaac544aacc3615aada24897a215f5046}{cudf\+::interpolation\+::\+LINEAR}}
+, \mbox{\hyperlink{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3aa7c48ba367e019d004bfb0239b85f2b3}{cudf\+::interpolation\+::\+LOWER}}
+, \mbox{\hyperlink{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3a5bc0a7ce2c77ccd49169277e9289e5d1}{cudf\+::interpolation\+::\+HIGHER}}
+, \mbox{\hyperlink{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3aafa8fd4b90a3f8123b4bd30446518a7e}{cudf\+::interpolation\+::\+MIDPOINT}}
+, \newline
+\mbox{\hyperlink{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3aad135772d7cf93dd0ccf9d2474b34e6a}{cudf\+::interpolation\+::\+NEAREST}}
+ \}
+\begin{DoxyCompactList}\small\item\em Interpolation method to use when the desired quantile lies between two data points i and j \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{group__utility__types_gadf077607da617d1dadcc5417e2783539}{cudf\+::type\+\_\+id}} \+: int32\+\_\+t \{ \newline
+\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539aba2b45bdc11e2a4a6e86aab2ac693cbb}{cudf\+::type\+\_\+id\+::\+EMPTY}}
+, \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539aee9d73311ff0658494edfff14c3ec1e3}{cudf\+::type\+\_\+id\+::\+INT8}}
+, \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a5f90af42814c0a419d715d43ae54fd7a}{cudf\+::type\+\_\+id\+::\+INT16}}
+, \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a6495adba09844fac8eeb0aba86e6f1bf}{cudf\+::type\+\_\+id\+::\+INT32}}
+, \newline
+\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a4e866b275c85fbb439f6484251cfb31c}{cudf\+::type\+\_\+id\+::\+INT64}}
+, \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539aecfc091ed2a607335524c8389cfa41b5}{cudf\+::type\+\_\+id\+::\+UINT8}}
+, \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a48d8f1a723d44ff4a87db1bb6c551c62}{cudf\+::type\+\_\+id\+::\+UINT16}}
+, \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a17266551181f69a1b4a3ad5c9e270afc}{cudf\+::type\+\_\+id\+::\+UINT32}}
+, \newline
+\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a6de7acf711860176ba606e9aa2b85d5f}{cudf\+::type\+\_\+id\+::\+UINT64}}
+, \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a967d280b5c16d95f2947647dd2ca6cc2}{cudf\+::type\+\_\+id\+::\+FLOAT32}}
+, \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a139882c654db8a57f7c3092de1dd0b02}{cudf\+::type\+\_\+id\+::\+FLOAT64}}
+, \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a05afd9eb8887a406d47474cd3809a5dd}{cudf\+::type\+\_\+id\+::\+BOOL8}}
+, \newline
+\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539acf04253e348544a8e841a76dfecef3f6}{cudf\+::type\+\_\+id\+::\+TIMESTAMP\+\_\+\+DAYS}}
+, \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539ac46dfe2dc12b66ab3bf6deac3cd1a945}{cudf\+::type\+\_\+id\+::\+TIMESTAMP\+\_\+\+SECONDS}}
+, \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a6244bf5dfcbc1adc3f9b4ccad8333f3c}{cudf\+::type\+\_\+id\+::\+TIMESTAMP\+\_\+\+MILLISECONDS}}
+, \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a7053796e0238a00cf12b96beb273ba30}{cudf\+::type\+\_\+id\+::\+TIMESTAMP\+\_\+\+MICROSECONDS}}
+, \newline
+\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539ac62360a52ed83eda03975a09f092d7b0}{cudf\+::type\+\_\+id\+::\+TIMESTAMP\+\_\+\+NANOSECONDS}}
+, \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a6bafb97dd1ba2c7b2ffee4fece104ec7}{cudf\+::type\+\_\+id\+::\+DURATION\+\_\+\+DAYS}}
+, \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a77029488e6452eca1a908121589d7fd9}{cudf\+::type\+\_\+id\+::\+DURATION\+\_\+\+SECONDS}}
+, \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a446364d0c90ab0072e9fa60cd7c32c3d}{cudf\+::type\+\_\+id\+::\+DURATION\+\_\+\+MILLISECONDS}}
+, \newline
+\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a7e68d3150eeefe2afcb2d2c138be4d15}{cudf\+::type\+\_\+id\+::\+DURATION\+\_\+\+MICROSECONDS}}
+, \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a628d57b49cb66c1d14ce8db33be558ce}{cudf\+::type\+\_\+id\+::\+DURATION\+\_\+\+NANOSECONDS}}
+, \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539af7ed36b67626ecf59c497f2fdf990b64}{cudf\+::type\+\_\+id\+::\+DICTIONARY32}}
+, \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a63b588d5559f64f89a416e656880b949}{cudf\+::type\+\_\+id\+::\+STRING}}
+, \newline
+\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a298cb25408234de02baf2085803a464a}{cudf\+::type\+\_\+id\+::\+LIST}}
+, \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539ad75c2c4bd60fd3b76d4cef6e8352b269}{cudf\+::type\+\_\+id\+::\+DECIMAL32}}
+, \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539ad43431506a21dcfd2ada4cd4c28f8f56}{cudf\+::type\+\_\+id\+::\+DECIMAL64}}
+, \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a5e45eca83b8190615a1491aecd3edc21}{cudf\+::type\+\_\+id\+::\+DECIMAL128}}
+, \newline
+\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539ab8223be2455e0ea5a0e63e8f018d6fc3}{cudf\+::type\+\_\+id\+::\+STRUCT}}
+, \mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a44b418588ffa2779aaf862dc7aa81f8a}{cudf\+::type\+\_\+id\+::\+NUM\+\_\+\+TYPE\+\_\+\+IDS}}
+ \}
+\begin{DoxyCompactList}\small\item\em Identifies a column\textquotesingle{}s logical element type \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{group__utility__types_ga4211fc2c58997473ebae90b522492e39}{cudf\+::distance}} (T f, T l)
+\begin{DoxyCompactList}\small\item\em Similar to {\ttfamily std\+::distance} but returns {\ttfamily \doxylink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} and performs {\ttfamily static\+\_\+cast} \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{group__utility__types_ga43d59dc0b7badf0776db20b172210045}{cudf\+::operator==}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} const \&lhs, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} const \&rhs)
+\begin{DoxyCompactList}\small\item\em Compares two {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} objects for equality. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga832a5fbbf8b2adc9aae9f96798813720}{cudf\+::operator!=}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} const \&lhs, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} const \&rhs)
+\begin{DoxyCompactList}\small\item\em Compares two {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} objects for inequality. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{group__utility__types_ga51b0daf2c01663d51cb3b87ad8ce93c0}{cudf\+::size\+\_\+of}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} t)
+\begin{DoxyCompactList}\small\item\em Returns the size in bytes of elements of the specified {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename L , typename R $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_gaef9b08b206b1340c5ac3893d17943309}{cudf\+::is\+\_\+relationally\+\_\+comparable}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether objects of types {\ttfamily L} and {\ttfamily R} can be relationally compared. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga645a96d47abea35f5da669ecf10ceae7}{cudf\+::is\+\_\+relationally\+\_\+comparable}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Checks whether {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} {\ttfamily type} supports relational comparisons. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename L , typename R $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga82f7470f89e1e2b53077246712787120}{cudf\+::is\+\_\+equality\+\_\+comparable}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether objects of types {\ttfamily L} and {\ttfamily R} can be compared for equality. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga40162d35408ca1e9cc9b02af29b7149d}{cudf\+::is\+\_\+equality\+\_\+comparable}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Checks whether {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} {\ttfamily type} supports equality comparisons. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga736c39af324b57534639bd3d8af357e4}{cudf\+::is\+\_\+numeric}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether the type {\ttfamily T} is a numeric type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga2eaf2d3443dd8aa17724e78190b537ba}{cudf\+::is\+\_\+numeric}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily type} is a numeric {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga79a73ff286550b2f4fc764a6dbc2d782}{cudf\+::is\+\_\+index\+\_\+type}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether the type {\ttfamily T} is a index type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga4c4225b65c8d89fc680fc705676ff6f1}{cudf\+::is\+\_\+index\+\_\+type}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether the type {\ttfamily type} is a index type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_gaf186010866f2f5eb497467963eaf3d54}{cudf\+::is\+\_\+unsigned}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether the type {\ttfamily T} is a unsigned numeric type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga95969e57d58b6b7468b1cba9f435d95e}{cudf\+::is\+\_\+unsigned}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily type} is a unsigned numeric {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Iterator $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga960cec36c56cd253a84fcd2cec3933f9}{cudf\+::is\+\_\+signed\+\_\+iterator}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether the {\ttfamily Iterator} value type is unsigned. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_gaa964d11859bcec770945cf53d964371c}{cudf\+::is\+\_\+integral}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether the type {\ttfamily T} is an integral type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga31c663c44b3af8ae957a1d514052c923}{cudf\+::is\+\_\+integral}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily type} is a integral {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_gaac36fa8429a279de79c2afec53c02ee8}{cudf\+::is\+\_\+floating\+\_\+point}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether the type {\ttfamily T} is a floating point type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga947bd07e5edd70d8d56b38aeb856e9c6}{cudf\+::is\+\_\+floating\+\_\+point}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily type} is a floating point {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga27d4363f72ef43feeb12c06d90ff44c8}{cudf\+::is\+\_\+byte}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily T} is a std\+::byte type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_gaa1b9dd3a6ee95fa52224a53869cd164e}{cudf\+::is\+\_\+boolean}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily T} is a Boolean type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga73bcdf0744b62b98f4aef5fccea5840c}{cudf\+::is\+\_\+boolean}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily type} is a Boolean {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga90ebb90931abfed637396889b7829173}{cudf\+::is\+\_\+timestamp}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether the type {\ttfamily T} is a timestamp type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga92ea03fd93fa19ae17c3190cb439e5b3}{cudf\+::is\+\_\+timestamp}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily type} is a timestamp {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga02880fc9d2470aa36761dfe41c5309ee}{cudf\+::is\+\_\+fixed\+\_\+point}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether the type {\ttfamily T} is a fixed-\/point type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_gad339e701fa8a26d7630aa28f846399fb}{cudf\+::is\+\_\+fixed\+\_\+point}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily type} is a fixed point {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga5196242442d99904c755da4920f1043f}{cudf\+::is\+\_\+duration}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether the type {\ttfamily T} is a duration type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga285e3a7963fa18d913c1c9ff389d58ba}{cudf\+::is\+\_\+duration}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily type} is a duration {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga72f2d42d20b254754fd7bc8f4f32a990}{cudf\+::is\+\_\+chrono}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether the type {\ttfamily T} is a chrono type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_gad2846c31e90421f0cbe7834334822e6a}{cudf\+::is\+\_\+chrono}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily type} is a chrono {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga7c6839d4131493a1277f78a686226e54}{cudf\+::is\+\_\+rep\+\_\+layout\+\_\+compatible}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily T} is layout compatible with its \"{}representation\"{} type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga1f0657d191e4b383da031cd506c5196f}{cudf\+::is\+\_\+dictionary}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether the type {\ttfamily T} is a dictionary type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga0e213a7906791cb36453a966a16bf326}{cudf\+::is\+\_\+dictionary}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily type} is a dictionary {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_gaaa937abead085ea9420b15c6473f08a7}{cudf\+::is\+\_\+fixed\+\_\+width}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether elements of type {\ttfamily T} are fixed-\/width. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_gad588b3f9ca419e5a32f1ce42031994a5}{cudf\+::is\+\_\+fixed\+\_\+width}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether elements of {\ttfamily type} are fixed-\/width. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga14e1cea4200d1d92d7f38d596333d28a}{cudf\+::is\+\_\+compound}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether the type {\ttfamily T} is a compound type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga7b9445eeead457a3d5e18a2a675eb8dd}{cudf\+::is\+\_\+compound}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether elements of {\ttfamily type} are compound. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_gacaa242e2e068ab62bdaae071ed748357}{cudf\+::is\+\_\+nested}} ()
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily T} is a nested type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga8bfcb79b22de847a085d106dbf813c03}{cudf\+::is\+\_\+nested}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily type} is a nested type \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__utility__types_ga73dd2d74b0eafb1543eb1cd27accd38e}{cudf\+::is\+\_\+bit\+\_\+castable}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} from, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} to)
+\begin{DoxyCompactList}\small\item\em Indicates whether {\ttfamily from} is bit-\/castable to {\ttfamily to}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{变量}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{group__utility__types_ga0eece3f40ff89fe8f1117097d86913b7}{cudf\+::\+UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT}} \{-\/1\}
+\begin{DoxyCompactList}\small\item\em Indicates an unknown null count. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Ts$>$ }\\constexpr bool \mbox{\hyperlink{group__utility__types_ga96e9ce4d30dc9a948112d814ee4cba79}{cudf\+::has\+\_\+common\+\_\+type\+\_\+v}} = \mbox{\hyperlink{structcudf_1_1detail_1_1has__common__type__impl}{detail\+::has\+\_\+common\+\_\+type\+\_\+impl}}$<$void, Ts...$>$\+::value
+\begin{DoxyCompactList}\small\item\em Helper variable template for has\+\_\+common\+\_\+type$<$$>$\+::value \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{宏定义说明}
+\Hypertarget{group__utility__types_gadf63a9ff3257927585f111143a7c9ae4}\label{group__utility__types_gadf63a9ff3257927585f111143a7c9ae4} 
+\index{Utility\_types@{Utility\_types}!CUDF\_ENABLE\_IF@{CUDF\_ENABLE\_IF}}
+\index{CUDF\_ENABLE\_IF@{CUDF\_ENABLE\_IF}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{CUDF\_ENABLE\_IF}{CUDF\_ENABLE\_IF}}
+{\footnotesize\ttfamily \#define CUDF\+\_\+\+ENABLE\+\_\+\+IF(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~std\+::enable\+\_\+if\+\_\+t$<$(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)$>$\texorpdfstring{$\ast$}{*} = nullptr}
+
+
+
+Convenience macro for SFINAE as an unnamed template parameter. 
+
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ This\ function\ will\ participate\ in\ overload\ resolution\ only\ if\ T\ is\ an\ integral\ type}}
+\DoxyCodeLine{\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ CUDF\_ENABLE\_IF(std::is\_\textcolor{keywordtype}{int}egral\_v<T>\ )>}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ foo();}
+
+\end{DoxyCode}
+ 
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00050}{50}} 行定义.
+
+
+
+\doxysubsection{类型定义说明}
+\Hypertarget{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}\label{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34} 
+\index{Utility\_types@{Utility\_types}!bitmask\_type@{bitmask\_type}}
+\index{bitmask\_type@{bitmask\_type}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{bitmask\_type}{bitmask\_type}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{cudf\+::bitmask\+\_\+type}} = typedef uint32\+\_\+t}
+
+
+
+Bitmask type stored as 32-\/bit unsigned integer 
+
+
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00081}{81}} 行定义.
+
+\Hypertarget{group__utility__types_ga33f2db79a6c26d5d69a3c05cd057cee0}\label{group__utility__types_ga33f2db79a6c26d5d69a3c05cd057cee0} 
+\index{Utility\_types@{Utility\_types}!equality\_comparable@{equality\_comparable}}
+\index{equality\_comparable@{equality\_comparable}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{equality\_comparable}{equality\_comparable}}
+{\footnotesize\ttfamily template$<$typename L , typename R $>$ \\
+using \mbox{\hyperlink{group__utility__types_ga33f2db79a6c26d5d69a3c05cd057cee0}{cudf\+::equality\+\_\+comparable}} = typedef decltype(std\+::declval$<$L$>$() == std\+::declval$<$R$>$())}
+
+
+
+Checks if two types are comparable using equality operator (i.\+e. ==). 
+
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00062}{62}} 行定义.
+
+\Hypertarget{group__utility__types_ga19a5866cc4b46bbff21bf863130d2f81}\label{group__utility__types_ga19a5866cc4b46bbff21bf863130d2f81} 
+\index{Utility\_types@{Utility\_types}!greater\_comparable@{greater\_comparable}}
+\index{greater\_comparable@{greater\_comparable}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{greater\_comparable}{greater\_comparable}}
+{\footnotesize\ttfamily template$<$typename L , typename R $>$ \\
+using \mbox{\hyperlink{group__utility__types_ga19a5866cc4b46bbff21bf863130d2f81}{cudf\+::greater\+\_\+comparable}} = typedef decltype(std\+::declval$<$L$>$() $>$ std\+::declval$<$R$>$())}
+
+
+
+Checks if two types are comparable using greater operator (i.\+e. \texorpdfstring{$>$}{>}). 
+
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00058}{58}} 行定义.
+
+\Hypertarget{group__utility__types_ga3d6f7d2e962d0063973334a901bd5381}\label{group__utility__types_ga3d6f7d2e962d0063973334a901bd5381} 
+\index{Utility\_types@{Utility\_types}!has\_common\_type@{has\_common\_type}}
+\index{has\_common\_type@{has\_common\_type}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{has\_common\_type}{has\_common\_type}}
+{\footnotesize\ttfamily template$<$typename... Ts$>$ \\
+using \mbox{\hyperlink{group__utility__types_ga3d6f7d2e962d0063973334a901bd5381}{cudf\+::has\+\_\+common\+\_\+type}} = typedef typename \mbox{\hyperlink{structcudf_1_1detail_1_1has__common__type__impl}{detail\+::has\+\_\+common\+\_\+type\+\_\+impl}}$<$void, Ts...$>$\+::type}
+
+
+
+Checks if types have a common type 
+
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00096}{96}} 行定义.
+
+\Hypertarget{group__utility__types_gafb8bb6a0673998a47423aca482d5b5ee}\label{group__utility__types_gafb8bb6a0673998a47423aca482d5b5ee} 
+\index{Utility\_types@{Utility\_types}!is\_duration\_t@{is\_duration\_t}}
+\index{is\_duration\_t@{is\_duration\_t}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_duration\_t}{is\_duration\_t}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{group__utility__types_gafb8bb6a0673998a47423aca482d5b5ee}{cudf\+::is\+\_\+duration\+\_\+t}} = typedef cuda\+::std\+::disjunction$<$std\+::is\+\_\+same$<$\mbox{\hyperlink{group__timestamp__classes_ga6a45112033b50dfa4988d71a0817131c}{cudf\+::duration\+\_\+D}}, T$>$, std\+::is\+\_\+same$<$\mbox{\hyperlink{group__timestamp__classes_gae344db373c1568bd20e914cb74426519}{cudf\+::duration\+\_\+s}}, T$>$, std\+::is\+\_\+same$<$\mbox{\hyperlink{group__timestamp__classes_ga70b6b95d45de41529211d95531fa3f86}{cudf\+::duration\+\_\+ms}}, T$>$, std\+::is\+\_\+same$<$\mbox{\hyperlink{group__timestamp__classes_gab8e261e3e2a11e8464efb2a251c107d7}{cudf\+::duration\+\_\+us}}, T$>$, std\+::is\+\_\+same$<$\mbox{\hyperlink{group__timestamp__classes_ga4efdb8225ec7e415ab3c660c066aa3ee}{cudf\+::duration\+\_\+ns}}, T$>$ $>$}
+
+
+
+Checks if a type is a duration type. 
+
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00112}{112}} 行定义.
+
+\Hypertarget{group__utility__types_gafab27b9e2451d4b930739368788b79c8}\label{group__utility__types_gafab27b9e2451d4b930739368788b79c8} 
+\index{Utility\_types@{Utility\_types}!is\_timestamp\_t@{is\_timestamp\_t}}
+\index{is\_timestamp\_t@{is\_timestamp\_t}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_timestamp\_t}{is\_timestamp\_t}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{group__utility__types_gafab27b9e2451d4b930739368788b79c8}{cudf\+::is\+\_\+timestamp\+\_\+t}} = typedef cuda\+::std\+::disjunction$<$std\+::is\+\_\+same$<$\mbox{\hyperlink{group__timestamp__classes_ga4658424aa55596e2f3b6b42a9260f736}{cudf\+::timestamp\+\_\+D}}, T$>$, std\+::is\+\_\+same$<$\mbox{\hyperlink{group__timestamp__classes_ga44668df4b32894904fb68f13a5f0fdab}{cudf\+::timestamp\+\_\+s}}, T$>$, std\+::is\+\_\+same$<$\mbox{\hyperlink{group__timestamp__classes_ga24fdf63531f7998ef3122a5d0885e949}{cudf\+::timestamp\+\_\+ms}}, T$>$, std\+::is\+\_\+same$<$\mbox{\hyperlink{group__timestamp__classes_gabc5dd6cc3229f57af772e06f8c0bd828}{cudf\+::timestamp\+\_\+us}}, T$>$, std\+::is\+\_\+same$<$\mbox{\hyperlink{group__timestamp__classes_gae2aef2b10c32caf1889ef2a6575b531a}{cudf\+::timestamp\+\_\+ns}}, T$>$ $>$}
+
+
+
+Checks if a type is a timestamp type. 
+
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00104}{104}} 行定义.
+
+\Hypertarget{group__utility__types_ga6cc1c1fe68e5031f9865b4d9114a2491}\label{group__utility__types_ga6cc1c1fe68e5031f9865b4d9114a2491} 
+\index{Utility\_types@{Utility\_types}!less\_comparable@{less\_comparable}}
+\index{less\_comparable@{less\_comparable}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{less\_comparable}{less\_comparable}}
+{\footnotesize\ttfamily template$<$typename L , typename R $>$ \\
+using \mbox{\hyperlink{group__utility__types_ga6cc1c1fe68e5031f9865b4d9114a2491}{cudf\+::less\+\_\+comparable}} = typedef decltype(std\+::declval$<$L$>$() $<$ std\+::declval$<$R$>$())}
+
+
+
+Checks if two types are comparable using less operator (i.\+e. \texorpdfstring{$<$}{<}). 
+
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00054}{54}} 行定义.
+
+\Hypertarget{group__utility__types_ga3391e2df0069d3e7a07f0ec96cd2473e}\label{group__utility__types_ga3391e2df0069d3e7a07f0ec96cd2473e} 
+\index{Utility\_types@{Utility\_types}!offset\_type@{offset\_type}}
+\index{offset\_type@{offset\_type}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{offset\_type}{offset\_type}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{group__utility__types_ga3391e2df0069d3e7a07f0ec96cd2473e}{cudf\+::offset\+\_\+type}} = typedef int32\+\_\+t}
+
+
+
+Offset type for column offsets 
+
+
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00083}{83}} 行定义.
+
+\Hypertarget{group__utility__types_ga0aff16b2db009d92300befaca11827e9}\label{group__utility__types_ga0aff16b2db009d92300befaca11827e9} 
+\index{Utility\_types@{Utility\_types}!size\_type@{size\_type}}
+\index{size\_type@{size\_type}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{size\_type}{size\_type}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} = typedef int32\+\_\+t}
+
+
+
+Row index type for columns and tables 
+
+
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00080}{80}} 行定义.
+
+\Hypertarget{group__utility__types_ga7291486dc8f7911dffca95ee8ea3aa7c}\label{group__utility__types_ga7291486dc8f7911dffca95ee8ea3aa7c} 
+\index{Utility\_types@{Utility\_types}!thread\_index\_type@{thread\_index\_type}}
+\index{thread\_index\_type@{thread\_index\_type}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{thread\_index\_type}{thread\_index\_type}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{group__utility__types_ga7291486dc8f7911dffca95ee8ea3aa7c}{cudf\+::thread\+\_\+index\+\_\+type}} = typedef int64\+\_\+t}
+
+
+
+Thread index type in kernels 
+
+
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00084}{84}} 行定义.
+
+\Hypertarget{group__utility__types_ga9b06145972e36cd6b4d72ad20dd10ac1}\label{group__utility__types_ga9b06145972e36cd6b4d72ad20dd10ac1} 
+\index{Utility\_types@{Utility\_types}!valid\_type@{valid\_type}}
+\index{valid\_type@{valid\_type}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{valid\_type}{valid\_type}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{group__utility__types_ga9b06145972e36cd6b4d72ad20dd10ac1}{cudf\+::valid\+\_\+type}} = typedef uint8\+\_\+t}
+
+
+
+Valid type in host memory 
+
+
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00082}{82}} 行定义.
+
+\Hypertarget{group__utility__types_ga9130d674f5ef432c1405fadd304a8c26}\label{group__utility__types_ga9130d674f5ef432c1405fadd304a8c26} 
+\index{Utility\_types@{Utility\_types}!void\_t@{void\_t}}
+\index{void\_t@{void\_t}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{void\_t}{void\_t}}
+{\footnotesize\ttfamily template$<$typename... $>$ \\
+using \mbox{\hyperlink{group__utility__types_ga9130d674f5ef432c1405fadd304a8c26}{cudf\+::void\+\_\+t}} = typedef void}
+
+
+
+Utility metafunction that maps a sequence of any types to the type void. 
+
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00037}{37}} 行定义.
+
+
+
+\doxysubsection{枚举类型说明}
+\Hypertarget{group__utility__types_ga9cd17c1cdf028ead9a4783f605276ab3}\label{group__utility__types_ga9cd17c1cdf028ead9a4783f605276ab3} 
+\index{Utility\_types@{Utility\_types}!interpolation@{interpolation}}
+\index{interpolation@{interpolation}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{interpolation}{interpolation}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__utility__types_ga9cd17c1cdf028ead9a4783f605276ab3}{cudf\+::interpolation}} \+: int32\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Interpolation method to use when the desired quantile lies between two data points i and j 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LINEAR@{LINEAR}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!LINEAR@{LINEAR}}}\Hypertarget{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3aaac544aacc3615aada24897a215f5046}\label{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3aaac544aacc3615aada24897a215f5046} 
+LINEAR&Linear interpolation between i and j \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOWER@{LOWER}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!LOWER@{LOWER}}}\Hypertarget{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3aa7c48ba367e019d004bfb0239b85f2b3}\label{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3aa7c48ba367e019d004bfb0239b85f2b3} 
+LOWER&Lower data point (i) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HIGHER@{HIGHER}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!HIGHER@{HIGHER}}}\Hypertarget{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3a5bc0a7ce2c77ccd49169277e9289e5d1}\label{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3a5bc0a7ce2c77ccd49169277e9289e5d1} 
+HIGHER&Higher data point (j) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MIDPOINT@{MIDPOINT}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!MIDPOINT@{MIDPOINT}}}\Hypertarget{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3aafa8fd4b90a3f8123b4bd30446518a7e}\label{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3aafa8fd4b90a3f8123b4bd30446518a7e} 
+MIDPOINT&(i + j)/2 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NEAREST@{NEAREST}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!NEAREST@{NEAREST}}}\Hypertarget{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3aad135772d7cf93dd0ccf9d2474b34e6a}\label{group__utility__types_gga9cd17c1cdf028ead9a4783f605276ab3aad135772d7cf93dd0ccf9d2474b34e6a} 
+NEAREST&i or j, whichever is nearest \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00185}{185}} 行定义.
+
+\Hypertarget{group__utility__types_ga4daf20c000ab374d76f4d56f0ddb7b26}\label{group__utility__types_ga4daf20c000ab374d76f4d56f0ddb7b26} 
+\index{Utility\_types@{Utility\_types}!mask\_state@{mask\_state}}
+\index{mask\_state@{mask\_state}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{mask\_state}{mask\_state}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__utility__types_ga4daf20c000ab374d76f4d56f0ddb7b26}{cudf\+::mask\+\_\+state}} \+: int32\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Controls the allocation/initialization of a null mask. 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UNALLOCATED@{UNALLOCATED}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!UNALLOCATED@{UNALLOCATED}}}\Hypertarget{group__utility__types_gga4daf20c000ab374d76f4d56f0ddb7b26a628732521c22dcf8a24bf1a0326bde80}\label{group__utility__types_gga4daf20c000ab374d76f4d56f0ddb7b26a628732521c22dcf8a24bf1a0326bde80} 
+UNALLOCATED&Null mask not allocated, (all elements are valid) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UNINITIALIZED@{UNINITIALIZED}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!UNINITIALIZED@{UNINITIALIZED}}}\Hypertarget{group__utility__types_gga4daf20c000ab374d76f4d56f0ddb7b26add652546039b18970b8dcf2cff824268}\label{group__utility__types_gga4daf20c000ab374d76f4d56f0ddb7b26add652546039b18970b8dcf2cff824268} 
+UNINITIALIZED&Null mask allocated, but not initialized \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ALL\_VALID@{ALL\_VALID}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!ALL\_VALID@{ALL\_VALID}}}\Hypertarget{group__utility__types_gga4daf20c000ab374d76f4d56f0ddb7b26a00a0fd1f61b5bd5c53628de693967e08}\label{group__utility__types_gga4daf20c000ab374d76f4d56f0ddb7b26a00a0fd1f61b5bd5c53628de693967e08} 
+ALL\+\_\+\+VALID&Null mask allocated, initialized to all elements valid \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ALL\_NULL@{ALL\_NULL}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!ALL\_NULL@{ALL\_NULL}}}\Hypertarget{group__utility__types_gga4daf20c000ab374d76f4d56f0ddb7b26ab8a690c8c67b400079b43eb5a2146753}\label{group__utility__types_gga4daf20c000ab374d76f4d56f0ddb7b26ab8a690c8c67b400079b43eb5a2146753} 
+ALL\+\_\+\+NULL&Null mask allocated, initialized to all elements NULL \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00174}{174}} 行定义.
+
+\Hypertarget{group__utility__types_gae9d1055c69c3089452794783c7c82f83}\label{group__utility__types_gae9d1055c69c3089452794783c7c82f83} 
+\index{Utility\_types@{Utility\_types}!nan\_equality@{nan\_equality}}
+\index{nan\_equality@{nan\_equality}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{nan\_equality}{nan\_equality}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__utility__types_gae9d1055c69c3089452794783c7c82f83}{cudf\+::nan\+\_\+equality}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Enum to consider different elements (of floating point types) holding NaN value as equal or unequal 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ALL\_EQUAL@{ALL\_EQUAL}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!ALL\_EQUAL@{ALL\_EQUAL}}}\Hypertarget{group__utility__types_ggae9d1055c69c3089452794783c7c82f83acd6d9f766e6e2753da429d26078711d7}\label{group__utility__types_ggae9d1055c69c3089452794783c7c82f83acd6d9f766e6e2753da429d26078711d7} 
+ALL\+\_\+\+EQUAL&All Na\+Ns compare equal, regardless of sign \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UNEQUAL@{UNEQUAL}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!UNEQUAL@{UNEQUAL}}}\Hypertarget{group__utility__types_ggae9d1055c69c3089452794783c7c82f83ac0df9e531f39895029236b71d0d1c0ac}\label{group__utility__types_ggae9d1055c69c3089452794783c7c82f83ac0df9e531f39895029236b71d0d1c0ac} 
+UNEQUAL&All Na\+Ns compare unequal (IEEE754 behavior) \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00136}{136}} 行定义.
+
+\Hypertarget{group__utility__types_ga74641d3dfd6d96d0939b492ecf9b9cc8}\label{group__utility__types_ga74641d3dfd6d96d0939b492ecf9b9cc8} 
+\index{Utility\_types@{Utility\_types}!nan\_policy@{nan\_policy}}
+\index{nan\_policy@{nan\_policy}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{nan\_policy}{nan\_policy}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__utility__types_ga74641d3dfd6d96d0939b492ecf9b9cc8}{cudf\+::nan\+\_\+policy}} \+: bool\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Enum to treat NaN floating point value as null or non-\/null element 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NAN\_IS\_NULL@{NAN\_IS\_NULL}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!NAN\_IS\_NULL@{NAN\_IS\_NULL}}}\Hypertarget{group__utility__types_gga74641d3dfd6d96d0939b492ecf9b9cc8aeed6bbfa0697c54960c7e0baa97313f4}\label{group__utility__types_gga74641d3dfd6d96d0939b492ecf9b9cc8aeed6bbfa0697c54960c7e0baa97313f4} 
+NAN\+\_\+\+IS\+\_\+\+NULL&treat nans as null elements \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NAN\_IS\_VALID@{NAN\_IS\_VALID}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!NAN\_IS\_VALID@{NAN\_IS\_VALID}}}\Hypertarget{group__utility__types_gga74641d3dfd6d96d0939b492ecf9b9cc8a27adbe26caa2eb99976344933c281a77}\label{group__utility__types_gga74641d3dfd6d96d0939b492ecf9b9cc8a27adbe26caa2eb99976344933c281a77} 
+NAN\+\_\+\+IS\+\_\+\+VALID&treat nans as valid elements (non-\/null) \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00127}{127}} 行定义.
+
+\Hypertarget{group__utility__types_ga08a672308cd0f61562410d106b377771}\label{group__utility__types_ga08a672308cd0f61562410d106b377771} 
+\index{Utility\_types@{Utility\_types}!null\_equality@{null\_equality}}
+\index{null\_equality@{null\_equality}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{null\_equality}{null\_equality}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{cudf\+::null\+\_\+equality}} \+: bool\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Enum to consider two nulls as equal or unequal 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EQUAL@{EQUAL}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!EQUAL@{EQUAL}}}\Hypertarget{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}\label{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44} 
+EQUAL&nulls compare equal \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UNEQUAL@{UNEQUAL}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!UNEQUAL@{UNEQUAL}}}\Hypertarget{group__utility__types_gga08a672308cd0f61562410d106b377771ac0df9e531f39895029236b71d0d1c0ac}\label{group__utility__types_gga08a672308cd0f61562410d106b377771ac0df9e531f39895029236b71d0d1c0ac} 
+UNEQUAL&nulls compare unequal \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00144}{144}} 行定义.
+
+\Hypertarget{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}\label{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31} 
+\index{Utility\_types@{Utility\_types}!null\_order@{null\_order}}
+\index{null\_order@{null\_order}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{null\_order}{null\_order}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__utility__types_ga058e6d6e8a21583ce0e85ee73e5abb31}{cudf\+::null\+\_\+order}} \+: bool\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Indicates how null values compare against all other values. 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AFTER@{AFTER}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!AFTER@{AFTER}}}\Hypertarget{group__utility__types_gga058e6d6e8a21583ce0e85ee73e5abb31ac130fda0cb93540bf1574912e78964fb}\label{group__utility__types_gga058e6d6e8a21583ce0e85ee73e5abb31ac130fda0cb93540bf1574912e78964fb} 
+AFTER&NULL values ordered {\itshape after} all other values \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BEFORE@{BEFORE}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!BEFORE@{BEFORE}}}\Hypertarget{group__utility__types_gga058e6d6e8a21583ce0e85ee73e5abb31a3525317285c6126ce3b62a8df8c00b07}\label{group__utility__types_gga058e6d6e8a21583ce0e85ee73e5abb31a3525317285c6126ce3b62a8df8c00b07} 
+BEFORE&NULL values ordered {\itshape before} all other values \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00152}{152}} 行定义.
+
+\Hypertarget{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}\label{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009} 
+\index{Utility\_types@{Utility\_types}!null\_policy@{null\_policy}}
+\index{null\_policy@{null\_policy}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{null\_policy}{null\_policy}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{cudf\+::null\+\_\+policy}} \+: bool\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Enum to specify whether to include nulls or exclude nulls 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EXCLUDE@{EXCLUDE}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!EXCLUDE@{EXCLUDE}}}\Hypertarget{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}\label{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8} 
+EXCLUDE&exclude null elements \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INCLUDE@{INCLUDE}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!INCLUDE@{INCLUDE}}}\Hypertarget{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a04ff6a9583ba9957ebe1128d0f988ad8}\label{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a04ff6a9583ba9957ebe1128d0f988ad8} 
+INCLUDE&include null elements \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00119}{119}} 行定义.
+
+\Hypertarget{group__utility__types_ga750f02016b046079f7062d334890b4fc}\label{group__utility__types_ga750f02016b046079f7062d334890b4fc} 
+\index{Utility\_types@{Utility\_types}!order@{order}}
+\index{order@{order}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{order}{order}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__utility__types_ga750f02016b046079f7062d334890b4fc}{cudf\+::order}} \+: bool\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Indicates the order in which elements should be sorted. 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ASCENDING@{ASCENDING}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!ASCENDING@{ASCENDING}}}\Hypertarget{group__utility__types_gga750f02016b046079f7062d334890b4fca83ec681a20197326c163ea3b39ef7c32}\label{group__utility__types_gga750f02016b046079f7062d334890b4fca83ec681a20197326c163ea3b39ef7c32} 
+ASCENDING&Elements ordered from small to large \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DESCENDING@{DESCENDING}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!DESCENDING@{DESCENDING}}}\Hypertarget{group__utility__types_gga750f02016b046079f7062d334890b4fcacff818f0ae4cef845577e39283886a53}\label{group__utility__types_gga750f02016b046079f7062d334890b4fcacff818f0ae4cef845577e39283886a53} 
+DESCENDING&Elements ordered from large to small \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00111}{111}} 行定义.
+
+\Hypertarget{group__utility__types_gab283c517931abd4152ffa62fec62425d}\label{group__utility__types_gab283c517931abd4152ffa62fec62425d} 
+\index{Utility\_types@{Utility\_types}!sorted@{sorted}}
+\index{sorted@{sorted}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{sorted}{sorted}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__utility__types_gab283c517931abd4152ffa62fec62425d}{cudf\+::sorted}} \+: bool\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Indicates whether a collection of values is known to be sorted. 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NO@{NO}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!NO@{NO}}}\Hypertarget{group__utility__types_ggab283c517931abd4152ffa62fec62425dac2f3f489a00553e7a01d369c103c7251}\label{group__utility__types_ggab283c517931abd4152ffa62fec62425dac2f3f489a00553e7a01d369c103c7251} 
+NO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{YES@{YES}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!YES@{YES}}}\Hypertarget{group__utility__types_ggab283c517931abd4152ffa62fec62425da7469a286259799e5b37e5db9296f00b3}\label{group__utility__types_ggab283c517931abd4152ffa62fec62425da7469a286259799e5b37e5db9296f00b3} 
+YES&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00160}{160}} 行定义.
+
+\Hypertarget{group__utility__types_gadf077607da617d1dadcc5417e2783539}\label{group__utility__types_gadf077607da617d1dadcc5417e2783539} 
+\index{Utility\_types@{Utility\_types}!type\_id@{type\_id}}
+\index{type\_id@{type\_id}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{type\_id}{type\_id}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__utility__types_gadf077607da617d1dadcc5417e2783539}{cudf\+::type\+\_\+id}} \+: int32\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Identifies a column\textquotesingle{}s logical element type 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EMPTY@{EMPTY}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!EMPTY@{EMPTY}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539aba2b45bdc11e2a4a6e86aab2ac693cbb}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539aba2b45bdc11e2a4a6e86aab2ac693cbb} 
+EMPTY&Always null with no underlying data \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INT8@{INT8}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!INT8@{INT8}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539aee9d73311ff0658494edfff14c3ec1e3}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539aee9d73311ff0658494edfff14c3ec1e3} 
+INT8&1 byte signed integer \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INT16@{INT16}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!INT16@{INT16}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539a5f90af42814c0a419d715d43ae54fd7a}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539a5f90af42814c0a419d715d43ae54fd7a} 
+INT16&2 byte signed integer \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INT32@{INT32}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!INT32@{INT32}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539a6495adba09844fac8eeb0aba86e6f1bf}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539a6495adba09844fac8eeb0aba86e6f1bf} 
+INT32&4 byte signed integer \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INT64@{INT64}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!INT64@{INT64}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539a4e866b275c85fbb439f6484251cfb31c}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539a4e866b275c85fbb439f6484251cfb31c} 
+INT64&8 byte signed integer \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UINT8@{UINT8}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!UINT8@{UINT8}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539aecfc091ed2a607335524c8389cfa41b5}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539aecfc091ed2a607335524c8389cfa41b5} 
+UINT8&1 byte unsigned integer \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UINT16@{UINT16}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!UINT16@{UINT16}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539a48d8f1a723d44ff4a87db1bb6c551c62}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539a48d8f1a723d44ff4a87db1bb6c551c62} 
+UINT16&2 byte unsigned integer \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UINT32@{UINT32}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!UINT32@{UINT32}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539a17266551181f69a1b4a3ad5c9e270afc}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539a17266551181f69a1b4a3ad5c9e270afc} 
+UINT32&4 byte unsigned integer \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UINT64@{UINT64}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!UINT64@{UINT64}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539a6de7acf711860176ba606e9aa2b85d5f}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539a6de7acf711860176ba606e9aa2b85d5f} 
+UINT64&8 byte unsigned integer \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FLOAT32@{FLOAT32}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!FLOAT32@{FLOAT32}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539a967d280b5c16d95f2947647dd2ca6cc2}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539a967d280b5c16d95f2947647dd2ca6cc2} 
+FLOAT32&4 byte floating point \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FLOAT64@{FLOAT64}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!FLOAT64@{FLOAT64}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539a139882c654db8a57f7c3092de1dd0b02}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539a139882c654db8a57f7c3092de1dd0b02} 
+FLOAT64&8 byte floating point \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BOOL8@{BOOL8}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!BOOL8@{BOOL8}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539a05afd9eb8887a406d47474cd3809a5dd}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539a05afd9eb8887a406d47474cd3809a5dd} 
+BOOL8&Boolean using one byte per value, 0 == false, else true \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TIMESTAMP\_DAYS@{TIMESTAMP\_DAYS}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!TIMESTAMP\_DAYS@{TIMESTAMP\_DAYS}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539acf04253e348544a8e841a76dfecef3f6}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539acf04253e348544a8e841a76dfecef3f6} 
+TIMESTAMP\+\_\+\+DAYS&point in time in days since Unix Epoch in int32 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TIMESTAMP\_SECONDS@{TIMESTAMP\_SECONDS}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!TIMESTAMP\_SECONDS@{TIMESTAMP\_SECONDS}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539ac46dfe2dc12b66ab3bf6deac3cd1a945}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539ac46dfe2dc12b66ab3bf6deac3cd1a945} 
+TIMESTAMP\+\_\+\+SECONDS&point in time in seconds since Unix Epoch in int64 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TIMESTAMP\_MILLISECONDS@{TIMESTAMP\_MILLISECONDS}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!TIMESTAMP\_MILLISECONDS@{TIMESTAMP\_MILLISECONDS}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539a6244bf5dfcbc1adc3f9b4ccad8333f3c}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539a6244bf5dfcbc1adc3f9b4ccad8333f3c} 
+TIMESTAMP\+\_\+\+MILLISECONDS&point in time in milliseconds since Unix Epoch in int64 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TIMESTAMP\_MICROSECONDS@{TIMESTAMP\_MICROSECONDS}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!TIMESTAMP\_MICROSECONDS@{TIMESTAMP\_MICROSECONDS}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539a7053796e0238a00cf12b96beb273ba30}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539a7053796e0238a00cf12b96beb273ba30} 
+TIMESTAMP\+\_\+\+MICROSECONDS&point in time in microseconds since Unix Epoch in int64 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TIMESTAMP\_NANOSECONDS@{TIMESTAMP\_NANOSECONDS}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!TIMESTAMP\_NANOSECONDS@{TIMESTAMP\_NANOSECONDS}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539ac62360a52ed83eda03975a09f092d7b0}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539ac62360a52ed83eda03975a09f092d7b0} 
+TIMESTAMP\+\_\+\+NANOSECONDS&point in time in nanoseconds since Unix Epoch in int64 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DURATION\_DAYS@{DURATION\_DAYS}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!DURATION\_DAYS@{DURATION\_DAYS}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539a6bafb97dd1ba2c7b2ffee4fece104ec7}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539a6bafb97dd1ba2c7b2ffee4fece104ec7} 
+DURATION\+\_\+\+DAYS&time interval of days in int32 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DURATION\_SECONDS@{DURATION\_SECONDS}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!DURATION\_SECONDS@{DURATION\_SECONDS}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539a77029488e6452eca1a908121589d7fd9}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539a77029488e6452eca1a908121589d7fd9} 
+DURATION\+\_\+\+SECONDS&time interval of seconds in int64 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DURATION\_MILLISECONDS@{DURATION\_MILLISECONDS}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!DURATION\_MILLISECONDS@{DURATION\_MILLISECONDS}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539a446364d0c90ab0072e9fa60cd7c32c3d}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539a446364d0c90ab0072e9fa60cd7c32c3d} 
+DURATION\+\_\+\+MILLISECONDS&time interval of milliseconds in int64 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DURATION\_MICROSECONDS@{DURATION\_MICROSECONDS}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!DURATION\_MICROSECONDS@{DURATION\_MICROSECONDS}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539a7e68d3150eeefe2afcb2d2c138be4d15}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539a7e68d3150eeefe2afcb2d2c138be4d15} 
+DURATION\+\_\+\+MICROSECONDS&time interval of microseconds in int64 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DURATION\_NANOSECONDS@{DURATION\_NANOSECONDS}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!DURATION\_NANOSECONDS@{DURATION\_NANOSECONDS}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539a628d57b49cb66c1d14ce8db33be558ce}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539a628d57b49cb66c1d14ce8db33be558ce} 
+DURATION\+\_\+\+NANOSECONDS&time interval of nanoseconds in int64 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DICTIONARY32@{DICTIONARY32}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!DICTIONARY32@{DICTIONARY32}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539af7ed36b67626ecf59c497f2fdf990b64}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539af7ed36b67626ecf59c497f2fdf990b64} 
+DICTIONARY32&Dictionary type using int32 indices \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STRING@{STRING}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!STRING@{STRING}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539a63b588d5559f64f89a416e656880b949}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539a63b588d5559f64f89a416e656880b949} 
+STRING&String elements \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LIST@{LIST}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!LIST@{LIST}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539a298cb25408234de02baf2085803a464a}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539a298cb25408234de02baf2085803a464a} 
+LIST&List elements \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DECIMAL32@{DECIMAL32}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!DECIMAL32@{DECIMAL32}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539ad75c2c4bd60fd3b76d4cef6e8352b269}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539ad75c2c4bd60fd3b76d4cef6e8352b269} 
+DECIMAL32&Fixed-\/point type with int32\+\_\+t \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DECIMAL64@{DECIMAL64}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!DECIMAL64@{DECIMAL64}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539ad43431506a21dcfd2ada4cd4c28f8f56}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539ad43431506a21dcfd2ada4cd4c28f8f56} 
+DECIMAL64&Fixed-\/point type with int64\+\_\+t \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DECIMAL128@{DECIMAL128}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!DECIMAL128@{DECIMAL128}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539a5e45eca83b8190615a1491aecd3edc21}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539a5e45eca83b8190615a1491aecd3edc21} 
+DECIMAL128&Fixed-\/point type with \+\_\+\+\_\+int128\+\_\+t \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STRUCT@{STRUCT}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!STRUCT@{STRUCT}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539ab8223be2455e0ea5a0e63e8f018d6fc3}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539ab8223be2455e0ea5a0e63e8f018d6fc3} 
+STRUCT&Struct elements \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUM\_TYPE\_IDS@{NUM\_TYPE\_IDS}!Utility\_types@{Utility\_types}}\index{Utility\_types@{Utility\_types}!NUM\_TYPE\_IDS@{NUM\_TYPE\_IDS}}}\Hypertarget{group__utility__types_ggadf077607da617d1dadcc5417e2783539a44b418588ffa2779aaf862dc7aa81f8a}\label{group__utility__types_ggadf077607da617d1dadcc5417e2783539a44b418588ffa2779aaf862dc7aa81f8a} 
+NUM\+\_\+\+TYPE\+\_\+\+IDS&Total number of type ids \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00196}{196}} 行定义.
+
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__utility__types_ga4211fc2c58997473ebae90b522492e39}\label{group__utility__types_ga4211fc2c58997473ebae90b522492e39} 
+\index{Utility\_types@{Utility\_types}!distance@{distance}}
+\index{distance@{distance}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{distance()}{distance()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::distance (\begin{DoxyParamCaption}\item[{T}]{f,  }\item[{T}]{l }\end{DoxyParamCaption})}
+
+
+
+Similar to {\ttfamily std\+::distance} but returns {\ttfamily \doxylink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} and performs {\ttfamily static\+\_\+cast} 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & Iterator type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{参数}
+{\em f} & \"{}first\"{} iterator \\
+\hline
+{\em l} & \"{}last\"{} iterator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+size\+\_\+type The distance between first and last 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00095}{95}} 行定义.
+
+\Hypertarget{group__utility__types_ga73dd2d74b0eafb1543eb1cd27accd38e}\label{group__utility__types_ga73dd2d74b0eafb1543eb1cd27accd38e} 
+\index{Utility\_types@{Utility\_types}!is\_bit\_castable@{is\_bit\_castable}}
+\index{is\_bit\_castable@{is\_bit\_castable}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_bit\_castable()}{is\_bit\_castable()}}
+{\footnotesize\ttfamily bool cudf\+::is\+\_\+bit\+\_\+castable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{from,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{to }\end{DoxyParamCaption})}
+
+
+
+Indicates whether {\ttfamily from} is bit-\/castable to {\ttfamily to}. 
+
+This casting is based on std\+::bit\+\_\+cast. Data types that have the same size and are trivially copyable are eligible for this casting.
+
+See {\ttfamily \doxylink{namespacecudf_a8bd44b61ff4585b5278f2d2203c909b7}{cudf\+::bit\+\_\+cast()}} which returns a zero-\/copy {\ttfamily \doxylink{classcudf_1_1column__view}{column\+\_\+view}} when casting between bit-\/castable types.
+
+
+\begin{DoxyParams}{参数}
+{\em from} & The {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} to convert from \\
+\hline
+{\em to} & The {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} to convert to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+{\ttfamily true} if the types are castable 
+\end{DoxyReturn}
+\Hypertarget{group__utility__types_gaa1b9dd3a6ee95fa52224a53869cd164e}\label{group__utility__types_gaa1b9dd3a6ee95fa52224a53869cd164e} 
+\index{Utility\_types@{Utility\_types}!is\_boolean@{is\_boolean}}
+\index{is\_boolean@{is\_boolean}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_boolean()}{is\_boolean()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr bool cudf\+::is\+\_\+boolean (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Indicates whether {\ttfamily T} is a Boolean type. 
+
+
+\begin{DoxyParams}{参数}
+{\em type} & The {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} to verify \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily type} is Boolean 
+
+false {\ttfamily type} is not Boolean 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00333}{333}} 行定义.
+
+\Hypertarget{group__utility__types_ga73bcdf0744b62b98f4aef5fccea5840c}\label{group__utility__types_ga73bcdf0744b62b98f4aef5fccea5840c} 
+\index{Utility\_types@{Utility\_types}!is\_boolean@{is\_boolean}}
+\index{is\_boolean@{is\_boolean}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_boolean()}{is\_boolean()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool cudf\+::is\+\_\+boolean (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Indicates whether {\ttfamily type} is a Boolean {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. 
+
+
+\begin{DoxyParams}{参数}
+{\em type} & The {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} to verify \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily type} is a Boolean 
+
+false {\ttfamily type} is not a Boolean 
+\end{DoxyReturn}
+\Hypertarget{group__utility__types_ga27d4363f72ef43feeb12c06d90ff44c8}\label{group__utility__types_ga27d4363f72ef43feeb12c06d90ff44c8} 
+\index{Utility\_types@{Utility\_types}!is\_byte@{is\_byte}}
+\index{is\_byte@{is\_byte}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_byte()}{is\_byte()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr bool cudf\+::is\+\_\+byte (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Indicates whether {\ttfamily T} is a std\+::byte type. 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & The type to verify \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily type} is std\+::byte 
+
+false {\ttfamily type} is not std\+::byte 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00320}{320}} 行定义.
+
+\Hypertarget{group__utility__types_ga72f2d42d20b254754fd7bc8f4f32a990}\label{group__utility__types_ga72f2d42d20b254754fd7bc8f4f32a990} 
+\index{Utility\_types@{Utility\_types}!is\_chrono@{is\_chrono}}
+\index{is\_chrono@{is\_chrono}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_chrono()}{is\_chrono()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr bool cudf\+::is\+\_\+chrono (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Indicates whether the type {\ttfamily T} is a chrono type. 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & The type to verify \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily T} is a duration or a timestamp type 
+
+false {\ttfamily T} is neither a duration nor a timestamp type 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00426}{426}} 行定义.
+
+\Hypertarget{group__utility__types_gad2846c31e90421f0cbe7834334822e6a}\label{group__utility__types_gad2846c31e90421f0cbe7834334822e6a} 
+\index{Utility\_types@{Utility\_types}!is\_chrono@{is\_chrono}}
+\index{is\_chrono@{is\_chrono}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_chrono()}{is\_chrono()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool cudf\+::is\+\_\+chrono (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Indicates whether {\ttfamily type} is a chrono {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. 
+
+Chrono types include cudf timestamp types, which represent a point in time, and cudf duration types that represent a time interval.
+
+
+\begin{DoxyParams}{参数}
+{\em type} & The {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} to verify \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily type} is a chrono type 
+
+false {\ttfamily type} is not a chrono type 
+\end{DoxyReturn}
+\Hypertarget{group__utility__types_ga14e1cea4200d1d92d7f38d596333d28a}\label{group__utility__types_ga14e1cea4200d1d92d7f38d596333d28a} 
+\index{Utility\_types@{Utility\_types}!is\_compound@{is\_compound}}
+\index{is\_compound@{is\_compound}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_compound()}{is\_compound()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr bool cudf\+::is\+\_\+compound (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Indicates whether the type {\ttfamily T} is a compound type. 
+
+{\ttfamily column}s with \"{}compound\"{} elements are logically a single column of elements, but may be concretely implemented with two or more {\ttfamily column}s. For example, a {\ttfamily STRING} column could contain a {\ttfamily column} of offsets and a child {\ttfamily column} of characters.
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & The type to verify \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily T} corresponds to a \"{}compound\"{} type 
+
+false {\ttfamily T} corresponds to a \"{}simple\"{} type 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00527}{527}} 行定义.
+
+\Hypertarget{group__utility__types_ga7b9445eeead457a3d5e18a2a675eb8dd}\label{group__utility__types_ga7b9445eeead457a3d5e18a2a675eb8dd} 
+\index{Utility\_types@{Utility\_types}!is\_compound@{is\_compound}}
+\index{is\_compound@{is\_compound}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_compound()}{is\_compound()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool cudf\+::is\+\_\+compound (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Indicates whether elements of {\ttfamily type} are compound. 
+
+{\ttfamily column}s with \"{}compound\"{} elements are logically a single column of elements, but may be concretely implemented with two or more {\ttfamily column}s. For example, a {\ttfamily STRING} column could contain a {\ttfamily column} of offsets and a child {\ttfamily column} of characters.
+
+
+\begin{DoxyParams}{参数}
+{\em type} & The {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} to verify \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily type} is a compound type 
+
+false {\ttfamily type} is a simple type 
+\end{DoxyReturn}
+\Hypertarget{group__utility__types_ga1f0657d191e4b383da031cd506c5196f}\label{group__utility__types_ga1f0657d191e4b383da031cd506c5196f} 
+\index{Utility\_types@{Utility\_types}!is\_dictionary@{is\_dictionary}}
+\index{is\_dictionary@{is\_dictionary}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_dictionary()}{is\_dictionary()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr bool cudf\+::is\+\_\+dictionary (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Indicates whether the type {\ttfamily T} is a dictionary type. 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & The type to verify \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily T} is a dictionary-\/type 
+
+false {\ttfamily T} is not dictionary-\/type 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00470}{470}} 行定义.
+
+\Hypertarget{group__utility__types_ga0e213a7906791cb36453a966a16bf326}\label{group__utility__types_ga0e213a7906791cb36453a966a16bf326} 
+\index{Utility\_types@{Utility\_types}!is\_dictionary@{is\_dictionary}}
+\index{is\_dictionary@{is\_dictionary}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_dictionary()}{is\_dictionary()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool cudf\+::is\+\_\+dictionary (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Indicates whether {\ttfamily type} is a dictionary {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. 
+
+
+\begin{DoxyParams}{参数}
+{\em type} & The {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} to verify \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily type} is a dictionary type 
+
+false {\ttfamily type} is not a dictionary type 
+\end{DoxyReturn}
+\Hypertarget{group__utility__types_ga5196242442d99904c755da4920f1043f}\label{group__utility__types_ga5196242442d99904c755da4920f1043f} 
+\index{Utility\_types@{Utility\_types}!is\_duration@{is\_duration}}
+\index{is\_duration@{is\_duration}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_duration()}{is\_duration()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr bool cudf\+::is\+\_\+duration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Indicates whether the type {\ttfamily T} is a duration type. 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & The type to verify \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily T} is a duration 
+
+false {\ttfamily T} is not a duration 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00402}{402}} 行定义.
+
+\Hypertarget{group__utility__types_ga285e3a7963fa18d913c1c9ff389d58ba}\label{group__utility__types_ga285e3a7963fa18d913c1c9ff389d58ba} 
+\index{Utility\_types@{Utility\_types}!is\_duration@{is\_duration}}
+\index{is\_duration@{is\_duration}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_duration()}{is\_duration()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool cudf\+::is\+\_\+duration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Indicates whether {\ttfamily type} is a duration {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. 
+
+\"{}\+Duration\"{} types are int32\+\_\+t or int64\+\_\+t tick counts representing a time interval.
+
+
+\begin{DoxyParams}{参数}
+{\em type} & The {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} to verify \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily type} is a duration 
+
+false {\ttfamily type} is not a duration 
+\end{DoxyReturn}
+\Hypertarget{group__utility__types_ga82f7470f89e1e2b53077246712787120}\label{group__utility__types_ga82f7470f89e1e2b53077246712787120} 
+\index{Utility\_types@{Utility\_types}!is\_equality\_comparable@{is\_equality\_comparable}}
+\index{is\_equality\_comparable@{is\_equality\_comparable}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_equality\_comparable()}{is\_equality\_comparable()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename L , typename R $>$ \\
+constexpr bool cudf\+::is\+\_\+equality\+\_\+comparable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Indicates whether objects of types {\ttfamily L} and {\ttfamily R} can be compared for equality. 
+
+Given two objects {\ttfamily L l}, and {\ttfamily R r}, returns true if {\ttfamily l == r} is a well-\/formed expression.
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em L} & Type of the first object \\
+\hline
+{\em R} & Type of the second object \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+true Objects of types {\ttfamily L} and {\ttfamily R} can be compared for equality 
+
+false Objects of types {\ttfamily L} and {\ttfamily R} cannot be compared 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00158}{158}} 行定义.
+
+\Hypertarget{group__utility__types_ga40162d35408ca1e9cc9b02af29b7149d}\label{group__utility__types_ga40162d35408ca1e9cc9b02af29b7149d} 
+\index{Utility\_types@{Utility\_types}!is\_equality\_comparable@{is\_equality\_comparable}}
+\index{is\_equality\_comparable@{is\_equality\_comparable}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_equality\_comparable()}{is\_equality\_comparable()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool cudf\+::is\+\_\+equality\+\_\+comparable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Checks whether {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} {\ttfamily type} supports equality comparisons. 
+
+
+\begin{DoxyParams}{参数}
+{\em type} & Data\+\_\+type for comparison. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true If {\ttfamily type} supports equality comparisons. 
+
+false If {\ttfamily type} does not support equality comparisons. 
+\end{DoxyReturn}
+\Hypertarget{group__utility__types_ga02880fc9d2470aa36761dfe41c5309ee}\label{group__utility__types_ga02880fc9d2470aa36761dfe41c5309ee} 
+\index{Utility\_types@{Utility\_types}!is\_fixed\_point@{is\_fixed\_point}}
+\index{is\_fixed\_point@{is\_fixed\_point}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_fixed\_point()}{is\_fixed\_point()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr bool cudf\+::is\+\_\+fixed\+\_\+point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Indicates whether the type {\ttfamily T} is a fixed-\/point type. 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & The type to verify \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily T} is a fixed-\/point type 
+
+false {\ttfamily T} is not a fixed-\/point type 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00379}{379}} 行定义.
+
+\Hypertarget{group__utility__types_gad339e701fa8a26d7630aa28f846399fb}\label{group__utility__types_gad339e701fa8a26d7630aa28f846399fb} 
+\index{Utility\_types@{Utility\_types}!is\_fixed\_point@{is\_fixed\_point}}
+\index{is\_fixed\_point@{is\_fixed\_point}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_fixed\_point()}{is\_fixed\_point()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool cudf\+::is\+\_\+fixed\+\_\+point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Indicates whether {\ttfamily type} is a fixed point {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. 
+
+
+\begin{DoxyParams}{参数}
+{\em type} & The {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} to verify \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily type} is a fixed point type 
+
+false {\ttfamily type} is not a fixed point type 
+\end{DoxyReturn}
+\Hypertarget{group__utility__types_gaaa937abead085ea9420b15c6473f08a7}\label{group__utility__types_gaaa937abead085ea9420b15c6473f08a7} 
+\index{Utility\_types@{Utility\_types}!is\_fixed\_width@{is\_fixed\_width}}
+\index{is\_fixed\_width@{is\_fixed\_width}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_fixed\_width()}{is\_fixed\_width()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr bool cudf\+::is\+\_\+fixed\+\_\+width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Indicates whether elements of type {\ttfamily T} are fixed-\/width. 
+
+Elements of a fixed-\/width type all have the same size in bytes.
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & The C++ type to verify \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily T} corresponds to a fixed-\/width element type 
+
+false {\ttfamily T} corresponds to a variable-\/width element type 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00494}{494}} 行定义.
+
+\Hypertarget{group__utility__types_gad588b3f9ca419e5a32f1ce42031994a5}\label{group__utility__types_gad588b3f9ca419e5a32f1ce42031994a5} 
+\index{Utility\_types@{Utility\_types}!is\_fixed\_width@{is\_fixed\_width}}
+\index{is\_fixed\_width@{is\_fixed\_width}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_fixed\_width()}{is\_fixed\_width()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool cudf\+::is\+\_\+fixed\+\_\+width (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Indicates whether elements of {\ttfamily type} are fixed-\/width. 
+
+Elements of a fixed-\/width type all have the same size in bytes.
+
+
+\begin{DoxyParams}{参数}
+{\em type} & The {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} to verify \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily type} is fixed-\/width 
+
+false {\ttfamily type} is variable-\/width 
+\end{DoxyReturn}
+\Hypertarget{group__utility__types_gaac36fa8429a279de79c2afec53c02ee8}\label{group__utility__types_gaac36fa8429a279de79c2afec53c02ee8} 
+\index{Utility\_types@{Utility\_types}!is\_floating\_point@{is\_floating\_point}}
+\index{is\_floating\_point@{is\_floating\_point}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_floating\_point()}{is\_floating\_point()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr bool cudf\+::is\+\_\+floating\+\_\+point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Indicates whether the type {\ttfamily T} is a floating point type. 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & The type to verify \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily T} is floating point 
+
+false {\ttfamily T} is not floating point 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00296}{296}} 行定义.
+
+\Hypertarget{group__utility__types_ga947bd07e5edd70d8d56b38aeb856e9c6}\label{group__utility__types_ga947bd07e5edd70d8d56b38aeb856e9c6} 
+\index{Utility\_types@{Utility\_types}!is\_floating\_point@{is\_floating\_point}}
+\index{is\_floating\_point@{is\_floating\_point}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_floating\_point()}{is\_floating\_point()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool cudf\+::is\+\_\+floating\+\_\+point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Indicates whether {\ttfamily type} is a floating point {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. 
+
+\"{}\+Floating point\"{} types are fundamental floating point types such as {\ttfamily FLOAT\texorpdfstring{$\ast$}{*}}.
+
+
+\begin{DoxyParams}{参数}
+{\em type} & The {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} to verify \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily type} is floating point 
+
+false {\ttfamily type} is not floating point 
+\end{DoxyReturn}
+\Hypertarget{group__utility__types_ga79a73ff286550b2f4fc764a6dbc2d782}\label{group__utility__types_ga79a73ff286550b2f4fc764a6dbc2d782} 
+\index{Utility\_types@{Utility\_types}!is\_index\_type@{is\_index\_type}}
+\index{is\_index\_type@{is\_index\_type}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_index\_type()}{is\_index\_type()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr bool cudf\+::is\+\_\+index\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Indicates whether the type {\ttfamily T} is a index type. 
+
+A type {\ttfamily T} is considered an index type if it is valid to use elements of type {\ttfamily T} to index into a column. I.\+e., index types are integral types such as \textquotesingle{}INT\texorpdfstring{$\ast$}{*}\textquotesingle{} apart from \textquotesingle{}bool\textquotesingle{}.
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & The type to verify \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily T} is index type 
+
+false {\ttfamily T} is not index type 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00210}{210}} 行定义.
+
+\Hypertarget{group__utility__types_ga4c4225b65c8d89fc680fc705676ff6f1}\label{group__utility__types_ga4c4225b65c8d89fc680fc705676ff6f1} 
+\index{Utility\_types@{Utility\_types}!is\_index\_type@{is\_index\_type}}
+\index{is\_index\_type@{is\_index\_type}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_index\_type()}{is\_index\_type()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool cudf\+::is\+\_\+index\+\_\+type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Indicates whether the type {\ttfamily type} is a index type. 
+
+A type {\ttfamily T} is considered an index type if it is valid to use elements of type {\ttfamily T} to index into a column. I.\+e., index types are integral types such as \textquotesingle{}INT\texorpdfstring{$\ast$}{*}\textquotesingle{} apart from \textquotesingle{}bool\textquotesingle{}.
+
+
+\begin{DoxyParams}{参数}
+{\em type} & The {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} to verify \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily type} is index type 
+
+false {\ttfamily type} is not index type 
+\end{DoxyReturn}
+\Hypertarget{group__utility__types_gaa964d11859bcec770945cf53d964371c}\label{group__utility__types_gaa964d11859bcec770945cf53d964371c} 
+\index{Utility\_types@{Utility\_types}!is\_integral@{is\_integral}}
+\index{is\_integral@{is\_integral}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_integral()}{is\_integral()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr bool cudf\+::is\+\_\+integral (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Indicates whether the type {\ttfamily T} is an integral type. 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & The type to verify \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily T} is integral 
+
+false {\ttfamily T} is not integral 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00272}{272}} 行定义.
+
+\Hypertarget{group__utility__types_ga31c663c44b3af8ae957a1d514052c923}\label{group__utility__types_ga31c663c44b3af8ae957a1d514052c923} 
+\index{Utility\_types@{Utility\_types}!is\_integral@{is\_integral}}
+\index{is\_integral@{is\_integral}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_integral()}{is\_integral()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool cudf\+::is\+\_\+integral (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Indicates whether {\ttfamily type} is a integral {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. 
+
+\"{}\+Integral\"{} types are fundamental integer types such as {\ttfamily INT\texorpdfstring{$\ast$}{*}} and {\ttfamily UINT\texorpdfstring{$\ast$}{*}}.
+
+
+\begin{DoxyParams}{参数}
+{\em type} & The {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} to verify \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily type} is integral 
+
+false {\ttfamily type} is integral 
+\end{DoxyReturn}
+\Hypertarget{group__utility__types_gacaa242e2e068ab62bdaae071ed748357}\label{group__utility__types_gacaa242e2e068ab62bdaae071ed748357} 
+\index{Utility\_types@{Utility\_types}!is\_nested@{is\_nested}}
+\index{is\_nested@{is\_nested}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_nested()}{is\_nested()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr bool cudf\+::is\+\_\+nested (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Indicates whether {\ttfamily T} is a nested type. 
+
+\"{}\+Nested\"{} types are distinct from compound types in that they can have an arbitrarily deep list of descendants of the same type. Strings are not a nested type, but lists are.
+
+
+\begin{DoxyParams}{参数}
+{\em T} & The type to verify \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true T is a nested type 
+
+false T is not a nested type 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00559}{559}} 行定义.
+
+\Hypertarget{group__utility__types_ga8bfcb79b22de847a085d106dbf813c03}\label{group__utility__types_ga8bfcb79b22de847a085d106dbf813c03} 
+\index{Utility\_types@{Utility\_types}!is\_nested@{is\_nested}}
+\index{is\_nested@{is\_nested}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_nested()}{is\_nested()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool cudf\+::is\+\_\+nested (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Indicates whether {\ttfamily type} is a nested type 
+
+\"{}\+Nested\"{} types are distinct from compound types in that they can have an arbitrarily deep list of descendants of the same type. Strings are not a nested type, but lists are.
+
+
+\begin{DoxyParams}{参数}
+{\em type} & The {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} to verify \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily type} is a nested type 
+
+false {\ttfamily type} is not a nested type 
+\end{DoxyReturn}
+\Hypertarget{group__utility__types_ga736c39af324b57534639bd3d8af357e4}\label{group__utility__types_ga736c39af324b57534639bd3d8af357e4} 
+\index{Utility\_types@{Utility\_types}!is\_numeric@{is\_numeric}}
+\index{is\_numeric@{is\_numeric}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_numeric()}{is\_numeric()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr bool cudf\+::is\+\_\+numeric (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Indicates whether the type {\ttfamily T} is a numeric type. 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & The type to verify \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily T} is numeric 
+
+false {\ttfamily T} is not numeric 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00180}{180}} 行定义.
+
+\Hypertarget{group__utility__types_ga2eaf2d3443dd8aa17724e78190b537ba}\label{group__utility__types_ga2eaf2d3443dd8aa17724e78190b537ba} 
+\index{Utility\_types@{Utility\_types}!is\_numeric@{is\_numeric}}
+\index{is\_numeric@{is\_numeric}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_numeric()}{is\_numeric()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool cudf\+::is\+\_\+numeric (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Indicates whether {\ttfamily type} is a numeric {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. 
+
+\"{}\+Numeric\"{} types are fundamental integral/floating point types such as {\ttfamily INT\texorpdfstring{$\ast$}{*}} or {\ttfamily FLOAT\texorpdfstring{$\ast$}{*}}. Types that wrap a numeric type are not considered numeric, e.\+g., {\ttfamily TIMESTAMP}.
+
+
+\begin{DoxyParams}{参数}
+{\em type} & The {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} to verify \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily type} is numeric 
+
+false {\ttfamily type} is not numeric 
+\end{DoxyReturn}
+\Hypertarget{group__utility__types_gaef9b08b206b1340c5ac3893d17943309}\label{group__utility__types_gaef9b08b206b1340c5ac3893d17943309} 
+\index{Utility\_types@{Utility\_types}!is\_relationally\_comparable@{is\_relationally\_comparable}}
+\index{is\_relationally\_comparable@{is\_relationally\_comparable}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_relationally\_comparable()}{is\_relationally\_comparable()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename L , typename R $>$ \\
+constexpr bool cudf\+::is\+\_\+relationally\+\_\+comparable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Indicates whether objects of types {\ttfamily L} and {\ttfamily R} can be relationally compared. 
+
+Given two objects {\ttfamily L l}, and {\ttfamily R r}, returns true if {\ttfamily l \texorpdfstring{$<$}{<} r} and {\ttfamily l \texorpdfstring{$>$}{>} r} are well-\/formed expressions.
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em L} & Type of the first object \\
+\hline
+{\em R} & Type of the second object \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+true Objects of types {\ttfamily L} and {\ttfamily R} can be relationally be compared 
+
+false Objects of types {\ttfamily L} and {\ttfamily R} cannot be compared 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00131}{131}} 行定义.
+
+\Hypertarget{group__utility__types_ga645a96d47abea35f5da669ecf10ceae7}\label{group__utility__types_ga645a96d47abea35f5da669ecf10ceae7} 
+\index{Utility\_types@{Utility\_types}!is\_relationally\_comparable@{is\_relationally\_comparable}}
+\index{is\_relationally\_comparable@{is\_relationally\_comparable}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_relationally\_comparable()}{is\_relationally\_comparable()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool cudf\+::is\+\_\+relationally\+\_\+comparable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Checks whether {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} {\ttfamily type} supports relational comparisons. 
+
+
+\begin{DoxyParams}{参数}
+{\em type} & Data\+\_\+type for comparison. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true If {\ttfamily type} supports relational comparisons. 
+
+false If {\ttfamily type} does not support relational comparisons. 
+\end{DoxyReturn}
+\Hypertarget{group__utility__types_ga7c6839d4131493a1277f78a686226e54}\label{group__utility__types_ga7c6839d4131493a1277f78a686226e54} 
+\index{Utility\_types@{Utility\_types}!is\_rep\_layout\_compatible@{is\_rep\_layout\_compatible}}
+\index{is\_rep\_layout\_compatible@{is\_rep\_layout\_compatible}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_rep\_layout\_compatible()}{is\_rep\_layout\_compatible()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr bool cudf\+::is\+\_\+rep\+\_\+layout\+\_\+compatible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Indicates whether {\ttfamily T} is layout compatible with its \"{}representation\"{} type. 
+
+For example, in a column, a {\ttfamily decimal32} is concretely represented by a single {\ttfamily int32\+\_\+t}, but the {\ttfamily decimal32} type itself contains both the integer representation and the scale. Therefore, {\ttfamily decimal32} is {\itshape not} layout compatible with {\ttfamily int32\+\_\+t}.
+
+As further example, {\ttfamily duration\+\_\+ns} is distinct from its concrete {\ttfamily int64\+\_\+t} representation type, but they are layout compatible.
+
+\begin{DoxyReturn}{返回}
+true if {\ttfamily T} is layout compatible with its \"{}representation\"{} type 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00456}{456}} 行定义.
+
+\Hypertarget{group__utility__types_ga960cec36c56cd253a84fcd2cec3933f9}\label{group__utility__types_ga960cec36c56cd253a84fcd2cec3933f9} 
+\index{Utility\_types@{Utility\_types}!is\_signed\_iterator@{is\_signed\_iterator}}
+\index{is\_signed\_iterator@{is\_signed\_iterator}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_signed\_iterator()}{is\_signed\_iterator()}}
+{\footnotesize\ttfamily template$<$typename Iterator $>$ \\
+constexpr bool cudf\+::is\+\_\+signed\+\_\+iterator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Indicates whether the {\ttfamily Iterator} value type is unsigned. 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em Iterator} & The type to verify \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+true if the iterator\textquotesingle{}s value type is unsigned 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00259}{259}} 行定义.
+
+\Hypertarget{group__utility__types_ga90ebb90931abfed637396889b7829173}\label{group__utility__types_ga90ebb90931abfed637396889b7829173} 
+\index{Utility\_types@{Utility\_types}!is\_timestamp@{is\_timestamp}}
+\index{is\_timestamp@{is\_timestamp}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_timestamp()}{is\_timestamp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr bool cudf\+::is\+\_\+timestamp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Indicates whether the type {\ttfamily T} is a timestamp type. 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & The type to verify \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily T} is a timestamp 
+
+false {\ttfamily T} is not a timestamp 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00355}{355}} 行定义.
+
+\Hypertarget{group__utility__types_ga92ea03fd93fa19ae17c3190cb439e5b3}\label{group__utility__types_ga92ea03fd93fa19ae17c3190cb439e5b3} 
+\index{Utility\_types@{Utility\_types}!is\_timestamp@{is\_timestamp}}
+\index{is\_timestamp@{is\_timestamp}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_timestamp()}{is\_timestamp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool cudf\+::is\+\_\+timestamp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Indicates whether {\ttfamily type} is a timestamp {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. 
+
+\"{}\+Timestamp\"{} types are int32\+\_\+t or int64\+\_\+t durations since the unix epoch.
+
+
+\begin{DoxyParams}{参数}
+{\em type} & The {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} to verify \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily type} is a timestamp 
+
+false {\ttfamily type} is not a timestamp 
+\end{DoxyReturn}
+\Hypertarget{group__utility__types_gaf186010866f2f5eb497467963eaf3d54}\label{group__utility__types_gaf186010866f2f5eb497467963eaf3d54} 
+\index{Utility\_types@{Utility\_types}!is\_unsigned@{is\_unsigned}}
+\index{is\_unsigned@{is\_unsigned}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_unsigned()}{is\_unsigned()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr bool cudf\+::is\+\_\+unsigned (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Indicates whether the type {\ttfamily T} is a unsigned numeric type. 
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em T} & The type to verify \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily T} is unsigned numeric 
+
+false {\ttfamily T} is signed numeric 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00236}{236}} 行定义.
+
+\Hypertarget{group__utility__types_ga95969e57d58b6b7468b1cba9f435d95e}\label{group__utility__types_ga95969e57d58b6b7468b1cba9f435d95e} 
+\index{Utility\_types@{Utility\_types}!is\_unsigned@{is\_unsigned}}
+\index{is\_unsigned@{is\_unsigned}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{is\_unsigned()}{is\_unsigned()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool cudf\+::is\+\_\+unsigned (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Indicates whether {\ttfamily type} is a unsigned numeric {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}. 
+
+\"{}\+Unsigned Numeric\"{} types are fundamental integral types such as {\ttfamily UINT\texorpdfstring{$\ast$}{*}}.
+
+
+\begin{DoxyParams}{参数}
+{\em type} & The {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} to verify \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily type} is unsigned numeric 
+
+false {\ttfamily type} is signed numeric 
+\end{DoxyReturn}
+\Hypertarget{group__utility__types_ga832a5fbbf8b2adc9aae9f96798813720}\label{group__utility__types_ga832a5fbbf8b2adc9aae9f96798813720} 
+\index{Utility\_types@{Utility\_types}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool cudf\+::operator!= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} const \&}]{lhs,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} const \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Compares two {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} objects for inequality. 
+
+// TODO Define exactly what it means for two {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}s to be equal. e.\+g., are two timestamps with different resolutions equal? How about decimals with different scale/precision?
+
+
+\begin{DoxyParams}{参数}
+{\em lhs} & The first {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} to compare \\
+\hline
+{\em rhs} & The second {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily lhs} is not equal to {\ttfamily rhs} 
+
+false {\ttfamily lhs} is equal to {\ttfamily rhs} 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00327}{327}} 行定义.
+
+\Hypertarget{group__utility__types_ga43d59dc0b7badf0776db20b172210045}\label{group__utility__types_ga43d59dc0b7badf0776db20b172210045} 
+\index{Utility\_types@{Utility\_types}!operator==@{operator==}}
+\index{operator==@{operator==}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily constexpr bool cudf\+::operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} const \&}]{lhs,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} const \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Compares two {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} objects for equality. 
+
+// TODO Define exactly what it means for two {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}}s to be equal. e.\+g., are two timestamps with different resolutions equal? How about decimals with different scale/precision?
+
+
+\begin{DoxyParams}{参数}
+{\em lhs} & The first {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} to compare \\
+\hline
+{\em rhs} & The second {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+true {\ttfamily lhs} is equal to {\ttfamily rhs} 
+
+false {\ttfamily lhs} is not equal to {\ttfamily rhs} 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00309}{309}} 行定义.
+
+\Hypertarget{group__utility__types_ga51b0daf2c01663d51cb3b87ad8ce93c0}\label{group__utility__types_ga51b0daf2c01663d51cb3b87ad8ce93c0} 
+\index{Utility\_types@{Utility\_types}!size\_of@{size\_of}}
+\index{size\_of@{size\_of}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{size\_of()}{size\_of()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t cudf\+::size\+\_\+of (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{t }\end{DoxyParamCaption})}
+
+
+
+Returns the size in bytes of elements of the specified {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} 
+
+\begin{DoxyNote}{注解}
+Only fixed-\/width types are supported
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily is\+\_\+fixed\+\_\+width(element\+\_\+type) == false}\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em t} & The {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} to get the size of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Size in bytes of an element of the specified {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} 
+\end{DoxyReturn}
+
+
+\doxysubsection{变量说明}
+\Hypertarget{group__utility__types_ga96e9ce4d30dc9a948112d814ee4cba79}\label{group__utility__types_ga96e9ce4d30dc9a948112d814ee4cba79} 
+\index{Utility\_types@{Utility\_types}!has\_common\_type\_v@{has\_common\_type\_v}}
+\index{has\_common\_type\_v@{has\_common\_type\_v}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{has\_common\_type\_v}{has\_common\_type\_v}}
+{\footnotesize\ttfamily template$<$typename... Ts$>$ \\
+constexpr bool cudf\+::has\+\_\+common\+\_\+type\+\_\+v = \mbox{\hyperlink{structcudf_1_1detail_1_1has__common__type__impl}{detail\+::has\+\_\+common\+\_\+type\+\_\+impl}}$<$void, Ts...$>$\+::value\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Helper variable template for has\+\_\+common\+\_\+type$<$$>$\+::value 
+
+
+
+在文件 \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}} 第 \mbox{\hyperlink{traits_8hpp_source_l00100}{100}} 行定义.
+
+\Hypertarget{group__utility__types_ga0eece3f40ff89fe8f1117097d86913b7}\label{group__utility__types_ga0eece3f40ff89fe8f1117097d86913b7} 
+\index{Utility\_types@{Utility\_types}!UNKNOWN\_NULL\_COUNT@{UNKNOWN\_NULL\_COUNT}}
+\index{UNKNOWN\_NULL\_COUNT@{UNKNOWN\_NULL\_COUNT}!Utility\_types@{Utility\_types}}
+\doxysubsubsection{\texorpdfstring{UNKNOWN\_NULL\_COUNT}{UNKNOWN\_NULL\_COUNT}}
+{\footnotesize\ttfamily constexpr \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::\+UNKNOWN\+\_\+\+NULL\+\_\+\+COUNT \{-\/1\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Indicates an unknown null count. 
+
+Use this value when constructing any column-\/like object to indicate that the null count should be computed on the first invocation of {\ttfamily null\+\_\+count()}. 
+
+在文件 \mbox{\hyperlink{types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{types_8hpp_source_l00106}{106}} 行定义.
+

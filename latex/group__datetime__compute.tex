@@ -1,0 +1,407 @@
+\doxysection{Datetime\+\_\+compute}
+\hypertarget{group__datetime__compute}{}\label{group__datetime__compute}\index{Datetime\_compute@{Datetime\_compute}}
+Datetime\+\_\+compute 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__datetime__compute}
+\end{center}
+\end{figure}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{datetime_8hpp}{datetime.\+hpp}}
+\begin{DoxyCompactList}\small\item\em Date\+Time column APIs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__datetime__compute_gaf04facbc9720e8f048637c9726233e7a}{cudf\+::datetime\+::rounding\+\_\+frequency}} \+: int32\+\_\+t \{ \newline
+\mbox{\hyperlink{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa5b1d59b5451c06afb65ab1bc2713cfb4}{cudf\+::datetime\+::rounding\+\_\+frequency\+::\+DAY}}
+, \mbox{\hyperlink{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aadd3f965174e8bb2f64523981626ced1a}{cudf\+::datetime\+::rounding\+\_\+frequency\+::\+HOUR}}
+, \mbox{\hyperlink{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa46bda4cde2f10bdb9e51e3bbefa4a2bf}{cudf\+::datetime\+::rounding\+\_\+frequency\+::\+MINUTE}}
+, \mbox{\hyperlink{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa2200becb80f0019c4a2ccecec350d0db}{cudf\+::datetime\+::rounding\+\_\+frequency\+::\+SECOND}}
+, \newline
+\mbox{\hyperlink{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa241d7907de05ad50c011812e927cd671}{cudf\+::datetime\+::rounding\+\_\+frequency\+::\+MILLISECOND}}
+, \mbox{\hyperlink{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa52a3ae8e5d772e28d4e2105fefd2eed1}{cudf\+::datetime\+::rounding\+\_\+frequency\+::\+MICROSECOND}}
+, \mbox{\hyperlink{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aaeb8c6d69310ffef899148b680e672652}{cudf\+::datetime\+::rounding\+\_\+frequency\+::\+NANOSECOND}}
+ \}
+\begin{DoxyCompactList}\small\item\em Fixed frequencies supported by datetime rounding functions ceil, floor, round. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__compute_ga53b4a3c8e588d84bdb88a06487ed1c00}{cudf\+::datetime\+::last\+\_\+day\+\_\+of\+\_\+month}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Computes the last day of the month in datetime type and returns a TIMESTAMP\+\_\+\+DAYS \doxylink{classcudf_1_1column}{cudf\+::column}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__compute_ga7fc1f768573a03ac6a03351f35af2517}{cudf\+::datetime\+::day\+\_\+of\+\_\+year}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Computes the day number since the start of the year from the datetime and returns an int16\+\_\+t \doxylink{classcudf_1_1column}{cudf\+::column}. The value is between \mbox{[}1, \{365-\/366\}\mbox{]} \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__compute_ga297d69fb9e7f257500458c3d1e5ed1f0}{cudf\+::datetime\+::add\+\_\+calendrical\+\_\+months}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&timestamps, \mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&months, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Adds or subtracts a number of months from the datetime type and returns a timestamp column that is of the same type as the input {\ttfamily timestamps} column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__compute_gaa339bd351bd3d48779a9ca1261515e36}{cudf\+::datetime\+::add\+\_\+calendrical\+\_\+months}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&timestamps, \mbox{\hyperlink{classcudf_1_1scalar}{cudf\+::scalar}} const \&months, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Adds or subtracts a number of months from the datetime type and returns a timestamp column that is of the same type as the input {\ttfamily timestamps} column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__compute_ga1d4d2721577faab676dcd8df1748de04}{cudf\+::datetime\+::is\+\_\+leap\+\_\+year}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Check if the year of the given date is a leap year \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__compute_ga26305295987c9f5e25a5fcb8da95f571}{cudf\+::datetime\+::days\+\_\+in\+\_\+month}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Extract the number of days in the month \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__compute_ga2f94182ad9c59b07de255770849a8a07}{cudf\+::datetime\+::extract\+\_\+quarter}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns the quarter of the date \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__compute_ga0a988cff7bc684f098188e6e11e9f145}{cudf\+::datetime\+::ceil\+\_\+datetimes}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, \mbox{\hyperlink{group__datetime__compute_gaf04facbc9720e8f048637c9726233e7a}{rounding\+\_\+frequency}} freq, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Round datetimes up to the nearest multiple of the given frequency. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__compute_ga4636bf1c0681d1c42e72022e7b2a8cc7}{cudf\+::datetime\+::floor\+\_\+datetimes}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, \mbox{\hyperlink{group__datetime__compute_gaf04facbc9720e8f048637c9726233e7a}{rounding\+\_\+frequency}} freq, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Round datetimes down to the nearest multiple of the given frequency. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__datetime__compute_ga6b9612e4fd08172bec84c600cb7292db}{cudf\+::datetime\+::round\+\_\+datetimes}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1column}{column}}, \mbox{\hyperlink{group__datetime__compute_gaf04facbc9720e8f048637c9726233e7a}{rounding\+\_\+frequency}} freq, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Round datetimes to the nearest multiple of the given frequency. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{枚举类型说明}
+\Hypertarget{group__datetime__compute_gaf04facbc9720e8f048637c9726233e7a}\label{group__datetime__compute_gaf04facbc9720e8f048637c9726233e7a} 
+\index{Datetime\_compute@{Datetime\_compute}!rounding\_frequency@{rounding\_frequency}}
+\index{rounding\_frequency@{rounding\_frequency}!Datetime\_compute@{Datetime\_compute}}
+\doxysubsubsection{\texorpdfstring{rounding\_frequency}{rounding\_frequency}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__datetime__compute_gaf04facbc9720e8f048637c9726233e7a}{cudf\+::datetime\+::rounding\+\_\+frequency}} \+: int32\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Fixed frequencies supported by datetime rounding functions ceil, floor, round. 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DAY@{DAY}!Datetime\_compute@{Datetime\_compute}}\index{Datetime\_compute@{Datetime\_compute}!DAY@{DAY}}}\Hypertarget{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa5b1d59b5451c06afb65ab1bc2713cfb4}\label{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa5b1d59b5451c06afb65ab1bc2713cfb4} 
+DAY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HOUR@{HOUR}!Datetime\_compute@{Datetime\_compute}}\index{Datetime\_compute@{Datetime\_compute}!HOUR@{HOUR}}}\Hypertarget{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aadd3f965174e8bb2f64523981626ced1a}\label{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aadd3f965174e8bb2f64523981626ced1a} 
+HOUR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MINUTE@{MINUTE}!Datetime\_compute@{Datetime\_compute}}\index{Datetime\_compute@{Datetime\_compute}!MINUTE@{MINUTE}}}\Hypertarget{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa46bda4cde2f10bdb9e51e3bbefa4a2bf}\label{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa46bda4cde2f10bdb9e51e3bbefa4a2bf} 
+MINUTE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SECOND@{SECOND}!Datetime\_compute@{Datetime\_compute}}\index{Datetime\_compute@{Datetime\_compute}!SECOND@{SECOND}}}\Hypertarget{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa2200becb80f0019c4a2ccecec350d0db}\label{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa2200becb80f0019c4a2ccecec350d0db} 
+SECOND&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MILLISECOND@{MILLISECOND}!Datetime\_compute@{Datetime\_compute}}\index{Datetime\_compute@{Datetime\_compute}!MILLISECOND@{MILLISECOND}}}\Hypertarget{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa241d7907de05ad50c011812e927cd671}\label{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa241d7907de05ad50c011812e927cd671} 
+MILLISECOND&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MICROSECOND@{MICROSECOND}!Datetime\_compute@{Datetime\_compute}}\index{Datetime\_compute@{Datetime\_compute}!MICROSECOND@{MICROSECOND}}}\Hypertarget{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa52a3ae8e5d772e28d4e2105fefd2eed1}\label{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aa52a3ae8e5d772e28d4e2105fefd2eed1} 
+MICROSECOND&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NANOSECOND@{NANOSECOND}!Datetime\_compute@{Datetime\_compute}}\index{Datetime\_compute@{Datetime\_compute}!NANOSECOND@{NANOSECOND}}}\Hypertarget{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aaeb8c6d69310ffef899148b680e672652}\label{group__datetime__compute_ggaf04facbc9720e8f048637c9726233e7aaeb8c6d69310ffef899148b680e672652} 
+NANOSECOND&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{datetime_8hpp_source}{datetime.\+hpp}} 第 \mbox{\hyperlink{datetime_8hpp_source_l00345}{345}} 行定义.
+
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__datetime__compute_ga297d69fb9e7f257500458c3d1e5ed1f0}\label{group__datetime__compute_ga297d69fb9e7f257500458c3d1e5ed1f0} 
+\index{Datetime\_compute@{Datetime\_compute}!add\_calendrical\_months@{add\_calendrical\_months}}
+\index{add\_calendrical\_months@{add\_calendrical\_months}!Datetime\_compute@{Datetime\_compute}}
+\doxysubsubsection{\texorpdfstring{add\_calendrical\_months()}{add\_calendrical\_months()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ cudf\+::datetime\+::add\+\_\+calendrical\+\_\+months (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&}]{timestamps,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&}]{months,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Adds or subtracts a number of months from the datetime type and returns a timestamp column that is of the same type as the input {\ttfamily timestamps} column. 
+
+For a given row, if the {\ttfamily timestamps} or the {\ttfamily months} column value is null, the output for that row is null. This method preserves the input time and the day where applicable. The date is rounded down to the last day of the month for that year, if the new day is invalid for that month.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{timestamps\ =\ [5/31/20\ 08:00:00,\ 5/31/20\ 00:00:00,\ 5/31/20\ 13:00:00,\ 5/31/20\ 23:00:00,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ 6/30/20\ 00:00:01,\ 6/30/20\ 14:12:13]}
+\DoxyCodeLine{months\ \ \ \ \ =\ [1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ,\ -\/1\ \ \ \ \ \ \ \ \ \ \ \ \ \ ,\ -\/3\ \ \ \ \ \ \ \ \ \ \ \ \ \ ,\ -\/15\ \ \ \ \ \ \ \ \ \ \ \ \ ,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/1\ \ \ \ \ \ \ \ \ \ \ \ \ \ ,\ 1]}
+\DoxyCodeLine{r\ =\ add\_calendrical\_months(timestamp\_column,\ months\_column)}
+\DoxyCodeLine{r\ is\ [6/30/20\ 08:00:00,\ 4/30/20\ 00:00:00,\ 2/29/20\ 13:00:00,\ 2/28/19\ 23:00:00,}
+\DoxyCodeLine{\ \ \ \ \ \ 5/30/20\ 00:00:01,\ 7/30/20\ 14:12:13]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily timestamps} datatype is not a TIMESTAMP or if {\ttfamily months} datatype is not INT16 or INT32. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily timestamps} column size is not equal to {\ttfamily months} column size.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em timestamps} & \doxylink{classcudf_1_1column__view}{cudf\+::column\+\_\+view} of timestamp type \\
+\hline
+{\em months} & \doxylink{classcudf_1_1column__view}{cudf\+::column\+\_\+view} of integer type containing the number of months to add \\
+\hline
+{\em mr} & Device memory resource used to allocate device memory of the returned column\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+\doxylink{classcudf_1_1column}{cudf\+::column} of timestamp type containing the computed timestamps 
+\end{DoxyReturn}
+\Hypertarget{group__datetime__compute_gaa339bd351bd3d48779a9ca1261515e36}\label{group__datetime__compute_gaa339bd351bd3d48779a9ca1261515e36} 
+\index{Datetime\_compute@{Datetime\_compute}!add\_calendrical\_months@{add\_calendrical\_months}}
+\index{add\_calendrical\_months@{add\_calendrical\_months}!Datetime\_compute@{Datetime\_compute}}
+\doxysubsubsection{\texorpdfstring{add\_calendrical\_months()}{add\_calendrical\_months()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ cudf\+::datetime\+::add\+\_\+calendrical\+\_\+months (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&}]{timestamps,  }\item[{\mbox{\hyperlink{classcudf_1_1scalar}{cudf\+::scalar}} const \&}]{months,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Adds or subtracts a number of months from the datetime type and returns a timestamp column that is of the same type as the input {\ttfamily timestamps} column. 
+
+For a given row, if the {\ttfamily timestamps} value is null, the output for that row is null. A null months scalar would result in an all null column. This method preserves the input time and the day where applicable. The date is rounded down to the last day of the month for that year, if the new day is invalid for that month.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{timestamps\ =\ [5/31/20\ 08:00:00,\ 6/30/20\ 00:00:00,\ 7/31/20\ 13:00:00]}
+\DoxyCodeLine{months\ \ \ \ \ =\ -\/3}
+\DoxyCodeLine{output\ is\ [2/29/20\ 08:00:00,\ 3/30/20\ 00:00:00,\ 4/30/20\ 13:00:00]}
+\DoxyCodeLine{}
+\DoxyCodeLine{timestamps\ =\ [4/28/20\ 04:00:00,\ 5/30/20\ 01:00:00,\ 6/30/20\ 21:00:00]}
+\DoxyCodeLine{months\ \ \ \ \ =\ 1}
+\DoxyCodeLine{output\ is\ [5/28/20\ 04:00:00,\ 6/30/20\ 01:00:00,\ 7/30/20\ 21:00:00]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily timestamps} datatype is not a TIMESTAMP or if {\ttfamily months} datatype is not INT16 or INT32. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily timestamps} column size is not equal to {\ttfamily months} column size.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em timestamps} & \doxylink{classcudf_1_1column__view}{cudf\+::column\+\_\+view} of timestamp type \\
+\hline
+{\em months} & \doxylink{classcudf_1_1scalar}{cudf\+::scalar} of integer type containing the number of months to add \\
+\hline
+{\em mr} & Device memory resource used to allocate device memory of the returned column\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+\doxylink{classcudf_1_1column}{cudf\+::column} of timestamp type containing the computed timestamps 
+\end{DoxyReturn}
+\Hypertarget{group__datetime__compute_ga0a988cff7bc684f098188e6e11e9f145}\label{group__datetime__compute_ga0a988cff7bc684f098188e6e11e9f145} 
+\index{Datetime\_compute@{Datetime\_compute}!ceil\_datetimes@{ceil\_datetimes}}
+\index{ceil\_datetimes@{ceil\_datetimes}!Datetime\_compute@{Datetime\_compute}}
+\doxysubsubsection{\texorpdfstring{ceil\_datetimes()}{ceil\_datetimes()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ cudf\+::datetime\+::ceil\+\_\+datetimes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&}]{column,  }\item[{\mbox{\hyperlink{group__datetime__compute_gaf04facbc9720e8f048637c9726233e7a}{rounding\+\_\+frequency}}}]{freq,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Round datetimes up to the nearest multiple of the given frequency. 
+
+
+\begin{DoxyParams}{参数}
+{\em column} & \doxylink{classcudf_1_1column__view}{cudf\+::column\+\_\+view} of the input datetime values \\
+\hline
+{\em freq} & rounding\+\_\+frequency indicating the frequency to round up to \\
+\hline
+{\em mr} & Device memory resource used to allocate device memory of the returned column\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if input column datatype is not TIMESTAMP. \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{返回}
+\doxylink{classcudf_1_1column}{cudf\+::column} of the same datetime resolution as the input column 
+\end{DoxyReturn}
+\Hypertarget{group__datetime__compute_ga7fc1f768573a03ac6a03351f35af2517}\label{group__datetime__compute_ga7fc1f768573a03ac6a03351f35af2517} 
+\index{Datetime\_compute@{Datetime\_compute}!day\_of\_year@{day\_of\_year}}
+\index{day\_of\_year@{day\_of\_year}!Datetime\_compute@{Datetime\_compute}}
+\doxysubsubsection{\texorpdfstring{day\_of\_year()}{day\_of\_year()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ cudf\+::datetime\+::day\+\_\+of\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&}]{column,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Computes the day number since the start of the year from the datetime and returns an int16\+\_\+t \doxylink{classcudf_1_1column}{cudf\+::column}. The value is between \mbox{[}1, \{365-\/366\}\mbox{]} 
+
+
+\begin{DoxyParams}{参数}
+{\em column} & \doxylink{classcudf_1_1column__view}{cudf\+::column\+\_\+view} of the input datetime values \\
+\hline
+{\em mr} & Device memory resource used to allocate device memory of the returned column\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+\doxylink{classcudf_1_1column}{cudf\+::column} of datatype INT16 containing the day number since the start of the year 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if input column datatype is not a TIMESTAMP \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{group__datetime__compute_ga26305295987c9f5e25a5fcb8da95f571}\label{group__datetime__compute_ga26305295987c9f5e25a5fcb8da95f571} 
+\index{Datetime\_compute@{Datetime\_compute}!days\_in\_month@{days\_in\_month}}
+\index{days\_in\_month@{days\_in\_month}!Datetime\_compute@{Datetime\_compute}}
+\doxysubsubsection{\texorpdfstring{days\_in\_month()}{days\_in\_month()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ cudf\+::datetime\+::days\+\_\+in\+\_\+month (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&}]{column,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Extract the number of days in the month 
+
+output\mbox{[}i\mbox{]} contains the number of days in the month of date {\ttfamily column\mbox{[}i\mbox{]}} output\mbox{[}i\mbox{]} is null if {\ttfamily column\mbox{[}i\mbox{]}} is null
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if input column datatype is not a TIMESTAMP\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em column} & \doxylink{classcudf_1_1column__view}{cudf\+::column\+\_\+view} of the input datetime values \\
+\hline
+{\em mr} & Device memory resource used to allocate device memory of the returned column \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+\doxylink{classcudf_1_1column}{cudf\+::column} of datatype INT16 of days in month of the corresponding date 
+\end{DoxyReturn}
+\Hypertarget{group__datetime__compute_ga2f94182ad9c59b07de255770849a8a07}\label{group__datetime__compute_ga2f94182ad9c59b07de255770849a8a07} 
+\index{Datetime\_compute@{Datetime\_compute}!extract\_quarter@{extract\_quarter}}
+\index{extract\_quarter@{extract\_quarter}!Datetime\_compute@{Datetime\_compute}}
+\doxysubsubsection{\texorpdfstring{extract\_quarter()}{extract\_quarter()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ cudf\+::datetime\+::extract\+\_\+quarter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&}]{column,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns the quarter of the date 
+
+{\ttfamily output\mbox{[}i\mbox{]}} will be a value from \{1, 2, 3, 4\} corresponding to the quarter of month given by {\ttfamily column\mbox{[}i\mbox{]}}. It will be null if the input row at {\ttfamily column\mbox{[}i\mbox{]}} is null.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if input column datatype is not a TIMESTAMP\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em column} & The input column containing datetime values \\
+\hline
+{\em mr} & Device memory resource used to allocate device memory of the returned column \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A column of INT16 type indicating which quarter the date is in 
+\end{DoxyReturn}
+\Hypertarget{group__datetime__compute_ga4636bf1c0681d1c42e72022e7b2a8cc7}\label{group__datetime__compute_ga4636bf1c0681d1c42e72022e7b2a8cc7} 
+\index{Datetime\_compute@{Datetime\_compute}!floor\_datetimes@{floor\_datetimes}}
+\index{floor\_datetimes@{floor\_datetimes}!Datetime\_compute@{Datetime\_compute}}
+\doxysubsubsection{\texorpdfstring{floor\_datetimes()}{floor\_datetimes()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ cudf\+::datetime\+::floor\+\_\+datetimes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&}]{column,  }\item[{\mbox{\hyperlink{group__datetime__compute_gaf04facbc9720e8f048637c9726233e7a}{rounding\+\_\+frequency}}}]{freq,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Round datetimes down to the nearest multiple of the given frequency. 
+
+
+\begin{DoxyParams}{参数}
+{\em column} & \doxylink{classcudf_1_1column__view}{cudf\+::column\+\_\+view} of the input datetime values \\
+\hline
+{\em freq} & rounding\+\_\+frequency indicating the frequency to round down to \\
+\hline
+{\em mr} & Device memory resource used to allocate device memory of the returned column\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if input column datatype is not TIMESTAMP. \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{返回}
+\doxylink{classcudf_1_1column}{cudf\+::column} of the same datetime resolution as the input column 
+\end{DoxyReturn}
+\Hypertarget{group__datetime__compute_ga1d4d2721577faab676dcd8df1748de04}\label{group__datetime__compute_ga1d4d2721577faab676dcd8df1748de04} 
+\index{Datetime\_compute@{Datetime\_compute}!is\_leap\_year@{is\_leap\_year}}
+\index{is\_leap\_year@{is\_leap\_year}!Datetime\_compute@{Datetime\_compute}}
+\doxysubsubsection{\texorpdfstring{is\_leap\_year()}{is\_leap\_year()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ cudf\+::datetime\+::is\+\_\+leap\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&}]{column,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Check if the year of the given date is a leap year 
+
+{\ttfamily output\mbox{[}i\mbox{]} == true} if year of {\ttfamily column\mbox{[}i\mbox{]}} is a leap year {\ttfamily output\mbox{[}i\mbox{]} == false} if year of {\ttfamily column\mbox{[}i\mbox{]}} is not a leap year {\ttfamily output\mbox{[}i\mbox{]} is null} if {\ttfamily column\mbox{[}i\mbox{]}} is null
+
+
+\begin{DoxyParams}{参数}
+{\em column} & \doxylink{classcudf_1_1column__view}{cudf\+::column\+\_\+view} of the input datetime values \\
+\hline
+{\em mr} & Device memory resource used to allocate device memory of the returned column\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+\doxylink{classcudf_1_1column}{cudf\+::column} of datatype BOOL8 truth value of the corresponding date 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if input column datatype is not a TIMESTAMP \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{group__datetime__compute_ga53b4a3c8e588d84bdb88a06487ed1c00}\label{group__datetime__compute_ga53b4a3c8e588d84bdb88a06487ed1c00} 
+\index{Datetime\_compute@{Datetime\_compute}!last\_day\_of\_month@{last\_day\_of\_month}}
+\index{last\_day\_of\_month@{last\_day\_of\_month}!Datetime\_compute@{Datetime\_compute}}
+\doxysubsubsection{\texorpdfstring{last\_day\_of\_month()}{last\_day\_of\_month()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ cudf\+::datetime\+::last\+\_\+day\+\_\+of\+\_\+month (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&}]{column,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Computes the last day of the month in datetime type and returns a TIMESTAMP\+\_\+\+DAYS \doxylink{classcudf_1_1column}{cudf\+::column}. 
+
+
+\begin{DoxyParams}{参数}
+{\em column} & \doxylink{classcudf_1_1column__view}{cudf\+::column\+\_\+view} of the input datetime values \\
+\hline
+{\em mr} & Device memory resource used to allocate device memory of the returned column\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+\doxylink{classcudf_1_1column}{cudf\+::column} containing last day of the month as TIMESTAMP\+\_\+\+DAYS 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if input column datatype is not TIMESTAMP \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{group__datetime__compute_ga6b9612e4fd08172bec84c600cb7292db}\label{group__datetime__compute_ga6b9612e4fd08172bec84c600cb7292db} 
+\index{Datetime\_compute@{Datetime\_compute}!round\_datetimes@{round\_datetimes}}
+\index{round\_datetimes@{round\_datetimes}!Datetime\_compute@{Datetime\_compute}}
+\doxysubsubsection{\texorpdfstring{round\_datetimes()}{round\_datetimes()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ cudf\+::datetime\+::round\+\_\+datetimes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&}]{column,  }\item[{\mbox{\hyperlink{group__datetime__compute_gaf04facbc9720e8f048637c9726233e7a}{rounding\+\_\+frequency}}}]{freq,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Round datetimes to the nearest multiple of the given frequency. 
+
+
+\begin{DoxyParams}{参数}
+{\em column} & \doxylink{classcudf_1_1column__view}{cudf\+::column\+\_\+view} of the input datetime values \\
+\hline
+{\em freq} & rounding\+\_\+frequency indicating the frequency to round to \\
+\hline
+{\em mr} & Device memory resource used to allocate device memory of the returned column\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if input column datatype is not TIMESTAMP. \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{返回}
+\doxylink{classcudf_1_1column}{cudf\+::column} of the same datetime resolution as the input column 
+\end{DoxyReturn}

@@ -1,0 +1,784 @@
+\doxysection{csv.\+hpp}
+\hypertarget{csv_8hpp_source}{}\label{csv_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/io/csv.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/io/csv.hpp}}
+\mbox{\hyperlink{csv_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2020-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{io_2types_8hpp}{cudf/io/types.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{table__view_8hpp}{cudf/table/table\_view.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{types_8hpp}{cudf/types.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{error_8hpp}{cudf/utilities/error.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <rmm/mr/device/per\_device\_resource.hpp>}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <variant>}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00032}00032\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00033}00033\ \textcolor{keyword}{namespace\ }io\ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00044}00044\ \textcolor{keyword}{class\ }csv\_reader\_options\_builder;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00050}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options}{00050}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options}{csv\_reader\_options}}\ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00051}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a6e95bdbf8880a551503baea89370b33d}{00051}}\ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\_info}}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a6e95bdbf8880a551503baea89370b33d}{\_source}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00053}00053\ \ \ \textcolor{comment}{//\ Read\ settings}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00055}00055\ \ \ \textcolor{comment}{//\ Specify\ the\ compression\ format\ of\ the\ source\ or\ infer\ from\ file\ extension}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00056}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_abf7a2b0ed05f4b5502d6c57f6a5fd608}{00056}}\ \ \ \mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\_type}}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_abf7a2b0ed05f4b5502d6c57f6a5fd608}{\_compression}}\ =\ \mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8ae1f2d5134ed2543d38a0de9751cf75d9}{compression\_type::AUTO}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00057}00057\ \ \ \textcolor{comment}{//\ Bytes\ to\ skip\ from\ the\ source\ start}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00058}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ac96a65b011efa142c9c004ecefe0f294}{00058}}\ \ \ std::size\_t\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ac96a65b011efa142c9c004ecefe0f294}{\_byte\_range\_offset}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00059}00059\ \ \ \textcolor{comment}{//\ Bytes\ to\ read;\ always\ reads\ complete\ rows}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00060}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9b72f681559a720f2a08e760e58beba8}{00060}}\ \ \ std::size\_t\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9b72f681559a720f2a08e760e58beba8}{\_byte\_range\_size}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00061}00061\ \ \ \textcolor{comment}{//\ Names\ of\ all\ the\ columns;\ if\ empty\ then\ names\ are\ auto-\/generated}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00062}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a6361547c79ef0b7edf9a833d858d7677}{00062}}\ \ \ std::vector<std::string>\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a6361547c79ef0b7edf9a833d858d7677}{\_names}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00063}00063\ \ \ \textcolor{comment}{//\ If\ there\ is\ no\ header\ or\ names,\ prepend\ this\ to\ the\ column\ ID\ as\ the\ name}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00064}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ad5e63b1e9376a6ee8aa6ec92fbc821c7}{00064}}\ \ \ std::string\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ad5e63b1e9376a6ee8aa6ec92fbc821c7}{\_prefix}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00065}00065\ \ \ \textcolor{comment}{//\ Whether\ to\ rename\ duplicate\ column\ names}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00066}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a5dd55f7cb3b62c3ad34c10c558c4f017}{00066}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a5dd55f7cb3b62c3ad34c10c558c4f017}{\_mangle\_dupe\_cols}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00068}00068\ \ \ \textcolor{comment}{//\ Filter\ settings}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00070}00070\ \ \ \textcolor{comment}{//\ Names\ of\ columns\ to\ read;\ empty\ is\ all\ columns}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00071}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ab39f50306e873eb0aca2033f8f3491ec}{00071}}\ \ \ std::vector<std::string>\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ab39f50306e873eb0aca2033f8f3491ec}{\_use\_cols\_names}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00072}00072\ \ \ \textcolor{comment}{//\ Indexes\ of\ columns\ to\ read;\ empty\ is\ all\ columns}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00073}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ac87a823b0c56f515202ea49131a51d16}{00073}}\ \ \ std::vector<int>\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ac87a823b0c56f515202ea49131a51d16}{\_use\_cols\_indexes}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00074}00074\ \ \ \textcolor{comment}{//\ Rows\ to\ read;\ -\/1\ is\ all}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00075}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a27b8aeae8b3f3ace4509e115a6951954}{00075}}\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a27b8aeae8b3f3ace4509e115a6951954}{\_nrows}}\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00076}00076\ \ \ \textcolor{comment}{//\ Rows\ to\ skip\ from\ the\ start}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00077}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aadab9124674633580f3b9867e55f8084}{00077}}\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aadab9124674633580f3b9867e55f8084}{\_skiprows}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00078}00078\ \ \ \textcolor{comment}{//\ Rows\ to\ skip\ from\ the\ end}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00079}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ae53fc31335c2f0915329e1ac0deb72d3}{00079}}\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ae53fc31335c2f0915329e1ac0deb72d3}{\_skipfooter}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00080}00080\ \ \ \textcolor{comment}{//\ Header\ row\ index}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00081}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9c96e45b08d1e3f9478b8e9ae980019a}{00081}}\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9c96e45b08d1e3f9478b8e9ae980019a}{\_header}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00083}00083\ \ \ \textcolor{comment}{//\ Parsing\ settings}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00085}00085\ \ \ \textcolor{comment}{//\ Line\ terminator}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00086}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ad2f616ad978192bc05b9691e95b796a5}{00086}}\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ad2f616ad978192bc05b9691e95b796a5}{\_lineterminator}}\ =\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00087}00087\ \ \ \textcolor{comment}{//\ Field\ delimiter}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00088}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ae3efa5c45b7e9a56d2741d077a304748}{00088}}\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ae3efa5c45b7e9a56d2741d077a304748}{\_delimiter}}\ =\ \textcolor{charliteral}{','};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00089}00089\ \ \ \textcolor{comment}{//\ Numeric\ data\ thousands\ separator;\ cannot\ match\ delimiter}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00090}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a653b283d9487f6d57300a12b591cb45c}{00090}}\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a653b283d9487f6d57300a12b591cb45c}{\_thousands}}\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00091}00091\ \ \ \textcolor{comment}{//\ Decimal\ point\ character;\ cannot\ match\ delimiter}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00092}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a81cc348d672c882bb5979a041f2566df}{00092}}\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a81cc348d672c882bb5979a041f2566df}{\_decimal}}\ =\ \textcolor{charliteral}{'.'};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00093}00093\ \ \ \textcolor{comment}{//\ Comment\ line\ start\ character}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00094}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ab0beb97fa44f4d332ac5a78103858705}{00094}}\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ab0beb97fa44f4d332ac5a78103858705}{\_comment}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00095}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a65361d245b0c4e9790b7d11ab39b05df}{00095}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a65361d245b0c4e9790b7d11ab39b05df}{\_windowslinetermination}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00096}00096\ \ \ \textcolor{comment}{//\ Treat\ whitespace\ as\ field\ delimiter;\ overrides\ character\ delimiter}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00097}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ad1d4e8b0b7c7eecc03f683f4948bc00d}{00097}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ad1d4e8b0b7c7eecc03f683f4948bc00d}{\_delim\_whitespace}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00098}00098\ \ \ \textcolor{comment}{//\ Skip\ whitespace\ after\ the\ delimiter}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00099}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a17fabbdec3865748fa04c4cb523e5bb4}{00099}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a17fabbdec3865748fa04c4cb523e5bb4}{\_skipinitialspace}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00100}00100\ \ \ \textcolor{comment}{//\ Ignore\ empty\ lines\ or\ parse\ line\ values\ as\ invalid}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00101}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a2fccd559ef02ebbf0da2bb450a5c1ee6}{00101}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a2fccd559ef02ebbf0da2bb450a5c1ee6}{\_skip\_blank\_lines}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00102}00102\ \ \ \textcolor{comment}{//\ Treatment\ of\ quoting\ behavior}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00103}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9f3a909ed87bcba0a335fb860db01264}{00103}}\ \ \ \mbox{\hyperlink{namespacecudf_1_1io_a9b3038122e7e69390b062270cf403007}{quote\_style}}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9f3a909ed87bcba0a335fb860db01264}{\_quoting}}\ =\ \mbox{\hyperlink{namespacecudf_1_1io_a9b3038122e7e69390b062270cf403007a02f2534ad4997e23ec250e1015eeb929}{quote\_style::MINIMAL}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00104}00104\ \ \ \textcolor{comment}{//\ Quoting\ character\ (if\ \`{}quoting`\ is\ true)}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00105}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aca1dd03f2cd546a3890d28213669e56a}{00105}}\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aca1dd03f2cd546a3890d28213669e56a}{\_quotechar}}\ =\ \textcolor{charliteral}{'"{}'};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00106}00106\ \ \ \textcolor{comment}{//\ Whether\ a\ quote\ inside\ a\ value\ is\ double-\/quoted}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00107}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_adec76720217ccf3e75007978c3125ecc}{00107}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_adec76720217ccf3e75007978c3125ecc}{\_doublequote}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00108}00108\ \ \ \textcolor{comment}{//\ Names\ of\ columns\ to\ read\ as\ datetime}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00109}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_afef9bc6349cdb4f1644c03829289196a}{00109}}\ \ \ std::vector<std::string>\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_afef9bc6349cdb4f1644c03829289196a}{\_parse\_dates\_names}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00110}00110\ \ \ \textcolor{comment}{//\ Indexes\ of\ columns\ to\ read\ as\ datetime}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00111}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a5d067ca62c99291cdbd0fb0a6f0d8b07}{00111}}\ \ \ std::vector<int>\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a5d067ca62c99291cdbd0fb0a6f0d8b07}{\_parse\_dates\_indexes}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00112}00112\ \ \ \textcolor{comment}{//\ Names\ of\ columns\ to\ parse\ as\ hexadecimal}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00113}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a5568d6d6e5ad859a0a66adef3df80bda}{00113}}\ \ \ std::vector<std::string>\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a5568d6d6e5ad859a0a66adef3df80bda}{\_parse\_hex\_names}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00114}00114\ \ \ \textcolor{comment}{//\ Indexes\ of\ columns\ to\ parse\ as\ hexadecimal}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00115}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_af0084eed545f12e5f04579e92b8ee888}{00115}}\ \ \ std::vector<int>\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_af0084eed545f12e5f04579e92b8ee888}{\_parse\_hex\_indexes}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00117}00117\ \ \ \textcolor{comment}{//\ Conversion\ settings}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00119}00119\ \ \ \textcolor{comment}{//\ Per-\/column\ types;\ disables\ type\ inference\ on\ those\ columns}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00120}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a7a81e9cda07bcecf25a57b958600aa02}{00120}}\ \ \ std::variant<std::vector<data\_type>,\ std::map<std::string,\ data\_type>>\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a7a81e9cda07bcecf25a57b958600aa02}{\_dtypes}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00121}00121\ \ \ \textcolor{comment}{//\ Additional\ values\ to\ recognize\ as\ boolean\ true\ values}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00122}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a64034038da8cef1484831c425aecc1db}{00122}}\ \ \ std::vector<std::string>\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a64034038da8cef1484831c425aecc1db}{\_true\_values}}\{\textcolor{stringliteral}{"{}True"{}},\ \textcolor{stringliteral}{"{}TRUE"{}},\ \textcolor{stringliteral}{"{}true"{}}\};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00123}00123\ \ \ \textcolor{comment}{//\ Additional\ values\ to\ recognize\ as\ boolean\ false\ values}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00124}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_abff7b414369b99bbf6f33b2cd5845481}{00124}}\ \ \ std::vector<std::string>\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_abff7b414369b99bbf6f33b2cd5845481}{\_false\_values}}\{\textcolor{stringliteral}{"{}False"{}},\ \textcolor{stringliteral}{"{}FALSE"{}},\ \textcolor{stringliteral}{"{}false"{}}\};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00125}00125\ \ \ \textcolor{comment}{//\ Additional\ values\ to\ recognize\ as\ null\ values}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00126}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a8c2b5bf72cefc93777b81287797fcc95}{00126}}\ \ \ std::vector<std::string>\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a8c2b5bf72cefc93777b81287797fcc95}{\_na\_values}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00127}00127\ \ \ \textcolor{comment}{//\ Whether\ to\ keep\ the\ built-\/in\ default\ NA\ values}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00128}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ae058e4088672a547e7bad1d57bf1e55f}{00128}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ae058e4088672a547e7bad1d57bf1e55f}{\_keep\_default\_na}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00129}00129\ \ \ \textcolor{comment}{//\ Whether\ to\ disable\ null\ filter;\ disabling\ can\ improve\ performance}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00130}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a0121b8d9617073dbde4d5d1553dab041}{00130}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a0121b8d9617073dbde4d5d1553dab041}{\_na\_filter}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00131}00131\ \ \ \textcolor{comment}{//\ Whether\ to\ parse\ dates\ as\ DD/MM\ versus\ MM/DD}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00132}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a19d0d3cb059a32cab0304908c466326a}{00132}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a19d0d3cb059a32cab0304908c466326a}{\_dayfirst}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00133}00133\ \ \ \textcolor{comment}{//\ Cast\ timestamp\ columns\ to\ a\ specific\ type}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00134}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a4ddcbfe13e6e6fab688a4fe5de23cf35}{00134}}\ \ \ \mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a4ddcbfe13e6e6fab688a4fe5de23cf35}{\_timestamp\_type}}\{\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539aba2b45bdc11e2a4a6e86aab2ac693cbb}{type\_id::EMPTY}}\};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00141}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_af5044a034041cd00ebfa864b940312c0}{00141}}\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_af5044a034041cd00ebfa864b940312c0}{csv\_reader\_options}}(\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\_info}}\ \textcolor{keyword}{const}\&\ src)\ :\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a6e95bdbf8880a551503baea89370b33d}{\_source}}(src)\ \{\}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00143}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a2c0762c96a0e4554da30f0d183481182}{00143}}\ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a2c0762c96a0e4554da30f0d183481182}{csv\_reader\_options\_builder}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00145}00145\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00151}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a248668f6e37c7c0429379f7e91a9f133}{00151}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a248668f6e37c7c0429379f7e91a9f133}{csv\_reader\_options}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00159}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ad04417215b1db08c0d274bfcb7460a42}{00159}}\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ad04417215b1db08c0d274bfcb7460a42}{builder}}(\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\_info}}\ \textcolor{keyword}{const}\&\ src);}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00166}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_abcf73ecdb5fe8aa219ff39d6cf677b87}{00166}}\ \ \ [[nodiscard]]\ \mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\_info}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_abcf73ecdb5fe8aa219ff39d6cf677b87}{get\_source}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a6e95bdbf8880a551503baea89370b33d}{\_source}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00173}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ab91b8ef730e929748e1cfce24f69b538}{00173}}\ \ \ [[nodiscard]]\ \mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\_type}}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ab91b8ef730e929748e1cfce24f69b538}{get\_compression}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_abf7a2b0ed05f4b5502d6c57f6a5fd608}{\_compression}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00180}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a59c5ff1d3ecb0085f68e8a45a6c3edd6}{00180}}\ \ \ [[nodiscard]]\ std::size\_t\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a59c5ff1d3ecb0085f68e8a45a6c3edd6}{get\_byte\_range\_offset}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ac96a65b011efa142c9c004ecefe0f294}{\_byte\_range\_offset}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00187}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aa77c426d1dcfcd08730cbbba5ae0a9a0}{00187}}\ \ \ [[nodiscard]]\ std::size\_t\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aa77c426d1dcfcd08730cbbba5ae0a9a0}{get\_byte\_range\_size}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9b72f681559a720f2a08e760e58beba8}{\_byte\_range\_size}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00194}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a3e89941a963840bb75bd4a459ea62549}{00194}}\ \ \ [[nodiscard]]\ std::size\_t\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a3e89941a963840bb75bd4a459ea62549}{get\_byte\_range\_size\_with\_padding}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00195}00195\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00196}00196\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9b72f681559a720f2a08e760e58beba8}{\_byte\_range\_size}}\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00197}00197\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00198}00198\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00199}00199\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9b72f681559a720f2a08e760e58beba8}{\_byte\_range\_size}}\ +\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a91b1417899aae5368590daa6f2340c7c}{get\_byte\_range\_padding}}();}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00200}00200\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00201}00201\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00208}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a91b1417899aae5368590daa6f2340c7c}{00208}}\ \ \ [[nodiscard]]\ std::size\_t\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a91b1417899aae5368590daa6f2340c7c}{get\_byte\_range\_padding}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00209}00209\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00210}00210\ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\ num\_names\ \ \ =\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a6361547c79ef0b7edf9a833d858d7677}{\_names}}.size();}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00211}00211\ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\ num\_dtypes\ \ =\ std::visit([](\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ dtypes)\ \{\ \textcolor{keywordflow}{return}\ dtypes.size();\ \},\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a7a81e9cda07bcecf25a57b958600aa02}{\_dtypes}});}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00212}00212\ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\ num\_columns\ =\ std::max(num\_dtypes,\ num\_names);}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00214}00214\ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\ max\_row\_bytes\ =\ 16\ *\ 1024;\ \ \textcolor{comment}{//\ 16KB}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00215}00215\ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\ column\_bytes\ \ =\ 64;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00216}00216\ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\ base\_padding\ \ =\ 1024;\ \ \textcolor{comment}{//\ 1KB}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00218}00218\ \ \ \ \ \textcolor{keywordflow}{if}\ (num\_columns\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00219}00219\ \ \ \ \ \ \ \textcolor{comment}{//\ Use\ flat\ size\ if\ the\ number\ of\ columns\ is\ not\ known}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00220}00220\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ max\_row\_bytes;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00221}00221\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00222}00222\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00223}00223\ \ \ \ \ \textcolor{comment}{//\ Expand\ the\ size\ based\ on\ the\ number\ of\ columns,\ if\ available}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00224}00224\ \ \ \ \ \textcolor{keywordflow}{return}\ base\_padding\ +\ num\_columns\ *\ column\_bytes;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00225}00225\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00226}00226\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00232}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a4e56ec01662cfa9151f7882831ccbb1f}{00232}}\ \ \ [[nodiscard]]\ std::vector<std::string>\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a4e56ec01662cfa9151f7882831ccbb1f}{get\_names}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a6361547c79ef0b7edf9a833d858d7677}{\_names}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00239}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a36eb6301292e41f39f38d4f1d8c128fd}{00239}}\ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a36eb6301292e41f39f38d4f1d8c128fd}{get\_prefix}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ad5e63b1e9376a6ee8aa6ec92fbc821c7}{\_prefix}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00246}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a3c84cfb2a8df00ec8902e339c7a850fa}{00246}}\ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a3c84cfb2a8df00ec8902e339c7a850fa}{is\_enabled\_mangle\_dupe\_cols}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a5dd55f7cb3b62c3ad34c10c558c4f017}{\_mangle\_dupe\_cols}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00247}00247\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00253}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a1c2b2a9b4961f80d7dd295b4094fe031}{00253}}\ \ \ [[nodiscard]]\ std::vector<std::string>\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a1c2b2a9b4961f80d7dd295b4094fe031}{get\_use\_cols\_names}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00254}00254\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00255}00255\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ab39f50306e873eb0aca2033f8f3491ec}{\_use\_cols\_names}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00256}00256\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00257}00257\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00263}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a1195117df089da9ac3328182e3a964e6}{00263}}\ \ \ [[nodiscard]]\ std::vector<int>\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a1195117df089da9ac3328182e3a964e6}{get\_use\_cols\_indexes}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ac87a823b0c56f515202ea49131a51d16}{\_use\_cols\_indexes}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00264}00264\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00270}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_add0cff134db840841abee8d0d4eb3ea6}{00270}}\ \ \ [[nodiscard]]\ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_add0cff134db840841abee8d0d4eb3ea6}{get\_nrows}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a27b8aeae8b3f3ace4509e115a6951954}{\_nrows}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00277}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a04032521221dcc3d35f7697f3be81994}{00277}}\ \ \ [[nodiscard]]\ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a04032521221dcc3d35f7697f3be81994}{get\_skiprows}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aadab9124674633580f3b9867e55f8084}{\_skiprows}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00278}00278\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00284}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aea4b5461d96b17a3d2bed5f23f4b6732}{00284}}\ \ \ [[nodiscard]]\ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aea4b5461d96b17a3d2bed5f23f4b6732}{get\_skipfooter}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ae53fc31335c2f0915329e1ac0deb72d3}{\_skipfooter}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00285}00285\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00291}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_afaefb16a1b5ca7b61ac5716249324ebd}{00291}}\ \ \ [[nodiscard]]\ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_afaefb16a1b5ca7b61ac5716249324ebd}{get\_header}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9c96e45b08d1e3f9478b8e9ae980019a}{\_header}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00292}00292\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00298}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a224223547de2b59d44b142b8ab4318d7}{00298}}\ \ \ [[nodiscard]]\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a224223547de2b59d44b142b8ab4318d7}{get\_lineterminator}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ad2f616ad978192bc05b9691e95b796a5}{\_lineterminator}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00299}00299\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00305}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a2022d1fd36992f8a16ae72923d6b5881}{00305}}\ \ \ [[nodiscard]]\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a2022d1fd36992f8a16ae72923d6b5881}{get\_delimiter}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ae3efa5c45b7e9a56d2741d077a304748}{\_delimiter}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00306}00306\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00312}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a3c01248da908de1ad9b028767ec0e25c}{00312}}\ \ \ [[nodiscard]]\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a3c01248da908de1ad9b028767ec0e25c}{get\_thousands}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a653b283d9487f6d57300a12b591cb45c}{\_thousands}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00313}00313\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00319}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_abe70ecc1189459a371c8054f15da993a}{00319}}\ \ \ [[nodiscard]]\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_abe70ecc1189459a371c8054f15da993a}{get\_decimal}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a81cc348d672c882bb5979a041f2566df}{\_decimal}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00320}00320\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00326}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a6b9d0301fab21b7371bf3735bc7f1278}{00326}}\ \ \ [[nodiscard]]\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a6b9d0301fab21b7371bf3735bc7f1278}{get\_comment}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ab0beb97fa44f4d332ac5a78103858705}{\_comment}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00327}00327\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00333}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a72833af86ec0c96c5732c520c5db6af3}{00333}}\ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a72833af86ec0c96c5732c520c5db6af3}{is\_enabled\_windowslinetermination}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a65361d245b0c4e9790b7d11ab39b05df}{\_windowslinetermination}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00334}00334\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00340}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a04f6b5037863f1f9063af9af04a2e325}{00340}}\ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a04f6b5037863f1f9063af9af04a2e325}{is\_enabled\_delim\_whitespace}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ad1d4e8b0b7c7eecc03f683f4948bc00d}{\_delim\_whitespace}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00341}00341\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00347}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_afa34086f29468fb1323e00eb788a2079}{00347}}\ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_afa34086f29468fb1323e00eb788a2079}{is\_enabled\_skipinitialspace}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a17fabbdec3865748fa04c4cb523e5bb4}{\_skipinitialspace}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00348}00348\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00354}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a6b783629869141643fc60b9319b913b4}{00354}}\ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a6b783629869141643fc60b9319b913b4}{is\_enabled\_skip\_blank\_lines}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a2fccd559ef02ebbf0da2bb450a5c1ee6}{\_skip\_blank\_lines}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00355}00355\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00361}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a11d0d12b799a6cd58a3246d5e6281040}{00361}}\ \ \ [[nodiscard]]\ \mbox{\hyperlink{namespacecudf_1_1io_a9b3038122e7e69390b062270cf403007}{quote\_style}}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a11d0d12b799a6cd58a3246d5e6281040}{get\_quoting}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9f3a909ed87bcba0a335fb860db01264}{\_quoting}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00362}00362\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00368}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ab96a214bbe2c17c4d46d96e9ea118e08}{00368}}\ \ \ [[nodiscard]]\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ab96a214bbe2c17c4d46d96e9ea118e08}{get\_quotechar}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aca1dd03f2cd546a3890d28213669e56a}{\_quotechar}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00369}00369\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00375}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a1f635088a661b614cc8ec2b5afeda91f}{00375}}\ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a1f635088a661b614cc8ec2b5afeda91f}{is\_enabled\_doublequote}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_adec76720217ccf3e75007978c3125ecc}{\_doublequote}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00376}00376\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00382}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ab037e0681da3d48ea47cc05d167b40f8}{00382}}\ \ \ [[nodiscard]]\ std::vector<std::string>\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ab037e0681da3d48ea47cc05d167b40f8}{get\_parse\_dates\_names}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00383}00383\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00384}00384\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_afef9bc6349cdb4f1644c03829289196a}{\_parse\_dates\_names}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00385}00385\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00386}00386\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00392}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a66c536a09403e6b03ad75e570d804299}{00392}}\ \ \ [[nodiscard]]\ std::vector<int>\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a66c536a09403e6b03ad75e570d804299}{get\_parse\_dates\_indexes}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00393}00393\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00394}00394\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a5d067ca62c99291cdbd0fb0a6f0d8b07}{\_parse\_dates\_indexes}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00395}00395\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00396}00396\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00402}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a294fe4179961746295c79643b93b1d0d}{00402}}\ \ \ [[nodiscard]]\ std::vector<std::string>\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a294fe4179961746295c79643b93b1d0d}{get\_parse\_hex\_names}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00403}00403\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00404}00404\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a5568d6d6e5ad859a0a66adef3df80bda}{\_parse\_hex\_names}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00405}00405\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00406}00406\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00412}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a645b5be363ad95eccba3e1ae1203c3f6}{00412}}\ \ \ [[nodiscard]]\ std::vector<int>\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a645b5be363ad95eccba3e1ae1203c3f6}{get\_parse\_hex\_indexes}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_af0084eed545f12e5f04579e92b8ee888}{\_parse\_hex\_indexes}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00413}00413\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00419}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9a0ab09f86c318e981fed06c5a3ff962}{00419}}\ \ \ std::variant<std::vector<data\_type>,\ std::map<std::string,\ data\_type>>\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9a0ab09f86c318e981fed06c5a3ff962}{get\_dtypes}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00420}00420\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00421}00421\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a7a81e9cda07bcecf25a57b958600aa02}{\_dtypes}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00422}00422\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00423}00423\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00429}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_adb0abb0531892a6a3fee57d1e4778894}{00429}}\ \ \ std::vector<std::string>\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_adb0abb0531892a6a3fee57d1e4778894}{get\_true\_values}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a64034038da8cef1484831c425aecc1db}{\_true\_values}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00430}00430\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00436}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ae30f4f060145f15ed1fb375f769f94d6}{00436}}\ \ \ std::vector<std::string>\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ae30f4f060145f15ed1fb375f769f94d6}{get\_false\_values}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_abff7b414369b99bbf6f33b2cd5845481}{\_false\_values}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00437}00437\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00443}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a73f078c827dd06c68b9cc9ba069749ed}{00443}}\ \ \ std::vector<std::string>\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a73f078c827dd06c68b9cc9ba069749ed}{get\_na\_values}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a8c2b5bf72cefc93777b81287797fcc95}{\_na\_values}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00444}00444\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00450}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_abb00c0059ebbecf4069fb52089564bac}{00450}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_abb00c0059ebbecf4069fb52089564bac}{is\_enabled\_keep\_default\_na}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ae058e4088672a547e7bad1d57bf1e55f}{\_keep\_default\_na}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00451}00451\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00457}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a698931b2bfb684b669e47f1dee4c1dc1}{00457}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a698931b2bfb684b669e47f1dee4c1dc1}{is\_enabled\_na\_filter}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a0121b8d9617073dbde4d5d1553dab041}{\_na\_filter}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00458}00458\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00464}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9003eadacc5aa60ea739f18eb6b7b6c7}{00464}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9003eadacc5aa60ea739f18eb6b7b6c7}{is\_enabled\_dayfirst}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a19d0d3cb059a32cab0304908c466326a}{\_dayfirst}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00465}00465\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00471}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a5eab6d06c7b3f638ae38bfcd8b41b0ad}{00471}}\ \ \ \mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a5eab6d06c7b3f638ae38bfcd8b41b0ad}{get\_timestamp\_type}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a4ddcbfe13e6e6fab688a4fe5de23cf35}{\_timestamp\_type}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00472}00472\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00478}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a832f7832eb40709478edccd063b831ad}{00478}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a832f7832eb40709478edccd063b831ad}{set\_compression}}(\mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\_type}}\ comp)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_abf7a2b0ed05f4b5502d6c57f6a5fd608}{\_compression}}\ =\ comp;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00479}00479\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00485}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a082c86e429b15b20a0d6f049cfc8688b}{00485}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a082c86e429b15b20a0d6f049cfc8688b}{set\_byte\_range\_offset}}(std::size\_t\ offset)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00486}00486\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00487}00487\ \ \ \ \ \textcolor{keywordflow}{if}\ ((offset\ !=\ 0)\ and\ ((\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aadab9124674633580f3b9867e55f8084}{\_skiprows}}\ !=\ 0)\ or\ (\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ae53fc31335c2f0915329e1ac0deb72d3}{\_skipfooter}}\ !=\ 0)\ or\ (\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a27b8aeae8b3f3ace4509e115a6951954}{\_nrows}}\ !=\ -\/1)))\ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00488}00488\ \ \ \ \ \ \ \mbox{\hyperlink{group__utility__error_ga8fec215b7e7785312d292d75f797ccc1}{CUDF\_FAIL}}(}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00489}00489\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}When\ there\ is\ valid\ value\ in\ skiprows\ or\ skipfooter\ or\ nrows,\ offset\ can't\ have\ non-\/zero\ "{}}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00490}00490\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}value"{}});}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00491}00491\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00492}00492\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ac96a65b011efa142c9c004ecefe0f294}{\_byte\_range\_offset}}\ =\ offset;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00493}00493\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00494}00494\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00500}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aca302b3f875c3db07c5fbc7708a20ed1}{00500}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aca302b3f875c3db07c5fbc7708a20ed1}{set\_byte\_range\_size}}(std::size\_t\ size)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00501}00501\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00502}00502\ \ \ \ \ \textcolor{keywordflow}{if}\ ((size\ !=\ 0)\ and\ ((\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aadab9124674633580f3b9867e55f8084}{\_skiprows}}\ !=\ 0)\ or\ (\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ae53fc31335c2f0915329e1ac0deb72d3}{\_skipfooter}}\ !=\ 0)\ or\ (\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a27b8aeae8b3f3ace4509e115a6951954}{\_nrows}}\ !=\ -\/1)))\ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00503}00503\ \ \ \ \ \ \ \mbox{\hyperlink{group__utility__error_ga8fec215b7e7785312d292d75f797ccc1}{CUDF\_FAIL}}(}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00504}00504\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}If\ the\ value\ of\ any\ of\ skiprows,\ skipfooter\ or\ nrows\ is\ valid,\ range\ size\ cannot\ be\ "{}}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00505}00505\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}non-\/zero."{}});}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00506}00506\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00507}00507\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9b72f681559a720f2a08e760e58beba8}{\_byte\_range\_size}}\ =\ size;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00508}00508\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00509}00509\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00515}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9617f9dc763d00331c5d479610cfe894}{00515}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9617f9dc763d00331c5d479610cfe894}{set\_names}}(std::vector<std::string>\ col\_names)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a6361547c79ef0b7edf9a833d858d7677}{\_names}}\ =\ std::move(col\_names);\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00516}00516\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00522}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aa200d778f4b4c6b6dcdcf90e1999dbc4}{00522}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aa200d778f4b4c6b6dcdcf90e1999dbc4}{set\_prefix}}(std::string\ pfx)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ad5e63b1e9376a6ee8aa6ec92fbc821c7}{\_prefix}}\ =\ pfx;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00523}00523\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00529}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ad7a14ae4d49ab2b1b06decf9440fc404}{00529}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ad7a14ae4d49ab2b1b06decf9440fc404}{enable\_mangle\_dupe\_cols}}(\textcolor{keywordtype}{bool}\ val)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a5dd55f7cb3b62c3ad34c10c558c4f017}{\_mangle\_dupe\_cols}}\ =\ val;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00530}00530\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00536}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ab7bb8b3fad8a7248f03b92cc3d223c8e}{00536}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ab7bb8b3fad8a7248f03b92cc3d223c8e}{set\_use\_cols\_names}}(std::vector<std::string>\ col\_names)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00537}00537\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00538}00538\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ab39f50306e873eb0aca2033f8f3491ec}{\_use\_cols\_names}}\ =\ std::move(col\_names);}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00539}00539\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00540}00540\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00546}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a03d81d8ef9c67fbed82213dbb21ebcc8}{00546}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a03d81d8ef9c67fbed82213dbb21ebcc8}{set\_use\_cols\_indexes}}(std::vector<int>\ col\_indices)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00547}00547\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00548}00548\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ac87a823b0c56f515202ea49131a51d16}{\_use\_cols\_indexes}}\ =\ std::move(col\_indices);}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00549}00549\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00550}00550\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00556}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aecec45581b46f3ceea151f33a15d8787}{00556}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aecec45581b46f3ceea151f33a15d8787}{set\_nrows}}(\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ nrows)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00557}00557\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00558}00558\ \ \ \ \ \mbox{\hyperlink{group__utility__error_ga855a389cbf4b44cfd6891cd2f90edf34}{CUDF\_EXPECTS}}((nrows\ ==\ 0)\ or\ (\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ae53fc31335c2f0915329e1ac0deb72d3}{\_skipfooter}}\ ==\ 0),\ \textcolor{stringliteral}{"{}Cannot\ use\ both\ \`{}nrows`\ and\ \`{}skipfooter`"{}});}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00559}00559\ \ \ \ \ \textcolor{keywordflow}{if}\ ((nrows\ !=\ -\/1)\ and\ ((\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ac96a65b011efa142c9c004ecefe0f294}{\_byte\_range\_offset}}\ !=\ 0)\ or\ (\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9b72f681559a720f2a08e760e58beba8}{\_byte\_range\_size}}\ !=\ 0)))\ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00560}00560\ \ \ \ \ \ \ \mbox{\hyperlink{group__utility__error_ga8fec215b7e7785312d292d75f797ccc1}{CUDF\_FAIL}}(}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00561}00561\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}nrows\ can't\ be\ a\ non\ negative\ value\ if\ range\ offset\ and/or\ range\ size\ has\ been\ set"{}});}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00562}00562\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00563}00563\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00564}00564\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a27b8aeae8b3f3ace4509e115a6951954}{\_nrows}}\ =\ nrows;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00565}00565\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00566}00566\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00572}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_adf71cbe445d1b6de237e7493a0d94976}{00572}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_adf71cbe445d1b6de237e7493a0d94976}{set\_skiprows}}(\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ skip)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00573}00573\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00574}00574\ \ \ \ \ \textcolor{keywordflow}{if}\ ((skip\ !=\ 0)\ and\ ((\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ac96a65b011efa142c9c004ecefe0f294}{\_byte\_range\_offset}}\ !=\ 0)\ or\ (\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9b72f681559a720f2a08e760e58beba8}{\_byte\_range\_size}}\ !=\ 0)))\ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00575}00575\ \ \ \ \ \ \ \mbox{\hyperlink{group__utility__error_ga8fec215b7e7785312d292d75f797ccc1}{CUDF\_FAIL}}(}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00576}00576\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}skiprows\ can't\ be\ a\ non\ zero\ value\ if\ range\ offset\ and/or\ range\ size\ has\ been\ set"{}});}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00577}00577\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00578}00578\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aadab9124674633580f3b9867e55f8084}{\_skiprows}}\ =\ skip;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00579}00579\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00580}00580\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00586}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a1dd2888cd8d5d763b3111c791acd0425}{00586}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a1dd2888cd8d5d763b3111c791acd0425}{set\_skipfooter}}(\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ skip)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00587}00587\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00588}00588\ \ \ \ \ \mbox{\hyperlink{group__utility__error_ga855a389cbf4b44cfd6891cd2f90edf34}{CUDF\_EXPECTS}}((skip\ ==\ 0)\ or\ (\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a27b8aeae8b3f3ace4509e115a6951954}{\_nrows}}\ ==\ -\/1),\ \textcolor{stringliteral}{"{}Cannot\ use\ both\ \`{}nrows`\ and\ \`{}skipfooter`"{}});}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00589}00589\ \ \ \ \ \textcolor{keywordflow}{if}\ ((skip\ !=\ 0)\ and\ ((\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ac96a65b011efa142c9c004ecefe0f294}{\_byte\_range\_offset}}\ !=\ 0)\ or\ (\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9b72f681559a720f2a08e760e58beba8}{\_byte\_range\_size}}\ !=\ 0)))\ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00590}00590\ \ \ \ \ \ \ \mbox{\hyperlink{group__utility__error_ga8fec215b7e7785312d292d75f797ccc1}{CUDF\_FAIL}}(}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00591}00591\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}skipfooter\ can't\ be\ a\ non\ zero\ value\ if\ range\ offset\ and/or\ range\ size\ has\ been\ set"{}});}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00592}00592\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00593}00593\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00594}00594\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ae53fc31335c2f0915329e1ac0deb72d3}{\_skipfooter}}\ =\ skip;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00595}00595\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00596}00596\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00602}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_abb5c29ae9ba275b562375f110565546c}{00602}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_abb5c29ae9ba275b562375f110565546c}{set\_header}}(\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ hdr)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9c96e45b08d1e3f9478b8e9ae980019a}{\_header}}\ =\ hdr;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00603}00603\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00609}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a6c3c00fa527b07a2f4550c6dacbb0d9e}{00609}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a6c3c00fa527b07a2f4550c6dacbb0d9e}{set\_lineterminator}}(\textcolor{keywordtype}{char}\ term)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ad2f616ad978192bc05b9691e95b796a5}{\_lineterminator}}\ =\ term;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00610}00610\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00616}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ad527ee1e46130f2a453be6a89976e446}{00616}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ad527ee1e46130f2a453be6a89976e446}{set\_delimiter}}(\textcolor{keywordtype}{char}\ delim)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ae3efa5c45b7e9a56d2741d077a304748}{\_delimiter}}\ =\ delim;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00617}00617\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00623}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ac4fe873d4a35f625c855216fe61f09a3}{00623}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ac4fe873d4a35f625c855216fe61f09a3}{set\_thousands}}(\textcolor{keywordtype}{char}\ val)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a653b283d9487f6d57300a12b591cb45c}{\_thousands}}\ =\ val;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00624}00624\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00630}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a36ceacac296bb4c4398f866a5fb43f16}{00630}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a36ceacac296bb4c4398f866a5fb43f16}{set\_decimal}}(\textcolor{keywordtype}{char}\ val)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a81cc348d672c882bb5979a041f2566df}{\_decimal}}\ =\ val;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00631}00631\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00637}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_af3307abd0477dc8eef985d684bc7be98}{00637}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_af3307abd0477dc8eef985d684bc7be98}{set\_comment}}(\textcolor{keywordtype}{char}\ val)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ab0beb97fa44f4d332ac5a78103858705}{\_comment}}\ =\ val;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00638}00638\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00644}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a758d20fdb28c8489dc06402a711b8c3e}{00644}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a758d20fdb28c8489dc06402a711b8c3e}{enable\_windowslinetermination}}(\textcolor{keywordtype}{bool}\ val)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a65361d245b0c4e9790b7d11ab39b05df}{\_windowslinetermination}}\ =\ val;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00645}00645\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00651}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a897d757caeb9be9850c2517178787328}{00651}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a897d757caeb9be9850c2517178787328}{enable\_delim\_whitespace}}(\textcolor{keywordtype}{bool}\ val)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ad1d4e8b0b7c7eecc03f683f4948bc00d}{\_delim\_whitespace}}\ =\ val;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00652}00652\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00658}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_adec4607fcbad56285c4b60626686b7f8}{00658}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_adec4607fcbad56285c4b60626686b7f8}{enable\_skipinitialspace}}(\textcolor{keywordtype}{bool}\ val)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a17fabbdec3865748fa04c4cb523e5bb4}{\_skipinitialspace}}\ =\ val;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00659}00659\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00665}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a736967e8e3e8f3b63efbb86b4eb44ee4}{00665}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a736967e8e3e8f3b63efbb86b4eb44ee4}{enable\_skip\_blank\_lines}}(\textcolor{keywordtype}{bool}\ val)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a2fccd559ef02ebbf0da2bb450a5c1ee6}{\_skip\_blank\_lines}}\ =\ val;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00666}00666\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00672}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ac58f06e14e7f845c822a077643d58757}{00672}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ac58f06e14e7f845c822a077643d58757}{set\_quoting}}(\mbox{\hyperlink{namespacecudf_1_1io_a9b3038122e7e69390b062270cf403007}{quote\_style}}\ style)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9f3a909ed87bcba0a335fb860db01264}{\_quoting}}\ =\ style;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00673}00673\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00679}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a6f1c88df50cd07c22c5b4a96fd8b7274}{00679}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a6f1c88df50cd07c22c5b4a96fd8b7274}{set\_quotechar}}(\textcolor{keywordtype}{char}\ ch)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aca1dd03f2cd546a3890d28213669e56a}{\_quotechar}}\ =\ ch;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00680}00680\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00686}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a0325bb96860672c6a8dfcea4082870cf}{00686}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a0325bb96860672c6a8dfcea4082870cf}{enable\_doublequote}}(\textcolor{keywordtype}{bool}\ val)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_adec76720217ccf3e75007978c3125ecc}{\_doublequote}}\ =\ val;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00687}00687\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00693}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a128f3d01aef678020f00d7a42e17751b}{00693}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a128f3d01aef678020f00d7a42e17751b}{set\_parse\_dates}}(std::vector<std::string>\ col\_names)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00694}00694\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00695}00695\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_afef9bc6349cdb4f1644c03829289196a}{\_parse\_dates\_names}}\ =\ std::move(col\_names);}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00696}00696\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00697}00697\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00703}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a146a749035eb7c7c8743b9bc3dec85e2}{00703}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a146a749035eb7c7c8743b9bc3dec85e2}{set\_parse\_dates}}(std::vector<int>\ col\_indices)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00704}00704\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00705}00705\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a5d067ca62c99291cdbd0fb0a6f0d8b07}{\_parse\_dates\_indexes}}\ =\ std::move(col\_indices);}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00706}00706\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00707}00707\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00713}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aff22ce2da7c88c6007fd705219114981}{00713}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aff22ce2da7c88c6007fd705219114981}{set\_parse\_hex}}(std::vector<std::string>\ col\_names)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00714}00714\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00715}00715\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a5568d6d6e5ad859a0a66adef3df80bda}{\_parse\_hex\_names}}\ =\ std::move(col\_names);}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00716}00716\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00717}00717\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00723}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ac147dba3ab23119d6d965be6826de3f6}{00723}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ac147dba3ab23119d6d965be6826de3f6}{set\_parse\_hex}}(std::vector<int>\ col\_indices)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_af0084eed545f12e5f04579e92b8ee888}{\_parse\_hex\_indexes}}\ =\ std::move(col\_indices);\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00724}00724\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00730}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a3d85b142fc71545f3175b49070591ccf}{00730}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a3d85b142fc71545f3175b49070591ccf}{set\_dtypes}}(std::map<std::string,\ data\_type>\ types)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a7a81e9cda07bcecf25a57b958600aa02}{\_dtypes}}\ =\ std::move(types);\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00731}00731\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00737}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a8b217346f5e22fea3cfdb64d61dd73af}{00737}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a8b217346f5e22fea3cfdb64d61dd73af}{set\_dtypes}}(std::vector<data\_type>\ types)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a7a81e9cda07bcecf25a57b958600aa02}{\_dtypes}}\ =\ std::move(types);\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00738}00738\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00744}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aba44f19f8360e12356657d1bde3f824b}{00744}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aba44f19f8360e12356657d1bde3f824b}{set\_true\_values}}(std::vector<std::string>\ vals)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00745}00745\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00746}00746\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a64034038da8cef1484831c425aecc1db}{\_true\_values}}.insert(\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a64034038da8cef1484831c425aecc1db}{\_true\_values}}.end(),\ vals.begin(),\ vals.end());}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00747}00747\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00748}00748\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00754}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a32c0b43bf460e1d2cc909ff6360f35b5}{00754}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a32c0b43bf460e1d2cc909ff6360f35b5}{set\_false\_values}}(std::vector<std::string>\ vals)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00755}00755\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00756}00756\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_abff7b414369b99bbf6f33b2cd5845481}{\_false\_values}}.insert(\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_abff7b414369b99bbf6f33b2cd5845481}{\_false\_values}}.end(),\ vals.begin(),\ vals.end());}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00757}00757\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00758}00758\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00764}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a4673faa4063863b1ebb64b2fad7efebd}{00764}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a4673faa4063863b1ebb64b2fad7efebd}{set\_na\_values}}(std::vector<std::string>\ vals)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00765}00765\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00766}00766\ \ \ \ \ \textcolor{keywordflow}{if}\ ((!vals.empty())\ and\ (!\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a0121b8d9617073dbde4d5d1553dab041}{\_na\_filter}}))\ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00767}00767\ \ \ \ \ \ \ \mbox{\hyperlink{group__utility__error_ga8fec215b7e7785312d292d75f797ccc1}{CUDF\_FAIL}}(\textcolor{stringliteral}{"{}Can't\ set\ na\_values\ when\ na\_filtering\ is\ disabled"{}});}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00768}00768\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00769}00769\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00770}00770\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a8c2b5bf72cefc93777b81287797fcc95}{\_na\_values}}\ =\ std::move(vals);}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00771}00771\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00772}00772\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00778}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9946c57f28c6e6f019a7f7cc737b0c44}{00778}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9946c57f28c6e6f019a7f7cc737b0c44}{enable\_keep\_default\_na}}(\textcolor{keywordtype}{bool}\ val)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ae058e4088672a547e7bad1d57bf1e55f}{\_keep\_default\_na}}\ =\ val;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00779}00779\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00785}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ac95574411dda941cb1966874031f97a9}{00785}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ac95574411dda941cb1966874031f97a9}{enable\_na\_filter}}(\textcolor{keywordtype}{bool}\ val)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00786}00786\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00787}00787\ \ \ \ \ \textcolor{keywordflow}{if}\ (!val)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a8c2b5bf72cefc93777b81287797fcc95}{\_na\_values}}.clear();\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00788}00788\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a0121b8d9617073dbde4d5d1553dab041}{\_na\_filter}}\ =\ val;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00789}00789\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00790}00790\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00796}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a4620b8344506665051c587621ea24c1f}{00796}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a4620b8344506665051c587621ea24c1f}{enable\_dayfirst}}(\textcolor{keywordtype}{bool}\ val)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a19d0d3cb059a32cab0304908c466326a}{\_dayfirst}}\ =\ val;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00797}00797\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00803}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a575e94b6e41a2e8f11262da6a432becc}{00803}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a575e94b6e41a2e8f11262da6a432becc}{set\_timestamp\_type}}(\mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a4ddcbfe13e6e6fab688a4fe5de23cf35}{\_timestamp\_type}}\ =\ type;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00804}00804\ \};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00805}00805\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00810}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{00810}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00811}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{00811}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options}{csv\_reader\_options}}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}};\ \ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00812}00812\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00813}00813\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00819}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a9aa0c5c02911929aa836a661d2903ab8}{00819}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a9aa0c5c02911929aa836a661d2903ab8}{csv\_reader\_options\_builder}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00820}00820\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00826}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a59e25b768ff021fcac907a27c79a042e}{00826}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a59e25b768ff021fcac907a27c79a042e}{csv\_reader\_options\_builder}}(\mbox{\hyperlink{structcudf_1_1io_1_1source__info}{source\_info}}\ \textcolor{keyword}{const}\&\ src)\ :\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}(src)\ \{\}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00827}00827\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00834}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_acfe47ffb058d4c023ffa6d8e92d7a861}{00834}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_acfe47ffb058d4c023ffa6d8e92d7a861}{compression}}(\mbox{\hyperlink{namespacecudf_1_1io_a8033aa1109d4e77468bda8b81eb216a8}{compression\_type}}\ comp)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00835}00835\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00836}00836\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_abf7a2b0ed05f4b5502d6c57f6a5fd608}{\_compression}}\ =\ comp;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00837}00837\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00838}00838\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00839}00839\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00846}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a8749e28ad4b9a363815dfdd2cac9dcb2}{00846}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a8749e28ad4b9a363815dfdd2cac9dcb2}{byte\_range\_offset}}(std::size\_t\ offset)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00847}00847\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00848}00848\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a082c86e429b15b20a0d6f049cfc8688b}{set\_byte\_range\_offset}}(offset);}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00849}00849\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00850}00850\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00851}00851\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00858}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a5f313eba110f47ee15f8b3b234217987}{00858}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a5f313eba110f47ee15f8b3b234217987}{byte\_range\_size}}(std::size\_t\ size)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00859}00859\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00860}00860\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aca302b3f875c3db07c5fbc7708a20ed1}{set\_byte\_range\_size}}(size);}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00861}00861\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00862}00862\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00863}00863\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00870}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a3df04cd7fa4838e66c63063c4af0197b}{00870}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a3df04cd7fa4838e66c63063c4af0197b}{names}}(std::vector<std::string>\ col\_names)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00871}00871\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00872}00872\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a6361547c79ef0b7edf9a833d858d7677}{\_names}}\ =\ std::move(col\_names);}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00873}00873\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00874}00874\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00875}00875\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00882}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_aec75e7058eee5f93b314c11eae8e45cd}{00882}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_aec75e7058eee5f93b314c11eae8e45cd}{prefix}}(std::string\ pfx)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00883}00883\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00884}00884\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ad5e63b1e9376a6ee8aa6ec92fbc821c7}{\_prefix}}\ =\ pfx;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00885}00885\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00886}00886\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00887}00887\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00894}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_aeb92fb451c7403046bed50d5f30dfb6d}{00894}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_aeb92fb451c7403046bed50d5f30dfb6d}{mangle\_dupe\_cols}}(\textcolor{keywordtype}{bool}\ val)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00895}00895\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00896}00896\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a5dd55f7cb3b62c3ad34c10c558c4f017}{\_mangle\_dupe\_cols}}\ =\ val;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00897}00897\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00898}00898\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00899}00899\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00906}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a0b995a5ab86330b17537ccfec7f36f05}{00906}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a0b995a5ab86330b17537ccfec7f36f05}{use\_cols\_names}}(std::vector<std::string>\ col\_names)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00907}00907\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00908}00908\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ab39f50306e873eb0aca2033f8f3491ec}{\_use\_cols\_names}}\ =\ std::move(col\_names);}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00909}00909\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00910}00910\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00911}00911\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00918}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a4da87305c2fe5b06accd50170342d2bd}{00918}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a4da87305c2fe5b06accd50170342d2bd}{use\_cols\_indexes}}(std::vector<int>\ col\_indices)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00919}00919\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00920}00920\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ac87a823b0c56f515202ea49131a51d16}{\_use\_cols\_indexes}}\ =\ std::move(col\_indices);}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00921}00921\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00922}00922\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00923}00923\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00930}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a382d313c68273e83320cb1325909a673}{00930}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a382d313c68273e83320cb1325909a673}{nrows}}(\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ rows)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00931}00931\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00932}00932\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aecec45581b46f3ceea151f33a15d8787}{set\_nrows}}(rows);}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00933}00933\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00934}00934\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00935}00935\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00942}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a0b7d5882e2a3c9cbb1ab2ab7c7ab8782}{00942}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a0b7d5882e2a3c9cbb1ab2ab7c7ab8782}{skiprows}}(\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ skip)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00943}00943\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00944}00944\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_adf71cbe445d1b6de237e7493a0d94976}{set\_skiprows}}(skip);}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00945}00945\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00946}00946\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00947}00947\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00954}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_aea90d9657c44207514592866eb3f2304}{00954}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_aea90d9657c44207514592866eb3f2304}{skipfooter}}(\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ skip)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00955}00955\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00956}00956\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a1dd2888cd8d5d763b3111c791acd0425}{set\_skipfooter}}(skip);}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00957}00957\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00958}00958\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00959}00959\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00966}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a27a7bb2a4862d56352c96872f8e359de}{00966}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a27a7bb2a4862d56352c96872f8e359de}{header}}(\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ hdr)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00967}00967\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00968}00968\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9c96e45b08d1e3f9478b8e9ae980019a}{\_header}}\ =\ hdr;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00969}00969\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00970}00970\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00971}00971\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00978}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_ab604048a1d3e8f84d34a7a1488dc19f7}{00978}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_ab604048a1d3e8f84d34a7a1488dc19f7}{lineterminator}}(\textcolor{keywordtype}{char}\ term)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00979}00979\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00980}00980\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ad2f616ad978192bc05b9691e95b796a5}{\_lineterminator}}\ =\ term;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00981}00981\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00982}00982\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00983}00983\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00990}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a129a227d3e32112bba20b401dd7eb071}{00990}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a129a227d3e32112bba20b401dd7eb071}{delimiter}}(\textcolor{keywordtype}{char}\ delim)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00991}00991\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00992}00992\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ae3efa5c45b7e9a56d2741d077a304748}{\_delimiter}}\ =\ delim;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00993}00993\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00994}00994\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l00995}00995\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01002}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a136b223890d77474d1dad4356aeceb86}{01002}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a136b223890d77474d1dad4356aeceb86}{thousands}}(\textcolor{keywordtype}{char}\ val)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01003}01003\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01004}01004\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a653b283d9487f6d57300a12b591cb45c}{\_thousands}}\ =\ val;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01005}01005\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01006}01006\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01007}01007\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01014}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a0ce66cbbc64184f1bad317d7c3f2dec2}{01014}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a0ce66cbbc64184f1bad317d7c3f2dec2}{decimal}}(\textcolor{keywordtype}{char}\ val)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01015}01015\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01016}01016\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a81cc348d672c882bb5979a041f2566df}{\_decimal}}\ =\ val;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01017}01017\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01018}01018\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01019}01019\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01026}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_aa3ab11b9519a1c368058a4ec0c5b09e6}{01026}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_aa3ab11b9519a1c368058a4ec0c5b09e6}{comment}}(\textcolor{keywordtype}{char}\ val)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01027}01027\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01028}01028\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ab0beb97fa44f4d332ac5a78103858705}{\_comment}}\ =\ val;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01029}01029\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01030}01030\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01031}01031\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01038}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a33f940b8563bc8f9815fbef64469238e}{01038}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a33f940b8563bc8f9815fbef64469238e}{windowslinetermination}}(\textcolor{keywordtype}{bool}\ val)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01039}01039\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01040}01040\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a65361d245b0c4e9790b7d11ab39b05df}{\_windowslinetermination}}\ =\ val;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01041}01041\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01042}01042\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01043}01043\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01050}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a5664426a942dabff9a8e2b96aa001859}{01050}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a5664426a942dabff9a8e2b96aa001859}{delim\_whitespace}}(\textcolor{keywordtype}{bool}\ val)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01051}01051\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01052}01052\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ad1d4e8b0b7c7eecc03f683f4948bc00d}{\_delim\_whitespace}}\ =\ val;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01053}01053\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01054}01054\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01055}01055\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01062}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_ac5f408a75581d4eb2cd735050675e964}{01062}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_ac5f408a75581d4eb2cd735050675e964}{skipinitialspace}}(\textcolor{keywordtype}{bool}\ val)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01063}01063\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01064}01064\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a17fabbdec3865748fa04c4cb523e5bb4}{\_skipinitialspace}}\ =\ val;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01065}01065\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01066}01066\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01067}01067\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01074}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a2a0f6ef5e554bd7ad72d9aaac7fe2424}{01074}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a2a0f6ef5e554bd7ad72d9aaac7fe2424}{skip\_blank\_lines}}(\textcolor{keywordtype}{bool}\ val)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01075}01075\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01076}01076\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a2fccd559ef02ebbf0da2bb450a5c1ee6}{\_skip\_blank\_lines}}\ =\ val;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01077}01077\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01078}01078\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01079}01079\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01086}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_ac1c33b6ddd083a20fc66c84635c09a79}{01086}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_ac1c33b6ddd083a20fc66c84635c09a79}{quoting}}(\mbox{\hyperlink{namespacecudf_1_1io_a9b3038122e7e69390b062270cf403007}{quote\_style}}\ style)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01087}01087\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01088}01088\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9f3a909ed87bcba0a335fb860db01264}{\_quoting}}\ =\ style;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01089}01089\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01090}01090\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01091}01091\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01098}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a8e1a9d6bcc2a47ea301626b65b69d700}{01098}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a8e1a9d6bcc2a47ea301626b65b69d700}{quotechar}}(\textcolor{keywordtype}{char}\ ch)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01099}01099\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01100}01100\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_aca1dd03f2cd546a3890d28213669e56a}{\_quotechar}}\ =\ ch;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01101}01101\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01102}01102\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01103}01103\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01110}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a289e212bd47283f01c0126ee55c6b600}{01110}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a289e212bd47283f01c0126ee55c6b600}{doublequote}}(\textcolor{keywordtype}{bool}\ val)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01111}01111\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01112}01112\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_adec76720217ccf3e75007978c3125ecc}{\_doublequote}}\ =\ val;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01113}01113\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01114}01114\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01115}01115\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01122}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_af283669c9ce65063c6bc05e47f870c63}{01122}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_af283669c9ce65063c6bc05e47f870c63}{parse\_dates}}(std::vector<std::string>\ col\_names)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01123}01123\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01124}01124\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_afef9bc6349cdb4f1644c03829289196a}{\_parse\_dates\_names}}\ =\ std::move(col\_names);}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01125}01125\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01126}01126\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01127}01127\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01134}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_ab80ac13b7ebb908e23348cb7692de19f}{01134}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_ab80ac13b7ebb908e23348cb7692de19f}{parse\_dates}}(std::vector<int>\ col\_indices)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01135}01135\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01136}01136\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a5d067ca62c99291cdbd0fb0a6f0d8b07}{\_parse\_dates\_indexes}}\ =\ std::move(col\_indices);}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01137}01137\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01138}01138\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01139}01139\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01146}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a04e70295eb579b4b9357b979fcab8e02}{01146}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a04e70295eb579b4b9357b979fcab8e02}{parse\_hex}}(std::vector<std::string>\ col\_names)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01147}01147\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01148}01148\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a5568d6d6e5ad859a0a66adef3df80bda}{\_parse\_hex\_names}}\ =\ std::move(col\_names);}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01149}01149\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01150}01150\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01151}01151\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01158}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a479e31589caaee810f0382c4ca96b99b}{01158}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a479e31589caaee810f0382c4ca96b99b}{parse\_hex}}(std::vector<int>\ col\_indices)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01159}01159\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01160}01160\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_af0084eed545f12e5f04579e92b8ee888}{\_parse\_hex\_indexes}}\ =\ std::move(col\_indices);}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01161}01161\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01162}01162\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01163}01163\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01170}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a50ac1b93f92c0968a3fbe258efb573d4}{01170}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a50ac1b93f92c0968a3fbe258efb573d4}{dtypes}}(std::map<std::string,\ data\_type>\ types)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01171}01171\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01172}01172\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a7a81e9cda07bcecf25a57b958600aa02}{\_dtypes}}\ =\ std::move(types);}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01173}01173\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01174}01174\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01175}01175\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01182}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a03110c4ef522b4f57ba13cb9b26fdc15}{01182}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a03110c4ef522b4f57ba13cb9b26fdc15}{dtypes}}(std::vector<data\_type>\ types)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01183}01183\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01184}01184\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a7a81e9cda07bcecf25a57b958600aa02}{\_dtypes}}\ =\ std::move(types);}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01185}01185\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01186}01186\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01187}01187\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01194}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a69247881467a34da39893b39d7da19d1}{01194}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a69247881467a34da39893b39d7da19d1}{true\_values}}(std::vector<std::string>\ vals)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01195}01195\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01196}01196\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a64034038da8cef1484831c425aecc1db}{\_true\_values}}.insert(\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a64034038da8cef1484831c425aecc1db}{\_true\_values}}.end(),\ vals.begin(),\ vals.end());}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01197}01197\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01198}01198\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01199}01199\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01206}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a2e082ef9226ae99a653e356a4dbaf195}{01206}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a2e082ef9226ae99a653e356a4dbaf195}{false\_values}}(std::vector<std::string>\ vals)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01207}01207\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01208}01208\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_abff7b414369b99bbf6f33b2cd5845481}{\_false\_values}}.insert(\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_abff7b414369b99bbf6f33b2cd5845481}{\_false\_values}}.end(),\ vals.begin(),\ vals.end());}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01209}01209\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01210}01210\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01211}01211\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01218}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a3a375a05d754a4bc64a764a4d0df3cda}{01218}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a3a375a05d754a4bc64a764a4d0df3cda}{na\_values}}(std::vector<std::string>\ vals)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01219}01219\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01220}01220\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a4673faa4063863b1ebb64b2fad7efebd}{set\_na\_values}}(std::move(vals));}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01221}01221\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01222}01222\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01223}01223\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01230}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a3eba4955f36b8c894e5cf890314e6660}{01230}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a3eba4955f36b8c894e5cf890314e6660}{keep\_default\_na}}(\textcolor{keywordtype}{bool}\ val)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01231}01231\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01232}01232\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a9946c57f28c6e6f019a7f7cc737b0c44}{enable\_keep\_default\_na}}(val);}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01233}01233\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01234}01234\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01235}01235\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01242}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_af3994373e055f6fcb2e6cd175a6554ac}{01242}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_af3994373e055f6fcb2e6cd175a6554ac}{na\_filter}}(\textcolor{keywordtype}{bool}\ val)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01243}01243\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01244}01244\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_ac95574411dda941cb1966874031f97a9}{enable\_na\_filter}}(val);}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01245}01245\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01246}01246\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01247}01247\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01254}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_ab6ec7399368847b02f1d1674e9f7c53a}{01254}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_ab6ec7399368847b02f1d1674e9f7c53a}{dayfirst}}(\textcolor{keywordtype}{bool}\ val)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01255}01255\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01256}01256\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a19d0d3cb059a32cab0304908c466326a}{\_dayfirst}}\ =\ val;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01257}01257\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01258}01258\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01259}01259\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01266}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a18f559e5aaf2c5eaf84144bfb591ec5a}{01266}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder}{csv\_reader\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a18f559e5aaf2c5eaf84144bfb591ec5a}{timestamp\_type}}(\mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\ type)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01267}01267\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01268}01268\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options_a4ddcbfe13e6e6fab688a4fe5de23cf35}{\_timestamp\_type}}\ =\ type;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01269}01269\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01270}01270\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01271}01271\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01275}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_af32a17fc41e27d93e1e9a372be71b100}{01275}}\ \ \ \textcolor{keyword}{operator}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options}{csv\_reader\_options}}\&\&()\ \{\ \textcolor{keywordflow}{return}\ std::move(\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}});\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01276}01276\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01284}\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a005a59617e61292d54e7e6b72a4a1c37}{01284}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options}{csv\_reader\_options}}\&\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a005a59617e61292d54e7e6b72a4a1c37}{build}}()\ \{\ \textcolor{keywordflow}{return}\ std::move(\mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options__builder_a43b685625bd41180161fc9aaa680c502}{options}});\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01285}01285\ \};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01286}01286\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01303}\mbox{\hyperlink{group__io__readers_ga985f7c239c3ed1e89263ab496deade9c}{01303}}\ \mbox{\hyperlink{structcudf_1_1io_1_1table__with__metadata}{table\_with\_metadata}}\ \mbox{\hyperlink{group__io__readers_ga985f7c239c3ed1e89263ab496deade9c}{read\_csv}}(}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01304}01304\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__reader__options}{csv\_reader\_options}}\ options,}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01305}01305\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01306}01306\ \ \ \textcolor{comment}{//\ end\ of\ group}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01317}01317\ \textcolor{comment}{}\textcolor{keyword}{class\ }\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder}{csv\_writer\_options\_builder}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01318}01318\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01322}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options}{01322}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options}{csv\_writer\_options}}\ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01323}01323\ \ \ \textcolor{comment}{//\ Specify\ the\ sink\ to\ use\ for\ writer\ output}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01324}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_ad367b7115bcd70630afb489e559b0794}{01324}}\ \ \ \mbox{\hyperlink{structcudf_1_1io_1_1sink__info}{sink\_info}}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_ad367b7115bcd70630afb489e559b0794}{\_sink}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01325}01325\ \ \ \textcolor{comment}{//\ Set\ of\ columns\ to\ output}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01326}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a21618aa33b6391994a1d245af17664f3}{01326}}\ \ \ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a21618aa33b6391994a1d245af17664f3}{\_table}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01327}01327\ \ \ \textcolor{comment}{//\ string\ to\ use\ for\ null\ entries}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01328}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a6e825702735bbbf7ee3a1a29769ab972}{01328}}\ \ \ std::string\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a6e825702735bbbf7ee3a1a29769ab972}{\_na\_rep}}\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01329}01329\ \ \ \textcolor{comment}{//\ Indicates\ whether\ to\ write\ headers\ to\ csv}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01330}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a45fb5fcf9151e843ae176ee92e45c8db}{01330}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a45fb5fcf9151e843ae176ee92e45c8db}{\_include\_header}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01331}01331\ \ \ \textcolor{comment}{//\ maximum\ number\ of\ rows\ to\ write\ in\ each\ chunk\ (limits\ memory\ use)}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01332}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_ac5513ddbde8432891ebc0f5429f7dd23}{01332}}\ \ \ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_ac5513ddbde8432891ebc0f5429f7dd23}{\_rows\_per\_chunk}}\ =\ std::numeric\_limits<size\_type>::max();}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01333}01333\ \ \ \textcolor{comment}{//\ character\ to\ use\ for\ separating\ lines\ (default\ "{}\(\backslash\)n"{})}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01334}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a354ad8a50eba98e81f729d8c314e7fc4}{01334}}\ \ \ std::string\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a354ad8a50eba98e81f729d8c314e7fc4}{\_line\_terminator}}\ =\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01335}01335\ \ \ \textcolor{comment}{//\ character\ to\ use\ for\ separating\ lines\ (default\ "{}\(\backslash\)n"{})}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01336}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a43cc38a567b20616316d55c1404413a4}{01336}}\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a43cc38a567b20616316d55c1404413a4}{\_inter\_column\_delimiter}}\ =\ \textcolor{charliteral}{','};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01337}01337\ \ \ \textcolor{comment}{//\ string\ to\ use\ for\ values\ !=\ 0\ in\ INT8\ types\ (default\ 'true')}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01338}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a50bfe596e36414851776d7715c7e0894}{01338}}\ \ \ std::string\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a50bfe596e36414851776d7715c7e0894}{\_true\_value}}\ =\ std::string\{\textcolor{stringliteral}{"{}true"{}}\};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01339}01339\ \ \ \textcolor{comment}{//\ string\ to\ use\ for\ values\ ==\ 0\ in\ INT8\ types\ (default\ 'false')}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01340}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_af807bf96082807ccfe88827be5ba2b98}{01340}}\ \ \ std::string\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_af807bf96082807ccfe88827be5ba2b98}{\_false\_value}}\ =\ std::string\{\textcolor{stringliteral}{"{}false"{}}\};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01341}01341\ \ \ \textcolor{comment}{//\ Names\ of\ all\ columns;\ if\ empty,\ writer\ will\ generate\ column\ names}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01342}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_aafb48a55e42cc062c3b4af1032162a9c}{01342}}\ \ \ std::vector<std::string>\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_aafb48a55e42cc062c3b4af1032162a9c}{\_names}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01343}01343\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01350}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a27082c8996be2fe1e242ebb7715e25f4}{01350}}\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a27082c8996be2fe1e242ebb7715e25f4}{csv\_writer\_options}}(\mbox{\hyperlink{structcudf_1_1io_1_1sink__info}{sink\_info}}\ \textcolor{keyword}{const}\&\ sink,\ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1table}{table}})}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01351}01351\ \ \ \ \ :\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_ad367b7115bcd70630afb489e559b0794}{\_sink}}(sink),\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a21618aa33b6391994a1d245af17664f3}{\_table}}(\mbox{\hyperlink{classcudf_1_1table}{table}}),\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_ac5513ddbde8432891ebc0f5429f7dd23}{\_rows\_per\_chunk}}(\mbox{\hyperlink{classcudf_1_1table}{table}}.num\_rows())}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01352}01352\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01353}01353\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01354}01354\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01355}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_ac9f6a82460104ddc20e162e799e716f3}{01355}}\ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_ac9f6a82460104ddc20e162e799e716f3}{csv\_writer\_options\_builder}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01356}01356\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01357}01357\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01363}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a32f39c9fab685459b75dbece6ee63d7c}{01363}}\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a32f39c9fab685459b75dbece6ee63d7c}{csv\_writer\_options}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01364}01364\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01373}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a5fd10bbfdf17801d7a7586f3b97e838d}{01373}}\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder}{csv\_writer\_options\_builder}}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a5fd10bbfdf17801d7a7586f3b97e838d}{builder}}(\mbox{\hyperlink{structcudf_1_1io_1_1sink__info}{sink\_info}}\ \textcolor{keyword}{const}\&\ sink,\ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1table}{table}});}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01374}01374\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01380}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a66564a46ca61fa481c73d05f344a1934}{01380}}\ \ \ [[nodiscard]]\ \mbox{\hyperlink{structcudf_1_1io_1_1sink__info}{sink\_info}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a66564a46ca61fa481c73d05f344a1934}{get\_sink}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_ad367b7115bcd70630afb489e559b0794}{\_sink}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01381}01381\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01387}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_ac33be8bc1e4d53f477d6310b29da493f}{01387}}\ \ \ [[nodiscard]]\ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_ac33be8bc1e4d53f477d6310b29da493f}{get\_table}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a21618aa33b6391994a1d245af17664f3}{\_table}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01388}01388\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01394}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_aacee26eb30d8cd27e117574b21147ee6}{01394}}\ \ \ [[nodiscard]]\ std::vector<std::string>\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_aacee26eb30d8cd27e117574b21147ee6}{get\_names}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_aafb48a55e42cc062c3b4af1032162a9c}{\_names}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01395}01395\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01401}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a633f9d2f3b36d35e87a8d0218a2d1947}{01401}}\ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a633f9d2f3b36d35e87a8d0218a2d1947}{get\_na\_rep}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a6e825702735bbbf7ee3a1a29769ab972}{\_na\_rep}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01402}01402\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01408}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a7c1cfff1b214e92f03acb8ea9e882954}{01408}}\ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a7c1cfff1b214e92f03acb8ea9e882954}{is\_enabled\_include\_header}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a45fb5fcf9151e843ae176ee92e45c8db}{\_include\_header}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01409}01409\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01415}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_aecbbd0d00609f91669875129b6066a7e}{01415}}\ \ \ [[nodiscard]]\ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_aecbbd0d00609f91669875129b6066a7e}{get\_rows\_per\_chunk}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_ac5513ddbde8432891ebc0f5429f7dd23}{\_rows\_per\_chunk}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01416}01416\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01422}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a2e29efd078c134303ddf619899d31578}{01422}}\ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a2e29efd078c134303ddf619899d31578}{get\_line\_terminator}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a354ad8a50eba98e81f729d8c314e7fc4}{\_line\_terminator}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01423}01423\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01429}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_ac3475cb8e94c3d070788fda5df195a98}{01429}}\ \ \ [[nodiscard]]\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_ac3475cb8e94c3d070788fda5df195a98}{get\_inter\_column\_delimiter}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a43cc38a567b20616316d55c1404413a4}{\_inter\_column\_delimiter}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01430}01430\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01436}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a3ab2e63c35324fa3bc60f65c9c843c73}{01436}}\ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a3ab2e63c35324fa3bc60f65c9c843c73}{get\_true\_value}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a50bfe596e36414851776d7715c7e0894}{\_true\_value}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01437}01437\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01443}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a1b3a35d3ce64bdd38468d1e39c37e6be}{01443}}\ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a1b3a35d3ce64bdd38468d1e39c37e6be}{get\_false\_value}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_af807bf96082807ccfe88827be5ba2b98}{\_false\_value}};\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01444}01444\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01445}01445\ \ \ \textcolor{comment}{//\ Setter}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01451}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_af4a8d597f6d0f99849786272557a41fb}{01451}}\ \textcolor{comment}{}\ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_af4a8d597f6d0f99849786272557a41fb}{set\_names}}(std::vector<std::string>\ names)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_aafb48a55e42cc062c3b4af1032162a9c}{\_names}}\ =\ std::move(names);\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01452}01452\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01458}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_ab934330352d367f22234136ef7036551}{01458}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_ab934330352d367f22234136ef7036551}{set\_na\_rep}}(std::string\ val)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a6e825702735bbbf7ee3a1a29769ab972}{\_na\_rep}}\ =\ val;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01459}01459\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01465}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a71189bd0a1813957f6df2e544625b48b}{01465}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a71189bd0a1813957f6df2e544625b48b}{enable\_include\_header}}(\textcolor{keywordtype}{bool}\ val)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a45fb5fcf9151e843ae176ee92e45c8db}{\_include\_header}}\ =\ val;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01466}01466\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01472}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a0d2dc94500916dfa17b1e9e6c7b3a4d0}{01472}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a0d2dc94500916dfa17b1e9e6c7b3a4d0}{set\_rows\_per\_chunk}}(\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\_type}}\ val)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_ac5513ddbde8432891ebc0f5429f7dd23}{\_rows\_per\_chunk}}\ =\ val;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01473}01473\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01479}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a322d201a650bca5f453ac6cd18015f37}{01479}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a322d201a650bca5f453ac6cd18015f37}{set\_line\_terminator}}(std::string\ term)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a354ad8a50eba98e81f729d8c314e7fc4}{\_line\_terminator}}\ =\ term;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01480}01480\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01486}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a588bf8439dae91cf4bd7f8ba80acd098}{01486}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a588bf8439dae91cf4bd7f8ba80acd098}{set\_inter\_column\_delimiter}}(\textcolor{keywordtype}{char}\ delim)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a43cc38a567b20616316d55c1404413a4}{\_inter\_column\_delimiter}}\ =\ delim;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01487}01487\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01493}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a5a5648c367d1534eaee0119676944667}{01493}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a5a5648c367d1534eaee0119676944667}{set\_true\_value}}(std::string\ val)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a50bfe596e36414851776d7715c7e0894}{\_true\_value}}\ =\ val;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01494}01494\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01500}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_aeb47656b4e86a376c34eaee298831254}{01500}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_aeb47656b4e86a376c34eaee298831254}{set\_false\_value}}(std::string\ val)\ \{\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_af807bf96082807ccfe88827be5ba2b98}{\_false\_value}}\ =\ val;\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01501}01501\ \};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01502}01502\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01506}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder}{01506}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder}{csv\_writer\_options\_builder}}\ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01507}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a2feec77c2366aaeb8eb0e0fc948dbd9e}{01507}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options}{csv\_writer\_options}}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a2feec77c2366aaeb8eb0e0fc948dbd9e}{options}};\ \ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01508}01508\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01509}01509\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01515}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a13baa3b01bc4978d848610d53509b04c}{01515}}\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a13baa3b01bc4978d848610d53509b04c}{csv\_writer\_options\_builder}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01516}01516\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01523}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_af0c84d3bcf4672be92c2c59fc64411da}{01523}}\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_af0c84d3bcf4672be92c2c59fc64411da}{csv\_writer\_options\_builder}}(\mbox{\hyperlink{structcudf_1_1io_1_1sink__info}{sink\_info}}\ \textcolor{keyword}{const}\&\ sink,\ \mbox{\hyperlink{classcudf_1_1table__view}{table\_view}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classcudf_1_1table}{table}})}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01524}01524\ \ \ \ \ :\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a2feec77c2366aaeb8eb0e0fc948dbd9e}{options}}\{sink,\ \mbox{\hyperlink{classcudf_1_1table}{table}}\}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01525}01525\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01526}01526\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01527}01527\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01534}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a5e52297c8890af31ce06c0e083b924b2}{01534}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder}{csv\_writer\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a5e52297c8890af31ce06c0e083b924b2}{names}}(std::vector<std::string>\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a5e52297c8890af31ce06c0e083b924b2}{names}})}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01535}01535\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01536}01536\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a2feec77c2366aaeb8eb0e0fc948dbd9e}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_aafb48a55e42cc062c3b4af1032162a9c}{\_names}}\ =\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a5e52297c8890af31ce06c0e083b924b2}{names}};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01537}01537\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01538}01538\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01539}01539\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01546}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_accc8de9911d3c1250051debf70f78f89}{01546}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder}{csv\_writer\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_accc8de9911d3c1250051debf70f78f89}{na\_rep}}(std::string\ val)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01547}01547\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01548}01548\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a2feec77c2366aaeb8eb0e0fc948dbd9e}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a6e825702735bbbf7ee3a1a29769ab972}{\_na\_rep}}\ =\ val;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01549}01549\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01550}01550\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01551}01551\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01558}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_af231e0d22dc293dd0d88484b67ed1640}{01558}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder}{csv\_writer\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_af231e0d22dc293dd0d88484b67ed1640}{include\_header}}(\textcolor{keywordtype}{bool}\ val)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01559}01559\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01560}01560\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a2feec77c2366aaeb8eb0e0fc948dbd9e}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a45fb5fcf9151e843ae176ee92e45c8db}{\_include\_header}}\ =\ val;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01561}01561\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01562}01562\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01563}01563\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01570}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_aaf7028836cf4617b627cef0563137469}{01570}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder}{csv\_writer\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_aaf7028836cf4617b627cef0563137469}{rows\_per\_chunk}}(\textcolor{keywordtype}{int}\ val)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01571}01571\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01572}01572\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a2feec77c2366aaeb8eb0e0fc948dbd9e}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_ac5513ddbde8432891ebc0f5429f7dd23}{\_rows\_per\_chunk}}\ =\ val;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01573}01573\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01574}01574\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01575}01575\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01582}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a6ae787eea812beb101c42748bf07a8db}{01582}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder}{csv\_writer\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a6ae787eea812beb101c42748bf07a8db}{line\_terminator}}(std::string\ term)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01583}01583\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01584}01584\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a2feec77c2366aaeb8eb0e0fc948dbd9e}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a354ad8a50eba98e81f729d8c314e7fc4}{\_line\_terminator}}\ =\ term;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01585}01585\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01586}01586\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01587}01587\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01594}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_aabce3a2921233ccfbe28a52aeb936d8e}{01594}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder}{csv\_writer\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_aabce3a2921233ccfbe28a52aeb936d8e}{inter\_column\_delimiter}}(\textcolor{keywordtype}{char}\ delim)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01595}01595\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01596}01596\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a2feec77c2366aaeb8eb0e0fc948dbd9e}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a43cc38a567b20616316d55c1404413a4}{\_inter\_column\_delimiter}}\ =\ delim;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01597}01597\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01598}01598\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01599}01599\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01606}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a658497e72648326b2cdea2832e715bbe}{01606}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder}{csv\_writer\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a658497e72648326b2cdea2832e715bbe}{true\_value}}(std::string\ val)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01607}01607\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01608}01608\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a2feec77c2366aaeb8eb0e0fc948dbd9e}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_a50bfe596e36414851776d7715c7e0894}{\_true\_value}}\ =\ val;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01609}01609\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01610}01610\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01611}01611\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01618}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a56a7b143955d5558729fdb57f0300916}{01618}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder}{csv\_writer\_options\_builder}}\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a56a7b143955d5558729fdb57f0300916}{false\_value}}(std::string\ val)}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01619}01619\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01620}01620\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a2feec77c2366aaeb8eb0e0fc948dbd9e}{options}}.\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options_af807bf96082807ccfe88827be5ba2b98}{\_false\_value}}\ =\ val;}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01621}01621\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01622}01622\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01623}01623\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01627}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a1cecf406263571211c9ef792ec445c37}{01627}}\ \ \ \textcolor{keyword}{operator}\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options}{csv\_writer\_options}}\&\&()\ \{\ \textcolor{keywordflow}{return}\ std::move(\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a2feec77c2366aaeb8eb0e0fc948dbd9e}{options}});\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01628}01628\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01636}\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_adb5a1ec7d8cf6e87711e893db7fe6541}{01636}}\ \ \ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options}{csv\_writer\_options}}\&\&\ \mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_adb5a1ec7d8cf6e87711e893db7fe6541}{build}}()\ \{\ \textcolor{keywordflow}{return}\ std::move(\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options__builder_a2feec77c2366aaeb8eb0e0fc948dbd9e}{options}});\ \}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01637}01637\ \};}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01638}01638\ }
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01656}\mbox{\hyperlink{group__io__writers_ga55f2477c2b822612d0c8168b9c8859fb}{01656}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__io__writers_ga55f2477c2b822612d0c8168b9c8859fb}{write\_csv}}(\mbox{\hyperlink{classcudf_1_1io_1_1csv__writer__options}{csv\_writer\_options}}\ \textcolor{keyword}{const}\&\ options,}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01657}01657\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01658}01658\ \ \ \textcolor{comment}{//\ end\ of\ group}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01660}01660\ \}\ \ \textcolor{comment}{//\ namespace\ io}}
+\DoxyCodeLine{\Hypertarget{csv_8hpp_source_l01661}01661\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

@@ -1,0 +1,53 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/strings/contains.hpp 文件参考}
+\hypertarget{strings_2contains_8hpp}{}\label{strings_2contains_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/strings/contains.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/strings/contains.hpp}}
+
+
+Strings APIs for regex contains, count, matches  
+
+
+{\ttfamily \#include $<$cudf/column/column.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/scalar/scalar.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/strings/regex/flags.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/strings/strings\+\_\+column\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/mr/device/per\+\_\+device\+\_\+resource.\+hpp$>$}\newline
+contains.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{strings_2contains_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1strings}{cudf\+::strings}}
+\begin{DoxyCompactList}\small\item\em Strings column APIs \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__contains_gaeaee44c875a1e28fc8e413cb51904dcf}{cudf\+::strings\+::contains\+\_\+re}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, std\+::string\+\_\+view pattern, \mbox{\hyperlink{group__strings__regex_ga341eb616bce8b15119196ad8208ec16d}{regex\+\_\+flags}} const flags=\mbox{\hyperlink{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da432e1bed0776491ae9d73f3915142912}{regex\+\_\+flags\+::\+DEFAULT}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a boolean column identifying rows which match the given regex pattern. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__contains_ga75259f4641c8230c6f9bfb47d3e04ca6}{cudf\+::strings\+::contains\+\_\+re}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{structcudf_1_1strings_1_1regex__program}{regex\+\_\+program}} const \&prog, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a boolean column identifying rows which match the given \doxylink{structcudf_1_1strings_1_1regex__program}{regex\+\_\+program} object \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__contains_ga228d0c36da88923cf42589fa07cfc98a}{cudf\+::strings\+::matches\+\_\+re}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, std\+::string\+\_\+view pattern, \mbox{\hyperlink{group__strings__regex_ga341eb616bce8b15119196ad8208ec16d}{regex\+\_\+flags}} const flags=\mbox{\hyperlink{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da432e1bed0776491ae9d73f3915142912}{regex\+\_\+flags\+::\+DEFAULT}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a boolean column identifying rows which matching the given regex pattern but only at the beginning the string. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__contains_gaa9fbcddb6f379964a797a513eac6831e}{cudf\+::strings\+::matches\+\_\+re}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{structcudf_1_1strings_1_1regex__program}{regex\+\_\+program}} const \&prog, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a boolean column identifying rows which matching the given \doxylink{structcudf_1_1strings_1_1regex__program}{regex\+\_\+program} object but only at the beginning the string. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__contains_ga851d5047ee4a1c01e2b323e425e54704}{cudf\+::strings\+::count\+\_\+re}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, std\+::string\+\_\+view pattern, \mbox{\hyperlink{group__strings__regex_ga341eb616bce8b15119196ad8208ec16d}{regex\+\_\+flags}} const flags=\mbox{\hyperlink{group__strings__regex_gga341eb616bce8b15119196ad8208ec16da432e1bed0776491ae9d73f3915142912}{regex\+\_\+flags\+::\+DEFAULT}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns the number of times the given regex pattern matches in each string. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__contains_gaf2d4e70d023d8f1e4f315afa1b633fbe}{cudf\+::strings\+::count\+\_\+re}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{structcudf_1_1strings_1_1regex__program}{regex\+\_\+program}} const \&prog, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns the number of times the given \doxylink{structcudf_1_1strings_1_1regex__program}{regex\+\_\+program}\textquotesingle{}s pattern matches in each string \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__contains_gaac24adc9c674cc9ca12621d68fb14b37}{cudf\+::strings\+::like}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&pattern, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&escape\+\_\+character=\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{}), rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a boolean column identifying rows which match the given like pattern. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Strings APIs for regex contains, count, matches 
+
+
+
+在文件 \mbox{\hyperlink{strings_2contains_8hpp_source}{contains.\+hpp}} 中定义.
+

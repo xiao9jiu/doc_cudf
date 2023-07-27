@@ -1,0 +1,257 @@
+\doxysection{cudf\+::io\+::text 命名空间参考}
+\hypertarget{namespacecudf_1_1io_1_1text}{}\label{namespacecudf_1_1io_1_1text}\index{cudf::io::text@{cudf::io::text}}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1io_1_1text_1_1detail}{detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info}{byte\+\_\+range\+\_\+info}}
+\begin{DoxyCompactList}\small\item\em stores offset and size used to indicate a byte range \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__reader}{data\+\_\+chunk\+\_\+reader}}
+\begin{DoxyCompactList}\small\item\em a reader capable of producing views over device memory. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source}{data\+\_\+chunk\+\_\+source}}
+\begin{DoxyCompactList}\small\item\em a data source capable of creating a reader which can produce views of the data source in device memory. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1device__data__chunk}{device\+\_\+data\+\_\+chunk}}
+\begin{DoxyCompactList}\small\item\em A contract guaranteeing stream-\/ordered memory access to the underlying device data. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1parse__options}{parse\+\_\+options}}
+\begin{DoxyCompactList}\small\item\em Parsing options for multibyte\+\_\+split. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info}{byte\+\_\+range\+\_\+info}} $>$ \mbox{\hyperlink{namespacecudf_1_1io_1_1text_a61eadbadb306fc95d06dd5a6523795f3}{create\+\_\+byte\+\_\+range\+\_\+infos\+\_\+consecutive}} (int64\+\_\+t total\+\_\+bytes, int64\+\_\+t range\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Create a collection of consecutive ranges between \mbox{[}0, total\+\_\+bytes). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info}{byte\+\_\+range\+\_\+info}} \mbox{\hyperlink{namespacecudf_1_1io_1_1text_a534362ac41ba4f410486d91262d114d5}{create\+\_\+byte\+\_\+range\+\_\+info\+\_\+max}} ()
+\begin{DoxyCompactList}\small\item\em Create a \doxylink{classcudf_1_1io_1_1text_1_1byte__range__info}{byte\+\_\+range\+\_\+info} which represents as much of a file as possible. Specifically, {\ttfamily \mbox{[}0, numeric\+\_\+limit\texorpdfstring{$<$}{<}int64\+\_\+t\texorpdfstring{$>$}{>}::max())}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source}{data\+\_\+chunk\+\_\+source}} $>$ \mbox{\hyperlink{namespacecudf_1_1io_1_1text_abba50e0c2d4e39e174b8162809296770}{make\+\_\+source}} (\mbox{\hyperlink{classcudf_1_1io_1_1datasource}{datasource}} \&data)
+\begin{DoxyCompactList}\small\item\em Creates a data source capable of producing device-\/buffered views of a datasource. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source}{data\+\_\+chunk\+\_\+source}} $>$ \mbox{\hyperlink{namespacecudf_1_1io_1_1text_a0867986f8e44a8a7985fb8b84ffe60a0}{make\+\_\+source}} (\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ const char $>$ data)
+\begin{DoxyCompactList}\small\item\em Creates a data source capable of producing device-\/buffered views of the given string. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source}{data\+\_\+chunk\+\_\+source}} $>$ \mbox{\hyperlink{namespacecudf_1_1io_1_1text_a3a18f59fc05517b2a2388e7c87a81472}{make\+\_\+source\+\_\+from\+\_\+file}} (std\+::string\+\_\+view filename)
+\begin{DoxyCompactList}\small\item\em Creates a data source capable of producing device-\/buffered views of the file \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source}{data\+\_\+chunk\+\_\+source}} $>$ \mbox{\hyperlink{namespacecudf_1_1io_1_1text_afc32043b226cfe3559336297b32e8198}{make\+\_\+source\+\_\+from\+\_\+bgzip\+\_\+file}} (std\+::string\+\_\+view filename)
+\begin{DoxyCompactList}\small\item\em Creates a data source capable of producing device-\/buffered views of a BGZIP compressed file. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source}{data\+\_\+chunk\+\_\+source}} $>$ \mbox{\hyperlink{namespacecudf_1_1io_1_1text_a96a25f9a49bdbff493d03f996673ff52}{make\+\_\+source\+\_\+from\+\_\+bgzip\+\_\+file}} (std\+::string\+\_\+view filename, uint64\+\_\+t virtual\+\_\+begin, uint64\+\_\+t virtual\+\_\+end)
+\begin{DoxyCompactList}\small\item\em Creates a data source capable of producing device-\/buffered views of a BGZIP compressed file with virtual record offsets. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source}{data\+\_\+chunk\+\_\+source}} $>$ \mbox{\hyperlink{namespacecudf_1_1io_1_1text_a56971648285aae182cccf90634b899d4}{make\+\_\+source}} (\mbox{\hyperlink{classcudf_1_1string__scalar}{cudf\+::string\+\_\+scalar}} \&data)
+\begin{DoxyCompactList}\small\item\em Creates a data source capable of producing views of the given device string scalar \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{namespacecudf_1_1io_1_1text_a08835f7c12bd074240a5f5f7c3ce94a5}{multibyte\+\_\+split}} (\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source}{data\+\_\+chunk\+\_\+source}} const \&source, std\+::string const \&delimiter, \mbox{\hyperlink{structcudf_1_1io_1_1text_1_1parse__options}{parse\+\_\+options}} options=\{\}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Splits the source text into a strings column using a multiple byte delimiter. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{namespacecudf_1_1io_1_1text_a5ee8f4dac4fc9e328f5db541ee5e9040}{multibyte\+\_\+split}} (\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source}{data\+\_\+chunk\+\_\+source}} const \&source, std\+::string const \&delimiter, std\+::optional$<$ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info}{byte\+\_\+range\+\_\+info}} $>$ byte\+\_\+range, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{namespacecudf_1_1io_1_1text_abd6425d0e90f334fc549582ac7707c6d}{multibyte\+\_\+split}} (\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source}{data\+\_\+chunk\+\_\+source}} const \&source, std\+::string const \&delimiter, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{namespacecudf_1_1io_1_1text_a534362ac41ba4f410486d91262d114d5}\label{namespacecudf_1_1io_1_1text_a534362ac41ba4f410486d91262d114d5} 
+\index{cudf::io::text@{cudf::io::text}!create\_byte\_range\_info\_max@{create\_byte\_range\_info\_max}}
+\index{create\_byte\_range\_info\_max@{create\_byte\_range\_info\_max}!cudf::io::text@{cudf::io::text}}
+\doxysubsubsection{\texorpdfstring{create\_byte\_range\_info\_max()}{create\_byte\_range\_info\_max()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info}{byte\+\_\+range\+\_\+info}} cudf\+::io\+::text\+::create\+\_\+byte\+\_\+range\+\_\+info\+\_\+max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create a \doxylink{classcudf_1_1io_1_1text_1_1byte__range__info}{byte\+\_\+range\+\_\+info} which represents as much of a file as possible. Specifically, {\ttfamily \mbox{[}0, numeric\+\_\+limit\texorpdfstring{$<$}{<}int64\+\_\+t\texorpdfstring{$>$}{>}::max())}. 
+
+\begin{DoxyReturn}{返回}
+{\ttfamily \mbox{[}0, numeric\+\_\+limit\texorpdfstring{$<$}{<}int64\+\_\+t\texorpdfstring{$>$}{>}::max())} 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1io_1_1text_a61eadbadb306fc95d06dd5a6523795f3}\label{namespacecudf_1_1io_1_1text_a61eadbadb306fc95d06dd5a6523795f3} 
+\index{cudf::io::text@{cudf::io::text}!create\_byte\_range\_infos\_consecutive@{create\_byte\_range\_infos\_consecutive}}
+\index{create\_byte\_range\_infos\_consecutive@{create\_byte\_range\_infos\_consecutive}!cudf::io::text@{cudf::io::text}}
+\doxysubsubsection{\texorpdfstring{create\_byte\_range\_infos\_consecutive()}{create\_byte\_range\_infos\_consecutive()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info}{byte\+\_\+range\+\_\+info}} $>$ cudf\+::io\+::text\+::create\+\_\+byte\+\_\+range\+\_\+infos\+\_\+consecutive (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{total\+\_\+bytes,  }\item[{int64\+\_\+t}]{range\+\_\+count }\end{DoxyParamCaption})}
+
+
+
+Create a collection of consecutive ranges between \mbox{[}0, total\+\_\+bytes). 
+
+Each range wil be the same size except if {\ttfamily total\+\_\+bytes} is not evenly divisible by {\ttfamily range\+\_\+count}, in which case the last range size will be the remainder.
+
+
+\begin{DoxyParams}{参数}
+{\em total\+\_\+bytes} & total number of bytes in all ranges \\
+\hline
+{\em range\+\_\+count} & total number of ranges in which to divide bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Vector of range objects 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1io_1_1text_a56971648285aae182cccf90634b899d4}\label{namespacecudf_1_1io_1_1text_a56971648285aae182cccf90634b899d4} 
+\index{cudf::io::text@{cudf::io::text}!make\_source@{make\_source}}
+\index{make\_source@{make\_source}!cudf::io::text@{cudf::io::text}}
+\doxysubsubsection{\texorpdfstring{make\_source()}{make\_source()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source}{data\+\_\+chunk\+\_\+source}} $>$ cudf\+::io\+::text\+::make\+\_\+source (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{cudf\+::string\+\_\+scalar}} \&}]{data }\end{DoxyParamCaption})}
+
+
+
+Creates a data source capable of producing views of the given device string scalar 
+
+
+\begin{DoxyParams}{参数}
+{\em data} & the device data to be exposed as a data chunk source. Its lifetime must be at least as long as the lifetime of the returned \doxylink{classcudf_1_1io_1_1text_1_1data__chunk__source}{data\+\_\+chunk\+\_\+source}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+the data chunk source for the provided host data. It does not create any copies. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1io_1_1text_abba50e0c2d4e39e174b8162809296770}\label{namespacecudf_1_1io_1_1text_abba50e0c2d4e39e174b8162809296770} 
+\index{cudf::io::text@{cudf::io::text}!make\_source@{make\_source}}
+\index{make\_source@{make\_source}!cudf::io::text@{cudf::io::text}}
+\doxysubsubsection{\texorpdfstring{make\_source()}{make\_source()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source}{data\+\_\+chunk\+\_\+source}} $>$ cudf\+::io\+::text\+::make\+\_\+source (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1io_1_1datasource}{datasource}} \&}]{data }\end{DoxyParamCaption})}
+
+
+
+Creates a data source capable of producing device-\/buffered views of a datasource. 
+
+
+\begin{DoxyParams}{参数}
+{\em data} & the datasource to be exposed as a data chunk source \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+the data chunk source for the provided datasource. It must not outlive the datasource used to construct it. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1io_1_1text_a0867986f8e44a8a7985fb8b84ffe60a0}\label{namespacecudf_1_1io_1_1text_a0867986f8e44a8a7985fb8b84ffe60a0} 
+\index{cudf::io::text@{cudf::io::text}!make\_source@{make\_source}}
+\index{make\_source@{make\_source}!cudf::io::text@{cudf::io::text}}
+\doxysubsubsection{\texorpdfstring{make\_source()}{make\_source()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source}{data\+\_\+chunk\+\_\+source}} $>$ cudf\+::io\+::text\+::make\+\_\+source (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1host__span}{host\+\_\+span}}$<$ const char $>$}]{data }\end{DoxyParamCaption})}
+
+
+
+Creates a data source capable of producing device-\/buffered views of the given string. 
+
+
+\begin{DoxyParams}{参数}
+{\em data} & the host data to be exposed as a data chunk source. Its lifetime must be at least as long as the lifetime of the returned \doxylink{classcudf_1_1io_1_1text_1_1data__chunk__source}{data\+\_\+chunk\+\_\+source}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+the data chunk source for the provided host data. It copies data from the host to the device. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1io_1_1text_afc32043b226cfe3559336297b32e8198}\label{namespacecudf_1_1io_1_1text_afc32043b226cfe3559336297b32e8198} 
+\index{cudf::io::text@{cudf::io::text}!make\_source\_from\_bgzip\_file@{make\_source\_from\_bgzip\_file}}
+\index{make\_source\_from\_bgzip\_file@{make\_source\_from\_bgzip\_file}!cudf::io::text@{cudf::io::text}}
+\doxysubsubsection{\texorpdfstring{make\_source\_from\_bgzip\_file()}{make\_source\_from\_bgzip\_file()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source}{data\+\_\+chunk\+\_\+source}} $>$ cudf\+::io\+::text\+::make\+\_\+source\+\_\+from\+\_\+bgzip\+\_\+file (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{filename }\end{DoxyParamCaption})}
+
+
+
+Creates a data source capable of producing device-\/buffered views of a BGZIP compressed file. 
+
+
+\begin{DoxyParams}{参数}
+{\em filename} & the filename of the BGZIP-\/compressed file to be exposed as a data chunk source. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+the data chunk source for the provided filename. It reads data from the file and copies it to the device, where it will be decompressed. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1io_1_1text_a96a25f9a49bdbff493d03f996673ff52}\label{namespacecudf_1_1io_1_1text_a96a25f9a49bdbff493d03f996673ff52} 
+\index{cudf::io::text@{cudf::io::text}!make\_source\_from\_bgzip\_file@{make\_source\_from\_bgzip\_file}}
+\index{make\_source\_from\_bgzip\_file@{make\_source\_from\_bgzip\_file}!cudf::io::text@{cudf::io::text}}
+\doxysubsubsection{\texorpdfstring{make\_source\_from\_bgzip\_file()}{make\_source\_from\_bgzip\_file()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source}{data\+\_\+chunk\+\_\+source}} $>$ cudf\+::io\+::text\+::make\+\_\+source\+\_\+from\+\_\+bgzip\+\_\+file (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{filename,  }\item[{uint64\+\_\+t}]{virtual\+\_\+begin,  }\item[{uint64\+\_\+t}]{virtual\+\_\+end }\end{DoxyParamCaption})}
+
+
+
+Creates a data source capable of producing device-\/buffered views of a BGZIP compressed file with virtual record offsets. 
+
+
+\begin{DoxyParams}{参数}
+{\em filename} & the filename of the BGZIP-\/compressed file to be exposed as a data chunk source. \\
+\hline
+{\em virtual\+\_\+begin} & the virtual (Tabix) offset of the first byte to be read. Its upper 48 bits describe the offset into the compressed file, its lower 16 bits describe the block-\/local offset. \\
+\hline
+{\em virtual\+\_\+end} & the virtual (Tabix) offset one past the last byte to be read. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+the data chunk source for the provided filename. It reads data from the file and copies it to the device, where it will be decompressed. The chunk source only returns data between the virtual offsets {\ttfamily virtual\+\_\+begin} and {\ttfamily virtual\+\_\+end}. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1io_1_1text_a3a18f59fc05517b2a2388e7c87a81472}\label{namespacecudf_1_1io_1_1text_a3a18f59fc05517b2a2388e7c87a81472} 
+\index{cudf::io::text@{cudf::io::text}!make\_source\_from\_file@{make\_source\_from\_file}}
+\index{make\_source\_from\_file@{make\_source\_from\_file}!cudf::io::text@{cudf::io::text}}
+\doxysubsubsection{\texorpdfstring{make\_source\_from\_file()}{make\_source\_from\_file()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source}{data\+\_\+chunk\+\_\+source}} $>$ cudf\+::io\+::text\+::make\+\_\+source\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{filename }\end{DoxyParamCaption})}
+
+
+
+Creates a data source capable of producing device-\/buffered views of the file 
+
+
+\begin{DoxyParams}{参数}
+{\em filename} & the filename of the file to be exposed as a data chunk source. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+the data chunk source for the provided filename. It reads data from the file and copies it to the device. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1io_1_1text_a08835f7c12bd074240a5f5f7c3ce94a5}\label{namespacecudf_1_1io_1_1text_a08835f7c12bd074240a5f5f7c3ce94a5} 
+\index{cudf::io::text@{cudf::io::text}!multibyte\_split@{multibyte\_split}}
+\index{multibyte\_split@{multibyte\_split}!cudf::io::text@{cudf::io::text}}
+\doxysubsubsection{\texorpdfstring{multibyte\_split()}{multibyte\_split()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ cudf\+::io\+::text\+::multibyte\+\_\+split (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source}{data\+\_\+chunk\+\_\+source}} const \&}]{source,  }\item[{std\+::string const \&}]{delimiter,  }\item[{\mbox{\hyperlink{structcudf_1_1io_1_1text_1_1parse__options}{parse\+\_\+options}}}]{options = {\ttfamily \{\}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Splits the source text into a strings column using a multiple byte delimiter. 
+
+Providing a byte range allows multibyte\+\_\+split to read a file partially, only returning the offsets of delimiters which begin within the range. If thinking in terms of \"{}records\"{}, where each delimiter dictates the end of a record, all records which begin within the byte range provided will be returned, including any record which may begin in the range but end outside of the range. Records which begin outside of the range will ignored, even if those records end inside the range.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Examples:}
+\DoxyCodeLine{\ source:\ \ \ \ \ "{}abc..def..ghi..jkl.."{}}
+\DoxyCodeLine{\ delimiter:\ \ "{}.."{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ byte\_range:\ nullopt}
+\DoxyCodeLine{\ return:\ \ \ \ \ ["{}abc.."{},\ "{}def.."{},\ "{}ghi.."{},\ jkl.."{},\ "{}"{}]}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ byte\_range:\ [0,\ 2)}
+\DoxyCodeLine{\ return:\ \ \ \ \ ["{}abc.."{}]}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ byte\_range:\ [2,\ 9)}
+\DoxyCodeLine{\ return:\ \ \ \ \ ["{}def.."{},\ "{}ghi.."{}]}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ byte\_range:\ [11,\ 2)}
+\DoxyCodeLine{\ return:\ \ \ \ \ []}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ byte\_range:\ [13,\ 7)}
+\DoxyCodeLine{\ return:\ \ \ \ \ ["{}jkl.."{},\ "{}"{}]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em source} & The source string \\
+\hline
+{\em delimiter} & UTF-\/8 encoded string for which to find offsets in the source \\
+\hline
+{\em options} & the parsing options to use (including byte range) \\
+\hline
+{\em mr} & Memory resource to use for the device memory allocation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The strings found by splitting the source by the delimiter within the relevant byte range. 
+\end{DoxyReturn}
+\Hypertarget{namespacecudf_1_1io_1_1text_abd6425d0e90f334fc549582ac7707c6d}\label{namespacecudf_1_1io_1_1text_abd6425d0e90f334fc549582ac7707c6d} 
+\index{cudf::io::text@{cudf::io::text}!multibyte\_split@{multibyte\_split}}
+\index{multibyte\_split@{multibyte\_split}!cudf::io::text@{cudf::io::text}}
+\doxysubsubsection{\texorpdfstring{multibyte\_split()}{multibyte\_split()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ cudf\+::io\+::text\+::multibyte\+\_\+split (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source}{data\+\_\+chunk\+\_\+source}} const \&}]{source,  }\item[{std\+::string const \&}]{delimiter,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})}
+
+\Hypertarget{namespacecudf_1_1io_1_1text_a5ee8f4dac4fc9e328f5db541ee5e9040}\label{namespacecudf_1_1io_1_1text_a5ee8f4dac4fc9e328f5db541ee5e9040} 
+\index{cudf::io::text@{cudf::io::text}!multibyte\_split@{multibyte\_split}}
+\index{multibyte\_split@{multibyte\_split}!cudf::io::text@{cudf::io::text}}
+\doxysubsubsection{\texorpdfstring{multibyte\_split()}{multibyte\_split()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ cudf\+::io\+::text\+::multibyte\+\_\+split (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1io_1_1text_1_1data__chunk__source}{data\+\_\+chunk\+\_\+source}} const \&}]{source,  }\item[{std\+::string const \&}]{delimiter,  }\item[{std\+::optional$<$ \mbox{\hyperlink{classcudf_1_1io_1_1text_1_1byte__range__info}{byte\+\_\+range\+\_\+info}} $>$}]{byte\+\_\+range,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+

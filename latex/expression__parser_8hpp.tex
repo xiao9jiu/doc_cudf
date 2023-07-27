@@ -1,0 +1,58 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/ast/detail/expression\+\_\+parser.hpp 文件参考}
+\hypertarget{expression__parser_8hpp}{}\label{expression__parser_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/ast/detail/expression\_parser.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/ast/detail/expression\_parser.hpp}}
+{\ttfamily \#include $<$cudf/ast/expressions.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/scalar/scalar\+\_\+device\+\_\+view.\+cuh$>$}\newline
+{\ttfamily \#include $<$cudf/table/table\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/types.\+hpp$>$}\newline
+{\ttfamily \#include $<$thrust/optional.\+h$>$}\newline
+{\ttfamily \#include $<$thrust/scan.\+h$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$numeric$>$}\newline
+{\ttfamily \#include $<$optional$>$}\newline
+expression\+\_\+parser.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{expression__parser_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1device__data__reference}{cudf\+::ast\+::detail\+::device\+\_\+data\+\_\+reference}}
+\begin{DoxyCompactList}\small\item\em A device data reference describes a source of data used by a expression. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1possibly__null__value_3_01_t_00_01true_01_4}{cudf\+::ast\+::detail\+::possibly\+\_\+null\+\_\+value$<$ T, true $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1possibly__null__value_3_01_t_00_01false_01_4}{cudf\+::ast\+::detail\+::possibly\+\_\+null\+\_\+value$<$ T, false $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1expression__device__view}{cudf\+::ast\+::detail\+::expression\+\_\+device\+\_\+view}}
+\begin{DoxyCompactList}\small\item\em A container of all device data required to evaluate an expression on tables. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser}{cudf\+::ast\+::detail\+::expression\+\_\+parser}}
+\begin{DoxyCompactList}\small\item\em The \doxylink{classcudf_1_1ast_1_1detail_1_1expression__parser}{expression\+\_\+parser} traverses an expression and converts it into a form suitable for execution on the device. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser_1_1intermediate__counter}{cudf\+::ast\+::detail\+::expression\+\_\+parser\+::intermediate\+\_\+counter}}
+\begin{DoxyCompactList}\small\item\em Internal class used to track the utilization of intermediate storage locations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1ast}{cudf\+::ast}}
+\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1ast_1_1detail}{cudf\+::ast\+::detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{类型定义}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , bool has\+\_\+nulls$>$ }\\using \mbox{\hyperlink{namespacecudf_1_1ast_1_1detail_ab1421aea8bd0ae33da68f8da9af368a5}{cudf\+::ast\+::detail\+::possibly\+\_\+null\+\_\+value\+\_\+t}} = typename \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1possibly__null__value}{possibly\+\_\+null\+\_\+value}}$<$ T, \mbox{\hyperlink{namespacecudf_a0b69e95220c2cc259bbf510506b6fff9}{has\+\_\+nulls}} $>$\+::type
+\item 
+{\footnotesize template$<$bool has\+\_\+nulls$>$ }\\using \mbox{\hyperlink{namespacecudf_1_1ast_1_1detail_a23331547a58cc192df3345c1b0bad867}{cudf\+::ast\+::detail\+::\+Intermediate\+Data\+Type}} = \mbox{\hyperlink{namespacecudf_1_1ast_1_1detail_ab1421aea8bd0ae33da68f8da9af368a5}{possibly\+\_\+null\+\_\+value\+\_\+t}}$<$ std\+::int64\+\_\+t, \mbox{\hyperlink{namespacecudf_a0b69e95220c2cc259bbf510506b6fff9}{has\+\_\+nulls}} $>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacecudf_1_1ast_1_1detail_af54b8743a2791900ff7132f1f41a8e86}{cudf\+::ast\+::detail\+::device\+\_\+data\+\_\+reference\+\_\+type}} \{ \mbox{\hyperlink{namespacecudf_1_1ast_1_1detail_af54b8743a2791900ff7132f1f41a8e86a829250befeaeea0b203d31fd09a0ced3}{cudf\+::ast\+::detail\+::\+COLUMN}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_1_1detail_af54b8743a2791900ff7132f1f41a8e86aa0000d7769148184776f1d17656921b0}{cudf\+::ast\+::detail\+::\+LITERAL}}
+, \mbox{\hyperlink{namespacecudf_1_1ast_1_1detail_af54b8743a2791900ff7132f1f41a8e86a41dc7c9e385c4d2b6c1f7836973951bf}{cudf\+::ast\+::detail\+::\+INTERMEDIATE}}
+ \}
+\begin{DoxyCompactList}\small\item\em Node data reference types. \end{DoxyCompactList}\end{DoxyCompactItemize}

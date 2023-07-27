@@ -1,0 +1,53 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/detail/join.hpp 文件参考}
+\hypertarget{detail_2join_8hpp}{}\label{detail_2join_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/detail/join.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/detail/join.hpp}}
+{\ttfamily \#include $<$cudf/column/column.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/detail/structs/utilities.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/detail/utilities/hash\+\_\+functions.\+cuh$>$}\newline
+{\ttfamily \#include $<$cudf/table/table\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/types.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/utilities/default\+\_\+stream.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/cuda\+\_\+stream\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/device\+\_\+buffer.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/device\+\_\+uvector.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/mr/device/polymorphic\+\_\+allocator.\+hpp$>$}\newline
+{\ttfamily \#include $<$cuco/static\+\_\+multimap.\+cuh$>$}\newline
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$optional$>$}\newline
+join.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{detail_2join_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{structcudf_1_1detail_1_1hash__join}{cudf\+::detail\+::hash\+\_\+join$<$ Hasher $>$}}
+\begin{DoxyCompactList}\small\item\em Hash join that builds hash table in creation and probes results in subsequent {\ttfamily \texorpdfstring{$\ast$}{*}\+\_\+join} member functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacecudf_1_1detail}{cudf\+::detail}}
+\begin{DoxyCompactList}\small\item\em Inner interfaces and implementations \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacecudf_1_1detail_afe99faf2d7a570e5de8dbe1638f91dd0}{cudf\+::detail\+::join\+\_\+kind}} \{ \newline
+\mbox{\hyperlink{namespacecudf_1_1detail_afe99faf2d7a570e5de8dbe1638f91dd0adacfb6b4a93e8c0996af0a50896b2ad6}{cudf\+::detail\+::\+INNER\+\_\+\+JOIN}}
+, \mbox{\hyperlink{namespacecudf_1_1detail_afe99faf2d7a570e5de8dbe1638f91dd0ab2f77eff2e65e96b41d17cef95c040ca}{cudf\+::detail\+::\+LEFT\+\_\+\+JOIN}}
+, \mbox{\hyperlink{namespacecudf_1_1detail_afe99faf2d7a570e5de8dbe1638f91dd0a9e94c2918e6b37d619ac174c2f251c4a}{cudf\+::detail\+::\+FULL\+\_\+\+JOIN}}
+, \mbox{\hyperlink{namespacecudf_1_1detail_afe99faf2d7a570e5de8dbe1638f91dd0a149cf6da1ad9e5e65b85a95c49449ae8}{cudf\+::detail\+::\+LEFT\+\_\+\+SEMI\+\_\+\+JOIN}}
+, \newline
+\mbox{\hyperlink{namespacecudf_1_1detail_afe99faf2d7a570e5de8dbe1638f91dd0a148ec33d1c462dcb952eb70eae78fc6e}{cudf\+::detail\+::\+LEFT\+\_\+\+ANTI\+\_\+\+JOIN}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{变量}
+\begin{DoxyCompactItemize}
+\item 
+constexpr int \mbox{\hyperlink{namespacecudf_1_1detail_ab5aa2bb950ef46c1f618dfa206142597}{cudf\+::detail\+::\+DEFAULT\+\_\+\+JOIN\+\_\+\+CG\+\_\+\+SIZE}} = 2
+\end{DoxyCompactItemize}

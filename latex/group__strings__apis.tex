@@ -1,0 +1,96 @@
+\doxysection{Strings\+\_\+apis}
+\hypertarget{group__strings__apis}{}\label{group__strings__apis}\index{Strings\_apis@{Strings\_apis}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{attributes_8hpp}{attributes.\+hpp}}
+\begin{DoxyCompactList}\small\item\em Read attributes of strings column \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__apis_ga2a7282ed75ca0777da1ff24e1f592e13}{cudf\+::strings\+::count\+\_\+characters}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns an integer numeric column containing the length of each string in characters. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__apis_gaaf67e73dbdf045279439ae3b5dfa4f97}{cudf\+::strings\+::count\+\_\+bytes}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a numeric column containing the length of each string in bytes. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__apis_gace0fb669b48768201f3ded67437f8166}{cudf\+::strings\+::code\+\_\+points}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Creates a numeric column with code point values (integers) for each character of each string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__strings__apis_gace0fb669b48768201f3ded67437f8166}\label{group__strings__apis_gace0fb669b48768201f3ded67437f8166} 
+\index{Strings\_apis@{Strings\_apis}!code\_points@{code\_points}}
+\index{code\_points@{code\_points}!Strings\_apis@{Strings\_apis}}
+\doxysubsubsection{\texorpdfstring{code\_points()}{code\_points()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::code\+\_\+points (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Creates a numeric column with code point values (integers) for each character of each string. 
+
+A code point is the integer value representation of a character. For example, the code point value for the character \textquotesingle{}A\textquotesingle{} in UTF-\/8 is 65.
+
+The size of the output column will be the total number of characters in the strings column.
+
+Any null string is ignored. No null entries will appear in the output column.
+
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New INT32 column with code point integer values for each character. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__apis_gaaf67e73dbdf045279439ae3b5dfa4f97}\label{group__strings__apis_gaaf67e73dbdf045279439ae3b5dfa4f97} 
+\index{Strings\_apis@{Strings\_apis}!count\_bytes@{count\_bytes}}
+\index{count\_bytes@{count\_bytes}!Strings\_apis@{Strings\_apis}}
+\doxysubsubsection{\texorpdfstring{count\_bytes()}{count\_bytes()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::count\+\_\+bytes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a numeric column containing the length of each string in bytes. 
+
+The output column will have the same number of rows as the specified strings column. Each row value will be the number of bytes in the corresponding string.
+
+Any null string will result in a null entry for that row in the output column.
+
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New INT32 column with the number of bytes for each string. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__apis_ga2a7282ed75ca0777da1ff24e1f592e13}\label{group__strings__apis_ga2a7282ed75ca0777da1ff24e1f592e13} 
+\index{Strings\_apis@{Strings\_apis}!count\_characters@{count\_characters}}
+\index{count\_characters@{count\_characters}!Strings\_apis@{Strings\_apis}}
+\doxysubsubsection{\texorpdfstring{count\_characters()}{count\_characters()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::count\+\_\+characters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns an integer numeric column containing the length of each string in characters. 
+
+The output column will have the same number of rows as the specified strings column. Each row value will be the number of characters in the corresponding string.
+
+Any null string will result in a null entry for that row in the output column.
+
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New INT32 column with lengths for each string. 
+\end{DoxyReturn}

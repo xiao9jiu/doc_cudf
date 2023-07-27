@@ -1,0 +1,41 @@
+\doxysection{convert\+\_\+lists.\+hpp}
+\hypertarget{convert__lists_8hpp_source}{}\label{convert__lists_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/strings/convert/convert\_lists.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/strings/convert/convert\_lists.hpp}}
+\mbox{\hyperlink{convert__lists_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2021-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00016}00016\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{column_8hpp}{cudf/column/column.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{lists__column__view_8hpp}{cudf/lists/lists\_column\_view.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{scalar_8hpp}{cudf/scalar/scalar.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{strings__column__view_8hpp}{cudf/strings/strings\_column\_view.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <rmm/mr/device/per\_device\_resource.hpp>}}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00025}00025\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00026}00026\ \textcolor{keyword}{namespace\ }strings\ \{}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00059}\mbox{\hyperlink{group__strings__convert_ga7ae1bf5dea1de2f7d85c142e66c3ddd2}{00059}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{group__strings__convert_ga7ae1bf5dea1de2f7d85c142e66c3ddd2}{format\_list\_column}}(}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00060}00060\ \ \ \mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\_column\_view}}\ \textcolor{keyword}{const}\&\ input,}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00061}00061\ \ \ \mbox{\hyperlink{classcudf_1_1string__scalar}{string\_scalar}}\ \textcolor{keyword}{const}\&\ na\_rep\ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{classcudf_1_1string__scalar}{string\_scalar}}(\textcolor{stringliteral}{"{}NULL"{}}),}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00062}00062\ \ \ \mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\_column\_view}}\ \textcolor{keyword}{const}\&\ separators\ =\ \mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\_column\_view}}(\mbox{\hyperlink{classcudf_1_1column__view}{column\_view}}\{}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00063}00063\ \ \ \ \ \mbox{\hyperlink{classcudf_1_1data__type}{data\_type}}\{\mbox{\hyperlink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a63b588d5559f64f89a416e656880b949}{type\_id::STRING}}\},\ 0,\ \textcolor{keyword}{nullptr}\}),}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00064}00064\ \ \ rmm::mr::device\_memory\_resource*\ mr\ \ \ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00065}00065\ \ \ \textcolor{comment}{//\ end\ of\ doxygen\ group}}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00067}00067\ \}\ \ \textcolor{comment}{//\ namespace\ strings}}
+\DoxyCodeLine{\Hypertarget{convert__lists_8hpp_source_l00068}00068\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

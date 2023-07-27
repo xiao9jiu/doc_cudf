@@ -1,0 +1,63 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/null\+\_\+mask.hpp 文件参考}
+\hypertarget{null__mask_8hpp}{}\label{null__mask_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/null\_mask.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/null\_mask.hpp}}
+
+
+APIs for managing validity bitmasks  
+
+
+{\ttfamily \#include $<$cudf/types.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/utilities/span.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/device\+\_\+buffer.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/mr/device/per\+\_\+device\+\_\+resource.\+hpp$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+null\+\_\+mask.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{null__mask_8hpp__incl}
+\end{center}
+\end{figure}
+此图展示该文件直接或间接的被哪些文件引用了\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{null__mask_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{group__column__nullmask_ga48561f1e899da3a79132c108463840de}{cudf\+::state\+\_\+null\+\_\+count}} (\mbox{\hyperlink{group__utility__types_ga4daf20c000ab374d76f4d56f0ddb7b26}{mask\+\_\+state}} state, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} size)
+\begin{DoxyCompactList}\small\item\em Returns the null count for a null mask of the specified {\ttfamily state} representing {\ttfamily size} elements. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{group__column__nullmask_ga3c26b8cbca80321602bc3f39ab6cce8d}{cudf\+::bitmask\+\_\+allocation\+\_\+size\+\_\+bytes}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} number\+\_\+of\+\_\+bits, std\+::size\+\_\+t padding\+\_\+boundary=64)
+\begin{DoxyCompactList}\small\item\em Computes the required bytes necessary to represent the specified number of bits with a given padding boundary. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{group__column__nullmask_gad62014db2c1d82cbd2f3e067d27088ab}{cudf\+::num\+\_\+bitmask\+\_\+words}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} number\+\_\+of\+\_\+bits)
+\begin{DoxyCompactList}\small\item\em Returns the number of {\ttfamily bitmask\+\_\+type} words required to represent the specified number of bits. \end{DoxyCompactList}\item 
+rmm\+::device\+\_\+buffer \mbox{\hyperlink{group__column__nullmask_ga9c1ce0e8b880569dba8a60be84fea39a}{cudf\+::create\+\_\+null\+\_\+mask}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} size, \mbox{\hyperlink{group__utility__types_ga4daf20c000ab374d76f4d56f0ddb7b26}{mask\+\_\+state}} state, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Creates a {\ttfamily device\+\_\+buffer} for use as a null value indicator bitmask of a {\ttfamily column}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__column__nullmask_ga0cad7543531c200e7da85096b889be9a}{cudf\+::set\+\_\+null\+\_\+mask}} (\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} \texorpdfstring{$\ast$}{*}bitmask, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} begin\+\_\+bit, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} end\+\_\+bit, bool valid)
+\begin{DoxyCompactList}\small\item\em Sets a pre-\/allocated bitmask buffer to a given state in the range {\ttfamily \mbox{[}begin\+\_\+bit, end\+\_\+bit)} \end{DoxyCompactList}\item 
+rmm\+::device\+\_\+buffer \mbox{\hyperlink{group__column__nullmask_ga247e21104fff5f624ee739e25d8ebb60}{cudf\+::copy\+\_\+bitmask}} (\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} const \texorpdfstring{$\ast$}{*}mask, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} begin\+\_\+bit, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} end\+\_\+bit, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Creates a {\ttfamily device\+\_\+buffer} from a slice of bitmask defined by a range of indices {\ttfamily \mbox{[}begin\+\_\+bit, end\+\_\+bit)}. \end{DoxyCompactList}\item 
+rmm\+::device\+\_\+buffer \mbox{\hyperlink{group__column__nullmask_ga16ab5fd032d0620ce51365ad1ed2b144}{cudf\+::copy\+\_\+bitmask}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&view, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Copies {\ttfamily view}\textquotesingle{}s bitmask from the bits {\ttfamily \mbox{[}view.\+offset(), view.\+offset() + view.\+size())} into a {\ttfamily device\+\_\+buffer} \end{DoxyCompactList}\item 
+std\+::pair$<$ rmm\+::device\+\_\+buffer, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ \mbox{\hyperlink{group__column__nullmask_ga2e8326f26359dad43cddacdf24b77b4d}{cudf\+::bitmask\+\_\+and}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&view, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs bitwise AND of the bitmasks of columns of a table. Returns a pair of resulting mask and count of unset bits. \end{DoxyCompactList}\item 
+std\+::pair$<$ rmm\+::device\+\_\+buffer, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ \mbox{\hyperlink{group__column__nullmask_gab74baaf81e7b5f6efc2e68b24240399b}{cudf\+::bitmask\+\_\+or}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&view, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs bitwise OR of the bitmasks of columns of a table. Returns a pair of resulting mask and count of unset bits. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+APIs for managing validity bitmasks 
+
+
+
+在文件 \mbox{\hyperlink{null__mask_8hpp_source}{null\+\_\+mask.\+hpp}} 中定义.
+

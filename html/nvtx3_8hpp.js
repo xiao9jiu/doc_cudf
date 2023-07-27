@@ -1,0 +1,25 @@
+var nvtx3_8hpp =
+[
+    [ "nvtx3::domain", "classnvtx3_1_1domain.html", "classnvtx3_1_1domain" ],
+    [ "nvtx3::domain::global", "structnvtx3_1_1domain_1_1global.html", null ],
+    [ "nvtx3::rgb", "structnvtx3_1_1rgb.html", "structnvtx3_1_1rgb" ],
+    [ "nvtx3::argb", "structnvtx3_1_1argb.html", "structnvtx3_1_1argb" ],
+    [ "nvtx3::color", "classnvtx3_1_1color.html", "classnvtx3_1_1color" ],
+    [ "nvtx3::category", "classnvtx3_1_1category.html", "classnvtx3_1_1category" ],
+    [ "nvtx3::named_category< D >", "classnvtx3_1_1named__category.html", "classnvtx3_1_1named__category" ],
+    [ "nvtx3::registered_message< D >", "classnvtx3_1_1registered__message.html", "classnvtx3_1_1registered__message" ],
+    [ "nvtx3::message", "classnvtx3_1_1message.html", "classnvtx3_1_1message" ],
+    [ "nvtx3::payload", "classnvtx3_1_1payload.html", "classnvtx3_1_1payload" ],
+    [ "nvtx3::event_attributes", "classnvtx3_1_1event__attributes.html", "classnvtx3_1_1event__attributes" ],
+    [ "nvtx3::domain_thread_range< D >", "classnvtx3_1_1domain__thread__range.html", "classnvtx3_1_1domain__thread__range" ],
+    [ "nvtx3::domain_process_range< D >", "classnvtx3_1_1domain__process__range.html", "classnvtx3_1_1domain__process__range" ],
+    [ "NVTX3_FUNC_RANGE", "nvtx3_8hpp.html#a0e511c3c6fd0b67c9160b485018bedd7", null ],
+    [ "NVTX3_FUNC_RANGE_IN", "nvtx3_8hpp.html#a5e20d020db37fe0012d1cf2b9dbcd83b", null ],
+    [ "NVTX3_MINOR_VERSION", "nvtx3_8hpp.html#a23a67ab53c89da8aed632531223cbf55", null ],
+    [ "NVTX3_RELAXED_CONSTEXPR", "nvtx3_8hpp.html#aed60c42629f272df1844fa29f4d6b86f", null ],
+    [ "process_range", "nvtx3_8hpp.html#a871f1092efc96daa974cc4d4a6287a31", null ],
+    [ "thread_range", "nvtx3_8hpp.html#a39e1b5e1f3eabab59d1ed7241972ef9d", null ],
+    [ "domain::get< domain::global >", "nvtx3_8hpp.html#a4e7ffd7a80bbe6e55a6eef08330f1e5a", null ],
+    [ "has_name_member", "nvtx3_8hpp.html#a8b466161c990a8d5316ce8dd75ce0b23", null ],
+    [ "mark", "nvtx3_8hpp.html#a96c1ba521a0672df70afcb1070875c18", null ]
+];

@@ -1,0 +1,192 @@
+\doxysection{cudf\+::range\+\_\+window\+\_\+bounds结构体 参考}
+\hypertarget{structcudf_1_1range__window__bounds}{}\label{structcudf_1_1range__window__bounds}\index{cudf::range\_window\_bounds@{cudf::range\_window\_bounds}}
+
+
+Abstraction for window boundary sizes, to be used with {\ttfamily \doxylink{group__aggregation__rolling_ga595d27d939a1af9d00d2b6bea3b5623c}{grouped\+\_\+range\+\_\+rolling\+\_\+window()}}.  
+
+
+
+
+{\ttfamily \#include $<$range\+\_\+window\+\_\+bounds.\+hpp$>$}
+
+
+
+cudf\+::range\+\_\+window\+\_\+bounds 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=201pt]{structcudf_1_1range__window__bounds__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{structcudf_1_1range__window__bounds_afcf4bde4d9ca82fd7394277476de6a35}{is\+\_\+unbounded}} () const
+\begin{DoxyCompactList}\small\item\em Whether or not the window is unbounded \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \& \mbox{\hyperlink{structcudf_1_1range__window__bounds_a11529af829f20e1f700608024bdd207c}{range\+\_\+scalar}} () const
+\begin{DoxyCompactList}\small\item\em Returns the underlying scalar value for the bounds \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1range__window__bounds_a9eee8920f06d1551faafc881edb2351a}{range\+\_\+window\+\_\+bounds}} (\mbox{\hyperlink{structcudf_1_1range__window__bounds}{range\+\_\+window\+\_\+bounds}} const \&)=default
+\begin{DoxyCompactList}\small\item\em Copy constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1range__window__bounds_a2256fbb0269d6c9c558e2cbb4042765a}{range\+\_\+window\+\_\+bounds}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{structcudf_1_1range__window__bounds}{range\+\_\+window\+\_\+bounds}} \mbox{\hyperlink{structcudf_1_1range__window__bounds_ae682e1f825e17db8226943ed9e77dbe0}{get}} (\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&boundary)
+\begin{DoxyCompactList}\small\item\em Factory method to construct a bounded window boundary. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structcudf_1_1range__window__bounds}{range\+\_\+window\+\_\+bounds}} \mbox{\hyperlink{structcudf_1_1range__window__bounds_aca75ce25de9d32e213554b5e20afce44}{unbounded}} (\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Factory method to construct an unbounded window boundary. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcudf_1_1range__window__bounds_a60581a563158890840a7819723326668}{range\+\_\+window\+\_\+bounds}} (bool is\+\_\+unbounded\+\_\+, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ range\+\_\+scalar\+\_\+)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+const bool \mbox{\hyperlink{structcudf_1_1range__window__bounds_a875e008dfd05b45652946823b0d3f2f6}{\+\_\+is\+\_\+unbounded}} \{true\}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ \mbox{\hyperlink{structcudf_1_1range__window__bounds_a7b6557395cd641de9bce1126d9929239}{\+\_\+range\+\_\+scalar}} \{nullptr\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Abstraction for window boundary sizes, to be used with {\ttfamily \doxylink{group__aggregation__rolling_ga595d27d939a1af9d00d2b6bea3b5623c}{grouped\+\_\+range\+\_\+rolling\+\_\+window()}}. 
+
+Similar to {\ttfamily \doxylink{structcudf_1_1window__bounds}{window\+\_\+bounds}} in {\ttfamily \doxylink{group__aggregation__rolling_ga0d431c50f9d34e8bf6beda13f693bd69}{grouped\+\_\+rolling\+\_\+window()}}, {\ttfamily \doxylink{structcudf_1_1range__window__bounds}{range\+\_\+window\+\_\+bounds}} represents window boundaries for use with {\ttfamily \doxylink{group__aggregation__rolling_ga595d27d939a1af9d00d2b6bea3b5623c}{grouped\+\_\+range\+\_\+rolling\+\_\+window()}}. A window may be specified as either of the following\+:
+\begin{DoxyEnumerate}
+\item A fixed-\/width numeric scalar value. E.\+g. a) A {\ttfamily DURATION\+\_\+\+DAYS} scalar, for use with a {\ttfamily TIMESTAMP\+\_\+\+DAYS} orderby column b) An {\ttfamily INT32} scalar, for use with an {\ttfamily INT32} orderby column
+\item \"{}unbounded\"{}, indicating that the bounds stretch to the first/last row in the group. 
+\end{DoxyEnumerate}
+
+在文件 \mbox{\hyperlink{range__window__bounds_8hpp_source}{range\+\_\+window\+\_\+bounds.\+hpp}} 第 \mbox{\hyperlink{range__window__bounds_8hpp_source_l00036}{36}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{structcudf_1_1range__window__bounds_a9eee8920f06d1551faafc881edb2351a}\label{structcudf_1_1range__window__bounds_a9eee8920f06d1551faafc881edb2351a} 
+\index{cudf::range\_window\_bounds@{cudf::range\_window\_bounds}!range\_window\_bounds@{range\_window\_bounds}}
+\index{range\_window\_bounds@{range\_window\_bounds}!cudf::range\_window\_bounds@{cudf::range\_window\_bounds}}
+\doxysubsubsection{\texorpdfstring{range\_window\_bounds()}{range\_window\_bounds()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily cudf\+::range\+\_\+window\+\_\+bounds\+::range\+\_\+window\+\_\+bounds (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcudf_1_1range__window__bounds}{range\+\_\+window\+\_\+bounds}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Copy constructor 
+
+\Hypertarget{structcudf_1_1range__window__bounds_a2256fbb0269d6c9c558e2cbb4042765a}\label{structcudf_1_1range__window__bounds_a2256fbb0269d6c9c558e2cbb4042765a} 
+\index{cudf::range\_window\_bounds@{cudf::range\_window\_bounds}!range\_window\_bounds@{range\_window\_bounds}}
+\index{range\_window\_bounds@{range\_window\_bounds}!cudf::range\_window\_bounds@{cudf::range\_window\_bounds}}
+\doxysubsubsection{\texorpdfstring{range\_window\_bounds()}{range\_window\_bounds()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily cudf\+::range\+\_\+window\+\_\+bounds\+::range\+\_\+window\+\_\+bounds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{structcudf_1_1range__window__bounds_a60581a563158890840a7819723326668}\label{structcudf_1_1range__window__bounds_a60581a563158890840a7819723326668} 
+\index{cudf::range\_window\_bounds@{cudf::range\_window\_bounds}!range\_window\_bounds@{range\_window\_bounds}}
+\index{range\_window\_bounds@{range\_window\_bounds}!cudf::range\_window\_bounds@{cudf::range\_window\_bounds}}
+\doxysubsubsection{\texorpdfstring{range\_window\_bounds()}{range\_window\_bounds()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily cudf\+::range\+\_\+window\+\_\+bounds\+::range\+\_\+window\+\_\+bounds (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+unbounded\+\_\+,  }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$}]{range\+\_\+scalar\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{structcudf_1_1range__window__bounds_ae682e1f825e17db8226943ed9e77dbe0}\label{structcudf_1_1range__window__bounds_ae682e1f825e17db8226943ed9e77dbe0} 
+\index{cudf::range\_window\_bounds@{cudf::range\_window\_bounds}!get@{get}}
+\index{get@{get}!cudf::range\_window\_bounds@{cudf::range\_window\_bounds}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structcudf_1_1range__window__bounds}{range\+\_\+window\+\_\+bounds}} cudf\+::range\+\_\+window\+\_\+bounds\+::get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&}]{boundary }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Factory method to construct a bounded window boundary. 
+
+
+\begin{DoxyParams}{参数}
+{\em boundary} & Finite window boundary \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A bounded window boundary object 
+\end{DoxyReturn}
+\Hypertarget{structcudf_1_1range__window__bounds_afcf4bde4d9ca82fd7394277476de6a35}\label{structcudf_1_1range__window__bounds_afcf4bde4d9ca82fd7394277476de6a35} 
+\index{cudf::range\_window\_bounds@{cudf::range\_window\_bounds}!is\_unbounded@{is\_unbounded}}
+\index{is\_unbounded@{is\_unbounded}!cudf::range\_window\_bounds@{cudf::range\_window\_bounds}}
+\doxysubsubsection{\texorpdfstring{is\_unbounded()}{is\_unbounded()}}
+{\footnotesize\ttfamily bool cudf\+::range\+\_\+window\+\_\+bounds\+::is\+\_\+unbounded (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Whether or not the window is unbounded 
+
+\begin{DoxyReturn}{返回}
+true If window is unbounded 
+
+false If window is of finite bounds 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{range__window__bounds_8hpp_source}{range\+\_\+window\+\_\+bounds.\+hpp}} 第 \mbox{\hyperlink{range__window__bounds_8hpp_source_l00060}{60}} 行定义.
+
+\Hypertarget{structcudf_1_1range__window__bounds_a11529af829f20e1f700608024bdd207c}\label{structcudf_1_1range__window__bounds_a11529af829f20e1f700608024bdd207c} 
+\index{cudf::range\_window\_bounds@{cudf::range\_window\_bounds}!range\_scalar@{range\_scalar}}
+\index{range\_scalar@{range\_scalar}!cudf::range\_window\_bounds@{cudf::range\_window\_bounds}}
+\doxysubsubsection{\texorpdfstring{range\_scalar()}{range\_scalar()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const  \& cudf\+::range\+\_\+window\+\_\+bounds\+::range\+\_\+scalar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the underlying scalar value for the bounds 
+
+\begin{DoxyReturn}{返回}
+The underlying scalar value for the bounds 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{range__window__bounds_8hpp_source}{range\+\_\+window\+\_\+bounds.\+hpp}} 第 \mbox{\hyperlink{range__window__bounds_8hpp_source_l00067}{67}} 行定义.
+
+\Hypertarget{structcudf_1_1range__window__bounds_aca75ce25de9d32e213554b5e20afce44}\label{structcudf_1_1range__window__bounds_aca75ce25de9d32e213554b5e20afce44} 
+\index{cudf::range\_window\_bounds@{cudf::range\_window\_bounds}!unbounded@{unbounded}}
+\index{unbounded@{unbounded}!cudf::range\_window\_bounds@{cudf::range\_window\_bounds}}
+\doxysubsubsection{\texorpdfstring{unbounded()}{unbounded()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structcudf_1_1range__window__bounds}{range\+\_\+window\+\_\+bounds}} cudf\+::range\+\_\+window\+\_\+bounds\+::unbounded (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Factory method to construct an unbounded window boundary. 
+
+
+\begin{DoxyParams}{参数}
+{\em type} & type The datatype of the window boundary \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+An unbounded window boundary object 
+\end{DoxyReturn}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{structcudf_1_1range__window__bounds_a875e008dfd05b45652946823b0d3f2f6}\label{structcudf_1_1range__window__bounds_a875e008dfd05b45652946823b0d3f2f6} 
+\index{cudf::range\_window\_bounds@{cudf::range\_window\_bounds}!\_is\_unbounded@{\_is\_unbounded}}
+\index{\_is\_unbounded@{\_is\_unbounded}!cudf::range\_window\_bounds@{cudf::range\_window\_bounds}}
+\doxysubsubsection{\texorpdfstring{\_is\_unbounded}{\_is\_unbounded}}
+{\footnotesize\ttfamily const bool cudf\+::range\+\_\+window\+\_\+bounds\+::\+\_\+is\+\_\+unbounded \{true\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{range__window__bounds_8hpp_source}{range\+\_\+window\+\_\+bounds.\+hpp}} 第 \mbox{\hyperlink{range__window__bounds_8hpp_source_l00073}{73}} 行定义.
+
+\Hypertarget{structcudf_1_1range__window__bounds_a7b6557395cd641de9bce1126d9929239}\label{structcudf_1_1range__window__bounds_a7b6557395cd641de9bce1126d9929239} 
+\index{cudf::range\_window\_bounds@{cudf::range\_window\_bounds}!\_range\_scalar@{\_range\_scalar}}
+\index{\_range\_scalar@{\_range\_scalar}!cudf::range\_window\_bounds@{cudf::range\_window\_bounds}}
+\doxysubsubsection{\texorpdfstring{\_range\_scalar}{\_range\_scalar}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classcudf_1_1scalar}{scalar}}$>$ cudf\+::range\+\_\+window\+\_\+bounds\+::\+\_\+range\+\_\+scalar \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{range__window__bounds_8hpp_source}{range\+\_\+window\+\_\+bounds.\+hpp}} 第 \mbox{\hyperlink{range__window__bounds_8hpp_source_l00074}{74}} 行定义.
+
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/rolling/\mbox{\hyperlink{range__window__bounds_8hpp}{range\+\_\+window\+\_\+bounds.\+hpp}}\end{DoxyCompactItemize}

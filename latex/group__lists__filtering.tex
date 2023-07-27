@@ -1,0 +1,96 @@
+\doxysection{Lists\+\_\+filtering}
+\hypertarget{group__lists__filtering}{}\label{group__lists__filtering}\index{Lists\_filtering@{Lists\_filtering}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{lists_2stream__compaction_8hpp}{stream\+\_\+compaction.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__lists__filtering_ga6ccffe1bba05f2c794589f36a1f4b6c1}{cudf\+::lists\+::apply\+\_\+boolean\+\_\+mask}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&boolean\+\_\+mask, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Filters elements in each row of {\ttfamily input} LIST column using {\ttfamily boolean\+\_\+mask} LIST of booleans as a mask. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__lists__filtering_ga997192ef2a92c7ff1df62e1d3d878649}{cudf\+::lists\+::distinct}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&input, \mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}} nulls\+\_\+equal=\mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\+\_\+equality\+::\+EQUAL}}, \mbox{\hyperlink{group__utility__types_gae9d1055c69c3089452794783c7c82f83}{nan\+\_\+equality}} nans\+\_\+equal=\mbox{\hyperlink{group__utility__types_ggae9d1055c69c3089452794783c7c82f83acd6d9f766e6e2753da429d26078711d7}{nan\+\_\+equality\+::\+ALL\+\_\+\+EQUAL}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a new list column without duplicate elements in each list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__lists__filtering_ga6ccffe1bba05f2c794589f36a1f4b6c1}\label{group__lists__filtering_ga6ccffe1bba05f2c794589f36a1f4b6c1} 
+\index{Lists\_filtering@{Lists\_filtering}!apply\_boolean\_mask@{apply\_boolean\_mask}}
+\index{apply\_boolean\_mask@{apply\_boolean\_mask}!Lists\_filtering@{Lists\_filtering}}
+\doxysubsubsection{\texorpdfstring{apply\_boolean\_mask()}{apply\_boolean\_mask()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::apply\+\_\+boolean\+\_\+mask (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&}]{boolean\+\_\+mask,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Filters elements in each row of {\ttfamily input} LIST column using {\ttfamily boolean\+\_\+mask} LIST of booleans as a mask. 
+
+Given an input {\ttfamily LIST} column and a list-\/of-\/bools column, the function produces a new {\ttfamily LIST} column of the same type as {\ttfamily input}, where each element is copied from the input row {\itshape only} if the corresponding {\ttfamily boolean\+\_\+mask} is non-\/null and {\ttfamily true}.
+
+E.\+g. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{input\ \ \ \ \ \ \ \ =\ \{\ \{0,1,2\},\ \{3,4\},\ \{5,6,7\},\ \{8,9\}\ \};}
+\DoxyCodeLine{boolean\_mask\ =\ \{\ \{0,1,1\},\ \{1,0\},\ \{1,1,1\},\ \{0,0\}\ \};}
+\DoxyCodeLine{results\ \ \ \ \ \ =\ \{\ \{1,2\},\ \ \ \{3\},\ \ \ \{5,6,7\},\ \{\}\ \};}
+
+\end{DoxyCode}
+
+
+{\ttfamily input} and {\ttfamily boolean\+\_\+mask} must have the same number of rows. The output column has the same number of rows as the input column. An element is copied to an output row {\itshape only} if the corresponding boolean\+\_\+mask element is {\ttfamily true}. An output row is invalid only if the input row is invalid.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily boolean\+\_\+mask} is not a \"{}lists of bools\"{} column \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily input} and {\ttfamily boolean\+\_\+mask} have different number of rows\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em input} & The input list column view to be filtered \\
+\hline
+{\em boolean\+\_\+mask} & A nullable list of bools column used to filter {\ttfamily input} elements \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned table\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+List column of the same type as {\ttfamily input}, containing filtered list rows 
+\end{DoxyReturn}
+\Hypertarget{group__lists__filtering_ga997192ef2a92c7ff1df62e1d3d878649}\label{group__lists__filtering_ga997192ef2a92c7ff1df62e1d3d878649} 
+\index{Lists\_filtering@{Lists\_filtering}!distinct@{distinct}}
+\index{distinct@{distinct}!Lists\_filtering@{Lists\_filtering}}
+\doxysubsubsection{\texorpdfstring{distinct()}{distinct()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::distinct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&}]{input,  }\item[{\mbox{\hyperlink{group__utility__types_ga08a672308cd0f61562410d106b377771}{null\+\_\+equality}}}]{nulls\+\_\+equal = {\ttfamily \mbox{\hyperlink{group__utility__types_gga08a672308cd0f61562410d106b377771a969f331a87d8c958473c32b4d0e61a44}{null\+\_\+equality\+::\+EQUAL}}},  }\item[{\mbox{\hyperlink{group__utility__types_gae9d1055c69c3089452794783c7c82f83}{nan\+\_\+equality}}}]{nans\+\_\+equal = {\ttfamily \mbox{\hyperlink{group__utility__types_ggae9d1055c69c3089452794783c7c82f83acd6d9f766e6e2753da429d26078711d7}{nan\+\_\+equality\+::\+ALL\+\_\+\+EQUAL}}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Create a new list column without duplicate elements in each list. 
+
+Given a lists column {\ttfamily input}, distinct elements of each list are copied to the corresponding output list. The order of lists is preserved while the order of elements within each list is not guaranteed.
+
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{input\ \ =\ \{\ \{0,\ 1,\ 2,\ 3,\ 2\},\ \{3,\ 1,\ 2\},\ null,\ \{4,\ null,\ null,\ 5\}\ \}}
+\DoxyCodeLine{result\ =\ \{\ \{0,\ 1,\ 2,\ 3\},\ \{3,\ 1,\ 2\},\ null,\ \{4,\ null,\ 5\}\ \}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{参数}
+{\em input} & The input lists column \\
+\hline
+{\em nulls\+\_\+equal} & Flag to specify whether null elements should be considered as equal \\
+\hline
+{\em nans\+\_\+equal} & Flag to specify whether floating-\/point Na\+Ns should be considered as equal \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The resulting lists column containing lists without duplicates 
+\end{DoxyReturn}

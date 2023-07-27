@@ -1,0 +1,259 @@
+\doxysection{cudf\+::ast\+::operation类 参考}
+\hypertarget{classcudf_1_1ast_1_1operation}{}\label{classcudf_1_1ast_1_1operation}\index{cudf::ast::operation@{cudf::ast::operation}}
+
+
+An operation expression holds an operator and zero or more operands.  
+
+
+
+
+{\ttfamily \#include $<$expressions.\+hpp$>$}
+
+
+
+类 cudf\+::ast\+::operation 继承关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{classcudf_1_1ast_1_1operation__inherit__graph}
+\end{center}
+\end{figure}
+
+
+cudf\+::ast\+::operation 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{classcudf_1_1ast_1_1operation__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1ast_1_1operation_ae508ea51392eb7e8f1e696bab6aba054}{operation}} (\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}} \mbox{\hyperlink{classcudf_1_1ast_1_1operation_ae15ffea26acee25e310216cbcebbf374}{op}}, \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} const \&input)
+\begin{DoxyCompactList}\small\item\em Construct a new unary operation object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1ast_1_1operation_abdb1952bd09ad4850a7606a268509226}{operation}} (\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}} \mbox{\hyperlink{classcudf_1_1ast_1_1operation_ae15ffea26acee25e310216cbcebbf374}{op}}, \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} const \&left, \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} const \&right)
+\begin{DoxyCompactList}\small\item\em Construct a new binary operation object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1ast_1_1operation_a88bebbe68da52b234d4d265666f3ac2d}{operation}} (\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}} \mbox{\hyperlink{classcudf_1_1ast_1_1operation_ae15ffea26acee25e310216cbcebbf374}{op}}, \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} \&\&input)=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1ast_1_1operation_aed90df96fe98c0ac26d6b43fb5dd4f69}{operation}} (\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}} \mbox{\hyperlink{classcudf_1_1ast_1_1operation_ae15ffea26acee25e310216cbcebbf374}{op}}, \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} \&\&left, \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} \&\&right)=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1ast_1_1operation_a8b5a8710060d7fe944d466af9791f8e3}{operation}} (\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}} \mbox{\hyperlink{classcudf_1_1ast_1_1operation_ae15ffea26acee25e310216cbcebbf374}{op}}, \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} \&\&left, \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} const \&right)=delete
+\item 
+\mbox{\hyperlink{classcudf_1_1ast_1_1operation_a6ed3ad1796aaa7df780b0725dd248d0b}{operation}} (\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}} \mbox{\hyperlink{classcudf_1_1ast_1_1operation_ae15ffea26acee25e310216cbcebbf374}{op}}, \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} const \&left, \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} \&\&right)=delete
+\item 
+\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}} \mbox{\hyperlink{classcudf_1_1ast_1_1operation_a993faf80bae58025053a8852d81a96b7}{get\+\_\+operator}} () const
+\begin{DoxyCompactList}\small\item\em Get the operator. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} const $>$ $>$ \mbox{\hyperlink{classcudf_1_1ast_1_1operation_a8843091e85c1eafa1f0dc6566fcacc9d}{get\+\_\+operands}} () const
+\begin{DoxyCompactList}\small\item\em Get the operands. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{classcudf_1_1ast_1_1operation_afe7fbef9f20da5ecc9a82791037c024d}{accept}} (\mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser}{detail\+::expression\+\_\+parser}} \&visitor) const override
+\begin{DoxyCompactList}\small\item\em Accepts a visitor class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classcudf_1_1ast_1_1operation_a747bc06a1d693741c7ae126de8a940ee}{may\+\_\+evaluate\+\_\+null}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&left, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&right, rmm\+::cuda\+\_\+stream\+\_\+view stream) const override
+\begin{DoxyCompactList}\small\item\em Returns true if the expression may evaluate to null. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public 成员函数 继承自 \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{cudf\+::ast\+::expression}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} \mbox{\hyperlink{structcudf_1_1ast_1_1expression_a7f49bf2645bf703e48b2218944aca8ef}{accept}} (\mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser}{detail\+::expression\+\_\+parser}} \&visitor) const =0
+\begin{DoxyCompactList}\small\item\em Accepts a visitor class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structcudf_1_1ast_1_1expression_a58bbcca679ee9e1447a43387e5684b0e}{may\+\_\+evaluate\+\_\+null}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&left, rmm\+::cuda\+\_\+stream\+\_\+view stream) const
+\begin{DoxyCompactList}\small\item\em Returns true if the expression may evaluate to null. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{structcudf_1_1ast_1_1expression_ae0e50e0d105d9c261c98cb7cd828f76b}{may\+\_\+evaluate\+\_\+null}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&left, \mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&right, rmm\+::cuda\+\_\+stream\+\_\+view stream) const =0
+\begin{DoxyCompactList}\small\item\em Returns true if the expression may evaluate to null. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{structcudf_1_1ast_1_1expression_a0d427dac4d82c624c68139c841913705}{\texorpdfstring{$\sim$}{\string~}expression}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}} const \mbox{\hyperlink{classcudf_1_1ast_1_1operation_ae15ffea26acee25e310216cbcebbf374}{op}}
+\item 
+std\+::vector$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} const  $>$ $>$ const \mbox{\hyperlink{classcudf_1_1ast_1_1operation_afc581471ce49d617c4614d68c0e18ea4}{operands}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+An operation expression holds an operator and zero or more operands. 
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00330}{330}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1ast_1_1operation_ae508ea51392eb7e8f1e696bab6aba054}\label{classcudf_1_1ast_1_1operation_ae508ea51392eb7e8f1e696bab6aba054} 
+\index{cudf::ast::operation@{cudf::ast::operation}!operation@{operation}}
+\index{operation@{operation}!cudf::ast::operation@{cudf::ast::operation}}
+\doxysubsubsection{\texorpdfstring{operation()}{operation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily cudf\+::ast\+::operation\+::operation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}}}]{op,  }\item[{\mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} const \&}]{input }\end{DoxyParamCaption})}
+
+
+
+Construct a new unary operation object. 
+
+
+\begin{DoxyParams}{参数}
+{\em op} & Operator \\
+\hline
+{\em input} & Input expression (operand) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcudf_1_1ast_1_1operation_abdb1952bd09ad4850a7606a268509226}\label{classcudf_1_1ast_1_1operation_abdb1952bd09ad4850a7606a268509226} 
+\index{cudf::ast::operation@{cudf::ast::operation}!operation@{operation}}
+\index{operation@{operation}!cudf::ast::operation@{cudf::ast::operation}}
+\doxysubsubsection{\texorpdfstring{operation()}{operation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily cudf\+::ast\+::operation\+::operation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}}}]{op,  }\item[{\mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} const \&}]{left,  }\item[{\mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} const \&}]{right }\end{DoxyParamCaption})}
+
+
+
+Construct a new binary operation object. 
+
+
+\begin{DoxyParams}{参数}
+{\em op} & Operator \\
+\hline
+{\em left} & Left input expression (left operand) \\
+\hline
+{\em right} & Right input expression (right operand) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcudf_1_1ast_1_1operation_a88bebbe68da52b234d4d265666f3ac2d}\label{classcudf_1_1ast_1_1operation_a88bebbe68da52b234d4d265666f3ac2d} 
+\index{cudf::ast::operation@{cudf::ast::operation}!operation@{operation}}
+\index{operation@{operation}!cudf::ast::operation@{cudf::ast::operation}}
+\doxysubsubsection{\texorpdfstring{operation()}{operation()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily cudf\+::ast\+::operation\+::operation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}}}]{op,  }\item[{\mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} \&\&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classcudf_1_1ast_1_1operation_aed90df96fe98c0ac26d6b43fb5dd4f69}\label{classcudf_1_1ast_1_1operation_aed90df96fe98c0ac26d6b43fb5dd4f69} 
+\index{cudf::ast::operation@{cudf::ast::operation}!operation@{operation}}
+\index{operation@{operation}!cudf::ast::operation@{cudf::ast::operation}}
+\doxysubsubsection{\texorpdfstring{operation()}{operation()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily cudf\+::ast\+::operation\+::operation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}}}]{op,  }\item[{\mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} \&\&}]{left,  }\item[{\mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} \&\&}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classcudf_1_1ast_1_1operation_a8b5a8710060d7fe944d466af9791f8e3}\label{classcudf_1_1ast_1_1operation_a8b5a8710060d7fe944d466af9791f8e3} 
+\index{cudf::ast::operation@{cudf::ast::operation}!operation@{operation}}
+\index{operation@{operation}!cudf::ast::operation@{cudf::ast::operation}}
+\doxysubsubsection{\texorpdfstring{operation()}{operation()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily cudf\+::ast\+::operation\+::operation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}}}]{op,  }\item[{\mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} \&\&}]{left,  }\item[{\mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} const \&}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classcudf_1_1ast_1_1operation_a6ed3ad1796aaa7df780b0725dd248d0b}\label{classcudf_1_1ast_1_1operation_a6ed3ad1796aaa7df780b0725dd248d0b} 
+\index{cudf::ast::operation@{cudf::ast::operation}!operation@{operation}}
+\index{operation@{operation}!cudf::ast::operation@{cudf::ast::operation}}
+\doxysubsubsection{\texorpdfstring{operation()}{operation()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily cudf\+::ast\+::operation\+::operation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}}}]{op,  }\item[{\mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} const \&}]{left,  }\item[{\mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} \&\&}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1ast_1_1operation_afe7fbef9f20da5ecc9a82791037c024d}\label{classcudf_1_1ast_1_1operation_afe7fbef9f20da5ecc9a82791037c024d} 
+\index{cudf::ast::operation@{cudf::ast::operation}!accept@{accept}}
+\index{accept@{accept}!cudf::ast::operation@{cudf::ast::operation}}
+\doxysubsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{cudf\+::size\+\_\+type}} cudf\+::ast\+::operation\+::accept (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1ast_1_1detail_1_1expression__parser}{detail\+::expression\+\_\+parser}} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Accepts a visitor class. 
+
+
+\begin{DoxyParams}{参数}
+{\em visitor} & The {\ttfamily expression\+\_\+parser} parsing this expression tree \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Index of device data reference for this instance 
+\end{DoxyReturn}
+
+
+实现了 \mbox{\hyperlink{structcudf_1_1ast_1_1expression_a7f49bf2645bf703e48b2218944aca8ef}{cudf\+::ast\+::expression}}.
+
+\Hypertarget{classcudf_1_1ast_1_1operation_a8843091e85c1eafa1f0dc6566fcacc9d}\label{classcudf_1_1ast_1_1operation_a8843091e85c1eafa1f0dc6566fcacc9d} 
+\index{cudf::ast::operation@{cudf::ast::operation}!get\_operands@{get\_operands}}
+\index{get\_operands@{get\_operands}!cudf::ast::operation@{cudf::ast::operation}}
+\doxysubsubsection{\texorpdfstring{get\_operands()}{get\_operands()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} const  $>$ $>$ cudf\+::ast\+::operation\+::get\+\_\+operands (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the operands. 
+
+\begin{DoxyReturn}{返回}
+Vector of operands 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00368}{368}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1operation_a993faf80bae58025053a8852d81a96b7}\label{classcudf_1_1ast_1_1operation_a993faf80bae58025053a8852d81a96b7} 
+\index{cudf::ast::operation@{cudf::ast::operation}!get\_operator@{get\_operator}}
+\index{get\_operator@{get\_operator}!cudf::ast::operation@{cudf::ast::operation}}
+\doxysubsubsection{\texorpdfstring{get\_operator()}{get\_operator()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}} cudf\+::ast\+::operation\+::get\+\_\+operator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the operator. 
+
+\begin{DoxyReturn}{返回}
+The operator 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00361}{361}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1operation_a747bc06a1d693741c7ae126de8a940ee}\label{classcudf_1_1ast_1_1operation_a747bc06a1d693741c7ae126de8a940ee} 
+\index{cudf::ast::operation@{cudf::ast::operation}!may\_evaluate\_null@{may\_evaluate\_null}}
+\index{may\_evaluate\_null@{may\_evaluate\_null}!cudf::ast::operation@{cudf::ast::operation}}
+\doxysubsubsection{\texorpdfstring{may\_evaluate\_null()}{may\_evaluate\_null()}}
+{\footnotesize\ttfamily bool cudf\+::ast\+::operation\+::may\+\_\+evaluate\+\_\+null (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{left,  }\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{right,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns true if the expression may evaluate to null. 
+
+
+\begin{DoxyParams}{参数}
+{\em left} & The left operand of the expression \\
+\hline
+{\em right} & The right operand of the expression \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+{\ttfamily true} if the expression may evaluate to null, otherwise false 
+\end{DoxyReturn}
+
+
+实现了 \mbox{\hyperlink{structcudf_1_1ast_1_1expression_ae0e50e0d105d9c261c98cb7cd828f76b}{cudf\+::ast\+::expression}}.
+
+
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00378}{378}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1ast_1_1operation_ae15ffea26acee25e310216cbcebbf374}\label{classcudf_1_1ast_1_1operation_ae15ffea26acee25e310216cbcebbf374} 
+\index{cudf::ast::operation@{cudf::ast::operation}!op@{op}}
+\index{op@{op}!cudf::ast::operation@{cudf::ast::operation}}
+\doxysubsubsection{\texorpdfstring{op}{op}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7}{ast\+\_\+operator}} const cudf\+::ast\+::operation\+::op\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00390}{390}} 行定义.
+
+\Hypertarget{classcudf_1_1ast_1_1operation_afc581471ce49d617c4614d68c0e18ea4}\label{classcudf_1_1ast_1_1operation_afc581471ce49d617c4614d68c0e18ea4} 
+\index{cudf::ast::operation@{cudf::ast::operation}!operands@{operands}}
+\index{operands@{operands}!cudf::ast::operation@{cudf::ast::operation}}
+\doxysubsubsection{\texorpdfstring{operands}{operands}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::reference\+\_\+wrapper$<$\mbox{\hyperlink{structcudf_1_1ast_1_1expression}{expression}} const$>$ $>$ const cudf\+::ast\+::operation\+::operands\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{expressions_8hpp_source}{expressions.\+hpp}} 第 \mbox{\hyperlink{expressions_8hpp_source_l00391}{391}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/ast/\mbox{\hyperlink{expressions_8hpp}{expressions.\+hpp}}\end{DoxyCompactItemize}

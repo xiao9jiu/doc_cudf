@@ -1,0 +1,51 @@
+\doxysection{Lists\+\_\+elements}
+\hypertarget{group__lists__elements}{}\label{group__lists__elements}\index{Lists\_elements@{Lists\_elements}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{count__elements_8hpp}{count\+\_\+elements.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__lists__elements_ga549132341fa88ec2831a0247aa88fe8b}{cudf\+::lists\+::count\+\_\+elements}} (\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&input, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a numeric column containing the number of rows in each list element in the given lists column. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__lists__elements_ga549132341fa88ec2831a0247aa88fe8b}\label{group__lists__elements_ga549132341fa88ec2831a0247aa88fe8b} 
+\index{Lists\_elements@{Lists\_elements}!count\_elements@{count\_elements}}
+\index{count\_elements@{count\_elements}!Lists\_elements@{Lists\_elements}}
+\doxysubsubsection{\texorpdfstring{count\_elements()}{count\_elements()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::count\+\_\+elements (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1lists__column__view}{lists\+\_\+column\+\_\+view}} const \&}]{input,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a numeric column containing the number of rows in each list element in the given lists column. 
+
+The output column will have the same number of rows as the input lists column. Each {\ttfamily output\mbox{[}i\mbox{]}} will be {\ttfamily input\mbox{[}i\mbox{]}.size()}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{l\ =\ \{\ \{1,\ 2,\ 3\},\ \{4\},\ \{5,\ 6\}\ \}}
+\DoxyCodeLine{r\ =\ count\_elements(l)}
+\DoxyCodeLine{r\ is\ now\ \{3,\ 1,\ 2\}}
+
+\end{DoxyCode}
+
+
+Any null input element will result in a corresponding null entry in the output column.
+
+
+\begin{DoxyParams}{参数}
+{\em input} & Input lists column. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New INT32 column with the number of elements for each row. 
+\end{DoxyReturn}

@@ -1,0 +1,151 @@
+\doxysection{cudf\+::io\+::detail\+::orc\+::writer类 参考}
+\hypertarget{classcudf_1_1io_1_1detail_1_1orc_1_1writer}{}\label{classcudf_1_1io_1_1detail_1_1orc_1_1writer}\index{cudf::io::detail::orc::writer@{cudf::io::detail::orc::writer}}
+
+
+Class to write ORC dataset data into columns.  
+
+
+
+
+{\ttfamily \#include $<$orc.\+hpp$>$}
+
+
+
+cudf\+::io\+::detail\+::orc\+::writer 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{classcudf_1_1io_1_1detail_1_1orc_1_1writer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a45f79618701070594940af503391233d}{writer}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{cudf\+::io\+::data\+\_\+sink}} $>$ sink, \mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options}{orc\+\_\+writer\+\_\+options}} const \&options, \mbox{\hyperlink{namespacecudf_1_1io_1_1detail_ac04114990639289ba14c03af0b63e553}{Single\+Write\+Mode}} mode, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Constructor for output to a file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1writer_ae3eebfa1c48a5d2c66233641e8ca563c}{writer}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{cudf\+::io\+::data\+\_\+sink}} $>$ sink, \mbox{\hyperlink{classcudf_1_1io_1_1chunked__orc__writer__options}{chunked\+\_\+orc\+\_\+writer\+\_\+options}} const \&options, \mbox{\hyperlink{namespacecudf_1_1io_1_1detail_ac04114990639289ba14c03af0b63e553}{Single\+Write\+Mode}} mode, rmm\+::cuda\+\_\+stream\+\_\+view stream, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr)
+\begin{DoxyCompactList}\small\item\em Constructor with chunked writer options. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a27103dcf1ed0611419d0f6364b122dcb}{\texorpdfstring{$\sim$}{\string~}writer}} ()
+\begin{DoxyCompactList}\small\item\em Destructor explicitly declared to avoid inlining in header \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a23c24e824f4651e72a21eb52c5221bc5}{write}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&\mbox{\hyperlink{classcudf_1_1table}{table}})
+\begin{DoxyCompactList}\small\item\em Writes a single subtable as part of a larger ORC file/table write. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a5c5e198def7e8d596b3824d090bc1d51}{close}} ()
+\begin{DoxyCompactList}\small\item\em Finishes the chunked/streamed write process. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ impl $>$ \mbox{\hyperlink{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a01a200a0d14a823050fd87ae034f05b1}{\+\_\+impl}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Class to write ORC dataset data into columns. 
+
+在文件 \mbox{\hyperlink{detail_2orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{detail_2orc_8hpp_source_l00083}{83}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a45f79618701070594940af503391233d}\label{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a45f79618701070594940af503391233d} 
+\index{cudf::io::detail::orc::writer@{cudf::io::detail::orc::writer}!writer@{writer}}
+\index{writer@{writer}!cudf::io::detail::orc::writer@{cudf::io::detail::orc::writer}}
+\doxysubsubsection{\texorpdfstring{writer()}{writer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily cudf\+::io\+::detail\+::orc\+::writer\+::writer (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{cudf\+::io\+::data\+\_\+sink}} $>$}]{sink,  }\item[{\mbox{\hyperlink{classcudf_1_1io_1_1orc__writer__options}{orc\+\_\+writer\+\_\+options}} const \&}]{options,  }\item[{\mbox{\hyperlink{namespacecudf_1_1io_1_1detail_ac04114990639289ba14c03af0b63e553}{Single\+Write\+Mode}}}]{mode,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor for output to a file. 
+
+
+\begin{DoxyParams}{参数}
+{\em sink} & The data sink to write the data to \\
+\hline
+{\em options} & Settings for controlling writing behavior \\
+\hline
+{\em mode} & Option to write at once or in chunks \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches \\
+\hline
+{\em mr} & Device memory resource to use for device memory allocation \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcudf_1_1io_1_1detail_1_1orc_1_1writer_ae3eebfa1c48a5d2c66233641e8ca563c}\label{classcudf_1_1io_1_1detail_1_1orc_1_1writer_ae3eebfa1c48a5d2c66233641e8ca563c} 
+\index{cudf::io::detail::orc::writer@{cudf::io::detail::orc::writer}!writer@{writer}}
+\index{writer@{writer}!cudf::io::detail::orc::writer@{cudf::io::detail::orc::writer}}
+\doxysubsubsection{\texorpdfstring{writer()}{writer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily cudf\+::io\+::detail\+::orc\+::writer\+::writer (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1io_1_1data__sink}{cudf\+::io\+::data\+\_\+sink}} $>$}]{sink,  }\item[{\mbox{\hyperlink{classcudf_1_1io_1_1chunked__orc__writer__options}{chunked\+\_\+orc\+\_\+writer\+\_\+options}} const \&}]{options,  }\item[{\mbox{\hyperlink{namespacecudf_1_1io_1_1detail_ac04114990639289ba14c03af0b63e553}{Single\+Write\+Mode}}}]{mode,  }\item[{rmm\+::cuda\+\_\+stream\+\_\+view}]{stream,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor with chunked writer options. 
+
+
+\begin{DoxyParams}{参数}
+{\em sink} & The data sink to write the data to \\
+\hline
+{\em options} & Settings for controlling writing behavior \\
+\hline
+{\em mode} & Option to write at once or in chunks \\
+\hline
+{\em stream} & CUDA stream used for device memory operations and kernel launches \\
+\hline
+{\em mr} & Device memory resource to use for device memory allocation \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a27103dcf1ed0611419d0f6364b122dcb}\label{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a27103dcf1ed0611419d0f6364b122dcb} 
+\index{cudf::io::detail::orc::writer@{cudf::io::detail::orc::writer}!````~writer@{\texorpdfstring{$\sim$}{\string~}writer}}
+\index{````~writer@{\texorpdfstring{$\sim$}{\string~}writer}!cudf::io::detail::orc::writer@{cudf::io::detail::orc::writer}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}writer()}{\string~writer()}}
+{\footnotesize\ttfamily cudf\+::io\+::detail\+::orc\+::writer\+::\texorpdfstring{$\sim$}{\string~}writer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor explicitly declared to avoid inlining in header 
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a5c5e198def7e8d596b3824d090bc1d51}\label{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a5c5e198def7e8d596b3824d090bc1d51} 
+\index{cudf::io::detail::orc::writer@{cudf::io::detail::orc::writer}!close@{close}}
+\index{close@{close}!cudf::io::detail::orc::writer@{cudf::io::detail::orc::writer}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily void cudf\+::io\+::detail\+::orc\+::writer\+::close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Finishes the chunked/streamed write process. 
+
+\Hypertarget{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a23c24e824f4651e72a21eb52c5221bc5}\label{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a23c24e824f4651e72a21eb52c5221bc5} 
+\index{cudf::io::detail::orc::writer@{cudf::io::detail::orc::writer}!write@{write}}
+\index{write@{write}!cudf::io::detail::orc::writer@{cudf::io::detail::orc::writer}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void cudf\+::io\+::detail\+::orc\+::writer\+::write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{table }\end{DoxyParamCaption})}
+
+
+
+Writes a single subtable as part of a larger ORC file/table write. 
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em table} & The table information to be written \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a01a200a0d14a823050fd87ae034f05b1}\label{classcudf_1_1io_1_1detail_1_1orc_1_1writer_a01a200a0d14a823050fd87ae034f05b1} 
+\index{cudf::io::detail::orc::writer@{cudf::io::detail::orc::writer}!\_impl@{\_impl}}
+\index{\_impl@{\_impl}!cudf::io::detail::orc::writer@{cudf::io::detail::orc::writer}}
+\doxysubsubsection{\texorpdfstring{\_impl}{\_impl}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$impl$>$ cudf\+::io\+::detail\+::orc\+::writer\+::\+\_\+impl\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{detail_2orc_8hpp_source}{orc.\+hpp}} 第 \mbox{\hyperlink{detail_2orc_8hpp_source_l00086}{86}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/detail/\mbox{\hyperlink{detail_2orc_8hpp}{orc.\+hpp}}\end{DoxyCompactItemize}

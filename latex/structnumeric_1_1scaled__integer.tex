@@ -1,0 +1,120 @@
+\doxysection{numeric\+::scaled\+\_\+integer\texorpdfstring{$<$}{<} Rep, \texorpdfstring{$>$}{>} 模板结构体 参考}
+\hypertarget{structnumeric_1_1scaled__integer}{}\label{structnumeric_1_1scaled__integer}\index{numeric::scaled\_integer$<$ Rep, $>$@{numeric::scaled\_integer$<$ Rep, $>$}}
+
+
+Helper struct for constructing {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} when value is already shifted  
+
+
+
+
+{\ttfamily \#include $<$fixed\+\_\+point.\+hpp$>$}
+
+
+
+numeric\+::scaled\+\_\+integer\texorpdfstring{$<$}{<} Rep, \texorpdfstring{$>$}{>} 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{structnumeric_1_1scaled__integer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{structnumeric_1_1scaled__integer_a9b447e554f30879ccc4693909b17c9f6}{scaled\+\_\+integer}} (Rep v, \mbox{\hyperlink{namespacenumeric_a86733f2294a22704e81208c5ee8082be}{scale\+\_\+type}} s)
+\begin{DoxyCompactList}\small\item\em Constructor for {\ttfamily \doxylink{structnumeric_1_1scaled__integer}{scaled\+\_\+integer}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+Rep \mbox{\hyperlink{structnumeric_1_1scaled__integer_a7bd4f11e0a14a2c7b9a53639e472ec76}{value}}
+\begin{DoxyCompactList}\small\item\em The value of the fixed point number \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacenumeric_a86733f2294a22704e81208c5ee8082be}{scale\+\_\+type}} \mbox{\hyperlink{structnumeric_1_1scaled__integer_a9c14de37454feb52db715089d6d24939}{scale}}
+\begin{DoxyCompactList}\small\item\em The scale of the value \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+\subsubsection*{template$<$typename Rep, typename cuda\+::std\+::enable\+\_\+if\+\_\+t$<$ \mbox{\hyperlink{namespacenumeric_af75e4827d2539a1f5ea93858d2854eaa}{is\+\_\+supported\+\_\+representation\+\_\+type}}$<$ Rep $>$()$>$ \texorpdfstring{$\ast$}{*} = nullptr$>$\newline
+struct numeric\+::scaled\+\_\+integer$<$ Rep, $>$}
+Helper struct for constructing {\ttfamily \doxylink{classnumeric_1_1fixed__point}{fixed\+\_\+point}} when value is already shifted 
+
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }\mbox{\hyperlink{group__fixed__point__classes_ga74f28c0e58f5105d5a67b658d839ffa0}{decimal32}}\ =\ fixed\_point<int32\_t,\ Radix::BASE\_10>;}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ n\ =\ \mbox{\hyperlink{group__fixed__point__classes_ga74f28c0e58f5105d5a67b658d839ffa0}{decimal32}}\{\mbox{\hyperlink{structnumeric_1_1scaled__integer_a9b447e554f30879ccc4693909b17c9f6}{scaled\_integer}}\{1001,\ 3\}\};\ \textcolor{comment}{//\ n\ =\ 1.001}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em Rep} & The representation type (either {\ttfamily int32\+\_\+t} or {\ttfamily int64\+\_\+t}) \\
+\hline
+\end{DoxyTemplParams}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00191}{191}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{structnumeric_1_1scaled__integer_a9b447e554f30879ccc4693909b17c9f6}\label{structnumeric_1_1scaled__integer_a9b447e554f30879ccc4693909b17c9f6} 
+\index{numeric::scaled\_integer$<$ Rep, $>$@{numeric::scaled\_integer$<$ Rep, $>$}!scaled\_integer@{scaled\_integer}}
+\index{scaled\_integer@{scaled\_integer}!numeric::scaled\_integer$<$ Rep, $>$@{numeric::scaled\_integer$<$ Rep, $>$}}
+\doxysubsubsection{\texorpdfstring{scaled\_integer()}{scaled\_integer()}}
+{\footnotesize\ttfamily template$<$typename Rep , typename cuda\+::std\+::enable\+\_\+if\+\_\+t$<$ \mbox{\hyperlink{namespacenumeric_af75e4827d2539a1f5ea93858d2854eaa}{is\+\_\+supported\+\_\+representation\+\_\+type}}$<$ Rep $>$()$>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \mbox{\hyperlink{structnumeric_1_1scaled__integer}{numeric\+::scaled\+\_\+integer}}$<$ Rep, $>$\+::scaled\+\_\+integer (\begin{DoxyParamCaption}\item[{Rep}]{v,  }\item[{\mbox{\hyperlink{namespacenumeric_a86733f2294a22704e81208c5ee8082be}{scale\+\_\+type}}}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructor for {\ttfamily \doxylink{structnumeric_1_1scaled__integer}{scaled\+\_\+integer}} 
+
+
+\begin{DoxyParams}{参数}
+{\em v} & The value of the fixed point number \\
+\hline
+{\em s} & The scale of the value \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00200}{200}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{structnumeric_1_1scaled__integer_a9c14de37454feb52db715089d6d24939}\label{structnumeric_1_1scaled__integer_a9c14de37454feb52db715089d6d24939} 
+\index{numeric::scaled\_integer$<$ Rep, $>$@{numeric::scaled\_integer$<$ Rep, $>$}!scale@{scale}}
+\index{scale@{scale}!numeric::scaled\_integer$<$ Rep, $>$@{numeric::scaled\_integer$<$ Rep, $>$}}
+\doxysubsubsection{\texorpdfstring{scale}{scale}}
+{\footnotesize\ttfamily template$<$typename Rep , typename cuda\+::std\+::enable\+\_\+if\+\_\+t$<$ \mbox{\hyperlink{namespacenumeric_af75e4827d2539a1f5ea93858d2854eaa}{is\+\_\+supported\+\_\+representation\+\_\+type}}$<$ Rep $>$()$>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ \\
+\mbox{\hyperlink{namespacenumeric_a86733f2294a22704e81208c5ee8082be}{scale\+\_\+type}} \mbox{\hyperlink{structnumeric_1_1scaled__integer}{numeric\+::scaled\+\_\+integer}}$<$ Rep, $>$\+::scale}
+
+
+
+The scale of the value 
+
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00193}{193}} 行定义.
+
+\Hypertarget{structnumeric_1_1scaled__integer_a7bd4f11e0a14a2c7b9a53639e472ec76}\label{structnumeric_1_1scaled__integer_a7bd4f11e0a14a2c7b9a53639e472ec76} 
+\index{numeric::scaled\_integer$<$ Rep, $>$@{numeric::scaled\_integer$<$ Rep, $>$}!value@{value}}
+\index{value@{value}!numeric::scaled\_integer$<$ Rep, $>$@{numeric::scaled\_integer$<$ Rep, $>$}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily template$<$typename Rep , typename cuda\+::std\+::enable\+\_\+if\+\_\+t$<$ \mbox{\hyperlink{namespacenumeric_af75e4827d2539a1f5ea93858d2854eaa}{is\+\_\+supported\+\_\+representation\+\_\+type}}$<$ Rep $>$()$>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ \\
+Rep \mbox{\hyperlink{structnumeric_1_1scaled__integer}{numeric\+::scaled\+\_\+integer}}$<$ Rep, $>$\+::value}
+
+
+
+The value of the fixed point number 
+
+
+
+在文件 \mbox{\hyperlink{fixed__point_8hpp_source}{fixed\+\_\+point.\+hpp}} 第 \mbox{\hyperlink{fixed__point_8hpp_source_l00192}{192}} 行定义.
+
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/fixed\+\_\+point/\mbox{\hyperlink{fixed__point_8hpp}{fixed\+\_\+point.\+hpp}}\end{DoxyCompactItemize}

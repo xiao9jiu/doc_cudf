@@ -1,0 +1,346 @@
+\doxysection{cudf\+::io\+::source\+\_\+info结构体 参考}
+\hypertarget{structcudf_1_1io_1_1source__info}{}\label{structcudf_1_1io_1_1source__info}\index{cudf::io::source\_info@{cudf::io::source\_info}}
+
+
+Source information for read interfaces  
+
+
+
+
+{\ttfamily \#include $<$types.\+hpp$>$}
+
+
+
+cudf\+::io\+::source\+\_\+info 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=177pt]{structcudf_1_1io_1_1source__info__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1source__info_a0f78cf5b16405740aaafd053aea35a3c}{source\+\_\+info}} ()=default
+\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1source__info_ada4515b81612e5d7da170db4c4945df3}{source\+\_\+info}} (std\+::vector$<$ std\+::string $>$ const \&file\+\_\+paths)
+\begin{DoxyCompactList}\small\item\em Construct a new source info object for multiple files \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1source__info_a65afada50cf6fac50502319c96f1dd2e}{source\+\_\+info}} (std\+::string const \&file\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Construct a new source info object for a single file \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1source__info_af963e8abb605c183a880b89ccad49833}{source\+\_\+info}} (std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1io_1_1host__buffer}{host\+\_\+buffer}} $>$ const \&host\+\_\+buffers)
+\begin{DoxyCompactList}\small\item\em Construct a new source info object for multiple buffers in host memory \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1source__info_a3d2ea3b4284f5e87339645c83ca990fd}{source\+\_\+info}} (const char \texorpdfstring{$\ast$}{*}host\+\_\+data, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Construct a new source info object for a single buffer \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1source__info_aa528d8e9108ee6acae10b8d3386f20b5}{source\+\_\+info}} (std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource}{cudf\+::io\+::datasource}} \texorpdfstring{$\ast$}{*} $>$ const \&sources)
+\begin{DoxyCompactList}\small\item\em Construct a new source info object for multiple user-\/implemented sources \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structcudf_1_1io_1_1source__info_aa3c79a5afbce2e6ac4fcdfb32b39a1fa}{source\+\_\+info}} (\mbox{\hyperlink{classcudf_1_1io_1_1datasource}{cudf\+::io\+::datasource}} \texorpdfstring{$\ast$}{*}source)
+\begin{DoxyCompactList}\small\item\em Construct a new source info object for a single user-\/implemented source \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{structcudf_1_1io_1_1source__info_ad84277a66b8e3edef7ec533633ff9f6a}{type}} () const
+\begin{DoxyCompactList}\small\item\em Get the type of the input \end{DoxyCompactList}\item 
+auto const \& \mbox{\hyperlink{structcudf_1_1io_1_1source__info_a1615b5059879a25d67cdd16a0bcdff8f}{filepaths}} () const
+\begin{DoxyCompactList}\small\item\em Get the filepaths of the input \end{DoxyCompactList}\item 
+auto const \& \mbox{\hyperlink{structcudf_1_1io_1_1source__info_a270e80b5af212859d2b48f7645f5613a}{buffers}} () const
+\begin{DoxyCompactList}\small\item\em Get the host buffers of the input \end{DoxyCompactList}\item 
+auto const \& \mbox{\hyperlink{structcudf_1_1io_1_1source__info_a3a863a3c64818997a1537fe8935cbacf}{files}} () const
+\begin{DoxyCompactList}\small\item\em Get the input files \end{DoxyCompactList}\item 
+auto const \& \mbox{\hyperlink{structcudf_1_1io_1_1source__info_a5aea5d681048d0300700c439591e5bc6}{user\+\_\+sources}} () const
+\begin{DoxyCompactList}\small\item\em Get the user sources of the input \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ arrow\+::io\+::\+Random\+Access\+File $>$ $>$ \mbox{\hyperlink{structcudf_1_1io_1_1source__info_a872955b88c2036c8974eca8d9a9e0552}{\+\_\+files}}
+\begin{DoxyCompactList}\small\item\em Input files \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private 属性}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacecudf_1_1io_a4a5909c7c1b3aef5e86d1f92e1b1d69d}{io\+\_\+type}} \mbox{\hyperlink{structcudf_1_1io_1_1source__info_aaf0f67892a03c7de3d0464f804706436}{\+\_\+type}} = \mbox{\hyperlink{namespacecudf_1_1io_a4a5909c7c1b3aef5e86d1f92e1b1d69da86e4c917b9ee70e67a68639bd9fcead7}{io\+\_\+type\+::\+FILEPATH}}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{structcudf_1_1io_1_1source__info_a3ee04b46603887e24ca7422ebeb0f2b2}{\+\_\+filepaths}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1io_1_1host__buffer}{host\+\_\+buffer}} $>$ \mbox{\hyperlink{structcudf_1_1io_1_1source__info_ab10341fdcb511e96418ad2f610a86b3f}{\+\_\+buffers}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource}{cudf\+::io\+::datasource}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{structcudf_1_1io_1_1source__info_a1a5fbd0e96931778f488e6db75ef597d}{\+\_\+user\+\_\+sources}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Source information for read interfaces 
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00175}{175}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{structcudf_1_1io_1_1source__info_a0f78cf5b16405740aaafd053aea35a3c}\label{structcudf_1_1io_1_1source__info_a0f78cf5b16405740aaafd053aea35a3c} 
+\index{cudf::io::source\_info@{cudf::io::source\_info}!source\_info@{source\_info}}
+\index{source\_info@{source\_info}!cudf::io::source\_info@{cudf::io::source\_info}}
+\doxysubsubsection{\texorpdfstring{source\_info()}{source\_info()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily cudf\+::io\+::source\+\_\+info\+::source\+\_\+info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{structcudf_1_1io_1_1source__info_ada4515b81612e5d7da170db4c4945df3}\label{structcudf_1_1io_1_1source__info_ada4515b81612e5d7da170db4c4945df3} 
+\index{cudf::io::source\_info@{cudf::io::source\_info}!source\_info@{source\_info}}
+\index{source\_info@{source\_info}!cudf::io::source\_info@{cudf::io::source\_info}}
+\doxysubsubsection{\texorpdfstring{source\_info()}{source\_info()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily cudf\+::io\+::source\+\_\+info\+::source\+\_\+info (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ const \&}]{file\+\_\+paths }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Construct a new source info object for multiple files 
+
+
+\begin{DoxyParams}{参数}
+{\em file\+\_\+paths} & Input files paths \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00185}{185}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1source__info_a65afada50cf6fac50502319c96f1dd2e}\label{structcudf_1_1io_1_1source__info_a65afada50cf6fac50502319c96f1dd2e} 
+\index{cudf::io::source\_info@{cudf::io::source\_info}!source\_info@{source\_info}}
+\index{source\_info@{source\_info}!cudf::io::source\_info@{cudf::io::source\_info}}
+\doxysubsubsection{\texorpdfstring{source\_info()}{source\_info()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily cudf\+::io\+::source\+\_\+info\+::source\+\_\+info (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{file\+\_\+path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Construct a new source info object for a single file 
+
+
+\begin{DoxyParams}{参数}
+{\em file\+\_\+path} & Single input file \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00192}{192}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1source__info_af963e8abb605c183a880b89ccad49833}\label{structcudf_1_1io_1_1source__info_af963e8abb605c183a880b89ccad49833} 
+\index{cudf::io::source\_info@{cudf::io::source\_info}!source\_info@{source\_info}}
+\index{source\_info@{source\_info}!cudf::io::source\_info@{cudf::io::source\_info}}
+\doxysubsubsection{\texorpdfstring{source\_info()}{source\_info()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily cudf\+::io\+::source\+\_\+info\+::source\+\_\+info (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1io_1_1host__buffer}{host\+\_\+buffer}} $>$ const \&}]{host\+\_\+buffers }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Construct a new source info object for multiple buffers in host memory 
+
+
+\begin{DoxyParams}{参数}
+{\em host\+\_\+buffers} & Input buffers in host memory \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00199}{199}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1source__info_a3d2ea3b4284f5e87339645c83ca990fd}\label{structcudf_1_1io_1_1source__info_a3d2ea3b4284f5e87339645c83ca990fd} 
+\index{cudf::io::source\_info@{cudf::io::source\_info}!source\_info@{source\_info}}
+\index{source\_info@{source\_info}!cudf::io::source\_info@{cudf::io::source\_info}}
+\doxysubsubsection{\texorpdfstring{source\_info()}{source\_info()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily cudf\+::io\+::source\+\_\+info\+::source\+\_\+info (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{host\+\_\+data,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Construct a new source info object for a single buffer 
+
+
+\begin{DoxyParams}{参数}
+{\em host\+\_\+data} & Input buffer in host memory \\
+\hline
+{\em size} & Size of the buffer \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00210}{210}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1source__info_aa528d8e9108ee6acae10b8d3386f20b5}\label{structcudf_1_1io_1_1source__info_aa528d8e9108ee6acae10b8d3386f20b5} 
+\index{cudf::io::source\_info@{cudf::io::source\_info}!source\_info@{source\_info}}
+\index{source\_info@{source\_info}!cudf::io::source\_info@{cudf::io::source\_info}}
+\doxysubsubsection{\texorpdfstring{source\_info()}{source\_info()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily cudf\+::io\+::source\+\_\+info\+::source\+\_\+info (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classcudf_1_1io_1_1datasource}{cudf\+::io\+::datasource}} \texorpdfstring{$\ast$}{*} $>$ const \&}]{sources }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Construct a new source info object for multiple user-\/implemented sources 
+
+
+\begin{DoxyParams}{参数}
+{\em sources} & User-\/implemented input sources \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00220}{220}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1source__info_aa3c79a5afbce2e6ac4fcdfb32b39a1fa}\label{structcudf_1_1io_1_1source__info_aa3c79a5afbce2e6ac4fcdfb32b39a1fa} 
+\index{cudf::io::source\_info@{cudf::io::source\_info}!source\_info@{source\_info}}
+\index{source\_info@{source\_info}!cudf::io::source\_info@{cudf::io::source\_info}}
+\doxysubsubsection{\texorpdfstring{source\_info()}{source\_info()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily cudf\+::io\+::source\+\_\+info\+::source\+\_\+info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1io_1_1datasource}{cudf\+::io\+::datasource}} \texorpdfstring{$\ast$}{*}}]{source }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Construct a new source info object for a single user-\/implemented source 
+
+
+\begin{DoxyParams}{参数}
+{\em source} & Single user-\/implemented Input source \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00230}{230}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{structcudf_1_1io_1_1source__info_a270e80b5af212859d2b48f7645f5613a}\label{structcudf_1_1io_1_1source__info_a270e80b5af212859d2b48f7645f5613a} 
+\index{cudf::io::source\_info@{cudf::io::source\_info}!buffers@{buffers}}
+\index{buffers@{buffers}!cudf::io::source\_info@{cudf::io::source\_info}}
+\doxysubsubsection{\texorpdfstring{buffers()}{buffers()}}
+{\footnotesize\ttfamily auto const  \& cudf\+::io\+::source\+\_\+info\+::buffers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the host buffers of the input 
+
+\begin{DoxyReturn}{返回}
+The host buffers of the input 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00252}{252}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1source__info_a1615b5059879a25d67cdd16a0bcdff8f}\label{structcudf_1_1io_1_1source__info_a1615b5059879a25d67cdd16a0bcdff8f} 
+\index{cudf::io::source\_info@{cudf::io::source\_info}!filepaths@{filepaths}}
+\index{filepaths@{filepaths}!cudf::io::source\_info@{cudf::io::source\_info}}
+\doxysubsubsection{\texorpdfstring{filepaths()}{filepaths()}}
+{\footnotesize\ttfamily auto const  \& cudf\+::io\+::source\+\_\+info\+::filepaths (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the filepaths of the input 
+
+\begin{DoxyReturn}{返回}
+The filepaths of the input 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00246}{246}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1source__info_a3a863a3c64818997a1537fe8935cbacf}\label{structcudf_1_1io_1_1source__info_a3a863a3c64818997a1537fe8935cbacf} 
+\index{cudf::io::source\_info@{cudf::io::source\_info}!files@{files}}
+\index{files@{files}!cudf::io::source\_info@{cudf::io::source\_info}}
+\doxysubsubsection{\texorpdfstring{files()}{files()}}
+{\footnotesize\ttfamily auto const  \& cudf\+::io\+::source\+\_\+info\+::files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the input files 
+
+\begin{DoxyReturn}{返回}
+The input files 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00258}{258}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1source__info_ad84277a66b8e3edef7ec533633ff9f6a}\label{structcudf_1_1io_1_1source__info_ad84277a66b8e3edef7ec533633ff9f6a} 
+\index{cudf::io::source\_info@{cudf::io::source\_info}!type@{type}}
+\index{type@{type}!cudf::io::source\_info@{cudf::io::source\_info}}
+\doxysubsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily auto cudf\+::io\+::source\+\_\+info\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the type of the input 
+
+\begin{DoxyReturn}{返回}
+The type of the input 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00240}{240}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1source__info_a5aea5d681048d0300700c439591e5bc6}\label{structcudf_1_1io_1_1source__info_a5aea5d681048d0300700c439591e5bc6} 
+\index{cudf::io::source\_info@{cudf::io::source\_info}!user\_sources@{user\_sources}}
+\index{user\_sources@{user\_sources}!cudf::io::source\_info@{cudf::io::source\_info}}
+\doxysubsubsection{\texorpdfstring{user\_sources()}{user\_sources()}}
+{\footnotesize\ttfamily auto const  \& cudf\+::io\+::source\+\_\+info\+::user\+\_\+sources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the user sources of the input 
+
+\begin{DoxyReturn}{返回}
+The user sources of the input 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00264}{264}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{structcudf_1_1io_1_1source__info_ab10341fdcb511e96418ad2f610a86b3f}\label{structcudf_1_1io_1_1source__info_ab10341fdcb511e96418ad2f610a86b3f} 
+\index{cudf::io::source\_info@{cudf::io::source\_info}!\_buffers@{\_buffers}}
+\index{\_buffers@{\_buffers}!cudf::io::source\_info@{cudf::io::source\_info}}
+\doxysubsubsection{\texorpdfstring{\_buffers}{\_buffers}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structcudf_1_1io_1_1host__buffer}{host\+\_\+buffer}}$>$ cudf\+::io\+::source\+\_\+info\+::\+\_\+buffers\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00269}{269}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1source__info_a3ee04b46603887e24ca7422ebeb0f2b2}\label{structcudf_1_1io_1_1source__info_a3ee04b46603887e24ca7422ebeb0f2b2} 
+\index{cudf::io::source\_info@{cudf::io::source\_info}!\_filepaths@{\_filepaths}}
+\index{\_filepaths@{\_filepaths}!cudf::io::source\_info@{cudf::io::source\_info}}
+\doxysubsubsection{\texorpdfstring{\_filepaths}{\_filepaths}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ cudf\+::io\+::source\+\_\+info\+::\+\_\+filepaths\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00268}{268}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1source__info_a872955b88c2036c8974eca8d9a9e0552}\label{structcudf_1_1io_1_1source__info_a872955b88c2036c8974eca8d9a9e0552} 
+\index{cudf::io::source\_info@{cudf::io::source\_info}!\_files@{\_files}}
+\index{\_files@{\_files}!cudf::io::source\_info@{cudf::io::source\_info}}
+\doxysubsubsection{\texorpdfstring{\_files}{\_files}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$arrow\+::io\+::\+Random\+Access\+File$>$ $>$ cudf\+::io\+::source\+\_\+info\+::\+\_\+files}
+
+
+
+Input files 
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00176}{176}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1source__info_aaf0f67892a03c7de3d0464f804706436}\label{structcudf_1_1io_1_1source__info_aaf0f67892a03c7de3d0464f804706436} 
+\index{cudf::io::source\_info@{cudf::io::source\_info}!\_type@{\_type}}
+\index{\_type@{\_type}!cudf::io::source\_info@{cudf::io::source\_info}}
+\doxysubsubsection{\texorpdfstring{\_type}{\_type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacecudf_1_1io_a4a5909c7c1b3aef5e86d1f92e1b1d69d}{io\+\_\+type}} cudf\+::io\+::source\+\_\+info\+::\+\_\+type = \mbox{\hyperlink{namespacecudf_1_1io_a4a5909c7c1b3aef5e86d1f92e1b1d69da86e4c917b9ee70e67a68639bd9fcead7}{io\+\_\+type\+::\+FILEPATH}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00267}{267}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1source__info_a1a5fbd0e96931778f488e6db75ef597d}\label{structcudf_1_1io_1_1source__info_a1a5fbd0e96931778f488e6db75ef597d} 
+\index{cudf::io::source\_info@{cudf::io::source\_info}!\_user\_sources@{\_user\_sources}}
+\index{\_user\_sources@{\_user\_sources}!cudf::io::source\_info@{cudf::io::source\_info}}
+\doxysubsubsection{\texorpdfstring{\_user\_sources}{\_user\_sources}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classcudf_1_1io_1_1datasource}{cudf\+::io\+::datasource}}\texorpdfstring{$\ast$}{*}$>$ cudf\+::io\+::source\+\_\+info\+::\+\_\+user\+\_\+sources\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+在文件 \mbox{\hyperlink{io_2types_8hpp_source}{types.\+hpp}} 第 \mbox{\hyperlink{io_2types_8hpp_source_l00270}{270}} 行定义.
+
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/\mbox{\hyperlink{io_2types_8hpp}{types.\+hpp}}\end{DoxyCompactItemize}

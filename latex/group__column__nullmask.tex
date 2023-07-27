@@ -1,0 +1,241 @@
+\doxysection{Column\+\_\+nullmask}
+\hypertarget{group__column__nullmask}{}\label{group__column__nullmask}\index{Column\_nullmask@{Column\_nullmask}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{null__mask_8hpp}{null\+\_\+mask.\+hpp}}
+\begin{DoxyCompactList}\small\item\em APIs for managing validity bitmasks \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{group__column__nullmask_ga48561f1e899da3a79132c108463840de}{cudf\+::state\+\_\+null\+\_\+count}} (\mbox{\hyperlink{group__utility__types_ga4daf20c000ab374d76f4d56f0ddb7b26}{mask\+\_\+state}} state, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} size)
+\begin{DoxyCompactList}\small\item\em Returns the null count for a null mask of the specified {\ttfamily state} representing {\ttfamily size} elements. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{group__column__nullmask_ga3c26b8cbca80321602bc3f39ab6cce8d}{cudf\+::bitmask\+\_\+allocation\+\_\+size\+\_\+bytes}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} number\+\_\+of\+\_\+bits, std\+::size\+\_\+t padding\+\_\+boundary=64)
+\begin{DoxyCompactList}\small\item\em Computes the required bytes necessary to represent the specified number of bits with a given padding boundary. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} \mbox{\hyperlink{group__column__nullmask_gad62014db2c1d82cbd2f3e067d27088ab}{cudf\+::num\+\_\+bitmask\+\_\+words}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} number\+\_\+of\+\_\+bits)
+\begin{DoxyCompactList}\small\item\em Returns the number of {\ttfamily bitmask\+\_\+type} words required to represent the specified number of bits. \end{DoxyCompactList}\item 
+rmm\+::device\+\_\+buffer \mbox{\hyperlink{group__column__nullmask_ga9c1ce0e8b880569dba8a60be84fea39a}{cudf\+::create\+\_\+null\+\_\+mask}} (\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} size, \mbox{\hyperlink{group__utility__types_ga4daf20c000ab374d76f4d56f0ddb7b26}{mask\+\_\+state}} state, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Creates a {\ttfamily device\+\_\+buffer} for use as a null value indicator bitmask of a {\ttfamily column}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__column__nullmask_ga0cad7543531c200e7da85096b889be9a}{cudf\+::set\+\_\+null\+\_\+mask}} (\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} \texorpdfstring{$\ast$}{*}bitmask, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} begin\+\_\+bit, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} end\+\_\+bit, bool valid)
+\begin{DoxyCompactList}\small\item\em Sets a pre-\/allocated bitmask buffer to a given state in the range {\ttfamily \mbox{[}begin\+\_\+bit, end\+\_\+bit)} \end{DoxyCompactList}\item 
+rmm\+::device\+\_\+buffer \mbox{\hyperlink{group__column__nullmask_ga247e21104fff5f624ee739e25d8ebb60}{cudf\+::copy\+\_\+bitmask}} (\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} const \texorpdfstring{$\ast$}{*}mask, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} begin\+\_\+bit, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} end\+\_\+bit, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Creates a {\ttfamily device\+\_\+buffer} from a slice of bitmask defined by a range of indices {\ttfamily \mbox{[}begin\+\_\+bit, end\+\_\+bit)}. \end{DoxyCompactList}\item 
+rmm\+::device\+\_\+buffer \mbox{\hyperlink{group__column__nullmask_ga16ab5fd032d0620ce51365ad1ed2b144}{cudf\+::copy\+\_\+bitmask}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&view, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Copies {\ttfamily view}\textquotesingle{}s bitmask from the bits {\ttfamily \mbox{[}view.\+offset(), view.\+offset() + view.\+size())} into a {\ttfamily device\+\_\+buffer} \end{DoxyCompactList}\item 
+std\+::pair$<$ rmm\+::device\+\_\+buffer, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ \mbox{\hyperlink{group__column__nullmask_ga2e8326f26359dad43cddacdf24b77b4d}{cudf\+::bitmask\+\_\+and}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&view, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs bitwise AND of the bitmasks of columns of a table. Returns a pair of resulting mask and count of unset bits. \end{DoxyCompactList}\item 
+std\+::pair$<$ rmm\+::device\+\_\+buffer, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ \mbox{\hyperlink{group__column__nullmask_gab74baaf81e7b5f6efc2e68b24240399b}{cudf\+::bitmask\+\_\+or}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&view, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs bitwise OR of the bitmasks of columns of a table. Returns a pair of resulting mask and count of unset bits. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__column__nullmask_ga3c26b8cbca80321602bc3f39ab6cce8d}\label{group__column__nullmask_ga3c26b8cbca80321602bc3f39ab6cce8d} 
+\index{Column\_nullmask@{Column\_nullmask}!bitmask\_allocation\_size\_bytes@{bitmask\_allocation\_size\_bytes}}
+\index{bitmask\_allocation\_size\_bytes@{bitmask\_allocation\_size\_bytes}!Column\_nullmask@{Column\_nullmask}}
+\doxysubsubsection{\texorpdfstring{bitmask\_allocation\_size\_bytes()}{bitmask\_allocation\_size\_bytes()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t cudf\+::bitmask\+\_\+allocation\+\_\+size\+\_\+bytes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{number\+\_\+of\+\_\+bits,  }\item[{std\+::size\+\_\+t}]{padding\+\_\+boundary = {\ttfamily 64} }\end{DoxyParamCaption})}
+
+
+
+Computes the required bytes necessary to represent the specified number of bits with a given padding boundary. 
+
+\begin{DoxyNote}{注解}
+The Arrow specification for the null bitmask requires a 64B padding boundary.
+\end{DoxyNote}
+
+\begin{DoxyParams}{参数}
+{\em number\+\_\+of\+\_\+bits} & The number of bits that need to be represented \\
+\hline
+{\em padding\+\_\+boundary} & The value returned will be rounded up to a multiple of this value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+std\+::size\+\_\+t The necessary number of bytes 
+\end{DoxyReturn}
+\Hypertarget{group__column__nullmask_ga2e8326f26359dad43cddacdf24b77b4d}\label{group__column__nullmask_ga2e8326f26359dad43cddacdf24b77b4d} 
+\index{Column\_nullmask@{Column\_nullmask}!bitmask\_and@{bitmask\_and}}
+\index{bitmask\_and@{bitmask\_and}!Column\_nullmask@{Column\_nullmask}}
+\doxysubsubsection{\texorpdfstring{bitmask\_and()}{bitmask\_and()}}
+{\footnotesize\ttfamily std\+::pair$<$ rmm\+::device\+\_\+buffer, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ cudf\+::bitmask\+\_\+and (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{view,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Performs bitwise AND of the bitmasks of columns of a table. Returns a pair of resulting mask and count of unset bits. 
+
+If any of the columns isn\textquotesingle{}t nullable, it is considered all valid. If no column in the table is nullable, an empty bitmask is returned.
+
+
+\begin{DoxyParams}{参数}
+{\em view} & The table of columns \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned device\+\_\+buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A pair of resulting bitmask and count of unset bits 
+\end{DoxyReturn}
+\Hypertarget{group__column__nullmask_gab74baaf81e7b5f6efc2e68b24240399b}\label{group__column__nullmask_gab74baaf81e7b5f6efc2e68b24240399b} 
+\index{Column\_nullmask@{Column\_nullmask}!bitmask\_or@{bitmask\_or}}
+\index{bitmask\_or@{bitmask\_or}!Column\_nullmask@{Column\_nullmask}}
+\doxysubsubsection{\texorpdfstring{bitmask\_or()}{bitmask\_or()}}
+{\footnotesize\ttfamily std\+::pair$<$ rmm\+::device\+\_\+buffer, \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} $>$ cudf\+::bitmask\+\_\+or (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&}]{view,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Performs bitwise OR of the bitmasks of columns of a table. Returns a pair of resulting mask and count of unset bits. 
+
+If any of the columns isn\textquotesingle{}t nullable, it is considered all valid. If no column in the table is nullable, an empty bitmask is returned.
+
+
+\begin{DoxyParams}{参数}
+{\em view} & The table of columns \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned device\+\_\+buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A pair of resulting bitmask and count of unset bits 
+\end{DoxyReturn}
+\Hypertarget{group__column__nullmask_ga247e21104fff5f624ee739e25d8ebb60}\label{group__column__nullmask_ga247e21104fff5f624ee739e25d8ebb60} 
+\index{Column\_nullmask@{Column\_nullmask}!copy\_bitmask@{copy\_bitmask}}
+\index{copy\_bitmask@{copy\_bitmask}!Column\_nullmask@{Column\_nullmask}}
+\doxysubsubsection{\texorpdfstring{copy\_bitmask()}{copy\_bitmask()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily rmm\+::device\+\_\+buffer cudf\+::copy\+\_\+bitmask (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} const \texorpdfstring{$\ast$}{*}}]{mask,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{begin\+\_\+bit,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{end\+\_\+bit,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Creates a {\ttfamily device\+\_\+buffer} from a slice of bitmask defined by a range of indices {\ttfamily \mbox{[}begin\+\_\+bit, end\+\_\+bit)}. 
+
+Returns empty {\ttfamily device\+\_\+buffer} if {\ttfamily bitmask == nullptr}.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily begin\+\_\+bit \texorpdfstring{$>$}{>} end\+\_\+bit} \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily begin\+\_\+bit \texorpdfstring{$<$}{<} 0}\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em mask} & Bitmask residing in device memory whose bits will be copied \\
+\hline
+{\em begin\+\_\+bit} & Index of the first bit to be copied (inclusive) \\
+\hline
+{\em end\+\_\+bit} & Index of the last bit to be copied (exclusive) \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned device\+\_\+buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+rmm\+::device\+\_\+buffer A {\ttfamily device\+\_\+buffer} containing the bits {\ttfamily \mbox{[}begin\+\_\+bit, end\+\_\+bit)} from {\ttfamily mask}. 
+\end{DoxyReturn}
+\Hypertarget{group__column__nullmask_ga16ab5fd032d0620ce51365ad1ed2b144}\label{group__column__nullmask_ga16ab5fd032d0620ce51365ad1ed2b144} 
+\index{Column\_nullmask@{Column\_nullmask}!copy\_bitmask@{copy\_bitmask}}
+\index{copy\_bitmask@{copy\_bitmask}!Column\_nullmask@{Column\_nullmask}}
+\doxysubsubsection{\texorpdfstring{copy\_bitmask()}{copy\_bitmask()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily rmm\+::device\+\_\+buffer cudf\+::copy\+\_\+bitmask (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{view,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Copies {\ttfamily view}\textquotesingle{}s bitmask from the bits {\ttfamily \mbox{[}view.\+offset(), view.\+offset() + view.\+size())} into a {\ttfamily device\+\_\+buffer} 
+
+Returns empty {\ttfamily device\+\_\+buffer} if the column is not nullable
+
+
+\begin{DoxyParams}{参数}
+{\em view} & Column view whose bitmask needs to be copied \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned device\+\_\+buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+rmm\+::device\+\_\+buffer A {\ttfamily device\+\_\+buffer} containing the bits {\ttfamily \mbox{[}view.\+offset(), view.\+offset() + view.\+size())} from {\ttfamily view}\textquotesingle{}s bitmask. 
+\end{DoxyReturn}
+\Hypertarget{group__column__nullmask_ga9c1ce0e8b880569dba8a60be84fea39a}\label{group__column__nullmask_ga9c1ce0e8b880569dba8a60be84fea39a} 
+\index{Column\_nullmask@{Column\_nullmask}!create\_null\_mask@{create\_null\_mask}}
+\index{create\_null\_mask@{create\_null\_mask}!Column\_nullmask@{Column\_nullmask}}
+\doxysubsubsection{\texorpdfstring{create\_null\_mask()}{create\_null\_mask()}}
+{\footnotesize\ttfamily rmm\+::device\+\_\+buffer cudf\+::create\+\_\+null\+\_\+mask (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{size,  }\item[{\mbox{\hyperlink{group__utility__types_ga4daf20c000ab374d76f4d56f0ddb7b26}{mask\+\_\+state}}}]{state,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Creates a {\ttfamily device\+\_\+buffer} for use as a null value indicator bitmask of a {\ttfamily column}. 
+
+
+\begin{DoxyParams}{参数}
+{\em size} & The number of elements to be represented by the mask \\
+\hline
+{\em state} & The desired state of the mask \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned device\+\_\+buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+rmm\+::device\+\_\+buffer A {\ttfamily device\+\_\+buffer} for use as a null bitmask satisfying the desired size and state 
+\end{DoxyReturn}
+\Hypertarget{group__column__nullmask_gad62014db2c1d82cbd2f3e067d27088ab}\label{group__column__nullmask_gad62014db2c1d82cbd2f3e067d27088ab} 
+\index{Column\_nullmask@{Column\_nullmask}!num\_bitmask\_words@{num\_bitmask\_words}}
+\index{num\_bitmask\_words@{num\_bitmask\_words}!Column\_nullmask@{Column\_nullmask}}
+\doxysubsubsection{\texorpdfstring{num\_bitmask\_words()}{num\_bitmask\_words()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::num\+\_\+bitmask\+\_\+words (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{number\+\_\+of\+\_\+bits }\end{DoxyParamCaption})}
+
+
+
+Returns the number of {\ttfamily bitmask\+\_\+type} words required to represent the specified number of bits. 
+
+Unlike {\ttfamily bitmask\+\_\+allocation\+\_\+size\+\_\+bytes}, which returns the number of {\itshape bytes} needed for a bitmask allocation (including padding), this function returns the {\itshape actual} number {\ttfamily bitmask\+\_\+type} elements necessary to represent {\ttfamily number\+\_\+of\+\_\+bits}. This is useful when one wishes to process all of the bits in a bitmask and ignore the padding/slack bits.
+
+
+\begin{DoxyParams}{参数}
+{\em number\+\_\+of\+\_\+bits} & The number of bits that need to be represented \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+size\+\_\+type The necessary number of {\ttfamily bitmask\+\_\+type} elements 
+\end{DoxyReturn}
+\Hypertarget{group__column__nullmask_ga0cad7543531c200e7da85096b889be9a}\label{group__column__nullmask_ga0cad7543531c200e7da85096b889be9a} 
+\index{Column\_nullmask@{Column\_nullmask}!set\_null\_mask@{set\_null\_mask}}
+\index{set\_null\_mask@{set\_null\_mask}!Column\_nullmask@{Column\_nullmask}}
+\doxysubsubsection{\texorpdfstring{set\_null\_mask()}{set\_null\_mask()}}
+{\footnotesize\ttfamily void cudf\+::set\+\_\+null\+\_\+mask (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga1d17001baf070a639c3a5e8ed8c46d34}{bitmask\+\_\+type}} \texorpdfstring{$\ast$}{*}}]{bitmask,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{begin\+\_\+bit,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{end\+\_\+bit,  }\item[{bool}]{valid }\end{DoxyParamCaption})}
+
+
+
+Sets a pre-\/allocated bitmask buffer to a given state in the range {\ttfamily \mbox{[}begin\+\_\+bit, end\+\_\+bit)} 
+
+Sets {\ttfamily \mbox{[}begin\+\_\+bit, end\+\_\+bit)} bits of bitmask to valid if {\ttfamily valid==true} or null otherwise.
+
+
+\begin{DoxyParams}{参数}
+{\em bitmask} & Pointer to bitmask (e.\+g. returned by {\ttfamily column\+\_\+viewnull\+\_\+mask()}) \\
+\hline
+{\em begin\+\_\+bit} & Index of the first bit to set (inclusive) \\
+\hline
+{\em end\+\_\+bit} & Index of the last bit to set (exclusive) \\
+\hline
+{\em valid} & If true set all entries to valid; otherwise, set all to null \\
+\hline
+\end{DoxyParams}
+\Hypertarget{group__column__nullmask_ga48561f1e899da3a79132c108463840de}\label{group__column__nullmask_ga48561f1e899da3a79132c108463840de} 
+\index{Column\_nullmask@{Column\_nullmask}!state\_null\_count@{state\_null\_count}}
+\index{state\_null\_count@{state\_null\_count}!Column\_nullmask@{Column\_nullmask}}
+\doxysubsubsection{\texorpdfstring{state\_null\_count()}{state\_null\_count()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} cudf\+::state\+\_\+null\+\_\+count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__utility__types_ga4daf20c000ab374d76f4d56f0ddb7b26}{mask\+\_\+state}}}]{state,  }\item[{\mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}}}]{size }\end{DoxyParamCaption})}
+
+
+
+Returns the null count for a null mask of the specified {\ttfamily state} representing {\ttfamily size} elements. 
+
+
+\begin{DoxyParams}{参数}
+{\em state} & The state of the null mask \\
+\hline
+{\em size} & The number of elements represented by the mask \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+size\+\_\+type The count of null elements 
+\end{DoxyReturn}

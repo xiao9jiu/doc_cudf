@@ -1,0 +1,246 @@
+\doxysection{Strings\+\_\+types}
+\hypertarget{group__strings__types}{}\label{group__strings__types}\index{Strings\_types@{Strings\_types}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{char__types_8hpp}{char\+\_\+types.\+hpp}}
+\item 
+文件 \mbox{\hyperlink{char__types__enum_8hpp}{char\+\_\+types\+\_\+enum.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group__strings__types_gacdc71043841f369de3cc8dd827a0eea1}{cudf\+::strings\+::string\+\_\+character\+\_\+types}} \+: uint32\+\_\+t \{ \newline
+\mbox{\hyperlink{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1ab36fb6e001f9091c6d0e74fde07fd9f8}{cudf\+::strings\+::\+DECIMAL}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0
+, \mbox{\hyperlink{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1ae2a7c72103209f6dbc87d7d807adbc69}{cudf\+::strings\+::\+NUMERIC}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1
+, \mbox{\hyperlink{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1a7a47f8fc78db6c43192cf7b90828c431}{cudf\+::strings\+::\+DIGIT}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 2
+, \mbox{\hyperlink{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1aff917ea255abd0178fcf8f1b1f307534}{cudf\+::strings\+::\+ALPHA}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 3
+, \newline
+\mbox{\hyperlink{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1adb858a96cb7d1b5c364bb25c74bbca13}{cudf\+::strings\+::\+SPACE}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 4
+, \mbox{\hyperlink{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1a315524c9afc5ff22f6f37783de626ef2}{cudf\+::strings\+::\+UPPER}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 5
+, \mbox{\hyperlink{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1af5d2d29b7b10415b8744844bda9ff731}{cudf\+::strings\+::\+LOWER}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 6
+, \mbox{\hyperlink{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1a2c80f0829a0026dcba8ce17311749673}{cudf\+::strings\+::\+ALPHANUM}} = DECIMAL \texorpdfstring{$\vert$}{|} NUMERIC \texorpdfstring{$\vert$}{|} DIGIT \texorpdfstring{$\vert$}{|} ALPHA
+, \newline
+\mbox{\hyperlink{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1a229325ffb1070e5111f3200c2c4e585b}{cudf\+::strings\+::\+CASE\+\_\+\+TYPES}} = UPPER \texorpdfstring{$\vert$}{|} LOWER
+, \mbox{\hyperlink{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1a84805abcd54d014766d108bfedbba666}{cudf\+::strings\+::\+ALL\+\_\+\+TYPES}} = ALPHANUM \texorpdfstring{$\vert$}{|} CASE\+\_\+\+TYPES \texorpdfstring{$\vert$}{|} SPACE
+ \}
+\begin{DoxyCompactList}\small\item\em Character type values. These types can be or\textquotesingle{}d to check for any combination of types. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__types_ga66b6fe712faed199b14fb231e13c5d69}{cudf\+::strings\+::all\+\_\+characters\+\_\+of\+\_\+type}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{group__strings__types_gacdc71043841f369de3cc8dd827a0eea1}{string\+\_\+character\+\_\+types}} types, \mbox{\hyperlink{group__strings__types_gacdc71043841f369de3cc8dd827a0eea1}{string\+\_\+character\+\_\+types}} verify\+\_\+types=\mbox{\hyperlink{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1a84805abcd54d014766d108bfedbba666}{string\+\_\+character\+\_\+types\+::\+ALL\+\_\+\+TYPES}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Returns a boolean column identifying strings entries in which all characters are of the type specified. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__strings__types_gad9307944fb7de94dc0b17201bac761c5}{cudf\+::strings\+::filter\+\_\+characters\+\_\+of\+\_\+type}} (\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&strings, \mbox{\hyperlink{group__strings__types_gacdc71043841f369de3cc8dd827a0eea1}{string\+\_\+character\+\_\+types}} types\+\_\+to\+\_\+remove, \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&replacement=\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{}), \mbox{\hyperlink{group__strings__types_gacdc71043841f369de3cc8dd827a0eea1}{string\+\_\+character\+\_\+types}} types\+\_\+to\+\_\+keep=\mbox{\hyperlink{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1a84805abcd54d014766d108bfedbba666}{string\+\_\+character\+\_\+types\+::\+ALL\+\_\+\+TYPES}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Filter specific character types from a column of strings. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{group__strings__types_gacdc71043841f369de3cc8dd827a0eea1}{string\+\_\+character\+\_\+types}} \mbox{\hyperlink{group__strings__types_ga64fc63aea95eceaa0290d351242644ae}{cudf\+::strings\+::operator\texorpdfstring{$\vert$}{|}}} (\mbox{\hyperlink{group__strings__types_gacdc71043841f369de3cc8dd827a0eea1}{string\+\_\+character\+\_\+types}} lhs, \mbox{\hyperlink{group__strings__types_gacdc71043841f369de3cc8dd827a0eea1}{string\+\_\+character\+\_\+types}} rhs)
+\begin{DoxyCompactList}\small\item\em OR operator for combining string\+\_\+character\+\_\+types \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{group__strings__types_gacdc71043841f369de3cc8dd827a0eea1}{string\+\_\+character\+\_\+types}} \& \mbox{\hyperlink{group__strings__types_gac3196255a03d839c15263227ec529260}{cudf\+::strings\+::operator\texorpdfstring{$\vert$}{|}=}} (\mbox{\hyperlink{group__strings__types_gacdc71043841f369de3cc8dd827a0eea1}{string\+\_\+character\+\_\+types}} \&lhs, \mbox{\hyperlink{group__strings__types_gacdc71043841f369de3cc8dd827a0eea1}{string\+\_\+character\+\_\+types}} rhs)
+\begin{DoxyCompactList}\small\item\em Compound assignment OR operator for combining string\+\_\+character\+\_\+types \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{枚举类型说明}
+\Hypertarget{group__strings__types_gacdc71043841f369de3cc8dd827a0eea1}\label{group__strings__types_gacdc71043841f369de3cc8dd827a0eea1} 
+\index{Strings\_types@{Strings\_types}!string\_character\_types@{string\_character\_types}}
+\index{string\_character\_types@{string\_character\_types}!Strings\_types@{Strings\_types}}
+\doxysubsubsection{\texorpdfstring{string\_character\_types}{string\_character\_types}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__strings__types_gacdc71043841f369de3cc8dd827a0eea1}{cudf\+::strings\+::string\+\_\+character\+\_\+types}} \+: uint32\+\_\+t}
+
+
+
+Character type values. These types can be or\textquotesingle{}d to check for any combination of types. 
+
+This cannot be turned into an enum class because or\textquotesingle{}d entries can result in values that are not in the class. For example, combining NUMERIC\texorpdfstring{$\vert$}{|}\+SPACE is a valid, reasonable combination but does not match to any explicitly named enumerator. \begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DECIMAL@{DECIMAL}!Strings\_types@{Strings\_types}}\index{Strings\_types@{Strings\_types}!DECIMAL@{DECIMAL}}}\Hypertarget{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1ab36fb6e001f9091c6d0e74fde07fd9f8}\label{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1ab36fb6e001f9091c6d0e74fde07fd9f8} 
+DECIMAL&all decimal characters \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUMERIC@{NUMERIC}!Strings\_types@{Strings\_types}}\index{Strings\_types@{Strings\_types}!NUMERIC@{NUMERIC}}}\Hypertarget{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1ae2a7c72103209f6dbc87d7d807adbc69}\label{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1ae2a7c72103209f6dbc87d7d807adbc69} 
+NUMERIC&all numeric characters \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DIGIT@{DIGIT}!Strings\_types@{Strings\_types}}\index{Strings\_types@{Strings\_types}!DIGIT@{DIGIT}}}\Hypertarget{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1a7a47f8fc78db6c43192cf7b90828c431}\label{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1a7a47f8fc78db6c43192cf7b90828c431} 
+DIGIT&all digit characters \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ALPHA@{ALPHA}!Strings\_types@{Strings\_types}}\index{Strings\_types@{Strings\_types}!ALPHA@{ALPHA}}}\Hypertarget{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1aff917ea255abd0178fcf8f1b1f307534}\label{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1aff917ea255abd0178fcf8f1b1f307534} 
+ALPHA&all alphabetic characters \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPACE@{SPACE}!Strings\_types@{Strings\_types}}\index{Strings\_types@{Strings\_types}!SPACE@{SPACE}}}\Hypertarget{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1adb858a96cb7d1b5c364bb25c74bbca13}\label{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1adb858a96cb7d1b5c364bb25c74bbca13} 
+SPACE&all space characters \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UPPER@{UPPER}!Strings\_types@{Strings\_types}}\index{Strings\_types@{Strings\_types}!UPPER@{UPPER}}}\Hypertarget{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1a315524c9afc5ff22f6f37783de626ef2}\label{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1a315524c9afc5ff22f6f37783de626ef2} 
+UPPER&all upper case characters \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOWER@{LOWER}!Strings\_types@{Strings\_types}}\index{Strings\_types@{Strings\_types}!LOWER@{LOWER}}}\Hypertarget{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1af5d2d29b7b10415b8744844bda9ff731}\label{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1af5d2d29b7b10415b8744844bda9ff731} 
+LOWER&all lower case characters \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ALPHANUM@{ALPHANUM}!Strings\_types@{Strings\_types}}\index{Strings\_types@{Strings\_types}!ALPHANUM@{ALPHANUM}}}\Hypertarget{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1a2c80f0829a0026dcba8ce17311749673}\label{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1a2c80f0829a0026dcba8ce17311749673} 
+ALPHANUM&all alphanumeric characters \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CASE\_TYPES@{CASE\_TYPES}!Strings\_types@{Strings\_types}}\index{Strings\_types@{Strings\_types}!CASE\_TYPES@{CASE\_TYPES}}}\Hypertarget{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1a229325ffb1070e5111f3200c2c4e585b}\label{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1a229325ffb1070e5111f3200c2c4e585b} 
+CASE\+\_\+\+TYPES&all case-\/able characters \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ALL\_TYPES@{ALL\_TYPES}!Strings\_types@{Strings\_types}}\index{Strings\_types@{Strings\_types}!ALL\_TYPES@{ALL\_TYPES}}}\Hypertarget{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1a84805abcd54d014766d108bfedbba666}\label{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1a84805abcd54d014766d108bfedbba666} 
+ALL\+\_\+\+TYPES&all character types \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{char__types__enum_8hpp_source}{char\+\_\+types\+\_\+enum.\+hpp}} 第 \mbox{\hyperlink{char__types__enum_8hpp_source_l00038}{38}} 行定义.
+
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__strings__types_ga66b6fe712faed199b14fb231e13c5d69}\label{group__strings__types_ga66b6fe712faed199b14fb231e13c5d69} 
+\index{Strings\_types@{Strings\_types}!all\_characters\_of\_type@{all\_characters\_of\_type}}
+\index{all\_characters\_of\_type@{all\_characters\_of\_type}!Strings\_types@{Strings\_types}}
+\doxysubsubsection{\texorpdfstring{all\_characters\_of\_type()}{all\_characters\_of\_type()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::all\+\_\+characters\+\_\+of\+\_\+type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{group__strings__types_gacdc71043841f369de3cc8dd827a0eea1}{string\+\_\+character\+\_\+types}}}]{types,  }\item[{\mbox{\hyperlink{group__strings__types_gacdc71043841f369de3cc8dd827a0eea1}{string\+\_\+character\+\_\+types}}}]{verify\+\_\+types = {\ttfamily \mbox{\hyperlink{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1a84805abcd54d014766d108bfedbba666}{string\+\_\+character\+\_\+types\+::\+ALL\+\_\+\+TYPES}}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Returns a boolean column identifying strings entries in which all characters are of the type specified. 
+
+The output row entry will be set to false if the corresponding string element is empty or has at least one character not of the specified type. If all characters fit the type then true is set in that output row entry.
+
+To ignore all but specific types, set the {\ttfamily verify\+\_\+types} to those types which should be checked. Otherwise, the default {\ttfamily ALL\+\_\+\+TYPES} will verify all characters match {\ttfamily types}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{s\ =\ ['ab',\ 'a\ b',\ 'a7',\ 'a\ B']}
+\DoxyCodeLine{b1\ =\ s.all\_characters\_of\_type(s,LOWER)}
+\DoxyCodeLine{b1\ is\ [true,\ false,\ false,\ false]}
+\DoxyCodeLine{b2\ =\ s.all\_characters\_of\_type(s,LOWER,LOWER|UPPER)}
+\DoxyCodeLine{b2\ is\ [true,\ true,\ true,\ false]}
+
+\end{DoxyCode}
+
+
+Any null row results in a null entry for that row in the output column.
+
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em types} & The character types to check in each string. \\
+\hline
+{\em verify\+\_\+types} & Only verify against these character types. Default {\ttfamily ALL\+\_\+\+TYPES} means return {\ttfamily true} iff all characters match {\ttfamily types}. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New column of boolean results for each string. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__types_gad9307944fb7de94dc0b17201bac761c5}\label{group__strings__types_gad9307944fb7de94dc0b17201bac761c5} 
+\index{Strings\_types@{Strings\_types}!filter\_characters\_of\_type@{filter\_characters\_of\_type}}
+\index{filter\_characters\_of\_type@{filter\_characters\_of\_type}!Strings\_types@{Strings\_types}}
+\doxysubsubsection{\texorpdfstring{filter\_characters\_of\_type()}{filter\_characters\_of\_type()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::strings\+::filter\+\_\+characters\+\_\+of\+\_\+type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1strings__column__view}{strings\+\_\+column\+\_\+view}} const \&}]{strings,  }\item[{\mbox{\hyperlink{group__strings__types_gacdc71043841f369de3cc8dd827a0eea1}{string\+\_\+character\+\_\+types}}}]{types\+\_\+to\+\_\+remove,  }\item[{\mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}} const \&}]{replacement = {\ttfamily \mbox{\hyperlink{classcudf_1_1string__scalar}{string\+\_\+scalar}}(\"{}\"{})},  }\item[{\mbox{\hyperlink{group__strings__types_gacdc71043841f369de3cc8dd827a0eea1}{string\+\_\+character\+\_\+types}}}]{types\+\_\+to\+\_\+keep = {\ttfamily \mbox{\hyperlink{group__strings__types_ggacdc71043841f369de3cc8dd827a0eea1a84805abcd54d014766d108bfedbba666}{string\+\_\+character\+\_\+types\+::\+ALL\+\_\+\+TYPES}}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Filter specific character types from a column of strings. 
+
+To remove all characters of a specific type, set that type in {\ttfamily types\+\_\+to\+\_\+remove} and set {\ttfamily types\+\_\+to\+\_\+keep} to {\ttfamily ALL\+\_\+\+TYPES}.
+
+To filter out characters NOT of a select type, specify {\ttfamily ALL\+\_\+\+TYPES} for {\ttfamily types\+\_\+to\+\_\+remove} and which types to not remove in {\ttfamily types\+\_\+to\+\_\+keep}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{s\ =\ ['ab',\ 'a\ b',\ 'a7bb',\ 'A7B234']}
+\DoxyCodeLine{s1\ =\ s.filter\_characters\_of\_type(s,NUMERIC,"{}"{},ALL\_TYPES)}
+\DoxyCodeLine{s1\ is\ ['ab',\ 'a\ b',\ 'abb',\ 'AB']}
+\DoxyCodeLine{s2\ =\ s.filter\_characters\_of\_type(s,ALL\_TYPES,"{}-\/"{},LOWER)}
+\DoxyCodeLine{s2\ is\ ['ab',\ 'a-\/b',\ 'a-\/bb',\ '-\/-\/-\/-\/-\/-\/']}
+
+\end{DoxyCode}
+
+
+In {\ttfamily s1} all NUMERIC types have been removed. In {\ttfamily s2} all non-\/\+LOWER types have been replaced.
+
+One but not both parameters {\ttfamily types\+\_\+to\+\_\+remove} and {\ttfamily types\+\_\+to\+\_\+keep} must be set to {\ttfamily ALL\+\_\+\+TYPES}.
+
+Any null row results in a null entry for that row in the output column.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if neither or both {\ttfamily types\+\_\+to\+\_\+remove} and {\ttfamily types\+\_\+to\+\_\+keep} are set to {\ttfamily ALL\+\_\+\+TYPES}.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em strings} & Strings instance for this operation. \\
+\hline
+{\em types\+\_\+to\+\_\+remove} & The character types to check in each string. Use {\ttfamily ALL\+\_\+\+TYPES} here to specify {\ttfamily types\+\_\+to\+\_\+keep} instead. \\
+\hline
+{\em replacement} & The replacement character to use when removing characters. \\
+\hline
+{\em types\+\_\+to\+\_\+keep} & Default {\ttfamily ALL\+\_\+\+TYPES} means all characters of {\ttfamily types\+\_\+to\+\_\+remove} will be filtered. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+New column of boolean results for each string. 
+\end{DoxyReturn}
+\Hypertarget{group__strings__types_ga64fc63aea95eceaa0290d351242644ae}\label{group__strings__types_ga64fc63aea95eceaa0290d351242644ae} 
+\index{Strings\_types@{Strings\_types}!operator\texttt{"|}@{operator\texttt{"|}}}
+\index{operator\texttt{"|}@{operator\texttt{"|}}!Strings\_types@{Strings\_types}}
+\doxysubsubsection{\texorpdfstring{operator\texttt{"|}()}{operator|()}}
+{\footnotesize\ttfamily constexpr \mbox{\hyperlink{group__strings__types_gacdc71043841f369de3cc8dd827a0eea1}{string\+\_\+character\+\_\+types}} cudf\+::strings\+::operator\texorpdfstring{$\vert$}{|} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__strings__types_gacdc71043841f369de3cc8dd827a0eea1}{string\+\_\+character\+\_\+types}}}]{lhs,  }\item[{\mbox{\hyperlink{group__strings__types_gacdc71043841f369de3cc8dd827a0eea1}{string\+\_\+character\+\_\+types}}}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+OR operator for combining string\+\_\+character\+\_\+types 
+
+
+\begin{DoxyParams}{参数}
+{\em lhs} & left-\/hand side of OR operation \\
+\hline
+{\em rhs} & right-\/hand side of OR operation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+combined string\+\_\+character\+\_\+types 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{char__types__enum_8hpp_source}{char\+\_\+types\+\_\+enum.\+hpp}} 第 \mbox{\hyperlink{char__types__enum_8hpp_source_l00058}{58}} 行定义.
+
+\Hypertarget{group__strings__types_gac3196255a03d839c15263227ec529260}\label{group__strings__types_gac3196255a03d839c15263227ec529260} 
+\index{Strings\_types@{Strings\_types}!operator\texttt{"|}=@{operator\texttt{"|}=}}
+\index{operator\texttt{"|}=@{operator\texttt{"|}=}!Strings\_types@{Strings\_types}}
+\doxysubsubsection{\texorpdfstring{operator\texttt{"|}=()}{operator|=()}}
+{\footnotesize\ttfamily constexpr \mbox{\hyperlink{group__strings__types_gacdc71043841f369de3cc8dd827a0eea1}{string\+\_\+character\+\_\+types}} \& cudf\+::strings\+::operator\texorpdfstring{$\vert$}{|}= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__strings__types_gacdc71043841f369de3cc8dd827a0eea1}{string\+\_\+character\+\_\+types}} \&}]{lhs,  }\item[{\mbox{\hyperlink{group__strings__types_gacdc71043841f369de3cc8dd827a0eea1}{string\+\_\+character\+\_\+types}}}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Compound assignment OR operator for combining string\+\_\+character\+\_\+types 
+
+
+\begin{DoxyParams}{参数}
+{\em lhs} & left-\/hand side of OR operation \\
+\hline
+{\em rhs} & right-\/hand side of OR operation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Reference to {\ttfamily lhs} after combining {\ttfamily lhs} and {\ttfamily rhs} 
+\end{DoxyReturn}
+
+
+在文件 \mbox{\hyperlink{char__types__enum_8hpp_source}{char\+\_\+types\+\_\+enum.\+hpp}} 第 \mbox{\hyperlink{char__types__enum_8hpp_source_l00072}{72}} 行定义.
+

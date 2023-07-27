@@ -1,0 +1,105 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/utilities/type\+\_\+dispatcher.hpp 文件参考}
+\hypertarget{type__dispatcher_8hpp}{}\label{type__dispatcher_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/utilities/type\_dispatcher.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/utilities/type\_dispatcher.hpp}}
+
+
+Defines the mapping between {\ttfamily \doxylink{group__utility__types_gadf077607da617d1dadcc5417e2783539}{cudf\+::type\+\_\+id}} runtime type information and concrete C++ types.  
+
+
+{\ttfamily \#include $<$cudf/detail/utilities/assert.\+cuh$>$}\newline
+{\ttfamily \#include $<$cudf/fixed\+\_\+point/fixed\+\_\+point.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/types.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/utilities/error.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/wrappers/dictionary.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/wrappers/durations.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/wrappers/timestamps.\+hpp$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+type\+\_\+dispatcher.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{type__dispatcher_8hpp__incl}
+\end{center}
+\end{figure}
+此图展示该文件直接或间接的被哪些文件引用了\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{type__dispatcher_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1type__to__name}{cudf\+::type\+\_\+to\+\_\+name}}
+\begin{DoxyCompactList}\small\item\em Maps a {\ttfamily \doxylink{group__utility__types_gadf077607da617d1dadcc5417e2783539}{cudf\+::type\+\_\+id}} types to it\textquotesingle{}s corresponding C++ type name string \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1id__to__type__impl}{cudf\+::id\+\_\+to\+\_\+type\+\_\+impl$<$ t $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1dispatch__storage__type}{cudf\+::dispatch\+\_\+storage\+\_\+type$<$ Id $>$}}
+\begin{DoxyCompactList}\small\item\em Use this specialization on {\ttfamily type\+\_\+dispatcher} whenever you only need to operate on the underlying stored type. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1type__to__scalar__type__impl}{cudf\+::type\+\_\+to\+\_\+scalar\+\_\+type\+\_\+impl$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1type__to__scalar__type__impl_3_01std_1_1string_01_4}{cudf\+::type\+\_\+to\+\_\+scalar\+\_\+type\+\_\+impl$<$ std\+::string $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1type__to__scalar__type__impl_3_01cudf_1_1string__view_01_4}{cudf\+::type\+\_\+to\+\_\+scalar\+\_\+type\+\_\+impl$<$ cudf\+::string\+\_\+view $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1type__to__scalar__type__impl_3_01numeric_1_1decimal32_01_4}{cudf\+::type\+\_\+to\+\_\+scalar\+\_\+type\+\_\+impl$<$ numeric\+::decimal32 $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1type__to__scalar__type__impl_3_01numeric_1_1decimal64_01_4}{cudf\+::type\+\_\+to\+\_\+scalar\+\_\+type\+\_\+impl$<$ numeric\+::decimal64 $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1type__to__scalar__type__impl_3_01numeric_1_1decimal128_01_4}{cudf\+::type\+\_\+to\+\_\+scalar\+\_\+type\+\_\+impl$<$ numeric\+::decimal128 $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1type__to__scalar__type__impl_3_01cudf_1_1dictionary32_01_4}{cudf\+::type\+\_\+to\+\_\+scalar\+\_\+type\+\_\+impl$<$ cudf\+::dictionary32 $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1type__to__scalar__type__impl_3_01cudf_1_1list__view_01_4}{cudf\+::type\+\_\+to\+\_\+scalar\+\_\+type\+\_\+impl$<$ cudf\+::list\+\_\+view $>$}}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1type__to__scalar__type__impl_3_01cudf_1_1struct__view_01_4}{cudf\+::type\+\_\+to\+\_\+scalar\+\_\+type\+\_\+impl$<$ cudf\+::struct\+\_\+view $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{宏定义}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__utility__dispatcher_ga7dcb8f2b1a2a8f0e2c965251ea4bbae1}{CUDF\+\_\+\+TYPE\+\_\+\+MAPPING}}(Type,  Id)
+\begin{DoxyCompactList}\small\item\em Macro used to define a mapping between a concrete C++ type and a {\ttfamily \doxylink{group__utility__types_gadf077607da617d1dadcc5417e2783539}{cudf\+::type\+\_\+id}} enum. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utility__dispatcher_gafc199495a79b7dedf7181b31a4f5af79}{MAP\+\_\+\+NUMERIC\+\_\+\+SCALAR}}(Type)
+\begin{DoxyCompactList}\small\item\em Macro used to define scalar type and scalar device type for {\ttfamily \doxylink{classcudf_1_1numeric__scalar}{cudf\+::numeric\+\_\+scalar}} template class for numeric C++ types. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utility__dispatcher_ga194b03ace52ee49fad7a059de01a650b}{MAP\+\_\+\+TIMESTAMP\+\_\+\+SCALAR}}(Type)
+\begin{DoxyCompactList}\small\item\em Macro used to define scalar type and scalar device type for {\ttfamily \doxylink{classcudf_1_1timestamp__scalar}{cudf\+::timestamp\+\_\+scalar}} template class for timestamp C++ types. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utility__dispatcher_ga6107ce3e86962b160136c1ce207209bf}{MAP\+\_\+\+DURATION\+\_\+\+SCALAR}}(Type)
+\begin{DoxyCompactList}\small\item\em Macro used to define scalar type and scalar device type for {\ttfamily \doxylink{classcudf_1_1duration__scalar}{cudf\+::duration\+\_\+scalar}} template class for duration C++ types. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{类型定义}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{group__utility__types_gadf077607da617d1dadcc5417e2783539}{cudf\+::type\+\_\+id}} Id$>$ }\\using \mbox{\hyperlink{group__utility__dispatcher_gad7e12b8accf60e7c0e500294e1ee8536}{cudf\+::id\+\_\+to\+\_\+type}} = typename \mbox{\hyperlink{structcudf_1_1id__to__type__impl}{id\+\_\+to\+\_\+type\+\_\+impl}}$<$ Id $>$\+::type
+\begin{DoxyCompactList}\small\item\em Maps a {\ttfamily \doxylink{group__utility__types_gadf077607da617d1dadcc5417e2783539}{cudf\+::type\+\_\+id}} to it\textquotesingle{}s corresponding concrete C++ type \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{group__utility__dispatcher_ga7811a3ca2cd4f1c558093dbbdda53b30}{cudf\+::device\+\_\+storage\+\_\+type\+\_\+t}} = std\+::conditional\+\_\+t$<$ std\+::is\+\_\+same\+\_\+v$<$ \mbox{\hyperlink{group__fixed__point__classes_ga74f28c0e58f5105d5a67b658d839ffa0}{numeric\+::decimal32}}, T $>$, int32\+\_\+t, std\+::conditional\+\_\+t$<$ std\+::is\+\_\+same\+\_\+v$<$ \mbox{\hyperlink{group__fixed__point__classes_ga85be3b2e76e27778378832af34cf88a5}{numeric\+::decimal64}}, T $>$, int64\+\_\+t, std\+::conditional\+\_\+t$<$ std\+::is\+\_\+same\+\_\+v$<$ \mbox{\hyperlink{group__fixed__point__classes_ga9f2da6ca14cb6371184004c5aac343a0}{numeric\+::decimal128}}, T $>$, \+\_\+\+\_\+int128\+\_\+t, T $>$ $>$ $>$
+\begin{DoxyCompactList}\small\item\em \"{}\+Returns\"{} the corresponding type that is stored on the device when using {\ttfamily \doxylink{classcudf_1_1column}{cudf\+::column}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{group__utility__dispatcher_ga9446c2558fd01c19f5fb5fa33927586f}{cudf\+::scalar\+\_\+type\+\_\+t}} = typename \mbox{\hyperlink{structcudf_1_1type__to__scalar__type__impl}{type\+\_\+to\+\_\+scalar\+\_\+type\+\_\+impl}}$<$ T $>$\+::\+Scalar\+Type
+\begin{DoxyCompactList}\small\item\em Maps a C++ type to the scalar type required to hold its value \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{group__utility__dispatcher_ga78eb25a7ce2c9e19a0193cdf14855d9b}{cudf\+::scalar\+\_\+device\+\_\+type\+\_\+t}} = typename \mbox{\hyperlink{structcudf_1_1type__to__scalar__type__impl}{type\+\_\+to\+\_\+scalar\+\_\+type\+\_\+impl}}$<$ T $>$\+::\+Scalar\+Device\+Type
+\begin{DoxyCompactList}\small\item\em Maps a C++ type to the scalar device type required to hold its value \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr \mbox{\hyperlink{group__utility__types_gadf077607da617d1dadcc5417e2783539}{type\+\_\+id}} \mbox{\hyperlink{group__utility__dispatcher_ga9ba5eea729f54e486b228ab4d4fbb8bc}{cudf\+::type\+\_\+to\+\_\+id}} ()
+\begin{DoxyCompactList}\small\item\em Maps a C++ type to it\textquotesingle{}s corresponding {\ttfamily \doxylink{group__utility__types_gadf077607da617d1dadcc5417e2783539}{cudf\+::type\+\_\+id}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{group__utility__dispatcher_gaed4d6fee1f0059e5f26ab79eda8ad758}{cudf\+::type\+\_\+id\+\_\+matches\+\_\+device\+\_\+storage\+\_\+type}} (\mbox{\hyperlink{group__utility__types_gadf077607da617d1dadcc5417e2783539}{type\+\_\+id}} id)
+\begin{DoxyCompactList}\small\item\em Checks if {\ttfamily fixed\+\_\+point}-\/like types have template type {\ttfamily T} matching the column\textquotesingle{}s stored type id \end{DoxyCompactList}\item 
+{\footnotesize template$<$template$<$ \mbox{\hyperlink{group__utility__types_gadf077607da617d1dadcc5417e2783539}{cudf\+::type\+\_\+id}} $>$ typename Id\+Type\+Map = id\+\_\+to\+\_\+type\+\_\+impl, typename Functor , typename... Ts$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \+\_\+\+\_\+forceinline\+\_\+\+\_\+ constexpr decltype(auto) \mbox{\hyperlink{group__utility__dispatcher_gaebd6c6fd035b72912e32ba89963af939}{cudf\+::type\+\_\+dispatcher}} (\mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} dtype, Functor f, Ts \&\&... args)
+\begin{DoxyCompactList}\small\item\em Invokes an {\ttfamily operator()} template with the type instantiation based on the specified {\ttfamily \doxylink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}}\textquotesingle{}s {\ttfamily id()}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$template$<$ \mbox{\hyperlink{group__utility__types_gadf077607da617d1dadcc5417e2783539}{cudf\+::type\+\_\+id}} $>$ typename Id\+Type\+Map = id\+\_\+to\+\_\+type\+\_\+impl, typename F , typename... Ts$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} \+\_\+\+\_\+forceinline\+\_\+\+\_\+ constexpr decltype(auto) \mbox{\hyperlink{group__utility__dispatcher_ga334c80129f729bd620894373d39bf67c}{cudf\+::double\+\_\+type\+\_\+dispatcher}} (\mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} type1, \mbox{\hyperlink{classcudf_1_1data__type}{cudf\+::data\+\_\+type}} type2, F \&\&f, Ts \&\&... args)
+\begin{DoxyCompactList}\small\item\em Dispatches two type template parameters to a callable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Defines the mapping between {\ttfamily \doxylink{group__utility__types_gadf077607da617d1dadcc5417e2783539}{cudf\+::type\+\_\+id}} runtime type information and concrete C++ types. 
+
+
+
+在文件 \mbox{\hyperlink{type__dispatcher_8hpp_source}{type\+\_\+dispatcher.\+hpp}} 中定义.
+

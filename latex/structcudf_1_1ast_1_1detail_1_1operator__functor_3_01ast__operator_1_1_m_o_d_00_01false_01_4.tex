@@ -1,0 +1,91 @@
+\doxysection{cudf\+::ast\+::detail\+::operator\+\_\+functor\texorpdfstring{$<$}{<} ast\+\_\+operator\+::MOD, false \texorpdfstring{$>$}{>}结构体 参考}
+\hypertarget{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_m_o_d_00_01false_01_4}{}\label{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_m_o_d_00_01false_01_4}\index{cudf::ast::detail::operator\_functor$<$ ast\_operator::MOD, false $>$@{cudf::ast::detail::operator\_functor$<$ ast\_operator::MOD, false $>$}}
+
+
+{\ttfamily \#include $<$operators.\+hpp$>$}
+
+
+
+cudf\+::ast\+::detail\+::operator\+\_\+functor\texorpdfstring{$<$}{<} ast\+\_\+operator\+::MOD, false \texorpdfstring{$>$}{>} 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_m_o_d_00_01false_01_4__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename LHS , typename RHS , typename Common\+Type  = std\+::common\+\_\+type\+\_\+t$<$\+LHS, RHS$>$, std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+integral\+\_\+v$<$ Common\+Type $>$ $>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ }\\\+\_\+\+\_\+device\+\_\+\+\_\+ auto \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_m_o_d_00_01false_01_4_ac11b94ab5904d6037f29c14c2b1c3710}{operator()}} (LHS lhs, RHS rhs) -\/$>$ decltype(static\+\_\+cast$<$ Common\+Type $>$(lhs) \% static\+\_\+cast$<$ Common\+Type $>$(rhs))
+\item 
+{\footnotesize template$<$typename LHS , typename RHS , typename Common\+Type  = std\+::common\+\_\+type\+\_\+t$<$\+LHS, RHS$>$, std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+same\+\_\+v$<$ Common\+Type, float $>$ $>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ }\\\+\_\+\+\_\+device\+\_\+\+\_\+ auto \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_m_o_d_00_01false_01_4_ac31ac35713d78bfdea099458e95550bc}{operator()}} (LHS lhs, RHS rhs) -\/$>$ decltype(fmodf(static\+\_\+cast$<$ Common\+Type $>$(lhs), static\+\_\+cast$<$ Common\+Type $>$(rhs)))
+\item 
+{\footnotesize template$<$typename LHS , typename RHS , typename Common\+Type  = std\+::common\+\_\+type\+\_\+t$<$\+LHS, RHS$>$, std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+same\+\_\+v$<$ Common\+Type, double $>$ $>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ }\\\+\_\+\+\_\+device\+\_\+\+\_\+ auto \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_m_o_d_00_01false_01_4_a1034a102ef611e440ac6093667137ece}{operator()}} (LHS lhs, RHS rhs) -\/$>$ decltype(fmod(static\+\_\+cast$<$ Common\+Type $>$(lhs), static\+\_\+cast$<$ Common\+Type $>$(rhs)))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{静态 Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr auto \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_m_o_d_00_01false_01_4_a4fef2e7e38a2a3774bf2d467d41bb54f}{arity}} \{2\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+在文件 \mbox{\hyperlink{operators_8hpp_source}{operators.\+hpp}} 第 \mbox{\hyperlink{operators_8hpp_source_l00299}{299}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_m_o_d_00_01false_01_4_a1034a102ef611e440ac6093667137ece}\label{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_m_o_d_00_01false_01_4_a1034a102ef611e440ac6093667137ece} 
+\index{cudf::ast::detail::operator\_functor$<$ ast\_operator::MOD, false $>$@{cudf::ast::detail::operator\_functor$<$ ast\_operator::MOD, false $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!cudf::ast::detail::operator\_functor$<$ ast\_operator::MOD, false $>$@{cudf::ast::detail::operator\_functor$<$ ast\_operator::MOD, false $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename LHS , typename RHS , typename Common\+Type  = std\+::common\+\_\+type\+\_\+t$<$\+LHS, RHS$>$, std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+same\+\_\+v$<$ Common\+Type, double $>$ $>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ \\
+\+\_\+\+\_\+device\+\_\+\+\_\+ auto \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor}{cudf\+::ast\+::detail\+::operator\+\_\+functor}}$<$ \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7ac5a28f4b35a2884fa3277150ac5d0967}{ast\+\_\+operator\+::\+MOD}}, false $>$\+::operator() (\begin{DoxyParamCaption}\item[{LHS}]{lhs,  }\item[{RHS}]{rhs }\end{DoxyParamCaption}) -\/$>$ decltype(fmod(static\+\_\+cast$<$Common\+Type$>$(lhs), static\+\_\+cast$<$Common\+Type$>$(rhs)))   \hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+在文件 \mbox{\hyperlink{operators_8hpp_source}{operators.\+hpp}} 第 \mbox{\hyperlink{operators_8hpp_source_l00326}{326}} 行定义.
+
+\Hypertarget{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_m_o_d_00_01false_01_4_ac31ac35713d78bfdea099458e95550bc}\label{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_m_o_d_00_01false_01_4_ac31ac35713d78bfdea099458e95550bc} 
+\index{cudf::ast::detail::operator\_functor$<$ ast\_operator::MOD, false $>$@{cudf::ast::detail::operator\_functor$<$ ast\_operator::MOD, false $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!cudf::ast::detail::operator\_functor$<$ ast\_operator::MOD, false $>$@{cudf::ast::detail::operator\_functor$<$ ast\_operator::MOD, false $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename LHS , typename RHS , typename Common\+Type  = std\+::common\+\_\+type\+\_\+t$<$\+LHS, RHS$>$, std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+same\+\_\+v$<$ Common\+Type, float $>$ $>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ \\
+\+\_\+\+\_\+device\+\_\+\+\_\+ auto \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor}{cudf\+::ast\+::detail\+::operator\+\_\+functor}}$<$ \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7ac5a28f4b35a2884fa3277150ac5d0967}{ast\+\_\+operator\+::\+MOD}}, false $>$\+::operator() (\begin{DoxyParamCaption}\item[{LHS}]{lhs,  }\item[{RHS}]{rhs }\end{DoxyParamCaption}) -\/$>$ decltype(fmodf(static\+\_\+cast$<$Common\+Type$>$(lhs), static\+\_\+cast$<$Common\+Type$>$(rhs)))   \hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+在文件 \mbox{\hyperlink{operators_8hpp_source}{operators.\+hpp}} 第 \mbox{\hyperlink{operators_8hpp_source_l00316}{316}} 行定义.
+
+\Hypertarget{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_m_o_d_00_01false_01_4_ac11b94ab5904d6037f29c14c2b1c3710}\label{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_m_o_d_00_01false_01_4_ac11b94ab5904d6037f29c14c2b1c3710} 
+\index{cudf::ast::detail::operator\_functor$<$ ast\_operator::MOD, false $>$@{cudf::ast::detail::operator\_functor$<$ ast\_operator::MOD, false $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!cudf::ast::detail::operator\_functor$<$ ast\_operator::MOD, false $>$@{cudf::ast::detail::operator\_functor$<$ ast\_operator::MOD, false $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename LHS , typename RHS , typename Common\+Type  = std\+::common\+\_\+type\+\_\+t$<$\+LHS, RHS$>$, std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+integral\+\_\+v$<$ Common\+Type $>$ $>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ \\
+\+\_\+\+\_\+device\+\_\+\+\_\+ auto \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor}{cudf\+::ast\+::detail\+::operator\+\_\+functor}}$<$ \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7ac5a28f4b35a2884fa3277150ac5d0967}{ast\+\_\+operator\+::\+MOD}}, false $>$\+::operator() (\begin{DoxyParamCaption}\item[{LHS}]{lhs,  }\item[{RHS}]{rhs }\end{DoxyParamCaption}) -\/$>$ decltype(static\+\_\+cast$<$Common\+Type$>$(lhs) \% static\+\_\+cast$<$Common\+Type$>$(rhs))   \hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+在文件 \mbox{\hyperlink{operators_8hpp_source}{operators.\+hpp}} 第 \mbox{\hyperlink{operators_8hpp_source_l00306}{306}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_m_o_d_00_01false_01_4_a4fef2e7e38a2a3774bf2d467d41bb54f}\label{structcudf_1_1ast_1_1detail_1_1operator__functor_3_01ast__operator_1_1_m_o_d_00_01false_01_4_a4fef2e7e38a2a3774bf2d467d41bb54f} 
+\index{cudf::ast::detail::operator\_functor$<$ ast\_operator::MOD, false $>$@{cudf::ast::detail::operator\_functor$<$ ast\_operator::MOD, false $>$}!arity@{arity}}
+\index{arity@{arity}!cudf::ast::detail::operator\_functor$<$ ast\_operator::MOD, false $>$@{cudf::ast::detail::operator\_functor$<$ ast\_operator::MOD, false $>$}}
+\doxysubsubsection{\texorpdfstring{arity}{arity}}
+{\footnotesize\ttfamily constexpr auto \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1operator__functor}{cudf\+::ast\+::detail\+::operator\+\_\+functor}}$<$ \mbox{\hyperlink{namespacecudf_1_1ast_abf7da0251fa923970b1c6c85ccb7f9e7ac5a28f4b35a2884fa3277150ac5d0967}{ast\+\_\+operator\+::\+MOD}}, false $>$\+::arity \{2\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+在文件 \mbox{\hyperlink{operators_8hpp_source}{operators.\+hpp}} 第 \mbox{\hyperlink{operators_8hpp_source_l00300}{300}} 行定义.
+
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/ast/detail/\mbox{\hyperlink{operators_8hpp}{operators.\+hpp}}\end{DoxyCompactItemize}

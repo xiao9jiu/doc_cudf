@@ -1,0 +1,45 @@
+\doxysection{group\+\_\+replace\+\_\+nulls.\+hpp}
+\hypertarget{group__replace__nulls_8hpp_source}{}\label{group__replace__nulls_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/detail/groupby/group\_replace\_nulls.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/detail/groupby/group\_replace\_nulls.hpp}}
+\mbox{\hyperlink{group__replace__nulls_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2021-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00007}00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00015}00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{column__view_8hpp}{cudf/column/column\_view.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{replace_8hpp}{cudf/replace.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{types_8hpp}{cudf/types.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{utilities_2default__stream_8hpp}{cudf/utilities/default\_stream.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{span_8hpp}{cudf/utilities/span.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <rmm/exec\_policy.hpp>}}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00026}00026\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00027}00027\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf_1_1groupby_1_1detail_1_1hash_ad22389c0cff6ea94162c9393032fef5a}{groupby}}\ \{}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00028}00028\ \textcolor{keyword}{namespace\ }detail\ \{}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00039}\mbox{\hyperlink{namespacecudf_1_1groupby_1_1detail_aeb49a1f813d20cc8fff844bb70758223}{00039}}\ std::unique\_ptr<column>\ \mbox{\hyperlink{namespacecudf_1_1groupby_1_1detail_aeb49a1f813d20cc8fff844bb70758223}{group\_replace\_nulls}}(}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00040}00040\ \ \ \mbox{\hyperlink{classcudf_1_1column__view}{cudf::column\_view}}\ \textcolor{keyword}{const}\&\ grouped\_value,}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00041}00041\ \ \ \mbox{\hyperlink{structcudf_1_1device__span}{device\_span<size\_type\ const>}}\ group\_labels,}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00042}00042\ \ \ \mbox{\hyperlink{group__transformation__replace_ga7cdbc9bc3671930a743c86f36c38abf9}{cudf::replace\_policy}}\ \mbox{\hyperlink{group__transformation__replace_ga7cdbc9bc3671930a743c86f36c38abf9}{replace\_policy}},}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00043}00043\ \ \ rmm::cuda\_stream\_view\ stream,}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00044}00044\ \ \ rmm::mr::device\_memory\_resource*\ mr\ =\ rmm::mr::get\_current\_device\_resource());}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00046}00046\ \}\ \ \textcolor{comment}{//\ namespace\ detail}}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00047}00047\ \}\ \ \textcolor{comment}{//\ namespace\ groupby}}
+\DoxyCodeLine{\Hypertarget{group__replace__nulls_8hpp_source_l00048}00048\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

@@ -1,0 +1,114 @@
+\doxysection{integer\+\_\+utils.\+hpp}
+\hypertarget{integer__utils_8hpp_source}{}\label{integer__utils_8hpp_source}\index{D:/gitLibrary/cudf/cpp/include/cudf/detail/utilities/integer\_utils.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/detail/utilities/integer\_utils.hpp}}
+\mbox{\hyperlink{integer__utils_8hpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ 2019\ BlazingDB,\ Inc.}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00003}00003\ \textcolor{comment}{\ *\ \ \ \ \ Copyright\ 2019\ Eyal\ Rozenberg\ <eyalroz@blazingdb.com>}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2020-\/2022,\ NVIDIA\ CORPORATION.}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00005}00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00007}00007\ \textcolor{comment}{\ *\ you\ may\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ \ \ \ \ http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00011}00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ WITHOUT\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00015}00015\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00016}00016\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{temporary_8hpp}{cudf/fixed\_point/temporary.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00032}00032\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecudf}{cudf}}\ \{}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00034}\mbox{\hyperlink{namespacecudf_1_1util}{00034}}\ \textcolor{keyword}{namespace\ }util\ \{}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00046}00046\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ S>}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00047}\mbox{\hyperlink{namespacecudf_1_1util_ad92e7a683250a2bd1f8f3bcaabc6bf9f}{00047}}\ S\ \mbox{\hyperlink{namespacecudf_1_1util_ad92e7a683250a2bd1f8f3bcaabc6bf9f}{round\_up\_safe}}(S\ number\_to\_round,\ S\ modulus)}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00048}00048\ \{}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00049}00049\ \ \ \textcolor{keyword}{auto}\ remainder\ =\ number\_to\_round\ \%\ modulus;}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00050}00050\ \ \ \textcolor{keywordflow}{if}\ (remainder\ ==\ 0)\ \{\ \textcolor{keywordflow}{return}\ number\_to\_round;\ \}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00051}00051\ \ \ \textcolor{keyword}{auto}\ rounded\_up\ =\ number\_to\_round\ -\/\ remainder\ +\ modulus;}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00052}00052\ \ \ \textcolor{keywordflow}{if}\ (rounded\_up\ <\ number\_to\_round)\ \{}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Attempt\ to\ round\ up\ beyond\ the\ type's\ maximum\ value"{}});}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00054}00054\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00055}00055\ \ \ \textcolor{keywordflow}{return}\ rounded\_up;}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00056}00056\ \}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00069}00069\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ S>}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00070}\mbox{\hyperlink{namespacecudf_1_1util_a1f0a3599075ac4a667ee0817b4840696}{00070}}\ S\ \mbox{\hyperlink{namespacecudf_1_1util_a1f0a3599075ac4a667ee0817b4840696}{round\_down\_safe}}(S\ number\_to\_round,\ S\ modulus)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00071}00071\ \{}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00072}00072\ \ \ \textcolor{keyword}{auto}\ remainder\ \ \ \ =\ number\_to\_round\ \%\ modulus;}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00073}00073\ \ \ \textcolor{keyword}{auto}\ rounded\_down\ =\ number\_to\_round\ -\/\ remainder;}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00074}00074\ \ \ \textcolor{keywordflow}{return}\ rounded\_down;}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00075}00075\ \}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00088}00088\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ S>}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00089}\mbox{\hyperlink{namespacecudf_1_1util_abfb9644b0d39cf734610a2c8552e8c6a}{00089}}\ \textcolor{keyword}{constexpr}\ S\ \mbox{\hyperlink{namespacecudf_1_1util_abfb9644b0d39cf734610a2c8552e8c6a}{round\_up\_unsafe}}(S\ number\_to\_round,\ S\ modulus)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00090}00090\ \{}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00091}00091\ \ \ \textcolor{keyword}{auto}\ remainder\ =\ number\_to\_round\ \%\ modulus;}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00092}00092\ \ \ \textcolor{keywordflow}{if}\ (remainder\ ==\ 0)\ \{\ \textcolor{keywordflow}{return}\ number\_to\_round;\ \}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00093}00093\ \ \ \textcolor{keyword}{auto}\ rounded\_up\ =\ number\_to\_round\ -\/\ remainder\ +\ modulus;}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00094}00094\ \ \ \textcolor{keywordflow}{return}\ rounded\_up;}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00095}00095\ \}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00109}00109\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ S,\ \textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00110}\mbox{\hyperlink{namespacecudf_1_1util_ad5dcf0e19a83ef99dfa6d676c423c36f}{00110}}\ \textcolor{keyword}{constexpr}\ S\ \mbox{\hyperlink{namespacecudf_1_1util_ad5dcf0e19a83ef99dfa6d676c423c36f}{div\_rounding\_up\_unsafe}}(\textcolor{keyword}{const}\ S\&\ dividend,\ \textcolor{keyword}{const}\ T\&\ divisor)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00111}00111\ \{}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00112}00112\ \ \ \textcolor{keywordflow}{return}\ (dividend\ +\ divisor\ -\/\ 1)\ /\ divisor;}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00113}00113\ \}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00115}\mbox{\hyperlink{namespacecudf_1_1util_1_1detail}{00115}}\ \textcolor{keyword}{namespace\ }detail\ \{}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00116}00116\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ I>}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00117}\mbox{\hyperlink{namespacecudf_1_1util_1_1detail_a63d39a99e8ffcb65363adb77ec7730d1}{00117}}\ \textcolor{keyword}{constexpr}\ I\ \mbox{\hyperlink{namespacecudf_1_1util_1_1detail_a63d39a99e8ffcb65363adb77ec7730d1}{div\_rounding\_up\_safe}}(std::integral\_constant<bool,\ false>,}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I\ dividend,}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I\ divisor)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00120}00120\ \{}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00121}00121\ \ \ \textcolor{comment}{//\ TODO:\ This\ could\ probably\ be\ implemented\ faster}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00122}00122\ \ \ \textcolor{keywordflow}{return}\ (dividend\ >\ divisor)\ ?\ 1\ +\ \mbox{\hyperlink{namespacecudf_1_1util_ad5dcf0e19a83ef99dfa6d676c423c36f}{div\_rounding\_up\_unsafe}}(dividend\ -\/\ divisor,\ divisor)}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ (dividend\ >\ 0);}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00124}00124\ \}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00126}00126\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ I>}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00127}\mbox{\hyperlink{namespacecudf_1_1util_1_1detail_ac18ffe72e4430858b714e06c814e68ac}{00127}}\ \textcolor{keyword}{constexpr}\ I\ \mbox{\hyperlink{namespacecudf_1_1util_1_1detail_a63d39a99e8ffcb65363adb77ec7730d1}{div\_rounding\_up\_safe}}(std::integral\_constant<bool,\ true>,\ I\ dividend,\ I\ divisor)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00128}00128\ \{}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00129}00129\ \ \ \textcolor{keyword}{auto}\ quotient\ \ =\ dividend\ /\ divisor;}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00130}00130\ \ \ \textcolor{keyword}{auto}\ remainder\ =\ dividend\ \%\ divisor;}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00131}00131\ \ \ \textcolor{keywordflow}{return}\ quotient\ +\ (remainder\ !=\ 0);}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00132}00132\ \}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00134}00134\ \}\ \ \textcolor{comment}{//\ namespace\ detail}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00148}00148\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ I>}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00149}\mbox{\hyperlink{namespacecudf_1_1util_a6fe189a1e4b812440a51a97c67fa7860}{00149}}\ \textcolor{keyword}{constexpr}\ I\ \mbox{\hyperlink{namespacecudf_1_1util_a6fe189a1e4b812440a51a97c67fa7860}{div\_rounding\_up\_safe}}(I\ dividend,\ I\ divisor)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00150}00150\ \{}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00151}00151\ \ \ \textcolor{keyword}{using\ }i\_is\_a\_signed\_type\ =\ std::integral\_constant<bool,\ std::is\_signed\_v<I>>;}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00152}00152\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacecudf_1_1util_1_1detail_a63d39a99e8ffcb65363adb77ec7730d1}{detail::div\_rounding\_up\_safe}}(i\_is\_a\_signed\_type\{\},\ dividend,\ divisor);}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00153}00153\ \}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00155}00155\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ I>}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00156}\mbox{\hyperlink{namespacecudf_1_1util_a514583024139235b4d606f11c940fff5}{00156}}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacecudf_1_1util_a514583024139235b4d606f11c940fff5}{is\_a\_power\_of\_two}}(I\ val)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00157}00157\ \{}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00158}00158\ \ \ \textcolor{keyword}{static\_assert}(std::is\_integral\_v<I>,\ \textcolor{stringliteral}{"{}This\ function\ only\ applies\ to\ integral\ types"{}});}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00159}00159\ \ \ \textcolor{keywordflow}{return}\ ((val\ -\/\ 1)\ \&\ val)\ ==\ 0;}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00160}00160\ \}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00185}00185\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00186}\mbox{\hyperlink{namespacecudf_1_1util_a414d91e01fb97879e2a4dd61673b866e}{00186}}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespacecudf_1_1util_a414d91e01fb97879e2a4dd61673b866e}{absolute\_value}}(T\ value)\ -\/>\ T}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00187}00187\ \{}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00188}00188\ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (cuda::std::is\_signed<T>())\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacenumeric_1_1detail_ad7597aacd8004bee10246759068ef73e}{numeric::detail::abs}}(value);}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00189}00189\ \ \ \textcolor{keywordflow}{return}\ value;}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00190}00190\ \}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00192}00192\ \}\ \ \textcolor{comment}{//\ namespace\ util}}
+\DoxyCodeLine{\Hypertarget{integer__utils_8hpp_source_l00193}00193\ \}\ \ \textcolor{comment}{//\ namespace\ cudf}}
+
+\end{DoxyCode}

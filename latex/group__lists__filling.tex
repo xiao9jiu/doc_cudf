@@ -1,0 +1,126 @@
+\doxysection{Lists\+\_\+filling}
+\hypertarget{group__lists__filling}{}\label{group__lists__filling}\index{Lists\_filling@{Lists\_filling}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{lists_2filling_8hpp}{filling.\+hpp}}
+\begin{DoxyCompactList}\small\item\em Column APIs for individual list sequence \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__lists__filling_gae998be34bb5d2e340afdd9e00c3c8f86}{cudf\+::lists\+::sequences}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&starts, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&sizes, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a lists column in which each row contains a sequence of values specified by a tuple of ({\ttfamily start}, {\ttfamily size}) parameters. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__lists__filling_ga57341030092ba1268b5320e2b92f4eeb}{cudf\+::lists\+::sequences}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&starts, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&steps, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&sizes, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create a lists column in which each row contains a sequence of values specified by a tuple of ({\ttfamily start}, {\ttfamily step}, {\ttfamily size}) parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__lists__filling_gae998be34bb5d2e340afdd9e00c3c8f86}\label{group__lists__filling_gae998be34bb5d2e340afdd9e00c3c8f86} 
+\index{Lists\_filling@{Lists\_filling}!sequences@{sequences}}
+\index{sequences@{sequences}!Lists\_filling@{Lists\_filling}}
+\doxysubsubsection{\texorpdfstring{sequences()}{sequences()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::sequences (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{starts,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{sizes,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Create a lists column in which each row contains a sequence of values specified by a tuple of ({\ttfamily start}, {\ttfamily size}) parameters. 
+
+Create a lists column in which each row is a sequence of values starting from a {\ttfamily start} value, incrementing by one, and its cardinality is specified by a {\ttfamily size} value. The {\ttfamily start} and {\ttfamily size} values used to generate each list is taken from the corresponding row of the input {\ttfamily starts} and {\ttfamily sizes} columns.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily sizes} must be a column of integer types.
+\item All the input columns must not have nulls.
+\item If any row of the {\ttfamily sizes} column contains negative value, the output is undefined.
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{starts\ =\ [0,\ 1,\ 2,\ 3,\ 4]}
+\DoxyCodeLine{sizes\ \ =\ [0,\ 2,\ 2,\ 1,\ 3]}
+\DoxyCodeLine{}
+\DoxyCodeLine{output\ =\ [\ [],\ [1,\ 2],\ [2,\ 3],\ [3],\ [4,\ 5,\ 6]\ ]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily sizes} column is not of integer types. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if any input column has nulls. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily starts} and {\ttfamily sizes} columns do not have the same size.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em starts} & First values in the result sequences. \\
+\hline
+{\em sizes} & Numbers of values in the result sequences. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The result column containing generated sequences. 
+\end{DoxyReturn}
+\Hypertarget{group__lists__filling_ga57341030092ba1268b5320e2b92f4eeb}\label{group__lists__filling_ga57341030092ba1268b5320e2b92f4eeb} 
+\index{Lists\_filling@{Lists\_filling}!sequences@{sequences}}
+\index{sequences@{sequences}!Lists\_filling@{Lists\_filling}}
+\doxysubsubsection{\texorpdfstring{sequences()}{sequences()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::lists\+::sequences (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{starts,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{steps,  }\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{sizes,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Create a lists column in which each row contains a sequence of values specified by a tuple of ({\ttfamily start}, {\ttfamily step}, {\ttfamily size}) parameters. 
+
+Create a lists column in which each row is a sequence of values starting from a {\ttfamily start} value, incrementing by a {\ttfamily step} value, and its cardinality is specified by a {\ttfamily size} value. The values {\ttfamily start}, {\ttfamily step}, and {\ttfamily size} used to generate each list is taken from the corresponding row of the input {\ttfamily starts}, {\ttfamily steps}, and {\ttfamily sizes} columns.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily sizes} must be a column of integer types.
+\item {\ttfamily starts} and {\ttfamily steps} columns must have the same type.
+\item All the input columns must not have nulls.
+\item If any row of the {\ttfamily sizes} column contains negative value, the output is undefined.
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{starts\ =\ [0,\ 1,\ 2,\ 3,\ 4]}
+\DoxyCodeLine{steps\ \ =\ [2,\ 1,\ 1,\ 1,\ -\/3]}
+\DoxyCodeLine{sizes\ \ =\ [0,\ 2,\ 2,\ 1,\ 3]}
+\DoxyCodeLine{}
+\DoxyCodeLine{output\ =\ [\ [],\ [1,\ 2],\ [2,\ 3],\ [3],\ [4,\ 1,\ -\/2]\ ]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily sizes} column is not of integer types. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if any input column has nulls. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily starts} and {\ttfamily steps} columns have different types. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily starts}, {\ttfamily steps}, and {\ttfamily sizes} columns do not have the same size.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em starts} & First values in the result sequences. \\
+\hline
+{\em steps} & Increment values for the result sequences. \\
+\hline
+{\em sizes} & Numbers of values in the result sequences. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+The result column containing generated sequences. 
+\end{DoxyReturn}

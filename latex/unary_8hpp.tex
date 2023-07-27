@@ -1,0 +1,88 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/unary.hpp 文件参考}
+\hypertarget{unary_8hpp}{}\label{unary_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/unary.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/unary.hpp}}
+
+
+Column APIs for unary ops  
+
+
+{\ttfamily \#include $<$cudf/types.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/mr/device/per\+\_\+device\+\_\+resource.\+hpp$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+unary.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{unary_8hpp__incl}
+\end{center}
+\end{figure}
+此图展示该文件直接或间接的被哪些文件引用了\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{unary_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__transformation__unaryops_ga030e62f30b296602f398e70d1ca657c4}{cudf\+::unary\+\_\+operator}} \+: int32\+\_\+t \{ \newline
+\mbox{\hyperlink{group__transformation__unaryops_gga030e62f30b296602f398e70d1ca657c4a5b001d63db54e7383587771eeb2018a1}{cudf\+::unary\+\_\+operator\+::\+SIN}}
+, \mbox{\hyperlink{group__transformation__unaryops_gga030e62f30b296602f398e70d1ca657c4aef23ef1d426ae1a73a7eed399cef707d}{cudf\+::unary\+\_\+operator\+::\+COS}}
+, \mbox{\hyperlink{group__transformation__unaryops_gga030e62f30b296602f398e70d1ca657c4a71211c96ad35b40178446956e22be10e}{cudf\+::unary\+\_\+operator\+::\+TAN}}
+, \mbox{\hyperlink{group__transformation__unaryops_gga030e62f30b296602f398e70d1ca657c4a607033bf57b9868026629e1fa23de7bf}{cudf\+::unary\+\_\+operator\+::\+ARCSIN}}
+, \newline
+\mbox{\hyperlink{group__transformation__unaryops_gga030e62f30b296602f398e70d1ca657c4a7358c3fa47a9b546fe7ecbc961e82338}{cudf\+::unary\+\_\+operator\+::\+ARCCOS}}
+, \mbox{\hyperlink{group__transformation__unaryops_gga030e62f30b296602f398e70d1ca657c4a5a616b9bee92b5cd20f9940febeb3006}{cudf\+::unary\+\_\+operator\+::\+ARCTAN}}
+, \mbox{\hyperlink{group__transformation__unaryops_gga030e62f30b296602f398e70d1ca657c4ab387e847a769f9ef3794a3f559afcf69}{cudf\+::unary\+\_\+operator\+::\+SINH}}
+, \mbox{\hyperlink{group__transformation__unaryops_gga030e62f30b296602f398e70d1ca657c4ac8766c03013c3464d6bfd8e3c11b867d}{cudf\+::unary\+\_\+operator\+::\+COSH}}
+, \newline
+\mbox{\hyperlink{group__transformation__unaryops_gga030e62f30b296602f398e70d1ca657c4a143c8c6f51b9bb893ce71e38702e3cc1}{cudf\+::unary\+\_\+operator\+::\+TANH}}
+, \mbox{\hyperlink{group__transformation__unaryops_gga030e62f30b296602f398e70d1ca657c4a3552954f5164c200a2c5f5a272294c90}{cudf\+::unary\+\_\+operator\+::\+ARCSINH}}
+, \mbox{\hyperlink{group__transformation__unaryops_gga030e62f30b296602f398e70d1ca657c4ad3242488948e86c0277590cd15cad984}{cudf\+::unary\+\_\+operator\+::\+ARCCOSH}}
+, \mbox{\hyperlink{group__transformation__unaryops_gga030e62f30b296602f398e70d1ca657c4a846a1dd5ab0418346548bb9f0f423a52}{cudf\+::unary\+\_\+operator\+::\+ARCTANH}}
+, \newline
+\mbox{\hyperlink{group__transformation__unaryops_gga030e62f30b296602f398e70d1ca657c4a8c670f8c37b95e1ed14a0ce414b049c7}{cudf\+::unary\+\_\+operator\+::\+EXP}}
+, \mbox{\hyperlink{group__transformation__unaryops_gga030e62f30b296602f398e70d1ca657c4a4b5ffcdaf38ce4d463171f5c977c5ab3}{cudf\+::unary\+\_\+operator\+::\+LOG}}
+, \mbox{\hyperlink{group__transformation__unaryops_gga030e62f30b296602f398e70d1ca657c4a36875f2500a09ee35d0bb7eb8c0b91b0}{cudf\+::unary\+\_\+operator\+::\+SQRT}}
+, \mbox{\hyperlink{group__transformation__unaryops_gga030e62f30b296602f398e70d1ca657c4a2bda33a56a02768cfc002866aa4fb63a}{cudf\+::unary\+\_\+operator\+::\+CBRT}}
+, \newline
+\mbox{\hyperlink{group__transformation__unaryops_gga030e62f30b296602f398e70d1ca657c4a5bdce8e6d9dc3efbbd31e90a8a181dff}{cudf\+::unary\+\_\+operator\+::\+CEIL}}
+, \mbox{\hyperlink{group__transformation__unaryops_gga030e62f30b296602f398e70d1ca657c4a56c1e354d36beb85b0d881c5b2e24cbe}{cudf\+::unary\+\_\+operator\+::\+FLOOR}}
+, \mbox{\hyperlink{group__transformation__unaryops_gga030e62f30b296602f398e70d1ca657c4a7d8a220d2262f9d6c658d549ee12cf2c}{cudf\+::unary\+\_\+operator\+::\+ABS}}
+, \mbox{\hyperlink{group__transformation__unaryops_gga030e62f30b296602f398e70d1ca657c4a6229a93c327259c59cd09415090f5c00}{cudf\+::unary\+\_\+operator\+::\+RINT}}
+, \newline
+\mbox{\hyperlink{group__transformation__unaryops_gga030e62f30b296602f398e70d1ca657c4a66827fa9f30435250f1e887f466b3c40}{cudf\+::unary\+\_\+operator\+::\+BIT\+\_\+\+INVERT}}
+, \mbox{\hyperlink{group__transformation__unaryops_gga030e62f30b296602f398e70d1ca657c4a10df3d67626099df882920ba6552f16d}{cudf\+::unary\+\_\+operator\+::\+NOT}}
+ \}
+\begin{DoxyCompactList}\small\item\em Types of unary operations that can be performed on data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__transformation__unaryops_gaa9ccb7f148feeb38dc70f3dbd242cf77}{cudf\+::unary\+\_\+operation}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&input, \mbox{\hyperlink{group__transformation__unaryops_ga030e62f30b296602f398e70d1ca657c4}{cudf\+::unary\+\_\+operator}} op, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Performs unary op on all values in column \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__transformation__unaryops_ga46e28ccfd5e3d08b618ff50c27669d1c}{cudf\+::is\+\_\+null}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&input, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Creates a column of {\ttfamily \doxylink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a05afd9eb8887a406d47474cd3809a5dd}{type\+\_\+id\+::\+BOOL8}} elements where for every element in {\ttfamily input} {\ttfamily true} indicates the value is null and {\ttfamily false} indicates the value is valid. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{cudf\+::column}} $>$ \mbox{\hyperlink{group__transformation__unaryops_ga6add319b999ddaa1ccf3477599fdc0bc}{cudf\+::is\+\_\+valid}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&input, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Creates a column of {\ttfamily \doxylink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a05afd9eb8887a406d47474cd3809a5dd}{type\+\_\+id\+::\+BOOL8}} elements where for every element in {\ttfamily input} {\ttfamily true} indicates the value is valid and {\ttfamily false} indicates the value is null. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__unaryops_ga4687e7ed2576032200e400077f82dbf0}{cudf\+::cast}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} out\+\_\+type, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Casts data from dtype specified in input to dtype specified in output. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__unaryops_ga59578e8513f1c33d8c03b7b3efeb6cab}{cudf\+::is\+\_\+nan}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&input, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Creates a column of {\ttfamily \doxylink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a05afd9eb8887a406d47474cd3809a5dd}{type\+\_\+id\+::\+BOOL8}} elements indicating the presence of {\ttfamily NaN} values in a column of floating point values. The output element at row {\ttfamily i} is {\ttfamily true} if the element in {\ttfamily input} at row i is {\ttfamily NAN}, else {\ttfamily false} \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__unaryops_ga99e856d9abf718ded7668b33f03effa2}{cudf\+::is\+\_\+not\+\_\+nan}} (\mbox{\hyperlink{classcudf_1_1column__view}{cudf\+::column\+\_\+view}} const \&input, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Creates a column of {\ttfamily \doxylink{group__utility__types_ggadf077607da617d1dadcc5417e2783539a05afd9eb8887a406d47474cd3809a5dd}{type\+\_\+id\+::\+BOOL8}} elements indicating the absence of {\ttfamily NaN} values in a column of floating point values. The output element at row {\ttfamily i} is {\ttfamily false} if the element in {\ttfamily input} at row i is {\ttfamily NAN}, else {\ttfamily true} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Column APIs for unary ops 
+
+
+
+在文件 \mbox{\hyperlink{unary_8hpp_source}{unary.\+hpp}} 中定义.
+

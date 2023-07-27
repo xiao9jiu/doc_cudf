@@ -1,0 +1,56 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/replace.hpp 文件参考}
+\hypertarget{replace_8hpp}{}\label{replace_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/replace.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/replace.hpp}}
+{\ttfamily \#include $<$cudf/types.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/mr/device/per\+\_\+device\+\_\+resource.\+hpp$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+replace.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replace_8hpp__incl}
+\end{center}
+\end{figure}
+此图展示该文件直接或间接的被哪些文件引用了\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replace_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__transformation__replace_ga7cdbc9bc3671930a743c86f36c38abf9}{cudf\+::replace\+\_\+policy}} \+: bool \{ \mbox{\hyperlink{group__transformation__replace_gga7cdbc9bc3671930a743c86f36c38abf9ab807500d0d02793339457f52b1914b90}{cudf\+::replace\+\_\+policy\+::\+PRECEDING}}
+, \mbox{\hyperlink{group__transformation__replace_gga7cdbc9bc3671930a743c86f36c38abf9ac172d52647d4fd6f81a2c3110d150c6a}{cudf\+::replace\+\_\+policy\+::\+FOLLOWING}}
+ \}
+\begin{DoxyCompactList}\small\item\em Policy to specify the position of replacement values relative to null rows \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__replace_gaebc49ddd15a8081dd2f99656de6f9d65}{cudf\+::replace\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&replacement, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Replaces all null values in a column with corresponding values of another column \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__replace_gae7795cfacadd6c1f100661afcfa0b63a}{cudf\+::replace\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&replacement, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Replaces all null values in a column with a scalar. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__replace_ga6240f27d9015ee38e957231c075ccb94}{cudf\+::replace\+\_\+nulls}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{group__transformation__replace_ga7cdbc9bc3671930a743c86f36c38abf9}{replace\+\_\+policy}} const \&\mbox{\hyperlink{group__transformation__replace_ga7cdbc9bc3671930a743c86f36c38abf9}{replace\+\_\+policy}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Replaces all null values in a column with the first non-\/null value that precedes/follows. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__replace_ga63c76ec5fe77cb120d7100885bcddc5a}{cudf\+::replace\+\_\+nans}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&replacement, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Replaces all NaN values in a column with corresponding values from another column \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__replace_ga1276ab849fe5b0bef1024d0bcb4fc650}{cudf\+::replace\+\_\+nans}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&replacement, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Replaces all NaN values in a column with a scalar \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__replace_ga651a5fd9cf77f0ecaa9113715003fb7b}{cudf\+::find\+\_\+and\+\_\+replace\+\_\+all}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input\+\_\+col, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&values\+\_\+to\+\_\+replace, \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&replacement\+\_\+values, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Return a copy of {\ttfamily input\+\_\+col} replacing any {\ttfamily values\+\_\+to\+\_\+replace\mbox{[}i\mbox{]}} found with {\ttfamily replacement\+\_\+values\mbox{[}i\mbox{]}}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__replace_gad6469ac807630034caf052c9e424712c}{cudf\+::clamp}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&lo, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&lo\+\_\+replace, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&hi, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&hi\+\_\+replace, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Replaces values less than {\ttfamily lo} in {\ttfamily input} with {\ttfamily lo\+\_\+replace}, and values greater than {\ttfamily hi} with {\ttfamily hi\+\_\+replace}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__replace_ga66a4270774c8c677a191d3aae79bb918}{cudf\+::clamp}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&lo, \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const \&hi, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Replaces values less than {\ttfamily lo} in {\ttfamily input} with {\ttfamily lo}, and values greater than {\ttfamily hi} with {\ttfamily hi}. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__transformation__replace_ga476eec13cde16b1ab30950a56317e5f6}{cudf\+::normalize\+\_\+nans\+\_\+and\+\_\+zeros}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&input, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Copies from a column of floating-\/point elements and replaces {\ttfamily -\/NaN} and {\ttfamily -\/0.\+0} with {\ttfamily +NaN} and {\ttfamily +0.\+0}, respectively. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__transformation__replace_gab2e8dd1b37b4175001b89219ab8ac96f}{cudf\+::normalize\+\_\+nans\+\_\+and\+\_\+zeros}} (\mbox{\hyperlink{classcudf_1_1mutable__column__view}{mutable\+\_\+column\+\_\+view}} \&in\+\_\+out)
+\begin{DoxyCompactList}\small\item\em Modifies a column of floating-\/point elements to replace all {\ttfamily -\/NaN} and {\ttfamily -\/0.\+0} with {\ttfamily +NaN} and {\ttfamily +0.\+0}, respectively. \end{DoxyCompactList}\end{DoxyCompactItemize}

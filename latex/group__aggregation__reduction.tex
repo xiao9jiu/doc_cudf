@@ -1,0 +1,266 @@
+\doxysection{Aggregation\+\_\+reduction}
+\hypertarget{group__aggregation__reduction}{}\label{group__aggregation__reduction}\index{Aggregation\_reduction@{Aggregation\_reduction}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{reduction_8hpp}{reduction.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{枚举}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{group__aggregation__reduction_ga269c5a531bd3bb4da9ebe4590db028af}{cudf\+::scan\+\_\+type}} \+: bool \{ \mbox{\hyperlink{group__aggregation__reduction_gga269c5a531bd3bb4da9ebe4590db028afa572d795e2d044f895cc511e5c05030e5}{cudf\+::scan\+\_\+type\+::\+INCLUSIVE}}
+, \mbox{\hyperlink{group__aggregation__reduction_gga269c5a531bd3bb4da9ebe4590db028afaf45c3a0bb3687ed8e221253b3fd4a2ce}{cudf\+::scan\+\_\+type\+::\+EXCLUSIVE}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enum to describe scan operation type \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ \mbox{\hyperlink{group__aggregation__reduction_ga1b3faf704898312ede74e2eaf9e2c61d}{cudf\+::reduce}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&col, \mbox{\hyperlink{classcudf_1_1reduce__aggregation}{reduce\+\_\+aggregation}} const \&agg, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+dtype, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Computes the reduction of the values in all rows of a column. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ \mbox{\hyperlink{group__aggregation__reduction_ga6af30addbb5627dc0b7015b666d23dc5}{cudf\+::reduce}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&col, \mbox{\hyperlink{classcudf_1_1reduce__aggregation}{reduce\+\_\+aggregation}} const \&agg, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+dtype, std\+::optional$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const $>$ $>$ init, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Computes the reduction of the values in all rows of a column with an initial value. Only SUM, PRODUCT, MIN, MAX, ANY, and ALL aggregations are supported. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__aggregation__reduction_ga1d869bccacd9721819dd30c389064fc4}{cudf\+::segmented\+\_\+reduce}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&segmented\+\_\+values, \mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$ offsets, \mbox{\hyperlink{classcudf_1_1segmented__reduce__aggregation}{segmented\+\_\+reduce\+\_\+aggregation}} const \&agg, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+dtype, \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Compute reduction of each segment in the input column \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__aggregation__reduction_gab64811026e57fa60c6b8d633713d30ac}{cudf\+::segmented\+\_\+reduce}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&segmented\+\_\+values, \mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$ offsets, \mbox{\hyperlink{classcudf_1_1segmented__reduce__aggregation}{segmented\+\_\+reduce\+\_\+aggregation}} const \&agg, \mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}} output\+\_\+dtype, \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling, std\+::optional$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const $>$ $>$ init, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Compute reduction of each segment in the input column with an initial value. Only SUM, PRODUCT, MIN, MAX, ANY, and ALL aggregations are supported. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ \mbox{\hyperlink{group__aggregation__reduction_ga6453517d2143254e33391a61a8d683e1}{cudf\+::scan}} (const \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} \&input, \mbox{\hyperlink{classcudf_1_1scan__aggregation}{scan\+\_\+aggregation}} const \&agg, \mbox{\hyperlink{group__aggregation__reduction_ga269c5a531bd3bb4da9ebe4590db028af}{scan\+\_\+type}} \mbox{\hyperlink{group__label__bins_gabadbffbcb403fac1ff712330ea10f2b3}{inclusive}}, \mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}} null\+\_\+handling=\mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}{null\+\_\+policy\+::\+EXCLUDE}}, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Computes the scan of a column. \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ $>$ \mbox{\hyperlink{group__aggregation__reduction_ga4647f39dcd6c0e1bd10510ed27ec1b66}{cudf\+::minmax}} (\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&col, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Determines the minimum and maximum values of a column. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{枚举类型说明}
+\Hypertarget{group__aggregation__reduction_ga269c5a531bd3bb4da9ebe4590db028af}\label{group__aggregation__reduction_ga269c5a531bd3bb4da9ebe4590db028af} 
+\index{Aggregation\_reduction@{Aggregation\_reduction}!scan\_type@{scan\_type}}
+\index{scan\_type@{scan\_type}!Aggregation\_reduction@{Aggregation\_reduction}}
+\doxysubsubsection{\texorpdfstring{scan\_type}{scan\_type}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{group__aggregation__reduction_ga269c5a531bd3bb4da9ebe4590db028af}{cudf\+::scan\+\_\+type}} \+: bool\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Enum to describe scan operation type 
+
+\begin{DoxyEnumFields}{枚举值}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INCLUSIVE@{INCLUSIVE}!Aggregation\_reduction@{Aggregation\_reduction}}\index{Aggregation\_reduction@{Aggregation\_reduction}!INCLUSIVE@{INCLUSIVE}}}\Hypertarget{group__aggregation__reduction_gga269c5a531bd3bb4da9ebe4590db028afa572d795e2d044f895cc511e5c05030e5}\label{group__aggregation__reduction_gga269c5a531bd3bb4da9ebe4590db028afa572d795e2d044f895cc511e5c05030e5} 
+INCLUSIVE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EXCLUSIVE@{EXCLUSIVE}!Aggregation\_reduction@{Aggregation\_reduction}}\index{Aggregation\_reduction@{Aggregation\_reduction}!EXCLUSIVE@{EXCLUSIVE}}}\Hypertarget{group__aggregation__reduction_gga269c5a531bd3bb4da9ebe4590db028afaf45c3a0bb3687ed8e221253b3fd4a2ce}\label{group__aggregation__reduction_gga269c5a531bd3bb4da9ebe4590db028afaf45c3a0bb3687ed8e221253b3fd4a2ce} 
+EXCLUSIVE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+在文件 \mbox{\hyperlink{reduction_8hpp_source}{reduction.\+hpp}} 第 \mbox{\hyperlink{reduction_8hpp_source_l00036}{36}} 行定义.
+
+
+
+\doxysubsection{函数说明}
+\Hypertarget{group__aggregation__reduction_ga4647f39dcd6c0e1bd10510ed27ec1b66}\label{group__aggregation__reduction_ga4647f39dcd6c0e1bd10510ed27ec1b66} 
+\index{Aggregation\_reduction@{Aggregation\_reduction}!minmax@{minmax}}
+\index{minmax@{minmax}!Aggregation\_reduction@{Aggregation\_reduction}}
+\doxysubsubsection{\texorpdfstring{minmax()}{minmax()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ $>$ cudf\+::minmax (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{col,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Determines the minimum and maximum values of a column. 
+
+
+\begin{DoxyParams}{参数}
+{\em col} & column to compute minmax \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned column\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+A std\+::pair of scalars with the first scalar being the minimum value and the second scalar being the maximum value of the input column. 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__reduction_ga1b3faf704898312ede74e2eaf9e2c61d}\label{group__aggregation__reduction_ga1b3faf704898312ede74e2eaf9e2c61d} 
+\index{Aggregation\_reduction@{Aggregation\_reduction}!reduce@{reduce}}
+\index{reduce@{reduce}!Aggregation\_reduction@{Aggregation\_reduction}}
+\doxysubsubsection{\texorpdfstring{reduce()}{reduce()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ cudf\+::reduce (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{col,  }\item[{\mbox{\hyperlink{classcudf_1_1reduce__aggregation}{reduce\+\_\+aggregation}} const \&}]{agg,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{output\+\_\+dtype,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Computes the reduction of the values in all rows of a column. 
+
+This function does not detect overflows in reductions. Using a higher precision {\ttfamily \doxylink{classcudf_1_1data__type}{data\+\_\+type}} may prevent overflow. Only {\ttfamily min} and {\ttfamily max} ops are supported for reduction of non-\/arithmetic types (timestamp, string...). The null values are skipped for the operation. If the column is empty, the member {\ttfamily \doxylink{group__transformation__unaryops_ga6add319b999ddaa1ccf3477599fdc0bc}{is\+\_\+valid()}} of the output scalar will contain {\ttfamily false}.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if reduction is called for non-\/arithmetic output type and operator other than {\ttfamily min} and {\ttfamily max}. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if input column data type is not convertible to output data type. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily min} or {\ttfamily max} reduction is called and the output type does not match the input column data type. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily any} or {\ttfamily all} reduction is called and the output type is not bool8. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily mean}, {\ttfamily var}, or {\ttfamily std} reduction is called and the output type is not floating point.\\
+\hline
+\end{DoxyExceptions}
+If the input column has arithmetic type, output\+\_\+dtype can be any arithmetic type. If the input column has non-\/arithmetic type, e.\+g. timestamp or string, the same output type must be specified.
+
+If the reduction fails, the member is\+\_\+valid of the output scalar will contain {\ttfamily false}.
+
+
+\begin{DoxyParams}{参数}
+{\em col} & Input column view \\
+\hline
+{\em agg} & Aggregation operator applied by the reduction \\
+\hline
+{\em output\+\_\+dtype} & The computation and output precision \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned scalar\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Output scalar with reduce result 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__reduction_ga6af30addbb5627dc0b7015b666d23dc5}\label{group__aggregation__reduction_ga6af30addbb5627dc0b7015b666d23dc5} 
+\index{Aggregation\_reduction@{Aggregation\_reduction}!reduce@{reduce}}
+\index{reduce@{reduce}!Aggregation\_reduction@{Aggregation\_reduction}}
+\doxysubsubsection{\texorpdfstring{reduce()}{reduce()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} $>$ cudf\+::reduce (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{col,  }\item[{\mbox{\hyperlink{classcudf_1_1reduce__aggregation}{reduce\+\_\+aggregation}} const \&}]{agg,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{output\+\_\+dtype,  }\item[{std\+::optional$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const $>$ $>$}]{init,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Computes the reduction of the values in all rows of a column with an initial value. Only SUM, PRODUCT, MIN, MAX, ANY, and ALL aggregations are supported. 
+
+
+\begin{DoxyParams}{参数}
+{\em col} & Input column view \\
+\hline
+{\em agg} & Aggregation operator applied by the reduction \\
+\hline
+{\em output\+\_\+dtype} & The computation and output precision \\
+\hline
+{\em init} & The initial value of the reduction \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned scalar\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Output scalar with reduce result 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__reduction_ga6453517d2143254e33391a61a8d683e1}\label{group__aggregation__reduction_ga6453517d2143254e33391a61a8d683e1} 
+\index{Aggregation\_reduction@{Aggregation\_reduction}!scan@{scan}}
+\index{scan@{scan}!Aggregation\_reduction@{Aggregation\_reduction}}
+\doxysubsubsection{\texorpdfstring{scan()}{scan()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::scan (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} \&}]{input,  }\item[{\mbox{\hyperlink{classcudf_1_1scan__aggregation}{scan\+\_\+aggregation}} const \&}]{agg,  }\item[{\mbox{\hyperlink{group__aggregation__reduction_ga269c5a531bd3bb4da9ebe4590db028af}{scan\+\_\+type}}}]{inclusive,  }\item[{\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}}}]{null\+\_\+handling = {\ttfamily \mbox{\hyperlink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}{null\+\_\+policy\+::\+EXCLUDE}}},  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Computes the scan of a column. 
+
+The null values are skipped for the operation, and if an input element at {\ttfamily i} is null, then the output element at {\ttfamily i} will also be null.
+
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if column datatype is not numeric type.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em input} & The input column view for the scan \\
+\hline
+\mbox{\texttt{ in}}  & {\em agg} & unique\+\_\+ptr to aggregation operator applied by the scan \\
+\hline
+\mbox{\texttt{ in}}  & {\em inclusive} & The flag for applying an inclusive scan if \doxylink{group__aggregation__reduction_gga269c5a531bd3bb4da9ebe4590db028afa572d795e2d044f895cc511e5c05030e5}{scan\+\_\+type\+::\+INCLUSIVE}, an exclusive scan if \doxylink{group__aggregation__reduction_gga269c5a531bd3bb4da9ebe4590db028afaf45c3a0bb3687ed8e221253b3fd4a2ce}{scan\+\_\+type\+::\+EXCLUSIVE}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em null\+\_\+handling} & Exclude null values when computing the result if \doxylink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a4f34e973c167c2296f66c7986cb558f8}{null\+\_\+policy\+::\+EXCLUDE}. Include nulls if \doxylink{group__utility__types_gga1b8cda4afb95a7c42c4679b4fae61009a04ff6a9583ba9957ebe1128d0f988ad8}{null\+\_\+policy\+::\+INCLUDE}. Any operation with a null results in a null. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mr} & Device memory resource used to allocate the returned scalar\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Scanned output column 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__reduction_ga1d869bccacd9721819dd30c389064fc4}\label{group__aggregation__reduction_ga1d869bccacd9721819dd30c389064fc4} 
+\index{Aggregation\_reduction@{Aggregation\_reduction}!segmented\_reduce@{segmented\_reduce}}
+\index{segmented\_reduce@{segmented\_reduce}!Aggregation\_reduction@{Aggregation\_reduction}}
+\doxysubsubsection{\texorpdfstring{segmented\_reduce()}{segmented\_reduce()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::segmented\+\_\+reduce (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{segmented\+\_\+values,  }\item[{\mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$}]{offsets,  }\item[{\mbox{\hyperlink{classcudf_1_1segmented__reduce__aggregation}{segmented\+\_\+reduce\+\_\+aggregation}} const \&}]{agg,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{output\+\_\+dtype,  }\item[{\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}}}]{null\+\_\+handling,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Compute reduction of each segment in the input column 
+
+This function does not detect overflows in reductions. When given integral and floating point inputs, their values are promoted to {\ttfamily int64\+\_\+t} and {\ttfamily double} respectively to compute, and casted to {\ttfamily output\+\_\+dtype} before returning.
+
+Null values are treated as identities during reduction.
+
+If the segment is empty, the row corresponding to the result of the segment is null.
+
+If any index in {\ttfamily offsets} is out of bound of {\ttfamily segmented\+\_\+values} , the behavior is undefined.
+
+\begin{DoxyNote}{注解}
+If the input column has arithmetic type, output\+\_\+dtype can be any arithmetic type. If the input column has non-\/arithmetic type, e.\+g. timestamp, the same output type must be specified.
+
+If input is not empty, the result is always nullable.
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if reduction is called for non-\/arithmetic output type and operator other than {\ttfamily min} and {\ttfamily max}. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if input column data type is not convertible to output data type. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily min} or {\ttfamily max} reduction is called and the output type does not match the input column data type. \\
+\hline
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if {\ttfamily any} or {\ttfamily all} reduction is called and the output type is not bool8.\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{参数}
+{\em segmented\+\_\+values} & Column view of segmented inputs \\
+\hline
+{\em offsets} & Each segment\textquotesingle{}s offset of {\ttfamily segmented\+\_\+values}. A list of offsets with size {\ttfamily num\+\_\+segments + 1}. The size of {\ttfamily i}th segment is {\ttfamily offsets\mbox{[}i+1\mbox{]} -\/ offsets\mbox{[}i\mbox{]}}. \\
+\hline
+{\em agg} & Aggregation operator applied by the reduction \\
+\hline
+{\em output\+\_\+dtype} & The output precision \\
+\hline
+{\em null\+\_\+handling} & If {\ttfamily INCLUDE}, the reduction is valid if all elements in a segment are valid, otherwise null. If {\ttfamily EXCLUDE}, the reduction is valid if any element in the segment is valid, otherwise null. \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned scalar\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Output column with results of segmented reduction 
+\end{DoxyReturn}
+\Hypertarget{group__aggregation__reduction_gab64811026e57fa60c6b8d633713d30ac}\label{group__aggregation__reduction_gab64811026e57fa60c6b8d633713d30ac} 
+\index{Aggregation\_reduction@{Aggregation\_reduction}!segmented\_reduce@{segmented\_reduce}}
+\index{segmented\_reduce@{segmented\_reduce}!Aggregation\_reduction@{Aggregation\_reduction}}
+\doxysubsubsection{\texorpdfstring{segmented\_reduce()}{segmented\_reduce()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1column}{column}} $>$ cudf\+::segmented\+\_\+reduce (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcudf_1_1column__view}{column\+\_\+view}} const \&}]{segmented\+\_\+values,  }\item[{\mbox{\hyperlink{structcudf_1_1device__span}{device\+\_\+span}}$<$ \mbox{\hyperlink{group__utility__types_ga0aff16b2db009d92300befaca11827e9}{size\+\_\+type}} const $>$}]{offsets,  }\item[{\mbox{\hyperlink{classcudf_1_1segmented__reduce__aggregation}{segmented\+\_\+reduce\+\_\+aggregation}} const \&}]{agg,  }\item[{\mbox{\hyperlink{classcudf_1_1data__type}{data\+\_\+type}}}]{output\+\_\+dtype,  }\item[{\mbox{\hyperlink{group__utility__types_ga1b8cda4afb95a7c42c4679b4fae61009}{null\+\_\+policy}}}]{null\+\_\+handling,  }\item[{std\+::optional$<$ std\+::reference\+\_\+wrapper$<$ \mbox{\hyperlink{classcudf_1_1scalar}{scalar}} const $>$ $>$}]{init,  }\item[{rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}}]{mr = {\ttfamily rmm\+:\+:mr\+:\+:get\+\_\+current\+\_\+device\+\_\+resource()} }\end{DoxyParamCaption})}
+
+
+
+Compute reduction of each segment in the input column with an initial value. Only SUM, PRODUCT, MIN, MAX, ANY, and ALL aggregations are supported. 
+
+
+\begin{DoxyParams}{参数}
+{\em segmented\+\_\+values} & Column view of segmented inputs \\
+\hline
+{\em offsets} & Each segment\textquotesingle{}s offset of {\ttfamily segmented\+\_\+values}. A list of offsets with size {\ttfamily num\+\_\+segments + 1}. The size of {\ttfamily i}th segment is {\ttfamily offsets\mbox{[}i+1\mbox{]} -\/ offsets\mbox{[}i\mbox{]}}. \\
+\hline
+{\em agg} & Aggregation operator applied by the reduction \\
+\hline
+{\em output\+\_\+dtype} & The output precision \\
+\hline
+{\em null\+\_\+handling} & If {\ttfamily INCLUDE}, the reduction is valid if all elements in a segment are valid, otherwise null. If {\ttfamily EXCLUDE}, the reduction is valid if any element in the segment is valid, otherwise null. \\
+\hline
+{\em init} & The initial value of the reduction \\
+\hline
+{\em mr} & Device memory resource used to allocate the returned scalar\textquotesingle{}s device memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+Output column with results of segmented reduction. 
+\end{DoxyReturn}

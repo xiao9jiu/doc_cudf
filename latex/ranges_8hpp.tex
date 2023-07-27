@@ -1,0 +1,58 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/detail/nvtx/ranges.hpp 文件参考}
+\hypertarget{ranges_8hpp}{}\label{ranges_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/detail/nvtx/ranges.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/detail/nvtx/ranges.hpp}}
+{\ttfamily \#include \"{}nvtx3.\+hpp\"{}}\newline
+ranges.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{ranges_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1libcudf__domain}{cudf\+::libcudf\+\_\+domain}}
+\begin{DoxyCompactList}\small\item\em Tag type for libcudf\textquotesingle{}s NVTX domain. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{宏定义}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ranges_8hpp_a09e8db474fa154cbd7ab79a22025bda4}{CUDF\+\_\+\+FUNC\+\_\+\+RANGE}}()~\mbox{\hyperlink{nvtx3_8hpp_a5e20d020db37fe0012d1cf2b9dbcd83b}{NVTX3\+\_\+\+FUNC\+\_\+\+RANGE\+\_\+\+IN}}(\mbox{\hyperlink{structcudf_1_1libcudf__domain}{cudf\+::libcudf\+\_\+domain}})
+\begin{DoxyCompactList}\small\item\em Convenience macro for generating an NVTX range in the {\ttfamily libcudf} domain from the lifetime of a function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{类型定义}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacecudf_aff73bd537f5aa6cb5eaea205ddad27d1}{cudf\+::thread\+\_\+range}} = \mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{\+::nvtx3\+::domain\+\_\+thread\+\_\+range}}$<$ \mbox{\hyperlink{structcudf_1_1libcudf__domain}{libcudf\+\_\+domain}} $>$
+\begin{DoxyCompactList}\small\item\em Alias for an NVTX range in the libcudf domain. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{宏定义说明}
+\Hypertarget{ranges_8hpp_a09e8db474fa154cbd7ab79a22025bda4}\label{ranges_8hpp_a09e8db474fa154cbd7ab79a22025bda4} 
+\index{ranges.hpp@{ranges.hpp}!CUDF\_FUNC\_RANGE@{CUDF\_FUNC\_RANGE}}
+\index{CUDF\_FUNC\_RANGE@{CUDF\_FUNC\_RANGE}!ranges.hpp@{ranges.hpp}}
+\doxysubsubsection{\texorpdfstring{CUDF\_FUNC\_RANGE}{CUDF\_FUNC\_RANGE}}
+{\footnotesize\ttfamily \#define CUDF\+\_\+\+FUNC\+\_\+\+RANGE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\mbox{\hyperlink{nvtx3_8hpp_a5e20d020db37fe0012d1cf2b9dbcd83b}{NVTX3\+\_\+\+FUNC\+\_\+\+RANGE\+\_\+\+IN}}(\mbox{\hyperlink{structcudf_1_1libcudf__domain}{cudf\+::libcudf\+\_\+domain}})}
+
+
+
+Convenience macro for generating an NVTX range in the {\ttfamily libcudf} domain from the lifetime of a function. 
+
+Uses the name of the immediately enclosing function returned by {\ttfamily \+\_\+\+\_\+func\+\_\+\+\_\+} to name the range.
+
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ some\_function()\{}
+\DoxyCodeLine{\ \ \ \mbox{\hyperlink{ranges_8hpp_a09e8db474fa154cbd7ab79a22025bda4}{CUDF\_FUNC\_RANGE}}();}
+\DoxyCodeLine{\ \ \ ...}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+
+在文件 \mbox{\hyperlink{ranges_8hpp_source}{ranges.\+hpp}} 第 \mbox{\hyperlink{ranges_8hpp_source_l00051}{51}} 行定义.
+

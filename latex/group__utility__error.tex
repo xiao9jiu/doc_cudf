@@ -1,0 +1,154 @@
+\doxysection{Utility\+\_\+error}
+\hypertarget{group__utility__error}{}\label{group__utility__error}\index{Utility\_error@{Utility\_error}}
+\doxysubsubsection*{文件}
+\begin{DoxyCompactItemize}
+\item 
+文件 \mbox{\hyperlink{error_8hpp}{error.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}}
+\begin{DoxyCompactList}\small\item\em Exception thrown when logical precondition is violated. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1cuda__error}{cudf\+::cuda\+\_\+error}}
+\begin{DoxyCompactList}\small\item\em Exception thrown when a CUDA error is encountered. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcudf_1_1fatal__cuda__error}{cudf\+::fatal\+\_\+cuda\+\_\+error}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{宏定义}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__utility__error_ga855a389cbf4b44cfd6891cd2f90edf34}{CUDF\+\_\+\+EXPECTS}}(cond,  reason)
+\begin{DoxyCompactList}\small\item\em Macro for checking (pre-\/)conditions that throws an exception when a condition is violated. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utility__error_ga8fec215b7e7785312d292d75f797ccc1}{CUDF\+\_\+\+FAIL}}(reason)~  throw \mbox{\hyperlink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}}(\"{}cu\+DF failure at\+: \"{} \+\_\+\+\_\+\+FILE\+\_\+\+\_\+ \"{}\+:\"{} \mbox{\hyperlink{error_8hpp_a5f5d02e10169c2bbee4f3b8a66f64164}{CUDF\+\_\+\+STRINGIFY}}(\+\_\+\+\_\+\+LINE\+\_\+\+\_\+) \"{}\+: \"{} reason)
+\begin{DoxyCompactList}\small\item\em Indicates that an erroneous code path has been taken. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utility__error_gaeb308ca6145fb2250acd4e7651dec984}{CUDF\+\_\+\+CUDA\+\_\+\+TRY}}(call)
+\begin{DoxyCompactList}\small\item\em Error checking macro for CUDA runtime API functions. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__utility__error_gaa37ff3115a47c6d658f1603746e54134}{CUDF\+\_\+\+CHECK\+\_\+\+CUDA}}(stream)
+\begin{DoxyCompactList}\small\item\em Debug macro to check for CUDA errors \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+\doxysubsection{宏定义说明}
+\Hypertarget{group__utility__error_gaa37ff3115a47c6d658f1603746e54134}\label{group__utility__error_gaa37ff3115a47c6d658f1603746e54134} 
+\index{Utility\_error@{Utility\_error}!CUDF\_CHECK\_CUDA@{CUDF\_CHECK\_CUDA}}
+\index{CUDF\_CHECK\_CUDA@{CUDF\_CHECK\_CUDA}!Utility\_error@{Utility\_error}}
+\doxysubsubsection{\texorpdfstring{CUDF\_CHECK\_CUDA}{CUDF\_CHECK\_CUDA}}
+{\footnotesize\ttfamily \#define CUDF\+\_\+\+CHECK\+\_\+\+CUDA(\begin{DoxyParamCaption}\item[{}]{stream }\end{DoxyParamCaption})}
+
+{\bfseries 值\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{do}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ CUDF\_CUDA\_TRY(cudaStreamSynchronize(stream));\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ CUDF\_CUDA\_TRY(cudaPeekAtLastError());\ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \}\ \textcolor{keywordflow}{while}\ (0);}
+
+\end{DoxyCode}
+
+
+Debug macro to check for CUDA errors 
+
+In a non-\/release build, this macro will synchronize the specified stream before error checking. In both release and non-\/release builds, this macro checks for any pending CUDA errors from previous calls. If an error is reported, an exception is thrown detailing the CUDA error that occurred.
+
+The intent of this macro is to provide a mechanism for synchronous and deterministic execution for debugging asynchronous CUDA execution. It should be used after any asynchronous CUDA call, e.\+g., cuda\+Memcpy\+Async, or an asynchronous kernel launch. 
+
+在文件 \mbox{\hyperlink{error_8hpp_source}{error.\+hpp}} 第 \mbox{\hyperlink{error_8hpp_source_l00185}{185}} 行定义.
+
+\Hypertarget{group__utility__error_gaeb308ca6145fb2250acd4e7651dec984}\label{group__utility__error_gaeb308ca6145fb2250acd4e7651dec984} 
+\index{Utility\_error@{Utility\_error}!CUDF\_CUDA\_TRY@{CUDF\_CUDA\_TRY}}
+\index{CUDF\_CUDA\_TRY@{CUDF\_CUDA\_TRY}!Utility\_error@{Utility\_error}}
+\doxysubsubsection{\texorpdfstring{CUDF\_CUDA\_TRY}{CUDF\_CUDA\_TRY}}
+{\footnotesize\ttfamily \#define CUDF\+\_\+\+CUDA\+\_\+\+TRY(\begin{DoxyParamCaption}\item[{}]{call }\end{DoxyParamCaption})}
+
+{\bfseries 值\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{do}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ cudaError\_t\ \textcolor{keyword}{const}\ status\ =\ (call);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ if\ (cudaSuccess\ !=\ status)\ \{\ cudf::detail::throw\_cuda\_error(status,\ \_\_FILE\_\_,\ \_\_LINE\_\_);\ \}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \}\ \textcolor{keywordflow}{while}\ (0);}
+
+\end{DoxyCode}
+
+
+Error checking macro for CUDA runtime API functions. 
+
+Invokes a CUDA runtime API function call, if the call does not return cuda\+Success, invokes cuda\+Get\+Last\+Error() to clear the error and throws an exception detailing the CUDA error that occurred 
+
+在文件 \mbox{\hyperlink{error_8hpp_source}{error.\+hpp}} 第 \mbox{\hyperlink{error_8hpp_source_l00165}{165}} 行定义.
+
+\Hypertarget{group__utility__error_ga855a389cbf4b44cfd6891cd2f90edf34}\label{group__utility__error_ga855a389cbf4b44cfd6891cd2f90edf34} 
+\index{Utility\_error@{Utility\_error}!CUDF\_EXPECTS@{CUDF\_EXPECTS}}
+\index{CUDF\_EXPECTS@{CUDF\_EXPECTS}!Utility\_error@{Utility\_error}}
+\doxysubsubsection{\texorpdfstring{CUDF\_EXPECTS}{CUDF\_EXPECTS}}
+{\footnotesize\ttfamily \#define CUDF\+\_\+\+EXPECTS(\begin{DoxyParamCaption}\item[{}]{cond,  }\item[{}]{reason }\end{DoxyParamCaption})}
+
+{\bfseries 值\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ (!!(cond))\ ?\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{void}\textcolor{keyword}{>}(0)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ :\ throw\ \mbox{\hyperlink{namespacecudf}{cudf}}::logic\_error(\textcolor{stringliteral}{"{}cuDF\ failure\ at:\ "{}}\ \_\_FILE\_\_\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}:"{}}\ \mbox{\hyperlink{error_8hpp_a5f5d02e10169c2bbee4f3b8a66f64164}{CUDF\_STRINGIFY}}(\_\_LINE\_\_)\ \textcolor{stringliteral}{"{}:\ "{}}\ reason)}
+
+\end{DoxyCode}
+
+
+Macro for checking (pre-\/)conditions that throws an exception when a condition is violated. 
+
+Example usage\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{group__utility__error_ga855a389cbf4b44cfd6891cd2f90edf34}{CUDF\_EXPECTS}}(lhs-\/>dtype\ ==\ rhs-\/>dtype,\ \textcolor{stringliteral}{"{}Column\ type\ mismatch"{}});}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em cond} & Expression that evaluates to true or false \\
+\hline
+\mbox{\texttt{ in}}  & {\em reason} & String literal description of the reason that cond is expected to be true \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{异常}
+{\em \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}} & if the condition evaluates to false. \\
+\hline
+\end{DoxyExceptions}
+
+
+在文件 \mbox{\hyperlink{error_8hpp_source}{error.\+hpp}} 第 \mbox{\hyperlink{error_8hpp_source_l00113}{113}} 行定义.
+
+\Hypertarget{group__utility__error_ga8fec215b7e7785312d292d75f797ccc1}\label{group__utility__error_ga8fec215b7e7785312d292d75f797ccc1} 
+\index{Utility\_error@{Utility\_error}!CUDF\_FAIL@{CUDF\_FAIL}}
+\index{CUDF\_FAIL@{CUDF\_FAIL}!Utility\_error@{Utility\_error}}
+\doxysubsubsection{\texorpdfstring{CUDF\_FAIL}{CUDF\_FAIL}}
+{\footnotesize\ttfamily \#define CUDF\+\_\+\+FAIL(\begin{DoxyParamCaption}\item[{}]{reason }\end{DoxyParamCaption})~  throw \mbox{\hyperlink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}}(\"{}cu\+DF failure at\+: \"{} \+\_\+\+\_\+\+FILE\+\_\+\+\_\+ \"{}\+:\"{} \mbox{\hyperlink{error_8hpp_a5f5d02e10169c2bbee4f3b8a66f64164}{CUDF\+\_\+\+STRINGIFY}}(\+\_\+\+\_\+\+LINE\+\_\+\+\_\+) \"{}\+: \"{} reason)}
+
+
+
+Indicates that an erroneous code path has been taken. 
+
+In host code, throws a {\ttfamily \doxylink{structcudf_1_1logic__error}{cudf\+::logic\+\_\+error}}.
+
+Example usage\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{group__utility__error_ga8fec215b7e7785312d292d75f797ccc1}{CUDF\_FAIL}}(\textcolor{stringliteral}{"{}Non-\/arithmetic\ operation\ is\ not\ supported"{}});}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em reason} & String literal description of the reason \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{error_8hpp_source}{error.\+hpp}} 第 \mbox{\hyperlink{error_8hpp_source_l00131}{131}} 行定义.
+

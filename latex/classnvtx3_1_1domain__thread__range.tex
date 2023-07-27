@@ -1,0 +1,226 @@
+\doxysection{nvtx3\+::domain\+\_\+thread\+\_\+range\texorpdfstring{$<$}{<} D \texorpdfstring{$>$}{>} 模板类 参考}
+\hypertarget{classnvtx3_1_1domain__thread__range}{}\label{classnvtx3_1_1domain__thread__range}\index{nvtx3::domain\_thread\_range$<$ D $>$@{nvtx3::domain\_thread\_range$<$ D $>$}}
+
+
+A RAII object for creating a NVTX range local to a thread within a domain.  
+
+
+
+
+{\ttfamily \#include $<$nvtx3.\+hpp$>$}
+
+
+
+nvtx3\+::domain\+\_\+thread\+\_\+range\texorpdfstring{$<$}{<} D \texorpdfstring{$>$}{>} 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{classnvtx3_1_1domain__thread__range__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnvtx3_1_1domain__thread__range_aad1f83022801580e3fdadde8edfb8cd7}{domain\+\_\+thread\+\_\+range}} (\mbox{\hyperlink{classnvtx3_1_1event__attributes}{event\+\_\+attributes}} const \&attr) noexcept
+\begin{DoxyCompactList}\small\item\em Construct a {\ttfamily \doxylink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}} with the specified {\ttfamily \doxylink{classnvtx3_1_1event__attributes}{event\+\_\+attributes}} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename First , typename... Args, typename  = typename std\+::enable\+\_\+if$<$              not std\+::is\+\_\+same\+\_\+v$<$event\+\_\+attributes, typename std\+::decay$<$\+First$>$$>$$>$$>$ }\\\mbox{\hyperlink{classnvtx3_1_1domain__thread__range_a29a95b3bfa8a0addc97bb089bc5d602f}{domain\+\_\+thread\+\_\+range}} (First const \&first, Args const \&... args) noexcept
+\begin{DoxyCompactList}\small\item\em Constructs a {\ttfamily \doxylink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}} from the constructor arguments of an {\ttfamily \doxylink{classnvtx3_1_1event__attributes}{event\+\_\+attributes}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnvtx3_1_1domain__thread__range_a6961ab52f312bddc440b331c9f06b5b8}{domain\+\_\+thread\+\_\+range}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor creates a {\ttfamily \doxylink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}} with no message, color, payload, nor category. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnvtx3_1_1domain__thread__range_a6bffcde3cabc979ffa3f2f95d44283c9}{domain\+\_\+thread\+\_\+range}} (\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}} const \&)=delete
+\item 
+\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}} \& \mbox{\hyperlink{classnvtx3_1_1domain__thread__range_a50f512d0e2fb0e570a197b7d23699229}{operator=}} (\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}} const \&)=delete
+\item 
+\mbox{\hyperlink{classnvtx3_1_1domain__thread__range_a6c22596befe7f8034a8f511dc00d06a7}{domain\+\_\+thread\+\_\+range}} (\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}} \&\&)=delete
+\item 
+\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}} \& \mbox{\hyperlink{classnvtx3_1_1domain__thread__range_a64a3d493078f60c4aa4ca5677e0b686c}{operator=}} (\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}} \&\&)=delete
+\item 
+\mbox{\hyperlink{classnvtx3_1_1domain__thread__range_a7a9551da139931ca8200ee9cc64d967e}{\texorpdfstring{$\sim$}{\string~}domain\+\_\+thread\+\_\+range}} () noexcept
+\begin{DoxyCompactList}\small\item\em Destroy the \doxylink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}, ending the NVTX range event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+\subsubsection*{template$<$class D = domain\+::global$>$\newline
+class nvtx3\+::domain\+\_\+thread\+\_\+range$<$ D $>$}
+A RAII object for creating a NVTX range local to a thread within a domain. 
+
+When constructed, begins a nested NVTX range on the calling thread in the specified domain. Upon destruction, ends the NVTX range.
+
+Behavior is undefined if a {\ttfamily \doxylink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}} object is created/destroyed on different threads.
+
+{\ttfamily \doxylink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}} is neither moveable nor copyable.
+
+{\ttfamily \doxylink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}}s may be nested within other ranges.
+
+The domain of the range is specified by the template type parameter {\ttfamily D}. By default, the {\ttfamily \doxylink{structnvtx3_1_1domain_1_1global}{domain\+::global}} is used, which scopes the range to the global NVTX domain. The convenience alias {\ttfamily thread\+\_\+range} is provided for ranges scoped to the global domain.
+
+A custom domain can be defined by creating a type, {\ttfamily D}, with a static member {\ttfamily D\+::name} whose value is used to name the domain associated with {\ttfamily D}. {\ttfamily D\+::name} must resolve to either {\ttfamily char const\texorpdfstring{$\ast$}{*}} or {\ttfamily wchar\+\_\+t const\texorpdfstring{$\ast$}{*}}
+
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Define\ a\ type\ \`{}my\_domain`\ with\ a\ member\ \`{}name`\ used\ to\ name\ the\ domain}}
+\DoxyCodeLine{\textcolor{comment}{//\ associated\ with\ the\ type\ \`{}my\_domain`.}}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }my\_domain\{}
+\DoxyCodeLine{\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ name\{\textcolor{stringliteral}{"{}my\ domain"{}}\};}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+Usage\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::domain\_thread\_range<>}}\ r0\{\textcolor{stringliteral}{"{}range\ 0"{}}\};\ \textcolor{comment}{//\ Range\ in\ global\ domain}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::thread\_range}}\ r1\{\textcolor{stringliteral}{"{}range\ 1"{}}\};\ \textcolor{comment}{//\ Alias\ for\ range\ in\ global\ domain}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::domain\_thread\_range<my\_domain>}}\ r2\{\textcolor{stringliteral}{"{}range\ 2"{}}\};\ \textcolor{comment}{//\ Range\ in\ custom}}
+\DoxyCodeLine{domain}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ specify\ an\ alias\ to\ a\ range\ that\ uses\ a\ custom\ domain}}
+\DoxyCodeLine{\textcolor{keyword}{using\ }my\_thread\_range\ =\ \mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::domain\_thread\_range<my\_domain>}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{my\_thread\_range\ r3\{\textcolor{stringliteral}{"{}range\ 3"{}}\};\ \textcolor{comment}{//\ Alias\ for\ range\ in\ custom\ domain}}
+
+\end{DoxyCode}
+ 
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01679}{1679}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classnvtx3_1_1domain__thread__range_aad1f83022801580e3fdadde8edfb8cd7}\label{classnvtx3_1_1domain__thread__range_aad1f83022801580e3fdadde8edfb8cd7} 
+\index{nvtx3::domain\_thread\_range$<$ D $>$@{nvtx3::domain\_thread\_range$<$ D $>$}!domain\_thread\_range@{domain\_thread\_range}}
+\index{domain\_thread\_range@{domain\_thread\_range}!nvtx3::domain\_thread\_range$<$ D $>$@{nvtx3::domain\_thread\_range$<$ D $>$}}
+\doxysubsubsection{\texorpdfstring{domain\_thread\_range()}{domain\_thread\_range()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$class D  = domain\+::global$>$ \\
+\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3\+::domain\+\_\+thread\+\_\+range}}$<$ D $>$\+::domain\+\_\+thread\+\_\+range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnvtx3_1_1event__attributes}{event\+\_\+attributes}} const \&}]{attr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [noexcept]}}
+
+
+
+Construct a {\ttfamily \doxylink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}} with the specified {\ttfamily \doxylink{classnvtx3_1_1event__attributes}{event\+\_\+attributes}} 
+
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1event__attributes}{nvtx3::event\_attributes}}\ attr\{\textcolor{stringliteral}{"{}msg"{}},\ \mbox{\hyperlink{structnvtx3_1_1rgb}{nvtx3::rgb}}\{127,255,0\}\};}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::domain\_thread\_range<>}}\ range\{attr\};\ \textcolor{comment}{//\ Creates\ a\ range\ with\ message}}
+\DoxyCodeLine{contents}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ "{}msg"{}\ and\ green\ color}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em attr} & {\ttfamily \doxylink{classnvtx3_1_1event__attributes}{event\+\_\+attributes}} that describes the desired attributes of the range. \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01696}{1696}} 行定义.
+
+\Hypertarget{classnvtx3_1_1domain__thread__range_a29a95b3bfa8a0addc97bb089bc5d602f}\label{classnvtx3_1_1domain__thread__range_a29a95b3bfa8a0addc97bb089bc5d602f} 
+\index{nvtx3::domain\_thread\_range$<$ D $>$@{nvtx3::domain\_thread\_range$<$ D $>$}!domain\_thread\_range@{domain\_thread\_range}}
+\index{domain\_thread\_range@{domain\_thread\_range}!nvtx3::domain\_thread\_range$<$ D $>$@{nvtx3::domain\_thread\_range$<$ D $>$}}
+\doxysubsubsection{\texorpdfstring{domain\_thread\_range()}{domain\_thread\_range()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily template$<$class D  = domain\+::global$>$ \\
+template$<$typename First , typename... Args, typename  = typename std\+::enable\+\_\+if$<$              not std\+::is\+\_\+same\+\_\+v$<$event\+\_\+attributes, typename std\+::decay$<$\+First$>$$>$$>$$>$ \\
+\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3\+::domain\+\_\+thread\+\_\+range}}$<$ D $>$\+::domain\+\_\+thread\+\_\+range (\begin{DoxyParamCaption}\item[{First const \&}]{first,  }\item[{Args const \&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [noexcept]}}
+
+
+
+Constructs a {\ttfamily \doxylink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}} from the constructor arguments of an {\ttfamily \doxylink{classnvtx3_1_1event__attributes}{event\+\_\+attributes}}. 
+
+Forwards the arguments {\ttfamily first, args...} to construct an {\ttfamily \doxylink{classnvtx3_1_1event__attributes}{event\+\_\+attributes}} object. The {\ttfamily \doxylink{classnvtx3_1_1event__attributes}{event\+\_\+attributes}} object is then associated with the {\ttfamily \doxylink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}}.
+
+For more detail, see {\ttfamily \doxylink{classnvtx3_1_1event__attributes}{event\+\_\+attributes}} documentation.
+
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Creates\ a\ range\ with\ message\ "{}message"{}\ and\ green\ color}}
+\DoxyCodeLine{\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3::domain\_thread\_range<>}}\ r\{\textcolor{stringliteral}{"{}message"{}},\ \mbox{\hyperlink{structnvtx3_1_1rgb}{nvtx3::rgb}}\{127,255,0\}\};}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{注解}
+To prevent making needless copies of {\ttfamily \doxylink{classnvtx3_1_1event__attributes}{event\+\_\+attributes}} objects, this constructor is disabled when the first argument is an {\ttfamily \doxylink{classnvtx3_1_1event__attributes}{event\+\_\+attributes}} object, instead preferring the explicit {\ttfamily \doxylink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}(\doxylink{classnvtx3_1_1event__attributes}{event\+\_\+attributes} const\&)} constructor.
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{参数}
+\mbox{\texttt{ in}}  & {\em first} & First argument to forward to the {\ttfamily \doxylink{classnvtx3_1_1event__attributes}{event\+\_\+attributes}} constructor. \\
+\hline
+\mbox{\texttt{ in}}  & {\em args} & Variadic parameter pack of additional arguments to forward. \\
+\hline
+\end{DoxyParams}
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01732}{1732}} 行定义.
+
+\Hypertarget{classnvtx3_1_1domain__thread__range_a6961ab52f312bddc440b331c9f06b5b8}\label{classnvtx3_1_1domain__thread__range_a6961ab52f312bddc440b331c9f06b5b8} 
+\index{nvtx3::domain\_thread\_range$<$ D $>$@{nvtx3::domain\_thread\_range$<$ D $>$}!domain\_thread\_range@{domain\_thread\_range}}
+\index{domain\_thread\_range@{domain\_thread\_range}!nvtx3::domain\_thread\_range$<$ D $>$@{nvtx3::domain\_thread\_range$<$ D $>$}}
+\doxysubsubsection{\texorpdfstring{domain\_thread\_range()}{domain\_thread\_range()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily template$<$class D  = domain\+::global$>$ \\
+\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3\+::domain\+\_\+thread\+\_\+range}}$<$ D $>$\+::domain\+\_\+thread\+\_\+range (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor creates a {\ttfamily \doxylink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}} with no message, color, payload, nor category. 
+
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01742}{1742}} 行定义.
+
+\Hypertarget{classnvtx3_1_1domain__thread__range_a6bffcde3cabc979ffa3f2f95d44283c9}\label{classnvtx3_1_1domain__thread__range_a6bffcde3cabc979ffa3f2f95d44283c9} 
+\index{nvtx3::domain\_thread\_range$<$ D $>$@{nvtx3::domain\_thread\_range$<$ D $>$}!domain\_thread\_range@{domain\_thread\_range}}
+\index{domain\_thread\_range@{domain\_thread\_range}!nvtx3::domain\_thread\_range$<$ D $>$@{nvtx3::domain\_thread\_range$<$ D $>$}}
+\doxysubsubsection{\texorpdfstring{domain\_thread\_range()}{domain\_thread\_range()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily template$<$class D  = domain\+::global$>$ \\
+\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3\+::domain\+\_\+thread\+\_\+range}}$<$ D $>$\+::domain\+\_\+thread\+\_\+range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}}$<$ D $>$ const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classnvtx3_1_1domain__thread__range_a6c22596befe7f8034a8f511dc00d06a7}\label{classnvtx3_1_1domain__thread__range_a6c22596befe7f8034a8f511dc00d06a7} 
+\index{nvtx3::domain\_thread\_range$<$ D $>$@{nvtx3::domain\_thread\_range$<$ D $>$}!domain\_thread\_range@{domain\_thread\_range}}
+\index{domain\_thread\_range@{domain\_thread\_range}!nvtx3::domain\_thread\_range$<$ D $>$@{nvtx3::domain\_thread\_range$<$ D $>$}}
+\doxysubsubsection{\texorpdfstring{domain\_thread\_range()}{domain\_thread\_range()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$class D  = domain\+::global$>$ \\
+\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3\+::domain\+\_\+thread\+\_\+range}}$<$ D $>$\+::domain\+\_\+thread\+\_\+range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}}$<$ D $>$ \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classnvtx3_1_1domain__thread__range_a7a9551da139931ca8200ee9cc64d967e}\label{classnvtx3_1_1domain__thread__range_a7a9551da139931ca8200ee9cc64d967e} 
+\index{nvtx3::domain\_thread\_range$<$ D $>$@{nvtx3::domain\_thread\_range$<$ D $>$}!````~domain\_thread\_range@{\texorpdfstring{$\sim$}{\string~}domain\_thread\_range}}
+\index{````~domain\_thread\_range@{\texorpdfstring{$\sim$}{\string~}domain\_thread\_range}!nvtx3::domain\_thread\_range$<$ D $>$@{nvtx3::domain\_thread\_range$<$ D $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}domain\_thread\_range()}{\string~domain\_thread\_range()}}
+{\footnotesize\ttfamily template$<$class D  = domain\+::global$>$ \\
+\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3\+::domain\+\_\+thread\+\_\+range}}$<$ D $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Destroy the \doxylink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}, ending the NVTX range event. 
+
+
+
+在文件 \mbox{\hyperlink{nvtx3_8hpp_source}{nvtx3.\+hpp}} 第 \mbox{\hyperlink{nvtx3_8hpp_source_l01752}{1752}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classnvtx3_1_1domain__thread__range_a64a3d493078f60c4aa4ca5677e0b686c}\label{classnvtx3_1_1domain__thread__range_a64a3d493078f60c4aa4ca5677e0b686c} 
+\index{nvtx3::domain\_thread\_range$<$ D $>$@{nvtx3::domain\_thread\_range$<$ D $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!nvtx3::domain\_thread\_range$<$ D $>$@{nvtx3::domain\_thread\_range$<$ D $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class D  = domain\+::global$>$ \\
+\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}} \& \mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3\+::domain\+\_\+thread\+\_\+range}}$<$ D $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}}$<$ D $>$ \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classnvtx3_1_1domain__thread__range_a50f512d0e2fb0e570a197b7d23699229}\label{classnvtx3_1_1domain__thread__range_a50f512d0e2fb0e570a197b7d23699229} 
+\index{nvtx3::domain\_thread\_range$<$ D $>$@{nvtx3::domain\_thread\_range$<$ D $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!nvtx3::domain\_thread\_range$<$ D $>$@{nvtx3::domain\_thread\_range$<$ D $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class D  = domain\+::global$>$ \\
+\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}} \& \mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{nvtx3\+::domain\+\_\+thread\+\_\+range}}$<$ D $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnvtx3_1_1domain__thread__range}{domain\+\_\+thread\+\_\+range}}$<$ D $>$ const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/detail/nvtx/\mbox{\hyperlink{nvtx3_8hpp}{nvtx3.\+hpp}}\end{DoxyCompactItemize}

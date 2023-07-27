@@ -1,0 +1,78 @@
+\doxysection{cudf\+::ast\+::detail\+::dispatch\+\_\+unary\+\_\+operator\+\_\+types\texorpdfstring{$<$}{<} Operator\+Functor \texorpdfstring{$>$}{>} 模板结构体 参考}
+\hypertarget{structcudf_1_1ast_1_1detail_1_1dispatch__unary__operator__types}{}\label{structcudf_1_1ast_1_1detail_1_1dispatch__unary__operator__types}\index{cudf::ast::detail::dispatch\_unary\_operator\_types$<$ OperatorFunctor $>$@{cudf::ast::detail::dispatch\_unary\_operator\_types$<$ OperatorFunctor $>$}}
+
+
+Functor used to type-\/dispatch unary operators.  
+
+
+
+
+{\ttfamily \#include $<$operators.\+hpp$>$}
+
+
+
+cudf\+::ast\+::detail\+::dispatch\+\_\+unary\+\_\+operator\+\_\+types\texorpdfstring{$<$}{<} Operator\+Functor \texorpdfstring{$>$}{>} 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{structcudf_1_1ast_1_1detail_1_1dispatch__unary__operator__types__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename InputT , typename F , typename... Ts, std\+::enable\+\_\+if\+\_\+t$<$ \mbox{\hyperlink{namespacecudf_1_1ast_1_1detail_a6f6d45b1fc2597499c3642237e9f5895}{is\+\_\+valid\+\_\+unary\+\_\+op}}$<$ Operator\+Functor, InputT $>$ $>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} void \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1dispatch__unary__operator__types_a6d27bf022665c62721bfab72fad26997}{operator()}} (F \&\&f, Ts \&\&... args)
+\item 
+{\footnotesize template$<$typename InputT , typename F , typename... Ts, std\+::enable\+\_\+if\+\_\+t$<$!\mbox{\hyperlink{namespacecudf_1_1ast_1_1detail_a6f6d45b1fc2597499c3642237e9f5895}{is\+\_\+valid\+\_\+unary\+\_\+op}}$<$ Operator\+Functor, InputT $>$ $>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ }\\\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} void \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1dispatch__unary__operator__types_a6d27bf022665c62721bfab72fad26997}{operator()}} (F \&\&f, Ts \&\&... args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+\subsubsection*{template$<$typename Operator\+Functor$>$\newline
+struct cudf\+::ast\+::detail\+::dispatch\+\_\+unary\+\_\+operator\+\_\+types$<$ Operator\+Functor $>$}
+Functor used to type-\/dispatch unary operators. 
+
+This functor\textquotesingle{}s {\ttfamily operator()} is templated to validate calls to its operators based on the input type, as determined by the {\ttfamily is\+\_\+valid\+\_\+unary\+\_\+op} trait.
+
+
+\begin{DoxyTemplParams}{模板参数}
+{\em Operator\+Functor} & Unary operator functor. \\
+\hline
+\end{DoxyTemplParams}
+
+
+在文件 \mbox{\hyperlink{operators_8hpp_source}{operators.\+hpp}} 第 \mbox{\hyperlink{operators_8hpp_source_l01007}{1007}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{structcudf_1_1ast_1_1detail_1_1dispatch__unary__operator__types_a6d27bf022665c62721bfab72fad26997}\label{structcudf_1_1ast_1_1detail_1_1dispatch__unary__operator__types_a6d27bf022665c62721bfab72fad26997} 
+\index{cudf::ast::detail::dispatch\_unary\_operator\_types$<$ OperatorFunctor $>$@{cudf::ast::detail::dispatch\_unary\_operator\_types$<$ OperatorFunctor $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!cudf::ast::detail::dispatch\_unary\_operator\_types$<$ OperatorFunctor $>$@{cudf::ast::detail::dispatch\_unary\_operator\_types$<$ OperatorFunctor $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Operator\+Functor $>$ \\
+template$<$typename InputT , typename F , typename... Ts, std\+::enable\+\_\+if\+\_\+t$<$ \mbox{\hyperlink{namespacecudf_1_1ast_1_1detail_a6f6d45b1fc2597499c3642237e9f5895}{is\+\_\+valid\+\_\+unary\+\_\+op}}$<$ Operator\+Functor, InputT $>$ $>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} void \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1dispatch__unary__operator__types}{cudf\+::ast\+::detail\+::dispatch\+\_\+unary\+\_\+operator\+\_\+types}}$<$ Operator\+Functor $>$\+::operator() (\begin{DoxyParamCaption}\item[{F \&\&}]{f,  }\item[{Ts \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+在文件 \mbox{\hyperlink{operators_8hpp_source}{operators.\+hpp}} 第 \mbox{\hyperlink{operators_8hpp_source_l01012}{1012}} 行定义.
+
+\Hypertarget{structcudf_1_1ast_1_1detail_1_1dispatch__unary__operator__types_a6d27bf022665c62721bfab72fad26997}\label{structcudf_1_1ast_1_1detail_1_1dispatch__unary__operator__types_a6d27bf022665c62721bfab72fad26997} 
+\index{cudf::ast::detail::dispatch\_unary\_operator\_types$<$ OperatorFunctor $>$@{cudf::ast::detail::dispatch\_unary\_operator\_types$<$ OperatorFunctor $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!cudf::ast::detail::dispatch\_unary\_operator\_types$<$ OperatorFunctor $>$@{cudf::ast::detail::dispatch\_unary\_operator\_types$<$ OperatorFunctor $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Operator\+Functor $>$ \\
+template$<$typename InputT , typename F , typename... Ts, std\+::enable\+\_\+if\+\_\+t$<$!\mbox{\hyperlink{namespacecudf_1_1ast_1_1detail_a6f6d45b1fc2597499c3642237e9f5895}{is\+\_\+valid\+\_\+unary\+\_\+op}}$<$ Operator\+Functor, InputT $>$ $>$ \texorpdfstring{$\ast$}{*}  = nullptr$>$ \\
+\mbox{\hyperlink{types_8hpp_adc4a74f3fb4b327ed43b31d0fca65ba3}{CUDF\+\_\+\+HOST\+\_\+\+DEVICE}} void \mbox{\hyperlink{structcudf_1_1ast_1_1detail_1_1dispatch__unary__operator__types}{cudf\+::ast\+::detail\+::dispatch\+\_\+unary\+\_\+operator\+\_\+types}}$<$ Operator\+Functor $>$\+::operator() (\begin{DoxyParamCaption}\item[{F \&\&}]{f,  }\item[{Ts \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+在文件 \mbox{\hyperlink{operators_8hpp_source}{operators.\+hpp}} 第 \mbox{\hyperlink{operators_8hpp_source_l01021}{1021}} 行定义.
+
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/ast/detail/\mbox{\hyperlink{operators_8hpp}{operators.\+hpp}}\end{DoxyCompactItemize}

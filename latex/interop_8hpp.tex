@@ -1,0 +1,46 @@
+\doxysection{D\+:/git\+Library/cudf/cpp/include/cudf/interop.hpp 文件参考}
+\hypertarget{interop_8hpp}{}\label{interop_8hpp}\index{D:/gitLibrary/cudf/cpp/include/cudf/interop.hpp@{D:/gitLibrary/cudf/cpp/include/cudf/interop.hpp}}
+{\ttfamily \#include $<$arrow/api.\+h$>$}\newline
+{\ttfamily \#include $<$cudf/column/column.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/detail/transform.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/table/table.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/table/table\+\_\+view.\+hpp$>$}\newline
+{\ttfamily \#include $<$cudf/types.\+hpp$>$}\newline
+{\ttfamily \#include $<$rmm/mr/device/per\+\_\+device\+\_\+resource.\+hpp$>$}\newline
+interop.\+hpp 的引用(Include)关系图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interop_8hpp__incl}
+\end{center}
+\end{figure}
+此图展示该文件直接或间接的被哪些文件引用了\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{interop_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcudf_1_1column__metadata}{cudf\+::column\+\_\+metadata}}
+\begin{DoxyCompactList}\small\item\em Detailed metadata information for arrow array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecudf}{cudf}}
+\begin{DoxyCompactList}\small\item\em cu\+DF interfaces \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__interop__dlpack_gabca779a75e0007c9310f8cefd3b481ff}{cudf\+::from\+\_\+dlpack}} (DLManaged\+Tensor const \texorpdfstring{$\ast$}{*}managed\+\_\+tensor, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Convert a DLPack DLTensor into a cudf table \end{DoxyCompactList}\item 
+DLManaged\+Tensor \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group__interop__dlpack_ga303da0732ac5aade6bd2f1dcccdcd118}{cudf\+::to\+\_\+dlpack}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} const \&input, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Convert a cudf table into a DLPack DLTensor \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ arrow\+::\+Table $>$ \mbox{\hyperlink{group__interop__arrow_ga72feccc6e06f2d73d91f8dca5cb01501}{cudf\+::to\+\_\+arrow}} (\mbox{\hyperlink{classcudf_1_1table__view}{table\+\_\+view}} input, std\+::vector$<$ \mbox{\hyperlink{structcudf_1_1column__metadata}{column\+\_\+metadata}} $>$ const \&metadata=\{\}, arrow\+::\+Memory\+Pool \texorpdfstring{$\ast$}{*}ar\+\_\+mr=arrow\+::default\+\_\+memory\+\_\+pool())
+\begin{DoxyCompactList}\small\item\em Create {\ttfamily arrow\+::\+Table} from cudf table {\ttfamily input} \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classcudf_1_1table}{table}} $>$ \mbox{\hyperlink{group__interop__arrow_gae29f5c6a2d2158b6bfd89fd7a5284383}{cudf\+::from\+\_\+arrow}} (arrow\+::\+Table const \&input, rmm\+::mr\+::device\+\_\+memory\+\_\+resource \texorpdfstring{$\ast$}{*}mr=rmm\+::mr\+::get\+\_\+current\+\_\+device\+\_\+resource())
+\begin{DoxyCompactList}\small\item\em Create {\ttfamily \doxylink{classcudf_1_1table}{cudf\+::table}} from given arrow Table input \end{DoxyCompactList}\end{DoxyCompactItemize}

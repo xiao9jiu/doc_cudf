@@ -1,0 +1,91 @@
+\doxysection{cudf\+::io\+::raw\+\_\+orc\+\_\+statistics结构体 参考}
+\hypertarget{structcudf_1_1io_1_1raw__orc__statistics}{}\label{structcudf_1_1io_1_1raw__orc__statistics}\index{cudf::io::raw\_orc\_statistics@{cudf::io::raw\_orc\_statistics}}
+
+
+Holds column names and buffers containing raw file-\/level and stripe-\/level statistics.  
+
+
+
+
+{\ttfamily \#include $<$orc\+\_\+metadata.\+hpp$>$}
+
+
+
+cudf\+::io\+::raw\+\_\+orc\+\_\+statistics 的协作图\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{structcudf_1_1io_1_1raw__orc__statistics__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{structcudf_1_1io_1_1raw__orc__statistics_a2f6c5d1959ba1d8552fe589e42edb3b1}{column\+\_\+names}}
+\begin{DoxyCompactList}\small\item\em Column names \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{structcudf_1_1io_1_1raw__orc__statistics_a87bfab9e08d3f63324bd4ee61c6e3065}{file\+\_\+stats}}
+\begin{DoxyCompactList}\small\item\em File-\/level statistics for each column \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ std\+::string $>$ $>$ \mbox{\hyperlink{structcudf_1_1io_1_1raw__orc__statistics_a16f1d51e021c8d7da1b3924d1c16e55f}{stripes\+\_\+stats}}
+\begin{DoxyCompactList}\small\item\em Stripe-\/level statistics for each column \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Holds column names and buffers containing raw file-\/level and stripe-\/level statistics. 
+
+The buffers can be parsed using a Protobuf parser. Alternatively, use {\ttfamily \doxylink{structcudf_1_1io_1_1parsed__orc__statistics}{parsed\+\_\+orc\+\_\+statistics}} to get the statistics parsed into a libcudf representation.
+
+The {\ttfamily column\+\_\+names} and {\ttfamily file\+\_\+stats} members contain one element per column. The {\ttfamily stripes\+\_\+stats} contains one element per stripe, where each element contains column statistics for each column. 
+
+在文件 \mbox{\hyperlink{orc__metadata_8hpp_source}{orc\+\_\+metadata.\+hpp}} 第 \mbox{\hyperlink{orc__metadata_8hpp_source_l00043}{43}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{structcudf_1_1io_1_1raw__orc__statistics_a2f6c5d1959ba1d8552fe589e42edb3b1}\label{structcudf_1_1io_1_1raw__orc__statistics_a2f6c5d1959ba1d8552fe589e42edb3b1} 
+\index{cudf::io::raw\_orc\_statistics@{cudf::io::raw\_orc\_statistics}!column\_names@{column\_names}}
+\index{column\_names@{column\_names}!cudf::io::raw\_orc\_statistics@{cudf::io::raw\_orc\_statistics}}
+\doxysubsubsection{\texorpdfstring{column\_names}{column\_names}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ cudf\+::io\+::raw\+\_\+orc\+\_\+statistics\+::column\+\_\+names}
+
+
+
+Column names 
+
+
+
+在文件 \mbox{\hyperlink{orc__metadata_8hpp_source}{orc\+\_\+metadata.\+hpp}} 第 \mbox{\hyperlink{orc__metadata_8hpp_source_l00044}{44}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1raw__orc__statistics_a87bfab9e08d3f63324bd4ee61c6e3065}\label{structcudf_1_1io_1_1raw__orc__statistics_a87bfab9e08d3f63324bd4ee61c6e3065} 
+\index{cudf::io::raw\_orc\_statistics@{cudf::io::raw\_orc\_statistics}!file\_stats@{file\_stats}}
+\index{file\_stats@{file\_stats}!cudf::io::raw\_orc\_statistics@{cudf::io::raw\_orc\_statistics}}
+\doxysubsubsection{\texorpdfstring{file\_stats}{file\_stats}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ cudf\+::io\+::raw\+\_\+orc\+\_\+statistics\+::file\+\_\+stats}
+
+
+
+File-\/level statistics for each column 
+
+
+
+在文件 \mbox{\hyperlink{orc__metadata_8hpp_source}{orc\+\_\+metadata.\+hpp}} 第 \mbox{\hyperlink{orc__metadata_8hpp_source_l00045}{45}} 行定义.
+
+\Hypertarget{structcudf_1_1io_1_1raw__orc__statistics_a16f1d51e021c8d7da1b3924d1c16e55f}\label{structcudf_1_1io_1_1raw__orc__statistics_a16f1d51e021c8d7da1b3924d1c16e55f} 
+\index{cudf::io::raw\_orc\_statistics@{cudf::io::raw\_orc\_statistics}!stripes\_stats@{stripes\_stats}}
+\index{stripes\_stats@{stripes\_stats}!cudf::io::raw\_orc\_statistics@{cudf::io::raw\_orc\_statistics}}
+\doxysubsubsection{\texorpdfstring{stripes\_stats}{stripes\_stats}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$std\+::string$>$ $>$ cudf\+::io\+::raw\+\_\+orc\+\_\+statistics\+::stripes\+\_\+stats}
+
+
+
+Stripe-\/level statistics for each column 
+
+
+
+在文件 \mbox{\hyperlink{orc__metadata_8hpp_source}{orc\+\_\+metadata.\+hpp}} 第 \mbox{\hyperlink{orc__metadata_8hpp_source_l00046}{46}} 行定义.
+
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/git\+Library/cudf/cpp/include/cudf/io/\mbox{\hyperlink{orc__metadata_8hpp}{orc\+\_\+metadata.\+hpp}}\end{DoxyCompactItemize}
